@@ -1,3 +1,5 @@
+# 或許可以值機在本地生成 blog 資料夾，並且把所有的文章都放在裡面
+
 import os
 import json
 import requests
