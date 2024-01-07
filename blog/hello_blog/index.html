@@ -16,6 +16,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="stylesheet" href="/css/blog.css">
+    <title>Hugo ChunHo Lin | Portfolio</title>
     <link rel="shortcut icon" href="../../assets/images/favicon.ico" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
@@ -24,9 +25,12 @@
     <main>
         
         <!-- Sidebar -->
-        <aside class="sidebar" data-sidebar include="sidebar"></aside>
+        <aside class="sidebar-blog" data-sidebar include="sidebar_blog"></aside>
     
         <div class="main-content">
+
+            <!-- Navbar -->
+            <nav class="navbar" include="navbar"></nav>
     
             <!-- Content -->
             <article id="content" class="active text-white"></article>
@@ -46,6 +50,8 @@
         </div>
 
     </main>
+
+    <footer class="footer" include="footer"></footer>
 
     <script type="text/javascript" src="/js/dom_purify.js"></script>
     <script type="module">
@@ -129,7 +135,9 @@
         init();
 
     </script>
-    <!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "13910509e0c344e68180b2f3330febd1"}'></script><!-- End Cloudflare Web Analytics -->
+    <!-- Cloudflare Web Analytics -->
+    <!-- <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "13910509e0c344e68180b2f3330febd1"}'></script> -->
+    <!-- End Cloudflare Web Analytics -->
 
 </body>
 </html>
