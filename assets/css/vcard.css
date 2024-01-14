@@ -373,6 +373,16 @@ main {
   margin-bottom: 10px;
 }
 
+.info-content .pronoun {
+  color: var(--white-1);
+  /* background: var(--onyx); */
+  font-size: var(--fs-5);
+  font-weight: var(--fw-500);
+  width: max-content;
+  padding: 3px 12px;
+  border-radius: 10px;
+}
+
 .info-content .title {
   color: var(--white-1);
   background: var(--onyx);
@@ -1508,6 +1518,12 @@ textarea.form-input::-webkit-resizer {
     margin-bottom: 15px;
   }
 
+  
+
+  .info-content .pronoun {
+    padding: 10px 18px;
+  }
+
   .info-content .title {
     padding: 5px 18px;
   }
@@ -2106,6 +2122,10 @@ textarea.form-input::-webkit-resizer {
   .info-content .name {
     white-space: nowrap;
     text-align: center;
+  }
+
+  .info-content .pronoun {
+    margin: auto;
   }
 
   .info-content .title {
