@@ -34,6 +34,14 @@ jobs:
           rm -rf ./blog/*
           git fetch
           git checkout gh-pages
+
+          # Check if 'gh-pages' branch exists, if not, create it
+          if git show-ref --verify --quiet refs/heads/gh-pages; then
+            git checkout gh-pages
+          else
+            git checkout -b gh-pages
+          fi
+
           git pull
           git config user.email "autodeploy@github.com"
           git config user.name "github action auto bot"
