@@ -32,17 +32,16 @@ jobs:
           mkdir -p /tmp/architecture
           cp -r ./* /tmp/architecture
           rm -rf ./blog/*
-          git fetch
-          git checkout gh-pages
 
-          # Check if 'gh-pages' branch exists, if not, create it
+          # Check if 'gh-pages' branch exists
           if git show-ref --verify --quiet refs/heads/gh-pages; then
+            git fetch origin gh-pages:gh-pages
             git checkout gh-pages
+            git pull
           else
             git checkout -b gh-pages
           fi
 
-          git pull
           git config user.email "autodeploy@github.com"
           git config user.name "github action auto bot"
 
