@@ -27,10 +27,27 @@ jobs:
       - name: Check results
         run: ls -al ./blog
 
-      # - name: save result
-      #   run: mkdir -p /tmp/architecture && cp -r ./* /tmp/architecture && rm -rf ./blog/* && git fetch && git checkout gh-pages && git pull && git config user.email "autodeploy@github.com" && git config user.name "github action auto bot"
-      - name: save result
-        run: mkdir -p /tmp/architecture && cp -r ./* /tmp/architecture && rm -rf ./blog/* && git fetch && git branch -a && git checkout origin/gh-pages -b gh-pages && git pull && git config user.email "autodeploy@github.com" && git config user.name "github action auto bot"
+      - name: Save result
+        run: |
+          mkdir -p /tmp/architecture
+          cp -r ./* /tmp/architecture
+          rm -rf ./blog/*
+          git fetch
+          git checkout gh-pages
+          git pull
+          git config user.email "autodeploy@github.com"
+          git config user.name "github action auto bot"
 
-      - name: deploy to github page
-        run: rm -rf * && cp -r /tmp/architecture/* ./ && git add . && git commit -m "release new post" && git push origin --set-upstream gh-pages
+      - name: Deploy to GitHub Pages
+        run: |
+          rm -rf *
+          cp -r /tmp/architecture/* ./
+          git add .
+          
+          # Check if anything is deleted
+          if git status --porcelain | grep '^ D'; then
+            git rm $(git status --porcelain | grep '^ D' | cut -d' ' -f2)
+          fi
+          
+          git commit -m "Release new post"
+          git push origin gh-pages
