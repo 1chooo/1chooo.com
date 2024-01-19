@@ -970,8 +970,47 @@ main {
   border-radius: inherit;
 }
 
+.skill-progress-fill-python {
+  background: #4584b6; /* Gopher Blue */
+  height: 100%;
+  border-radius: inherit;
+}
+
+.skill-progress-fill-go {
+  background: #00ADD8; /* Python */
+  height: 100%;
+  border-radius: inherit;
+}
 
 
+/* AWS */
+/* .skill-progress-fill-aws {
+  background: #232f3e;
+  height: 100%;
+  border-radius: inherit;
+} */
+
+.skill-progress-fill-aws {
+  background: #FF9900;
+  height: 100%;
+  border-radius: inherit;
+}
+
+/* .skill-progress-fill-aws {
+  background: #FEBD69;
+  height: 100%;
+  border-radius: inherit;
+} */
+
+.content-highlight-yellow {
+  color: var(--orange-yellow-crayola);
+  display: inline;
+}
+
+.code-highlight-yellow {
+  color: var(--orange-yellow-crayola);
+  display: inline;
+}
 
 
 /*-----------------------------------*\
