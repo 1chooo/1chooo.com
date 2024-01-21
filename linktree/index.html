@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hugo ChunHo Lin | Linktree</title>
+    <!-- Favicon -->
+    <link rel="icon" href="https://avatars.githubusercontent.com/u/94162591?v=4" type="image/x-icon" />
+    <!-- Font Awesome icons -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <!-- Core theme CSS -->
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <!-- Parallax Pixel Background Animation -->
+    <section class="animated-background">
+      <div id="stars1"></div>
+      <div id="stars2"></div>
+      <div id="stars3"></div>
+    </section>
+    <!-- End of Parallax Pixel Background Animation -->
+
+    <a id="profilePicture" href="#popup">
+      <img src="https://avatars.githubusercontent.com/u/94162591?v=4" alt="Profile Picture">
+    </a>
+
+    <div class="overlay" id="popup">
+      <div class="popup">
+        <div class="popup-photo">
+          <a href="https://avatars.githubusercontent.com/u/94162591?v=4" target="_blank">
+            <img src="https://avatars.githubusercontent.com/u/94162591?v=4" alt="Profile Picture">
+          </a>
+        </div>
+        <div class="popup-quote">
+          '' 𝘿𝙧𝙚𝙖𝙢𝙨 𝙘𝙤𝙢𝙚 𝙩𝙧𝙪𝙚, 𝙬𝙝𝙚𝙣 𝙪 𝙙𝙤𝙣’𝙩 𝙨𝙡𝙚𝙚𝙥… ''
+        </div>
+        <a class="popup-close" onclick="history.back()">&times;</a>
+      </div>
+    </div>
+
+    <div id="userName">
+      <h3>Hugo ChunHo Lin</h3>
+      <!-- <br></br> -->
+      AWS Educate Cloud Ambassador | Ex SWE Intern at PEGATRON CORP. | ATM, CS at NCU | @NCUAppTeam
+    </div>
+
+    <div id="links">
+      <a class="link" href="https://github.com/1chooo" target="_blank">
+        <i class="fab fa-github">&nbsp;</i>Github
+      </a>
+      <a class="link" href="https://www.linkedin.com/in/1chooo/" target="_blank">
+        <i class="fab fa-linkedin">&nbsp;</i>Linkedin
+      </a>
+      <a class="link" href="https://awseducate.tw/2" target="_blank">
+        <i class="fab fa-aws">&nbsp;</i>AWS Educate
+      </a>
+      <a class="link" href="https://www.instagram.com/lcho____" target="_blank">
+        <i class="fab fa-instagram">&nbsp;</i>Instagram
+      </a>
+      <a class="link" href="https://medium.com/@1chooo" target="_blank">
+        <i class="fab fa-medium">&nbsp;</i>Medium
+      </a>
+      <a class="link" href="https://1chooo.com" target="_blank">
+        <i class="fa fa-server">&nbsp;</i>Portfolio
+      </a>
+      <a class="link" href="https://1chooo.github.io/blog.1chooo.com/" target="_blank">
+        <i class="fa fa-signature">&nbsp;</i>Blog
+      </a>
+      <!-- <a class="link" href="https://1chooo.github.io/1chooo-blog/" target="_blank">
+        <i class="fa fa-truck-monster">&nbsp;</i>Blog
+      </a>
+      <a class="link" href="https://1chooo.github.io/1chooo-blog/" target="_blank">
+        <i class="fa fa-tractor">&nbsp;</i>Blog
+      </a> -->
+    </div>
+
+    <div id="hashtag">
+      '' 𝘿𝙧𝙚𝙖𝙢𝙨 𝙘𝙤𝙢𝙚 𝙩𝙧𝙪𝙚, 𝙬𝙝𝙚𝙣 🫵🏻 𝙙𝙤𝙣’𝙩 𝙨𝙡𝙚𝙚𝙥… ''
+    </div>
+
+    <script>
+
+      const stars1 = []
+      const stars2 = []
+      const stars3 = []
+
+      const numberOfStars1 = '1000'
+      const numberOfStars2 = '600'
+      const numberOfStars3 = '100'
+
+
+      for (let i = 0; i < numberOfStars1; i++) {
+        const pos1 = (Math.floor(Math.random() * 5200))
+        const pos2 = (Math.floor(Math.random() * 5200))
+        stars1.push(`${pos1}px ${pos2}px #fff`)
+      }
+
+      for (let i = 0; i < numberOfStars2; i++) {
+        const pos1 = (Math.floor(Math.random() * 5200))
+        const pos2 = (Math.floor(Math.random() * 5200))
+        stars2.push(`${pos1}px ${pos2}px #fff`)
+      }
+
+      for (let i = 0; i < numberOfStars3; i++) {
+        const pos1 = (Math.floor(Math.random() * 5200))
+        const pos2 = (Math.floor(Math.random() * 5200))
+        stars3.push(`${pos1}px ${pos2}px #fff`)
+      }
+
+      const addCSS = css => document.head.appendChild(document.createElement("style")).innerHTML = css;
+
+      addCSS(`#stars1{ box-shadow:${stars1}}`)
+      addCSS(`#stars1:after{ box-shadow:${stars1}}`)
+
+      addCSS(`#stars2{ box-shadow:${stars2}}`)
+      addCSS(`#stars2:after{ box-shadow:${stars2}}`)
+
+      addCSS(`#stars3{ box-shadow:${stars3}}`)
+      addCSS(`#stars3:after{ box-shadow:${stars3}}`)
+
+    </script>
+  </body>
+</html>
