@@ -1,17 +1,24 @@
 import NavBar from "../Navbar";
-import Sidebar from "../SideBar/SideBar";
 import React from "react";
+import {
+  useLocation
+} from 'react-router-dom';
+
+import Sidebar from "../SideBar/SideBar";
 import { FaRegPaperPlane } from "react-icons/fa";
 
 
 function Contract() {
+
+  const location = useLocation();
+
   return (
     <main>
       <Sidebar />
       <div className="main-content">
         <NavBar />
         <article
-          className="contact active"
+          className={`resume ${location.pathname === '/contact' ? 'active' : ''}`}
           data-page="contact"
         >
           <header>
