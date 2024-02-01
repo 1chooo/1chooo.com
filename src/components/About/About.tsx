@@ -1,14 +1,17 @@
-import NavBar from "../Navbar";
-import Sidebar from "../SideBar/SideBar";
-import React from "react";
-import AboutText from "./AboutText";
-import AboutHeader from "./AboutHeader";
-import Github from "./Github";
+import React, { FunctionComponent } from "react";
 import {
   useLocation
 } from 'react-router-dom';
 
-function About() {
+import NavBar from "../Navbar";
+import Sidebar from "../SideBar/SideBar";
+import AboutHeader from "./AboutHeader";
+import AboutText from "./AboutText";
+import LifeStyles from "./LifeStyles";
+import Github from "./Github";
+import Clients from "./Clients";
+
+const About: FunctionComponent = ({ }) => {
 
   const location = useLocation();
 
@@ -28,7 +31,12 @@ function About() {
 
           <AboutText />
 
+          <LifeStyles />
+
           <Github />
+
+          <Clients />
+
         </article>
       </div>
     </main>

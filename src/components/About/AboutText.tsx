@@ -1,4 +1,6 @@
-function AboutText() {
+import { FunctionComponent } from "react";
+
+const AboutText: FunctionComponent = ({ }) => {
   return (
     <section className="about-text">
       <p>
@@ -12,7 +14,13 @@ function AboutText() {
       <p>
         Hi, this is Hugo ChunHo Lin,
         a 4th-year student at
-        <a href="https://www.ncu.edu.tw/" className="code-highlight-yellow"> National Central University (NCU)</a>,
+        <a
+          href="https://www.ncu.edu.tw/"
+          className="code-highlight-yellow"
+          target="_blank"
+          rel="noreferrer"
+        > National Central University (NCU)
+        </a>,
         driven by a <em><strong>genuine passion </strong></em>
         for the field of <strong>Software Engineering 💻</strong>.
       </p>
@@ -20,8 +28,19 @@ function AboutText() {
       <p>
         I am currently preparing my application for a Master's Degree,
         while simultaneously serving as a
-        <strong><a href="https://aws.amazon.com/tw/education/awseducate/" className="code-highlight-yellow"> Amazon Web Services (AWS) Educate</a> Cloud Ambassador -- Tech Support </strong>
-        and an <strong>Ex Software Engineering (SWE) Intern at <a href="https://www.pegatroncorp.com/" className="code-highlight-yellow">Pegatron</a></strong>,
+        <strong><a
+          href="https://aws.amazon.com/tw/education/awseducate/"
+          className="code-highlight-yellow"
+          target="_blank"
+          rel="noreferrer"
+        > Amazon Web Services (AWS) Educate
+        </a> Cloud Ambassador -- Tech Support </strong>
+        and an <strong>Ex Software Engineering (SWE) Intern at <a
+          href="https://www.pegatroncorp.com/"
+          className="code-highlight-yellow"
+          target="_blank"
+          rel="noreferrer"
+        >Pegatron</a></strong>,
         turning complex problems into simple, beautiful and intuitive designs.
       </p>
 

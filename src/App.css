@@ -614,6 +614,10 @@ main {
     margin-bottom: 35px;
 }
 
+.service p {
+    margin-bottom: 15px;
+}
+
 .service-title {
     margin-bottom: 20px;
 }
@@ -647,6 +651,14 @@ main {
 }
 
 .service-icon-box img {
+    margin: auto;
+}
+
+.service-icon-box svg {
+    margin: auto;
+}
+
+.service-icon-box icon-box {
     margin: auto;
 }
 
@@ -1679,6 +1691,7 @@ textarea.form-input::-webkit-resizer {
     .service-item {
         display: flex;
         justify-content: flex-start;
+        /* align-items: center; */
         align-items: flex-start;
         gap: 18px;
         padding: 30px;
