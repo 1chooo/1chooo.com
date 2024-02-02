@@ -26,7 +26,7 @@ const AboutText: FunctionComponent = ({ }) => {
       <p>
         <em>I do <strong>Web Development and Cloud Development </strong> 
         with a focus on <strong>creating APIs and handling backend tasks </strong> 
-        using <code className="code-highlight-yellow">Python, Gin, and AWS</code>. </em>
+        using <code className="code-highlight-yellow">FastAPI, Gin, and AWS</code>. </em>
         
         In general, I define new problems and find existing problems, 
         transforming solutions into helpful documents or articles to assist everyone in the process,

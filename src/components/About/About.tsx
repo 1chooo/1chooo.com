@@ -9,7 +9,6 @@ import AboutHeader from "./AboutHeader";
 import AboutText from "./AboutText";
 import LifeStyles from "./LifeStyles";
 import Github from "./Github";
-import Clients from "./Clients";
 
 const About: FunctionComponent = ({ }) => {
 
@@ -34,8 +33,6 @@ const About: FunctionComponent = ({ }) => {
           <LifeStyles />
 
           <Github />
-
-          <Clients />
 
         </article>
       </div>
