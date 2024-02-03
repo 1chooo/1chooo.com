@@ -10,7 +10,7 @@ import AboutHeader from "./AboutHeader";
 import AboutText from "./AboutText";
 import LifeStyles from "./LifeStyles";
 import Github from "./Github";
-import SkillSets from "./SkillSets";
+import TechStack from "./TechStack";
 
 
 const About: React.FC = ( ) => {
@@ -33,7 +33,7 @@ const About: React.FC = ( ) => {
 
           <AboutText />
 
-          <SkillSets />
+          <TechStack />
 
           <LifeStyles />
           
