@@ -1,6 +1,6 @@
 import { IoSchoolOutline } from "react-icons/io5";
 
-function Education() {
+const Education: React.FC = () => {
   return (
     <section className="timeline">
 

@@ -1,6 +1,6 @@
 import { PiBooks } from "react-icons/pi";
 
-function Teaching() {
+const Teaching: React.FC = () => {
   return (
     <section className="timeline">
 
