@@ -616,7 +616,13 @@ main {
 
 .service p {
     margin-bottom: 15px;
+    color: var(--light-gray);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-300);
+    line-height: 1.6;
 }
+
+
 
 .service-title {
     margin-bottom: 20px;
@@ -702,6 +708,48 @@ main {
     scroll-behavior: smooth;
     overscroll-behavior-inline: contain;
     scroll-snap-type: inline mandatory;
+}
+
+.skillsets p {
+    margin-bottom: 15px;
+    color: var(--light-gray);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-300);
+    line-height: 1.6;
+}
+
+.skillsets {
+    margin-bottom: 15px;
+}
+
+.skillsets-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 10px;
+    margin: 0 -15px;
+    padding: 25px;
+    padding-bottom: 25px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: 25px;
+}
+
+.skillsets-item {
+    min-width: 50%;
+    scroll-snap-align: start;
+}
+
+.skillsets-item img {
+    width: 100%;
+    filter: grayscale(1);
+    transition: var(--transition-1);
+}
+
+.skillsets-item img:hover {
+    filter: grayscale(0);
 }
 
 .testimonials-item {
@@ -1498,6 +1546,11 @@ textarea.form-input::-webkit-resizer {
     }
 
 
+    .skillsets-item {
+        min-width: calc(10% - 20px);
+    }
+
+
 
     /**
        * #PORTFOLIO, BLOG 
@@ -1636,7 +1689,7 @@ textarea.form-input::-webkit-resizer {
     .info_more-btn ion-icon {
         display: none;
     }
-    
+
     /* .info_more-btn ion-icon {
         display: none;
     } */
@@ -1788,8 +1841,20 @@ textarea.form-input::-webkit-resizer {
         scroll-padding-inline: 45px;
     }
 
+    .skillsets-list {
+        gap: 10px;
+        margin: 0 -30px;
+        /* padding: 45px; */
+        scroll-padding-inline: 45px;
+    }
+
     .clients-item {
         min-width: calc(33.33% - 35px);
+    }
+
+
+    .skillsets-item {
+        min-width: calc(10% - 20px);
     }
 
 
@@ -2096,6 +2161,10 @@ textarea.form-input::-webkit-resizer {
 
     .clients-item {
         min-width: calc(25% - 38px);
+    }
+
+    .skillsets-item {
+        min-width: calc(10% - 20px);
     }
 
 
