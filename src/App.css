@@ -710,7 +710,7 @@ main {
     scroll-snap-type: inline mandatory;
 }
 
-.skillsets p {
+.techstack p {
     margin-bottom: 15px;
     color: var(--light-gray);
     font-size: var(--fs-6);
@@ -718,11 +718,11 @@ main {
     line-height: 1.6;
 }
 
-.skillsets {
+.techstack {
     margin-bottom: 15px;
 }
 
-.skillsets-list {
+.techstack-list {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;
@@ -737,18 +737,18 @@ main {
     scroll-padding-inline: 25px;
 }
 
-.skillsets-item {
+.techstack-item {
     min-width: 50%;
     scroll-snap-align: start;
 }
 
-.skillsets-item img {
+.techstack-item img {
     width: 100%;
     filter: grayscale(1);
     transition: var(--transition-1);
 }
 
-.skillsets-item img:hover {
+.techstack-item img:hover {
     filter: grayscale(0);
 }
 
@@ -1546,7 +1546,7 @@ textarea.form-input::-webkit-resizer {
     }
 
 
-    .skillsets-item {
+    .techstack-item {
         min-width: calc(10% - 20px);
     }
 
@@ -1841,7 +1841,7 @@ textarea.form-input::-webkit-resizer {
         scroll-padding-inline: 45px;
     }
 
-    .skillsets-list {
+    .techstack-list {
         gap: 10px;
         margin: 0 -30px;
         /* padding: 45px; */
@@ -1853,7 +1853,7 @@ textarea.form-input::-webkit-resizer {
     }
 
 
-    .skillsets-item {
+    .techstack-item {
         min-width: calc(10% - 20px);
     }
 
@@ -2163,7 +2163,7 @@ textarea.form-input::-webkit-resizer {
         min-width: calc(25% - 38px);
     }
 
-    .skillsets-item {
+    .techstack-item {
         min-width: calc(10% - 20px);
     }
 
