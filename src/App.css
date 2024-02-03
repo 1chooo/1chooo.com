@@ -1528,18 +1528,22 @@ textarea.form-input::-webkit-resizer {
 
 
 /*-----------------------------------*\
-      #RESPONSIVE
-    \*-----------------------------------*/
+    #RESPONSIVE
+\*-----------------------------------*/
 
 /**
-     * responsive larger than 450px screen
-     */
+* responsive larger than 450px screen
+*/
 
-@media (min-width: 450px) {
+/**
+* responsive larger than 375px screen
+*/
+
+@media (min-width: 375px) {
 
     /**
-       * client
-       */
+    * client
+    */
 
     .clients-item {
         min-width: calc(33.33% - 10px);
@@ -1553,8 +1557,36 @@ textarea.form-input::-webkit-resizer {
 
 
     /**
-       * #PORTFOLIO, BLOG 
-       */
+    * #PORTFOLIO, BLOG 
+    */
+
+    .project-img,
+    .blog-banner-box {
+        height: auto;
+    }
+
+}
+
+@media (min-width: 450px) {
+
+    /**
+    * client
+    */
+
+    .clients-item {
+        min-width: calc(33.33% - 10px);
+    }
+
+
+    .techstack-item {
+        min-width: calc(10% - 20px);
+    }
+
+
+
+    /**
+    * #PORTFOLIO, BLOG 
+    */
 
     .project-img,
     .blog-banner-box {
@@ -1565,17 +1597,15 @@ textarea.form-input::-webkit-resizer {
 
 
 
-
-
 /**
-     * responsive larger than 580px screen
-     */
+* responsive larger than 580px screen
+*/
 
 @media (min-width: 580px) {
 
     /**
-       * CUSTOM PROPERTY
-       */
+    * CUSTOM PROPERTY
+    */
 
     :root {
 
