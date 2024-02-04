@@ -1,9 +1,10 @@
 import writingImage from "../../Assets/images/icons/writing.png";
 import dumbBellImage from "../../Assets/images/icons/dumbbell.png";
 import developerImage from "../../Assets/images/icons/developer.png";
+import cameraImage from "../../Assets/images/icons/camera.png";
 
 
-const LifeStyles: React.FC = ( ) => {
+const LifeStyles: React.FC = () => {
   return (
     <section className="service">
 
@@ -68,6 +69,26 @@ const LifeStyles: React.FC = ( ) => {
 
             <p className="service-item-text">
               Basketball and weight training defines my active workout lifestyle.
+            </p>
+          </div>
+
+        </li>
+
+        <li className="service-item">
+
+          <div className="service-icon-box">
+            <img
+              src={cameraImage}
+              alt="Camera"
+              width="30"
+            />
+          </div>
+
+          <div className="service-content-box">
+            <h4 className="h4 service-item-title">Photography</h4>
+
+            <p className="service-item-text">
+              Sky brings freedom; streets, a reminder of others' contributions.
             </p>
           </div>
 
