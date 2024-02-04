@@ -1677,6 +1677,10 @@ textarea.form-input::-webkit-resizer {
         font-size: var(--fs-8);
     }
 
+    .info_more-btn svg {
+        display: none;
+    }
+
     
     
 
