@@ -1,55 +1,10 @@
-/* .App {
-    text-align: center;
-}
-
-.App-logo {
-    height: 40vmin;
-    pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-    .App-logo {
-        animation: App-logo-spin infinite 20s linear;
-    }
-}
-
-.App-header {
-    background-color: #282c34;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    font-size: calc(10px + 2vmin);
-    color: white;
-}
-
-.App-link {
-    color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-    from {
-        transform: rotate(0deg);
-    }
-
-    to {
-        transform: rotate(360deg);
-    }
-} */
-
-/*-----------------------------------*\
-  #style.css
-\*-----------------------------------*/
-
-
 /**
- * copyright 2022 @codewithsadee
+ * # style.css
  */
 
-
-
-
+/*-----------------------------------*\
+  #copyright 2024 @1chooo
+\*-----------------------------------*/
 
 /*-----------------------------------*\
   #CUSTOM PROPERTY
@@ -59,8 +14,8 @@
 :root {
 
     /**
-       * colors
-       */
+    * colors
+    */
 
     /* gradient */
 
@@ -99,8 +54,8 @@
     --bittersweet-shimmer: hsl(0, 43%, 51%);
 
     /**
-       * typography
-       */
+    * typography
+    */
 
     /* font-family */
     --ff-poppins: 'Poppins', sans-serif;
@@ -122,8 +77,8 @@
     --fw-600: 600;
 
     /**
-       * shadow
-       */
+    * shadow
+    */
 
     --shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
     --shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.25);
@@ -132,8 +87,8 @@
     --shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.25);
 
     /**
-       * transition
-       */
+    * transition
+    */
 
     --transition-1: 0.25s ease;
     --transition-2: 0.5s ease-in-out;
@@ -145,8 +100,8 @@
 
 
 /*-----------------------------------*\
-      #RESET
-    \*-----------------------------------*/
+    #RESET
+\*-----------------------------------*/
 
 *,
 *::before,
@@ -211,8 +166,8 @@ body {
 
 
 /*-----------------------------------*\
-      #REUSED STYLE
-    \*-----------------------------------*/
+    #REUSED STYLE
+\*-----------------------------------*/
 
 .sidebar,
 article {
@@ -365,8 +320,8 @@ article.active {
 
 
 /*-----------------------------------*\
-      #MAIN
-    \*-----------------------------------*/
+    #MAIN
+\*-----------------------------------*/
 
 main {
     margin: 15px 12px;
@@ -379,8 +334,8 @@ main {
 
 
 /*-----------------------------------*\
-      #SIDEBAR
-    \*-----------------------------------*/
+    #SIDEBAR
+\*-----------------------------------*/
 
 .sidebar {
     margin-bottom: 15px;
@@ -541,8 +496,8 @@ main {
 
 
 /*-----------------------------------*\
-      #NAVBAR
-    \*-----------------------------------*/
+    #NAVBAR
+\*-----------------------------------*/
 
 .navbar {
     position: fixed;
@@ -586,8 +541,8 @@ main {
 
 
 /*-----------------------------------*\
-      #ABOUT
-    \*-----------------------------------*/
+    #ABOUT
+\*-----------------------------------*/
 
 .about .article-title {
     margin-bottom: 15px;
@@ -607,8 +562,8 @@ main {
 
 
 /**
-     * #service 
-     */
+* #service 
+*/
 
 .service {
     margin-bottom: 35px;
@@ -685,8 +640,8 @@ main {
 
 
 /**
-     * #testimonials 
-     */
+* #testimonials 
+*/
 
 .testimonials {
     margin-bottom: 30px;
@@ -785,8 +740,8 @@ main {
 
 
 /**
-     * #testimonials-modal
-     */
+* #testimonials-modal
+*/
 
 .modal-container {
     position: fixed;
@@ -909,8 +864,8 @@ main {
 
 
 /**
-     * #clients 
-     */
+* #clients 
+*/
 
 .clients {
     margin-bottom: 15px;
@@ -951,8 +906,8 @@ main {
 
 
 /*-----------------------------------*\
-      #RESUME
-    \*-----------------------------------*/
+    #RESUME
+\*-----------------------------------*/
 
 .article-title {
     margin-bottom: 30px;
@@ -960,8 +915,8 @@ main {
 
 
 /**
-     * education and experience 
-     */
+* education and experience 
+*/
 
 .timeline {
     margin-bottom: 30px;
@@ -1029,8 +984,8 @@ main {
 
 
 /**
-     * skills 
-     */
+* skills 
+*/
 
 .skills-title {
     margin-bottom: 20px;
@@ -1071,12 +1026,20 @@ main {
     border-radius: inherit;
 }
 
+/*-----------------------------------*\
+    #PYTHON
+\*-----------------------------------*/
+
 .skill-progress-fill-python {
     background: #4584b6;
     /* Gopher Blue */
     height: 100%;
     border-radius: inherit;
 }
+
+/*-----------------------------------*\
+    #GO
+\*-----------------------------------*/
 
 .skill-progress-fill-go {
     background: #00ADD8;
@@ -1086,24 +1049,22 @@ main {
 }
 
 
-/* AWS */
-/* .skill-progress-fill-aws {
+/*-----------------------------------*\
+    #AWS
+\*-----------------------------------*/
+
+.skill-progress-fill-aws-dark {
     background: #232f3e;
     height: 100%;
     border-radius: inherit;
-  } */
+  }
 
-.skill-progress-fill-aws {
+.skill-progress-fill-aws-light {
     background: #FF9900;
     height: 100%;
     border-radius: inherit;
 }
 
-/* .skill-progress-fill-aws {
-    background: #FEBD69;
-    height: 100%;
-    border-radius: inherit;
-  } */
 
 .content-highlight-yellow {
     color: var(--orange-yellow-crayola);
@@ -1117,8 +1078,8 @@ main {
 
 
 /*-----------------------------------*\
-      #PORTFOLIO
-    \*-----------------------------------*/
+    #PORTFOLIO
+\*-----------------------------------*/
 
 .filter-list {
     display: none;
@@ -1299,8 +1260,8 @@ main {
 
 
 /*-----------------------------------*\
-      #BLOG
-    \*-----------------------------------*/
+    #BLOG
+\*-----------------------------------*/
 
 .blog-posts {
     margin-bottom: 10px;
@@ -1395,8 +1356,8 @@ main {
 
 
 /*-----------------------------------*\
-      #CONTACT
-    \*-----------------------------------*/
+    #CONTACT
+\*-----------------------------------*/
 
 .mapbox {
     position: relative;
@@ -1626,8 +1587,8 @@ textarea.form-input::-webkit-resizer {
 
 
     /**
-       * #REUSED STYLE
-       */
+    * #REUSED STYLE
+    */
 
     .sidebar,
     article {
@@ -1656,8 +1617,8 @@ textarea.form-input::-webkit-resizer {
 
 
     /**
-       * #MAIN
-       */
+    * #MAIN
+    */
 
     main {
         margin-top: 60px;
@@ -1667,8 +1628,8 @@ textarea.form-input::-webkit-resizer {
 
 
     /**
-       * #SIDEBAR
-       */
+    * #SIDEBAR
+    */
 
     .sidebar {
         max-height: 180px;
@@ -1716,13 +1677,9 @@ textarea.form-input::-webkit-resizer {
         font-size: var(--fs-8);
     }
 
-    .info_more-btn ion-icon {
-        display: none;
-    }
+    
+    
 
-    /* .info_more-btn ion-icon {
-        display: none;
-    } */
 
     .separator {
         margin: 32px 0;
@@ -1740,8 +1697,8 @@ textarea.form-input::-webkit-resizer {
 
 
     /**
-       * #NAVBAR
-       */
+    * #NAVBAR
+    */
 
     .navbar {
         border-radius: 20px 20px 0 0;
@@ -1758,8 +1715,8 @@ textarea.form-input::-webkit-resizer {
 
 
     /**
-       * #ABOUT
-       */
+    * #ABOUT
+    */
 
     .about .article-title {
         margin-bottom: 20px;
@@ -1890,8 +1847,8 @@ textarea.form-input::-webkit-resizer {
 
 
     /**
-       * #RESUME
-       */
+    * #RESUME
+    */
 
     .timeline-list {
         margin-left: 65px;
@@ -1914,8 +1871,8 @@ textarea.form-input::-webkit-resizer {
 
 
     /**
-       * #PORTFOLIO, BLOG
-       */
+    * #PORTFOLIO, BLOG
+    */
 
     .project-img,
     .blog-banner-box {
@@ -1933,8 +1890,8 @@ textarea.form-input::-webkit-resizer {
 
 
     /**
-       * #CONTACT
-       */
+    * #CONTACT
+    */
 
     .mapbox {
         height: 380px;
@@ -1970,14 +1927,14 @@ textarea.form-input::-webkit-resizer {
 
 
 /**
-     * responsive larger than 768px screen
-     */
+* responsive larger than 768px screen
+*/
 
 @media (min-width: 768px) {
 
     /**
-       * REUSED STYLE
-       */
+    * REUSED STYLE
+    */
 
     .sidebar,
     article {
@@ -1991,19 +1948,23 @@ textarea.form-input::-webkit-resizer {
 
 
     /**
-       * SIDEBAR
-       */
+    * SIDEBAR
+    */
 
     .contacts-list {
         grid-template-columns: 1fr 1fr;
         gap: 30px 15px;
     }
 
+    .info_more-btn svg {
+        display: none;
+    }
+
 
 
     /**
-       * NAVBAR
-       */
+    * NAVBAR
+    */
 
     .navbar-link {
         --fs-8: 15px;
@@ -2012,8 +1973,8 @@ textarea.form-input::-webkit-resizer {
 
 
     /**
-       * ABOUT
-       */
+    * ABOUT
+    */
 
     /* testimonials modal */
 
@@ -2029,8 +1990,8 @@ textarea.form-input::-webkit-resizer {
 
 
     /**
-       * PORTFOLIO
-       */
+    * PORTFOLIO
+    */
 
     .article-title {
         padding-bottom: 20px;
@@ -2073,8 +2034,8 @@ textarea.form-input::-webkit-resizer {
 
 
     /**
-       * CONTACT
-       */
+    * CONTACT
+    */
 
     .input-wrapper {
         grid-template-columns: 1fr 1fr;
@@ -2092,14 +2053,14 @@ textarea.form-input::-webkit-resizer {
 
 
 /**
-     * responsive larger than 1024px screen
-     */
+* responsive larger than 1024px screen
+*/
 
 @media (min-width: 1024px) {
 
     /**
-       * CUSTOM PROPERTY
-       */
+    * CUSTOM PROPERTY
+    */
 
     :root {
 
@@ -2116,8 +2077,8 @@ textarea.form-input::-webkit-resizer {
 
 
     /**
-       * REUSED STYLE
-       */
+    * REUSED STYLE
+    */
 
     .sidebar,
     article {
@@ -2125,11 +2086,15 @@ textarea.form-input::-webkit-resizer {
         box-shadow: var(--shadow-5);
     }
 
+    .info_more-btn svg {
+        display: none;
+    }
+
 
 
     /**
-       * MAIN 
-       */
+    * MAIN 
+    */
 
     main {
         margin-bottom: 60px;
@@ -2144,8 +2109,8 @@ textarea.form-input::-webkit-resizer {
 
 
     /**
-       * NAVBAR
-       */
+    * NAVBAR
+    */
 
     .navbar {
         position: absolute;
@@ -2171,8 +2136,8 @@ textarea.form-input::-webkit-resizer {
 
 
     /**
-       * ABOUT
-       */
+    * ABOUT
+    */
 
     /* service */
 
@@ -2200,8 +2165,8 @@ textarea.form-input::-webkit-resizer {
 
 
     /**
-       * PORTFOLIO
-       */
+    * PORTFOLIO
+    */
 
     .project-list {
         grid-template-columns: repeat(3, 1fr);
@@ -2210,8 +2175,8 @@ textarea.form-input::-webkit-resizer {
 
 
     /**
-       * BLOG
-       */
+    * BLOG
+    */
 
     .blog-banner-box {
         height: 230px;
@@ -2224,14 +2189,14 @@ textarea.form-input::-webkit-resizer {
 
 
 /**
-     * responsive larger than 1250px screen
-     */
+* responsive larger than 1250px screen
+*/
 
 @media (min-width: 1250px) {
 
     /**
-       * RESET
-       */
+    * RESET
+    */
 
     body::-webkit-scrollbar {
         width: 20px;
@@ -2260,8 +2225,8 @@ textarea.form-input::-webkit-resizer {
 
 
     /**
-       * REUSED STYLE
-       */
+    * REUSED STYLE
+    */
 
     .sidebar,
     article {
@@ -2275,8 +2240,8 @@ textarea.form-input::-webkit-resizer {
 
 
     /**
-       * MAIN
-       */
+    * MAIN
+    */
 
     main {
         max-width: 1200px;
@@ -2296,8 +2261,8 @@ textarea.form-input::-webkit-resizer {
 
 
     /**
-       * SIDEBAR
-       */
+    * SIDEBAR
+    */
 
     .sidebar {
         position: sticky;
