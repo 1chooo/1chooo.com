@@ -17,7 +17,7 @@ const Teaching: React.FC = () => {
         <li className="timeline-item">
 
           <h4 className="h4 timeline-item-title">
-            AP4063 Weather and Artificial Intelligence Ⅰ/Ⅱ
+            GS4719 Python Programming
           </h4>
 
           <span>Sep, 2023 - Jan, 2024</span>
