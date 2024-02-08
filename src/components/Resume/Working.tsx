@@ -62,12 +62,17 @@ const Working: React.FC = () => {
                 ☁️ <strong>Develop</strong> an open-source
                 project called <strong>"AWS 101 LINE Bot"</strong> designed
                 for integration with <strong>AWS 101</strong>. This initiative
-                led to contacting <strong>LINE Company</strong> and securing
+                led to contacting <strong><a
+                  className="code-highlight-yellow"
+                  href="https://linecorp.com/en/"
+                  target="_blank"
+                  rel="noreferrer"
+                >LINE Company</a></strong> and securing
                 the opportunity to organize a visit to the company.
               </li>
               <li>
                 ☁️ <strong>Technical Support</strong> within the
-                <strong>Marketing Program</strong> enhances the technical
+                <strong> Marketing Program</strong> enhances the technical
                 understanding of marketing team members. This involves a
                 detailed <strong>35+ page</strong> research study accompanied
                 by a comprehensive presentation.
@@ -100,7 +105,12 @@ const Working: React.FC = () => {
               </li>
               <li>
                 🦾 Implementing <strong>Prompt Engineering and <code>LangChain</code></strong> allows
-                the <strong>NVIDIA Ominerve visual robot</strong> to function
+                the <strong><a
+                  className="code-highlight-yellow"
+                  href="https://www.nvidia.com/en-us/omniverse/"
+                  target="_blank"
+                  rel="noreferrer"
+                >NVIDIA Ominerve visual robot</a></strong> to function
                 through <strong>speech or text</strong>, leading to an <strong>83%</strong> improvement
                 in scenario test support across <strong>6 to 11</strong> scenarios.
               </li>
