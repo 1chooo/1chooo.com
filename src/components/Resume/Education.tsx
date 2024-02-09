@@ -17,7 +17,7 @@ const Education: React.FC = () => {
 
           <h4 className="h4 timeline-item-title">Bachelor's degree, Atmospheric Science</h4>
 
-          <span>Sep. 2020 — present.</span>
+          <span>Sep. 2020 — Jun. 2024</span>
 
           <p className="timeline-text">
             <a
@@ -30,7 +30,22 @@ const Education: React.FC = () => {
           </p>
 
           <p className="timeline-text">
-            Computer Science & Information Engineering
+            <em><strong>💻 Minor Specialty:</strong> Computer Science & Information Engineering</em>
+          </p>
+
+          <p className="timeline-text">
+            <ul>
+              <li>
+                <strong>💻 Relevant Courses: </strong> 
+                The Attack and Defense of Computers, 
+                Principles of Programming Languages, 
+                Computer Network, 
+                Algorithmics, 
+                Data Structures, 
+                Assembly Language and System Programming, 
+                Degital Design.
+              </li>
+            </ul>
           </p>
 
         </li>
