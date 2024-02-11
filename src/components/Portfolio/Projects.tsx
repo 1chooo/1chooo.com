@@ -14,6 +14,8 @@ import awsEdu101Image from "../../Assets/images/projects/aws_edu_101.png";
 import testImage from "../../Assets/images/projects/portfolio_test.png";
 import gymRouteImage from "../../Assets/images/projects/gym_route.png";
 import thermalCalculatorImage from "../../Assets/images/projects/thermal_calculator.png";
+import gameScopeImage from "../../Assets/images/projects/game_scope.png";
+import evolvingBeastsImage from "../../Assets/images/projects/evolving_beasts.png";
 
 
 const Projects: React.FC = () => {
@@ -115,7 +117,7 @@ const Projects: React.FC = () => {
           </button>
         </li>
 
-        <li className="filter-item">
+        {/* <li className="filter-item">
           <button
             className={`filter-btn ${selectedValue === 'Web design' ? 'active' : ''}`}
             data-filter-btn
@@ -123,7 +125,7 @@ const Projects: React.FC = () => {
           >
             Web design
           </button>
-        </li>
+        </li> */}
 
         <li className="filter-item">
           <button
@@ -152,6 +154,16 @@ const Projects: React.FC = () => {
             onClick={() => handleItemClick('Line Bot')}
           >
             Line Bot
+          </button>
+        </li>
+
+        <li className="filter-item">
+          <button
+            className={`filter-btn ${selectedValue === 'Data Science' ? 'active' : ''}`}
+            data-filter-btn
+            onClick={() => handleItemClick('Data')}
+          >
+            Data Science
           </button>
         </li>
 
@@ -185,14 +197,14 @@ const Projects: React.FC = () => {
             </button>
           </li>
 
-          <li className="select-item">
+          {/* <li className="select-item">
             <button
               data-select-item
               onClick={() => handleItemClick('Web design')}
             >
               Web design
             </button>
-          </li>
+          </li> */}
 
           <li className="select-item">
             <button
@@ -218,6 +230,15 @@ const Projects: React.FC = () => {
               onClick={() => handleItemClick('Line Bot')}
             >
               Line Bot
+            </button>
+          </li>
+
+          <li className="select-item">
+            <button
+              data-select-item
+              onClick={() => handleItemClick('Data Science')}
+            >
+              Data Science
             </button>
           </li>
         </ul>
@@ -319,6 +340,36 @@ const Projects: React.FC = () => {
         <li
           className="project-item  active"
           data-filter-item
+          data-category="line bot"
+        >
+          <a
+            href="https://github.com/1chooo/evolving-beasts"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <figure className="project-img">
+              <div className="project-item-icon-box">
+                <LuEye />
+              </div>
+
+              <img
+                src={evolvingBeastsImage}
+                alt="Evolving Beasts"
+                loading="lazy"
+              />
+            </figure>
+
+            <h3 className="project-title">Evolving Beasts</h3>
+
+            <p className="project-category">Line Bot</p>
+
+          </a>
+        </li>
+
+        <li
+          className="project-item  active"
+          data-filter-item
           data-category="web development"
         >
           <a
@@ -349,6 +400,36 @@ const Projects: React.FC = () => {
         <li
           className="project-item  active"
           data-filter-item
+          data-category="data science"
+        >
+          <a
+            href="https://github.com/1chooo/game-scope"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <figure className="project-img">
+              <div className="project-item-icon-box">
+                <LuEye />
+              </div>
+
+              <img
+                src={gameScopeImage}
+                alt="Game Scope"
+                loading="lazy"
+              />
+            </figure>
+
+            <h3 className="project-title">Game Scope</h3>
+
+            <p className="project-category">Data Science</p>
+
+          </a>
+        </li>
+
+        {/* <li
+          className="project-item  active"
+          data-filter-item
           data-category="web design"
         >
           <a href="#">
@@ -370,9 +451,9 @@ const Projects: React.FC = () => {
             <p className="project-category">Web design</p>
 
           </a>
-        </li>
+        </li> */}
 
-        <li
+        {/* <li
           className="project-item  active"
           data-filter-item
           data-category="web design"
@@ -396,9 +477,9 @@ const Projects: React.FC = () => {
             <p className="project-category">Web design</p>
 
           </a>
-        </li>
+        </li> */}
 
-        <li
+        {/* <li
           className="project-item  active"
           data-filter-item
           data-category="web design"
@@ -422,9 +503,9 @@ const Projects: React.FC = () => {
             <p className="project-category">Web design</p>
 
           </a>
-        </li>
+        </li> */}
 
-        <li
+        {/* <li
           className="project-item  active"
           data-filter-item
           data-category="web development"
@@ -448,9 +529,9 @@ const Projects: React.FC = () => {
             <p className="project-category">Web development</p>
 
           </a>
-        </li>
+        </li> */}
 
-        <li
+        {/* <li
           className="project-item  active"
           data-filter-item
           data-category="applications"
@@ -474,12 +555,12 @@ const Projects: React.FC = () => {
             <p className="project-category">Applications</p>
 
           </a>
-        </li>
+        </li> */}
 
-        <li
+        {/* <li
           className="project-item  active"
           data-filter-item
-          data-category="web development"
+          data-category="data science"
         >
           <a href="#">
 
@@ -497,10 +578,10 @@ const Projects: React.FC = () => {
 
             <h3 className="project-title">Arrival</h3>
 
-            <p className="project-category">Web development</p>
+            <p className="project-category">Data Science</p>
 
           </a>
-        </li>
+        </li> */}
 
       </ul>
 
