@@ -16,7 +16,7 @@ import gymRouteImage from "../../Assets/images/projects/gym_route.png";
 import thermalCalculatorImage from "../../Assets/images/projects/thermal_calculator.png";
 import gameScopeImage from "../../Assets/images/projects/game_scope.png";
 import evolvingBeastsImage from "../../Assets/images/projects/evolving_beasts.png";
-
+import reactVcardPortfolioImage from "../../Assets/images/projects/react_vcard_portfolio.png";
 
 const Projects: React.FC = () => {
 
@@ -246,6 +246,36 @@ const Projects: React.FC = () => {
       </div>
 
       <ul className="project-list">
+
+        <li
+          className="project-item  active"
+          data-filter-item
+          data-category="web development"
+        >
+          <a
+            href="https://github.com/1chooo/react-vcard"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <figure className="project-img">
+              <div className="project-item-icon-box">
+                <LuEye />
+              </div>
+
+              <img
+                src={reactVcardPortfolioImage}
+                alt="React vCard Portfolio"
+                loading="lazy"
+              />
+            </figure>
+
+            <h3 className="project-title">React vCard Portfolio</h3>
+
+            <p className="project-category">Web development</p>
+
+          </a>
+        </li>
 
         <li
           className="project-item  active"
