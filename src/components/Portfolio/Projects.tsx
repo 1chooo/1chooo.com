@@ -10,7 +10,10 @@ import {
   LuEye
 } from "react-icons/lu";
 
-import profileImage from "../../Assets/images/projects/simple_ai.png";
+import awsEdu101Image from "../../Assets/images/projects/aws_edu_101.png";
+import testImage from "../../Assets/images/projects/portfolio_test.png";
+import gymRouteImage from "../../Assets/images/projects/gym_route.png";
+import thermalCalculatorImage from "../../Assets/images/projects/thermal_calculator.png";
 
 
 const Projects: React.FC = () => {
@@ -228,7 +231,11 @@ const Projects: React.FC = () => {
           data-filter-item
           data-category="line bot"
         >
-          <a href="#">
+          <a
+            href="https://github.com/1chooo/aws-line-business-card-workshop"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
 
             <figure className="project-img">
               <div className="project-item-icon-box">
@@ -236,13 +243,13 @@ const Projects: React.FC = () => {
               </div>
 
               <img
-                src={profileImage}
-                alt="finance"
+                src={awsEdu101Image}
+                alt="AWS Educate 101"
                 loading="lazy"
               />
             </figure>
 
-            <h3 className="project-title">Finance</h3>
+            <h3 className="project-title">AWS Educate 101</h3>
 
             <p className="project-category">Line Bot</p>
 
@@ -252,9 +259,13 @@ const Projects: React.FC = () => {
         <li
           className="project-item  active"
           data-filter-item
-          data-category="web development"
+          data-category="applications"
         >
-          <a href="#">
+          <a
+            href="https://github.com/1chooo/thermal-calculator"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
 
             <figure className="project-img">
               <div className="project-item-icon-box">
@@ -262,13 +273,73 @@ const Projects: React.FC = () => {
               </div>
 
               <img
-                src={profileImage}
-                alt="orizon"
+                src={thermalCalculatorImage}
+                alt="Thermal Calculator"
                 loading="lazy"
               />
             </figure>
 
-            <h3 className="project-title">Orizon</h3>
+            <h3 className="project-title">Thermal Calculator</h3>
+
+            <p className="project-category">Applications</p>
+
+          </a>
+        </li>
+
+        <li
+          className="project-item  active"
+          data-filter-item
+          data-category="applications"
+        >
+          <a
+            href="https://github.com/1chooo/gym-route"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <figure className="project-img">
+              <div className="project-item-icon-box">
+                <LuEye />
+              </div>
+
+              <img
+                src={gymRouteImage}
+                alt="Gym Route"
+                loading="lazy"
+              />
+            </figure>
+
+            <h3 className="project-title">Gym Route</h3>
+
+            <p className="project-category">Applications</p>
+
+          </a>
+        </li>
+
+        <li
+          className="project-item  active"
+          data-filter-item
+          data-category="web development"
+        >
+          <a
+            href="https://github.com/1chooo/simple-ai"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <figure className="project-img">
+              <div className="project-item-icon-box">
+                <LuEye />
+              </div>
+
+              <img
+                src={testImage}
+                alt="simple ai"
+                loading="lazy"
+              />
+            </figure>
+
+            <h3 className="project-title">Simple AI</h3>
 
             <p className="project-category">Web development</p>
 
@@ -288,7 +359,7 @@ const Projects: React.FC = () => {
               </div>
 
               <img
-                src={profileImage}
+                src={testImage}
                 alt="fundo"
                 loading="lazy"
               />
@@ -297,32 +368,6 @@ const Projects: React.FC = () => {
             <h3 className="project-title">Fundo</h3>
 
             <p className="project-category">Web design</p>
-
-          </a>
-        </li>
-
-        <li
-          className="project-item  active"
-          data-filter-item
-          data-category="applications"
-        >
-          <a href="#">
-
-            <figure className="project-img">
-              <div className="project-item-icon-box">
-                <LuEye />
-              </div>
-
-              <img
-                src={profileImage}
-                alt="brawlhalla"
-                loading="lazy"
-              />
-            </figure>
-
-            <h3 className="project-title">Brawlhalla</h3>
-
-            <p className="project-category">Applications</p>
 
           </a>
         </li>
@@ -340,7 +385,7 @@ const Projects: React.FC = () => {
               </div>
 
               <img
-                src={profileImage}
+                src={testImage}
                 alt="dsm."
                 loading="lazy"
               />
@@ -366,7 +411,7 @@ const Projects: React.FC = () => {
               </div>
 
               <img
-                src={profileImage}
+                src={testImage}
                 alt="metaspark"
                 loading="lazy"
               />
@@ -392,7 +437,7 @@ const Projects: React.FC = () => {
               </div>
 
               <img
-                src={profileImage}
+                src={testImage}
                 alt="summary"
                 loading="lazy"
               />
@@ -418,7 +463,7 @@ const Projects: React.FC = () => {
               </div>
 
               <img
-                src={profileImage}
+                src={testImage}
                 alt="task manager"
                 loading="lazy"
               />
@@ -444,7 +489,7 @@ const Projects: React.FC = () => {
               </div>
 
               <img
-                src={profileImage}
+                src={testImage}
                 alt="arrival"
                 loading="lazy"
               />
