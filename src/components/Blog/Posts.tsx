@@ -6,9 +6,6 @@ import React, {
 import {
   MdExpandMore
 } from "react-icons/md";
-import {
-  LuEye
-} from "react-icons/lu";
 
 import reactVcardPortfolioImage from "../../Assets/images/projects/react_vcard_portfolio.png";
 
@@ -111,35 +108,23 @@ const Posts: React.FC = () => {
           </button>
         </li>
 
-        {/* 
         <li className="filter-item">
           <button
-            className={`filter-btn ${selectedValue === 'Web design' ? 'active' : ''}`}
+            className={`filter-btn ${selectedValue === 'DevOps' ? 'active' : ''}`}
             data-filter-btn
-            onClick={() => handleItemClick('Web design')}
+            onClick={() => handleItemClick('DevOps')}
           >
-            Web design
-          </button>
-        </li> 
-        */}
-
-        <li className="filter-item">
-          <button
-            className={`filter-btn ${selectedValue === 'Applications' ? 'active' : ''}`}
-            data-filter-btn
-            onClick={() => handleItemClick('Applications')}
-          >
-            Applications
+            DevOps
           </button>
         </li>
 
         <li className="filter-item">
           <button
-            className={`filter-btn ${selectedValue === 'Web development' ? 'active' : ''}`}
+            className={`filter-btn ${selectedValue === 'Projects' ? 'active' : ''}`}
             data-filter-btn
-            onClick={() => handleItemClick('Web development')}
+            onClick={() => handleItemClick('Projects')}
           >
-            Web development
+            Projects
           </button>
         </li>
 
@@ -155,11 +140,21 @@ const Posts: React.FC = () => {
 
         <li className="filter-item">
           <button
-            className={`filter-btn ${selectedValue === 'Data Science' ? 'active' : ''}`}
+            className={`filter-btn ${selectedValue === 'Technology' ? 'active' : ''}`}
             data-filter-btn
             onClick={() => handleItemClick('Data')}
           >
-            Data Science
+            Technology
+          </button>
+        </li>
+
+        <li className="filter-item">
+          <button
+            className={`filter-btn ${selectedValue === 'Interview' ? 'active' : ''}`}
+            data-filter-btn
+            onClick={() => handleItemClick('Data')}
+          >
+            Interview
           </button>
         </li>
 
@@ -193,32 +188,21 @@ const Posts: React.FC = () => {
             </button>
           </li>
 
-          {/* 
           <li className="select-item">
             <button
               data-select-item
-              onClick={() => handleItemClick('Web design')}
+              onClick={() => handleItemClick('DevOps')}
             >
-              Web design
-            </button>
-          </li> 
-          */}
-
-          <li className="select-item">
-            <button
-              data-select-item
-              onClick={() => handleItemClick('Applications')}
-            >
-              Applications
+              DevOps
             </button>
           </li>
 
           <li className="select-item">
             <button
               data-select-item
-              onClick={() => handleItemClick('Web development')}
+              onClick={() => handleItemClick('Projects')}
             >
-              Web development
+              Projects
             </button>
           </li>
 
@@ -234,9 +218,18 @@ const Posts: React.FC = () => {
           <li className="select-item">
             <button
               data-select-item
-              onClick={() => handleItemClick('Data Science')}
+              onClick={() => handleItemClick('Technology')}
             >
-              Data Science
+              Technology
+            </button>
+          </li>
+
+          <li className="select-item">
+            <button
+              data-select-item
+              onClick={() => handleItemClick('Interview')}
+            >
+              Interview
             </button>
           </li>
         </ul>
@@ -245,8 +238,15 @@ const Posts: React.FC = () => {
 
       <ul className="blog-posts-list">
 
-        <li className="blog-post-item">
-          <a href="#">
+        <li className="blog-post-item  active"
+          data-filter-item
+          data-category="projects"
+        >
+          <a
+            href="https://medium.com/@1chooo/%E5%BF%98%E6%8E%89-youtube-premium-%E9%80%99%E4%BA%9B%E7%84%A1%E5%BB%A3%E5%91%8A%E7%80%8F%E8%A6%BD%E5%99%A8%E8%AE%93%E4%BD%A0%E6%84%9B%E4%B8%8D%E9%87%8B%E6%89%8B-901f7d15a59a"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
 
             <figure className="blog-banner-box">
               <img
@@ -259,17 +259,19 @@ const Posts: React.FC = () => {
             <div className="blog-content">
 
               <div className="blog-meta">
-                <p className="blog-category">Design</p>
+                <p className="blog-category">Porjects</p>
 
                 <span className="dot"></span>
 
-                <time dateTime="2022-02-23">Fab 23, 2022</time>
+                <time dateTime="2022-02-23">Feb 11, 2024</time>
               </div>
 
-              <h3 className="h3 blog-item-title">Design conferences in 2022</h3>
+              <h3 className="h3 blog-item-title">
+                忘掉 YouTube Premium！這些無廣告瀏覽器讓你愛不釋手！
+              </h3>
 
               <p className="blog-text">
-                Veritatis et quasi architecto beatae vitae dicta sunt, explicabo.
+                在這個廣告橫行的 YouTube 時代，享受影片卻不被廣告干擾的感覺真是太棒了！透過 Brave 瀏覽器，我終於找到了解脫的方法，而且完全不必花錢購買 Premium。讓我們一起換個方式，享受無廣告的 YouTube 世界吧！
               </p>
 
             </div>
@@ -277,7 +279,11 @@ const Posts: React.FC = () => {
           </a>
         </li>
 
-        <li className="blog-post-item">
+        <li
+          className="blog-post-item  active"
+          data-filter-item
+          data-category="devops"
+        >
           <a href="#">
 
             <figure className="blog-banner-box">
@@ -291,7 +297,7 @@ const Posts: React.FC = () => {
             <div className="blog-content">
 
               <div className="blog-meta">
-                <p className="blog-category">Design</p>
+                <p className="blog-category">DevOps</p>
 
                 <span className="dot"></span>
 
@@ -309,7 +315,11 @@ const Posts: React.FC = () => {
           </a>
         </li>
 
-        <li className="blog-post-item">
+        <li
+          className="blog-post-item  active"
+          data-filter-item
+          data-category="interview"
+        >
           <a href="#">
 
             <figure className="blog-banner-box">
@@ -323,7 +333,7 @@ const Posts: React.FC = () => {
             <div className="blog-content">
 
               <div className="blog-meta">
-                <p className="blog-category">Design</p>
+                <p className="blog-category">Interview</p>
 
                 <span className="dot"></span>
 
@@ -342,7 +352,11 @@ const Posts: React.FC = () => {
           </a>
         </li>
 
-        <li className="blog-post-item">
+        <li
+          className="blog-post-item  active"
+          data-filter-item
+          data-category="devops"
+        >
           <a href="#">
 
             <figure className="blog-banner-box">
@@ -356,7 +370,7 @@ const Posts: React.FC = () => {
             <div className="blog-content">
 
               <div className="blog-meta">
-                <p className="blog-category">Design</p>
+                <p className="blog-category">DevOps</p>
 
                 <span className="dot"></span>
 
@@ -375,7 +389,11 @@ const Posts: React.FC = () => {
           </a>
         </li>
 
-        <li className="blog-post-item">
+        <li
+          className="blog-post-item  active"
+          data-filter-item
+          data-category="line bot"
+        >
           <a href="#">
 
             <figure className="blog-banner-box">
@@ -389,7 +407,7 @@ const Posts: React.FC = () => {
             <div className="blog-content">
 
               <div className="blog-meta">
-                <p className="blog-category">Design</p>
+                <p className="blog-category">Line Bot</p>
 
                 <span className="dot"></span>
 
@@ -408,8 +426,9 @@ const Posts: React.FC = () => {
         </li>
 
         <li
-          className="blog-post-item"
+          className="blog-post-item  active"
           data-filter-item
+          data-category="line bot"
         >
           <a href="#">
 
@@ -424,7 +443,7 @@ const Posts: React.FC = () => {
             <div className="blog-content">
 
               <div className="blog-meta">
-                <p className="blog-category">Design</p>
+                <p className="blog-category">Line Bot</p>
 
                 <span className="dot"></span>
 
