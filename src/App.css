@@ -1160,6 +1160,11 @@ main {
     animation: scaleUp 0.25s ease forwards;
 }
 
+.project-item>a:hover .project-title {
+    color: var(--orange-yellow-crayola);
+    font-weight: bold;
+}
+
 @keyframes scaleUp {
     0% {
         transform: scale(0.5);
