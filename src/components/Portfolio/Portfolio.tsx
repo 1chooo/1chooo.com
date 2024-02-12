@@ -9,9 +9,6 @@ import {
   useLocation
 } from 'react-router-dom';
 
-import { MdExpandMore } from "react-icons/md";
-import { MdOutlineExpandMore } from "react-icons/md";
-import { LuEye } from "react-icons/lu";
 
 import Projects from "./Projects";
 
