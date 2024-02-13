@@ -7,7 +7,10 @@ import {
   MdExpandMore
 } from "react-icons/md";
 
-import reactVcardPortfolioImage from "../../Assets/images/projects/react_vcard_portfolio.png";
+import postInitImage from "../../Assets/images/projects/react_vcard_portfolio.png";
+import noAdsImage from "../../Assets/images/posts/no_ads.png";
+import gitTipsImage from "../../Assets/images/posts/git_tips.png";
+import nuphyUnboxingImage from "../../Assets/images/posts/nuphy_unboxing.png";
 
 const Posts: React.FC = () => {
 
@@ -130,11 +133,11 @@ const Posts: React.FC = () => {
 
         <li className="filter-item">
           <button
-            className={`filter-btn ${selectedValue === 'Line Bot' ? 'active' : ''}`}
+            className={`filter-btn ${selectedValue === 'Teaching' ? 'active' : ''}`}
             data-filter-btn
-            onClick={() => handleItemClick('Line Bot')}
+            onClick={() => handleItemClick('Teaching')}
           >
-            Line Bot
+            Teaching
           </button>
         </li>
 
@@ -155,6 +158,16 @@ const Posts: React.FC = () => {
             onClick={() => handleItemClick('Data')}
           >
             Interview
+          </button>
+        </li>
+
+        <li className="filter-item">
+          <button
+            className={`filter-btn ${selectedValue === 'Unboxing' ? 'active' : ''}`}
+            data-filter-btn
+            onClick={() => handleItemClick('Data')}
+          >
+            Unboxing
           </button>
         </li>
 
@@ -209,9 +222,9 @@ const Posts: React.FC = () => {
           <li className="select-item">
             <button
               data-select-item
-              onClick={() => handleItemClick('Line Bot')}
+              onClick={() => handleItemClick('Teaching')}
             >
-              Line Bot
+              Teaching
             </button>
           </li>
 
@@ -232,6 +245,15 @@ const Posts: React.FC = () => {
               Interview
             </button>
           </li>
+
+          <li className="select-item">
+            <button
+              data-select-item
+              onClick={() => handleItemClick('Unboxing')}
+            >
+              Unboxing
+            </button>
+          </li>
         </ul>
 
       </div>
@@ -240,7 +262,7 @@ const Posts: React.FC = () => {
 
         <li className="blog-post-item  active"
           data-filter-item
-          data-category="projects"
+          data-category="unboxing"
         >
           <a
             href="https://medium.com/@1chooo/%E5%BF%98%E6%8E%89-youtube-premium-%E9%80%99%E4%BA%9B%E7%84%A1%E5%BB%A3%E5%91%8A%E7%80%8F%E8%A6%BD%E5%99%A8%E8%AE%93%E4%BD%A0%E6%84%9B%E4%B8%8D%E9%87%8B%E6%89%8B-901f7d15a59a"
@@ -250,8 +272,8 @@ const Posts: React.FC = () => {
 
             <figure className="blog-banner-box">
               <img
-                src={reactVcardPortfolioImage}
-                alt="Design conferences in 2022"
+                src={noAdsImage}
+                alt="No ads"
                 loading="lazy"
               />
             </figure>
@@ -259,7 +281,7 @@ const Posts: React.FC = () => {
             <div className="blog-content">
 
               <div className="blog-meta">
-                <p className="blog-category">Porjects</p>
+                <p className="blog-category">Unboxing</p>
 
                 <span className="dot"></span>
 
@@ -284,12 +306,16 @@ const Posts: React.FC = () => {
           data-filter-item
           data-category="devops"
         >
-          <a href="#">
+          <a
+            href="https://medium.com/@1chooo/%E8%B8%8F%E5%85%A5-git-%E7%9A%84%E4%B8%96%E7%95%8C-%E4%BD%BF%E7%94%A8-ssh-%E8%88%87-github-%E9%80%A3%E7%B7%9A-7324b01349dd"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
 
             <figure className="blog-banner-box">
               <img
-                src={reactVcardPortfolioImage}
-                alt="Best fonts every designer"
+                src={gitTipsImage}
+                alt="Git Tips Image"
                 loading="lazy"
               />
             </figure>
@@ -304,10 +330,54 @@ const Posts: React.FC = () => {
                 <time dateTime="2022-02-23">Fab 23, 2022</time>
               </div>
 
-              <h3 className="h3 blog-item-title">Best fonts every designer</h3>
+              <h3 className="h3 blog-item-title">
+                踏入 Git 的世界：使用 ssh 與 GitHub 連線 👨🏻‍💻
+              </h3>
 
               <p className="blog-text">
-                Sed ut perspiciatis, nam libero tempore, cum soluta nobis est eligendi.
+                兼顧安全及隱私，利用 ssh key，push 到 GitHub 再也不需要打密碼了🔑
+              </p>
+
+            </div>
+
+          </a>
+        </li>
+
+        <li
+          className="blog-post-item  active"
+          data-filter-item
+          data-category="unboxing"
+        >
+          <a
+            href="https://medium.com/@1chooo/%E8%B8%8F%E5%85%A5-git-%E7%9A%84%E4%B8%96%E7%95%8C-%E4%BD%BF%E7%94%A8-ssh-%E8%88%87-github-%E9%80%A3%E7%B7%9A-7324b01349dd"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+
+            <figure className="blog-banner-box">
+              <img
+                src={nuphyUnboxingImage}
+                alt="Git Tips Image"
+                loading="lazy"
+              />
+            </figure>
+
+            <div className="blog-content">
+
+              <div className="blog-meta">
+                <p className="blog-category">Unboxing</p>
+
+                <span className="dot"></span>
+
+                <time dateTime="2022-02-23">Fab 23, 2022</time>
+              </div>
+
+              <h3 className="h3 blog-item-title">
+                兼具顏值手感的 Nuphy 鍵盤初體驗！！！
+              </h3>
+
+              <p className="blog-text">
+                對於機械鍵盤小白的我來說，每個軸體、手感、鍵帽等⋯⋯挑選鍵盤的考量對我來說都非常新奇，身為曾經買過一把機械鍵盤的我來說，正是個適合探索更多鍵盤的時機，於是決定購入觀望已久的鍵盤品牌 Nuphy — Halo 65。
               </p>
 
             </div>
@@ -324,7 +394,7 @@ const Posts: React.FC = () => {
 
             <figure className="blog-banner-box">
               <img
-                src={reactVcardPortfolioImage}
+                src={postInitImage}
                 alt="Design digest #80"
                 loading="lazy"
               />
@@ -361,7 +431,7 @@ const Posts: React.FC = () => {
 
             <figure className="blog-banner-box">
               <img
-                src={reactVcardPortfolioImage}
+                src={postInitImage}
                 alt="UI interactions of the week"
                 loading="lazy"
               />
@@ -392,13 +462,13 @@ const Posts: React.FC = () => {
         <li
           className="blog-post-item  active"
           data-filter-item
-          data-category="line bot"
+          data-category="teaching"
         >
           <a href="#">
 
             <figure className="blog-banner-box">
               <img
-                src={reactVcardPortfolioImage}
+                src={postInitImage}
                 alt="The forgotten art of spacing"
                 loading="lazy"
               />
@@ -407,7 +477,7 @@ const Posts: React.FC = () => {
             <div className="blog-content">
 
               <div className="blog-meta">
-                <p className="blog-category">Line Bot</p>
+                <p className="blog-category">Teaching</p>
 
                 <span className="dot"></span>
 
@@ -428,13 +498,13 @@ const Posts: React.FC = () => {
         <li
           className="blog-post-item  active"
           data-filter-item
-          data-category="line bot"
+          data-category="teaching"
         >
           <a href="#">
 
             <figure className="blog-banner-box">
               <img
-                src={reactVcardPortfolioImage}
+                src={postInitImage}
                 alt="Design digest #79"
                 loading="lazy"
               />
@@ -443,7 +513,7 @@ const Posts: React.FC = () => {
             <div className="blog-content">
 
               <div className="blog-meta">
-                <p className="blog-category">Line Bot</p>
+                <p className="blog-category">Teaching</p>
 
                 <span className="dot"></span>
 
