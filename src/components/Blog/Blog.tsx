@@ -10,7 +10,7 @@ import {
 } from 'react-router-dom';
 
 
-import Posts from "./Posts";
+import BlogPosts from "./BlogPosts";
 
 
 const Blog = () => {
@@ -105,7 +105,7 @@ const Blog = () => {
             <h2 className="h2 article-title">Blog</h2>
           </header>
 
-          <Posts />
+          <BlogPosts />
 
         </article>
 
