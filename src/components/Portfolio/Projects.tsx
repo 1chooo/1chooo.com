@@ -10,13 +10,12 @@ import {
   LuEye
 } from "react-icons/lu";
 
-import awsEdu101Image from "../../Assets/images/projects/aws_edu_101.png";
-import testImage from "../../Assets/images/projects/portfolio_test.png";
-import gymRouteImage from "../../Assets/images/projects/gym_route.png";
-import thermalCalculatorImage from "../../Assets/images/projects/thermal_calculator.png";
-import gameScopeImage from "../../Assets/images/projects/game_scope.png";
-import evolvingBeastsImage from "../../Assets/images/projects/evolving_beasts.png";
-import reactVcardPortfolioImage from "../../Assets/images/projects/react_vcard_portfolio.png";
+
+import {
+  projectsData,
+  Project,
+} from '../Config/ProjectsData';
+
 
 const Projects: React.FC = () => {
 
@@ -246,373 +245,37 @@ const Projects: React.FC = () => {
       </div>
 
       <ul className="project-list">
-
-        <li
-          className="project-item  active"
-          data-filter-item
-          data-category="web development"
-        >
-          <a
-            href="https://github.com/1chooo/react-vcard"
-            target="_blank"
-            rel="noopener noreferrer"
+        {/* 使用 map 方法動態生成項目 */}
+        {projectsData.map((
+          project: Project,
+          index: number
+        ) => (
+          <li
+            className="project-item active"
+            data-filter-item
+            data-category={project.category.toLowerCase()} // 使用 project 中的 category 屬性
+            key={index}
           >
-
-            <figure className="project-img">
-              <div className="project-item-icon-box">
-                <LuEye />
-              </div>
-
-              <img
-                src={reactVcardPortfolioImage}
-                alt="React vCard Portfolio"
-                loading="lazy"
-              />
-            </figure>
-
-            <h3 className="project-title">React vCard Portfolio</h3>
-
-            <p className="project-category">Web development</p>
-
-          </a>
-        </li>
-
-        <li
-          className="project-item  active"
-          data-filter-item
-          data-category="line bot"
-        >
-          <a
-            href="https://github.com/1chooo/aws-line-business-card-workshop"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-
-            <figure className="project-img">
-              <div className="project-item-icon-box">
-                <LuEye />
-              </div>
-
-              <img
-                src={awsEdu101Image}
-                alt="AWS Educate 101"
-                loading="lazy"
-              />
-            </figure>
-
-            <h3 className="project-title">AWS Educate 101</h3>
-
-            <p className="project-category">Line Bot</p>
-
-          </a>
-        </li>
-
-        <li
-          className="project-item  active"
-          data-filter-item
-          data-category="applications"
-        >
-          <a
-            href="https://github.com/1chooo/thermal-calculator"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-
-            <figure className="project-img">
-              <div className="project-item-icon-box">
-                <LuEye />
-              </div>
-
-              <img
-                src={thermalCalculatorImage}
-                alt="Thermal Calculator"
-                loading="lazy"
-              />
-            </figure>
-
-            <h3 className="project-title">Thermal Calculator</h3>
-
-            <p className="project-category">Applications</p>
-
-          </a>
-        </li>
-
-        <li
-          className="project-item  active"
-          data-filter-item
-          data-category="applications"
-        >
-          <a
-            href="https://github.com/1chooo/gym-route"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-
-            <figure className="project-img">
-              <div className="project-item-icon-box">
-                <LuEye />
-              </div>
-
-              <img
-                src={gymRouteImage}
-                alt="Gym Route"
-                loading="lazy"
-              />
-            </figure>
-
-            <h3 className="project-title">Gym Route</h3>
-
-            <p className="project-category">Applications</p>
-
-          </a>
-        </li>
-
-        <li
-          className="project-item  active"
-          data-filter-item
-          data-category="line bot"
-        >
-          <a
-            href="https://github.com/1chooo/evolving-beasts"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-
-            <figure className="project-img">
-              <div className="project-item-icon-box">
-                <LuEye />
-              </div>
-
-              <img
-                src={evolvingBeastsImage}
-                alt="Evolving Beasts"
-                loading="lazy"
-              />
-            </figure>
-
-            <h3 className="project-title">Evolving Beasts</h3>
-
-            <p className="project-category">Line Bot</p>
-
-          </a>
-        </li>
-
-        <li
-          className="project-item  active"
-          data-filter-item
-          data-category="web development"
-        >
-          <a
-            href="https://github.com/1chooo/simple-ai"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-
-            <figure className="project-img">
-              <div className="project-item-icon-box">
-                <LuEye />
-              </div>
-
-              <img
-                src={testImage}
-                alt="simple ai"
-                loading="lazy"
-              />
-            </figure>
-
-            <h3 className="project-title">Simple AI</h3>
-
-            <p className="project-category">Web development</p>
-
-          </a>
-        </li>
-
-        <li
-          className="project-item  active"
-          data-filter-item
-          data-category="data science"
-        >
-          <a
-            href="https://github.com/1chooo/game-scope"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-
-            <figure className="project-img">
-              <div className="project-item-icon-box">
-                <LuEye />
-              </div>
-
-              <img
-                src={gameScopeImage}
-                alt="Game Scope"
-                loading="lazy"
-              />
-            </figure>
-
-            <h3 className="project-title">Game Scope</h3>
-
-            <p className="project-category">Data Science</p>
-
-          </a>
-        </li>
-
-        {/* <li
-          className="project-item  active"
-          data-filter-item
-          data-category="web design"
-        >
-          <a href="#">
-
-            <figure className="project-img">
-              <div className="project-item-icon-box">
-                <LuEye />
-              </div>
-
-              <img
-                src={testImage}
-                alt="fundo"
-                loading="lazy"
-              />
-            </figure>
-
-            <h3 className="project-title">Fundo</h3>
-
-            <p className="project-category">Web design</p>
-
-          </a>
-        </li> */}
-
-        {/* <li
-          className="project-item  active"
-          data-filter-item
-          data-category="web design"
-        >
-          <a href="#">
-
-            <figure className="project-img">
-              <div className="project-item-icon-box">
-                <LuEye />
-              </div>
-
-              <img
-                src={testImage}
-                alt="dsm."
-                loading="lazy"
-              />
-            </figure>
-
-            <h3 className="project-title">DSM.</h3>
-
-            <p className="project-category">Web design</p>
-
-          </a>
-        </li> */}
-
-        {/* <li
-          className="project-item  active"
-          data-filter-item
-          data-category="web design"
-        >
-          <a href="#">
-
-            <figure className="project-img">
-              <div className="project-item-icon-box">
-                <LuEye />
-              </div>
-
-              <img
-                src={testImage}
-                alt="metaspark"
-                loading="lazy"
-              />
-            </figure>
-
-            <h3 className="project-title">MetaSpark</h3>
-
-            <p className="project-category">Web design</p>
-
-          </a>
-        </li> */}
-
-        {/* <li
-          className="project-item  active"
-          data-filter-item
-          data-category="web development"
-        >
-          <a href="#">
-
-            <figure className="project-img">
-              <div className="project-item-icon-box">
-                <LuEye />
-              </div>
-
-              <img
-                src={testImage}
-                alt="summary"
-                loading="lazy"
-              />
-            </figure>
-
-            <h3 className="project-title">Summary</h3>
-
-            <p className="project-category">Web development</p>
-
-          </a>
-        </li> */}
-
-        {/* <li
-          className="project-item  active"
-          data-filter-item
-          data-category="applications"
-        >
-          <a href="#">
-
-            <figure className="project-img">
-              <div className="project-item-icon-box">
-                <LuEye />
-              </div>
-
-              <img
-                src={testImage}
-                alt="task manager"
-                loading="lazy"
-              />
-            </figure>
-
-            <h3 className="project-title">Task Manager</h3>
-
-            <p className="project-category">Applications</p>
-
-          </a>
-        </li> */}
-
-        {/* <li
-          className="project-item  active"
-          data-filter-item
-          data-category="data science"
-        >
-          <a href="#">
-
-            <figure className="project-img">
-              <div className="project-item-icon-box">
-                <LuEye />
-              </div>
-
-              <img
-                src={testImage}
-                alt="arrival"
-                loading="lazy"
-              />
-            </figure>
-
-            <h3 className="project-title">Arrival</h3>
-
-            <p className="project-category">Data Science</p>
-
-          </a>
-        </li> */}
-
+            <a
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <figure className="project-img">
+                <div className="project-item-icon-box">
+                  <LuEye />
+                </div>
+                <img
+                  src={project.imageUrl}
+                  alt={project.title}
+                  loading="lazy"
+                />
+              </figure>
+              <h3 className="project-title">{project.title}</h3>
+              <p className="project-category">{project.category}</p>
+            </a>
+          </li>
+        ))}
       </ul>
 
     </section>
