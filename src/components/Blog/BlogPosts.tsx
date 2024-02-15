@@ -11,7 +11,7 @@ import {
 import {
   Post,
   postsData
-} from '../Config/PostsData';
+} from '../Config/BlogData';
 
 
 const BlogPosts: React.FC = () => {
