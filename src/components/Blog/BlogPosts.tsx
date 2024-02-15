@@ -279,7 +279,7 @@ const BlogPosts: React.FC = () => {
               <figure className="blog-banner-box">
                 <img
                   src={post.imageUrl}
-                  alt={post.title}
+                  alt={post.alt}
                   loading="lazy"
                 />
               </figure>
@@ -289,8 +289,8 @@ const BlogPosts: React.FC = () => {
                   <span className="dot"></span>
                   <time dateTime={post.date}>{post.date}</time>
                 </div>
-                <h3 className="h3 blog-item-title">{post.title}</h3>
-                <p className="blog-text">{post.content}</p>
+                {post.title}
+                {post.content}
               </div>
             </a>
           </li>
