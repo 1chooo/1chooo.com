@@ -44,9 +44,9 @@ export const messages: JSX.Element[] = [
 
 
 export interface LifeStyle {
-  icon:   string;
-  title:  string;
-  text:   string;
+  icon  : string;
+  title : string;
+  text  : string;
 }
 
 export const lifestyles: LifeStyle[] = [

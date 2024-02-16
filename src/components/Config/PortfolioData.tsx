@@ -9,10 +9,10 @@ import evolvingBeastsImage from "../../Assets/images/projects/evolving_beasts.pn
 import reactVcardPortfolioImage from "../../Assets/images/projects/react_vcard_portfolio.png";
 
 export interface Project {
-  title:    string;
-  category: string;
-  imageUrl: string;
-  link:     string;
+  title     : string;
+  category  : string;
+  imageUrl  : string;
+  link      : string;
 }
 
 export const projectsData: Project[] = [
