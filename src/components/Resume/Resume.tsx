@@ -5,7 +5,7 @@ import DownloadCV from "./DownloadCV";
 import Education from "./Education";
 import Working from "./Working";
 import Teaching from "./Teaching";
-
+import AwardsLeaderships from "./AwardsLeaderships";
 
 import {
   useLocation
@@ -34,6 +34,8 @@ const Resume: React.FC = () => {
           <Education />
 
           <Working />
+
+          <AwardsLeaderships />
 
           <Teaching />
         </article>

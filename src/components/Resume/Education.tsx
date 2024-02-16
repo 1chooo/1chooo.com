@@ -36,14 +36,23 @@ const Education: React.FC = () => {
           <p className="timeline-text">
             <ul>
               <li>
-                <strong>💻 Relevant Courses: </strong> 
-                The Attack and Defense of Computers, 
-                Principles of Programming Languages, 
-                Computer Network, 
-                Algorithmics, 
-                Data Structures, 
-                Assembly Language and System Programming, 
+                <strong>💻 Relevant Courses: </strong>
+                The Attack and Defense of Computers,
+                Principles of Programming Languages,
+                Computer Network,
+                Algorithmics,
+                Data Structures,
+                Assembly Language and System Programming,
                 Degital Design.
+                {/* <ul>
+                  <li>The Attack and Defense of Computers</li>
+                  <li>Principles of Programming Languages</li>
+                  <li>Computer Network</li>
+                  <li>Algorithmics</li>
+                  <li>Data Structures</li>
+                  <li>Assembly Language and System Programming</li>
+                  <li>Digital Design</li>
+                </ul> */}
               </li>
             </ul>
           </p>
