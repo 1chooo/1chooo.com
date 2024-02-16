@@ -6,13 +6,13 @@ import nuphyUnboxingImage from "../../Assets/images/posts/nuphy_unboxing.png";
 import reactMappingTipsImage from "../../Assets/images/posts/react_mapping_tips.png";
 
 export interface Post {
-  title:    JSX.Element;
-  category: string;
-  imageUrl: string;
-  date:     string;
-  content:  JSX.Element;
-  link:     string;
-  alt:      string;
+  title     : JSX.Element;
+  category  : string;
+  imageUrl  : string;
+  date      : string;
+  content   : JSX.Element;
+  link      : string;
+  alt       : string;
 }
 
 export const postsData: Post[] = [
@@ -61,7 +61,7 @@ export const postsData: Post[] = [
     date: 'Fab 23, 2022',
     content: (
       <p className="blog-text">
-        兼顧安全及隱私，利用 ssh key，push 到 GitHub 再也不需要打密碼了🔑
+        兼顧安全及隱私，利用 <code>ssh key</code>，<code>push</code> 到 GitHub 再也不需要打密碼了 🔑
       </p>
     ),
     link: 'https://medium.com/@1chooo/%E8%B8%8F%E5%85%A5-git-%E7%9A%84%E4%B8%96%E7%95%8C-%E4%BD%BF%E7%94%A8-ssh-%E8%88%87-github-%E9%80%A3%E7%B7%9A-7324b01349dd',
@@ -81,7 +81,7 @@ export const postsData: Post[] = [
         對於機械鍵盤小白的我來說，每個軸體、手感、鍵帽等⋯⋯挑選鍵盤的考量對我來說都非常新奇，身為曾經買過一把機械鍵盤的我來說，正是個適合探索更多鍵盤的時機，於是決定購入觀望已久的鍵盤品牌 Nuphy — Halo 65。
       </p>
     ),
-    link: 'https://medium.com/@1chooo/%E8%B8%8F%E5%85%A5-git-%E7%9A%84%E4%B8%96%E7%95%8C-%E4%BD%BF%E7%94%A8-ssh-%E8%88%87-github-%E9%80%A3%E7%B7%9A-7324b01349dd',
+    link: 'https://medium.com/@1chooo/nuphy-%E9%8D%B5%E7%9B%A4%E5%88%9D%E9%AB%94%E9%A9%97-5af2a52970cb',
     alt: '兼具顏值手感的 Nuphy 鍵盤初體驗！！！',
   },
 ];
