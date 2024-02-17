@@ -1,5 +1,10 @@
 import { PiTrophy } from "react-icons/pi";
-import { GrTrophy } from "react-icons/gr";
+
+
+import {
+  ResumeProps,
+  awardsAndLeaderships,
+} from '../Config/ResumeData';
 
 
 const AwardsLeaderships: React.FC = () => {
@@ -15,33 +20,13 @@ const AwardsLeaderships: React.FC = () => {
       </div>
 
       <ol className="timeline-list">
-
-        <li className="timeline-item">
-
-          <h4 className="h4 timeline-item-title">
-            2023 Weather Hackathon
-          </h4>
-
-          <span>May, 2023 - Aug, 2023</span>
-
-          <p className="timeline-text">
-            2nd Place
-          </p>
-
-          <p className="timeline-text">
-            GitHub: <a
-              href="https://github.com/Weather-Shakespeare/"
-              target="_blank"
-              className="code-highlight-yellow"
-              rel="noreferrer"
-            >
-              Weather Shakespeare
-            </a>
-          </p>
-
-        </li>
-
-
+        {awardsAndLeaderships.map((course: ResumeProps, index: number) => (
+          <li className="timeline-item" key={index}>
+            <h4 className="h4 timeline-item-title">{course.title}</h4>
+            <span>{course.duration}</span>
+            {course.description}
+          </li>
+        ))}
       </ol>
 
     </section>

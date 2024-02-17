@@ -1,4 +1,7 @@
-import { PiBooks } from "react-icons/pi";
+import {
+  PiBooks
+} from "react-icons/pi";
+
 
 import {
   ResumeProps,
@@ -7,13 +10,6 @@ import {
 
 
 const Teaching: React.FC = () => {
-
-  const items: String[] = [
-    'Item 1',
-    'Item 2',
-    'Item 3'
-  ];
-  const symbol: String = '☁️';
 
   return (
     <section className="timeline">

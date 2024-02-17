@@ -3,19 +3,16 @@
 export interface ResumeProps {
   title: string;
   duration: string;
-  university: string;
   description: JSX.Element[];
 }
 
 const items = ['Item 1', 'Item 2', 'Item 3'];
-const symbol = '☁️'; // 或者你可以使用其他符號，比如 '👉🏻'
+const symbol = '☁️';
 
-// 建立課程物件
 export const courses: ResumeProps[] = [
   {
     title: "Linux and Edge Computing",
     duration: "Feb, 2024 - present",
-    university: "National Central University",
     description: [
       (
         <p className="timeline-text">
@@ -25,7 +22,7 @@ export const courses: ResumeProps[] = [
             className="code-highlight-yellow"
             rel="noreferrer"
           >
-            National Central University</a> | 📍 Taoyuan, Taiwan
+            National Central location</a> | 📍 Taoyuan, Taiwan
         </p>
       ),
       (
@@ -64,7 +61,6 @@ export const courses: ResumeProps[] = [
   {
     title: "GS4719 Python Programming",
     duration: "Sep, 2023 - Jan, 2024",
-    university: "National Central University",
     description: [
       (
         <p className="timeline-text">
@@ -74,7 +70,7 @@ export const courses: ResumeProps[] = [
             className="code-highlight-yellow"
             rel="noreferrer"
           >
-            National Central University</a> | 📍 Taoyuan, Taiwan
+            National Central location</a> | 📍 Taoyuan, Taiwan
         </p>
       ),
       (
@@ -101,7 +97,6 @@ export const courses: ResumeProps[] = [
   {
     title: "AP4063 Weather and Artificial Intelligence Ⅰ/Ⅱ",
     duration: "Sep, 2023 - present",
-    university: "National Central University",
     description: [
       (
         <p className="timeline-text">
@@ -111,7 +106,7 @@ export const courses: ResumeProps[] = [
             className="code-highlight-yellow"
             rel="noreferrer"
           >
-            National Central University</a> | 📍 Taoyuan, Taiwan
+            National Central location</a> | 📍 Taoyuan, Taiwan
         </p>
       ),
       (
@@ -127,4 +122,42 @@ export const courses: ResumeProps[] = [
       ),
     ],
   }
+];
+
+export const awardsAndLeaderships: ResumeProps[] = [
+  {
+    title: "2023 Weather Hackathon",
+    duration: "May, 2023 - Aug, 2023",
+    description: [
+      (
+        <p className="timeline-text">
+          The second place winner, as well as the Executive Yuan Sustainability Special Award
+        </p>
+      ),
+      (
+        <p className="timeline-text">
+          GitHub: <a
+            href="https://github.com/Weather-Shakespeare/"
+            target="_blank"
+            className="code-highlight-yellow"
+            rel="noreferrer"
+          >
+            Weather Shakespeare
+          </a> | Related Information: <a
+            href="https://www.weatherrisk.com/post/%E7%AC%AC%E4%BA%8C%E5%B1%86-%E5%A4%A9%E6%B0%A3%E9%BB%91%E5%AE%A2%E6%9D%BE-%E5%9C%93%E6%BB%BF%E6%88%90%E5%8A%9F%EF%BC%8Cesg%E3%80%81%E6%B0%B8%E7%BA%8C%E8%AD%B0%E9%A1%8C%E5%8F%97%E8%A9%95%E5%AF%A9%E8%A6%AA%E7%9D%9E"
+            target="_blank"
+            className="code-highlight-yellow"
+            rel="noreferrer"
+          > 第二屆《天氣黑客松》圓滿成功，ESG、永續議題受評審青睞</a> | Project Name:
+          <a
+            href="天氣Hackthon沙士比亞_蛤!你的怪獸怎麼一直變大"
+            target="_blank"
+            className="code-highlight-yellow"
+            rel="noreferrer"
+          > 天氣Hackthon沙士比亞_蛤!你的怪獸怎麼一直變大</a>
+
+        </p>
+      ),
+    ],
+  },
 ];
