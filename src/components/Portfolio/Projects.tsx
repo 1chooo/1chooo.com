@@ -1,5 +1,6 @@
 import React, {
-  useState, useEffect
+  useState, 
+  useEffect
 } from 'react';
 
 
@@ -12,6 +13,7 @@ import {
 
 
 import {
+  projectTags,
   projectsData,
   Project,
 } from '../../Config/PortfolioData';
@@ -105,143 +107,44 @@ const Projects: React.FC = () => {
     <section className="projects">
 
       <ul className="filter-list">
-
-        <li className="filter-item">
-          <button
-            className={`filter-btn ${selectedValue === 'All' ? 'active' : ''}`}
-            data-filter-btn
-            onClick={() => handleItemClick('All')}
-          >
-            All
-          </button>
-        </li>
-
-        {/* <li className="filter-item">
-          <button
-            className={`filter-btn ${selectedValue === 'Web design' ? 'active' : ''}`}
-            data-filter-btn
-            onClick={() => handleItemClick('Web design')}
-          >
-            Web design
-          </button>
-        </li> */}
-
-        <li className="filter-item">
-          <button
-            className={`filter-btn ${selectedValue === 'Applications' ? 'active' : ''}`}
-            data-filter-btn
-            onClick={() => handleItemClick('Applications')}
-          >
-            Applications
-          </button>
-        </li>
-
-        <li className="filter-item">
-          <button
-            className={`filter-btn ${selectedValue === 'Web development' ? 'active' : ''}`}
-            data-filter-btn
-            onClick={() => handleItemClick('Web development')}
-          >
-            Web development
-          </button>
-        </li>
-
-        <li className="filter-item">
-          <button
-            className={`filter-btn ${selectedValue === 'Line Bot' ? 'active' : ''}`}
-            data-filter-btn
-            onClick={() => handleItemClick('Line Bot')}
-          >
-            Line Bot
-          </button>
-        </li>
-
-        <li className="filter-item">
-          <button
-            className={`filter-btn ${selectedValue === 'Data Science' ? 'active' : ''}`}
-            data-filter-btn
-            onClick={() => handleItemClick('Data')}
-          >
-            Data Science
-          </button>
-        </li>
-
+        {projectTags.map((tag, index) => (
+          <li className="filter-item" key={index}>
+            <button
+              className={`filter-btn ${selectedValue === tag ? 'active' : ''}`}
+              data-filter-btn
+              onClick={() => handleItemClick(tag)}
+            >
+              {tag}
+            </button>
+          </li>
+        ))}
       </ul>
 
       <div className="filter-select-box">
-
         <button
           className={`filter-select ${isActive ? 'active' : ''}`}
           data-select
           onClick={() => setIsActive(!isActive)}
         >
-
           <div className="select-value" data-select-value>
             {selectedValue || 'Select category'}
           </div>
-
           <div className="select-icon">
             <MdExpandMore />
           </div>
-
         </button>
-
         <ul className="select-list">
-          <li className="select-item">
-            <button
-              data-select-item
-              onClick={() => handleItemClick('All')}
-            >
-              All
-            </button>
-          </li>
-
-          {/* <li className="select-item">
-            <button
-              data-select-item
-              onClick={() => handleItemClick('Web design')}
-            >
-              Web design
-            </button>
-          </li> */}
-
-          <li className="select-item">
-            <button
-              data-select-item
-              onClick={() => handleItemClick('Applications')}
-            >
-              Applications
-            </button>
-          </li>
-
-          <li className="select-item">
-            <button
-              data-select-item
-              onClick={() => handleItemClick('Web development')}
-            >
-              Web development
-            </button>
-          </li>
-
-          <li className="select-item">
-            <button
-              data-select-item
-              onClick={() => handleItemClick('Line Bot')}
-            >
-              Line Bot
-            </button>
-          </li>
-
-          <li className="select-item">
-            <button
-              data-select-item
-              onClick={() => handleItemClick('Data Science')}
-            >
-              Data Science
-            </button>
-          </li>
+          {projectTags.map((tag, index) => (
+            <li className="select-item" key={index}>
+              <button
+                data-select-item
+                onClick={() => handleItemClick(tag)}
+              >
+                {tag}
+              </button>
+            </li>
+          ))}
         </ul>
-
       </div>
 
       <ul className="project-list">
