@@ -14,7 +14,7 @@ import {
 import {
   projectsData,
   Project,
-} from '../Config/PortfolioData';
+} from '../../Config/PortfolioData';
 
 
 const Projects: React.FC = () => {

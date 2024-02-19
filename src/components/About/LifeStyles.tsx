@@ -1,7 +1,7 @@
 import {
   LifeStyle,
   lifestyles
-} from '../Config/AboutData';
+} from '../../Config/AboutData';
 
 
 const LifeStyles: React.FC = () => {

@@ -6,7 +6,7 @@ import {
 import {
   ResumeProps,
   courses
-} from '../Config/ResumeData';
+} from '../../Config/ResumeData';
 
 
 const Teaching: React.FC = () => {
