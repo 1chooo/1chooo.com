@@ -8,6 +8,14 @@ import gameScopeImage from "../Assets/images/projects/game_scope.png";
 import evolvingBeastsImage from "../Assets/images/projects/evolving_beasts.png";
 import reactVcardPortfolioImage from "../Assets/images/projects/react_vcard_portfolio.png";
 
+export const projectTags = [
+  "All",
+  "Applications",
+  "Web development",
+  "Line Bot",
+  "Data Science",
+];
+
 export interface Project {
   title     : string;
   category  : string;
