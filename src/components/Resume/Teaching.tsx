@@ -23,7 +23,10 @@ const Teaching: React.FC = () => {
       </div>
 
       <ol className="timeline-list">
-        {courses.map((course: ResumeProps, index: number) => (
+        {courses.map((
+          course: ResumeProps,
+          index: number
+        ) => (
           <li className="timeline-item" key={index}>
             <h4 className="h4 timeline-item-title">{course.title}</h4>
             <span>{course.duration}</span>

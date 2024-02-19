@@ -20,11 +20,14 @@ const AwardsLeaderships: React.FC = () => {
       </div>
 
       <ol className="timeline-list">
-        {awardsAndLeaderships.map((course: ResumeProps, index: number) => (
+        {awardsAndLeaderships.map((
+          awardAndLeadership: ResumeProps,
+          index: number,
+        ) => (
           <li className="timeline-item" key={index}>
-            <h4 className="h4 timeline-item-title">{course.title}</h4>
-            <span>{course.duration}</span>
-            {course.description}
+            <h4 className="h4 timeline-item-title">{awardAndLeadership.title}</h4>
+            <span>{awardAndLeadership.duration}</span>
+            {awardAndLeadership.description}
           </li>
         ))}
       </ol>
