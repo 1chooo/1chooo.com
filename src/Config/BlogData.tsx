@@ -5,6 +5,16 @@ import gitTipsImage from "../Assets/images/posts/git_tips.png";
 import nuphyUnboxingImage from "../Assets/images/posts/nuphy_unboxing.png";
 import reactMappingTipsImage from "../Assets/images/posts/react_mapping_tips.png";
 
+export const blogTags = [
+  "All",
+  "DevOps",
+  "Projects",
+  "Teaching",
+  "Technology",
+  "Interview",
+  "Unboxing",
+];
+
 export interface Post {
   title     : JSX.Element;
   category  : string;
