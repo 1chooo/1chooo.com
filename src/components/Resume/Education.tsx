@@ -1,4 +1,11 @@
-import { IoSchoolOutline } from "react-icons/io5";
+import {
+  IoSchoolOutline
+} from "react-icons/io5";
+
+// import {
+//   ResumeProps,
+//   awardsAndLeaderships,
+// } from '../../Config/ResumeData';
 
 const Education: React.FC = () => {
   return (
