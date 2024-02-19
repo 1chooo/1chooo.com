@@ -6,8 +6,8 @@ export interface ResumeProps {
   description: JSX.Element[];
 }
 
-const items = ['Item 1', 'Item 2', 'Item 3'];
-const symbol = '☁️';
+// const items = ['Item 1', 'Item 2', 'Item 3'];
+// const symbol = '☁️';
 
 export const courses: ResumeProps[] = [
   {
@@ -44,18 +44,18 @@ export const courses: ResumeProps[] = [
           </a>
         </p>
       ),
-      (
-        <p className="timeline-text">
-          <ul>
-            {items.map((item, index) => (
-              <li key={index}>
-                {symbol} {item}
-              </li>
-            ))}
-          </ul>
+      // (
+      //   <p className="timeline-text">
+      //     <ul>
+      //       {items.map((item, index) => (
+      //         <li key={index}>
+      //           {symbol} {item}
+      //         </li>
+      //       ))}
+      //     </ul>
 
-        </p>
-      ),
+      //   </p>
+      // ),
     ],
   },
   {
@@ -156,6 +156,182 @@ export const awardsAndLeaderships: ResumeProps[] = [
             rel="noreferrer"
           > 天氣Hackthon沙士比亞_蛤!你的怪獸怎麼一直變大</a>
 
+        </p>
+      ),
+    ],
+  },
+];
+
+
+export const schools: ResumeProps[] = [
+  {
+    title: "Bachelor's degree, Atmospheric Science",
+    duration: "Sep. 2020 — Jun. 2024",
+    description: [
+      (
+        <p className="timeline-text">
+          <a
+            href="https://www.ncu.edu.tw/"
+            target="_blank"
+            className="code-highlight-yellow"
+            rel="noreferrer"
+          >
+            National Central University</a> | 📍 Taoyuan, Taiwan
+        </p>
+      ),
+      (
+        <p className="timeline-text">
+          <em><strong>💻 Minor Specialty:</strong> Computer Science & Information Engineering</em>
+        </p>
+      ),
+      (
+        <p className="timeline-text">
+          <ul>
+            <li>
+              <strong>💻 Relevant Courses: </strong>
+              The Attack and Defense of Computers,
+              Linux And Edge Computing,
+              Principles of Programming Languages,
+              Computer Network,
+              Algorithmics,
+              Data Structures,
+              Assembly Language and System Programming,
+              Degital Design,
+              Weather and Artificial Intelligence,
+              Numerical Analysis.
+            </li>
+          </ul>
+        </p>
+      ),
+    ],
+  },
+];
+
+
+export const careers: ResumeProps[] = [
+  {
+    title: "Cloud Developer Intern",
+    duration: "Mar. 2024 - present.",
+    description: [
+      (
+        <p className="timeline-text">
+          <a
+            href="https://www.ecloudture.com/en/internship-program/"
+            className="code-highlight-yellow"
+            target="_blank"
+            rel="noreferrer"
+          >
+            eCloudValley
+          </a> | 📍 New Taipei, Taiwan
+        </p>
+      ),
+    ],
+  },
+  {
+    title: "Technical Support Cloud Ambassador",
+    duration: "Aug. 2023 - Jan. 2024",
+    description: [
+      (
+        <p className="timeline-text">
+          <a
+            href="https://aws.amazon.com/tw/education/awseducate/"
+            target="_blank"
+            className="code-highlight-yellow"
+            rel="noreferrer"
+          >Amazon Web Services
+          </a> | 📍 Taipei, Taiwan
+        </p>
+      ),
+      (
+        <p className="timeline-text">
+          <ul>
+            <li>
+              ☁️ Educated <strong>700+ cloud developers</strong> and
+              achieved 96% of user satisfaction by publishing and
+              lecturing <strong>2+ technical workshops, 1 UAD</strong> on
+              AWS cloud computing services <strong>(Lex, Amazon S3, Lambda, API Gateway)</strong>.
+            </li>
+            <li>
+              ☁️ <strong>Develop</strong> an open-source
+              project called <strong>"AWS 101 LINE Bot"</strong> designed
+              for integration with <strong>AWS 101</strong>. This initiative
+              led to contacting <strong><a
+                className="code-highlight-yellow"
+                href="https://linecorp.com/en/"
+                target="_blank"
+                rel="noreferrer"
+              >LINE Company</a></strong> and securing
+              the opportunity to organize a visit to the company.
+            </li>
+            <li>
+              ☁️ <strong>Technical Support</strong> within the
+              <strong> Marketing Program</strong> enhances the technical
+              understanding of marketing team members. This involves a
+              detailed <strong>35+ page</strong> research study accompanied
+              by a comprehensive presentation.
+            </li>
+          </ul>
+        </p>
+      ),
+    ],
+  },
+  {
+    title: "Software Engineer Intern",
+    duration: "Jul. 2023 - Aug. 2023",
+    description: [
+      (
+        <p className="timeline-text">
+          <a href="https://www.pegatroncorp.com/"
+            target="_blank"
+            className="code-highlight-yellow"
+            rel="noreferrer"
+          >
+            Pegatron Corporation
+          </a> | 📍 Taipei, Taiwan
+        </p>
+      ),
+      (
+        <p className="timeline-text">
+          <ul>
+            <li>
+              <em><strong>Smart Robot, Smart World 🦾:</strong> Prompt-based Learning for manipulating with the Visual-World Robot</em>
+            </li>
+            <li>
+              🦾 Implementing <strong>Prompt Engineering and <code>LangChain</code></strong> allows
+              the <strong><a
+                className="code-highlight-yellow"
+                href="https://www.nvidia.com/en-us/omniverse/"
+                target="_blank"
+                rel="noreferrer"
+              >NVIDIA Ominerve visual robot</a></strong> to function
+              through <strong>speech or text</strong>, leading to an <strong>83%</strong> improvement
+              in scenario test support across <strong>6 to 11</strong> scenarios.
+            </li>
+            <li>
+              🦾 During the <strong>Proof of Concept (POC)</strong> phase,
+              transform the trained model into a <strong>Web Application</strong> with
+              a user interface using <strong><code>Gradio</code></strong>, the UI toolkit
+              for the <strong><code>FastAPI</code></strong> framework.
+            </li>
+          </ul>
+        </p>
+      ),
+    ],
+  },
+  {
+    title: "Website Developer",
+    duration: "Jul. 2022 - Jan. 202",
+    description: [
+      (
+        <p className="timeline-text">
+          <a
+            href="https://www.ncu.edu.tw/"
+            target="_blank"
+            className="code-highlight-yellow"
+            rel="noreferrer"
+          >
+            National Central University
+          </a> | 📍 Taoyuan, Taiwan
         </p>
       ),
     ],

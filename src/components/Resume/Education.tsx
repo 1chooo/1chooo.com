@@ -2,10 +2,10 @@ import {
   IoSchoolOutline
 } from "react-icons/io5";
 
-// import {
-//   ResumeProps,
-//   awardsAndLeaderships,
-// } from '../../Config/ResumeData';
+import {
+  ResumeProps,
+  schools,
+} from '../../Config/ResumeData';
 
 const Education: React.FC = () => {
   return (
@@ -20,52 +20,18 @@ const Education: React.FC = () => {
       </div>
 
       <ol className="timeline-list">
-        <li className="timeline-item">
-
-          <h4 className="h4 timeline-item-title">Bachelor's degree, Atmospheric Science</h4>
-
-          <span>Sep. 2020 — Jun. 2024</span>
-
-          <p className="timeline-text">
-            <a
-              href="https://www.ncu.edu.tw/"
-              target="_blank"
-              className="code-highlight-yellow"
-              rel="noreferrer"
-            >
-              National Central University</a> | 📍 Taoyuan, Taiwan
-          </p>
-
-          <p className="timeline-text">
-            <em><strong>💻 Minor Specialty:</strong> Computer Science & Information Engineering</em>
-          </p>
-
-          <p className="timeline-text">
-            <ul>
-              <li>
-                <strong>💻 Relevant Courses: </strong>
-                The Attack and Defense of Computers,
-                Principles of Programming Languages,
-                Computer Network,
-                Algorithmics,
-                Data Structures,
-                Assembly Language and System Programming,
-                Degital Design.
-                {/* <ul>
-                  <li>The Attack and Defense of Computers</li>
-                  <li>Principles of Programming Languages</li>
-                  <li>Computer Network</li>
-                  <li>Algorithmics</li>
-                  <li>Data Structures</li>
-                  <li>Assembly Language and System Programming</li>
-                  <li>Digital Design</li>
-                </ul> */}
-              </li>
-            </ul>
-          </p>
-
-        </li>
+        {schools.map((
+          school: ResumeProps,
+          index: number,
+        ) => (
+          <li className="timeline-item" key={index}>
+            <h4 className="h4 timeline-item-title">{school.title}</h4>
+            <span>{school.duration}</span>
+            {school.description}
+          </li>
+        ))}
       </ol>
+
 
     </section>
   );
