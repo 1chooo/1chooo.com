@@ -4,28 +4,63 @@ import noAdsImage from "../Assets/images/posts/no_ads.png";
 import gitTipsImage from "../Assets/images/posts/git_tips.png";
 import nuphyUnboxingImage from "../Assets/images/posts/nuphy_unboxing.png";
 import reactMappingTipsImage from "../Assets/images/posts/react_mapping_tips.png";
+import nodeNpmInatallImage from "../Assets/images/posts/node_npm_install.jpg";
+import sankeGameImage from "../Assets/images/posts/snake_game.png";
 
 export const blogTags = [
   "All",
   "DevOps",
+  "DevEnv",
   "Projects",
-  "Teaching",
-  "Technology",
   "Interview",
   "Unboxing",
 ];
 
 export interface Post {
-  title     : JSX.Element;
-  category  : string;
-  imageUrl  : string;
-  date      : string;
-  content   : JSX.Element;
-  link      : string;
-  alt       : string;
+  title: JSX.Element;
+  category: string;
+  imageUrl: string;
+  date: string;
+  content: JSX.Element;
+  link: string;
+  alt: string;
 }
 
 export const postsData: Post[] = [
+  {
+    title: (
+      <h3 className="h3 blog-item-title">
+        程式小白對專案還沒想法嗎？來做貪吃蛇玩吧！
+      </h3>
+    ),
+    category: 'Projects',
+    imageUrl: sankeGameImage,
+    date: 'Aug, 24, 2022',
+    content: (
+      <p className="blog-text">
+        還記得當時剛學習程式語言的時候，對於什麼知識都不懂，連搜尋能力也沒有，常常搜不到關鍵字，問題也解決不了，不過當時懵懂無知的狀態，完成了基礎貪吃蛇的小遊戲，所以決定撰寫一篇文章來記錄當時的過程。
+      </p>
+    ),
+    link: 'https://medium.com/@1chooo/%E5%81%9A%E5%80%8B%E5%B0%8F%E8%B2%AA%E5%90%83%E8%9B%87%E4%BE%86%E7%8E%A9%E5%90%A7-5e80b4a3a583',
+    alt: '程式小白對專案還沒想法嗎？來做貪吃蛇玩吧！'
+  },
+  {
+    title: (
+      <h3 className="h3 blog-item-title">
+        如何在 Mac 安裝 <code>Node.js</code> & <code>NPM</code>
+      </h3>
+    ),
+    category: 'DevEnv',
+    imageUrl: nodeNpmInatallImage,
+    date: 'Jan, 04, 2024',
+    content: (
+      <p className="blog-text">
+        新年剛好把 MacOS 重灌，讓這台老 macbook pro 2020 重獲新生，也藉此機會重新建置開發環境。因此我將以 Mac 作為示範如何在成功安裝 Node.js，並且展示成功結果！
+      </p>
+    ),
+    link: 'https://medium.com/@1chooo/%E5%A6%82%E4%BD%95%E5%9C%A8-mac-%E5%AE%89%E8%A3%9D-node-js-npm-3d7101d998f4',
+    alt: '如何在 Mac 安裝 Node.js & NPM'
+  },
   {
     title: (
       <h3 className="h3 blog-item-title">
@@ -34,7 +69,7 @@ export const postsData: Post[] = [
     ),
     category: 'Projects',
     imageUrl: reactMappingTipsImage,
-    date: 'Fab 15, 2024',
+    date: 'Feb, 15, 2024',
     content: (
       <p className="blog-text">
         透過 <code>React TypeScript</code> 和 <code>map()</code>  方法打造更優雅的個人部落格。在這篇文章中，我分享了如何利用 <code>map()</code>  方法來處理部落格文章列表的動態渲染，並展示了 ChatGPT 提供的修改建議和實作過程中的思考。
@@ -51,7 +86,7 @@ export const postsData: Post[] = [
     ),
     category: 'Unboxing',
     imageUrl: noAdsImage,
-    date: 'Feb 11, 2024',
+    date: 'Feb, 11, 2024',
     content: (
       <p className="blog-text">
         在這個廣告橫行的 YouTube 時代，享受影片卻不被廣告干擾的感覺真是太棒了！透過 Brave 瀏覽器，我終於找到了解脫的方法，而且完全不必花錢購買 Premium。讓我們一起換個方式，享受無廣告的 YouTube 世界吧！
@@ -68,7 +103,7 @@ export const postsData: Post[] = [
     ),
     category: 'DevOps',
     imageUrl: gitTipsImage,
-    date: 'Fab 23, 2022',
+    date: 'Feb, 23, 2022',
     content: (
       <p className="blog-text">
         兼顧安全及隱私，利用 <code>ssh key</code>，<code>push</code> 到 GitHub 再也不需要打密碼了 🔑
@@ -85,7 +120,7 @@ export const postsData: Post[] = [
     ),
     category: 'Unboxing',
     imageUrl: nuphyUnboxingImage,
-    date: 'Fab 23, 2022',
+    date: 'Feb, 23, 2022',
     content: (
       <p className="blog-text">
         對於機械鍵盤小白的我來說，每個軸體、手感、鍵帽等⋯⋯挑選鍵盤的考量對我來說都非常新奇，身為曾經買過一把機械鍵盤的我來說，正是個適合探索更多鍵盤的時機，於是決定購入觀望已久的鍵盤品牌 Nuphy — Halo 65。
@@ -95,3 +130,76 @@ export const postsData: Post[] = [
     alt: '兼具顏值手感的 Nuphy 鍵盤初體驗！！！',
   },
 ];
+
+
+// Ascend Blog by date
+// still need to add try catch for dateStr
+function ascendBlogByDate(
+  postsData: Post[]
+): Post[] {
+
+  const months: { [key: string]: number } = {
+    "Jan": 0, "Feb": 1, "Mar": 2,
+    "Apr": 3, "May": 4, "Jun": 5,
+    "Jul": 6, "Aug": 7, "Sep": 8,
+    "Oct": 9, "Nov": 10, "Dec": 11
+  };
+
+  const getDateObject = (dateStr: string) => {
+    const [month, day, year] = dateStr.split(", ");
+
+    return new Date(
+      parseInt(year),
+      months[month],
+      parseInt(day)
+    );
+  };
+
+  return postsData.sort((
+    a: Post,
+    b: Post
+  ): number => {
+    const dateA = getDateObject(a.date);
+    const dateB = getDateObject(b.date);
+
+    return dateA.getTime() - dateB.getTime();
+  });
+}
+
+
+// Descend Blog by date
+// still need to add try catch for dateStr
+function descendBlogByDate(
+  postsData: Post[]
+): Post[] {
+  
+  const months: { [key: string]: number } = {
+    "Jan": 0, "Feb": 1, "Mar": 2,
+    "Apr": 3, "May": 4, "Jun": 5,
+    "Jul": 6, "Aug": 7, "Sep": 8,
+    "Oct": 9, "Nov": 10, "Dec": 11
+  };
+
+  const getDateObject = (dateStr: string) => {
+    const [month, day, year] = dateStr.split(", ");
+
+    return new Date(
+      parseInt(year),
+      months[month],
+      parseInt(day)
+    );
+  };
+
+  return postsData.sort((
+    a: Post,
+    b: Post
+  ): number => {
+    const dateA = getDateObject(a.date);
+    const dateB = getDateObject(b.date);
+
+    return dateB.getTime() - dateA.getTime();
+  });
+}
+
+descendBlogByDate(postsData);
+// ascendBlogByDate(postsData);
