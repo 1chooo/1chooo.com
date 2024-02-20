@@ -7,7 +7,7 @@ import {
 } from '../../Config/ResumeData';
 
 
-const AwardsLeaderships: React.FC = () => {
+const AwardLeaderships: React.FC = () => {
   return (
     <section className="timeline">
 
@@ -36,4 +36,4 @@ const AwardsLeaderships: React.FC = () => {
   );
 }
 
-export default AwardsLeaderships;
+export default AwardLeaderships;
