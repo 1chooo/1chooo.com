@@ -5,7 +5,7 @@ import DownloadCV from "./DownloadCV";
 import Education from "./Education";
 import Working from "./Working";
 import Teaching from "./Teaching";
-import AwardsLeaderships from "./AwardsLeaderships";
+import AwardLeaderships from "./AwardLeaderships";
 
 
 import {
@@ -36,7 +36,7 @@ const Resume: React.FC = () => {
 
           <Working />
 
-          <AwardsLeaderships />
+          <AwardLeaderships />
 
           <Teaching />
         </article>
