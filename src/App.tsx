@@ -21,6 +21,7 @@ import Preloader from "../src/components/Pre";
 import Blog from "./components/Blog/Blog";
 import Portfolio from "./components/Portfolio/Portfolio";
 import ScrollToTop from "./components/ScrollToTop";
+import Docs from "./components/Docs/Docs";
 
 function App() {
 
@@ -92,6 +93,18 @@ function App() {
               <ScrollToTop />
               <Preloader load={load} />
               <Contact />
+              <Footer />
+            </>
+          }
+        />
+
+        <Route
+          path="/docs"
+          element={
+            <>
+              <ScrollToTop />
+              <Preloader load={load} />
+              <Docs />
               <Footer />
             </>
           }

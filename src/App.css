@@ -541,6 +541,25 @@ main {
 
 
 /*-----------------------------------*\
+    #DOCS
+\*-----------------------------------*/
+
+.docs .article-title {
+    margin-bottom: 15px;
+}
+
+.docs-text {
+    color: var(--light-gray);
+    font-size: var(--fs-6);
+    font-weight: var(--fw-300);
+    line-height: 1.6;
+}
+
+.docs-text p {
+    margin-bottom: 15px;
+}
+
+/*-----------------------------------*\
     #ABOUT
 \*-----------------------------------*/
 
@@ -1741,6 +1760,18 @@ textarea.form-input::-webkit-resizer {
     }
 
 
+
+    /**
+    * # DOCS
+    */
+
+    .docs .article-title {
+        margin-bottom: 20px;
+    }
+
+    .docs-text {
+        margin-bottom: 40px;
+    }
 
     /**
     * #ABOUT
