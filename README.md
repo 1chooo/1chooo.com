@@ -1,21 +1,25 @@
-<!-- <a href="https://novel.sh">
-  <img alt="Novel is a Notion-style WYSIWYG editor with AI-powered autocompletions." src="https://novel.sh/opengraph-image.png">
-  <h1 align="center">Novel</h1>
+<h1 align="center">1chooo.com</h1>
+
+<a href="https://1chooo.com">
+  <img alt="1chooo.com Home Page" src="./src/Assets/images/projects/react_vcard_portfolio.png">
 </a>
 
-<p align="center">
-  An open-source Notion-style WYSIWYG editor with AI-powered autocompletions. 
-</p>
+<h3 align="center">
+    <b><i>The Source Code of my Website.</i></b>
+</h3>
 
 <p align="center">
-  <a href="https://news.ycombinator.com/item?id=36360789"><img src="https://img.shields.io/badge/Hacker%20News-369-%23FF6600" alt="Hacker News"></a>
+    <i>Transform the codewithsadee/vcard-personal-portfolio to a React with TypeScript template for enhancing the blog page</i>
+</p>
+
+<!-- <p align="center">
   <a href="https://github.com/steven-tey/novel/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/steven-tey/novel?label=license&logo=github&color=f80&logoColor=fff" alt="License" />
+    <img src="https://img.shields.io/github/license/1chooo/1chooo.com?label=license&logo=github&color=blue&logoColor=fff&style=for-the-badge" alt="License" />
   </a>
-  <a href="https://github.com/steven-tey/novel"><img src="https://img.shields.io/github/stars/steven-tey/novel?style=social" alt="Novel.sh's GitHub repo"></a>
-</p>
+  <a href="https://github.com/1chooo/1chooo.com"><img src="https://img.shields.io/github/stars/1chooo/1chooo.com?style=for-the-badge" alt="Novel.sh's GitHub repo"></a>
+</p> -->
 
-<p align="center">
+<!-- <p align="center">
   <a href="#introduction"><strong>Introduction</strong></a> ·
   <a href="#installation"><strong>Installation</strong></a> ·
   <a href="#deploy-your-own"><strong>Deploy Your Own</strong></a> ·
@@ -26,15 +30,57 @@
 </p>
 <br/> -->
 
-# 1chooo.com
+## Getting Started with Create React App
 
-<p>
-	<img src="./src/Assets/images/projects/react_vcard_portfolio.png"/>
-</p>
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-<p align="center">
-    <b><i>The Source Code of my Website.</i></b>
-</p>
+```shell
+sudo npx create-react-app . --template typescript
+sudo chown -R $(whoami) .
+```
+
+### Available Scripts
+
+In the project directory, you can run:
+
+#### `npm start`
+
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+
+The page will reload if you make edits.\
+You will also see any lint errors in the console.
+
+#### `npm test`
+
+Launches the test runner in the interactive watch mode.\
+See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+
+#### `npm run build`
+
+Builds the app for production to the `build` folder.\
+It correctly bundles React in production mode and optimizes the build for the best performance.
+
+The build is minified and the filenames include the hashes.\
+Your app is ready to be deployed!
+
+See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+
+#### `npm run eject`
+
+**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+
+If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+
+Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+
+You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+
+### Learn More
+
+You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+
+To learn React, check out the [React documentation](https://reactjs.org/).
 
 
 ## CONTACT INFO.
