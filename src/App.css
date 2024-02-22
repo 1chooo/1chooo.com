@@ -953,6 +953,11 @@ main {
     margin-left: 45px;
 }
 
+.relevant-courses-list {
+    font-size: var(--fs-6);
+    margin-left: 25px;
+}
+
 .timeline-item {
     position: relative;
 }
@@ -967,6 +972,11 @@ main {
     margin-bottom: 7px;
 }
 
+.relevant-courses-list span {
+    color: var(--vegas-gold);
+    font-weight: var(--fw-400);
+    line-height: 1.6;
+}
 .timeline-list span {
     color: var(--vegas-gold);
     font-weight: var(--fw-400);
@@ -1908,6 +1918,10 @@ textarea.form-input::-webkit-resizer {
     /**
     * #RESUME
     */
+
+    .relevant-courses-list {
+        margin-left: 25px;
+    }
 
     .timeline-list {
         margin-left: 65px;

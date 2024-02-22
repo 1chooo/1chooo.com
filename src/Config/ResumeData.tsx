@@ -1,5 +1,3 @@
-
-
 export interface ResumeProps {
   title: string;
   duration: string;
@@ -188,17 +186,29 @@ export const schools: ResumeProps[] = [
         <p className="timeline-text">
           <ul>
             <li>
-              <strong>💻 Relevant Courses: </strong>
-              The Attack and Defense of Computers,
-              Linux And Edge Computing,
-              Principles of Programming Languages,
-              Computer Network,
-              Algorithmics,
-              Data Structures,
-              Assembly Language and System Programming,
-              Degital Design,
-              Weather and Artificial Intelligence,
-              Numerical Analysis.
+              <em><strong>💻 Relevant Courses: </strong></em>
+
+              <ul className="relevant-courses-list">
+                <strong>🧳 Graduate: </strong>
+                The Attack and Defense of Computers,
+                Software Engineering,
+                Object-Oriented Analysis and Design,
+              </ul>
+
+              <ul className="relevant-courses-list">
+                <strong>🧳 Undergraduate: </strong>
+                Linux And Edge Computing,
+                Principles of Programming Languages,
+                Operating System,
+                Computer Organization,
+                Computer Network,
+                Algorithmics,
+                Data Structures,
+                Assembly Language and System Programming,
+                Digital Design,
+                Weather and Artificial Intelligence,
+                Numerical Analysis.
+              </ul>
             </li>
           </ul>
         </p>
@@ -206,6 +216,7 @@ export const schools: ResumeProps[] = [
     ],
   },
 ];
+
 
 
 export const careers: ResumeProps[] = [
