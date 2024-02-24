@@ -11,7 +11,7 @@ import AboutText from "./AboutText";
 import LifeStyles from "./LifeStyles";
 import Github from "./Github";
 import TechStack from "./TechStack";
-import Clients from "./Clients";
+// import Clients from "./Clients";
 
 
 const About: React.FC = ( ) => {
@@ -40,7 +40,7 @@ const About: React.FC = ( ) => {
           
           <Github />
 
-          <Clients />
+          {/* <Clients /> */}
 
         </article>
       </div>
