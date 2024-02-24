@@ -22,6 +22,7 @@ const Clients: React.FC = ( ) => {
           <img
             src={chaewonImage}
             alt="ChaeWon Image"
+            loading="lazy"
           />
         </li>
 
@@ -29,6 +30,7 @@ const Clients: React.FC = ( ) => {
           <img
             src={yoonaImage}
             alt="Yoona Image"
+            loading="lazy"
           />
         </li>
 
@@ -36,6 +38,7 @@ const Clients: React.FC = ( ) => {
           <img
             src={yoonaImage2}
             alt="Yoona Image"
+            loading="lazy"
           />
         </li>
 
@@ -43,6 +46,7 @@ const Clients: React.FC = ( ) => {
           <img
             src={yujinImage}
             alt="YuJin Image"
+            loading="lazy"
           />
         </li>
 
@@ -50,6 +54,7 @@ const Clients: React.FC = ( ) => {
           <img
             src={chaewonImage3}
             alt="ChaeWon Image"
+            loading="lazy"
           />
         </li>
       </ul>
