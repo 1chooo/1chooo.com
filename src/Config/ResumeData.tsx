@@ -186,29 +186,24 @@ export const schools: ResumeProps[] = [
         <p className="timeline-text">
           <ul>
             <li>
-              <em><strong>💻 Relevant Courses: </strong></em>
-
-              <ul className="relevant-courses-list">
-                <strong>🧳 Graduate: </strong>
-                The Attack and Defense of Computers,
-                Software Engineering,
-                Object-Oriented Analysis and Design,
-              </ul>
-
-              <ul className="relevant-courses-list">
-                <strong>🧳 Undergraduate: </strong>
-                Linux And Edge Computing,
-                Principles of Programming Languages,
-                Operating System,
-                Computer Organization,
-                Computer Network,
-                Algorithmics,
-                Data Structures,
-                Assembly Language and System Programming,
-                Digital Design,
-                Weather and Artificial Intelligence,
-                Numerical Analysis.
-              </ul>
+              <em><strong>💻 Relevant Courses (Graduate): </strong></em>
+              The Attack and Defense of Computers,
+              Software Engineering,
+              Object-Oriented Analysis and Design,
+            </li>
+            <li>
+              <em><strong>💻 Relevant Courses (Undergraduate): </strong></em>
+              Linux And Edge Computing,
+              Principles of Programming Languages,
+              Operating System,
+              Computer Organization,
+              Computer Network,
+              Algorithmics,
+              Data Structures,
+              Assembly Language and System Programming,
+              Digital Design,
+              Weather and Artificial Intelligence,
+              Numerical Analysis.
             </li>
           </ul>
         </p>
