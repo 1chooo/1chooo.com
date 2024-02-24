@@ -5,6 +5,8 @@ import dumbBellImage from "../Assets/images/icons/dumbbell.png";
 import developerImage from "../Assets/images/icons/developer.png";
 import cameraImage from "../Assets/images/icons/camera.png";
 
+export const aboutHeader: string = "About Hugo 👨🏻‍💻";
+
 export const messages: JSX.Element[] = [
   (
     <p key="announcement">
