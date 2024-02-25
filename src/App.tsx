@@ -16,7 +16,7 @@ import './App.css';
 import About from "./components/About/About";
 import Contact from "./components/Contact/Contact";
 import Resume from "./components/Resume/Resume";
-import Footer from "./components/Footer";
+// import Footer from "./components/Footer";
 import Preloader from "../src/components/Pre";
 import Blog from "./components/Blog/Blog";
 import Portfolio from "./components/Portfolio/Portfolio";
@@ -45,7 +45,7 @@ function App() {
               <ScrollToTop />
               <Preloader load={load} />
               <About />
-              <Footer />
+              {/* <Footer /> */}
             </>
           }
         />
@@ -57,7 +57,7 @@ function App() {
               <ScrollToTop />
               <Preloader load={load} />
               <Resume />
-              <Footer />
+              {/* <Footer /> */}
             </>
           }
         />
@@ -69,7 +69,7 @@ function App() {
               <ScrollToTop />
               <Preloader load={load} />
               <Portfolio />
-              <Footer />
+              {/* <Footer /> */}
             </>
           }
         />
@@ -81,7 +81,7 @@ function App() {
               <ScrollToTop />
               <Preloader load={load} />
               <Blog />
-              <Footer />
+              {/* <Footer /> */}
             </>
           }
         />
@@ -93,7 +93,7 @@ function App() {
               <ScrollToTop />
               <Preloader load={load} />
               <Contact />
-              <Footer />
+              {/* <Footer /> */}
             </>
           }
         />
@@ -105,7 +105,7 @@ function App() {
               <ScrollToTop />
               <Preloader load={load} />
               <Docs />
-              <Footer />
+              {/* <Footer /> */}
             </>
           }
         />
