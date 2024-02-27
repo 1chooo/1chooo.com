@@ -13,7 +13,7 @@ import {
 import './App.css';
 
 
-import About from "./components/About/About";
+import About from "./Page/About";
 import Contact from "./components/Contact/Contact";
 import Resume from "./components/Resume/Resume";
 // import Footer from "./components/Footer";
