@@ -3,15 +3,15 @@ import {
   useLocation
 } from 'react-router-dom';
 
-import { aboutHeader } from "../../Config/AboutData";
+import { aboutHeader } from "../Config/AboutData";
 
-import NavBar from "../Navbar";
-import Sidebar from "../SideBar/SideBar";
-import AboutText from "./AboutText";
-import LifeStyles from "./LifeStyles";
-import Github from "./Github";
-import TechStack from "./TechStack";
-import Clients from "./Clients";
+import NavBar from "../components/Navbar";
+import Sidebar from "../components/SideBar/SideBar";
+import AboutText from "../components/About/AboutText";
+import LifeStyles from "../components/About/LifeStyles";
+import Github from "../components/About/Github";
+import TechStack from "../components/About/TechStack";
+import Clients from "../components/About/Clients";
 
 
 const About: React.FC = () => {
