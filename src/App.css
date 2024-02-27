@@ -1554,8 +1554,16 @@ textarea.form-input::-webkit-resizer {
 \*-----------------------------------*/
 
 /**
-* responsive larger than 450px screen
+* responsive larger than 250px screen
 */
+
+@media (min-width: 250px) {
+
+    .techstack-item {
+        min-width: calc(25% - 20px);
+    }
+
+}
 
 /**
 * responsive larger than 375px screen
@@ -1573,7 +1581,7 @@ textarea.form-input::-webkit-resizer {
 
 
     .techstack-item {
-        min-width: calc(10% - 20px);
+        min-width: calc(20% - 10px);
     }
 
 
@@ -1588,6 +1596,10 @@ textarea.form-input::-webkit-resizer {
     }
 
 }
+
+/**
+* responsive larger than 450px screen
+*/
 
 @media (min-width: 450px) {
 
@@ -1613,6 +1625,10 @@ textarea.form-input::-webkit-resizer {
     .project-img,
     .blog-banner-box {
         height: auto;
+    }
+
+    .techstack-item {
+        min-width: calc(15% - 10px);
     }
 
 }
@@ -1918,7 +1934,7 @@ textarea.form-input::-webkit-resizer {
 
 
     .techstack-item {
-        min-width: calc(10% - 20px);
+        min-width: calc(15% - 20px);
     }
 
 
@@ -2067,6 +2083,8 @@ textarea.form-input::-webkit-resizer {
     .modal-avatar-box img {
         width: 80px;
     }
+
+    
 
 
 
