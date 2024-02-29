@@ -1,11 +1,11 @@
 import React from "react";
-import NavBar from "../Navbar";
-import Sidebar from "../SideBar/SideBar";
-import DownloadCV from "./DownloadCV";
-import Education from "./Education";
-import Working from "./Working";
-import Teaching from "./Teaching";
-import AwardLeaderships from "./AwardLeaderships";
+import NavBar from "../components/Navbar";
+import Sidebar from "../components/SideBar/SideBar";
+import DownloadCV from "../components/Resume/DownloadCV";
+import Education from "../components/Resume/Education";
+import Working from "../components/Resume/Working";
+import Teaching from "../components/Resume/Teaching";
+import AwardLeaderships from "../components/Resume/AwardLeaderships";
 
 
 import {
