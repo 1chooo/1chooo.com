@@ -2,18 +2,18 @@ import React, {
   useState,
 } from 'react';
 
-import Sidebar from "../SideBar/SideBar";
-import NavBar from "../Navbar";
+import Sidebar from "../components/SideBar/SideBar";
+import NavBar from "../components/Navbar";
 
 import {
   useLocation
 } from 'react-router-dom';
 
 
-import BlogPosts from "./BlogPosts";
+import Projects from "../components/Portfolio/Projects";
 
 
-const Blog = () => {
+const Portfolio = () => {
 
   const location = useLocation();
 
@@ -98,14 +98,14 @@ const Blog = () => {
         <NavBar />
 
         <article
-          className={`blog ${location.pathname === '/blog' ? 'active' : ''}`}
-          data-page="blog"
+          className={`portfolio ${location.pathname === '/portfolio' ? 'active' : ''}`}
+          data-page="portfolio"
         >
           <header>
-            <h2 className="h2 article-title">Blog</h2>
+            <h2 className="h2 article-title">Portfolio</h2>
           </header>
 
-          <BlogPosts />
+          <Projects />
 
         </article>
 
@@ -115,4 +115,4 @@ const Blog = () => {
   );
 }
 
-export default Blog;
+export default Portfolio;
