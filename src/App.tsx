@@ -15,11 +15,10 @@ import './App.css';
 
 import About from "./Page/About";
 import Contact from "./components/Contact/Contact";
-import Resume from "./components/Resume/Resume";
-// import Footer from "./components/Footer";
+import Resume from "./Page/Resume";
 import Preloader from "../src/components/Pre";
-import Blog from "./components/Blog/Blog";
-import Portfolio from "./components/Portfolio/Portfolio";
+import Blog from "./Page/Blog";
+import Portfolio from "./Page/Portfolio";
 import ScrollToTop from "./components/ScrollToTop";
 import Docs from "./components/Docs/Docs";
 
