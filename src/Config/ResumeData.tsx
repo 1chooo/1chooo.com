@@ -258,16 +258,9 @@ export const careers: ResumeProps[] = [
               AWS cloud computing services <strong>(Lex, Amazon S3, Lambda, API Gateway)</strong>.
             </li>
             <li>
-              ☁️ <strong>Develop</strong> an open-source
-              project called <strong>"AWS 101 LINE Bot"</strong> designed
-              for integration with <strong>AWS 101</strong>. This initiative
-              led to contacting <strong><a
-                className="code-highlight-yellow"
-                href="https://linecorp.com/en/"
-                target="_blank"
-                rel="noreferrer"
-              >LINE Company</a></strong> and securing
-              the opportunity to organize a visit to the company.
+              ☁️ <strong>Develop</strong> an Open-Source project titled <strong>"AWS 101 LINE Bot"</strong> aimed at 
+              seamlessly integrating with AWS 101. This project will utilize 
+              <code className="code-highlight-yellow"> Python Line-bot-sdk, Flask, S3, AWS Lambda, and API Gateway</code>.
             </li>
             <li>
               ☁️ <strong>Technical Support</strong> within the
