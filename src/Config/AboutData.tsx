@@ -10,7 +10,7 @@ export const aboutHeader: string = "About Hugo 👨🏻‍💻";
 export const messages: JSX.Element[] = [
   (
     <p key="announcement">
-      <h4>📢 Incoming <code className="code-highlight-yellow">2024 eCloudvalley Intern - Cloud Developer 👨🏻‍💻</code></h4>
+      <h4>📢 <code className="code-highlight-yellow">2024 eCloudvalley Intern - Cloud Engineer 👨🏻‍💻</code></h4>
     </p>
   ),
   (
