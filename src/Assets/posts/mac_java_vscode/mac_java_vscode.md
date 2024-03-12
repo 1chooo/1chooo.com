@@ -10,14 +10,14 @@
 
 可以透過以下連結來下載 Oracle JDK Development Kit: https://www.oracle.com/java/technologies/downloads/
 
+![](./imgs/01_oracle.png)
+
 > [!NOTE]
 > 大家要挑選適合自己的版本，這裡我們選擇的是 macOS 版本。並且是 intel 版本的 (x64)，如果你的電腦是 M1 芯片的話，請選擇 M1 版本 (ARM64)。
 
 ### 安裝 Oracle JDK Development Kit
 
 我是透過 DMG Installer 的方式來安裝 Oracle JDK Development Kit，接著就是一連串的點擊下一步，直到安裝完成。
-
-![](./imgs/01_oracle.png)
 
 ![](./imgs/02_open_jdk_dmg.png)
 
@@ -26,8 +26,6 @@
 ![](./imgs/04_install.png)
 
 ![](./imgs/05_install.png)
-
-![](./imgs/06_install.png)
 
 ![](./imgs/07_install.png)
 
@@ -54,7 +52,7 @@ javac 21.0.2
 ![env test results](./imgs/09_env_test.png)
 
 
-### 安裝 Visual Studio Code
+### 安裝 Visual Studio Code Extension
 
 我們在 Visual Studio Code 的 Extensions 中搜尋 `Java` 並安裝 `Extension Pack for Java`，同時會連帶把 `debugger` 的套件也一併安裝，這樣我們就可以在 vscode 中開發 Java 程式了。
 
