@@ -6,14 +6,17 @@ import nuphyUnboxingImage from "../Assets/images/posts/nuphy_unboxing.png";
 import reactMappingTipsImage from "../Assets/images/posts/react_mapping_tips.png";
 import nodeNpmInatallImage from "../Assets/images/posts/node_npm_install.jpg";
 import sankeGameImage from "../Assets/images/posts/snake_game.png";
+import python5TipsImage from "../Assets/images/posts/python_5_tips.png";
+import macJavaVSCodeImage from "../Assets/images/posts/mac_java_vscode.png";
 
 export const blogTags = [
   "All",
   "DevOps",
   "DevEnv",
   "Projects",
-  "Interview",
+  // "Interview",
   "Unboxing",
+  "Coding",
 ];
 
 export interface Post {
@@ -27,6 +30,40 @@ export interface Post {
 }
 
 export const postsData: Post[] = [
+  {
+    title: (
+      <h3 className="h3 blog-item-title">
+        如何在 MacOS 安裝 Java + VS Code 開發組合環境
+      </h3>
+    ),
+    category: 'DevEnv',
+    imageUrl: macJavaVSCodeImage,
+    date: 'Mar, 12, 2024',
+    content: (
+      <p className="blog-text">
+        我們會示範如何在 MacOS 上安裝 Java 開發環境，並且透過 Visual Studio Code 來開發 Java 程式，這樣我們可以脫離過去 eclipse 的開發環境，並且可以使用更簡潔的 VSCode 來開發 Java 程式。
+      </p>
+    ),
+    link: 'https://medium.com/@1chooo/%E4%BA%94%E5%80%8B%E5%AD%B8%E6%A0%A1%E6%B2%92%E6%95%99%E4%BD%86%E6%88%91%E6%95%99%E7%9A%84-python-%E5%A5%BD%E7%BF%92%E6%85%A3-c76e6d48f30c',
+    alt: '如何在 MacOS 安裝 Java + VS Code 開發組合環境'
+  },
+  {
+    title: (
+      <h3 className="h3 blog-item-title">
+        🖐🏻 五個學校沒教但我教的 Python 好習慣
+      </h3>
+    ),
+    category: 'Coding',
+    imageUrl: python5TipsImage,
+    date: 'Mar, 16, 2024',
+    content: (
+      <p className="blog-text">
+        在學習基礎程式語言中，我們往往只在乎程式能不能運行，會不會基礎語法，然而很多人沒有累積到專案中實際撰寫的好習慣，因此這篇文章中，我將會討論五個 Python 的好習慣，並且這些事我已經落實在專案中的 Coding Style 希望透過這次的分享能夠幫助看到這邊的你寫出更好的程式碼。
+      </p>
+    ),
+    link: 'https://medium.com/@1chooo/%E4%BA%94%E5%80%8B%E5%AD%B8%E6%A0%A1%E6%B2%92%E6%95%99%E4%BD%86%E6%88%91%E6%95%99%E7%9A%84-python-%E5%A5%BD%E7%BF%92%E6%85%A3-c76e6d48f30c',
+    alt: '🖐🏻 五個學校沒教但我教的 Python 好習慣'
+  },
   {
     title: (
       <h3 className="h3 blog-item-title">
