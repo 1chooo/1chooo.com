@@ -1,5 +1,10 @@
 // PostsDataConfig.tsx
 
+import {
+  descendBlogByDate, 
+  ascendBlogByDate,
+} from "../Utils/SortBlogsByDate";
+
 import noAdsImage from "../Assets/images/posts/no_ads.png";
 import gitTipsImage from "../Assets/images/posts/git_tips.png";
 import nuphyUnboxingImage from "../Assets/images/posts/nuphy_unboxing.png";
@@ -8,6 +13,7 @@ import nodeNpmInatallImage from "../Assets/images/posts/node_npm_install.jpg";
 import sankeGameImage from "../Assets/images/posts/snake_game.png";
 import python5TipsImage from "../Assets/images/posts/python_5_tips.png";
 import macJavaVSCodeImage from "../Assets/images/posts/mac_java_vscode.png";
+import getPublicIPImage from "../Assets/images/posts/how-to-get-public-ip.png";
 
 export const blogTags = [
   "All",
@@ -30,6 +36,23 @@ export interface Post {
 }
 
 export const postsData: Post[] = [
+  {
+    title: (
+      <h3 className="h3 blog-item-title">
+        Three Methods to Find Your Public IP Address From Linux Command Line
+      </h3>
+    ),
+    category: 'DevOps',
+    imageUrl: getPublicIPImage,
+    date: 'Mar, 21, 2024',
+    content: (
+      <p className="blog-text">
+        When we want to connect a remote host through SSH today, sometimes we need to know our public IP address so that we can identify the IP address we are connecting from to the remote host. This article will teach you how to find your public IP address on a Linux system using commands.
+      </p>
+    ),
+    link: 'https://medium.com/@1chooo/three-methods-to-find-your-public-ip-address-from-linux-command-line-14b50bbaf73c',
+    alt: 'Three Methods to Find Your Public IP Address From Linux Command Line'
+  },
   {
     title: (
       <h3 className="h3 blog-item-title">
@@ -143,7 +166,7 @@ export const postsData: Post[] = [
     date: 'Feb, 23, 2022',
     content: (
       <p className="blog-text">
-        兼顧安全及隱私，利用 <code>ssh key</code>，<code>push</code> 到 GitHub 再也不需要打密碼了 🔑
+        每次 git push 都需要輸入帳號密碼，或是每次 git push 都需要輸入密碼，這些都是可以透過 ssh 來解決的，接下來就讓我們一起來看看如何使用 ssh 與 GitHub 連線吧！
       </p>
     ),
     link: 'https://medium.com/@1chooo/%E8%B8%8F%E5%85%A5-git-%E7%9A%84%E4%B8%96%E7%95%8C-%E4%BD%BF%E7%94%A8-ssh-%E8%88%87-github-%E9%80%A3%E7%B7%9A-7324b01349dd',
@@ -167,100 +190,6 @@ export const postsData: Post[] = [
     alt: '兼具顏值手感的 Nuphy 鍵盤初體驗！！！',
   },
 ];
-
-const months: [string, ...string[]] = [
-  "Jan", "Feb", "Mar",
-  "Apr", "May", "Jun",
-  "Jul", "Aug", "Sep",
-  "Oct", "Nov", "Dec"
-];
-
-const getDateObject = (dateStr: string): Date => {
-  if (dateStr.length < 1) {
-    throw new Error(`Invalid dateStr: ${dateStr}!`);
-  }
-  if (!/\w{3}, \d{1,2}, \d{4}/.test(dateStr)) {
-    throw new Error(`Invalid dateStr: ${dateStr}!`);
-  }
-  const [month, day, year] = dateStr.split(", ");
-
-  //validate month
-  if (!months.includes(month)) {
-    throw new Error(`Invalid month in ${dateStr}!`);
-  }
-
-  //validate day
-  if (parseInt(day) < 1 || parseInt(day) > 31) {
-    throw new Error(`Invalid day in ${dateStr}!`);
-  }
-
-  const isLeapYear = (year: number): boolean => {
-    return year % 4 === 0 && (year % 100 !== 0 || year % 400 === 0);
-  };
-
-  //validate day according to month and year
-  if (
-    (isLeapYear(parseInt(year)) && month === "Feb" && parseInt(day) > 29) ||
-    (month === "Feb" && parseInt(day) > 28) ||
-    (["Apr", "Jun", "Sep", "Nov"].includes(month) && parseInt(day) > 30)
-  ) {
-    throw new Error(`Invalid day in ${dateStr}!`);
-  }
-
-
-  const date = new Date(`${year}-${month}-${day}`);
-  if (isNaN(date.getTime())) {
-    throw new Error(`Invalid date in ${dateStr}!`);
-  }
-
-  return date;
-
-};
-
-// Ascend Blog by date
-// still need to add try catch for dateStr
-function ascendBlogByDate(
-  postsData: Post[]
-): Post[] {
-
-  return postsData.sort((
-    a: Post,
-    b: Post
-  ): number => {
-    try {
-      const dateA = getDateObject(a.date);
-      const dateB = getDateObject(b.date);
-
-      return dateA.getTime() - dateB.getTime();
-    } catch (error) {
-      console.trace(error);
-      return 0;
-    }
-  });
-}
-
-
-// Descend Blog by date
-// still need to add try catch for dateStr
-function descendBlogByDate(
-  postsData: Post[]
-): Post[] {
-
-  return postsData.sort((
-    a: Post,
-    b: Post
-  ): number => {
-    try {
-      const dateA = getDateObject(a.date);
-      const dateB = getDateObject(b.date);
-
-      return dateB.getTime() - dateA.getTime();
-    } catch (error) {
-      console.trace(error);
-      return 0;
-    }
-  });
-}
 
 descendBlogByDate(postsData);
 // ascendBlogByDate(postsData);
