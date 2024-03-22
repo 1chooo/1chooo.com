@@ -14,6 +14,7 @@ import sankeGameImage from "../Assets/images/posts/snake_game.png";
 import python5TipsImage from "../Assets/images/posts/python_5_tips.png";
 import macJavaVSCodeImage from "../Assets/images/posts/mac_java_vscode.png";
 import getPublicIPImage from "../Assets/images/posts/how-to-get-public-ip.png";
+import awsSecurityGroupNaclImage from "../Assets/images/posts/aws-security-group-nacl.png";
 
 export const blogTags = [
   "All",
@@ -36,6 +37,23 @@ export interface Post {
 }
 
 export const postsData: Post[] = [
+  {
+    title: (
+      <h3 className="h3 blog-item-title">
+        Comparing Inbound Rules: AWS Security Group vs. Network Access Control List (NACL)
+      </h3>
+    ),
+    category: 'DevOps',
+    imageUrl: awsSecurityGroupNaclImage,
+    date: 'Mar, 22, 2024',
+    content: (
+      <p className="blog-text">
+        During a meeting, we explored a scenario: <b>"If we disable the inbound rule of the Network Access Control List (NACL), the connection will be interrupted. However, if we turn off inbound traffic in the Security Group, would we still be able to connect?"</b> Surprisingly, the answer is YES.
+      </p>
+    ),
+    link: 'https://medium.com/@1chooo/comparing-inbound-rules-aws-security-group-vs-network-access-control-list-nacl-5238214bdba7',
+    alt: 'Comparing Inbound Rules: AWS Security Group vs. Network Access Control List (NACL)'
+  },
   {
     title: (
       <h3 className="h3 blog-item-title">
