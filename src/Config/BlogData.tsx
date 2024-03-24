@@ -40,7 +40,7 @@ export const postsData: Post[] = [
   {
     title: (
       <h3 className="h3 blog-item-title">
-        Comparing Inbound Rules: AWS Security Group vs. Network Access Control List (NACL)
+        Comparing Inbound Rules: AWS Security Group V.S. Network Access Control List (NACL)
       </h3>
     ),
     category: 'DevOps',
