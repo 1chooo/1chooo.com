@@ -15,6 +15,7 @@ import python5TipsImage from "../Assets/images/posts/python_5_tips.png";
 import macJavaVSCodeImage from "../Assets/images/posts/mac_java_vscode.png";
 import getPublicIPImage from "../Assets/images/posts/how-to-get-public-ip.png";
 import awsSecurityGroupNaclImage from "../Assets/images/posts/aws-security-group-nacl.png";
+import gitCommitMessageImage from "../Assets/images/posts/git-commit-message.png";
 
 export const blogTags = [
   "All",
@@ -37,6 +38,23 @@ export interface Post {
 }
 
 export const postsData: Post[] = [
+  {
+    title: (
+      <h3 className="h3 blog-item-title">
+        Git Commit Message 到底怎麼寫才優美？
+      </h3>
+    ),
+    category: 'DevOps',
+    imageUrl: gitCommitMessageImage,
+    date: 'Mar, 26, 2024',
+    content: (
+      <p className="blog-text">
+        在團隊用 Git 協作中，Commit Message 是很重要的一環，好的 Commit 可以讓我們的專案更容易維護，讓我們更容易了解專案的開發過程，我們可以想像是程式碼的註解，不過是針對專案改動的註解。所以我們想要用這個篇幅來介紹一些寫 Commit 的技巧，讓我們的 Commit 更優美。
+      </p>
+    ),
+    link: 'https://medium.com/@1chooo/git-commit-message-%E5%88%B0%E5%BA%95%E6%80%8E%E9%BA%BC%E5%AF%AB%E6%89%8D%E5%84%AA%E7%BE%8E-5b789157b549',
+    alt: 'Git Commit Message 到底怎麼寫才優美？'
+  },
   {
     title: (
       <h3 className="h3 blog-item-title">
