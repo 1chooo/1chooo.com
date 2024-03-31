@@ -58,7 +58,7 @@ export const postsData: Post[] = [
   {
     title: (
       <h3 className="h3 blog-item-title">
-        Comparing Inbound Rules: AWS Security Group V.S. Network Access Control List (NACL)
+        AWS — Comparing Inbound Rules: Security Group vs. Network Access Control List (NACL)
       </h3>
     ),
     category: 'DevOps',
@@ -70,7 +70,7 @@ export const postsData: Post[] = [
       </p>
     ),
     link: 'https://medium.com/@1chooo/comparing-inbound-rules-aws-security-group-vs-network-access-control-list-nacl-5238214bdba7',
-    alt: 'Comparing Inbound Rules: AWS Security Group vs. Network Access Control List (NACL)'
+    alt: 'AWS — Comparing Inbound Rules: Security Group vs. Network Access Control List (NACL)'
   },
   {
     title: (
