@@ -16,6 +16,7 @@ import macJavaVSCodeImage from "../Assets/images/posts/mac_java_vscode.png";
 import getPublicIPImage from "../Assets/images/posts/how-to-get-public-ip.png";
 import awsSecurityGroupNaclImage from "../Assets/images/posts/aws-security-group-nacl.png";
 import gitCommitMessageImage from "../Assets/images/posts/git-commit-message.png";
+import amazonLinux2InstallDockerImage from "../Assets/images/posts/amazon-linux-2-install-docker.png";
 
 export const blogTags = [
   "All",
@@ -38,6 +39,23 @@ export interface Post {
 }
 
 export const postsData: Post[] = [
+  {
+    title: (
+      <h3 className="h3 blog-item-title">
+        如何在 AWS EC2 Amazon Linux 2 上安裝 Docker
+      </h3>
+    ),
+    category: 'DevOps',
+    imageUrl: amazonLinux2InstallDockerImage,
+    date: 'Apr, 11, 2024',
+    content: (
+      <p className="blog-text">
+        在我們需要做 DevOps 時，我們常常會需要用到 Containerization 技術，而 Docker 是目前最為廣泛使用的 Containerization 技術之一。同時我們也可能會用到雲端的算力來幫助我們完成這些工作，因此我們今天將會介紹如何在 Amazon Linux 2 上安裝 Docker。
+      </p>
+    ),
+    link: 'https://medium.com/@1chooo/%E5%A6%82%E4%BD%95%E5%9C%A8-aws-ec2-amazon-linux-2-%E4%B8%8A%E5%AE%89%E8%A3%9D-docker-15ebdc2b7e7b',
+    alt: '如何在 AWS EC2 Amazon Linux 2 上安裝 Docker'
+  },
   {
     title: (
       <h3 className="h3 blog-item-title">
