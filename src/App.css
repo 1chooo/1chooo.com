@@ -985,6 +985,7 @@ main {
     font-weight: var(--fw-400);
     line-height: 1.6;
 }
+
 .timeline-list span {
     color: var(--vegas-gold);
     font-weight: var(--fw-400);
@@ -1094,7 +1095,7 @@ main {
     background: #232f3e;
     height: 100%;
     border-radius: inherit;
-  }
+}
 
 .skill-progress-fill-aws-light {
     background: #FF9900;
@@ -1113,6 +1114,26 @@ main {
     display: inline;
 }
 
+.profession-experience-title {
+    color: var(--orange-yellow-crayola);
+    display: inline;
+}
+
+.profession-experience-duration {
+    float: right;
+    color: var(--white-1);
+    /* 添加你想要的样式 */
+}
+
+.timeline-list p span {
+    float: right;
+    color: var(--white-1);
+}
+
+.timeline-list h4 span {
+    float: right;
+    color: var(--white-1);
+}
 
 /*-----------------------------------*\
     #PORTFOLIO
@@ -1363,6 +1384,7 @@ main {
 .blog-post-item.active>a:hover .blog-banner-box img {
     transform: scale(1.1);
 }
+
 /* .blog-post-item>a:hover .blog-banner-box img {
     transform: scale(1.1);
 } */
@@ -1401,6 +1423,7 @@ main {
 .blog-post-item.active>a:hover .blog-item-title {
     color: var(--orange-yellow-crayola);
 }
+
 /* .blog-post-item>a:hover .blog-item-title {
     color: var(--orange-yellow-crayola);
 } */
@@ -1758,8 +1781,8 @@ textarea.form-input::-webkit-resizer {
         display: none;
     }
 
-    
-    
+
+
 
 
     .separator {
@@ -2084,7 +2107,7 @@ textarea.form-input::-webkit-resizer {
         width: 80px;
     }
 
-    
+
 
 
 
