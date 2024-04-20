@@ -3,8 +3,8 @@ import {
 } from "react-icons/md";
 
 import {
-  ResumeProps,
-  careers
+  ProfessionalExperienceProps,
+  professionalExperiences,
 } from '../../Config/ResumeData';
 
 
@@ -17,18 +17,20 @@ const Working: React.FC = () => {
           <MdOutlineDevices />
         </div>
 
-        <h3 className="h3">Working</h3>
+        <h3 className="h3">Professional Experience</h3>
       </div>
 
       <ol className="timeline-list">
-        {careers.map((
-          career: ResumeProps,
+        {professionalExperiences.map((
+          professionalExperiences: ProfessionalExperienceProps,
           index: number,
         ) => (
           <li className="timeline-item" key={index}>
-            <h4 className="h4 timeline-item-title">{career.title}</h4>
-            <span>{career.duration}</span>
-            {career.description}
+            <h4 className="h4 timeline-item-title">
+              {professionalExperiences.title}
+              <span style={{ float: "right" }}>{professionalExperiences.location}</span>
+            </h4>
+            {professionalExperiences.description}
           </li>
         ))}
       </ol>

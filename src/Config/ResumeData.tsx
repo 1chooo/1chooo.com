@@ -4,8 +4,11 @@ export interface ResumeProps {
   description: JSX.Element[];
 }
 
-// const items = ['Item 1', 'Item 2', 'Item 3'];
-// const symbol = '☁️';
+export interface ProfessionalExperienceProps {
+  title: string;
+  description: JSX.Element[];
+  location: string;
+}
 
 export const courses: ResumeProps[] = [
   {
@@ -216,7 +219,7 @@ export const schools: ResumeProps[] = [
 
 export const careers: ResumeProps[] = [
   {
-    title: "Cloud Developer Intern",
+    title: "eCloudvalley Digital Technology",
     duration: "Mar. 2024 - present.",
     description: [
       (
@@ -227,7 +230,7 @@ export const careers: ResumeProps[] = [
             target="_blank"
             rel="noreferrer"
           >
-            eCloudValley
+            Cloud Engineer Intern
           </a> | 📍 New Taipei, Taiwan
         </p>
       ),
@@ -258,8 +261,8 @@ export const careers: ResumeProps[] = [
               AWS cloud computing services <strong>(Lex, Amazon S3, Lambda, API Gateway)</strong>.
             </li>
             <li>
-              ☁️ <strong>Develop</strong> an Open-Source project titled <strong>"AWS 101 LINE Bot"</strong> aimed at 
-              seamlessly integrating with AWS 101. This project will utilize 
+              ☁️ <strong>Develop</strong> an Open-Source project titled <strong>"AWS 101 LINE Bot"</strong> aimed at
+              seamlessly integrating with AWS 101. This project will utilize
               <code className="code-highlight-yellow"> Python Line-bot-sdk, Flask, S3, AWS Lambda, and API Gateway</code>.
             </li>
             <li>
@@ -334,5 +337,154 @@ export const careers: ResumeProps[] = [
         </p>
       ),
     ],
+  },
+];
+
+export const professionalExperiences: ProfessionalExperienceProps[] = [
+  {
+    title: "eCloudvalley Digital Technology",
+    description: [
+      (
+        <p>
+          <a
+            href="https://www.ecloudture.com/en/internship-program/"
+            className="profession-experience-title"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Cloud Engineer Intern
+          </a>
+          <span className="profession-experience-duration">
+            🗓️ Mar. 2024 - present.
+          </span>
+        </p>
+      ),
+      (
+        <br />
+      ),
+    ],
+    location: "📍 New Taipei, Taiwan"
+  },
+  {
+    title: "Amazon Web Services",
+    description: [
+      (
+        <p>
+          <a
+            href="https://www.ecloudture.com/en/internship-program/"
+            className="profession-experience-title"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Cloud Ambassador Technical Support
+          </a>
+          <span className="profession-experience-duration">
+            🗓️ Aug. 2023 - Jan. 2024
+          </span>
+        </p>
+      ),
+      (
+        <br />
+      ),
+      (
+        <p className="timeline-text">
+          <ul>
+            <li>
+              ☁️ Educated <strong>700+ cloud developers</strong> and
+              achieved 96% of user satisfaction by publishing and
+              lecturing <strong>2+ technical workshops, 1 UAD</strong> on
+              AWS cloud computing services <strong>(Lex, Amazon S3, Lambda, API Gateway)</strong>.
+            </li>
+            <li>
+              ☁️ <strong>Develop</strong> an Open-Source project titled <strong>"AWS 101 LINE Bot"</strong> aimed at
+              seamlessly integrating with AWS 101. This project will utilize
+              <code className="code-highlight-yellow"> Python Line-bot-sdk, Flask, S3, AWS Lambda, and API Gateway</code>.
+            </li>
+            <li>
+              ☁️ <strong>Technical Support</strong> within the
+              <strong> Marketing Program</strong> enhances the technical
+              understanding of marketing team members. This involves a
+              detailed <strong>35+ page</strong> research study accompanied
+              by a comprehensive presentation.
+            </li>
+          </ul>
+        </p>
+      ),
+    ],
+    location: "📍 Taipei, Taiwan",
+  },
+  {
+    title: "PEGATRON Corporation",
+    description: [
+      (
+        <p>
+          <a
+            href="https://www.ecloudture.com/en/internship-program/"
+            className="profession-experience-title"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Software Engineer Intern
+          </a>
+          <span className="profession-experience-duration">
+            🗓️ Jul. 2023 - Aug. 2023
+          </span>
+        </p>
+      ),
+      (
+        <br />
+      ),
+      (
+        <p className="timeline-text">
+          <ul>
+            <li>
+              <em><strong>Smart Robot, Smart World 🦾:</strong> Prompt-based Learning for manipulating with the Visual-World Robot</em>
+            </li>
+            <li>
+              🦾 Implementing <strong>Prompt Engineering and <code>LangChain</code></strong> allows
+              the <strong><a
+                className="code-highlight-yellow"
+                href="https://www.nvidia.com/en-us/omniverse/"
+                target="_blank"
+                rel="noreferrer"
+              >NVIDIA Ominerve visual robot</a></strong> to function
+              through <strong>speech or text</strong>, leading to an <strong>83%</strong> improvement
+              in scenario test support across <strong>6 to 11</strong> scenarios.
+            </li>
+            <li>
+              🦾 During the <strong>Proof of Concept (POC)</strong> phase,
+              transform the trained model into a <strong>Web Application</strong> with
+              a user interface using <strong><code>Gradio</code></strong>, the UI toolkit
+              for the <strong><code>FastAPI</code></strong> framework.
+            </li>
+          </ul>
+        </p>
+      ),
+    ],
+    location: "📍 Taipei, Taiwan",
+  },
+  {
+    title: "National Central University",
+    description: [
+      (
+        <p>
+          <a
+            href="https://www.ecloudture.com/en/internship-program/"
+            className="profession-experience-title"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Website Developer
+          </a>
+          <span className="profession-experience-duration">
+            🗓️ Jul. 2022 - Jan. 2023
+          </span>
+        </p>
+      ),
+      (
+        <br />
+      ),
+    ],
+    location: "📍 Taoyuan, Taiwan"
   },
 ];

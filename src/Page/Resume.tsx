@@ -32,9 +32,9 @@ const Resume: React.FC = () => {
 
           <DownloadCV />
 
-          <Education />
-
           <Working />
+
+          <Education />
 
           <AwardLeaderships />
 
