@@ -354,7 +354,7 @@ export const professionalExperiences: ProfessionalExperienceProps[] = [
           >
             Cloud Engineer Intern
           </a>
-          <span className="profession-experience-duration">
+          <span className="timeline-text">
             🗓️ Mar. 2024 - present.
           </span>
         </p>
@@ -378,7 +378,7 @@ export const professionalExperiences: ProfessionalExperienceProps[] = [
           >
             Cloud Ambassador Technical Support
           </a>
-          <span className="profession-experience-duration">
+          <span className="timeline-text">
             🗓️ Aug. 2023 - Jan. 2024
           </span>
         </p>
@@ -426,7 +426,7 @@ export const professionalExperiences: ProfessionalExperienceProps[] = [
           >
             Software Engineer Intern
           </a>
-          <span className="profession-experience-duration">
+          <span className="timeline-text">
             🗓️ Jul. 2023 - Aug. 2023
           </span>
         </p>
@@ -476,7 +476,7 @@ export const professionalExperiences: ProfessionalExperienceProps[] = [
           >
             Website Developer
           </a>
-          <span className="profession-experience-duration">
+          <span className="timeline-text">
             🗓️ Jul. 2022 - Jan. 2023
           </span>
         </p>
