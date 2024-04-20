@@ -3,7 +3,7 @@ import {
   useLocation
 } from 'react-router-dom';
 
-import { aboutHeader } from "../Config/AboutData";
+import { aboutHeader } from "../Config/About/AboutData";
 
 import NavBar from "../components/Navbar";
 import Sidebar from "../components/SideBar/SideBar";
@@ -12,6 +12,7 @@ import LifeStyles from "../components/About/LifeStyles";
 import Github from "../components/About/Github";
 import TechStack from "../components/About/TechStack";
 import Clients from "../components/About/Clients";
+import Testimonial from "../components/About/Testimonial";
 
 
 const About: React.FC = () => {
@@ -46,6 +47,7 @@ const About: React.FC = () => {
           <Github />
 
           {/* <Clients /> */}
+          {/* <Testimonial /> */}
 
         </article>
       </div>
