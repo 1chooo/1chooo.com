@@ -19,7 +19,7 @@ export const professionalExperiences: ProfessionalExperienceProps[] = [
             Cloud Engineer Intern
           </a>
           <span className="profession-experience-duration">
-            🗓️ Mar. 2024 - present.
+            🗓️ Mar. 2024 - May. 2024
           </span>
         </p>
       ),
