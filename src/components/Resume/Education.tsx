@@ -3,9 +3,10 @@ import {
 } from "react-icons/io5";
 
 import {
-  ResumeProps,
-  schools,
+  EducationProps,
+  newEducation,
 } from '../../Config/ResumeData';
+
 
 const Education: React.FC = () => {
   return (
@@ -20,14 +21,16 @@ const Education: React.FC = () => {
       </div>
 
       <ol className="timeline-list">
-        {schools.map((
-          school: ResumeProps,
+        {newEducation.map((
+          newEducation: EducationProps,
           index: number,
         ) => (
           <li className="timeline-item" key={index}>
-            <h4 className="h4 timeline-item-title">{school.title}</h4>
-            <span>{school.duration}</span>
-            {school.description}
+            <h4 className="h4 timeline-item-title">
+              {newEducation.title}
+              <span style={{ float: "right" }}>{newEducation.location}</span>
+            </h4>
+            {newEducation.description}
           </li>
         ))}
       </ol>
