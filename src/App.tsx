@@ -73,17 +73,16 @@ function App() {
           }
         />
 
-        <Route
+        {/* <Route
           path="/blog"
           element={
             <>
               <ScrollToTop />
               <Preloader load={load} />
               <Blog />
-              {/* <Footer /> */}
             </>
           }
-        />
+        /> */}
 
         <Route
           path="/contact"
