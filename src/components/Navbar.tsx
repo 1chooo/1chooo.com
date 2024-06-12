@@ -3,7 +3,7 @@ import {
     Link, useLocation
 } from 'react-router-dom';
 
-function NavBar() {
+const NavBar: React.FC = () => {
     const location = useLocation();
 
     return (
@@ -33,12 +33,24 @@ function NavBar() {
                     </Link>
                 </li>
 
-                <li className="navbar-item">
+                {/* <li className="navbar-item">
                     <Link
                         to="/blog"
                         className={`navbar-link ${location.pathname === '/blog' ? 'active' : ''}`}
                     >Blog
+                        
                     </Link>
+                </li> */}
+
+                <li className="navbar-item">
+                    <a
+                        href="https://blog.1chooo.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className={`navbar-link ${location.pathname === '/blog' ? 'active' : ''}`}
+                    >
+                        Blog
+                    </a>
                 </li>
 
                 <li className="navbar-item">
