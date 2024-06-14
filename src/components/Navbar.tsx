@@ -33,16 +33,16 @@ const NavBar: React.FC = () => {
                     </Link>
                 </li>
 
-                {/* <li className="navbar-item">
+                <li className="navbar-item">
                     <Link
                         to="/blog"
                         className={`navbar-link ${location.pathname === '/blog' ? 'active' : ''}`}
                     >Blog
                         
                     </Link>
-                </li> */}
+                </li>
 
-                <li className="navbar-item">
+                {/* <li className="navbar-item">
                     <a
                         href="https://blog.1chooo.com/"
                         target="_blank"
@@ -51,7 +51,7 @@ const NavBar: React.FC = () => {
                     >
                         Blog
                     </a>
-                </li>
+                </li> */}
 
                 <li className="navbar-item">
                     <Link

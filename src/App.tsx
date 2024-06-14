@@ -73,7 +73,7 @@ function App() {
           }
         />
 
-        {/* <Route
+        <Route
           path="/blog"
           element={
             <>
@@ -82,7 +82,7 @@ function App() {
               <Blog />
             </>
           }
-        /> */}
+        />
 
         <Route
           path="/contact"
