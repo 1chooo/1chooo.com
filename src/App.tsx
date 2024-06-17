@@ -44,7 +44,6 @@ function App() {
               <ScrollToTop />
               <Preloader load={load} />
               <About />
-              {/* <Footer /> */}
             </>
           }
         />
@@ -56,7 +55,6 @@ function App() {
               <ScrollToTop />
               <Preloader load={load} />
               <Resume />
-              {/* <Footer /> */}
             </>
           }
         />
@@ -68,7 +66,6 @@ function App() {
               <ScrollToTop />
               <Preloader load={load} />
               <Portfolio />
-              {/* <Footer /> */}
             </>
           }
         />
@@ -91,7 +88,6 @@ function App() {
               <ScrollToTop />
               <Preloader load={load} />
               <Contact />
-              {/* <Footer /> */}
             </>
           }
         />
@@ -103,7 +99,6 @@ function App() {
               <ScrollToTop />
               <Preloader load={load} />
               <Docs />
-              {/* <Footer /> */}
             </>
           }
         />
