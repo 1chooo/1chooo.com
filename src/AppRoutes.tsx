@@ -1,12 +1,12 @@
 import React from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 
-import About from "./Page/About";
+import About from "./page/about";
 import Contact from "./components/Contact/Contact";
-import Resume from "./Page/Resume";
+import Resume from "./page/resume";
 import Preloader from "../src/components/Pre";
-import Blog from "./Page/Blog";
-import Portfolio from "./Page/Portfolio";
+import Blog from "./page/blog";
+import Portfolio from "./page/portfolio";
 import ScrollToTop from "./components/ScrollToTop";
 import Docs from "./components/Docs/Docs";
 
