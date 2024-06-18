@@ -3,7 +3,7 @@
 import {
   descendBlogByDate, 
   ascendBlogByDate,
-} from "../Utils/SortBlogsByDate";
+} from "../utils/sortBlogsByDate";
 
 import noAdsImage from "../Assets/images/posts/no_ads.png";
 import gitTipsImage from "../Assets/images/posts/git_tips.png";
