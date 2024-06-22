@@ -1,11 +1,11 @@
 import React from "react";
-import NavBar from "../components/Navbar";
-import Sidebar from "../components/SideBar/SideBar";
-import DownloadCV from "../components/Resume/DownloadCV";
-import Education from "../components/Resume/Education";
-import Working from "../components/Resume/Working";
-import Teaching from "../components/Resume/Teaching";
-import AwardLeaderships from "../components/Resume/AwardLeaderships";
+import NavBar from "../../components/Navbar";
+import Sidebar from "../../components/SideBar/SideBar";
+import DownloadCV from "../../components/Resume/DownloadCV";
+import Education from "../../components/Resume/Education";
+import Working from "../../components/Resume/Working";
+import Teaching from "../../components/Resume/Teaching";
+import AwardLeaderships from "../../components/Resume/AwardLeaderships";
 
 
 import {
@@ -46,3 +46,4 @@ const Resume: React.FC = () => {
 }
 
 export default Resume;
+
