@@ -1,12 +1,12 @@
 import React, { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 
-import Sidebar from "../components/SideBar/SideBar";
-import NavBar from "../components/Navbar";
-import BlogPosts from "../components/Blog/BlogPosts";
+import Sidebar from "../../components/SideBar/SideBar";
+import NavBar from "../../components/Navbar";
+import BlogPosts from "../../components/blog/blogPosts";
 import {
   initializeCustomSelect, filterItemsByCategory
-} from "../utils/domUtils";
+} from "../../utils/domUtils";
 
 const Blog = () => {
   const location = useLocation();

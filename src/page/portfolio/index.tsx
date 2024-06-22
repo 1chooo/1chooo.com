@@ -2,12 +2,12 @@ import React, { useEffect } from "react";
 import { useLocation } from 'react-router-dom';
 
 
-import Sidebar from "../components/SideBar/SideBar";
-import NavBar from "../components/Navbar";
-import Projects from "../components/Portfolio/Projects";
+import Sidebar from "../../components/SideBar/SideBar";
+import NavBar from "../../components/Navbar";
+import Projects from "../../components/portfolio/projects";
 import {
   initializeCustomSelect, filterItemsByCategory
-} from "../utils/domUtils";
+} from "../../utils/domUtils";
 
 
 const Portfolio = () => {
