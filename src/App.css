@@ -106,6 +106,10 @@
 }
 
 .pagination-btn {
+     /* adjust the text to the center */
+    display: flex;
+    align-items: center;
+    justify-content: center;
     background: var(--border-gradient-onyx);
     border: none;
     padding: 10px 15px;
@@ -121,12 +125,12 @@
 
 .pagination-btn.active {
     color: hsl(45, 100%, 71%);
+    animation: scaleUp 0.25s ease forwards;
 }
 
 .pagination-btn:hover {
     background-color: hsl(45, 100%, 71%);
 }
-
 
 
 /*-----------------------------------*\
