@@ -1,26 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { MdExpandMore } from 'react-icons/md';
 import { blogTags, postsData, Post } from '../../Config/BlogData';
+import { filterFunc, handleItemClick } from '../../utils/filterUtils';
 
 const BlogPosts: React.FC = () => {
+
   const [selectedValue, setSelectedValue] = useState('All');
   const [isSelectActive, setIsSelectActive] = useState(false);
 
   useEffect(() => {
-    handleItemClick('All');
+    handleItemClick('All', setSelectedValue);
   }, []);
 
-  const handleItemClick = (value: string) => {
-    setSelectedValue(value);
-  };
-
-  const filterFunc = (selectedValue: string) => {
-    return selectedValue === 'All'
-      ? postsData
-      : postsData.filter((post) => post.category.toLowerCase() === selectedValue.toLowerCase());
-  };
-
-  const filteredPosts = filterFunc(selectedValue);
+  const filteredPosts = filterFunc(selectedValue, postsData);
 
   return (
     <section className="blog-posts">
@@ -29,7 +21,7 @@ const BlogPosts: React.FC = () => {
           <li className="filter-item" key={index}>
             <button
               className={`filter-btn ${selectedValue === tag ? 'active' : ''}`}
-              onClick={() => handleItemClick(tag)}
+              onClick={() => handleItemClick(tag, setSelectedValue)}
             >
               {tag}
             </button>
@@ -54,7 +46,7 @@ const BlogPosts: React.FC = () => {
             {blogTags.map((tag, index) => (
               <li className="select-item" key={index}>
                 <button onClick={() => {
-                  handleItemClick(tag);
+                  handleItemClick(tag, setSelectedValue);
                   setIsSelectActive(false);
                 }}>
                   {tag}

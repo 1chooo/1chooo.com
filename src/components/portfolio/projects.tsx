@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MdExpandMore } from "react-icons/md";
 import { LuEye } from "react-icons/lu";
 import { projectTags, projectsData, Project } from '../../Config/PortfolioData';
-
+import { filterFunc, handleItemClick } from '../../utils/filterUtils';
 
 const Projects: React.FC = () => {
 
@@ -10,20 +10,10 @@ const Projects: React.FC = () => {
   const [isSelectActive, setIsSelectActive] = useState(false);
 
   useEffect(() => {
-    handleItemClick('All');
+    handleItemClick('All', setSelectedValue);
   }, []);
 
-  const handleItemClick = (value: string) => {
-    setSelectedValue(value);
-  };
-
-  const filterFunc = (selectedValue: string) => {
-    return selectedValue === 'All'
-      ? projectsData
-      : projectsData.filter((post) => post.category.toLowerCase() === selectedValue.toLowerCase());
-  };
-
-  const filteredProjects = filterFunc(selectedValue);
+  const filteredProjects = filterFunc(selectedValue, projectsData);
 
   return (
     <section className="projects">
@@ -34,7 +24,7 @@ const Projects: React.FC = () => {
             <button
               className={`filter-btn ${selectedValue === tag ? 'active' : ''}`}
               data-filter-btn
-              onClick={() => handleItemClick(tag)}
+              onClick={() => handleItemClick(tag, setSelectedValue)}
             >
               {tag}
             </button>
@@ -59,7 +49,7 @@ const Projects: React.FC = () => {
             {projectTags.map((tag, index) => (
               <li className="select-item" key={index}>
                 <button onClick={() => {
-                  handleItemClick(tag);
+                  handleItemClick(tag, setSelectedValue);
                   setIsSelectActive(false);
                 }}>
                   {tag}
