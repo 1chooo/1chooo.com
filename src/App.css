@@ -95,7 +95,37 @@
 
 }
 
+/*-----------------------------------*\
+    #PAGINATION
+\*-----------------------------------*/
 
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination-btn {
+    background: var(--border-gradient-onyx);
+    border: none;
+    padding: 10px 15px;
+    margin: 0 5px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    font-size: 16px;
+    color: hsl(0, 0%, 98%);
+    transition: background-color 0.3s ease;
+    border-radius: 14px;
+}
+
+.pagination-btn.active {
+    color: hsl(45, 100%, 71%);
+}
+
+.pagination-btn:hover {
+    background-color: hsl(45, 100%, 71%);
+}
 
 
 
@@ -275,10 +305,10 @@ article.active {
 }
 
 .has-scrollbar::-webkit-scrollbar {
-    width: 5px;
     /* for vertical scrollbar */
-    height: 5px;
+    width: 5px;
     /* for horizontal scrollbar */
+    height: 5px;
 }
 
 .has-scrollbar::-webkit-scrollbar-track {
@@ -315,10 +345,6 @@ article.active {
     z-index: -1;
 }
 
-
-
-
-
 /*-----------------------------------*\
     #MAIN
 \*-----------------------------------*/
@@ -328,10 +354,6 @@ main {
     margin-bottom: 75px;
     min-width: 259px;
 }
-
-
-
-
 
 /*-----------------------------------*\
     #SIDEBAR
