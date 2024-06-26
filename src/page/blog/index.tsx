@@ -10,7 +10,7 @@ import Pagination from '../../components/blog/Pagination';
 
 import { postsData } from '../../Config/BlogData';
 
-import { filterFunc, handleItemClick } from '../../utils/filterUtils';
+import { filterCategory, handleItemClick } from '../../utils/filterUtils';
 import { initializeCustomSelect, filterItemsByCategory } from "../../utils/domUtils";
 
 const Blog = () => {
@@ -26,7 +26,7 @@ const Blog = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const postsPerPage = 4;
 
-  const filteredPosts = filterFunc(selectedValue, postsData);
+  const filteredPosts = filterCategory(selectedValue, postsData);
 
   // Calculate the current posts to display
   const indexOfLastPost = currentPage * postsPerPage;

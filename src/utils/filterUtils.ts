@@ -5,7 +5,7 @@ export const handleItemClick = (
   setSelectedValue(value);
 };
 
-export const filterFunc = (selectedValue: string, data: any[]) => {
+export const filterCategory = (selectedValue: string, data: any[]) => {
   return selectedValue === 'All'
     ? data
     : data.filter((item) => item.category.toLowerCase() === selectedValue.toLowerCase());
