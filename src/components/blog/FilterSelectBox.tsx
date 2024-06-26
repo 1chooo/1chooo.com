@@ -1,7 +1,7 @@
 import React from 'react';
 import { MdExpandMore } from 'react-icons/md';
 import { blogTags } from '../../Config/BlogData';
-import { handleItemClick } from '../../utils/filterUtils';
+import { handleBlogPaginationFilter } from '../../utils/filterUtils';
 
 interface FilterSelectBoxProps {
   selectedValue: string;
@@ -11,39 +11,40 @@ interface FilterSelectBoxProps {
   setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
 }
 
-const FilterSelectBox: React.FC<FilterSelectBoxProps>
-  = ({ selectedValue, setSelectedValue,
-    isSelectActive, setIsSelectActive, setCurrentPage }) => {
-    return (
-      <div className="filter-select-box">
-        <button
-          className={`filter-select ${isSelectActive ? 'active' : ''}`}
-          onClick={() => setIsSelectActive(!isSelectActive)}
-        >
-          <div className="select-value">
-            {selectedValue || 'Select category'}
-          </div>
-          <div className="select-icon">
-            <MdExpandMore />
-          </div>
-        </button>
-        {isSelectActive && (
-          <ul className="select-list">
-            {blogTags.map((tag, index) => (
-              <li className="select-item" key={index}>
-                <button onClick={() => {
-                  handleItemClick(tag, setSelectedValue);
-                  setIsSelectActive(false);
-                  setCurrentPage(1); // Reset to first page on filter change
-                }}>
-                  {tag}
-                </button>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-    );
-  };
+const FilterSelectBox: React.FC<FilterSelectBoxProps> = ({
+  selectedValue,
+  setSelectedValue,
+  isSelectActive,
+  setIsSelectActive,
+  setCurrentPage
+}) => {
+
+  return (
+    <div className="filter-select-box">
+      <button
+        className={`filter-select ${isSelectActive ? 'active' : ''}`}
+        onClick={() => setIsSelectActive(!isSelectActive)}
+      >
+        <div className="select-value">
+          {selectedValue || 'Select category'}
+        </div>
+        <div className="select-icon">
+          <MdExpandMore />
+        </div>
+      </button>
+      {isSelectActive && (
+        <ul className="select-list">
+          {blogTags.map((tag, index) => (
+            <li className="select-item" key={index}>
+              <button onClick={() => handleBlogPaginationFilter(tag, setSelectedValue, setCurrentPage)}>
+                {tag}
+              </button>
+            </li>
+          ))}
+        </ul>
+      )}
+    </div>
+  );
+};
 
 export default FilterSelectBox;

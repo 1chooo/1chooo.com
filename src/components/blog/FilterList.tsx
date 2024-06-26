@@ -1,6 +1,7 @@
 import React from 'react';
 import { blogTags } from '../../Config/BlogData';
-import { handleItemClick } from '../../utils/filterUtils';
+import { handleBlogPaginationFilter } from '../../utils/filterUtils';
+
 
 interface FilterListProps {
   selectedValue: string;
@@ -9,16 +10,14 @@ interface FilterListProps {
 }
 
 const FilterList: React.FC<FilterListProps> = ({ selectedValue, setSelectedValue, setCurrentPage }) => {
+
   return (
     <ul className="filter-list">
       {blogTags.map((tag, index) => (
         <li className="filter-item" key={index}>
           <button
             className={`filter-btn ${selectedValue === tag ? 'active' : ''}`}
-            onClick={() => {
-              handleItemClick(tag, setSelectedValue);
-              setCurrentPage(1); // Reset to first page on filter change
-            }}
+            onClick={() => handleBlogPaginationFilter(tag, setSelectedValue, setCurrentPage)}
           >
             {tag}
           </button>

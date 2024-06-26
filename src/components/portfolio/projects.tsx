@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MdExpandMore } from "react-icons/md";
 import { LuEye } from "react-icons/lu";
 import { projectTags, projectsData, Project } from '../../Config/PortfolioData';
-import { filterFunc, handleItemClick } from '../../utils/filterUtils';
+import { filterCategory, handleItemClick } from '../../utils/filterUtils';
 
 const Projects: React.FC = () => {
 
@@ -13,7 +13,7 @@ const Projects: React.FC = () => {
     handleItemClick('All', setSelectedValue);
   }, []);
 
-  const filteredProjects = filterFunc(selectedValue, projectsData);
+  const filteredProjects = filterCategory(selectedValue, projectsData);
 
   return (
     <section className="projects">
