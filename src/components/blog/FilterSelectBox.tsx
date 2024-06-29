@@ -1,6 +1,6 @@
 import React from 'react';
 import { MdExpandMore } from 'react-icons/md';
-import { blogTags } from '../../Config/BlogData';
+import { blogTags } from '../../config/BlogData';
 import { handleBlogPaginationFilter } from '../../utils/filterUtils';
 
 interface FilterSelectBoxProps {

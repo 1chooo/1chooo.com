@@ -5,7 +5,7 @@ import {
 import {
   ProfessionalExperienceProps,
   professionalExperiences,
-} from '../../Config/Resume/ProfessionalExperience';
+} from '../../config/Resume/ProfessionalExperience';
 
 
 const Working: React.FC = () => {

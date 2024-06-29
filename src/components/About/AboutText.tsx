@@ -1,6 +1,6 @@
 import {
   messages
-} from '../../Config/About/AboutData';
+} from '../../config/About/AboutData';
 
 
 const AboutText: React.FC = () => {

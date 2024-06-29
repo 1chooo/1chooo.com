@@ -1,5 +1,5 @@
 import React from 'react';
-import { Post } from '../../Config/BlogData';
+import { Post } from '../../config/BlogData';
 
 interface BlogPostListProps {
   posts: Post[];

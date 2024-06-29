@@ -1,5 +1,5 @@
 import React from 'react';
-import { blogTags } from '../../Config/BlogData';
+import { blogTags } from '../../config/BlogData';
 import { handleBlogPaginationFilter } from '../../utils/filterUtils';
 
 

@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { MdExpandMore } from "react-icons/md";
 import { LuEye } from "react-icons/lu";
-import { projectTags, projectsData, Project } from '../../Config/PortfolioData';
+import { projectTags, projectsData, Project } from '../../config/PortfolioData';
 import { filterCategory, handleItemClick } from '../../utils/filterUtils';
 
 const Projects: React.FC = () => {

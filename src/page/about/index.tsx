@@ -3,7 +3,7 @@ import {
   useLocation
 } from 'react-router-dom';
 
-import { aboutHeader } from "../../Config/About/AboutData";
+import { aboutHeader } from "../../config/About/AboutData";
 
 import NavBar from "../../components/Navbar";
 import Sidebar from "../../components/SideBar/SideBar";

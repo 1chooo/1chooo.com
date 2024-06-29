@@ -1,4 +1,4 @@
-import { Post } from "../Config/BlogData";
+import { Post } from "../config/BlogData";
 
 const months: [string, ...string[]] = [
   "Jan", "Feb", "Mar",

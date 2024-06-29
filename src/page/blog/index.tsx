@@ -8,7 +8,7 @@ import FilterSelectBox from '../../components/blog/FilterSelectBox';
 import BlogPostList from '../../components/blog/BlogPostList';
 import Pagination from '../../components/blog/Pagination';
 
-import { postsData } from '../../Config/BlogData';
+import { postsData } from '../../config/BlogData';
 
 import { filterCategory, handleItemClick } from '../../utils/filterUtils';
 import { initializeCustomSelect, filterItemsByCategory } from "../../utils/domUtils";

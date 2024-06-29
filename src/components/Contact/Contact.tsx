@@ -4,7 +4,7 @@ import {
   useLocation
 } from 'react-router-dom';
 
-import { mapAddress } from "../../Config/ContactData";
+import { mapAddress } from "../../config/ContactData";
 
 import Sidebar from "../SideBar/SideBar";
 import { FaRegPaperPlane } from "react-icons/fa";

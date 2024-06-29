@@ -4,7 +4,7 @@ import { PiTrophy } from "react-icons/pi";
 import {
   ResumeProps,
   awardsAndLeaderships,
-} from '../../Config/ResumeData';
+} from '../../config/ResumeData';
 
 
 const AwardLeaderships: React.FC = () => {

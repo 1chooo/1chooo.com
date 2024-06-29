@@ -5,7 +5,7 @@ import {
 import {
   EducationProps,
   newEducation,
-} from '../../Config/ResumeData';
+} from '../../config/ResumeData';
 
 
 const Education: React.FC = () => {

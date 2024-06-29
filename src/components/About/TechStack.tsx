@@ -1,6 +1,6 @@
 import {
   programmingLanguage, devOps, TechItem
-} from "../../Config/About/TechStack";
+} from "../../config/About/TechStack";
 
 const TechStack: React.FC = () => {
 
