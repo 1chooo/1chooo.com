@@ -1,8 +1,6 @@
-// PostsDataConfig.tsx
-
 import {
   descendBlogByDate, 
-  ascendBlogByDate,
+  // ascendBlogByDate,
 } from "../utils/sortBlogsByDate";
 
 import noAdsImage from "../Assets/images/posts/no_ads.png";
@@ -11,12 +9,8 @@ import nuphyUnboxingImage from "../Assets/images/posts/nuphy_unboxing.png";
 import reactMappingTipsImage from "../Assets/images/posts/react_mapping_tips.png";
 import nodeNpmInatallImage from "../Assets/images/posts/node_npm_install.jpg";
 import sankeGameImage from "../Assets/images/posts/snake_game.png";
-import python5TipsImage from "../Assets/images/posts/python_5_tips.png";
 import macJavaVSCodeImage from "../Assets/images/posts/mac_java_vscode.png";
 import getPublicIPImage from "../Assets/images/posts/how-to-get-public-ip.png";
-import awsSecurityGroupNaclImage from "../Assets/images/posts/aws-security-group-nacl.png";
-import gitCommitMessageImage from "../Assets/images/posts/git-commit-message.png";
-import amazonLinux2InstallDockerImage from "../Assets/images/posts/amazon-linux-2-install-docker.png";
 
 export const blogTags = [
   "All",
@@ -46,7 +40,7 @@ export const postsData: Post[] = [
       </h3>
     ),
     category: 'DevOps',
-    imageUrl: amazonLinux2InstallDockerImage,
+    imageUrl: "https://blog.1chooo.com/images/cover/dev-ops/amazon-linux-2-install-docker.png",
     date: 'Apr, 11, 2024',
     content: (
       <p className="blog-text">
@@ -63,7 +57,7 @@ export const postsData: Post[] = [
       </h3>
     ),
     category: 'DevOps',
-    imageUrl: gitCommitMessageImage,
+    imageUrl: "https://blog.1chooo.com/images/cover/dev-ops/git-good-commit-look-like.png",
     date: 'Mar, 26, 2024',
     content: (
       <p className="blog-text">
@@ -80,7 +74,7 @@ export const postsData: Post[] = [
       </h3>
     ),
     category: 'DevOps',
-    imageUrl: awsSecurityGroupNaclImage,
+    imageUrl: "https://blog.1chooo.com/images/cover/dev-ops/aws-security-group-nacl.png",
     date: 'Mar, 22, 2024',
     content: (
       <p className="blog-text">
@@ -131,7 +125,7 @@ export const postsData: Post[] = [
       </h3>
     ),
     category: 'Coding',
-    imageUrl: python5TipsImage,
+    imageUrl: "https://blog.1chooo.com/images/cover/coding-style/python-5-tips.png",
     date: 'Mar, 16, 2024',
     content: (
       <p className="blog-text">
