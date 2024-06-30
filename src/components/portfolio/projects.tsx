@@ -46,8 +46,8 @@ const Projects: React.FC = () => {
         </button>
         {isSelectActive && (
           <ul className="select-list">
-            {projectTags.map((tag, index) => (
-              <li className="select-item" key={index}>
+            {projectTags.map((tag: string) => (
+              <li className="select-item" key={tag}>
                 <button onClick={() => {
                   handleItemClick(tag, setSelectedValue);
                   setIsSelectActive(false);

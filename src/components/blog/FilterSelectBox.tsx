@@ -34,8 +34,8 @@ const FilterSelectBox: React.FC<FilterSelectBoxProps> = ({
       </button>
       {isSelectActive && (
         <ul className="select-list">
-          {blogTags.map((tag, index) => (
-            <li className="select-item" key={index}>
+          {blogTags.map((tag: string) => (
+            <li className="select-item" key={tag}>
               <button onClick={() => handleBlogPaginationFilter(tag, setSelectedValue, setCurrentPage)}>
                 {tag}
               </button>
