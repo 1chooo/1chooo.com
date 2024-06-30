@@ -1,8 +1,4 @@
-import React, {
-  useState,
-} from 'react';
-
-// Side Bar info Materials
+import React, { useState, useRef } from 'react';
 import profileImage from "../../Assets/images/profile.jpg";
 import { MdExpandMore } from "react-icons/md";
 
@@ -10,28 +6,17 @@ import SocialList from './SocialList';
 import ContactsList from './ContactsList';
 
 const SideBar: React.FC = () => {
-
-  // Sidebar state
   const [isActive, setIsActive] = useState(false);
+  const sideBarRef = useRef<HTMLDivElement>(null);
 
-  // Sidebar variables
-  const sidebarRef = React.useRef<HTMLDivElement>(null);
-
-  // Sidebar toggle functionality for mobile
-  const sidebarBtnClickHandler = () => {
-    setIsActive(!isActive); // Toggle the isActive state
+  const handleSidebarToggle = () => {
+    setIsActive(prevState => !prevState);
   };
-
-  // Dynamic class for the sidebar element
-  const sidebarClassName = `sidebar ${isActive ? 'active' : ''}`;
+  
+  const sideBarState = `sidebar ${isActive ? 'active' : ''}`;
 
   return (
-    <aside
-      className={sidebarClassName}
-      ref={sidebarRef}
-      data-sidebar
-    >
-
+    <aside className={sideBarState} ref={sideBarRef} data-sidebar>
       <div className="sidebar-info">
         <figure className="avatar-box">
           <img
@@ -44,20 +29,15 @@ const SideBar: React.FC = () => {
         </figure>
 
         <div className="info-content">
-          <h1
-            className="name"
-            title="Hugo ChunHo Lin"
-          >
-            Hugo ChunHo Lin
-          </h1>
+          <h1 className="name" title="Hugo ChunHo Lin">Hugo ChunHo Lin</h1>
           <p className="title">
             <strong>Day ONE ⚡️</strong>
           </p>
         </div>
 
         <button
-          className="info_more-btn"
-          onClick={sidebarBtnClickHandler}
+          className="info-more-btn"
+          onClick={handleSidebarToggle}
           data-sidebar-btn
         >
           <span>Show Contacts</span>
@@ -65,7 +45,7 @@ const SideBar: React.FC = () => {
         </button>
       </div>
 
-      <div className="sidebar-info_more">
+      <div className="sidebar-info-more">
         <div className="separator"></div>
 
         <ContactsList />
@@ -73,9 +53,7 @@ const SideBar: React.FC = () => {
         <div className="separator"></div>
 
         <SocialList />
-
       </div>
-
     </aside>
   );
 }
