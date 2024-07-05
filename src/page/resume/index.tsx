@@ -6,6 +6,7 @@ import Education from "../../components/Resume/Education";
 import Working from "../../components/Resume/Working";
 import Teaching from "../../components/Resume/Teaching";
 import AwardLeaderships from "../../components/Resume/AwardLeaderships";
+import Header from "../../components/Header";
 
 
 import {
@@ -26,18 +27,11 @@ const Resume: React.FC = () => {
           className={`resume ${location.pathname === '/resume' ? 'active' : ''}`}
           data-page="resume"
         >
-          <header>
-            <h2 className="h2 article-title">Resume</h2>
-          </header>
-
+          <Header title="Hugo's Resume" />
           <DownloadCV />
-
           <Working />
-
           <Education />
-
           <AwardLeaderships />
-
           <Teaching />
         </article>
       </div>

@@ -7,6 +7,7 @@ import FilterList from '../../components/blog/FilterList';
 import FilterSelectBox from '../../components/blog/FilterSelectBox';
 import BlogPostList from '../../components/blog/BlogPostList';
 import Pagination from '../../components/blog/Pagination';
+import Header from "../../components/Header";
 
 import { postsData } from '../../config/BlogData';
 
@@ -49,9 +50,7 @@ const Blog = () => {
           className={`blog ${location.pathname === '/blog' ? 'active' : ''}`}
           data-page="blog"
         >
-          <header>
-            <h2 className="h2 article-title">Hugo's Blog</h2>
-          </header>
+          <Header title="Hugo's Blog" />
           <section className="blog-posts">
             <FilterList
               selectedValue={selectedValue}

@@ -5,6 +5,7 @@ import { useLocation } from 'react-router-dom';
 import Sidebar from "../../components/SideBar/SideBar";
 import NavBar from "../../components/Navbar";
 import Projects from "../../components/portfolio/projects";
+import Header from "../../components/Header";
 import {
   initializeCustomSelect, filterItemsByCategory
 } from "../../utils/domUtils";
@@ -27,9 +28,7 @@ const Portfolio = () => {
           className={`portfolio ${location.pathname === '/portfolio' ? 'active' : ''}`}
           data-page="portfolio"
         >
-          <header>
-            <h2 className="h2 article-title">Portfolio</h2>
-          </header>
+          <Header title="Hugo's Portfolio" />
           <Projects />
         </article>
       </div>
