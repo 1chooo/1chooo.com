@@ -1,16 +1,12 @@
-import NavBar from "../Navbar";
 import React from "react";
-import {
-  useLocation
-} from 'react-router-dom';
-
-import { mapAddress } from "../../config/ContactData";
-
-import Sidebar from "../SideBar/SideBar";
+import { useLocation } from 'react-router-dom';
 import { FaRegPaperPlane } from "react-icons/fa";
 
+import MapBox from "./MapBox";
+import NavBar from "../Navbar";
+import Sidebar from "../SideBar/SideBar";
 
-function Contract() {
+const Contract: React.FC = () => {
 
   const location = useLocation();
 
@@ -27,30 +23,9 @@ function Contract() {
             <h2 className="h2 article-title">Contact</h2>
           </header>
           <section className="contact-form">
-
-            <section
-              className="mapbox"
-              data-mapbox="true"
-            >
-              <figure>
-                <iframe
-                  title="map address"
-                  src={mapAddress}
-                  width="400"
-                  height="300"
-                  loading="lazy"
-                ></iframe>
-              </figure>
-            </section>
-
+            <MapBox />
             <h3 className="h3 form-title">Contact Form</h3>
-
-            <form
-              action="#"
-              className="form"
-              data-form
-            >
-
+            <form action="#" className="form" data-form>
               <div className="input-wrapper">
                 <input
                   type="text"
@@ -60,7 +35,6 @@ function Contract() {
                   required
                   data-form-input
                 />
-
                 <input
                   type="email"
                   name="email"
@@ -70,7 +44,6 @@ function Contract() {
                   data-form-input
                 />
               </div>
-
               <textarea
                 name="message"
                 className="form-input"
@@ -78,7 +51,6 @@ function Contract() {
                 required
                 data-form-input
               ></textarea>
-
               <button
                 className="form-btn"
                 disabled
@@ -88,7 +60,6 @@ function Contract() {
                 <FaRegPaperPlane />
                 <span>Send Message</span>
               </button>
-
             </form>
           </section>
         </article>
