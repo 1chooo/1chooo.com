@@ -10,7 +10,7 @@ import reactMappingTipsImage from "../Assets/images/posts/react_mapping_tips.png
 import nodeNpmInatallImage from "../Assets/images/posts/node_npm_install.jpg";
 import sankeGameImage from "../Assets/images/posts/snake_game.png";
 import macJavaVSCodeImage from "../Assets/images/posts/mac_java_vscode.png";
-import getPublicIPImage from "../Assets/images/posts/how-to-get-public-ip.png";
+
 
 export const blogTags = [
   "All",
@@ -91,7 +91,7 @@ export const postsData: Post[] = [
       </h3>
     ),
     category: 'DevOps',
-    imageUrl: getPublicIPImage,
+    imageUrl: "https://blog.1chooo.com/images/cover/dev-ops/three-methods-to-find-your-public-ip-address-from-linux-cmd-line.png",
     date: 'Mar, 21, 2024',
     content: (
       <p className="blog-text">
