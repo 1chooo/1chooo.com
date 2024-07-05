@@ -286,6 +286,7 @@ article.active {
 .article-title {
     position: relative;
     padding-bottom: 7px;
+    margin-bottom: 30px;
 }
 
 .article-title::after {
@@ -943,9 +944,7 @@ main {
     #RESUME
 \*-----------------------------------*/
 
-.article-title {
-    margin-bottom: 30px;
-}
+
 
 
 /**
@@ -1343,10 +1342,6 @@ main {
     gap: 20px;
 }
 
-/* .blog-post-item>a {
-    display: none;
-} */
-
 .blog-post-item {
     display: none;
 }
@@ -1392,10 +1387,6 @@ main {
     transform: scale(1.1);
 }
 
-/* .blog-post-item>a:hover .blog-banner-box img {
-    transform: scale(1.1);
-} */
-
 .blog-content {
     padding: 15px;
 }
@@ -1430,10 +1421,6 @@ main {
 .blog-post-item.active>a:hover .blog-item-title {
     color: var(--orange-yellow-crayola);
 }
-
-/* .blog-post-item>a:hover .blog-item-title {
-    color: var(--orange-yellow-crayola);
-} */
 
 .blog-text {
     color: var(--light-gray);
@@ -1854,7 +1841,6 @@ textarea.form-input::-webkit-resizer {
     .service-item {
         display: flex;
         justify-content: flex-start;
-        /* align-items: center; */
         align-items: flex-start;
         gap: 18px;
         padding: 30px;
@@ -1954,7 +1940,6 @@ textarea.form-input::-webkit-resizer {
     .techstack-list {
         gap: 10px;
         margin: 0 -30px;
-        /* padding: 45px; */
         scroll-padding-inline: 45px;
     }
 
