@@ -1,12 +1,12 @@
 import React from 'react';
 
-interface PaginationProps {
+interface IPaginationProps {
   totalPages: number;
   currentPage: number;
   handlePageChange: (pageNumber: number) => void;
 }
 
-const Pagination: React.FC<PaginationProps> = (
+const Pagination: React.FC<IPaginationProps> = (
   { totalPages, currentPage, handlePageChange }
 ) => {
   const handlePageClick = (pageNumber: number) => {
@@ -14,20 +14,24 @@ const Pagination: React.FC<PaginationProps> = (
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const renderPageButtons = () => {
+    return [...Array(totalPages)].map((_, index) => {
+      const pageNumber = index + 1;
+      return (
+        <button
+          key={pageNumber}
+          className={`pagination-btn ${currentPage === pageNumber ? 'active' : ''}`}
+          onClick={() => handlePageClick(pageNumber)}
+        >
+          {pageNumber}
+        </button>
+      );
+    });
+  };
+
   return (
     <div className="pagination">
-      {[...Array(totalPages)].map((_, index) => {
-        const pageNumber = index + 1;
-        return (
-          <button
-            key={pageNumber}
-            className={`pagination-btn ${currentPage === pageNumber ? 'active' : ''}`}
-            onClick={() => handlePageClick(pageNumber)}
-          >
-            {pageNumber}
-          </button>
-        );
-      })}
+      {renderPageButtons()}
     </div>
   );
 };
