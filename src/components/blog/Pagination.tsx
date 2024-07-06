@@ -13,17 +13,21 @@ const Pagination: React.FC<PaginationProps> = (
     handlePageChange(pageNumber);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
   return (
     <div className="pagination">
-      {[...Array(totalPages)].map((_, index) => (
-        <button
-          key={index}
-          className={`pagination-btn ${currentPage === index + 1 ? 'active' : ''}`}
-          onClick={() => handlePageClick(index + 1)}
-        >
-          {index + 1}
-        </button>
-      ))}
+      {[...Array(totalPages)].map((_, index) => {
+        const pageNumber = index + 1;
+        return (
+          <button
+            key={pageNumber}
+            className={`pagination-btn ${currentPage === pageNumber ? 'active' : ''}`}
+            onClick={() => handlePageClick(pageNumber)}
+          >
+            {pageNumber}
+          </button>
+        );
+      })}
     </div>
   );
 };
