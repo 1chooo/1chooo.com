@@ -1,15 +1,9 @@
-import {
-  descendBlogByDate, 
-  // ascendBlogByDate,
-} from "../utils/sortBlogsByDate";
+import { descendBlogByDate } from "../utils/sortBlogsByDate";
 
 import noAdsImage from "../Assets/images/posts/no_ads.png";
 import gitTipsImage from "../Assets/images/posts/git_tips.png";
 import nuphyUnboxingImage from "../Assets/images/posts/nuphy_unboxing.png";
 import reactMappingTipsImage from "../Assets/images/posts/react_mapping_tips.png";
-import nodeNpmInatallImage from "../Assets/images/posts/node_npm_install.jpg";
-import sankeGameImage from "../Assets/images/posts/snake_game.png";
-import macJavaVSCodeImage from "../Assets/images/posts/mac_java_vscode.png";
 
 
 export const blogTags = [
@@ -20,9 +14,11 @@ export const blogTags = [
   // "Interview",
   "Unboxing",
   "Coding",
+  "LeetCode",
 ];
 
 export interface Post {
+  id: string;
   title: JSX.Element;
   category: string;
   imageUrl: string;
@@ -34,6 +30,7 @@ export interface Post {
 
 export const postsData: Post[] = [
   {
+    id: 'amazon-linux-2-install-docker',
     title: (
       <h3 className="h3 blog-item-title">
         如何在 AWS EC2 Amazon Linux 2 上安裝 Docker
@@ -51,6 +48,7 @@ export const postsData: Post[] = [
     alt: '如何在 AWS EC2 Amazon Linux 2 上安裝 Docker'
   },
   {
+    id: 'git-good-commit-look-like',
     title: (
       <h3 className="h3 blog-item-title">
         Git Commit Message 到底怎麼寫才優美？
@@ -68,6 +66,7 @@ export const postsData: Post[] = [
     alt: 'Git Commit Message 到底怎麼寫才優美？'
   },
   {
+    id: 'aws-security-group-nacl',
     title: (
       <h3 className="h3 blog-item-title">
         AWS — Comparing Inbound Rules: Security Group vs. Network Access Control List (NACL)
@@ -85,6 +84,7 @@ export const postsData: Post[] = [
     alt: 'AWS — Comparing Inbound Rules: Security Group vs. Network Access Control List (NACL)'
   },
   {
+    id: 'three-methods-to-find-public-ip',
     title: (
       <h3 className="h3 blog-item-title">
         Three Methods to Find Your Public IP Address From Linux Command Line
@@ -102,13 +102,14 @@ export const postsData: Post[] = [
     alt: 'Three Methods to Find Your Public IP Address From Linux Command Line'
   },
   {
+    id: "macos-java-dev-env-with-vscode",
     title: (
       <h3 className="h3 blog-item-title">
         如何在 MacOS 安裝 Java + VS Code 開發組合環境
       </h3>
     ),
     category: 'DevEnv',
-    imageUrl: macJavaVSCodeImage,
+    imageUrl: "https://blog.1chooo.com/images/cover/dev-env/macos-java-dev-env-with-vscode.png",
     date: 'Mar, 12, 2024',
     content: (
       <p className="blog-text">
@@ -119,6 +120,7 @@ export const postsData: Post[] = [
     alt: '如何在 MacOS 安裝 Java + VS Code 開發組合環境'
   },
   {
+    id: "python-5-tips",
     title: (
       <h3 className="h3 blog-item-title">
         🖐🏻 五個學校沒教但我教的 Python 好習慣
@@ -136,13 +138,14 @@ export const postsData: Post[] = [
     alt: '🖐🏻 五個學校沒教但我教的 Python 好習慣'
   },
   {
+    id: "snake-game",
     title: (
       <h3 className="h3 blog-item-title">
         程式小白對專案還沒想法嗎？來做貪吃蛇玩吧！
       </h3>
     ),
     category: 'Projects',
-    imageUrl: sankeGameImage,
+    imageUrl: "https://blog.1chooo.com/images/cover/projects/snake-game/snake-game.png",
     date: 'Aug, 24, 2022',
     content: (
       <p className="blog-text">
@@ -153,13 +156,14 @@ export const postsData: Post[] = [
     alt: '程式小白對專案還沒想法嗎？來做貪吃蛇玩吧！'
   },
   {
+    id: "mac-install-nodejs-npm",
     title: (
       <h3 className="h3 blog-item-title">
         如何在 Mac 安裝 <code>Node.js</code> & <code>NPM</code>
       </h3>
     ),
     category: 'DevEnv',
-    imageUrl: nodeNpmInatallImage,
+    imageUrl: "https://blog.1chooo.com/images/cover/dev-env/mac-install-nodejs-npm/mac-install-nodejs-npm.png",
     date: 'Jan, 04, 2024',
     content: (
       <p className="blog-text">
@@ -170,12 +174,13 @@ export const postsData: Post[] = [
     alt: '如何在 Mac 安裝 Node.js & NPM'
   },
   {
+    id: "make-your-react-more-elegant-with-map",
     title: (
       <h3 className="h3 blog-item-title">
         如何透過 <code>map()</code> 讓你的 <code>React TypeScript</code> 專案更加優雅？
       </h3>
     ),
-    category: 'Projects',
+    category: 'Coding',
     imageUrl: reactMappingTipsImage,
     date: 'Feb, 15, 2024',
     content: (
@@ -187,6 +192,7 @@ export const postsData: Post[] = [
     alt: '如何透過 map() 讓你的 React TypeScript 專案更加優雅？'
   },
   {
+    id: "forget-youtube-premium",
     title: (
       <h3 className="h3 blog-item-title">
         忘掉 YouTube Premium！這些無廣告瀏覽器讓你愛不釋手！
@@ -204,6 +210,7 @@ export const postsData: Post[] = [
     alt: '忘掉 YouTube Premium！這些無廣告瀏覽器讓你愛不釋手！',
   },
   {
+    id: "git-tips-with-ssh",
     title: (
       <h3 className="h3 blog-item-title">
         踏入 Git 的世界：使用 <code>SSH</code> 與 GitHub 連線 👨🏻‍💻
@@ -221,6 +228,7 @@ export const postsData: Post[] = [
     alt: '踏入 Git 的世界：使用 ssh 與 GitHub 連線 👨🏻‍💻',
   },
   {
+    id: "nuphy-unboxing",
     title: (
       <h3 className="h3 blog-item-title">
         兼具顏值手感的 Nuphy 鍵盤初體驗！！！
@@ -237,6 +245,7 @@ export const postsData: Post[] = [
     link: 'https://medium.com/@1chooo/nuphy-%E9%8D%B5%E7%9B%A4%E5%88%9D%E9%AB%94%E9%A9%97-5af2a52970cb',
     alt: '兼具顏值手感的 Nuphy 鍵盤初體驗！！！',
   },
+  // Add more posts with unique ids here...
 ];
 
 descendBlogByDate(postsData);

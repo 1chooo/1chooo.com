@@ -8,23 +8,13 @@ interface BlogPostListProps {
 const BlogPostList: React.FC<BlogPostListProps> = ({ posts }) => {
   return (
     <ul className="blog-posts-list">
-      {posts.map((post: Post, index: number) => (
-        <li
-          key={index}
-          className="blog-post-item active"
+      {posts.map((post: Post) => (
+        <li key={post.id} className="blog-post-item active"
           data-category={post.category.toLowerCase()}
         >
-          <a
-            href={post.link}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+          <a href={post.link} target="_blank" rel="noopener noreferrer">
             <figure className="blog-banner-box">
-              <img
-                src={post.imageUrl}
-                alt={post.alt}
-                loading="lazy"
-              />
+              <img src={post.imageUrl} alt={post.alt} loading="lazy" />
             </figure>
             <div className="blog-content">
               <div className="blog-meta">
