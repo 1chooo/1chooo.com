@@ -1628,13 +1628,6 @@ textarea.form-input::-webkit-resizer {
         min-width: calc(33.33% - 10px);
     }
 
-
-    .techstack-item {
-        min-width: calc(10% - 20px);
-    }
-
-
-
     /**
     * #PORTFOLIO, BLOG 
     */
@@ -2452,23 +2445,4 @@ textarea.form-input::-webkit-resizer {
         max-width: 700px;
     }
 
-}
-
-/* Footer */
-footer {
-    margin-bottom: 4rem;
-    text-align: center;
-}
-
-footer {
-    display: block;
-}
-
-p.copyright {
-    color: var(--light-gray);
-}
-
-p.siteInfo {
-    color: var(--light-gray-70);
-    font-size: var(--fs-8);
 }
