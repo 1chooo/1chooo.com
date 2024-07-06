@@ -240,4 +240,3 @@ export const postsData: Post[] = [
 ];
 
 descendBlogByDate(postsData);
-// ascendBlogByDate(postsData);
