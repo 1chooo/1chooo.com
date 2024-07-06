@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   useLocation
 } from 'react-router-dom';
@@ -19,7 +19,9 @@ import Header from "../../components/Header";
 const About: React.FC = () => {
 
   const location = useLocation();
-  
+  useEffect(() => {
+    document.title = "Hugo ChunHo Lin (1chooo) | Portfolio";
+  }, []);
 
   return (
     <main>

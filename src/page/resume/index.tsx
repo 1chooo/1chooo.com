@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import NavBar from "../../components/Navbar";
 import Sidebar from "../../components/SideBar/SideBar";
 import DownloadCV from "../../components/Resume/DownloadCV";
@@ -17,6 +17,9 @@ import {
 const Resume: React.FC = () => {
 
   const location = useLocation();
+  useEffect(() => {
+    document.title = "Resume - Hugo ChunHo Lin (1chooo) | Portfolio";
+  }, []);
 
   return (
     <main>

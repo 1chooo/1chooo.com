@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { useLocation } from 'react-router-dom';
 import { FaRegPaperPlane } from "react-icons/fa";
 
@@ -9,6 +9,9 @@ import Sidebar from "../SideBar/SideBar";
 const Contract: React.FC = () => {
 
   const location = useLocation();
+  useEffect(() => {
+    document.title = "Contract - Hugo ChunHo Lin (1chooo) | Portfolio";
+  }, []);
 
   return (
     <main>

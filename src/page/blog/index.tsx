@@ -20,6 +20,7 @@ const Blog = () => {
   useEffect(() => {
     initializeCustomSelect(filterItemsByCategory);
     handleItemClick('All', setSelectedValue);
+    document.title = "Blog - Hugo ChunHo Lin (1chooo) | Portfolio";
   }, []);
 
   const [selectedValue, setSelectedValue] = useState('All');
