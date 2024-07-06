@@ -30,6 +30,150 @@ export interface Post {
 
 export const postsData: Post[] = [
   {
+    id: '1052-grumpy-bookstore-owner',
+    title: (
+      <h3 className="h3 blog-item-title">
+        [✅ Beats 💯] LeetCode 1052. Grumpy Bookstore Owner - Easy Solution | Go
+      </h3>
+    ),
+    category: 'LeetCode',
+    imageUrl: "https://blog.1chooo.com/images/cover/leetcode/1052-grumpy-bookstore-owner.png",
+    date: 'Jun, 20, 2024',
+    content: (
+      <p className="blog-text">
+       There is a bookstore owner that has a store open for n minutes. Every minute, some number of customers enter the store. You are given an integer array customers of length n where customers[i] is the number of the customer that enters the store at the start of the ith minute and all those customers leave after the end of that minute.
+      </p>
+    ),
+    link: 'https://medium.com/@1chooo/beats-100-1052-grumpy-bookstore-owner-easy-solution-go-16a21d62057f',
+    alt: '[✅ Beats 💯] LeetCode 1052. Grumpy Bookstore Owner - Easy Solution | Go'
+  },
+  {
+    id: '1791-find-center-of-star-graph',
+    title: (
+      <h3 className="h3 blog-item-title">
+        [O(1) Time and Space] LeetCode 1791. Find Center of Star Graph — Easy Solution | Go
+      </h3>
+    ),
+    category: 'LeetCode',
+    imageUrl: "https://blog.1chooo.com/images/cover/leetcode/1791-find-center-of-star-graph.png",
+    date: 'Jun, 27, 2024',
+    content: (
+      <p className="blog-text">
+        There is an undirected star graph consisting of n nodes labeled from 1 to n. A star graph is a graph where there is one center node and exactly n - 1 edges that connect the center node with every other node.
+      </p>
+    ),
+    link: 'https://medium.com/@1chooo/o-1-time-and-space-leetcode-1791-find-center-of-star-graph-easy-solution-go-a90c966f9a59',
+    alt: '[O(1) Time and Space] LeetCode 1791. Find Center of Star Graph — Easy Solution | Go'
+  },
+  {
+    id: '1382-balance-a-binary-search-tree',
+    title: (
+      <h3 className="h3 blog-item-title">
+        LeetCode 1382. Balance a Binary Search Tree - Easy Solution | Go
+      </h3>
+    ),
+    category: 'LeetCode',
+    imageUrl: "https://blog.1chooo.com/images/cover/leetcode/1382-balance-a-binary-search-tree.png",
+    date: 'Jun, 30, 2024',
+    content: (
+      <p className="blog-text">
+        Given the root of a binary search tree, return a balanced binary search tree with the same node values. If there is more than one answer, return any of them.
+      </p>
+    ),
+    link: 'https://medium.com/@1chooo/leetcode-1382-balance-a-binary-search-tree-easy-solution-go-4dcdecde5342',
+    alt: 'LeetCode 1382. Balance a Binary Search Tree - Easy Solution | Go'
+  },
+  {
+    id: '1550-three-consecutive-odds',
+    title: (
+      <h3 className="h3 blog-item-title">
+        💯✅ LeetCode 1550. Three Consecutive Odds | Go
+      </h3>
+    ),
+    category: 'LeetCode',
+    imageUrl: "https://blog.1chooo.com/images/cover/leetcode/1550-three-consecutive-odds.png",
+    date: 'Jul, 02, 2024',
+    content: (
+      <p className="blog-text">
+        Given an integer array arr, return true if there are three consecutive odd numbers in the array. Otherwise, return false.
+      </p>
+    ),
+    link: 'https://medium.com/@1chooo/leetcode-1550-three-consecutive-odds-go-7a157a76fcd0',
+    alt: '💯✅ LeetCode 1550. Three Consecutive Odds | Go'
+  },
+  {
+    id: '1480-running-sum-of-1d-array',
+    title: (
+      <h3 className="h3 blog-item-title">
+        💯✅ LeetCode 1480. Running Sum of 1d Array | Go
+      </h3>
+    ),
+    category: 'LeetCode',
+    imageUrl: "https://blog.1chooo.com/images/cover/leetcode/1480-running-sum-of-1d-array.png",
+    date: 'Jul, 03, 2024',
+    content: (
+      <p className="blog-text">
+        Given an array nums. We define a running sum of an array as runningSum[i] = sum(nums[0]...nums[i]).
+      </p>
+    ),
+    link: 'https://medium.com/@1chooo/leetcode-1480-running-sum-of-1d-array-go-342e8d5edab7',
+    alt: '💯✅ LeetCode 1480. Running Sum of 1d Array | Go'
+  },
+  {
+    id: '0001-two-sum',
+    title: (
+      <h3 className="h3 blog-item-title">
+        LeetCode 0001. Two Sum — Hash Map Solution | Go, Python, C++
+      </h3>
+    ),
+    category: 'LeetCode',
+    imageUrl: "https://blog.1chooo.com/images/cover/leetcode/0001-two-sum.png",
+    date: 'Jun, 25, 2024',
+    content: (
+      <p className="blog-text">
+        Given an array of integers nums and an integer target, return indices of the two numbers such that they add up to target.
+      </p>
+    ),
+    link: 'https://medium.com/@1chooo/leetcode-0001-two-sum-hash-map-solution-go-python-c-ebc968eb9169',
+    alt: 'LeetCode 0001. Two Sum — Hash Map Solution | Go, Python, C++'
+  },
+  {
+    id: 'edit-server-html',
+    title: (
+      <h3 className="h3 blog-item-title">
+        如何編輯 /var/www/html 中的檔案
+      </h3>
+    ),
+    category: 'Coding',
+    imageUrl: "https://blog.1chooo.com/images/cover/coding-tips/edit-server-html.png",
+    date: 'Mar, 18, 2024',
+    content: (
+      <p className="blog-text">
+        首先為甚麼我們會需要編輯 /var/www/html 中的檔案呢？這是因為我們如果要在 Linux 中架設屬於我們的伺服器，像是 Apache 或是 Nginx，我們需要將我們的網頁檔案放在 /var/www/html 中。因此，如果我們要修改我們的網頁檔案，我們就需要進入這個資料夾中進行修改。
+      </p>
+    ),
+    link: 'https://medium.com/@1chooo/%E5%A6%82%E4%BD%95%E7%B7%A8%E8%BC%AF-var-www-html-%E4%B8%AD%E7%9A%84%E6%AA%94%E6%A1%88-963f5ea431e6',
+    alt: '如何編輯 /var/www/html 中的檔案'
+  },
+  {
+    id: '2181-merge-nodes-in-between-zeros',
+    title: (
+      <h3 className="h3 blog-item-title">
+        💯✅ LeetCode 2181. Merge Nodes in Between Zeros | Go
+      </h3>
+    ),
+    category: 'LeetCode',
+    imageUrl: "https://blog.1chooo.com/images/cover/leetcode/2181-merge-nodes-in-between-zeros.png",
+    date: 'Jul, 06, 2024',
+    content: (
+      <p className="blog-text">
+        You are given the head of a linked list, which contains a series of integers separated by 0's. The beginning and end of the linked list will have Node.val == 0.
+      </p>
+    ),
+    link: 'https://medium.com/@1chooo/leetcode-2181-merge-nodes-in-between-zeros-go-8a4ff44140cc',
+    alt: '如何編輯 /var/www/html 中的檔案'
+  },
+  {
     id: 'amazon-linux-2-install-docker',
     title: (
       <h3 className="h3 blog-item-title">
