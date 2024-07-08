@@ -19,11 +19,11 @@ export const blogTags = [
 
 export interface Post {
   id: string;
-  title: JSX.Element;
+  title: React.ReactNode;
   category: string;
   imageUrl: string;
   date: string;
-  content: JSX.Element;
+  content: React.ReactNode;
   link: string;
   alt: string;
 }
