@@ -22,8 +22,8 @@ const BlogPostList: React.FC<BlogPostListProps> = ({ posts }) => {
                 <span className="dot"></span>
                 <time dateTime={post.date}>{post.date}</time>
               </div>
-              <h3 className="blog-title">{post.title}</h3>
-              <p className="blog-description">{post.content}</p>
+              {post.title}
+              {post.content}
             </div>
           </a>
         </li>
