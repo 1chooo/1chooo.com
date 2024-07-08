@@ -7,7 +7,7 @@ const months: [string, ...string[]] = [
   "Oct", "Nov", "Dec"
 ];
 
-const getDateObject = (dateStr: string): Date => {
+export const getDateObject = (dateStr: string): Date => {
   if (dateStr.length < 1) {
     throw new Error(`Invalid dateStr: ${dateStr}!`);
   }
@@ -39,22 +39,19 @@ const getDateObject = (dateStr: string): Date => {
     throw new Error(`Invalid day in ${dateStr}!`);
   }
 
-
-  const date = new Date(`${year}-${month}-${day}`);
+  const formattedDateStr = `${year}-${months.indexOf(month) + 1}-${day}`;   // Safari still doesn't support yyyy-mm-dd format
+  const date = new Date(formattedDateStr);
   if (isNaN(date.getTime())) {
     throw new Error(`Invalid date in ${dateStr}!`);
   }
 
   return date;
-
 };
 
 // Ascend Blog by date
-// still need to add try catch for dateStr
 export function ascendBlogByDate(
   postsData: Post[]
 ): Post[] {
-
   return postsData.sort((
     a: Post,
     b: Post
@@ -63,7 +60,18 @@ export function ascendBlogByDate(
       const dateA = getDateObject(a.date);
       const dateB = getDateObject(b.date);
 
-      return dateA.getTime() - dateB.getTime();
+      // Compare years first
+      if (dateA.getFullYear() !== dateB.getFullYear()) {
+        return dateA.getFullYear() - dateB.getFullYear();
+      }
+      
+      // Compare months next
+      if (dateA.getMonth() !== dateB.getMonth()) {
+        return dateA.getMonth() - dateB.getMonth();
+      }
+      
+      // Compare days last
+      return dateA.getDate() - dateB.getDate();
     } catch (error) {
       console.trace(error);
       return 0;
@@ -73,11 +81,9 @@ export function ascendBlogByDate(
 
 
 // Descend Blog by date
-// still need to add try catch for dateStr
 export function descendBlogByDate(
   postsData: Post[]
 ): Post[] {
-
   return postsData.sort((
     a: Post,
     b: Post
@@ -86,7 +92,18 @@ export function descendBlogByDate(
       const dateA = getDateObject(a.date);
       const dateB = getDateObject(b.date);
 
-      return dateB.getTime() - dateA.getTime();
+      // Compare years first
+      if (dateB.getFullYear() !== dateA.getFullYear()) {
+        return dateB.getFullYear() - dateA.getFullYear();
+      }
+      
+      // Compare months next
+      if (dateB.getMonth() !== dateA.getMonth()) {
+        return dateB.getMonth() - dateA.getMonth();
+      }
+      
+      // Compare days last
+      return dateB.getDate() - dateA.getDate();
     } catch (error) {
       console.trace(error);
       return 0;
