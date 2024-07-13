@@ -4,7 +4,7 @@ import noAdsImage from "../Assets/images/posts/no_ads.png";
 import gitTipsImage from "../Assets/images/posts/git_tips.png";
 import nuphyUnboxingImage from "../Assets/images/posts/nuphy_unboxing.png";
 import reactMappingTipsImage from "../Assets/images/posts/react_mapping_tips.png";
-
+import { IPost } from "../interface/iPost";
 
 export const blogTags = [
   "All",
@@ -17,18 +17,18 @@ export const blogTags = [
   "LeetCode",
 ];
 
-export interface Post {
-  id: string;
-  title: React.ReactNode;
-  category: string;
-  imageUrl: string;
-  date: string;
-  content: React.ReactNode;
-  link: string;
-  alt: string;
-}
+// export interface Post {
+//   id: string;
+//   title: React.ReactNode;
+//   category: string;
+//   imageUrl: string;
+//   date: string;
+//   content: React.ReactNode;
+//   link: string;
+//   alt: string;
+// }
 
-export const postsData: Post[] = [
+export const postsData: IPost[] = [
   {
     id: '1052-grumpy-bookstore-owner',
     title: (

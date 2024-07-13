@@ -9,7 +9,9 @@ import BlogPostList from '../../components/blog/BlogPostList';
 import Pagination from '../../components/blog/Pagination';
 import Header from "../../components/Header";
 
-import { postsData, Post } from '../../config/BlogData';
+import { postsData } from '../../config/BlogData';
+import { IPost } from "../../interface/iPost";
+
 
 import { filterCategory, handleItemClick } from '../../utils/filterUtils';
 import { initializeCustomSelect, filterItemsByCategory } from "../../utils/domUtils";
@@ -65,7 +67,7 @@ const Blog: React.FC = () => {
               setIsSelectActive={setIsSelectActive}
               setCurrentPage={setCurrentPage}
             />
-            <BlogPostList posts={currentPosts as Post[]} />
+            <BlogPostList posts={currentPosts as IPost[]} />
             <Pagination
               totalPages={totalPages}
               currentPage={currentPage}

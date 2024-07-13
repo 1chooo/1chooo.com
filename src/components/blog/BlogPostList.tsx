@@ -1,14 +1,15 @@
 import React from 'react';
-import { Post } from '../../config/BlogData';
+import { IPost } from '../../interface/iPost';
+
 
 interface BlogPostListProps {
-  posts: Post[];
+  posts: IPost[];
 }
 
 const BlogPostList: React.FC<BlogPostListProps> = ({ posts }) => {
   return (
     <ul className="blog-posts-list">
-      {posts.map((post: Post) => (
+      {posts.map((post: IPost) => (
         <li key={post.id} className="blog-post-item active"
           data-category={post.category.toLowerCase()}
         >
