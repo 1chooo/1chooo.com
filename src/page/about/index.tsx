@@ -3,7 +3,7 @@ import {
   useLocation
 } from 'react-router-dom';
 
-import { aboutHeader } from "../../config/About/AboutData";
+import { abouts } from "../../config/about";
 
 import NavBar from "../../components/Navbar";
 import Sidebar from "../../components/SideBar/SideBar";
@@ -32,7 +32,7 @@ const About: React.FC = () => {
           className={`about ${location.pathname === '/' ? 'active' : ''}`}
           data-page="about"
         >
-          <Header title={aboutHeader} />
+          <Header title={abouts.header} />
           <AboutText />
           <TechStack />
           <LifeStyles />
