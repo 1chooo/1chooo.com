@@ -1,10 +1,10 @@
-import {
-  LifeStyle,
-  lifestyles
-} from '../../config/About/LifeStyle';
 
+import { abouts } from '../../config/about';
+import { ILifeStyle } from '../../interface/IAbout';
 
 const LifeStyles: React.FC = () => {
+  const { lifestyle: lifestyles } = abouts;
+  
   return (
     <section className="service">
 
@@ -13,18 +13,10 @@ const LifeStyles: React.FC = () => {
       </p>
 
       <ul className="service-list">
-        {lifestyles.map((
-          lifestyle: LifeStyle,
-          index: number
-        ) => (
-          <li
-            className="service-item"
-            key={index}>
+        {lifestyles.map((lifestyle: ILifeStyle, index: number) => (    // TODO: Do not use Array index in keys
+          <li className="service-item" key={index}>
             <div className="service-icon-box">
-              <img
-                src={lifestyle.icon}
-                alt={lifestyle.title}
-                width="30"
+              <img src={lifestyle.icon} alt={lifestyle.title} width="30"
               />
             </div>
             <div className="service-content-box">
