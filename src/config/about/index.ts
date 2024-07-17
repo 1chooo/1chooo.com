@@ -1,4 +1,4 @@
-import IAbout from '../interface/IAbout';
+import IAbout from '../../interface/IAbout';
 
 import writingImage from "../Assets/images/icons/writing.png";
 import dumbBellImage from "../Assets/images/icons/dumbbell.png";
@@ -33,7 +33,7 @@ enum DevOps {
 
 export const abouts: IAbout = {
   "header": "About Hugo 👨🏻‍💻",
-  "subHeader": "$ ls -al Hugo 👨🏻‍💻 (He/Him)",
+  "subHeader": "$ ls -al Hugo 👨🏻‍💻 (He/Him)",   // TODOs: Separate (He/Him) from subHeader
   "pronouns": "He/Him",
   "description": [
     "I'm **Hugo ChunHo Lin**, a 4th-year student at [National Central University 🐿️](https://www.ncu.edu.tw/), fueled by a ***sincere passion*** for the field of **Software Engineering 💻.**",
