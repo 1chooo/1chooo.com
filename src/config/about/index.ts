@@ -1,9 +1,9 @@
 import IAbout from '../../interface/IAbout';
 
-import writingImage from "../Assets/images/icons/writing.png";
-import dumbBellImage from "../Assets/images/icons/dumbbell.png";
-import developerImage from "../Assets/images/icons/developer.png";
-import cameraImage from "../Assets/images/icons/camera.png";
+import writingImage from "../../Assets/images/icons/writing.png";
+import dumbBellImage from "../../Assets/images/icons/dumbbell.png";
+import developerImage from "../../Assets/images/icons/developer.png";
+import cameraImage from "../../Assets/images/icons/camera.png";
 
 enum ProgrammingLanguage {
   PYTHON = "py",
