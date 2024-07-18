@@ -1,4 +1,3 @@
-
 import { abouts } from '../../config/about';
 import { ITechStack } from '../../interface/IAbout';
 
