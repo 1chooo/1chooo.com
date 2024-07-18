@@ -1,13 +1,12 @@
-
 import { abouts } from '../../config/about';
 import { ILifeStyle } from '../../interface/IAbout';
 
 const LifeStyles: React.FC = () => {
   const { lifestyle: lifestyles } = abouts;
   
+  // TODO: update inheritance of p.h3
   return (
     <section className="service">
-
       <p>
         <h3><code> $ ls -al Life Style</code></h3>
       </p>
@@ -16,8 +15,7 @@ const LifeStyles: React.FC = () => {
         {lifestyles.map((lifestyle: ILifeStyle, index: number) => (    // TODO: Do not use Array index in keys
           <li className="service-item" key={index}>
             <div className="service-icon-box">
-              <img src={lifestyle.icon} alt={lifestyle.title} width="30"
-              />
+              <img src={lifestyle.icon} alt={lifestyle.title} width="30" />
             </div>
             <div className="service-content-box">
               <h4 className="h4 service-item-title">{lifestyle.title}</h4>
