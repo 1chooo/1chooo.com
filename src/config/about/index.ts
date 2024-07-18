@@ -32,6 +32,7 @@ enum DevOps {
 }
 
 export const abouts: IAbout = {
+  "githubUsername": "1chooo",
   "header": "About Hugo 👨🏻‍💻",
   "subHeader": "$ ls -al Hugo 👨🏻‍💻 (He/Him)",   // TODOs: Separate (He/Him) from subHeader
   "pronouns": "He/Him",

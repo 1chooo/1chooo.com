@@ -1,22 +1,41 @@
+import React, { useEffect, useState, FC } from "react";
+import { useSearchParams } from 'react-router-dom';
 import GitHubCalendar from "react-github-calendar";
+import { ThemeInput } from "react-activity-calendar";
 
+import SubHeader from "./SubHeader";
+import { abouts } from '../../config/about';
 
-const GitHub: React.FC = ( ) => {
+/* 
+* goto https://grubersjoe.github.io/react-activity-calendar/
+* to see more themes
+*/
+const yellowTheme: ThemeInput = {
+  light: ['hsl(0, 0%, 92%)', '#FFDA6B'],
+  dark: ["hsl(0, 0%, 22%)", "#FFDA6B"],
+};
+const { githubUsername } = abouts;
+const subHeader = "$ ls -al GitHub Stats";
 
-  const yellowTheme = {
-    light: ['hsl(0, 0%, 92%)', '#FFDA6B'],
-    // for `dark` the default theme will be used
-    dark: ["hsl(0, 0%, 22%)", "#FFDA6B"],
-    // dark: ["hsl(0, 0%, 22%)", "hsl(225,92%,77%)"],
-  };
+const GitHub: FC = () => {
+  const [searchParams] = useSearchParams();
+  const initialUsername = searchParams.get('user') ?? githubUsername;
+
+  const [username, setUsername] = useState(initialUsername);
+
+  useEffect(() => {
+    if (initialUsername !== username) {
+      setUsername(initialUsername);
+    }
+  }, [initialUsername, username]);
+
 
   return (
     <section className="about-text">
-      <p>
-        <h3><code> $ ls -al GitHub Stats</code></h3>
-      </p>
+      <SubHeader text={subHeader} />
+      <br />
       <GitHubCalendar
-        username="1chooo"
+        username={username}
         blockSize={12}
         blockMargin={4}
         colorScheme="dark"

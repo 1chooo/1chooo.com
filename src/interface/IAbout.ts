@@ -10,6 +10,7 @@ export interface ITechStack {
 }
 
 interface IAbout {
+  githubUsername: string;
   header: string;
   subHeader: string;
   pronouns: string;
