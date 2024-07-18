@@ -7,13 +7,9 @@ import { abouts } from '../../config/about';
 const AboutText: React.FC = () => {
   const { subHeader, description } = abouts;
 
-  // TODO: move to utils
   const renderDescription = () =>
     description.map((item, index) => (
-      <MarkdownRenderer
-        key={`${item}-${index}`}
-        content={item}
-      />
+      <MarkdownRenderer key={`${item}-${index}`} content={item} />
     ));
 
   return (
