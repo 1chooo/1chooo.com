@@ -3,12 +3,18 @@ import {
 } from 'react-router-dom';
 import React from 'react';
 
-import NavBar from "../Navbar";
-import Sidebar from "../SideBar/SideBar";
-import CodeBlock from "../CodeBlock";
+import NavBar from '../../components/Navbar';
+import Sidebar from '../../components/SideBar/SideBar';
+import CodeBlock from '../../components/CodeBlock';
+
 /* 
  * https://github.com/grubersjoe/react-github-calendar/blob/main/example/src/components/Docs.tsx
  */
+
+const codeString = `
+console.log('Hello World');
+console.log("Hello");
+`;
 const Docs: React.FC = () => {
 
   const location = useLocation();
@@ -27,12 +33,15 @@ const Docs: React.FC = () => {
             <h2 className="h2 article-title">Docs</h2>
           </header>
           <div dangerouslySetInnerHTML={{ __html: htmlContent }} />
-        <CodeBlock>
-          {`import Hugo feom 'hugo';
-          
-          const hugo = new Hugo();
-          hugo.sayHi();`}
-        </CodeBlock>
+          <CodeBlock language="javascript" code={codeString} />
+          <pre>
+            <code>
+              {`
+console.log('Hello World');
+console.log("Hello");
+        `}
+            </code>
+          </pre>
         </article>
       </div>
     </main>

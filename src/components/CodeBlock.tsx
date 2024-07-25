@@ -1,30 +1,23 @@
-import { CSSProperties, FunctionComponent } from 'react';
+import React from 'react';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
-import { tomorrow as theme } from 'react-syntax-highlighter/dist/esm/styles/prism';
+import { vscDarkPlus } from 'react-syntax-highlighter/dist/esm/styles/prism';
 
-type Props = {
-  children: string;
-  style?: CSSProperties;
+const CodeBlock = ({ language, code }: { language: string, code: string }) => {
+  const customStyle = {
+    padding: '1em',
+    margin: '0.5em 0',
+    overflow: 'auto',
+    background: 'rgb(30, 30, 30)',
+    fontSize: '13px',
+    lineHeight: '1.5',
+    whiteSpace: 'pre',
+  };
+
+  return (
+    <SyntaxHighlighter language={language} style={vscDarkPlus} customStyle={customStyle}>
+      {code}
+    </SyntaxHighlighter>
+  );
 };
-
-const CodeBlock: FunctionComponent<Props> = ({ children }) => (
-  <SyntaxHighlighter
-    language="typescript"
-    customStyle={{
-      margin: '0 0 1.5rem',
-      padding: '1em',
-      backgroundColor: '#141414',
-      border: 'none',
-      borderRadius: 4,
-      lineHeight: 1.3,
-      overflowX: 'auto',
-    }}
-    codeTagProps={{ className: 'syntax-highlighter' }}
-    style={theme}
-    wrapLongLines={false}
-  >
-    {children}
-  </SyntaxHighlighter>
-);
 
 export default CodeBlock;
