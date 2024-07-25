@@ -6,7 +6,7 @@ import {
 import { abouts } from "../../config/about";
 
 import NavBar from "../../components/Navbar";
-import Sidebar from "../../components/SideBar/SideBar";
+import Sidebar from "../../components/SideBar";
 import AboutText from "../../components/About/AboutText";
 import LifeStyles from "../../components/About/LifeStyles";
 import Github from "../../components/About/Github";
