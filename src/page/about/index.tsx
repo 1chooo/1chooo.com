@@ -32,9 +32,9 @@ const About: React.FC = () => {
         >
           <Header title={abouts.header} />
           <AboutText />
+          <Github />
           <TechStack />
           <LifeStyles />
-          <Github />
         </article>
       </div>
     </main>
