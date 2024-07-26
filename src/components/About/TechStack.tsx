@@ -1,6 +1,9 @@
 import { abouts } from '../../config/about';
 import { ITechStack } from '../../interface/IAbout';
+import SubHeader from './SubHeader';
 
+
+const subHeader = "$ ls -al Tech Stack";
 const TechStack: React.FC = () => {
   const { programmingLanguage, devOps } = abouts;
 
@@ -17,10 +20,8 @@ const TechStack: React.FC = () => {
   };
 
   return (
-    <section className="techstack">
-      <p>
-        <h3><code> $ ls -al Tech Stack</code></h3>
-      </p>
+    <section className="about-text">
+      <SubHeader text={subHeader} />
 
       {renderTechStackList(programmingLanguage)}
       {renderTechStackList(devOps)}
