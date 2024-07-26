@@ -1,5 +1,10 @@
 import { abouts } from '../../config/about';
 import { ILifeStyle } from '../../interface/IAbout';
+import SubHeader from './SubHeader';
+
+
+const subHeader = "$ ls -al Life Style";
+
 
 const LifeStyles: React.FC = () => {
   const { lifestyle: lifestyles } = abouts;
@@ -7,9 +12,7 @@ const LifeStyles: React.FC = () => {
   // TODO: update inheritance of p.h3
   return (
     <section className="service">
-      <p>
-        <h3><code> $ ls -al Life Style</code></h3>
-      </p>
+      <SubHeader text={subHeader} />
 
       <ul className="service-list">
         {lifestyles.map((lifestyle: ILifeStyle, index: number) => (    // TODO: Do not use Array index in keys
