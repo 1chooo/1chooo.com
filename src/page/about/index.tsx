@@ -9,7 +9,7 @@ import NavBar from "../../components/Navbar";
 import Sidebar from "../../components/SideBar";
 import AboutText from "../../components/About/AboutText";
 import LifeStyles from "../../components/About/LifeStyles";
-import Github from "../../components/About/Github";
+import GitHubStats from "../../components/About/GitHubStats";
 import TechStack from "../../components/About/TechStack";
 import Header from "../../components/Header";
 
@@ -32,7 +32,7 @@ const About: React.FC = () => {
         >
           <Header title={abouts.header} />
           <AboutText />
-          <Github />
+          <GitHubStats />
           <TechStack />
           <LifeStyles />
         </article>
