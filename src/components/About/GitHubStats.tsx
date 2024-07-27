@@ -21,7 +21,7 @@ const MOBILE_CALENDAR_SIZE = 12;
 const LAPTOP_CALENDAR_SIZE = 12;
 const MOBILE_BREAKPOINT = 768;
 
-const GitHub: FC = () => {
+const GitHubStats: FC = () => {
   const [searchParams] = useSearchParams();
   const initialUsername = searchParams.get('user') ?? githubUsername;
 
@@ -63,4 +63,4 @@ const GitHub: FC = () => {
   );
 };
 
-export default GitHub;
+export default GitHubStats;
