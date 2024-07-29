@@ -27,9 +27,14 @@ const Working: React.FC = () => {
         ) => (
           <li className="timeline-item" key={index}>
             <h4 className="h4 timeline-item-title">
-              {professionalExperiences.title}
-              <span style={{ float: "right" }}>{professionalExperiences.location}</span>
+              {professionalExperiences.company}
+              <span>{professionalExperiences.location}</span>
             </h4>
+            <p className="profession-experience-title">
+              {professionalExperiences.title}
+              <span className="profession-experience-duration">🗓️ {professionalExperiences.date}</span>
+            </p>
+            <br />
             {professionalExperiences.description}
           </li>
         ))}
