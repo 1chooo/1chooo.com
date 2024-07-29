@@ -14,12 +14,10 @@ interface IAbout {
   header: string;
   subHeader: string;
   pronouns: string;
-  description: string[];
+  introductions: string[];
   lifestyle: ILifeStyle[];
   programmingLanguage: ITechStack[];
   devOps: ITechStack[];
 }
 
 export default IAbout;
-
-

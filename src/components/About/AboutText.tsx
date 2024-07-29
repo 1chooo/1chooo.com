@@ -4,19 +4,20 @@ import MarkdownRenderer from '../MarkdownRenderer';
 
 import { abouts } from '../../config/about';
 
-const AboutText: React.FC = () => {
-  const { subHeader, description } = abouts;
+const { subHeader, introductions, pronouns } = abouts;
 
-  const renderDescription = () =>
-    description.map((item, index) => (
+const AboutText: React.FC = () => {
+
+  const renderIntroduction = () =>
+    introductions.map((item, index) => (
       <MarkdownRenderer key={`${item}-${index}`} content={item} />
     ));
 
   return (
     <section className="about-text">
-      <SubHeader text={subHeader} />
+      <SubHeader text={`${subHeader} (${pronouns})`} />
       <br />
-      {renderDescription()}
+      {renderIntroduction()}
     </section>
   );
 };

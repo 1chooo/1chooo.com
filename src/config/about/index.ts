@@ -4,39 +4,15 @@ import writingImage from "../../Assets/images/icons/writing.png";
 import dumbBellImage from "../../Assets/images/icons/dumbbell.png";
 import developerImage from "../../Assets/images/icons/developer.png";
 import cameraImage from "../../Assets/images/icons/camera.png";
-
-enum ProgrammingLanguage {
-  PYTHON = "py",
-  GO = "go",
-  JAVA = "java",
-  CPP = "cpp",
-  C = "c",
-  REACT = "react",
-  TYPESCRIPT = "ts",
-  JAVASCRIPT = "js",
-  FLUTTER = "flutter",
-  BASH = "bash"
-}
-
-enum DevOps {
-  LINUX = "linux",
-  AWS = "aws",
-  AZURE = "azure",
-  GITHUBACTIONS = "githubactions",
-  DOCKER = "docker",
-  FASTAPI = "fastapi",
-  KUBERNETES = "kubernetes",
-  FLASK = "flask",
-  GITLAB = "gitlab",
-  REDIS = "redis"
-}
+import { ProgrammingLanguage } from '../../enum/ProgrammingLanguage';
+import { DevOps } from '../../enum/DevOps';
 
 export const abouts: IAbout = {
   "githubUsername": "1chooo",
   "header": "About Hugo 👨🏻‍💻",
-  "subHeader": "$ ls -al Hugo 👨🏻‍💻 (He/Him)",   // TODOs: Separate (He/Him) from subHeader
+  "subHeader": "$ ls -al Hugo 👨🏻‍💻",   // TODOs: Separate (He/Him) from subHeader
   "pronouns": "He/Him",
-  "description": [
+  "introductions": [
     "I'm **Hugo ChunHo Lin**, a graduate with a Bachelor's degree from [National Central University 🐿️](https://www.ncu.edu.tw/), driven by a *sincere passion* for **Software Engineering 💻.**",
     // "*I do **Web Development and Cloud Development** with a focus on **creating APIs and handling backend tasks** using `FastAPI, Gin, and AWS`. In general, I define new problems and find existing problems, transforming solutions into helpful documents or articles to assist everyone in the process, and eventually apply them to make social impacts.*",
     // "In my spare time, I do *street photography 📷* and *consistently share my findings on GitHub with Global 🌏*.",
