@@ -9,8 +9,15 @@
 </h3>
 
 <p align="center">
-    <i>Transform the codewithsadee/vcard-personal-portfolio to a React with TypeScript template for enhancing the blog page</i>
+    <i>Inspired by the <a href="https://github.com/codewithsadee/vcard-personal-portfolio">codewithsadee/vcard-personal-portfolio</a>, we aim to transform the <code>HTML/CSS</code> template into a React with <code>TypeScript</code> template.</i>
 </p>
+
+## ✨ Features
+
+- 🚧 Skeleton Loading
+- GitHub Calendar Heatmap
+- Markdown Rendering
+
 
 <!-- <p align="center">
   <a href="https://github.com/steven-tey/novel/blob/main/LICENSE">
@@ -83,9 +90,8 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 To learn React, check out the [React documentation](https://reactjs.org/).
 
 
-## CONTACT INFO.
+## 📲 CONTACT INFO.
 
-> AWS Educate Cloud Ambassador, Technical Support </br>
 > **Hugo ChunHo Lin**
 > 
 > <aside>
@@ -97,7 +103,7 @@ To learn React, check out the [React documentation](https://reactjs.org/).
 >    
 > </aside>
 
-## License
+## 🪪 License
 Released under [MIT](./LICENSE) by [Hugo ChunHo Lin](https://github.com/1chooo).
 
 This software can be modified and reused without restriction.
@@ -105,7 +111,4 @@ The original license must be included with any copies of this software.
 If a significant portion of the source code is used, please provide a link back to this repository.
 
 
-[1] https://fontawesome.com/search
-[2] https://ionic.io/ionicons
-[3] https://round-corner.imageonline.co/
-[4] https://www.uhdpaper.com/
+Made with 🖤 by [@1chooo](https://github.com/1chooo)
