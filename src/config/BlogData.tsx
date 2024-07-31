@@ -17,16 +17,6 @@ export const blogTags = [
   "LeetCode",
 ];
 
-// export interface Post {
-//   id: string;
-//   title: React.ReactNode;
-//   category: string;
-//   imageUrl: string;
-//   date: string;
-//   content: React.ReactNode;
-//   link: string;
-//   alt: string;
-// }
 
 export const postsData: IPost[] = [
   {
