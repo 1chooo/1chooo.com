@@ -17,7 +17,7 @@ const Portfolio = () => {
 
   useEffect(() => {
     initializeCustomSelect(filterItemsByCategory);
-    document.title = "Portfolio - Hugo ChunHo Lin (1chooo) | Portfolio";
+    document.title = "Portfolio - Hugo ChunHo Lin (1chooo) | Open Source Enthusiast";
   }, []);
 
   return (

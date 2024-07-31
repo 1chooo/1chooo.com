@@ -18,7 +18,7 @@ const Resume: React.FC = () => {
 
   const location = useLocation();
   useEffect(() => {
-    document.title = "Resume - Hugo ChunHo Lin (1chooo) | Portfolio";
+    document.title = "Resume - Hugo ChunHo Lin (1chooo) | Open Source Enthusiast";
   }, []);
 
   return (

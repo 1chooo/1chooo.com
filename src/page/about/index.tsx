@@ -1,7 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  useLocation
-} from 'react-router-dom';
+import { useLocation } from 'react-router-dom';
 
 import { abouts } from "../../config/about";
 
@@ -18,7 +16,7 @@ const About: React.FC = () => {
 
   const location = useLocation();
   useEffect(() => {
-    document.title = "Hugo ChunHo Lin (1chooo) | Portfolio";
+    document.title = "Hugo ChunHo Lin (1chooo) | Open Source Enthusiast";
   }, []);
 
   return (

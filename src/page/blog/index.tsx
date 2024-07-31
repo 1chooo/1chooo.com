@@ -22,7 +22,7 @@ const Blog: React.FC = () => {
   useEffect(() => {
     initializeCustomSelect(filterItemsByCategory);
     handleItemClick('All', setSelectedValue);
-    document.title = "Blog - Hugo ChunHo Lin (1chooo) | Portfolio";
+    document.title = "Blog - Hugo ChunHo Lin (1chooo) | Open Source Enthusiast";
   }, []);
 
   const [selectedValue, setSelectedValue] = useState('All');
