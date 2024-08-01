@@ -6,7 +6,7 @@ import Contact from "../components/Contact/Contact";
 import Resume from "../page/resume";
 import Preloader from "../../src/components/Pre";
 import Blog from "../page/Blog";
-import Portfolio from "../page/portfolio";
+import Portfolio from "../page/Portfolio";
 import ScrollToTop from "../components/ScrollToTop";
 import Docs from "../page/docs";
 
