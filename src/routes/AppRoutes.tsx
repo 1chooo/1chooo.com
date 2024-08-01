@@ -8,7 +8,7 @@ import Preloader from "../../src/components/Pre";
 import Blog from "../page/Blog";
 import Portfolio from "../page/Portfolio";
 import ScrollToTop from "../components/ScrollToTop";
-import Docs from "../page/docs";
+import Docs from "../page/Docs";
 
 const routes = [
   { path: "/", component: About },
