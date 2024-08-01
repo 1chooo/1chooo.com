@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-d
 
 import About from "../page/About";
 import Contact from "../components/Contact/Contact";
-import Resume from "../page/resume";
+import Resume from "../page/Resume";
 import Preloader from "../../src/components/Pre";
 import Blog from "../page/Blog";
 import Portfolio from "../page/Portfolio";
