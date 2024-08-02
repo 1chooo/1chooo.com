@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 
 import About from "../page/About";
-import Contact from "../components/Contact/Contact";
+import Contact from "../page/Contact";
 import Resume from "../page/Resume";
 import Preloader from "../../src/components/Pre";
 import Blog from "../page/Blog";

@@ -2,9 +2,9 @@ import React, {useEffect} from "react";
 import { useLocation } from 'react-router-dom';
 import { FaRegPaperPlane } from "react-icons/fa";
 
-import MapBox from "./MapBox";
-import NavBar from "../Navbar";
-import Sidebar from "../SideBar";
+import MapBox from "../../components/Contact/MapBox";
+import NavBar from "../../components/Navbar";
+import SideBar from "../../components/SideBar";
 
 const Contract: React.FC = () => {
 
@@ -15,7 +15,7 @@ const Contract: React.FC = () => {
 
   return (
     <main>
-      <Sidebar />
+      <SideBar />
       <div className="main-content">
         <NavBar />
         <article
