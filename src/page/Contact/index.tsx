@@ -2,7 +2,7 @@ import React, {useEffect} from "react";
 import { useLocation } from 'react-router-dom';
 import { FaRegPaperPlane } from "react-icons/fa";
 
-import MapBox from "../../components/Contact/MapBox";
+import MapBox from "../../components/contact/MapBox";
 import NavBar from "../../components/Navbar";
 import SideBar from "../../components/SideBar";
 
