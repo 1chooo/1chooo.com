@@ -4,7 +4,7 @@ import { useLocation } from 'react-router-dom';
 import { abouts } from "../../config/about";
 
 import NavBar from "../../components/Navbar";
-import Sidebar from "../../components/SideBar";
+import Sidebar from "../../components/sideBar/SideBar";
 import AboutText from "../../components/About/AboutText";
 import LifeStyles from "../../components/About/LifeStyles";
 import GitHubStats from "../../components/About/GitHubStats";

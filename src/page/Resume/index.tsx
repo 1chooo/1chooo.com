@@ -1,6 +1,6 @@
 import React, {useEffect} from "react";
 import NavBar from "../../components/Navbar";
-import Sidebar from "../../components/SideBar";
+import Sidebar from "../../components/sideBar/SideBar";
 import DownloadCV from "../../components/resume/DownloadCV";
 import Education from "../../components/resume/Education";
 import Working from "../../components/resume/Working";

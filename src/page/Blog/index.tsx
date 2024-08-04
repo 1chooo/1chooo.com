@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import React, { useState, useEffect } from 'react';
 
 import NavBar from "../../components/Navbar";
-import Sidebar from "../../components/SideBar";
+import Sidebar from "../../components/sideBar/SideBar";
 import FilterList from '../../components/blog/FilterList';
 import FilterSelectBox from '../../components/blog/FilterSelectBox';
 import BlogPostList from '../../components/blog/BlogPostList';

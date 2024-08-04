@@ -4,7 +4,7 @@ import { FaRegPaperPlane } from "react-icons/fa";
 
 import MapBox from "../../components/contact/MapBox";
 import NavBar from "../../components/Navbar";
-import SideBar from "../../components/SideBar";
+import SideBar from "../../components/sideBar/SideBar";
 
 const Contract: React.FC = () => {
 

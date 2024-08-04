@@ -4,7 +4,7 @@ import {
 import React from 'react';
 
 import NavBar from '../../components/Navbar';
-import Sidebar from '../../components/SideBar';
+import Sidebar from '../../components/sideBar/SideBar';
 import CodeBlock from '../../components/CodeBlock';
 
 /* 
