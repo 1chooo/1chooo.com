@@ -1,9 +1,9 @@
 import IAbout from '../../interface/IAbout';
 
-import writingImage from "../../Assets/images/icons/writing.png";
-import dumbBellImage from "../../Assets/images/icons/dumbbell.png";
-import developerImage from "../../Assets/images/icons/developer.png";
-import cameraImage from "../../Assets/images/icons/camera.png";
+import writingImage from "../../assets/images/icons/writing.png";
+import dumbBellImage from "../../assets/images/icons/dumbbell.png";
+import developerImage from "../../assets/images/icons/developer.png";
+import cameraImage from "../../assets/images/icons/camera.png";
 import { ProgrammingLanguage } from '../../enum/ProgrammingLanguage';
 import { DevOps } from '../../enum/DevOps';
 

@@ -1,9 +1,9 @@
 import { descendBlogByDate } from "../utils/sortBlogsByDate";
 
-import noAdsImage from "../Assets/images/posts/no_ads.png";
-import gitTipsImage from "../Assets/images/posts/git_tips.png";
-import nuphyUnboxingImage from "../Assets/images/posts/nuphy_unboxing.png";
-import reactMappingTipsImage from "../Assets/images/posts/react_mapping_tips.png";
+import noAdsImage from "../assets/images/posts/no_ads.png";
+import gitTipsImage from "../assets/images/posts/git_tips.png";
+import nuphyUnboxingImage from "../assets/images/posts/nuphy_unboxing.png";
+import reactMappingTipsImage from "../assets/images/posts/react_mapping_tips.png";
 import { IPost } from "../interface/iPost";
 
 export const blogTags = [

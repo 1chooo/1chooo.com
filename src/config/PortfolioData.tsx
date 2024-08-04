@@ -1,12 +1,12 @@
 // ProjectsData.tsx
 
-import awsEdu101Image from "../Assets/images/projects/aws_edu_101.png";
-import testImage from "../Assets/images/projects/portfolio_test.png";
-import gymRouteImage from "../Assets/images/projects/gym_route.png";
-import thermalCalculatorImage from "../Assets/images/projects/thermal_calculator.png";
-import gameScopeImage from "../Assets/images/projects/game_scope.png";
-import evolvingBeastsImage from "../Assets/images/projects/evolving_beasts.png";
-import reactVcardPortfolioImage from "../Assets/images/projects/react_vcard_portfolio.png";
+import awsEdu101Image from "../assets/images/projects/aws_edu_101.png";
+import testImage from "../assets/images/projects/portfolio_test.png";
+import gymRouteImage from "../assets/images/projects/gym_route.png";
+import thermalCalculatorImage from "../assets/images/projects/thermal_calculator.png";
+import gameScopeImage from "../assets/images/projects/game_scope.png";
+import evolvingBeastsImage from "../assets/images/projects/evolving_beasts.png";
+import reactVcardPortfolioImage from "../assets/images/projects/react_vcard_portfolio.png";
 
 export const projectTags = [
   "All",

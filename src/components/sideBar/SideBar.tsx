@@ -1,5 +1,5 @@
 import React, { useState, useRef } from 'react';
-import profileImage from "../../Assets/images/profile.jpg";
+import profileImage from "../../assets/images/profile.jpg";
 import { MdExpandMore } from "react-icons/md";
 
 import SocialList from './SocialList';
