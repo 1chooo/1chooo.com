@@ -5,10 +5,10 @@ import { abouts } from "../../config/about";
 
 import NavBar from "../../components/Navbar";
 import Sidebar from "../../components/sideBar/SideBar";
-import AboutText from "../../components/About/AboutText";
-import LifeStyles from "../../components/About/LifeStyles";
-import GitHubStats from "../../components/About/GitHubStats";
-import TechStack from "../../components/About/TechStack";
+import AboutText from "../../components/about/AboutText";
+import LifeStyles from "../../components/about/LifeStyles";
+import GitHubStats from "../../components/about/GitHubStats";
+import TechStack from "../../components/about/TechStack";
 import Header from "../../components/Header";
 
 
