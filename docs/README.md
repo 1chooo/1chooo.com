@@ -12,22 +12,22 @@
     <i>Inspired by the <a href="https://github.com/codewithsadee/vcard-personal-portfolio">codewithsadee/vcard-personal-portfolio</a>, we aim to transform the <code>HTML/CSS</code> template into a React with <code>TypeScript</code> project.</i>
 </p>
 
-<p align="center">
+<!-- <p align="center">
   <a href="#-features"><strong>✨ Feature</strong></a> ·
-  <!-- <a href="#installation"><strong>Installation</strong></a> ·
+  <a href="#installation"><strong>Installation</strong></a> ·
   <a href="#deploy-your-own"><strong>Deploy Your Own</strong></a> ·
   <a href="#setting-up-locally"><strong>Setting Up Locally</strong></a> ·
-  <a href="#tech-stack"><strong>Tech Stack</strong></a> · -->
+  <a href="#tech-stack"><strong>Tech Stack</strong></a> ·
   <a href="#-contributing"><strong>🌏 Contributing</strong></a> ·
-  <a href="#-contact-info"><strong>📲 CONTACT INFO</strong></a> ·
+  <a href="#-contact-info"><strong>📲 Contact Info</strong></a> ·
   <a href="#-license"><strong>🪪 License</strong></a>
-</p>
-
-<!-- <p align="center">
-<strong>
-  <a href="https://buck2.build">Homepage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="https://buck2.build/docs/getting_started/">Getting Started</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="./CONTRIBUTING.md">Contributing</a>
-</strong>
 </p> -->
+
+<p align="center">
+<strong>
+  <a href="#-features">✨ Feature</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="#-contributing">🌏 Contributing</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="#-contact-info">📲 Contact Info</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="#-license">🪪 License</a>
+</strong>
+</p>
 
 ## ✨ Features
 
@@ -67,7 +67,7 @@ $ npm install
 $ npm start
 ```
 
-## 📲 CONTACT INFO
+## 📲 Contact Info
 
 > **Hugo ChunHo Lin**
 > 
