@@ -1,9 +1,10 @@
 import React from "react";
 import { mapAddress } from "../../config/ContactData";
+import "./MapBox.css";
 
 const MapBox = () => {
   return (
-    <section className="mapbox" data-mapbox="true">
+    <section className="mapbox" data-mapbox="true" data-testid="mapbox-section">
       <figure>
         <iframe
           title="map address"
@@ -15,7 +16,6 @@ const MapBox = () => {
       </figure>
     </section>
   );
-
 }
 
 export default MapBox;

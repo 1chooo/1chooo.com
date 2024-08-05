@@ -1,7 +1,7 @@
-<h1 align="center">1chooo.com</h1>
+<h1 align="center"><a href="https://1chooo.com">1chooo.com</a></h1>
 
 <a href="https://1chooo.com">
-  <img alt="1chooo.com Home Page" src="./src/assets/images/projects/react_vcard_portfolio.png">
+  <img alt="1chooo.com Home Page" src="./docs/imgs/cover_transparent_bg.png">
 </a>
 
 <h3 align="center">
@@ -9,7 +9,7 @@
 </h3>
 
 <p align="center">
-    <i>Inspired by the <a href="https://github.com/codewithsadee/vcard-personal-portfolio">codewithsadee/vcard-personal-portfolio</a>, we aim to transform the <code>HTML/CSS</code> template into a React with <code>TypeScript</code> template.</i>
+    <i>Inspired by the <a href="https://github.com/codewithsadee/vcard-personal-portfolio">codewithsadee/vcard-personal-portfolio</a>, we aim to transform the <code>HTML/CSS</code> template into a React with <code>TypeScript</code> project.</i>
 </p>
 
 <p align="center">
@@ -22,6 +22,12 @@
   <a href="#-contact-info"><strong>📲 CONTACT INFO</strong></a> ·
   <a href="#-license"><strong>🪪 License</strong></a>
 </p>
+
+<!-- <p align="center">
+<strong>
+  <a href="https://buck2.build">Homepage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="https://buck2.build/docs/getting_started/">Getting Started</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="./CONTRIBUTING.md">Contributing</a>
+</strong>
+</p> -->
 
 ## ✨ Features
 
@@ -51,6 +57,15 @@ Optionally React Developer Tools -->
 PRs and Issues are welcome! 🫵🏻
 
 Please read the [CONTRIBUTING.md](./CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## 🔩 Getting Started
+
+```shell
+$ git clone git@github.com:1chooo/1chooo.com.git
+$ cd 1chooo.com
+$ npm install
+$ npm start
+```
 
 ## 📲 CONTACT INFO
 
