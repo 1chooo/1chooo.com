@@ -1,7 +1,7 @@
-<h1 align="center">1chooo.com</h1>
+<h1 align="center"><a href="https://1chooo.com">1chooo.com</a></h1>
 
 <a href="https://1chooo.com">
-  <img alt="1chooo.com Home Page" src="./src/assets/images/projects/react_vcard_portfolio.png">
+  <img alt="1chooo.com Home Page" src="./docs/imgs/cover_transparent_bg.png">
 </a>
 
 <h3 align="center">
@@ -9,7 +9,7 @@
 </h3>
 
 <p align="center">
-    <i>Inspired by the <a href="https://github.com/codewithsadee/vcard-personal-portfolio">codewithsadee/vcard-personal-portfolio</a>, we aim to transform the <code>HTML/CSS</code> template into a React with <code>TypeScript</code> template.</i>
+    <i>Inspired by the <a href="https://github.com/codewithsadee/vcard-personal-portfolio">codewithsadee/vcard-personal-portfolio</a>, we aim to transform the <code>HTML/CSS</code> template into a React with <code>TypeScript</code> project.</i>
 </p>
 
 <p align="center">
