@@ -23,6 +23,12 @@
   <a href="#-license"><strong>🪪 License</strong></a>
 </p>
 
+<!-- <p align="center">
+<strong>
+  <a href="https://buck2.build">Homepage</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="https://buck2.build/docs/getting_started/">Getting Started</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="./CONTRIBUTING.md">Contributing</a>
+</strong>
+</p> -->
+
 ## ✨ Features
 
 - 🚧 Skeleton Loading
@@ -51,6 +57,15 @@ Optionally React Developer Tools -->
 PRs and Issues are welcome! 🫵🏻
 
 Please read the [CONTRIBUTING.md](./CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+
+## 🔩 Getting Started
+
+```shell
+$ git clone git@github.com:1chooo/1chooo.com.git
+$ cd 1chooo.com
+$ npm install
+$ npm start
+```
 
 ## 📲 CONTACT INFO
 
