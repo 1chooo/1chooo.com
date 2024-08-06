@@ -186,10 +186,6 @@ body {
     background: var(--smoky-black);
 }
 
-
-
-
-
 /*-----------------------------------*\
     #REUSED STYLE
 \*-----------------------------------*/
@@ -209,34 +205,6 @@ article {
     height: 1px;
     background: var(--jet);
     margin: 16px 0;
-}
-
-.icon-box {
-    position: relative;
-    background: var(--border-gradient-onyx);
-    width: 30px;
-    height: 30px;
-    border-radius: 8px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 16px;
-    color: var(--orange-yellow-crayola);
-    box-shadow: var(--shadow-1);
-    z-index: 1;
-}
-
-.icon-box::before {
-    content: "";
-    position: absolute;
-    inset: 1px;
-    background: var(--eerie-black-1);
-    border-radius: inherit;
-    z-index: -1;
-}
-
-.icon-box ion-icon {
-    --ionicon-stroke-width: 35px;
 }
 
 article {
@@ -452,40 +420,6 @@ main {
     visibility: visible;
 }
 
-.contacts-list {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: 16px;
-}
-
-.contact-item {
-    min-width: 100%;
-    display: flex;
-    align-items: center;
-    gap: 16px;
-}
-
-.contact-info {
-    max-width: calc(100% - 46px);
-    width: calc(100% - 46px);
-}
-
-.contact-title {
-    color: var(--light-gray-70);
-    font-size: var(--fs-8);
-    text-transform: uppercase;
-    margin-bottom: 2px;
-}
-
-.contact-info :is(.contact-link, time, address) {
-    color: var(--white-2);
-    font-size: var(--fs-7);
-}
-
-.contact-info address {
-    font-style: normal;
-}
-
 .social-list {
     display: flex;
     justify-content: flex-start;
@@ -500,14 +434,9 @@ main {
     font-size: 18px;
 }
 
-
 .social-item .social-link:hover {
     color: var(--light-gray);
 }
-
-
-
-
 
 /*-----------------------------------*\
     #NAVBAR
@@ -550,10 +479,6 @@ main {
     color: var(--orange-yellow-crayola);
 }
 
-
-
-
-
 /*-----------------------------------*\
     #DOCS
 \*-----------------------------------*/
@@ -591,8 +516,6 @@ main {
 .about-text p {
     margin-bottom: 15px;
 }
-
-
 
 /**
 * #service 
@@ -652,6 +575,7 @@ main {
     margin: auto;
 }
 
+/* if need icon-box, goto ContactLists */
 .service-icon-box icon-box {
     margin: auto;
 }
@@ -1437,10 +1361,6 @@ main {
     line-height: 1.6;
 }
 
-
-
-
-
 /*-----------------------------------*\
     #CONTACT
 \*-----------------------------------*/
@@ -1687,15 +1607,6 @@ textarea.form-input::-webkit-resizer {
         height: 5px;
     }
 
-    .icon-box {
-        width: 48px;
-        height: 48px;
-        border-radius: 12px;
-        font-size: 18px;
-    }
-
-
-
     /**
     * #MAIN
     */
@@ -1704,8 +1615,6 @@ textarea.form-input::-webkit-resizer {
         margin-top: 60px;
         margin-bottom: 100px;
     }
-
-
 
     /**
     * #SIDEBAR
@@ -1761,24 +1670,9 @@ textarea.form-input::-webkit-resizer {
         display: none;
     }
 
-
-
-
-
     .separator {
         margin: 32px 0;
     }
-
-    .contacts-list {
-        gap: 20px;
-    }
-
-    .contact-info {
-        max-width: calc(100% - 64px);
-        width: calc(100% - 64px);
-    }
-
-
 
     /**
     * #NAVBAR
@@ -1795,8 +1689,6 @@ textarea.form-input::-webkit-resizer {
     .navbar-link {
         --fs-8: 14px;
     }
-
-
 
     /**
     * # DOCS
@@ -2044,16 +1936,9 @@ textarea.form-input::-webkit-resizer {
     * SIDEBAR
     */
 
-    .contacts-list {
-        grid-template-columns: 1fr 1fr;
-        gap: 30px 15px;
-    }
-
     .info-more-btn svg {
         display: none;
     }
-
-
 
     /**
     * NAVBAR
@@ -2062,8 +1947,6 @@ textarea.form-input::-webkit-resizer {
     .navbar-link {
         --fs-8: 15px;
     }
-
-
 
     /**
     * ABOUT
@@ -2079,10 +1962,6 @@ textarea.form-input::-webkit-resizer {
     .modal-avatar-box img {
         width: 80px;
     }
-
-
-
-
 
     /**
     * PORTFOLIO
@@ -2397,21 +2276,6 @@ textarea.form-input::-webkit-resizer {
     .sidebar-info-more {
         opacity: 1;
         visibility: visible;
-    }
-
-    .contacts-list {
-        grid-template-columns: 1fr;
-    }
-
-    .contact-info :is(.contact-link) {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-
-    .contact-info :is(.contact-link, time, address) {
-        --fs-7: 14px;
-        font-weight: var(--fw-300);
     }
 
     .separator:last-of-type {

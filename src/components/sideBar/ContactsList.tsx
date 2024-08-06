@@ -1,18 +1,12 @@
-import {
-	HiOutlineMail
-} from "react-icons/hi";
-import {
-	IoCalendarOutline
-} from "react-icons/io5";
-import {
-	MdOutlineLocationOn,
-} from "react-icons/md";
-import {
-	TbPhoneCalling
-} from "react-icons/tb";
+import { HiOutlineMail } from "react-icons/hi";
+import { IoCalendarOutline } from "react-icons/io5";
+import { MdOutlineLocationOn } from "react-icons/md";
+import { TbPhoneCalling } from "react-icons/tb";
+
+import "./ContactsList.css";
 
 
-const ContactsList: React.FC = ( ) => {
+const ContactsList: React.FC = () => {
 	return (
 		<ul className="contacts-list">
 
