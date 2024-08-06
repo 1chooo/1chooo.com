@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 import { abouts } from "../../config/about";
 
-import NavBar from "../../components/Navbar";
+import NavBar from "../../components/NavBar";
 import Sidebar from "../../components/sideBar/SideBar";
 import AboutText from "../../components/about/AboutText";
 import LifeStyles from "../../components/about/LifeStyles";

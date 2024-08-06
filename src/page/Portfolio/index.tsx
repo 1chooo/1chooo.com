@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 
 
 import Sidebar from "../../components/sideBar/SideBar";
-import NavBar from "../../components/Navbar";
+import NavBar from "../../components/NavBar";
 import Projects from "../../components/portfolio/projects";
 import Header from "../../components/Header";
 import {

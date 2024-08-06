@@ -3,7 +3,7 @@ import { useLocation } from 'react-router-dom';
 import { FaRegPaperPlane } from "react-icons/fa";
 
 import MapBox from "../../components/contact/MapBox";
-import NavBar from "../../components/Navbar";
+import NavBar from "../../components/NavBar";
 import SideBar from "../../components/sideBar/SideBar";
 
 const Contract: React.FC = () => {
