@@ -1,8 +1,8 @@
-<h1 align="center"><a href="https://1chooo.com">1chooo.com</a></h1>
-
 <a href="https://1chooo.com">
   <img alt="1chooo.com Home Page" src="./imgs/cover_transparent_bg.png">
 </a>
+
+<h1 align="center"><a href="https://1chooo.com">1chooo.com</a></h1>
 
 <h3 align="center">
     <b><i>The Source Code of my Website.</i></b>
