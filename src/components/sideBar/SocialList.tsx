@@ -1,87 +1,36 @@
-import {
-	SiGithub,
-} from "react-icons/si";
-import {
-	FaMedium,
-	FaXTwitter,
-	FaLinkedinIn,
-} from "react-icons/fa6";
-import {
-	MdAttachment,
-	MdOutlineSignpost,
-} from "react-icons/md";
+import { SiGithub } from "react-icons/si";
+import { FaMedium, FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
+import { MdAttachment, MdOutlineSignpost } from "react-icons/md";
 
+import { abouts } from '../../config/about';
 
+const { socialMedia } = abouts;
+const { githubUsername, twitterUsername, linkedinUsername, mediumUsername } = socialMedia;
+
+const socialLinks = [
+	{ url: `https://github.com/${githubUsername}`, icon: <SiGithub />, name: 'GitHub' },
+	{ url: `https://www.linkedin.com/in/${linkedinUsername}/`, icon: <FaLinkedinIn />, name: 'LinkedIn' },
+	{ url: `https://medium.com/@${mediumUsername}`, icon: <FaMedium />, name: 'Medium' },
+	{ url: `https://twitter.com/${twitterUsername}`, icon: <FaXTwitter />, name: 'Twitter' },
+	{ url: `https://blog.1chooo.com`, icon: <MdOutlineSignpost />, name: 'Blog' },
+	{ url: `./cv.pdf`, icon: <MdAttachment />, name: 'CV' },
+];
 
 const SocialList: React.FC = () => {
 	return (
 		<ul className="social-list">
-
-			<li className="social-item">
-				<a
-					href="https://github.com/1chooo"
-					className="social-link"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<SiGithub />
-				</a>
-			</li>
-
-			<li className="social-item">
-				<a
-					href="https://www.linkedin.com/in/1chooo/"
-					className="social-link"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<FaLinkedinIn />
-				</a>
-			</li>
-
-			<li className="social-item">
-				<a
-					href="https://medium.com/@1chooo"
-					className="social-link"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<FaMedium />
-				</a>
-			</li>
-
-			<li className="social-item">
-				<a
-					href="https://twitter.com/1chooo___"
-					className="social-link"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<FaXTwitter />
-				</a>
-			</li>
-
-			<li className="social-item">
-				<a
-					href="https://blog.1chooo.com"
-					className="social-link"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<MdOutlineSignpost />
-				</a>
-			</li>
-
-			<li className="social-item">
-				<a
-					href="./cv.pdf"
-					className="social-link"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<MdAttachment />
-				</a>
-			</li>
+			{socialLinks.map(({ url, icon, name }) => (
+				<li className="social-item" key={name}>
+					<a
+						href={url}
+						className="social-link"
+						target="_blank"
+						rel="noopener noreferrer"
+					>
+						{icon}
+					</a>
+				</li>
+			))}
 		</ul>
 	);
 }

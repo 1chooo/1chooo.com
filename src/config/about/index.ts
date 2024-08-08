@@ -9,8 +9,14 @@ import { DevOps } from '../../enum/DevOps';
 
 export const abouts: IAbout = {
   "githubUsername": "1chooo",
+  "socialMedia": {
+    "githubUsername": "1chooo",
+    "mediumUsername": "1chooo",
+    "twitterUsername": "1chooo___",
+    "linkedinUsername": "1chooo"
+  },
   "header": "About Hugo 👨🏻‍💻",
-  "subHeader": "$ ls -al Hugo 👨🏻‍💻",   // TODOs: Separate (He/Him) from subHeader
+  "subHeader": "$ ls -al Hugo 👨🏻‍💻",
   "pronouns": "He/Him",
   "introductions": [
     "I'm **Hugo ChunHo Lin**, a graduate with a Bachelor's degree from [National Central University 🐿️](https://www.ncu.edu.tw/), driven by a *sincere passion* for **Software Engineering 💻.**",

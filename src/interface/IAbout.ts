@@ -9,8 +9,16 @@ export interface ITechStack {
   iconUrl: string;
 }
 
+interface ISocialMedia {
+  githubUsername: string;
+  mediumUsername: string;
+  twitterUsername: string;
+  linkedinUsername: string;
+}
+
 interface IAbout {
   githubUsername: string;
+  socialMedia: ISocialMedia;
   header: string;
   subHeader: string;
   pronouns: string;
