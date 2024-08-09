@@ -26,6 +26,7 @@ const SocialList: React.FC = () => {
 						className="social-link"
 						target="_blank"
 						rel="noopener noreferrer"
+						aria-label={name}
 					>
 						{icon}
 					</a>
