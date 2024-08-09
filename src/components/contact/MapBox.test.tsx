@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
-import MapBox from '../../../components/contact/MapBox';
-import { mapAddress } from '../../../config/ContactData';
+import MapBox from './MapBox';
+import { mapAddress } from '../../config/ContactData';
 
 describe('MapBox component', () => {
   test('renders the iframe with the correct attributes', () => {

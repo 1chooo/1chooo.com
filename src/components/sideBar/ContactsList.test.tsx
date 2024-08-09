@@ -1,6 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
-import ContactsList from "../../../components/sideBar/ContactsList";
+import ContactsList from "./ContactsList";
 
 // Mock the icons to avoid rendering issues during tests
 jest.mock("react-icons/hi", () => ({

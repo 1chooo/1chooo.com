@@ -1,8 +1,8 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { NavBar } from '../../../components/NavBar/NavBar';
-import { navItems } from '../../../config/navBar';
+import { NavBar } from './NavBar';
+import { navItems } from '../../config/navBar';
 
 // Mocking useLocation hook
 jest.mock('react-router-dom', () => ({
