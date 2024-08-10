@@ -1,4 +1,5 @@
 import { IconType } from "react-icons";
+import "@/styles/icon-box.css";
 
 interface IconBoxProps {
   icon: IconType;
