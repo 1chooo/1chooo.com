@@ -4,6 +4,10 @@ import { usePathname } from 'next/navigation';
 import SideBar from '@/components/side-bar';
 import NavBar from '@/components/nav-bar';
 import Header from '@/components/header';
+import DownloadCV from '@/components/resume/download-cv';
+import TimeLine from '@/components/resume/timeline';
+import { professionalExperiences } from '@/config/resume';
+
 
 const Resume = () => {
   const pathname = usePathname();
@@ -18,6 +22,9 @@ const Resume = () => {
           data-page="resume"
         >
           <Header title="Resume" />
+          <DownloadCV />
+          <TimeLine data={professionalExperiences} />
+
         </article>
       </div>
     </main>
