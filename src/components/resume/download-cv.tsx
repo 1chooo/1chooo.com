@@ -1,5 +1,5 @@
 import { IoCloudDownloadOutline } from "react-icons/io5";
-import IconBox from "./icon-box";
+import IconBox from "../icon-box";
 
 
 const DownloadCV = () => {
