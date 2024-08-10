@@ -2,6 +2,8 @@ import React from "react";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 
+import "@/styles/timeline-item.css";
+
 export interface TimelineItemProps {
   company: string;
   location: string;
