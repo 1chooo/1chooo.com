@@ -3,8 +3,10 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import "./nav-bar.css";
 import { navItems } from '@/config/nav-bar';
+
+
+import '@/styles/nav-bar.css'
 
 export const NavBar: React.FC = () => {
   const pathname = usePathname();
