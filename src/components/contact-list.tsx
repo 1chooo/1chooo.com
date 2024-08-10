@@ -3,7 +3,7 @@ import { IoCalendarOutline } from "react-icons/io5";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { TbPhoneCalling } from "react-icons/tb";
 
-import "./contact-list.css";
+import "@/styles/contact-list.css";
 
 
 const ContactsList: React.FC = () => {
