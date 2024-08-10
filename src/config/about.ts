@@ -1,13 +1,6 @@
 import IAbout from '@/interface/IAbout';
-
-// import writingImage from '/images/icons/writing.png';
-// import dumbBellImage from '/images/icons/dumbbell.png';
-// import developerImage from '/images/icons/developer.png';
-// import cameraImage from '/images/icons/camera.png';
-
 import { ProgrammingLanguage } from '@/enum/ProgrammingLanguage';
 import { DevOps } from '@/enum/DevOps';
-import Image from 'next/image';
 
 export const abouts: IAbout = {
   "githubUsername": "1chooo",
@@ -49,27 +42,23 @@ export const abouts: IAbout = {
     }
   ],
   "programmingLanguage": [
-    { name: ProgrammingLanguage.PYTHON, iconUrl: `https://skillicons.dev/icons?i=${ProgrammingLanguage.PYTHON}` },
-    { name: ProgrammingLanguage.GO, iconUrl: `https://skillicons.dev/icons?i=${ProgrammingLanguage.GO}` },
-    { name: ProgrammingLanguage.JAVA, iconUrl: `https://skillicons.dev/icons?i=${ProgrammingLanguage.JAVA}` },
-    { name: ProgrammingLanguage.CPP, iconUrl: `https://skillicons.dev/icons?i=${ProgrammingLanguage.CPP}` },
-    { name: ProgrammingLanguage.C, iconUrl: `https://skillicons.dev/icons?i=${ProgrammingLanguage.C}` },
-    { name: ProgrammingLanguage.REACT, iconUrl: `https://skillicons.dev/icons?i=${ProgrammingLanguage.REACT}` },
-    { name: ProgrammingLanguage.TYPESCRIPT, iconUrl: `https://skillicons.dev/icons?i=${ProgrammingLanguage.TYPESCRIPT}` },
-    { name: ProgrammingLanguage.JAVASCRIPT, iconUrl: `https://skillicons.dev/icons?i=${ProgrammingLanguage.JAVASCRIPT}` },
-    { name: ProgrammingLanguage.FLUTTER, iconUrl: `https://skillicons.dev/icons?i=${ProgrammingLanguage.FLUTTER}` },
-    { name: ProgrammingLanguage.BASH, iconUrl: `https://skillicons.dev/icons?i=${ProgrammingLanguage.BASH}` }
+    { id: 'python', src: 'https://skillicons.dev/icons?i=python', alt: 'python' },
+    { id: 'ts', src: 'https://skillicons.dev/icons?i=ts', alt: 'ts' },
+    { id: 'go', src: 'https://skillicons.dev/icons?i=go', alt: 'go' },
+    { id: 'cpp', src: 'https://skillicons.dev/icons?i=cpp', alt: 'cpp' },
+    { id: 'java', src: 'https://skillicons.dev/icons?i=java', alt: 'java' },
+    { id: 'md', src: 'https://skillicons.dev/icons?i=md', alt: 'md' },
+    { id: 'bash', src: 'https://skillicons.dev/icons?i=bash', alt: 'bash' },
+    { id: 'latex', src: 'https://skillicons.dev/icons?i=latex', alt: 'latex' },
   ],
   "devOps": [
-    { name: DevOps.LINUX, iconUrl: `https://skillicons.dev/icons?i=${DevOps.LINUX}` },
-    { name: DevOps.AWS, iconUrl: `https://skillicons.dev/icons?i=${DevOps.AWS}` },
-    { name: DevOps.AZURE, iconUrl: `https://skillicons.dev/icons?i=${DevOps.AZURE}` },
-    { name: DevOps.GITHUBACTIONS, iconUrl: `https://skillicons.dev/icons?i=${DevOps.GITHUBACTIONS}` },
-    { name: DevOps.DOCKER, iconUrl: `https://skillicons.dev/icons?i=${DevOps.DOCKER}` },
-    { name: DevOps.FASTAPI, iconUrl: `https://skillicons.dev/icons?i=${DevOps.FASTAPI}` },
-    { name: DevOps.KUBERNETES, iconUrl: `https://skillicons.dev/icons?i=${DevOps.KUBERNETES}` },
-    { name: DevOps.FLASK, iconUrl: `https://skillicons.dev/icons?i=${DevOps.FLASK}` },
-    { name: DevOps.GITLAB, iconUrl: `https://skillicons.dev/icons?i=${DevOps.GITLAB}` },
-    { name: DevOps.REDIS, iconUrl: `https://skillicons.dev/icons?i=${DevOps.REDIS}` }
+    { id: 'linux', src: 'https://skillicons.dev/icons?i=linux', alt: 'linux' },
+    { id: 'aws', src: 'https://skillicons.dev/icons?i=aws', alt: 'aws' },
+    { id: 'fastapi', src: 'https://skillicons.dev/icons?i=fastapi', alt: 'fastapi' },
+    { id: 'react', src: 'https://skillicons.dev/icons?i=react', alt: 'react' },
+    { id: 'nextjs', src: 'https://skillicons.dev/icons?i=nextjs', alt: 'nextjs' },
+    { id: 'flask', src: 'https://skillicons.dev/icons?i=flask', alt: 'flask' },
+    { id: 'docker', src: 'https://skillicons.dev/icons?i=docker', alt: 'docker' },
+    { id: 'githubactions', src: 'https://skillicons.dev/icons?i=githubactions', alt: 'githubactions' },
   ]
 }
