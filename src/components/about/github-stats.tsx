@@ -4,7 +4,7 @@ import React, { useEffect, useState, FC } from 'react';
 import GitHubCalendar from 'react-github-calendar';
 import { ThemeInput } from 'react-activity-calendar';
 
-import SubHeader from './sub-header';
+import SubHeader from '../sub-header';
 
 import { abouts } from '@/config/about';
 

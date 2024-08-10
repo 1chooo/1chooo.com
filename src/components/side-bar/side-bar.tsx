@@ -9,7 +9,7 @@ import ContactsList from './contact-list';
 
 import Image from 'next/image';
 
-const SideBar: React.FC = () => {
+export const SideBar: React.FC = () => {
   const [isActive, setIsActive] = useState(false);
   const sideBarRef = useRef<HTMLDivElement>(null);
 
@@ -61,5 +61,3 @@ const SideBar: React.FC = () => {
     </aside>
   );
 }
-
-export default SideBar;

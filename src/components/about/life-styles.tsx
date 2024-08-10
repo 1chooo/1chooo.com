@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { ILifeStyle } from '@/interface/IAbout';
-import SubHeader from './sub-header';
+import SubHeader from '../sub-header';
 import { abouts } from '@/config/about';
 
 const subHeader = "$ ls -al Life Style";

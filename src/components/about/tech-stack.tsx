@@ -1,7 +1,7 @@
 'use client';
 
 import Image from 'next/image';
-import SubHeader from './sub-header';
+import SubHeader from '../sub-header';
 
 import { ITechStack } from '@/interface/IAbout';
 import { abouts } from '@/config/about';

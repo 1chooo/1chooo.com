@@ -4,10 +4,10 @@ import { usePathname } from 'next/navigation';
 import SideBar from '@/components/side-bar';
 import NavBar from '@/components/nav-bar';
 import Header from '@/components/header';
-import AboutText from '@/components/about-text';
-import GitHubStats from '@/components/github-stats';
-import TechStack from '@/components/tech-stack';
-import LifeStyles from '@/components/life-styles';
+import AboutText from '@/components/about/about-text';
+import GitHubStats from '@/components/about/github-stats';
+import TechStack from '@/components/about/tech-stack';
+import LifeStyles from '@/components/about/life-styles';
 import { abouts } from '@/config/about';
 
 export default function Home() {
