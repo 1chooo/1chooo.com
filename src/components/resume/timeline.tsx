@@ -1,6 +1,5 @@
 import IconTitle from "./icon-title";
 import TimelineList from "./timeline-list";
-import "./test.css";
 import { IconType } from "react-icons";
 import { TimelineItemProps } from "./timeline-item";
 
