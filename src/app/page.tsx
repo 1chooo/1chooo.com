@@ -10,7 +10,7 @@ import TechStack from '@/components/about/tech-stack';
 import LifeStyles from '@/components/about/life-styles';
 import { abouts } from '@/config/about';
 
-export default function Home() {
+const About = () => {
   const pathname = usePathname();
 
   return (
@@ -32,3 +32,5 @@ export default function Home() {
     </main>
   );
 }
+
+export default About
