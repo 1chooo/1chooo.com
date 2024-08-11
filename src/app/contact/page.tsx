@@ -1,15 +1,22 @@
 'use client';
 
+import React, { useEffect } from "react";
 import { usePathname } from 'next/navigation';
 import SideBar from '@/components/side-bar';
 import NavBar from '@/components/nav-bar';
 import Header from '@/components/header';
 import MapBox from '@/components/contact/map-box';
 import { FaRegPaperPlane } from "react-icons/fa";
+import { initializeCustomSelect, filterItemsByCategory } from '@/utils/dom-utils';
 
 
 const Contact = () => {
   const pathname = usePathname();
+
+  useEffect(() => {
+    initializeCustomSelect(filterItemsByCategory);
+    document.title = "Contact - Hugo ChunHo Lin (1chooo) | Open Source Enthusiast";
+  }, []);
 
   return (
     <main>
@@ -20,7 +27,7 @@ const Contact = () => {
           className={`contact ${pathname === '/contact' ? 'active' : ''}`}
           data-page="contact"
         >
-          <Header title="Contact" />
+          <Header title="Hugo's Contact" />
           <section className="contact-form">
             <MapBox />
             <h3 className="h3 form-title">Contact Form</h3>
