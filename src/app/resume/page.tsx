@@ -8,6 +8,7 @@ import DownloadCV from '@/components/resume/download-cv';
 import TimeLine from '@/components/resume/timeline';
 import { professionalExperiences } from '@/config/resume';
 
+const profExp = <TimeLine data={professionalExperiences} />;
 
 const Resume = () => {
   const pathname = usePathname();
@@ -21,10 +22,9 @@ const Resume = () => {
           className={`resume ${pathname === '/resume' ? 'active' : ''}`}
           data-page="resume"
         >
-          <Header title="Resume" />
+          <Header title="Hugo's Resume" />
           <DownloadCV />
-          <TimeLine data={professionalExperiences} />
-
+          {profExp}
         </article>
       </div>
     </main>
