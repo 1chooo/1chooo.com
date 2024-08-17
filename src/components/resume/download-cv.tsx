@@ -1,6 +1,6 @@
 import { IoCloudDownloadOutline } from "react-icons/io5";
 import IconBox from "../icon-box";
-
+import "@/styles/resume/download-cv.css";
 
 const DownloadCV = () => {
   return (
@@ -8,9 +8,8 @@ const DownloadCV = () => {
       <div className="title-wrapper">
         <IconBox icon={IoCloudDownloadOutline} />
 
-        {/* TODO: divide into the individual class */}
-        <a href="./cv.pdf" target="_blank" className="code-highlight-yellow" style={{ fontWeight: 'bold' }}>
-          <u>Download Hugo&apos;s full CV/Resume (March 2024)</u>
+        <a href="./cv.pdf" target="_blank" className="hyperlink-highlight">
+          Download Hugo&apos;s full Curriculum Vitae/Resume (March 2024)
         </a>
       </div>
     </section>
