@@ -10,7 +10,7 @@ const DownloadCV = () => {
 
         {/* TODO: divide into the individual class */}
         <a href="./cv.pdf" target="_blank" className="code-highlight-yellow" style={{ fontWeight: 'bold' }}>
-          <u>Download Hugo&apos;s full Curriculum Vitae/Resume (March 2024)</u>
+          <u>Download Hugo&apos;s full CV/Resume (March 2024)</u>
         </a>
       </div>
     </section>
