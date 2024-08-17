@@ -1,5 +1,7 @@
 import { MdOutlineDevices } from "react-icons/md";
 import { IoSchoolOutline } from "react-icons/io5";
+import { PiTrophy } from "react-icons/pi";
+
 
 export const educations = {
   icon: IoSchoolOutline,
@@ -19,7 +21,24 @@ export const educations = {
   ],
 };
 
-
+export const awardLeaderships = {
+  icon: PiTrophy,
+  title: "Award & Leaderships",
+  items: [
+    {
+      company: "2023 Weather Hackathon",
+      location: "Taipei, Taiwan",
+      role: "Team Leader, Full Stack Developer",
+      duration: "May, 2023 - Aug, 2023",
+      tasksMarkdown: `
+- The second place winner, as well as the Executive Yuan Sustainability Special Award
+- **GitHub:** [Weather Shakespeare](https://github.com/Weather-Shakespeare/)
+- **News:** [第二屆《天氣黑客松》圓滿成功，ESG、永續議題受評審青睞](https://www.weatherrisk.com/post/%E7%AC%AC%E4%BA%8C%E5%B1%86-%E5%A4%A9%E6%B0%A3%E9%BB%91%E5%AE%A2%E6%9D%BE-%E5%9C%93%E6%BB%BF%E6%88%90%E5%8A%9F%EF%BC%8Cesg%E3%80%81%E6%B0%B8%E7%BA%8C%E8%AD%B0%E9%A1%8C%E5%8F%97%E8%A9%95%E5%AF%A9%E8%A6%AA%E7%9D%9E)
+- **Project Name:** 天氣Hackthon沙士比亞_蛤!你的怪獸怎麼一直變大
+    `,
+    },
+  ],
+};
 
 export const professionalExperiences = {
   icon: MdOutlineDevices,
