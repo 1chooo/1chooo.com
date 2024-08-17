@@ -1,6 +1,4 @@
 import IAbout from '@/interface/IAbout';
-import { ProgrammingLanguage } from '@/enum/ProgrammingLanguage';
-import { DevOps } from '@/enum/DevOps';
 
 export const abouts: IAbout = {
   "githubUsername": "1chooo",
