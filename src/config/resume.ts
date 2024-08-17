@@ -1,4 +1,25 @@
 import { MdOutlineDevices } from "react-icons/md";
+import { IoSchoolOutline } from "react-icons/io5";
+
+export const educations = {
+  icon: IoSchoolOutline,
+  title: "Education",
+  items: [
+    {
+      company: "National Central University",
+      location: "Taoyuan, Taiwan",
+      role: "Bachelors of Science in Atmospheric Science",
+      duration: "Sep. 2020 — Jun. 2024",
+      tasksMarkdown: `
+- 💻 **Minor Specialty:** Computer Science & Information Engineering
+- 💻 **Relevant Courses (Graduate):** The Attack and Defense of Computers, Software Engineering, Object-Oriented Analysis and Design.
+- 💻 **Relevant Courses (Undergraduate):** Linux And Edge Computing, Principles of Programming Languages, Operating System, Computer Organization, Computer Network, Algorithmics, Data Structures, Assembly Language and System Programming, Digital Design, Weather and Artificial Intelligence, Numerical Analysis.
+    `,
+    },
+  ],
+};
+
+
 
 export const professionalExperiences = {
   icon: MdOutlineDevices,
