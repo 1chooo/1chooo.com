@@ -1,10 +1,11 @@
 export interface IPost {
   id: string;
-  title: React.ReactNode;
+  title: string;
   category: string;
   imageUrl: string;
   date: string;
-  content: React.ReactNode;
+  content: string;
+  // content: React.ReactNode;
   link: string;
   alt: string;
 }

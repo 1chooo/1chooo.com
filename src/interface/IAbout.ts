@@ -5,8 +5,9 @@ export interface ILifeStyle {
 }
 
 export interface ITechStack {
-  name: string;
-  iconUrl: string;
+  id: string;
+  src: string;
+  alt: string;
 }
 
 interface ISocialMedia {

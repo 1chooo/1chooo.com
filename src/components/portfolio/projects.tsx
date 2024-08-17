@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { MdExpandMore } from "react-icons/md";
 import { LuEye } from "react-icons/lu";
-import { projectTags, projectsData, Project } from '../../config/PortfolioData';
-import { filterCategory, handleItemClick } from '../../utils/filterUtils';
+import { projectTags, projectsData, Project } from '@/config/portfolio';
+import { filterCategory, handleItemClick } from '@/utils/filter-utils';
+import Image from 'next/image';
 
 const Projects: React.FC = () => {
 
@@ -77,7 +78,7 @@ const Projects: React.FC = () => {
                 <div className="project-item-icon-box">
                   <LuEye />
                 </div>
-                <img
+                <Image
                   src={project.imageUrl}
                   alt={project.title}
                   loading="lazy"
