@@ -9,7 +9,7 @@
 </h3>
 
 <p align="center">
-    <i>Inspired by the <a href="https://github.com/codewithsadee/vcard-personal-portfolio">codewithsadee/vcard-personal-portfolio</a>, we aim to transform the <code>HTML/CSS</code> template into a React with <code>TypeScript</code> project.</i>
+    <i>Inspired by the <a href="https://github.com/codewithsadee/vcard-personal-portfolio">codewithsadee/vcard-personal-portfolio</a>, we aim to transform the <code>HTML/CSS</code> template into a React with Next.js project.</i>
 </p>
 
 <!-- <p align="center">
@@ -32,6 +32,7 @@
 ## ✨ Features
 
 - 🚧 Skeleton Loading
+- ⚡️ Next.js 14 with App Router
 - 🟩 GitHub Calendar Heatmap
 - ✍🏻 Markdown Rendering
 - 🧪 Components Unit Testing
