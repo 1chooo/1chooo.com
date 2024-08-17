@@ -5,6 +5,7 @@ import MarkdownRenderer from '../markdown-renderer';
 import SubHeader from '../sub-header';
 
 import { abouts } from '@/config/about';
+import "@/styles/about-text.css"
 
 const { subHeader, introductions, pronouns } = abouts;
 
