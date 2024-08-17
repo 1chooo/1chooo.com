@@ -7,13 +7,17 @@ import NavBar from '@/components/nav-bar';
 import Header from '@/components/header';
 import DownloadCV from '@/components/resume/download-cv';
 import TimeLine from '@/components/resume/timeline';
-import { professionalExperiences, educations, awardLeaderships } from '@/config/resume';
+import {
+  professionalExperiences, educations,
+  awardLeaderships, teachingExperiences
+} from '@/config/resume';
 import { initializeCustomSelect, filterItemsByCategory } from '@/utils/dom-utils';
 
 
 const profExp = <TimeLine data={professionalExperiences} />;
 const education = <TimeLine data={educations} />;
 const awardLeadership = <TimeLine data={awardLeaderships} />;
+const teachingExp = <TimeLine data={teachingExperiences} />;
 
 const Resume = () => {
   const pathname = usePathname();
@@ -37,6 +41,7 @@ const Resume = () => {
           {profExp}
           {education}
           {awardLeadership}
+          {teachingExp}
         </article>
       </div>
     </main>
