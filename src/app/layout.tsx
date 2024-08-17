@@ -2,7 +2,9 @@ import Script from "next/script";
 import type { Metadata } from "next";
 import "./globals.css";
 import Hello from "@/components/hello";
-
+import { GoogleAnalytics } from '@next/third-parties/google'
+ 
+const googleAnalyticId = "G-JGG75799PJ";
 
 export const metadata: Metadata = {
   title: "Hugo ChunHo Lin (1chooo) | Open Source Enthusiast",
@@ -67,6 +69,7 @@ export default function RootLayout({
       <Hello />
         {children}
       </body>
+      <GoogleAnalytics gaId={googleAnalyticId} />
     </html>
   );
 }
