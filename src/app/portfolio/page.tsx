@@ -5,6 +5,7 @@ import { usePathname } from 'next/navigation';
 import SideBar from '@/components/side-bar';
 import NavBar from '@/components/nav-bar';
 import Header from '@/components/header';
+import Projects from '@/components/portfolio/projects';
 import { initializeCustomSelect, filterItemsByCategory } from '@/utils/dom-utils';
 
 
@@ -26,6 +27,7 @@ const Portfolio = () => {
           data-page="portfolio"
         >
           <Header title="Hugo's Portfolio" />
+          <Projects />
         </article>
       </div>
     </main>
