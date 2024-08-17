@@ -1,6 +1,7 @@
 import { MdOutlineDevices } from "react-icons/md";
 import { IoSchoolOutline } from "react-icons/io5";
 import { PiTrophy } from "react-icons/pi";
+import { PiBooks } from "react-icons/pi";
 
 
 export const educations = {
@@ -35,6 +36,40 @@ export const awardLeaderships = {
 - **GitHub:** [Weather Shakespeare](https://github.com/Weather-Shakespeare/)
 - **News:** [第二屆《天氣黑客松》圓滿成功，ESG、永續議題受評審青睞](https://www.weatherrisk.com/post/%E7%AC%AC%E4%BA%8C%E5%B1%86-%E5%A4%A9%E6%B0%A3%E9%BB%91%E5%AE%A2%E6%9D%BE-%E5%9C%93%E6%BB%BF%E6%88%90%E5%8A%9F%EF%BC%8Cesg%E3%80%81%E6%B0%B8%E7%BA%8C%E8%AD%B0%E9%A1%8C%E5%8F%97%E8%A9%95%E5%AF%A9%E8%A6%AA%E7%9D%9E)
 - **Project Name:** 天氣Hackthon沙士比亞_蛤!你的怪獸怎麼一直變大
+    `,
+    },
+  ],
+};
+
+export const teachingExperiences = {
+  icon: PiBooks,
+  title: "Teaching",
+  items: [
+    {
+      company: "National Central University",
+      location: "Taoyuan, Taiwan",
+      role: "Teaching Assistant",
+      duration: "Feb. 2024 - Jun. 2024",
+      tasksMarkdown: `
+- 24 Spring: [GS4538 Linux and Edge Computing](https://ncuedu.tw/course/linux)
+    `,
+    },
+    {
+      company: "National Central University",
+      location: "Taoyuan, Taiwan",
+      role: "Teaching Assistant",
+      duration: "Sep. 2023 - Jun. 2024",
+      tasksMarkdown: `
+- 23 Fall 24 Spring: [AP4063 Weather and Artificial Intelligence I/II]((https://github.com/weather-and-ai))
+    `,
+    },
+    {
+      company: "National Central University",
+      location: "Taoyuan, Taiwan",
+      role: "Teaching Assistant",
+      duration: "Sep, 2023 - Jan, 2024",
+      tasksMarkdown: `
+- 23 Fall: [GS4719 Python Programming]((https://ncuedu.tw/course/python))
     `,
     },
   ],
