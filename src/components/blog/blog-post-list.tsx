@@ -16,7 +16,7 @@ const BlogPostList: React.FC<BlogPostListProps> = ({ posts }) => {
         >
           <a href={post.link} target="_blank" rel="noopener noreferrer">
             <figure className="blog-banner-box">
-              <img src={post.imageUrl} alt={post.alt} loading="lazy" />
+              <Image src={post.imageUrl} alt={post.alt} loading="lazy" />
             </figure>
             <div className="blog-content">
               <div className="blog-meta">
