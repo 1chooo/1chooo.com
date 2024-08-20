@@ -1,37 +1,24 @@
 'use client';
 
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import SideBar from '@/components/side-bar';
-import NavBar from '@/components/nav-bar';
-import Header from '@/components/header';
+import PageContent from '@/components/page-content';
 import Projects from '@/components/portfolio/projects';
 import { initializeCustomSelect, filterItemsByCategory } from '@/utils/dom-utils';
-
 
 const Portfolio = () => {
   const pathname = usePathname();
 
-  useEffect(() => {
-    initializeCustomSelect(filterItemsByCategory);
-    document.title = "Portfolio - Hugo ChunHo Lin (1chooo) | Open Source Enthusiast";
-  }, []);
-
   return (
-    <main>
-      <SideBar />
-      <div className="main-content">
-        <NavBar />
-        <article
-          className={`portfolio ${pathname === '/portfolio' ? 'active' : ''}`}
-          data-page="portfolio"
-        >
-          <Header title="Hugo's Portfolio" />
-          <Projects />
-        </article>
-      </div>
-    </main>
+    <PageContent
+      documentTitle='Portfolio'
+      title="Hugo's Portfolio"
+      page="portfolio"
+      pathName={pathname}
+    >
+      <Projects />
+    </PageContent>
   );
 }
 
-export default Portfolio
+export default Portfolio;

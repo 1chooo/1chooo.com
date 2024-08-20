@@ -12,7 +12,7 @@ import {
   awardLeaderships, teachingExperiences
 } from '@/config/resume';
 import { initializeCustomSelect, filterItemsByCategory } from '@/utils/dom-utils';
-
+import PageContent from '@/components/page-content';
 
 const profExp = <TimeLine data={professionalExperiences} />;
 const education = <TimeLine data={educations} />;
@@ -22,29 +22,19 @@ const teachingExp = <TimeLine data={teachingExperiences} />;
 const Resume = () => {
   const pathname = usePathname();
 
-  useEffect(() => {
-    initializeCustomSelect(filterItemsByCategory);
-    document.title = "Resume - Hugo ChunHo Lin (1chooo) | Open Source Enthusiast";
-  }, []);
-
   return (
-    <main>
-      <SideBar />
-      <div className="main-content">
-        <NavBar />
-        <article
-          className={`resume ${pathname === '/resume' ? 'active' : ''}`}
-          data-page="resume"
-        >
-          <Header title="Hugo's Resume" />
-          <DownloadCV />
-          {profExp}
-          {education}
-          {awardLeadership}
-          {teachingExp}
-        </article>
-      </div>
-    </main>
+    <PageContent
+      documentTitle='Resume'
+      title="Hugo's Resume"
+      page="resume"
+      pathName={pathname}
+    >
+      <DownloadCV />
+      {profExp}
+      {education}
+      {awardLeadership}
+      {teachingExp}
+    </PageContent >
   );
 }
 
