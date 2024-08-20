@@ -9,27 +9,23 @@ import GitHubStats from '@/components/about/github-stats';
 import TechStack from '@/components/about/tech-stack';
 import LifeStyles from '@/components/about/life-styles';
 import { abouts } from '@/config/about';
+import PageContent from '@/components/page-content';
 
 const About = () => {
   const pathname = usePathname();
 
   return (
-    <main>
-      <SideBar />
-      <div className="main-content">
-        <NavBar />
-        <article
-          className={`about ${pathname === '/' ? 'active' : ''}`}
-          data-page="about"
-        >
-          <Header title={abouts.header} />
-          <AboutText />
-          <GitHubStats />
-          <TechStack />
-          <LifeStyles />
-        </article>
-      </div>
-    </main>
+    <PageContent
+      documentTitle=''
+      title={abouts.header}
+      page="about"
+      pathName={pathname}
+    >
+      <AboutText />
+      <GitHubStats />
+      <TechStack />
+      <LifeStyles />
+    </PageContent >
   );
 }
 
