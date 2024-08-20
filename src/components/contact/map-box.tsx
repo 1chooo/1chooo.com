@@ -1,5 +1,5 @@
 import React from "react";
-import "@/styles/map-box.css";
+import "@/styles/contact/map-box.css";
 
 const MapBox = () => {
   return (
