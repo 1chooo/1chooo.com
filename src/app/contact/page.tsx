@@ -1,18 +1,13 @@
 'use client';
 
-import React, { useEffect } from "react";
+import React from "react";
 import { usePathname } from 'next/navigation';
-import SideBar from '@/components/side-bar';
-import NavBar from '@/components/nav-bar';
-import Header from '@/components/header';
 import MapBox from '@/components/contact/map-box';
 import { FaRegPaperPlane } from "react-icons/fa";
-import { initializeCustomSelect, filterItemsByCategory } from '@/utils/dom-utils';
 import PageContent from "@/components/page-content";
 
 const Contact = () => {
   const pathname = usePathname();
-
 
   return (
     <PageContent

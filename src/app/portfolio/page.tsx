@@ -9,6 +9,10 @@ import { initializeCustomSelect, filterItemsByCategory } from '@/utils/dom-utils
 const Portfolio = () => {
   const pathname = usePathname();
 
+  useEffect(() => {
+    initializeCustomSelect(filterItemsByCategory);
+  }, []);
+
   return (
     <PageContent
       documentTitle='Portfolio'
