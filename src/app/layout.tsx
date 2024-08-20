@@ -48,7 +48,6 @@ const RootLayout = (props: RootLayoutProps) => {
   return (
     <html lang="en">
       <head>
-        {/* Google Analytics */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-JGG75799PJ"
           strategy="afterInteractive"
