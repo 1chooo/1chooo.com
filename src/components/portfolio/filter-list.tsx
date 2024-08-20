@@ -23,6 +23,3 @@ const FilterList: React.FC<FilterListProps> = ({ selectedValue, setSelectedValue
 );
 
 export default FilterList;
-
-
-// kjjjkjkgjhjjhfgmnbnmhyhghvn,kuhjjgkfhjjkhnmhmnbkjhnj mnbvbnhjghgjhkh
