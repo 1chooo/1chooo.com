@@ -14,6 +14,7 @@ import { initializeCustomSelect, filterItemsByCategory } from '@/utils/dom-utils
 import { filterCategory, handleItemClick } from "@/utils/filter-utils";
 import { IPost } from "@/interface/iPost";
 import { postsData } from "@/config/blog";
+import BlogPosts from '@/components/blog/blog-post';
 
 
 const Blog = () => {
@@ -56,7 +57,7 @@ const Blog = () => {
           data-page="blog"
         >
           <Header title="Hugo's Blog" />
-          <section className="blog-posts">
+          {/* <section className="blog-posts">
             <FilterList
               selectedValue={selectedValue}
               setSelectedValue={setSelectedValue}
@@ -75,7 +76,8 @@ const Blog = () => {
               currentPage={currentPage}
               handlePageChange={handlePageChange}
             />
-          </section>
+          </section> */}
+          <BlogPosts />
         </article>
       </div>
     </main>
