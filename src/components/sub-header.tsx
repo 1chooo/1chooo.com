@@ -6,6 +6,7 @@ interface SubHeaderProps {
 
 const SubHeader: React.FC<SubHeaderProps> = ({ text }) => {
   return (
+    // TODO: update inheritance of p.h3
     <h3>
       <code>{text}</code>
     </h3>
