@@ -15,7 +15,7 @@ export const abouts: IAbout = {
     "I'm **Hugo ChunHo Lin**, a graduate with a Bachelor's degree from [National Central University 🐿️](https://www.ncu.edu.tw/), driven by a *sincere passion* for **Software Engineering 💻.**",
     // "*I do **Web Development and Cloud Development** with a focus on **creating APIs and handling backend tasks** using `FastAPI, Gin, and AWS`. In general, I define new problems and find existing problems, transforming solutions into helpful documents or articles to assist everyone in the process, and eventually apply them to make social impacts.*",
     // "In my spare time, I do *street photography 📷* and *consistently share my findings on GitHub with Global 🌏*.",
-    "**`Self-motivated, Team player, Love coding. 👨🏻‍💻`**"
+    "**`Self-motivated, Team player, Love coding 👨🏻‍💻`**"
   ],
   "lifestyle": [
     {
