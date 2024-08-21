@@ -4,7 +4,7 @@ import { MdOutlineLocationOn } from "react-icons/md";
 import { TbPhoneCalling } from "react-icons/tb";
 import IconBox from "../icon-box";
 
-import "@/styles/contact-list.css";
+import "@/styles/side-bar/contact-list.css";
 
 
 const ContactsList: React.FC = () => {
