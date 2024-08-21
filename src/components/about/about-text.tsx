@@ -1,5 +1,3 @@
-'use client';
-
 import React from 'react';
 import MarkdownRenderer from '../markdown-renderer';
 import SubHeader from '../sub-header';
