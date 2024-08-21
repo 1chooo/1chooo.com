@@ -18,7 +18,7 @@ export const projectsData: Project[] = [
     title: 'React vCard Portfolio',
     category: 'Web development',
     imageUrl: "/images/projects/react_vcard_portfolio.png",
-    link: 'https://github.com/1chooo/react-vcard',
+    link: 'https://github.com/1chooo/1chooo.com',
   },
   {
     title: 'AWS Educate 101',
