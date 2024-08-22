@@ -9,14 +9,17 @@ const PageContent: React.FC<{
   pathName?: string;
 }> = ({ documentTitle, title, children, page, pathName }) => {
 
-  
   // Check if the page is at root and should not have a specific `data-page` value.
   const isRootPage = pathName === '/' && page === 'about';
-  
+
+  const baseDocumentTitle = documentTitle;
+
   if (isRootPage) {
     documentTitle = "Hugo ChunHo Lin (1chooo) | Open Source Enthusiast";
+  } else {
+    documentTitle = `${baseDocumentTitle} | Hugo ChunHo Lin (1chooo) | Open Source Enthusiast`;
   }
-  
+
   useEffect(() => {
     document.title = documentTitle;
   }, [documentTitle]);
