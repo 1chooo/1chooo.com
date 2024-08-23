@@ -1,7 +1,6 @@
 import IAbout from '@/interface/IAbout';
 
 export const abouts: IAbout = {
-  "githubUsername": "1chooo",
   "socialMedia": {
     "githubUsername": "1chooo",
     "mediumUsername": "1chooo",

@@ -18,7 +18,6 @@ interface ISocialMedia {
 }
 
 interface IAbout {
-  githubUsername: string;
   socialMedia: ISocialMedia;
   header: string;
   subHeader: string;
