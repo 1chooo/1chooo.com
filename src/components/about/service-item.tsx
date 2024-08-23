@@ -1,5 +1,7 @@
 import Image from 'next/image';
 import { ILifeStyle } from '@/interface/IAbout';
+import "@/styles/about/service-item.css";
+
 
 interface ServiceItemProps {
   lifestyle: ILifeStyle;
