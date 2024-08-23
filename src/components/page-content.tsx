@@ -23,7 +23,7 @@ const PageContent: React.FC<{
 
   return (
     <article
-      className={`${page} ${isRootPage || (pathName === `/${page}`) ? 'active' : ''}`}
+      // className={`${page} ${isRootPage || (pathName === `/${page}`) ? 'active' : ''}`}
       data-page={isRootPage ? '' : page}
     >
       <Header title={title} />
