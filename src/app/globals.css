@@ -241,15 +241,9 @@ article {
 }
 
 article {
-  /* display: none; */
   display: block;
   animation: fade 0.5s ease backwards;
 }
-
-/* article.active {
-  display: block;
-  animation: fade 0.5s ease backwards;
-} */
 
 
 @keyframes fade {
