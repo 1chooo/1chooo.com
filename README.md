@@ -56,7 +56,7 @@ Optionally React Developer Tools -->
 
 ## 🌏 Contributing
 
-PRs and Issues are welcome! 🫵🏻
+[PRs](https://github.com/1chooo/1chooo.com/pulls) and [Issues](https://github.com/1chooo/1chooo.com/issues) are welcome! 🫵🏻
 
 Please read the [Contributing Guideline](./CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
 
@@ -83,11 +83,12 @@ $ npm start
 > </aside>
 
 ## 🪪 License
-Released under [MIT](./LICENSE) by [Hugo ChunHo Lin](https://github.com/1chooo).
+
+Released under [MIT](./LICENSE) by [Hugo ChunHo Lin](https://1chooo.com).
 
 This software can be modified and reused without restriction.
 The original license must be included with any copies of this software.
 If a significant portion of the source code is used, please provide a link back to this repository.
 
 
-Made with 🖤 by [@1chooo](https://github.com/1chooo)
+Made with 🖤 by [@1chooo](https://1chooo.com)
