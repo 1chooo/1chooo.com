@@ -1,4 +1,5 @@
 import React from 'react';
+import '@/styles/sub-header.css';
 
 interface SubHeaderProps {
   text: string;
@@ -6,8 +7,7 @@ interface SubHeaderProps {
 
 const SubHeader: React.FC<SubHeaderProps> = ({ text }) => {
   return (
-    // TODO: update inheritance of p.h3
-    <h3>
+    <h3 className="h3 sub-header">
       <code>{text}</code>
     </h3>
   );
