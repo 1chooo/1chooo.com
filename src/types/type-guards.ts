@@ -1,4 +1,4 @@
-import { LifeStyle, TechStack, SocialMedia, About } from "./constants";
+import { LifeStyle, TechStack, SocialMedia, About } from "./about";
 
 export const isLifeStyle = (obj: unknown): obj is LifeStyle => {
   if (!isObject(obj)) return false;
