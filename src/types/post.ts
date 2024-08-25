@@ -1,4 +1,4 @@
-export interface IPost {
+export type Post = {
   id: string;
   title: string;
   category: string;

@@ -1,16 +1,16 @@
 import React from 'react';
-import { IPost } from '@/interface/iPost';
+import { Post } from '@/types/post';
 import Image from 'next/image';
 
 
 interface BlogPostListProps {
-  posts: IPost[];
+  posts: Post[];
 }
 
 const BlogPostList: React.FC<BlogPostListProps> = ({ posts }) => {
   return (
     <ul className="blog-posts-list">
-      {posts.map((post: IPost) => (
+      {posts.map((post: Post) => (
         <li key={post.id} className="blog-post-item active"
           data-category={post.category.toLowerCase()}
         >

@@ -1,10 +1,10 @@
 import Image from 'next/image';
-import { ILifeStyle } from '@/interface/IAbout';
+import type { LifeStyle } from '@/types/about';
 import "@/styles/about/service-item.css";
 
 
 interface ServiceItemProps {
-  lifestyle: ILifeStyle;
+  lifestyle: LifeStyle;
 }
 
 const ServiceItem: React.FC<ServiceItemProps> = ({ lifestyle }) => {
