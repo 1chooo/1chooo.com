@@ -1,4 +1,4 @@
-import { IPost } from "../interface/iPost";
+import { Post } from "@/types/post";
 
 const months: [string, ...string[]] = [
   "Jan", "Feb", "Mar",
@@ -50,11 +50,11 @@ export const getDateObject = (dateStr: string): Date => {
 
 // Ascend Blog by date
 export function ascendBlogByDate(
-  postsData: IPost[]
-): IPost[] {
+  postsData: Post[]
+): Post[] {
   return postsData.sort((
-    a: IPost,
-    b: IPost
+    a: Post,
+    b: Post
   ): number => {
     try {
       const dateA = getDateObject(a.date);
@@ -82,11 +82,11 @@ export function ascendBlogByDate(
 
 // Descend Blog by date
 export function descendBlogByDate(
-  postsData: IPost[]
-): IPost[] {
+  postsData: Post[]
+): Post[] {
   return postsData.sort((
-    a: IPost,
-    b: IPost
+    a: Post,
+    b: Post
   ): number => {
     try {
       const dateA = getDateObject(a.date);

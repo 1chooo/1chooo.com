@@ -1,6 +1,6 @@
 import { getDateObject, ascendBlogByDate, descendBlogByDate } from '../utils/sort-blogs-by-date';
 
-import { IPost } from '../interface/iPost';
+import { Post } from '@/types/post';
 
 describe('getDateObject', () => {
   test('should return a valid Date object for a valid date string', () => {
@@ -33,7 +33,7 @@ describe('getDateObject', () => {
   });
 });
 
-const mockPosts: IPost[] = [
+const mockPosts: Post[] = [
   { 
     id: '1', 
     title: '<h1>Post 1</h1>', 

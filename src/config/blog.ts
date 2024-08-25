@@ -1,5 +1,5 @@
 import { descendBlogByDate } from "@/utils/sort-blogs-by-date";
-import { IPost } from "../interface/iPost";
+import { Post } from "@/types/post";
 
 export const blogTags = [
   "All",
@@ -13,7 +13,7 @@ export const blogTags = [
 ];
 
 
-export const postsData: IPost[] = [
+export const postsData: Post[] = [
   {
     id: '1052-grumpy-bookstore-owner',
     title: "[✅ Beats 💯] LeetCode 1052. Grumpy Bookstore Owner - Easy Solution | Go",
