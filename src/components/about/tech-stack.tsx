@@ -3,18 +3,17 @@
 import Image from 'next/image';
 import SubHeader from '../sub-header';
 
-import { ITechStack } from '@/interface/IAbout';
+import type { TechStack as TechStackType } from '@/types/about';
 import { abouts } from '@/config/about';
 
 const subHeader = "$ ls -al Tech Stack";
 const { programmingLanguage, devOps } = abouts;
 
-
 const TechStack: React.FC = () => {
-  const renderTechStackList = (techStack: ITechStack[]) => {
+  const renderTechStackList = (techStack: TechStackType[]) => {
     return (
       <ul className="techstack-list has-scrollbar">
-        {techStack.map((item: ITechStack) => (
+        {techStack.map((item: TechStackType) => (
           <li key={item.id} className="techstack-item">
             <Image
               id={item.id}

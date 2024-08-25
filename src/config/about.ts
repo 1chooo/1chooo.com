@@ -1,6 +1,6 @@
-import IAbout from '@/interface/IAbout';
+import { About } from '@/types/about';
 
-export const abouts: IAbout = {
+export const abouts: About = {
   "socialMedia": {
     "githubUsername": "1chooo",
     "mediumUsername": "1chooo",
