@@ -1,8 +1,6 @@
-'use client';
-
 import SubHeader from '../sub-header';
 import { abouts } from '@/config/about';
-import ServiceItem from './service-item'; // Import the ServiceItem component
+import ServiceItem from './service-item';
 
 const subHeader = "$ ls -al Life Style";
 
@@ -15,7 +13,7 @@ const LifeStyles: React.FC = () => {
 
       <ul className="service-list">
         {lifestyles.map((lifestyle) => (
-          <ServiceItem lifestyle={lifestyle} key={lifestyle.title} />  // Use lifestyle.title as key
+          <ServiceItem lifestyle={lifestyle} key={lifestyle.title} />
         ))}
       </ul>
     </section>
