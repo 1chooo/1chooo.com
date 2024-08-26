@@ -1,5 +1,3 @@
-'use client';
-
 import Image from 'next/image';
 import SubHeader from '../sub-header';
 
