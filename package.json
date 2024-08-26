@@ -3,8 +3,8 @@
   "version": "0.0.8",
   "private": true,
   "dependencies": {
+    "@testing-library/jest-dom": "^6.5.0",
     "@next/third-parties": "^14.2.6",
-    "@testing-library/jest-dom": "^6.4.8",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.12",
