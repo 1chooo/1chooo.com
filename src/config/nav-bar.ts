@@ -1,4 +1,4 @@
-import { NavItem } from "@/types/nav-bar";
+import type { NavItem } from "@/types/nav-bar";
 
 export const navItems: NavItem[] = [
   { path: '/', label: 'About' },

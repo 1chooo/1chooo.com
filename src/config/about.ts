@@ -1,4 +1,4 @@
-import { About } from '@/types/about';
+import type { About } from '@/types/about';
 
 export const abouts: About = {
   "socialMedia": {

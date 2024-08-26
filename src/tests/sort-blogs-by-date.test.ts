@@ -1,6 +1,6 @@
 import { getDateObject, ascendBlogByDate, descendBlogByDate } from '../utils/sort-blogs-by-date';
 
-import { Post } from '@/types/post';
+import type { Post } from '@/types/post';
 
 describe('getDateObject', () => {
   test('should return a valid Date object for a valid date string', () => {
