@@ -12,7 +12,7 @@
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "bootstrap": "^5.3.3",
-    "caniuse-lite": "^1.0.30001651",
+    "caniuse-lite": "^1.0.30001653",
     "next": "^14.2.5",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.4",
