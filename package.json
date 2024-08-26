@@ -3,8 +3,8 @@
   "version": "0.0.8",
   "private": true,
   "dependencies": {
-    "@next/third-parties": "^14.2.5",
     "@testing-library/jest-dom": "^6.5.0",
+    "@next/third-parties": "^14.2.6",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.12",
@@ -12,7 +12,7 @@
     "@types/react": "^18.2.48",
     "@types/react-dom": "^18.2.18",
     "bootstrap": "^5.3.3",
-    "caniuse-lite": "^1.0.30001651",
+    "caniuse-lite": "^1.0.30001653",
     "next": "^14.2.5",
     "react": "^18.2.0",
     "react-bootstrap": "^2.10.4",
@@ -58,7 +58,7 @@
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
     "@types/react-syntax-highlighter": "^15.5.13",
     "eslint": "^8",
-    "eslint-config-next": "14.2.5",
+    "eslint-config-next": "14.2.6",
     "postcss": "^8",
     "sass": "^1.77.8",
     "sass-loader": "^16.0.1"
