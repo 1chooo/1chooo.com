@@ -17,6 +17,8 @@ const TechStack: React.FC = () => {
               id={item.id}
               src={item.src}
               alt={item.alt}
+              width={65}
+              height={65}
             />
           </li>
         ))}
