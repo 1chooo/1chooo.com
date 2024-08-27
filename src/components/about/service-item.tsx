@@ -11,7 +11,12 @@ const ServiceItem: React.FC<ServiceItemProps> = ({ lifestyle }) => {
   return (
     <li className="service-item">
       <div className="service-icon-box">
-        <Image src={lifestyle.icon} alt={lifestyle.title} width="30" />
+        <Image
+          src={lifestyle.icon}
+          alt={lifestyle.title}
+          width={30}
+          height={30}
+        />
       </div>
       <div className="service-content-box">
         <h4 className="h4 service-item-title">{lifestyle.title}</h4>
