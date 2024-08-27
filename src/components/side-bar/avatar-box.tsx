@@ -8,6 +8,7 @@ const AvatarBox: React.FC = () => (
       src="/images/profile.jpg"
       alt="Hugo ChunHo Lin"
       width="80"
+      height="80"
       loading="lazy"
     />
   </figure>
