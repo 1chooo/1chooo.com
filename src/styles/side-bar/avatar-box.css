@@ -3,6 +3,17 @@
     border-radius: 20px;
 }
 
+@media (min-width: 375px) {
+    .avatar-box {
+        border-radius: 30px;
+    }
+
+    .avatar-box img {
+        width: 80px;
+        height: 80px;
+    }
+}
+
 @media (min-width: 580px) {
     .avatar-box {
         border-radius: 30px;
