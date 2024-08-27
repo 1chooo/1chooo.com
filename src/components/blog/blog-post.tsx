@@ -104,6 +104,8 @@ const BlogPosts: React.FC = () => {
                   src={post.imageUrl}
                   alt={post.alt}
                   loading="lazy"
+                  width={1600} 
+                  height={900}
                 />
               </figure>
               <div className="blog-content">
