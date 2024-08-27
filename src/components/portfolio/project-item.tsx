@@ -26,6 +26,8 @@ const ProjectItem: React.FC<ProjectItemProps> = ({ project }) => (
           src={project.imageUrl}
           alt={project.title}
           loading="lazy"
+          width={1600}
+          height={1200}
         />
       </figure>
       <h3 className="project-title">{project.title}</h3>
