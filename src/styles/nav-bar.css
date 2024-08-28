@@ -33,6 +33,7 @@
 
 .navbar-link.active {
     color: var(--orange-yellow-crayola);
+    font-weight: bold;
 }
 
 @media (min-width: 580px) {
