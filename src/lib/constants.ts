@@ -1,3 +1,5 @@
+import type { Breakpoint } from "@/hooks/use-responsive-image-size";
+
 export const GITHUB_USERNAME = '1chooo';
 export const MEDIUM_USERNAME = '1chooo';
 export const TWITTER_USERNAME = '1chooo___';
@@ -29,3 +31,10 @@ export const PROGLANG =  {
   flutter: "flutter",
   bash: "bash"
 }
+
+export const breakpoints: Breakpoint[] = [
+  { maxWidth: 375, size: { width: 80, height: 80 } },
+  { maxWidth: 580, size: { width: 150, height: 150 } },
+  { maxWidth: 1250, size: { width: 120, height: 120 } },
+  { maxWidth: Infinity, size: { width: 150, height: 150 } },
+];
