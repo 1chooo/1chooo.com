@@ -12,7 +12,6 @@
     display: inline;
     color: var(--orange-yellow-crayola);
     text-decoration: underline;
-    font-weight: bold;
 }
 
 .about-text a:hover {
