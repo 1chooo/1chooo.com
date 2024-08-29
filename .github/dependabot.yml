@@ -11,4 +11,6 @@ updates:
     interval: "weekly"
   assignees:
     - "1chooo"
+  reviewers:
+    - "1chooo"
   open-pull-requests-limit: 20
