@@ -66,7 +66,7 @@ Please read the [Contributing Guideline](./CONTRIBUTING.md) for details on our c
 $ git clone git@github.com:1chooo/1chooo.com.git
 $ cd 1chooo.com
 $ npm install
-$ npm start
+$ npm run dev   # Open http://localhost:3000 with your browser to see the result.
 ```
 
 ## 📲 Contact Info
