@@ -5,6 +5,7 @@ import rehypeRaw from 'rehype-raw';
 
 import Anchor from './anchor';
 import BlockQuote from './markdown/block-quote';
+import CodeBlock from './markdown/code-block';
 
 
 interface MarkdownRendererProps {
@@ -20,7 +21,17 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => (
       sup: 'sup',
       sub: 'sub',
       blockquote: (props) => <BlockQuote {...props}>{props.children}</BlockQuote>,
-      
+      code({ node, inline, className, children, ...props }: any) {
+        const match = /language-(\w+)/.exec(className || '');
+
+        return !inline && match ? (
+          <CodeBlock language={match[1]}>{children}</CodeBlock>
+        ) : (
+          <code className={className} {...props}>
+            {children}
+          </code>
+        );
+      },
     }}
   >
     {content}
@@ -28,4 +39,3 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => (
 );
 
 export default MarkdownRenderer;
-

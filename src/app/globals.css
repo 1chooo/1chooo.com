@@ -181,9 +181,12 @@ li {
 img,
 a,
 button,
-time,
-span {
+time {
   display: block;
+}
+
+span {
+  display: inline;
 }
 
 button {
