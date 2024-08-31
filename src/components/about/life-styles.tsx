@@ -1,4 +1,4 @@
-import SubHeader from '../sub-header';
+import H4 from '../h4';
 import { abouts } from '@/config/about';
 import ServiceItem from './service-item';
 
@@ -9,7 +9,7 @@ const LifeStyles: React.FC = () => {
 
   return (
     <section className="service">
-      <SubHeader text={subHeader} />
+      <H4 text={subHeader} />
 
       <ul className="service-list">
         {lifestyles.map((lifestyle) => (
@@ -21,5 +21,3 @@ const LifeStyles: React.FC = () => {
 }
 
 export default LifeStyles;
-
-// jjuyuiouiyuyuihkjyif,uyiu798jhkjh

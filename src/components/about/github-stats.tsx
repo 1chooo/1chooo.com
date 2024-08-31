@@ -2,7 +2,7 @@ import React, { useEffect, useState, FC } from 'react';
 import GitHubCalendar from 'react-github-calendar';
 import { ThemeInput } from 'react-activity-calendar';
 
-import SubHeader from '../sub-header';
+import H4 from '../h4';
 
 import { abouts } from '@/config/about';
 
@@ -48,7 +48,7 @@ const GitHubStats: FC = () => {
 
   return (
     <section className="about-text">
-      <SubHeader text={subHeaderText} />
+      <H4 text={subHeaderText} />
       <br />
       <GitHubCalendar
         username={username}
@@ -60,6 +60,7 @@ const GitHubStats: FC = () => {
         style={{ fontWeight: 'bold' }}
         theme={yellowTheme}
       />
+      <br />
     </section>
   );
 };
