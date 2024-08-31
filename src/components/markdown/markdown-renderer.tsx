@@ -4,8 +4,8 @@ import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 
 import Anchor from './anchor';
-import BlockQuote from './markdown/block-quote';
-import CodeBlock from './markdown/code-block';
+import BlockQuote from './block-quote';
+import CodeBlock from './code-block';
 
 
 interface MarkdownRendererProps {

@@ -1,6 +1,6 @@
 import React from 'react';
-import MarkdownRenderer from '../markdown-renderer';
-import H4 from '../h4';
+import MarkdownRenderer from '../markdown/markdown-renderer';
+import H4 from '../markdown/h4';
 
 import { abouts } from '@/config/about';
 import "@/styles/about/about-text.css"
