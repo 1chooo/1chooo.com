@@ -2,7 +2,7 @@ import React, { useEffect, useState, FC } from 'react';
 import GitHubCalendar from 'react-github-calendar';
 import { ThemeInput } from 'react-activity-calendar';
 
-import H4 from '../h4';
+import H4 from '../markdown/h4';
 
 import { abouts } from '@/config/about';
 

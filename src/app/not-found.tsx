@@ -3,7 +3,7 @@
 import React from 'react';
 import { usePathname } from 'next/navigation';
 import PageContent from '@/components/page-content';
-import MarkdownRenderer from '@/components/markdown-renderer';
+import MarkdownRenderer from '@/components/markdown/markdown-renderer';
 import '@/styles/about/about-text.css';
 
 const errorMessages = [

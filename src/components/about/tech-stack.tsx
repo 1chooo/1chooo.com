@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import H4 from '../h4';
+import H4 from '../markdown/h4';
 
 import type { TechStack as TechStackType } from '@/types/about';
 import { abouts } from '@/config/about';

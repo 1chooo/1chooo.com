@@ -1,4 +1,4 @@
-import H4 from '../h4';
+import H4 from '../markdown/h4';
 import { abouts } from '@/config/about';
 import ServiceItem from './service-item';
 
