@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import SubHeader from '../sub-header';
+import H4 from '../h4';
 
 import type { TechStack as TechStackType } from '@/types/about';
 import { abouts } from '@/config/about';
@@ -28,7 +28,7 @@ const TechStack: React.FC = () => {
   
   return (
     <section className="about-text">
-      <SubHeader text={subHeader} />
+      <H4 text={subHeader} />
       {renderTechStackList(programmingLanguage)}
       {renderTechStackList(devOps)}
     </section>

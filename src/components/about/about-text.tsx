@@ -1,6 +1,6 @@
 import React from 'react';
 import MarkdownRenderer from '../markdown-renderer';
-import SubHeader from '../sub-header';
+import H4 from '../h4';
 
 import { abouts } from '@/config/about';
 import "@/styles/about/about-text.css"
@@ -16,7 +16,7 @@ const AboutText: React.FC = () => {
 
   return (
     <section className="about-text">
-      <SubHeader text={`${subHeader} (${pronouns})`} />
+      <H4 text={`${subHeader} (${pronouns})`} />
       <br />
       {renderIntroduction()}
     </section>
