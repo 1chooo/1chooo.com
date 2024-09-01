@@ -179,12 +179,12 @@ li {
 }
 
 img,
-a,
 button,
 time {
   display: block;
 }
 
+a,
 span {
   display: inline;
 }
