@@ -20,6 +20,10 @@ time {
     width: calc(100% - 46px);
 }
 
+.contact-info a {
+    display: block;
+}
+
 .contact-info :is(.contact-link, time, address) {
     color: var(--white-2);
     font-size: var(--fs-7);

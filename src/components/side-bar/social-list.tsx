@@ -1,6 +1,7 @@
 import { SiGithub } from "react-icons/si";
 import { FaMedium, FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
 import { MdAttachment, MdOutlineSignpost } from "react-icons/md";
+import Link from "next/link";
 
 import { abouts } from "@/config/about";
 
@@ -21,7 +22,7 @@ const SocialList: React.FC = () => {
 		<ul className="social-list">
 			{socialLinks.map(({ url, icon, name }) => (
 				<li className="social-item" key={name}>
-					<a
+					<Link
 						href={url}
 						className="social-link"
 						target="_blank"
@@ -29,7 +30,7 @@ const SocialList: React.FC = () => {
 						aria-label={name}
 					>
 						{icon}
-					</a>
+					</Link>
 				</li>
 			))}
 		</ul>

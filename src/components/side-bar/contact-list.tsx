@@ -4,6 +4,7 @@ import { IoCalendarOutline } from "react-icons/io5";
 import { MdOutlineLocationOn } from "react-icons/md";
 import { TbPhoneCalling } from "react-icons/tb";
 import ContactItem from "./contact-item";
+import Link from "next/link";
 
 import "@/styles/side-bar/contact-list.css";
 
@@ -11,9 +12,9 @@ const ContactsList: React.FC = () => {
   return (
     <ul className="contacts-list">
       <ContactItem icon={HiOutlineMail} title="Email">
-        <a href="mailto:hugo970217@gmail.com" className="contact-link">
+        <Link href="mailto:hugo970217@gmail.com" className="contact-link">
           hugo970217@gmail.com
-        </a>
+        </Link>
       </ContactItem>
 
       <ContactItem icon={TbPhoneCalling} title="Phone">
