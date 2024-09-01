@@ -1,8 +1,8 @@
 // https://github.com/afiiif/pokemon-world/blob/main/src/types/pokemon.ts
 
 export type LifeStyle = {
-  icon?: string;
-  title?: string;
+  icon: string;
+  title: string;
   text?: string;
 }
 
