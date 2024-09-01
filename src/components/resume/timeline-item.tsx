@@ -29,11 +29,11 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
       <span className="profession-experience-duration">🗓️ {duration}</span>
     </p>
     <br />
-    <p className="timeline-text">
+    <div className="timeline-text">
       <ReactMarkdown remarkPlugins={[remarkGfm]}>
         {tasksMarkdown}
       </ReactMarkdown>
-    </p>
+    </div>
   </li>
 );
 
