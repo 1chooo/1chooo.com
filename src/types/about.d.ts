@@ -1,15 +1,15 @@
 // https://github.com/afiiif/pokemon-world/blob/main/src/types/pokemon.ts
 
 export type LifeStyle = {
-  icon: string;
-  title: string;
-  text?: string;
+  icon  : string;
+  title : string;
+  text  : string;
 }
 
 export type TechStack = {
-  id?: string;
-  src?: string;
-  alt?: string;
+  id: string;
+  src: string;
+  alt: string;
 }
 
 export type SocialMedia = {
