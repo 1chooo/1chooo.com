@@ -1,6 +1,5 @@
 import React from "react";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
+import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 
 import "@/styles/resume/timeline-item.css";
 
@@ -29,11 +28,9 @@ const TimelineItem: React.FC<TimelineItemProps> = ({
       <span className="profession-experience-duration">🗓️ {duration}</span>
     </p>
     <br />
-    <p className="timeline-text">
-      <ReactMarkdown remarkPlugins={[remarkGfm]}>
-        {tasksMarkdown}
-      </ReactMarkdown>
-    </p>
+    <div className="timeline-text">
+      <MarkdownRenderer content={tasksMarkdown} />
+    </div>
   </li>
 );
 
