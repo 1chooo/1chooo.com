@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { MdExpandMore } from 'react-icons/md';
 import { blogTags, postsData } from '@/config/blog';
 import Image from 'next/image';
+import Link from 'next/link';
 
 
 export const handleItemClick = (
@@ -94,7 +95,7 @@ const BlogPosts: React.FC = () => {
             className="blog-post-item active"
             data-category={post.category.toLowerCase()}
           >
-            <a
+            <Link
               href={post.link}
               target="_blank"
               rel="noopener noreferrer"
@@ -117,7 +118,7 @@ const BlogPosts: React.FC = () => {
                 <h3 className="h3 blog-item-title">{post.title}</h3>
                 <p className="blog-text">{post.content}</p>
               </div>
-            </a>
+            </Link>
           </li>
         ))}
       </ul>
