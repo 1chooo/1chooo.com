@@ -1,4 +1,3 @@
-import Script from "next/script";
 import type { Metadata } from "next";
 import "./globals.css";
 import Hello from "@/components/hello";
@@ -13,7 +12,7 @@ export const metadata: Metadata = {
   description:
     "I'm Hugo ChunHo Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
   authors: [{ name: "Hugo ChunHo Lin (1chooo)" }],
-  keywords: ["Hugo ChunHo Lin", "1chooo", "Software Engineering", "Open Source", "NCU"],
+  keywords: ["Hugo ChunHo Lin", "1chooo", "Software Engineering", "Next.js", "React"],
   openGraph: {
     url: "https://1chooo.com/",
     type: "website",
@@ -48,26 +47,12 @@ const RootLayout = (props: RootLayoutProps) => {
   return (
     <html lang="en">
       <head>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-JGG75799PJ"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            gtag('js', new Date());
-            gtag('config', 'G-JGG75799PJ');
-          `}
-        </Script>
-
         {/* Favicon and Manifest */}
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/logo192.png" />
         <link rel="manifest" href="/manifest.json" />
       </head>
 
-      {/* https://github.com/tszhong0411/honghong.me/blob/main/apps/web/src/app/layout.tsx */}
       <body>
         <Hello />
         <main>
