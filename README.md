@@ -1,5 +1,5 @@
 <a href="https://1chooo.com">
-  <img alt="1chooo.com Home Page" src="./docs/imgs/cover_transparent_bg.png">
+  <img alt="1chooo.com Home Page" src="./apps/web/docs/imgs/cover_transparent_bg.png">
 </a>
 
 <h1 align="center"><a href="https://1chooo.com">1chooo.com</a></h1>

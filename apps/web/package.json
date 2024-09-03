@@ -1,11 +1,9 @@
 {
   "name": "1chooo-com",
-  "version": "0.0.10",
+  "version": "0.0.11",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^6.5.0",
     "@next/third-parties": "^14.2.7",
-    "@testing-library/react": "^16.0.1",
     "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.12",
     "@types/node": "^22.5.1",
@@ -35,7 +33,9 @@
   "scripts": {
     "dev": "next dev --turbo",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
   "eslintConfig": {
     "extends": [
@@ -57,9 +57,14 @@
   },
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "@testing-library/dom": "^10.4.0",
+    "@testing-library/jest-dom": "^6.5.0",
+    "@testing-library/react": "^16.0.1",
     "@types/react-syntax-highlighter": "^15.5.13",
     "eslint": "^8",
     "eslint-config-next": "14.2.7",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "postcss": "^8",
     "sass": "^1.77.8",
     "sass-loader": "^16.0.1"
