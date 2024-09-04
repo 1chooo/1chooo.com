@@ -1,6 +1,6 @@
 {
   "name": "1chooo-com",
-  "version": "0.0.11",
+  "version": "0.0.12",
   "private": true,
   "dependencies": {
     "@next/third-parties": "^14.2.7",
