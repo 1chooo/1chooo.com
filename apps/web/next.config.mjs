@@ -22,6 +22,7 @@ const nextConfig = {
   // https://nextjs.org/docs/pages/building-your-application/configuring/mdx
   // Configure `pageExtensions` to include markdown and MDX files
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
+  transpilePackages: ['next-mdx-remote'],
 }
  
 export default nextConfig

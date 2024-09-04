@@ -39,7 +39,8 @@
     ".next/types/**/*.ts",
     "next.config.mjs",
     "jest.config.ts",
-    "jest.setup.ts"
+    "jest.setup.ts",
+    "postcss.config.mjs"
 , "eslint.config.js"  ],
   "exclude": [
     "node_modules"
