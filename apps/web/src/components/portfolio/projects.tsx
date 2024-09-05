@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { projectsData } from '@/config/portfolio';
-import { filterCategory } from '@/utils/filter-utils';
+import { filterCategory } from '@/lib/utils/filter-utils';
 import FilterList from './filter-list';
 import FilterSelectBox from './filter-select-box';
 import ProjectItem from './project-item';

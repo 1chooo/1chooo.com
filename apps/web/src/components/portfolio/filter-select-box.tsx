@@ -1,7 +1,7 @@
 import React from 'react';
 import { MdExpandMore } from "react-icons/md";
 import { projectTags } from '@/config/portfolio';
-import { handleItemClick } from '@/utils/filter-utils';
+import { handleItemClick } from '@/lib/utils/filter-utils';
 
 interface FilterSelectBoxProps {
   selectedValue: string;

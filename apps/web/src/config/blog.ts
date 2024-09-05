@@ -1,4 +1,4 @@
-import { descendBlogByDate } from "@/utils/sort-blogs-by-date";
+import { descendBlogByDate } from "@/lib/utils/sort-blogs-by-date";
 import type { Post } from "@/types/post";
 
 export const blogTags = [
