@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Header from '@/components/markdown/header';
+import PageHeader from '@/components/page-header';
 
 const PageContent: React.FC<{
   documentTitle: string;
@@ -23,7 +23,7 @@ const PageContent: React.FC<{
 
   return (
     <article data-page={isRootPage ? '' : page}>
-      <Header title={title} />
+      <PageHeader title={title} />
       {children}
     </article>
   );
