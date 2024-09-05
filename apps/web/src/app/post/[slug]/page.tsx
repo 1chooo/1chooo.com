@@ -1,11 +1,12 @@
 import type { Metadata } from 'next';
 import { Suspense } from 'react';
 import { notFound } from 'next/navigation';
-// import { CustomMDX } from 'app/components/mdx';
-import MarkdownRenderer from '@/components/markdown/markdown-renderer';
-import { getBlogPosts } from '../../db/blog';
 import { unstable_noStore as noStore } from 'next/cache';
+import { getBlogPosts } from '@/app/db/blog';
+import MarkdownRenderer from '@/components/markdown/markdown-renderer';
 import PageHeader from '@/components/page-header';
+
+import "@/styles/about/about-text.css"
 
 export async function generateMetadata({
   params,
@@ -92,29 +93,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
 
   return (
     <article>
-      <section>
-        {/* <script
-          type="application/ld+json"
-          suppressHydrationWarning
-          dangerouslySetInnerHTML={{
-            __html: JSON.stringify({
-              '@context': 'https://schema.org',
-              '@type': 'BlogPosting',
-              headline: post.metadata.title,
-              datePublished: post.metadata.publishedAt,
-              dateModified: post.metadata.publishedAt,
-              description: post.metadata.summary,
-              image: post.metadata.image
-                ? `https://leerob.io${post.metadata.image}`
-                : `https://leerob.io/og?title=${post.metadata.title}`,
-              url: `https://leerob.io/blog/${post.slug}`,
-              author: {
-                '@type': 'Person',
-                name: 'Lee Robinson',
-              },
-            }),
-          }}
-        /> */}
+      <section className="about-text">
         <PageHeader title="Hugo's Blog" />
         <h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">
           {post.metadata.title}
@@ -125,9 +104,6 @@ export default function Blog({ params }: { params: { slug: string } }) {
               {formatDate(post.metadata.publishedAt)}
             </p>
           </Suspense>
-          {/* <Suspense fallback={<p className="h-5" />}>
-          <Views slug={post.slug} />
-        </Suspense> */}
         </div>
         <div className="prose prose-quoteless prose-neutral dark:prose-invert">
           <MarkdownRenderer content={post.content} />
@@ -136,11 +112,3 @@ export default function Blog({ params }: { params: { slug: string } }) {
     </article>
   );
 }
-
-// let incrementViews = cache(increment);
-
-// async function Views({ slug }: { slug: string }) {
-//   let views = await getViewsCount();
-//   incrementViews(slug);
-//   return <ViewCounter allViews={views} slug={slug} />;
-// }

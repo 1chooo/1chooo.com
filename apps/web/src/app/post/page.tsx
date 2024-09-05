@@ -1,6 +1,7 @@
 import Link from 'next/link';
 import { getBlogPosts } from '../db/blog';
 import PageHeader from '@/components/page-header';
+import Image from 'next/image';
 
 export const metadata = {
   title: 'Blog',
@@ -13,7 +14,8 @@ export default function BlogPage() {
   return (
     <article>
       <PageHeader title="Hugo's Blog" />
-      {allBlogs
+      <ul className="blog-posts-list">
+        {allBlogs
           .sort((a, b) => {
             if (
               new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
@@ -22,26 +24,40 @@ export default function BlogPage() {
             }
             return 1;
           })
-          .map((post) => (
-            <Link
-              key={post.slug}
-              className="flex flex-col space-y-1 mb-4"
-              href={`/post/${post.slug}`}
+          .map((post, index) => (
+            <li
+              key={index}
+              className="blog-post-item active"
+              data-category={post.metadata.category}
             >
-              <div className="w-full flex flex-col">
-                <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
-                  {post.metadata.title}
-                </p>
-              </div>
-            </Link>
+              <Link
+                href={`/post/${post.slug}`}
+                rel="noopener noreferrer"
+              >
+                <figure className="blog-banner-box">
+                  <Image
+                    src={post.metadata.banner}
+                    alt={post.metadata.alt || 'Blog post image'}
+                    loading="lazy"
+                    width={1600}
+                    height={900}
+                  />
+                </figure>
+                <div className="blog-content">
+                  <div className="blog-meta">
+                    <p className="blog-category">{post.metadata.category}</p>
+                    <span className="dot"></span>
+                    <time dateTime={post.metadata.publishedAt}>
+                      {new Date(post.metadata.publishedAt).toLocaleDateString()}
+                    </time>
+                  </div>
+                  <h3 className="h3 blog-item-title">{post.metadata.title}</h3>
+                  <p className="blog-text">{post.metadata.summary}</p>
+                </div>
+              </Link>
+            </li>
           ))}
-
+      </ul>
     </article >
   );
 }
-
-// async function Views({ slug }: { slug: string }) {
-//   let views = await getViewsCount();
-
-//   return <ViewCounter allViews={views} slug={slug} />;
-// }

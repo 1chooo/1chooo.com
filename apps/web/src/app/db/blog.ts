@@ -5,6 +5,9 @@ type Metadata = {
   title: string;
   publishedAt: string;
   summary: string;
+  category?: string;
+  banner: string;
+  alt?: string;
   image?: string;
 };
 
