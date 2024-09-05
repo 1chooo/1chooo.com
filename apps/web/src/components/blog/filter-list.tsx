@@ -1,6 +1,6 @@
 import React from 'react';
 import { blogTags } from '@/config/blog';
-import { handleBlogPaginationFilter } from '@/utils/filter-utils';
+import { handleBlogPaginationFilter } from '@/lib/utils/filter-utils';
 
 
 interface FilterListProps {

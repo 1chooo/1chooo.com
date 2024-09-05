@@ -1,4 +1,4 @@
-import { getDateObject, ascendBlogByDate, descendBlogByDate } from '../utils/sort-blogs-by-date';
+import { getDateObject, ascendBlogByDate, descendBlogByDate } from '../lib/utils/sort-blogs-by-date';
 
 import type { Post } from '@/types/post';
 

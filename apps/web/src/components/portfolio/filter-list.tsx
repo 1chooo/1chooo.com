@@ -1,6 +1,6 @@
 import React from 'react';
 import { projectTags } from '@/config/portfolio';
-import { handleItemClick } from '@/utils/filter-utils';
+import { handleItemClick } from '@/lib/utils/filter-utils';
 
 interface FilterListProps {
   selectedValue: string;

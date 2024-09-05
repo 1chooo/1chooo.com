@@ -2,7 +2,7 @@
 
 import React, { useEffect } from 'react';
 import { usePathname } from 'next/navigation';
-import { initializeCustomSelect, filterItemsByCategory } from '@/utils/dom-utils';
+import { initializeCustomSelect, filterItemsByCategory } from '@/lib/utils/dom-utils';
 
 import BlogPosts from '@/components/blog/blog-post';
 import PageContent from '@/components/page-content';
