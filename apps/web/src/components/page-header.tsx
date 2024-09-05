@@ -2,7 +2,7 @@
 
 import React from 'react';
 
-const Header = ({ title }: { title: string }) => (
+const PageHeader = ({ title }: { title: string }) => (
   <header>
     <h2 className="h2 article-title">
       {title}
@@ -10,4 +10,4 @@ const Header = ({ title }: { title: string }) => (
   </header>
 );
 
-export default Header;
+export default PageHeader;

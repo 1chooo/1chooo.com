@@ -1,6 +1,6 @@
 import Link from 'next/link';
 import { getBlogPosts } from '../db/blog';
-import Header from '@/components/markdown/header';
+import PageHeader from '@/components/page-header';
 
 export const metadata = {
   title: 'Blog',
@@ -12,9 +12,8 @@ export default function BlogPage() {
 
   return (
     <article>
-      <section>
-        <Header title="Hugo's Blog" />
-        {allBlogs
+      <PageHeader title="Hugo's Blog" />
+      {allBlogs
           .sort((a, b) => {
             if (
               new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)
@@ -33,13 +32,10 @@ export default function BlogPage() {
                 <p className="text-neutral-900 dark:text-neutral-100 tracking-tight">
                   {post.metadata.title}
                 </p>
-                {/* <Suspense fallback={<p className="h-6" />}>
-                <Views slug={post.slug} />
-              </Suspense> */}
               </div>
             </Link>
           ))}
-      </section>
+
     </article >
   );
 }
