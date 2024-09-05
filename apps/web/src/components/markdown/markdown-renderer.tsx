@@ -20,6 +20,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => (
       a: (props) => <Anchor {...props} />,
       sup: 'sup',
       sub: 'sub',
+      img: (props) => <img {...props} style={{ maxWidth: '80%' }} />,
       blockquote: (props) => <BlockQuote {...props}>{props.children}</BlockQuote>,
       code({ node, inline, className, children, ...props }: any) {
         const match = /language-(\w+)/.exec(className || '');
