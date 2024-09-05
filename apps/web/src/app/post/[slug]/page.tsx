@@ -5,7 +5,7 @@ import { notFound } from 'next/navigation';
 import MarkdownRenderer from '@/components/markdown/markdown-renderer';
 import { getBlogPosts } from '../../db/blog';
 import { unstable_noStore as noStore } from 'next/cache';
-import Header from '@/components/markdown/header';
+import PageHeader from '@/components/page-header';
 
 export async function generateMetadata({
   params,
@@ -115,7 +115,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
             }),
           }}
         /> */}
-        <Header title="Hugo's Blog" />
+        <PageHeader title="Hugo's Blog" />
         <h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">
           {post.metadata.title}
         </h1>
