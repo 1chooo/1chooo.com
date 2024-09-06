@@ -58,7 +58,7 @@ Optionally React Developer Tools -->
 
 [PRs](https://github.com/1chooo/1chooo.com/pulls) and [Issues](https://github.com/1chooo/1chooo.com/issues) are welcome! 🫵🏻
 
-Please read the [Contributing Guideline](./CONTRIBUTING.md) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read the [Contributing Guideline](https://docs.1chooo.com/contributing) for details on our code of conduct, and the process for submitting pull requests to us.
 
 ## 🔩 Getting Started
 
