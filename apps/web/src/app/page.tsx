@@ -7,6 +7,9 @@ import TechStack from '@/components/about/tech-stack';
 import LifeStyles from '@/components/about/life-styles';
 import { abouts } from '@/config/about';
 import PageContent from '@/components/page-content';
+import H4 from '@/components/markdown/h4';
+
+const { subHeader, pronouns } = abouts;
 
 const About = () => {
   const pathname = usePathname();
@@ -18,6 +21,9 @@ const About = () => {
       page="about"
       pathName={pathname}
     >
+      {/* TODO: #157 */}
+      <H4 text={`${subHeader} (${pronouns})`} />
+      <br />
       <AboutText />
       <GitHubStats />
       <TechStack />
