@@ -4,6 +4,10 @@
     line-height: 1.6;
 }
 
+.timeline-text li {
+    list-style: disc;
+}
+
 .timeline-text a {
     color: var(--orange-yellow-crayola);
     text-decoration: underline;
