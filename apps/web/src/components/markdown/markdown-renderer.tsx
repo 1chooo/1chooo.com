@@ -33,7 +33,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => (
         <li
           {...props}
           style={{
-            marginBottom: '0.25rem',
+            marginBottom: '0.15rem',
           }}
         />
       ),
