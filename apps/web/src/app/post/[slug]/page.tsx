@@ -105,9 +105,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
             </p>
           </Suspense>
         </div>
-        <div className="prose prose-quoteless prose-neutral dark:prose-invert">
-          <MarkdownRenderer content={post.content} />
-        </div>
+        <MarkdownRenderer content={post.content} />
       </section>
     </article>
   );
