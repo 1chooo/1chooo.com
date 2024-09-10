@@ -24,7 +24,7 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language, children }) => (
     wrapLines={true}
     showInlineLineNumbers={true}
   >
-    {String(children)}
+    {String(children).trimEnd()}
   </SyntaxHighlighter>
 );
 
