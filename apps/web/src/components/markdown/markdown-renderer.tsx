@@ -20,7 +20,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => (
       a: (props) => <Anchor {...props} />,
       sup: 'sup',
       sub: 'sub',
-      img: (props) => <img {...props} style={{ maxWidth: '80%' }} />,
+      img: (props) => <img {...props} style={{ maxWidth: '80%', margin: '0 auto' }} />,
       ul: (props) => (
         <ul
           {...props}
