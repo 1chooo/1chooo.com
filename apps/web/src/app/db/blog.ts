@@ -30,11 +30,11 @@ function parseFrontmatter(fileContent: string) {
 }
 
 function getMDXFiles(dir: string) {
-  return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx');
+  return fs.readdirSync(dir).filter((file) => path.extname(file) === '.mdx' || path.extname(file) === '.md');
 }
 
 function readMDXFile(filePath: string) {
-  if (!filePath || !fs.existsSync(filePath) || path.extname(filePath) !== '.mdx') {
+  if (!filePath || !fs.existsSync(filePath) || (path.extname(filePath) !== '.mdx' && path.extname(filePath) !== '.md')) {
     throw new Error('Invalid file path or file does not exist');
   }
   let rawContent = fs.readFileSync(filePath, 'utf-8');
