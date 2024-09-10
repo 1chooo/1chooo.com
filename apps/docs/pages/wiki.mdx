@@ -1,0 +1,45 @@
+# Support for TypeScript `5.x` in Create React App
+
+In the https://github.com/1chooo/1chooo.com/pull/76, when I tried to upgrade the `react-scripts` to `5.x`, I got the following error:
+
+```typescript
+npm error code ERESOLVE
+npm error ERESOLVE could not resolve
+npm error
+npm error While resolving: react-scripts@5.0.1
+npm error Found: typescript@5.5.4
+npm error node_modules/typescript
+npm error   typescript@"^5.5.4" from the root project
+npm error   peer typescript@">= 2.7" from fork-ts-checker-webpack-plugin@6.5.3
+npm error   node_modules/fork-ts-checker-webpack-plugin
+npm error     fork-ts-checker-webpack-plugin@"^6.5.0" from react-dev-utils@12.0.1
+npm error     node_modules/react-dev-utils
+npm error       react-dev-utils@"^12.0.1" from react-scripts@5.0.1
+npm error       node_modules/react-scripts
+npm error         react-scripts@"5.0.1" from the root project
+npm error   1 more (tsutils)
+npm error
+npm error Could not resolve dependency:
+npm error peerOptional typescript@"^3.2.1 || ^4" from react-scripts@5.0.1
+npm error node_modules/react-scripts
+npm error   react-scripts@"5.0.1" from the root project
+```
+
+Add the following to the `package.json` to solve the problem: [^1]
+
+``` diff
++ "overrides": {
++   "typescript": "^5.5.4"
++ },
+```
+
+> [!IMPORTANT]
+> The version of `overrides` must be the same as the version of TypeScript in `dependencies`.
+
+[^1]: [(react-scripts) Support for TypeScript 5.x #13080](https://github.com/facebook/create-react-app/issues/13080)
+
+- [Goodbye create-react-app](https://dev.to/ag2byte/create-react-app-is-officially-dead-h7o)
+- [Why is create-react-app still used by many? Very important #12628](https://github.com/facebook/create-react-app/issues/12628)
+- [I'm trying to deploy my react app with vercel. I did every step in my terminal but at the end get error "Error: Command "npm install" exited with 1"](https://stackoverflow.com/questions/77621320/im-trying-to-deploy-my-react-app-with-vercel-i-did-every-step-in-my-terminal-b)
+- [Start a New React Project](https://react.dev/learn/start-a-new-react-project)
+- [How can I get a compatible React package ecosystem having both react-scripts@x and typescript@^5?](https://stackoverflow.com/questions/78646710/how-can-i-get-a-compatible-react-package-ecosystem-having-both-react-scriptsx-a)
