@@ -29,6 +29,14 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => (
           }}
         />
       ),
+      ol: (props) => (
+        <ol
+          {...props}
+          style={{
+            paddingLeft: '1.0rem',
+          }}
+        />
+      ),
       li: (props) => (
         <li
           {...props}
