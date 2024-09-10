@@ -43,3 +43,28 @@ Add the following to the `package.json` to solve the problem: [^1]
 - [I'm trying to deploy my react app with vercel. I did every step in my terminal but at the end get error "Error: Command "npm install" exited with 1"](https://stackoverflow.com/questions/77621320/im-trying-to-deploy-my-react-app-with-vercel-i-did-every-step-in-my-terminal-b)
 - [Start a New React Project](https://react.dev/learn/start-a-new-react-project)
 - [How can I get a compatible React package ecosystem having both react-scripts@x and typescript@^5?](https://stackoverflow.com/questions/78646710/how-can-i-get-a-compatible-react-package-ecosystem-having-both-react-scriptsx-a)
+
+# Migrate from Create React App to NextJS
+
+```js
+"scripts": {
+  "dev": "next dev",
+  "build": "next build",
+  "start": "next start"
+},
+```
+
+```bash
+$ npm uninstall react-scripts
+$ npm uninstall react-router-dom
+$ npm install next
+```
+
+- [Migrating from Create React App to NextJS: A Practical Guide](https://www.geeksforgeeks.org/migrating-from-create-react-app-to-nextjs-a-practical-guide/)
+- [Migrating from create-react-app to Vite: A Quick and Easy Guide](https://dev.to/henriquejensen/migrating-from-create-react-app-to-vite-a-quick-and-easy-guide-5e72)
+- [Migrating from Create React App](https://nextjs.org/docs/app/building-your-application/upgrading/from-create-react-app)
+- [Replace Create React App recommendation with Vite #5487](https://github.com/reactjs/react.dev/pull/5487)
+- [CreativeTechGuy/ReactTemplate](https://github.com/CreativeTechGuy/ReactTemplate)
+- [How to Migrate from create-react-app to Vite using Jest and Browserslist](https://www.freecodecamp.org/news/how-to-migrate-from-create-react-app-to-vite/)
+- [Migrating from Create React App](https://nextjs-ja-translation-docs.vercel.app/docs/migrating/from-create-react-app)
+
