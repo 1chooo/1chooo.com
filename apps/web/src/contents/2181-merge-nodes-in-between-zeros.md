@@ -116,7 +116,7 @@ Take `head = [0, 3, 1, 0, 4, 5, 2, 0]` as an example, let's go through the code 
 - `cur` points to the second node (value 3).
 - Since `cur.Val` is not 0, add `cur.Val` to `sum`:
 
-  ```
+  ```go
   sum = 0 + 3 = 3
   ```
 
@@ -124,7 +124,7 @@ Take `head = [0, 3, 1, 0, 4, 5, 2, 0]` as an example, let's go through the code 
 - Move `cur` to the third node (value 1).
 - Since `cur.Val` is not 0, add `cur.Val` to `sum`:
 
-  ```
+  ```go
   sum = 3 + 1 = 4
   ```
 
@@ -132,7 +132,7 @@ Take `head = [0, 3, 1, 0, 4, 5, 2, 0]` as an example, let's go through the code 
 - Move `cur` to the fourth node (value 0).
 - Since `cur.Val` is 0, update `n.Val` and move `n`:
 
-  ```
+  ```go
   n.Val = sum = 4
   n.Next = cur.Next (points to node with value 4)
   sum = 0
@@ -144,7 +144,7 @@ Take `head = [0, 3, 1, 0, 4, 5, 2, 0]` as an example, let's go through the code 
 - Move `cur` to the fifth node (value 4).
 - Since `cur.Val` is not 0, add `cur.Val` to `sum`:
 
-  ```
+  ```go
   sum = 0 + 4 = 4
   ```
 
@@ -152,7 +152,7 @@ Take `head = [0, 3, 1, 0, 4, 5, 2, 0]` as an example, let's go through the code 
 - Move `cur` to the sixth node (value 5).
 - Since `cur.Val` is not 0, add `cur.Val` to `sum`:
 
-  ```
+  ```go
   sum = 4 + 5 = 9
   ```
 
@@ -160,7 +160,7 @@ Take `head = [0, 3, 1, 0, 4, 5, 2, 0]` as an example, let's go through the code 
 - Move `cur` to the seventh node (value 2).
 - Since `cur.Val` is not 0, add `cur.Val` to `sum`:
 
-  ```
+  ```go
   sum = 9 + 2 = 11
   ```
 
@@ -168,12 +168,13 @@ Take `head = [0, 3, 1, 0, 4, 5, 2, 0]` as an example, let's go through the code 
 - Move `cur` to the eighth node (value 0).
 - Since `cur.Val` is 0, update `n.Val` and move `n`:
 
-  ```
+  ```go
   n.Val = sum = 11
   n.Next = cur.Next (points to nil, end of the list)
   sum = 0
   n = cur.Next (points to nil)
   ```
+
   The linked list now looks like this: `[0, 4, 11]`
 
 ### End
