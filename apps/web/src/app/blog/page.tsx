@@ -31,7 +31,7 @@ export default function BlogPage() {
               data-category={post.metadata.category}
             >
               <Link
-                href={`/post/${post.slug}`}
+                href={`/blog/${post.slug}`}
                 rel="noopener noreferrer"
               >
                 <figure className="blog-banner-box">
