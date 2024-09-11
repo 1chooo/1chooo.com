@@ -1,10 +1,10 @@
 import Link from 'next/link';
-import { getBlogPosts } from '../db/blog';
+import { getBlogPosts } from '@/app/db/blog';
 import PageHeader from '@/components/page-header';
 import Image from 'next/image';
 
 export const metadata = {
-  title: 'Blog',
+  title: 'Blog | Hugo ChunHo Lin (1chooo) | Open Source Enthusiast',
   description: 'Read my thoughts on software development, design, and more.',
 };
 
