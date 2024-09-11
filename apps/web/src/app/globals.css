@@ -1831,11 +1831,24 @@ textarea.form-input::-webkit-resizer {
     transition: var(--transition-1);
   }
 
+  .filter-item a {
+    color: var(--light-gray);
+    font-size: var(--fs-5);
+    transition: var(--transition-1);
+  }
+
   .filter-item button:hover {
     color: var(--light-gray-70);
   }
 
   .filter-item button.active {
+    color: var(--orange-yellow-crayola);
+  }
+  .filter-item a:hover {
+    color: var(--light-gray-70);
+  }
+
+  .filter-item a.active {
     color: var(--orange-yellow-crayola);
   }
 
