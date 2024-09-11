@@ -39,6 +39,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => (
         return (
           <div
             style={{
+              marginTop: '1rem',
               maxWidth: '80%',
               margin: '0 auto',
               textAlign: 'center',
@@ -64,7 +65,8 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => (
                 marginTop: '0.5rem',
                 fontSize: '0.9rem',
                 color: '#555',
-                textAlign: 'center'
+                textAlign: 'center',
+                marginBottom: '1rem',
               }}>
                 {props.alt}
               </div>
