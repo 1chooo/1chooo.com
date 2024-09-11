@@ -1,12 +1,14 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
+import Image from 'next/image';
 
 import Anchor from './anchor';
 import BlockQuote from './block-quote';
 import CodeBlock from './code-block';
-
 
 interface MarkdownRendererProps {
   content: string;
@@ -20,7 +22,45 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => (
       a: (props) => <Anchor {...props} />,
       sup: 'sup',
       sub: 'sub',
-      img: (props) => <img {...props} style={{ maxWidth: '80%', margin: '0 auto' }} />,
+      img: (props) => {
+        const [imageSize, setImageSize] = useState({ width: 1, height: 1 });
+
+        return (
+          <div
+            style={{
+              maxWidth: '80%',
+              margin: '0 auto',
+              textAlign: 'center',
+            }}
+          >
+            <Image
+              src={props.src ?? ''}
+              alt={props.alt ?? 'Image'}
+              layout="responsive"
+              objectFit="contain"
+              priority={true}
+              onLoadingComplete={(target) => {
+                setImageSize({
+                  width: target.naturalWidth,
+                  height: target.naturalHeight,
+                });
+              }}
+              width={imageSize.width}
+              height={imageSize.height}
+            />
+            {props.alt && (
+              <div style={{
+                marginTop: '0.5rem',
+                fontSize: '0.9rem',
+                color: '#555',
+                textAlign: 'center'
+              }}>
+                {props.alt}
+              </div>
+            )}
+          </div>
+        );
+      },
       ul: (props) => (
         <ul
           {...props}
