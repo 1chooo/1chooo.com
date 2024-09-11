@@ -1,23 +1,19 @@
-import React from 'react';
+"use client";
+
+import React, { useState } from 'react';
 import { MdExpandMore } from 'react-icons/md';
-import { blogTags } from '@/config/blog';
-import { handleBlogPaginationFilter } from '@/lib/utils/filter-utils';
+import Link from 'next/link';
 
 interface FilterSelectBoxProps {
-  selectedValue: string;
-  setSelectedValue: React.Dispatch<React.SetStateAction<string>>;
-  isSelectActive: boolean;
-  setIsSelectActive: React.Dispatch<React.SetStateAction<boolean>>;
-  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+  selectedTag: string;
+  blogTags: string[];
 }
 
 const FilterSelectBox: React.FC<FilterSelectBoxProps> = ({
-  selectedValue,
-  setSelectedValue,
-  isSelectActive,
-  setIsSelectActive,
-  setCurrentPage
+  selectedTag,
+  blogTags
 }) => {
+  const [isSelectActive, setIsSelectActive] = useState(false);
 
   return (
     <div className="filter-select-box">
@@ -26,7 +22,7 @@ const FilterSelectBox: React.FC<FilterSelectBoxProps> = ({
         onClick={() => setIsSelectActive(!isSelectActive)}
       >
         <div className="select-value">
-          {selectedValue || 'Select category'}
+          {selectedTag || 'Select category'}
         </div>
         <div className="select-icon">
           <MdExpandMore />
@@ -36,8 +32,14 @@ const FilterSelectBox: React.FC<FilterSelectBoxProps> = ({
         <ul className="select-list">
           {blogTags.map((tag: string) => (
             <li className="select-item" key={tag}>
-              <button onClick={() => handleBlogPaginationFilter(tag, setSelectedValue, setCurrentPage)}>
-                {tag}
+              <button
+                onClick={() => {
+                  setIsSelectActive(false);
+                }}
+              >
+                <Link href={`/blog?tag=${encodeURIComponent(tag || '')}`}>
+                  {tag}
+                </Link>
               </button>
             </li>
           ))}

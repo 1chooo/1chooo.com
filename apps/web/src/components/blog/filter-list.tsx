@@ -1,26 +1,26 @@
 import React from 'react';
-import { blogTags } from '@/config/blog';
-import { handleBlogPaginationFilter } from '@/lib/utils/filter-utils';
-
+import Link from 'next/link';
 
 interface FilterListProps {
-  selectedValue: string;
-  setSelectedValue: React.Dispatch<React.SetStateAction<string>>;
-  setCurrentPage: React.Dispatch<React.SetStateAction<number>>;
+  selectedTag: string;
+  blogTags: string[];
 }
 
-const FilterList: React.FC<FilterListProps> = ({ selectedValue, setSelectedValue, setCurrentPage }) => {
+const FilterList: React.FC<FilterListProps> = ({ 
+  selectedTag,
+  blogTags
+}) => {
 
   return (
     <ul className="filter-list">
       {blogTags.map((tag, index) => (
         <li className="filter-item" key={index}>
-          <button
-            className={`filter-btn ${selectedValue === tag ? 'active' : ''}`}
-            onClick={() => handleBlogPaginationFilter(tag, setSelectedValue, setCurrentPage)}
+          <Link
+            href={`/blog?tag=${encodeURIComponent(tag || '')}`}
+            className={`filter-btn ${selectedTag === tag ? 'active' : ''}`}
           >
             {tag}
-          </button>
+          </Link>
         </li>
       ))}
     </ul>
