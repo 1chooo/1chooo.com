@@ -6,7 +6,7 @@ import { getBlogPosts } from '@/app/db/blog';
 import MarkdownRenderer from '@/components/markdown/markdown-renderer';
 import PageHeader from '@/components/page-header';
 
-import "@/styles/about/about-text.css"
+import "@/styles/blog/blog-text.css"
 
 export async function generateMetadata({
   params,
@@ -93,7 +93,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
 
   return (
     <article>
-      <section className="about-text">
+      <section className="blog-text">
         <PageHeader title="Hugo's Blog" />
         <h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">
           {post.metadata.title}
