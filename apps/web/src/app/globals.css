@@ -1049,7 +1049,21 @@ main {
   border-radius: 8px;
 }
 
+.select-item button a {
+  background: var(--eerie-black-2);
+  color: var(--light-gray);
+  font-size: var(--fs-6);
+  font-weight: var(--fw-300);
+  text-transform: capitalize;
+  width: 100%;
+  padding: 8px 10px;
+  border-radius: 8px;
+}
+
 .select-item button:hover {
+  --eerie-black-2: hsl(240, 2%, 20%);
+}
+.select-item button a:hover {
   --eerie-black-2: hsl(240, 2%, 20%);
 }
 

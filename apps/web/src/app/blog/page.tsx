@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { getBlogPosts } from '@/app/db/blog';
 import PageHeader from '@/components/page-header';
 import Image from 'next/image';
+import FilterSelectBox from '@/components/blog/filter-select-box';
 
 export const metadata = {
   title: 'Blog | Hugo ChunHo Lin (1chooo) | Open Source Enthusiast',
@@ -38,6 +39,11 @@ export default function BlogPage({ searchParams }: { searchParams: { tag?: strin
             </li>
           ))}
         </ul>
+
+        <FilterSelectBox
+          selectedTag={selectedTag}
+          blogTags={blogTags}
+        />
 
         <ul className="blog-posts-list">
           {filteredBlogs
