@@ -3,13 +3,13 @@ import { getBlogPosts } from '@/app/db/blog';
 import PageHeader from '@/components/page-header';
 import Image from 'next/image';
 import FilterSelectBox from '@/components/blog/filter-select-box';
+import FilterList from '@/components/blog/filter-list';
 
 export const metadata = {
   title: 'Blog | Hugo ChunHo Lin (1chooo) | Open Source Enthusiast',
   description: 'Read my thoughts on software development, design, and more.',
 };
 
-// Define your blog tags here
 let blogTags: string[] = ['All'];
 
 export default function BlogPage({ searchParams }: { searchParams: { tag?: string } }) {
@@ -25,25 +25,9 @@ export default function BlogPage({ searchParams }: { searchParams: { tag?: strin
   return (
     <article>
       <PageHeader title="Hugo's Blog" />
-      {/* Filter List */}
       <section className="blog-posts">
-        <ul className="filter-list">
-          {blogTags.map((tag, index) => (
-            <li className="filter-item" key={index}>
-              <Link
-                href={`/blog?tag=${encodeURIComponent(tag || '')}`}
-                className={`filter-btn ${selectedTag === tag ? 'active' : ''}`}
-              >
-                {tag}
-              </Link>
-            </li>
-          ))}
-        </ul>
-
-        <FilterSelectBox
-          selectedTag={selectedTag}
-          blogTags={blogTags}
-        />
+        <FilterList selectedTag={selectedTag} blogTags={blogTags} />
+        <FilterSelectBox selectedTag={selectedTag} blogTags={blogTags} />
 
         <ul className="blog-posts-list">
           {filteredBlogs
