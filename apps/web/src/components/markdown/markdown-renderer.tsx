@@ -6,21 +6,32 @@ import rehypeRaw from 'rehype-raw';
 import Anchor from './anchor';
 import BlockQuote from './block-quote';
 import CodeBlock from './code-block';
-
+import MarkdownImage from './markdown-image';
 
 interface MarkdownRendererProps {
   content: string;
 }
+
+const isImageNode = (node: any): node is Element => {
+  return node && node.type === 'element' && node.tagName === 'img';
+};
 
 const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => (
   <ReactMarkdown
     remarkPlugins={[remarkGfm]}
     rehypePlugins={[rehypeRaw]}
     components={{
+      p: ({ node, children }) => {
+        const hasImage = node && node.children && node.children.some(isImageNode);
+        if (hasImage) {
+          return <>{children}</>;
+        }
+        return <p>{children}</p>;
+      },
       a: (props) => <Anchor {...props} />,
       sup: 'sup',
       sub: 'sub',
-      img: (props) => <img {...props} style={{ maxWidth: '80%', margin: '0 auto' }} />,
+      img: (props) => <MarkdownImage src={props.src ?? ''} alt={props.alt} />,
       ul: (props) => (
         <ul
           {...props}
