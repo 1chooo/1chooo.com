@@ -1,55 +1,55 @@
-.about-text {
+.blog-text {
     color: var(--light-gray);
     font-weight: var(--fw-300);
     line-height: 1.6;
 }
 
-.about-text p {
+.blog-text p {
     margin-bottom: 15px;
 }
 
-.about-text a {
+.blog-text a {
     display: inline;
     color: var(--orange-yellow-crayola);
     text-decoration: underline;
 }
 
-.about-text a:hover {
+.blog-text a:hover {
     text-decoration-color: hsla(0, 0%, 84%, 0.7);
 }
 
-/* .about-text ul li {
+.blog-text ul li {
     list-style: disc;
 }
 
-.about-text ul li ul li {
+.blog-text ul li ul li {
     list-style: circle;
 }
 
-.about-text ul li ul li ul li {
+.blog-text ul li ul li ul li {
     list-style: square;
 }
 
-.about-text ol li {
+.blog-text ol li {
     list-style: decimal;
 }
 
-.about-text ol li ol li {
+.blog-text ol li ol li {
     list-style: lower-alpha;
 }
 
-.about-text ol li ol li ol li {
+.blog-text ol li ol li ol li {
     list-style: lower-roman;
-} */
+}
 
 @media (min-width: 375px) {
-    .about-text h3 {
+    .blog-text h3 {
         margin-top: 30px;
     }
 }
 
 @media (min-width: 580px) {
-    .about-text {
+    .blog-text {
         margin-bottom: 40px;
     }
 }
