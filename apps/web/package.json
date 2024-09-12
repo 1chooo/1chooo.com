@@ -1,6 +1,6 @@
 {
   "name": "1chooo-com",
-  "version": "0.0.15",
+  "version": "0.1.1",
   "private": true,
   "dependencies": {
     "@codesandbox/sandpack-react": "^2.19.3",
