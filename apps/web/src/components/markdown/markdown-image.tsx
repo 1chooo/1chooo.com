@@ -34,6 +34,9 @@ const MarkdownImage: React.FC<MarkdownImageProps> = ({ src, alt }) => {
         }}
         width={imageSize.width}
         height={imageSize.height}
+        style={{
+          borderRadius: "16px",
+        }}
       />
       {alt && (
         <div
