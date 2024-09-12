@@ -9,6 +9,7 @@ import CodeBlock from './code-block';
 import MarkdownImage from './markdown-image';
 
 interface MarkdownRendererProps {
+  className?: string;
   content: string;
 }
 
@@ -16,8 +17,12 @@ const isImageNode = (node: any): node is Element => {
   return node && node.type === 'element' && node.tagName === 'img';
 };
 
-const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => (
+const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
+  className,
+  content
+}) => (
   <ReactMarkdown
+    className={className}
     remarkPlugins={[remarkGfm]}
     rehypePlugins={[rehypeRaw]}
     components={{
