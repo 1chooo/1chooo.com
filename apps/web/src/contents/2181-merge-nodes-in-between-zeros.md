@@ -1,7 +1,11 @@
 ---
 title: "💯✅ LeetCode 2181. Merge Nodes in Between Zeros | Go"
 publishedAt: '2024-07-06'
-category: Leetcode
+category: LeetCode
+tags:
+  - Linked List
+  - Simulation
+  - Go
 summary: "You are given the head of a linked list, which contains a series of integers separated by 0's. The beginning and end of the linked list will have Node.val == 0."
 banner: https://blog.1chooo.com/images/cover/leetcode/2181-merge-nodes-in-between-zeros.png
 alt: "💯✅ LeetCode 2181. Merge Nodes in Between Zeros | Go"
