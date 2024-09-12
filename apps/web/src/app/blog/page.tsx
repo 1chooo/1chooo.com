@@ -70,7 +70,9 @@ export default function BlogPage({ searchParams }: { searchParams: { tag?: strin
                     <p className="blog-category">{post.metadata.category}</p>
                     <span className="dot"></span>
                     <time dateTime={post.metadata.publishedAt}>
-                      {new Date(post.metadata.publishedAt).toLocaleDateString()}
+                      {new Date(post.metadata.publishedAt).toLocaleDateString(
+                        'en-us', { month: 'long', day: 'numeric', year: 'numeric' }
+                      )}
                     </time>
                   </div>
                   <h3 className="h3 blog-item-title">
