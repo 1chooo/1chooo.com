@@ -4,19 +4,18 @@ import PageHeader from '@/components/page-header';
 import Image from 'next/image';
 import FilterSelectBox from '@/components/blog/filter-select-box';
 import FilterList from '@/components/blog/filter-list';
+import MarkdownRenderer from '@/components/markdown/markdown-renderer';
 
 export const metadata = {
   title: 'Blog | Hugo ChunHo Lin (1chooo) | Open Source Enthusiast',
   description: 'Read my thoughts on software development, design, and more.',
 };
 
-let blogTags: string[] = ['All'];
-
 const POSTS_PER_PAGE = 4;
 
 export default function BlogPage({ searchParams }: { searchParams: { tag?: string; page?: string } }) {
   let allBlogs = getBlogPosts();
-  blogTags = ['All', ...Array.from(new Set(allBlogs.map(post => post.metadata.category ?? '')))];
+  const blogTags = ['All', ...Array.from(new Set(allBlogs.map(post => post.metadata.category ?? '')))];
   const selectedTag = searchParams.tag || 'All';
   const currentPage = parseInt(searchParams.page || '1', 10);
 
@@ -74,8 +73,10 @@ export default function BlogPage({ searchParams }: { searchParams: { tag?: strin
                       {new Date(post.metadata.publishedAt).toLocaleDateString()}
                     </time>
                   </div>
-                  <h3 className="h3 blog-item-title">{post.metadata.title}</h3>
-                  <p className="blog-text">{post.metadata.summary}</p>
+                  <h3 className="h3 blog-item-title">
+                    <MarkdownRenderer content={post.metadata.title} />
+                  </h3>
+                  <MarkdownRenderer className="blog-text" content={post.metadata.summary} />
                 </div>
               </Link>
             </li>
