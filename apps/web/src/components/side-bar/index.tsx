@@ -22,8 +22,9 @@ export const SideBar: React.FC = () => {
       <div className="sidebar-info-more">
         <div className="separator"></div>
         <ContactsList />
-        <div className="separator"></div>
+        <div className="separator-no-line"></div>
         <SocialList />
+        <div className="separator-footer"></div>
         <Footer />
       </div>
     </aside>
