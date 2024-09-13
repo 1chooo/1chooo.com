@@ -364,7 +364,7 @@ main {
 }
 
 .sidebar.active {
-  max-height: 405px;
+  max-height: 425px;
 }
 
 .sidebar-info {
@@ -1549,7 +1549,8 @@ textarea.form-input::-webkit-resizer {
   }
 
   .sidebar.active {
-    max-height: 584px;
+    /* max-height: 584px; */
+    max-height: 610px;
   }
 
   .sidebar-info {
@@ -1801,6 +1802,10 @@ textarea.form-input::-webkit-resizer {
 
   .info-more-btn svg {
     display: none;
+  }
+
+  .sidebar.active {
+    max-height: 900px;
   }
 
   /**
