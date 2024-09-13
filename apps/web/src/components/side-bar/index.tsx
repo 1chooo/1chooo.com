@@ -4,6 +4,7 @@ import React, { useState, useRef } from 'react';
 import SideBarInfo from './side-bar-info';
 import SocialList from './social-list';
 import ContactsList from './contact-list';
+import Footer from './footer';
 
 export const SideBar: React.FC = () => {
   const [isActive, setIsActive] = useState(false);
@@ -23,6 +24,7 @@ export const SideBar: React.FC = () => {
         <ContactsList />
         <div className="separator"></div>
         <SocialList />
+        <Footer />
       </div>
     </aside>
   );
