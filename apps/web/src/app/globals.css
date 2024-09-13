@@ -243,6 +243,20 @@ article {
   margin: 16px 0;
 }
 
+.separator-no-line {
+  margin: 16px 0;
+  width: 100%;
+  height: 1px;
+  opacity: 0;
+}
+
+.separator-footer {
+  width: 100%;
+  height: 1px;
+  background: var(--jet);
+  margin: 16px 0;
+}
+
 article {
   display: block;
   animation: fade 0.5s ease backwards;
@@ -364,7 +378,7 @@ main {
 }
 
 .sidebar.active {
-  max-height: 425px;
+  max-height: 500px;
 }
 
 .sidebar-info {
@@ -1550,7 +1564,7 @@ textarea.form-input::-webkit-resizer {
 
   .sidebar.active {
     /* max-height: 584px; */
-    max-height: 610px;
+    max-height: 625px;
   }
 
   .sidebar-info {
