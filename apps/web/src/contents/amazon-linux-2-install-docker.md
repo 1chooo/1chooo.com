@@ -8,11 +8,13 @@ tags:
 - AWS
 - EC2
 - Amazon Linux 2
-banner: https://blog.1chooo.com/images/cover/dev-ops/amazon-linux-2-install-docker.png
+banner: /images/banner/amazon-linux-2-install-docker.png
 alt: "AWS: 如何在 AWS EC2 Amazon Linux 2 上安裝 Docker"
 ---
 
 在我們需要做 DevOps 時，我們常常會需要用到 Containerization 技術，而 Docker 是目前最為廣泛使用的 Containerization 技術之一。同時我們也可能會用到雲端的算力來幫助我們完成這些工作，因此我們今天將會介紹如何在 Amazon Linux 2 上安裝 Docker。
+
+![AWS: 如何在 AWS EC2 Amazon Linux 2 上安裝 Docker](/images/banner/amazon-linux-2-install-docker.png)
 
 ### 連線到 EC2
 

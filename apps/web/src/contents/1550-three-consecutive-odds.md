@@ -6,13 +6,15 @@ tags:
   - Array
   - Go
 summary: 'Given an integer array arr, return true if there are three consecutive odd numbers in the array. Otherwise, return false.'
-banner: https://blog.1chooo.com/images/cover/leetcode/1550-three-consecutive-odds.png
+banner: /images/banner/1550-three-consecutive-odds.png
 alt: "💯✅ LeetCode 1550. Three Consecutive Odds | Go"
 mathjax: true
 ---
 
 
 Link 👉🏻 [1550. Three Consecutive Odds](https://leetcode.com/problems/three-consecutive-odds)
+
+![💯✅ LeetCode 1550. Three Consecutive Odds | Go by Hugo](/images/banner/1550-three-consecutive-odds.png)
 
 
 ### Description
