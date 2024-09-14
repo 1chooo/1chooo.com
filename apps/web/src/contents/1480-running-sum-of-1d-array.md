@@ -7,13 +7,15 @@ tags:
   - Array
   - Prefix Sum
 summary: 'Given an array `nums`. We define a running sum of an array as `runningSum[i] = sum(nums[0]...nums[i])`. Return the running sum of `nums`.'
-banner: https://blog.1chooo.com/images/cover/leetcode/1480-running-sum-of-1d-array.png
+banner: /images/banner/1480-running-sum-of-1d-array.png
 alt: "💯✅ LeetCode 1480. Running Sum of 1d Array | Go"
 mathjax: true
 ---
 
 Link 👉🏻 [1480. Running Sum of 1d Array](https://leetcode.com/problems/running-sum-of-1d-array)
 
+
+![💯✅ LeetCode 1480. Running Sum of 1d Array | Go by Hugo](/images/banner/1480-running-sum-of-1d-array.png)
 
 ### Description
 
