@@ -7,6 +7,7 @@ tags:
   - React
   - Typescript
 banner: /images/banner/goodbye-react-create-app.png
+alt: 讓老舊的 Create React App (CRA) 支援 TypeScript `5.x` 吧！
 ---
 
 
@@ -36,6 +37,8 @@ npm error   react-scripts@"5.0.1" from the root project
 ```
 
 因此想透過本篇想紀錄的解決過程，以及相關脈絡資訊，如果電腦需要安裝 [Node.js, npm](https://nodejs.org/) 的話，可以參考我過去的文章 -- [如何在 Mac 安裝 Node.js & NPM](/2024/01/03/dev-env/mac-install-nodejs-npm/) 來安裝。
+
+![讓老舊的 Create React App (CRA) 支援 TypeScript `5.x` 吧！ by Hugo](/images/banner/goodbye-react-create-app.png)
 
 過去我建立 React 專案的方式是透過 [`create-react-app` (CRA)](https://github.com/facebook/create-react-app) 來建立，不過在這次升級的過程中，我發現 [`create-react-app`](https://github.com/facebook/create-react-app) 似乎只支援到 [`v5.0.1`](https://github.com/facebook/create-react-app/releases/tag/v5.0.1) 的版本，並且可以從 Facebook 的 GitHub Repo 中發現，目前 CRA 已經沒有人在維護了，上次更新已經是 2022 年了，所以想當然爾，現在的 CRA 沒有支援 TypeScript `5.x` 的版本，只能支援到 `4.x` 的版本，這也是為什麼我目前無法升級 TypeScript 到 `5.x` 的原因。
 ![create-react-app v5.0.1](/images/posts/goodbye-react-create-app/create-react-app-v-5-0-1.png)

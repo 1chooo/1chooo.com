@@ -7,11 +7,14 @@ tags:
   - React
   - Typescript
 banner: /images/banner/500-commits-milestone-in-1chooo-com.png
+alt: 打造 500 commits 的 GitHub Repository：10 個不可或缺的步驟
 ---
 
 > 一個 500 commits 的 Side Project 是如何誕生的，跟著 Hugo 一起看下去吧！
 
 嘿大家！我是 Hugo！現在的我剛從中央大學剛畢業，開始了我的 Gap Year，我有了很多時間維護我的 Side Project，撰寫文章、自我成長的時間，今天我想跟各位分享一個對我來說很重要的里程碑：「我的個人網頁 -- [1chooo.com](https://1chooo.com) 的 [GitHub Repository](https://github.com/1chooo/1chooo.com) 達到 [500 個 commits](https://github.com/1chooo/1chooo.com/commit/b01a0417642b3679ec87427f0c783bcaafe5e7c1) 啦 🥳」這 500 個 commits 以大型專案來說無比尋常，甚至是小巫見大巫，不過對於我的個人 side project 是一大挑戰，畢竟要持續有新功能、新的專案目標、技術債，我才能繼續更新這個 project，因此我想透過這篇文章來分享我們做了哪些努力，並且又從中學到了什麼樣的寶貴經驗以及教訓。
+
+![打造 500 commits 的 GitHub Repository：10 個不可或缺的步驟 bu Hugo](/images/banner/500-commits-milestone-in-1chooo-com.png)
 
 在進入今天的分享前，先帶大家看看我專案的成果，這個專案原先的發想就是是我想打造自己的網頁，過去我也曾經試過很多次的個人網頁架設，但是對於我想要的需求就是差了那麼一點，於是我開始透過 portfolio、personal website 的關鍵字在 GitHub 找尋符合我需求的設計，有點偷懶，不過我想這就是 Open Source 最重要的一環吧！於是我找到了符合我想要功能的個人網頁 -- [vcard-personal-portfolio](https://codewithsadee.github.io/vcard-personal-portfolio/)，這邊要特別感謝原作者 [Sadee](https://github.com/codewithsadee) 無私分享自己的專案成果，讓我可以在此基礎上進行修改。
 
