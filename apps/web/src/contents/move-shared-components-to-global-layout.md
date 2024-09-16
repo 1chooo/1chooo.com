@@ -15,7 +15,7 @@ alt: 提升 Next.js 效能：把重複載入的元件放入 global layout
 
 ![提升 Next.js 效能：把重複載入的元件放入 global layout](/images/banner/move-shared-components-to-global-layout.png)
 
-因為目前挑選的是 [Next.js](https://nextjs.org/) 作為我的前端框架，並搭配 [React](https://react.dev/) 來開發頁面上的 Components，想知道為什麼選擇 [Next.js](https://nextjs.org/) 的朋友可以看過去的這篇文章 -- [讓老舊的 Create React App (CRA) 支援 TypeScript 5.x 吧！](https://medium.com/@1chooo/%E8%AE%93%E8%80%81%E8%88%8A%E7%9A%84-create-react-app-cra-%E4%BE%86%E6%94%AF%E6%8F%B4-typescript-5-x-ab8dbff5ac92)因此我觀察到了在 [Next.js](https://nextjs.org/) 的專案結構之中（以我的[專案](https://github.com/1chooo/1chooo.com)為例）：
+因為目前挑選的是 [Next.js](https://nextjs.org/) 作為我的前端框架，並搭配 [React](https://react.dev/) 來開發頁面上的 Components，想知道為什麼選擇 [Next.js](https://nextjs.org/) 的朋友可以看過去的這篇文章 -- [讓老舊的 Create React App (CRA) 支援 TypeScript 5.x 吧！](/blog/goodbye-react-create-app)因此我觀察到了在 [Next.js](https://nextjs.org/) 的專案結構之中（以我的[專案](https://github.com/1chooo/1chooo.com)為例）：
 
 ```ts
 ...

@@ -75,7 +75,7 @@ alt: 打造 500 commits 的 GitHub Repository：10 個不可或缺的步驟
 
 ### Shared Component
 
-改寫完了是一回事，但我其實是第一次碰到前端工程的部分，我的 Components 基本上就是 return 出來的 HTML Code。於是我在自己 Code Review 的時候我就發現許多 Components 可以獨立出來，甚至是可以共用同樣的 Style，也就是說我發現了很多 Copy-Paste Programming 的情形在我的程式碼之中，其中我學到了 `map()` 的寫法，可以用傳入的參數來決定要 render 出來的 Component，這樣我就可以把重複的部分刪掉，詳細介紹可以看這篇文章 👉🏻 [如何透過 map() 讓你的 React TypeScript 專案更加優雅？](https://medium.com/@1chooo/%E5%A6%82%E4%BD%95%E9%80%8F%E9%81%8E-map-%E8%AE%93%E4%BD%A0%E7%9A%84-react-typescript-%E5%B0%88%E6%A1%88%E6%9B%B4%E5%8A%A0%E5%84%AA%E9%9B%85-f1e5bdca1710)。
+改寫完了是一回事，但我其實是第一次碰到前端工程的部分，我的 Components 基本上就是 return 出來的 HTML Code。於是我在自己 Code Review 的時候我就發現許多 Components 可以獨立出來，甚至是可以共用同樣的 Style，也就是說我發現了很多 Copy-Paste Programming 的情形在我的程式碼之中，其中我學到了 `map()` 的寫法，可以用傳入的參數來決定要 render 出來的 Component，這樣我就可以把重複的部分刪掉，詳細介紹可以看這篇文章 👉🏻 [如何透過 map() 讓你的 React TypeScript 專案更加優雅？](blog/make-your-react-more-elegant-with-map)。
 
 ### Commit Message
 
