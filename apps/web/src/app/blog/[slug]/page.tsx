@@ -1,10 +1,10 @@
-import type { Metadata } from 'next';
 import { Suspense } from 'react';
+import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import { unstable_noStore as noStore } from 'next/cache';
-import { getBlogPosts } from '@/app/db/blog';
 import MarkdownRenderer from '@/components/markdown/markdown-renderer';
 import PageHeader from '@/components/page-header';
+import { getBlogPosts } from '@/lib/db/blog';
 
 import "@/styles/blog/blog-text.css"
 
