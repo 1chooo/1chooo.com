@@ -33,7 +33,7 @@ export type About = {
   subHeader: string;
   pronouns: string;
   introductions: string[];
-  lifestyle: LifeStyle[];
+  lifestyles: LifeStyle[];
   programmingLanguage: TechStack[];
   devOps: TechStack[];
 }

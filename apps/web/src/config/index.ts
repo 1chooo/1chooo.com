@@ -20,7 +20,7 @@ const config: Config = {
       "I will apply for Master's programs in Computer Science for 2024-25 cycle. Here is my current [CV](/resume) <sup>[[Docs](/cv.pdf)]</sup> (August 2024).",
       "**`Self-motivated, Team player, Love coding 👨🏻‍💻`**"
     ],
-    "lifestyle": [
+    "lifestyles": [
       {
         icon: '/images/icons/developer.png',
         title: "Open Source Contributor",
