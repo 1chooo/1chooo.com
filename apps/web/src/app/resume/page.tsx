@@ -4,11 +4,15 @@ import React from "react";
 import { usePathname } from 'next/navigation';
 import DownloadCV from '@/components/resume/download-cv';
 import TimeLine from '@/components/resume/timeline';
-import {
-  professionalExperiences, educations,
-  awardLeaderships, teachingExperiences
-} from '@/config/resume';
 import PageContent from '@/components/page-content';
+
+import config from "@/config";
+
+const { resume } = config;
+const { professionalExperiences } = resume;
+const { educations } = resume;
+const { awardLeaderships } = resume;
+const { teachingExperiences } = resume;
 
 const profExp = <TimeLine data={professionalExperiences} />;
 const education = <TimeLine data={educations} />;

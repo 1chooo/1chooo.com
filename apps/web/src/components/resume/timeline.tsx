@@ -1,23 +1,24 @@
 import IconTitle from "./icon-title";
 import TimelineList from "./timeline-list";
-import { IconType } from "react-icons";
-import { TimelineItemProps } from "./timeline-item";
+import type { ProfessionalExperience } from "@/types/resume";
+import type { Education } from "@/types/resume";
+import type { AwardLeaderships } from "@/types/resume";
+import type { TeachingExperience } from "@/types/resume";
 
 interface TimeLineProps {
-  data: {
-    icon: IconType;
-    title: string;
-    items: TimelineItemProps[];
-  };
+  data: ProfessionalExperience | Education | AwardLeaderships | TeachingExperience;
 }
 
 const TimeLine: React.FC<TimeLineProps> = ({ data }) => {
-  const { icon: Icon, title, items } = data;
+
+  const { icon } = data;
+  const { title } = data;
+  const { items } = data;
 
   return (
     <section className="timeline">
       <IconTitle
-        icon={Icon}
+        icon={icon}
         title={title}
       />
       <TimelineList items={items} />
