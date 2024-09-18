@@ -1,11 +1,12 @@
+import Link from "next/link";
+
 import { SiGithub } from "react-icons/si";
 import { FaMedium, FaXTwitter, FaLinkedinIn } from "react-icons/fa6";
 import { MdAttachment, MdOutlineSignpost } from "react-icons/md";
-import Link from "next/link";
 
-import { abouts } from "@/config/about";
+import config from "@/config";
 
-const { socialMedia } = abouts;
+const { socialMedia } = config.about;
 const { githubUsername, twitterUsername, linkedinUsername, mediumUsername } = socialMedia;
 
 const socialLinks = [
