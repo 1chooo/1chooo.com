@@ -1,11 +1,12 @@
 import Image from 'next/image';
-import H4 from '../markdown/h4';
+import H4 from '@/components/markdown/h4';
 
+import config from '@/config';
 import type { TechStack as TechStackType } from '@/types/about';
-import { abouts } from '@/config/about';
 
 const subHeader = "$ ls -al Tech Stack";
-const { programmingLanguage, devOps } = abouts;
+const { about } = config;
+const { programmingLanguage, devOps } = about;
 
 const TechStack: React.FC = () => {
   const renderTechStackList = (techStack: TechStackType[]) => {
