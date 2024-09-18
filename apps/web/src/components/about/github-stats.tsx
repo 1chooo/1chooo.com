@@ -2,9 +2,9 @@ import React, { useEffect, useState, FC } from 'react';
 import GitHubCalendar from 'react-github-calendar';
 import { ThemeInput } from 'react-activity-calendar';
 
-import H4 from '../markdown/h4';
+import H4 from '@/components/markdown/h4';
 
-import { abouts } from '@/config/about';
+import config from '@/config';
 
 /* 
 * goto https://grubersjoe.github.io/react-activity-calendar/
@@ -15,8 +15,11 @@ const yellowTheme: ThemeInput = {
   dark: ['hsl(0, 0%, 22%)', '#FFDA6B'],
 };
 
-const { socialMedia: { githubUsername } } = abouts;
+const { socialMedia } = config.about;
+const { githubUsername } = socialMedia;
+
 const subHeaderText = '$ ls -al GitHub Stats';
+
 const MOBILE_CALENDAR_SIZE = 12;
 const LAPTOP_CALENDAR_SIZE = 12;
 const MOBILE_BREAKPOINT = 768;
