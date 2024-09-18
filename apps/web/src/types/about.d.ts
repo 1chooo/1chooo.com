@@ -12,13 +12,6 @@ export type TechStack = {
   alt: string;
 }
 
-export type SocialMedia = {
-  githubUsername: string;
-  mediumUsername: string;
-  twitterUsername: string;
-  linkedinUsername: string;
-}
-
 /**
  * Type definition for the About component.
  *
@@ -28,7 +21,6 @@ export type SocialMedia = {
  *   React element.
  */
 export type About = {
-  socialMedia: SocialMedia;
   header: string;
   subHeader: string;
   pronouns: string;

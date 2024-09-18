@@ -15,7 +15,7 @@ const yellowTheme: ThemeInput = {
   dark: ['hsl(0, 0%, 22%)', '#FFDA6B'],
 };
 
-const { socialMedia } = config.about;
+const { socialMedia } = config;
 const { githubUsername } = socialMedia;
 
 const subHeaderText = '$ ls -al GitHub Stats';

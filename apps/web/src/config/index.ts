@@ -3,13 +3,13 @@
 import { Config } from "@/types/config";
 
 const config: Config = {
+  socialMedia: {
+    "githubUsername": "1chooo",
+    "mediumUsername": "1chooo",
+    "twitterUsername": "1chooo___",
+    "linkedinUsername": "1chooo"
+  },
   about: {
-    "socialMedia": {
-      "githubUsername": "1chooo",
-      "mediumUsername": "1chooo",
-      "twitterUsername": "1chooo___",
-      "linkedinUsername": "1chooo"
-    },
     "header": "About Hugo 👨🏻‍💻",
     "subHeader": "$ ls -al Hugo 👨🏻‍💻",
     "pronouns": "He/Him",
@@ -66,4 +66,3 @@ const config: Config = {
 };
 
 export default config;
-// ghggdfdgxdsdcdg
