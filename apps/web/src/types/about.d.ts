@@ -19,6 +19,14 @@ export type SocialMedia = {
   linkedinUsername: string;
 }
 
+/**
+ * Type definition for the About component.
+ *
+ * @param {Readonly<Options>} options
+ *   Props.
+ * @returns {JSX.Element}
+ *   React element.
+ */
 export type About = {
   socialMedia: SocialMedia;
   header: string;
