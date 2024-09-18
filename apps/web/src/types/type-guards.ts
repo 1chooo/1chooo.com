@@ -1,4 +1,5 @@
-import { LifeStyle, TechStack, SocialMedia, About } from "./about";
+import { LifeStyle, TechStack, About } from "@/types/about";
+import { SocialMedia } from "@/types/socail-media";
 
 export const isLifeStyle = (obj: unknown): obj is LifeStyle => {
   if (!isObject(obj)) return false;
