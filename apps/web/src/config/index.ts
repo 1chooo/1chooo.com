@@ -7,6 +7,13 @@ import { PiTrophy } from "react-icons/pi";
 import { PiBooks } from "react-icons/pi";
 
 const config: Config = {
+  navItems: [
+    { path: '/', label: 'About' },
+    { path: '/resume', label: 'Resume' },
+    { path: '/portfolio', label: 'Portfolio' },
+    { path: '/blog', label: 'Blog' },
+    { path: '/contact', label: 'Contact' }
+  ],
   socialMedia: {
     "githubUsername": "1chooo",
     "mediumUsername": "1chooo",

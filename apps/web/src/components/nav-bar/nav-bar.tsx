@@ -3,9 +3,11 @@
 import React from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { navItems } from '@/config/nav-bar';
+import config from '@/config';
 
 import '@/styles/nav-bar.css'
+
+const navItems = config.navItems;
 
 export const NavBar: React.FC = () => {
   const pathname = usePathname();

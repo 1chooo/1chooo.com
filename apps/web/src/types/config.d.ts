@@ -1,6 +1,7 @@
 import type { About } from "@/types/about";
 import type { SocialMedia } from "@/types/social-media";
 import type { Resume } from "@/types/resume";
+import type { NavItem } from "@/types/nav-bar";
 
 /**
  * Type definition for the Web app configuration.
@@ -11,6 +12,7 @@ import type { Resume } from "@/types/resume";
  */
 
 export type Config = {
+  navItems: NavItem[];
   socialMedia: SocialMedia;
   about: About;
   resume: Resume;
