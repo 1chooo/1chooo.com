@@ -12,20 +12,20 @@ export type TechStack = {
   alt: string;
 }
 
-export type SocialMedia = {
-  githubUsername: string;
-  mediumUsername: string;
-  twitterUsername: string;
-  linkedinUsername: string;
-}
-
+/**
+ * Type definition for the About component.
+ *
+ * @param {Readonly<Options>} options
+ *   Props.
+ * @returns {JSX.Element}
+ *   React element.
+ */
 export type About = {
-  socialMedia: SocialMedia;
   header: string;
   subHeader: string;
   pronouns: string;
   introductions: string[];
-  lifestyle: LifeStyle[];
+  lifestyles: LifeStyle[];
   programmingLanguage: TechStack[];
   devOps: TechStack[];
 }

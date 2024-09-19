@@ -5,11 +5,13 @@ import AboutText from '@/components/about/about-text';
 import GitHubStats from '@/components/about/github-stats';
 import TechStack from '@/components/about/tech-stack';
 import LifeStyles from '@/components/about/life-styles';
-import { abouts } from '@/config/about';
+import config from '@/config';
 import PageContent from '@/components/page-content';
 import H4 from '@/components/markdown/h4';
 
-const { subHeader, pronouns } = abouts;
+const { about } = config;
+const { subHeader, pronouns } = about;
+const { header } = about;
 
 const About = () => {
   const pathname = usePathname();
@@ -17,7 +19,7 @@ const About = () => {
   return (
     <PageContent
       documentTitle=''
-      title={abouts.header}
+      title={header}
       page="about"
       pathName={pathname}
     >

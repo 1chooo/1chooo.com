@@ -1,10 +1,10 @@
 import React from 'react';
 import MarkdownRenderer from '@/components/markdown/markdown-renderer';
 
-import { abouts } from '@/config/about';
+import config from '@/config';
 import "@/styles/about/about-text.css"
 
-const { introductions } = abouts;
+const { introductions } = config.about;
 
 const AboutText: React.FC = () => {
 

@@ -1,10 +1,19 @@
-export type Config = {
-  base_url: string;
-  site_title: string;
-  site_description: string;
-  site_keywords: { keyword: string }[];
-  posts_per_page: number;
-  twitter_account: string;
-  github_account: string;
-};
+import type { About } from "@/types/about";
+import type { SocialMedia } from "@/types/social-media";
+import type { Resume } from "@/types/resume";
+import type { NavItem } from "@/types/nav-bar";
 
+/**
+ * Type definition for the Web app configuration.
+ * 
+ * @param {SocialMedia} socialMedia
+ * @param {About} about
+ * @param {Resume} resume
+ */
+
+export type Config = {
+  navItems: NavItem[];
+  socialMedia: SocialMedia;
+  about: About;
+  resume: Resume;
+}
