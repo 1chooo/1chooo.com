@@ -7,21 +7,30 @@ import "@/styles/side-bar/footer.css";
 const Footer: React.FC = () => {
   return (
     <footer className="footer">
-      <div className="footer-copyright">© 2024 1chooo</div>
+      <div className="footer-copyright">
+        © 2024 <Link href="https://1chooo.com" target="_blank" rel="noopener noreferrer">1chooo</Link>
+      </div>
       <div className="footer-links">
         <Link
-          href="https://docs.1chooo.com"
-          target="_blank" 
+          href="https://github.com/1chooo/1chooo.com"
+          target="_blank"
           rel="noopener noreferrer"
         >
-          Docs
+          Vcard
         </Link>
         <Link
           href="https://github.com/1chooo/1chooo.com"
-          target="_blank" 
+          target="_blank"
           rel="noopener noreferrer"
         >
-          Vcard Theme
+          Terms
+        </Link>
+        <Link
+          href="https://docs.1chooo.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Docs
         </Link>
       </div>
     </footer>

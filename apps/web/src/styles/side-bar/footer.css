@@ -11,25 +11,23 @@
     margin-bottom: 8px;
 }
 
+.footer-copyright a {
+    color: var(--orange-yellow-crayola);
+    text-decoration: underline;
+}
+
 .footer-links a {
     color: var(--orange-yellow-crayola);
     text-decoration: underline;
     margin: 0 8px;
 }
 
-.footer-links a:hover {
+.footer-copyright a:hover {
     text-decoration: underline;
     text-decoration-color: hsla(0, 0%, 84%, 0.7);
 }
 
-/* 在移动设备和平板上变为同一行显示 */
-@media (max-width: 768px) {
-    .footer-copyright, .footer-links {
-        display: inline-block;
-        margin-bottom: 0;
-    }
-
-    .footer-links {
-        margin-left: 8px;
-    }
+.footer-links a:hover {
+    text-decoration: underline;
+    text-decoration-color: hsla(0, 0%, 84%, 0.7);
 }
