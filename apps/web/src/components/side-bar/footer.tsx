@@ -19,7 +19,7 @@ const Footer: React.FC = () => {
           Vcard
         </Link>
         <Link
-          href="https://github.com/1chooo/1chooo.com"
+          href="https://docs.1chooo.com/terms"
           target="_blank"
           rel="noopener noreferrer"
         >
