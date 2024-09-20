@@ -78,7 +78,7 @@ export default function BlogPage({ searchParams }: { searchParams: { tag?: strin
                   <h3 className="h3 blog-item-title">
                     <MarkdownRenderer content={post.metadata.title} />
                   </h3>
-                  <MarkdownRenderer className="blog-text" content={post.metadata.summary} />
+                  <MarkdownRenderer className="blog-summary" content={post.metadata.summary} />
                 </div>
               </Link>
             </li>
