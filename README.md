@@ -1,16 +1,16 @@
 <a href="https://1chooo.com">
-  <img alt="1chooo.com Home Page" src="https://docs.1chooo.com/images/cover_transparent_bg.png">
+  <img alt="1chooo.com Home Page" src="./.github/images/cover-transparent-with-1chooo-com.png">
 </a>
 
-<h1 align="center"><a href="https://1chooo.com">1chooo.com</a></h1>
+<!-- <h1 align="center"><a href="https://1chooo.com">1chooo.com</a></h1> -->
 
-<h3 align="center">
+<!-- <h3 align="center">
     <b><i>The Source Code of my Website.</i></b>
-</h3>
+</h3> -->
 
-<p align="center">
+<!-- <p align="center">
     <i>Inspired by the <a href="https://github.com/codewithsadee/vcard-personal-portfolio">codewithsadee/vcard-personal-portfolio</a>, we aim to transform the <code>HTML/CSS</code> template into a React with Next.js project.</i>
-</p>
+</p> -->
 
 <!-- <p align="center">
   <a href="#-features"><strong>✨ Feature</strong></a> ·
@@ -29,17 +29,25 @@
 </strong>
 </p>
 
+## 📍 Abstract
+
+Inspired by the [codewithsadee/vcard-personal-portfolio](https://github.com/codewithsadee/vcard-personal-portfolio), we aim to convert the `HTML/CSS` template into a [React-based](https://react.dev/) project using [Next.js Turborepo](https://turbo.build/).
+
+Our goal is to provide a template where users can build their own portfolio and blog by simply modifying the **configuration and content** without changing the core code. Users will be able to set up their portfolio by updating the config and adding their own posts to the `contents` folder.
+
+We'll also provide comprehensive documentation, including a user guide, code walkthrough, and thorough test coverage to ensure a smooth experience.
+
 ## ✨ Features
 
 - 🚧 Skeleton Loading
 - ⚡️ Next.js 14 with App Router
-- 🟩 GitHub Calendar Heatmap
+- [🟩 GitHub Calendar Heatmap](https://github.com/grubersjoe/react-github-calendar)
 - ✍🏻 Markdown Rendering
 - 🧪 Components Unit Testing
 
 
 <!-- <p align="center">
-  <a href="https://github.com/steven-tey/novel/blob/main/LICENSE">
+  <a href="./LICENSE">
     <img src="https://img.shields.io/github/license/1chooo/1chooo.com?label=license&logo=github&color=blue&logoColor=fff&style=for-the-badge" alt="License" />
   </a>
   <a href="https://github.com/1chooo/1chooo.com"><img src="https://img.shields.io/github/stars/1chooo/1chooo.com?style=for-the-badge" alt="Novel.sh's GitHub repo"></a>
