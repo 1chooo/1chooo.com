@@ -1,12 +1,11 @@
 import Link from "next/link";
 import Image from "next/image";
-import Skeleton from "react-loading-skeleton";
-import { SkeletonTheme } from "react-loading-skeleton";
 import PageHeader from "@/components/page-header";
 import FilterSelectBox from "@/components/blog/filter-select-box";
 import FilterList from "@/components/blog/filter-list";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import { getBlogPosts } from "@/lib/db/blog";
+import SkeletonBlogLoader from "@/components/skeleton-loader";
 import { POSTS_PER_PAGE } from "@/lib/constants";
 
 import "react-loading-skeleton/dist/skeleton.css";
@@ -54,30 +53,15 @@ export default function BlogPage({
     currentPage * POSTS_PER_PAGE
   );
 
-  const isLoading = !paginatedBlogs.length;
-
   return (
     <article>
       <PageHeader title="Hugo's Blog" />
       <section className="blog-posts">
         <FilterList selectedTag={selectedTag} blogTags={blogTags} />
         <FilterSelectBox selectedTag={selectedTag} blogTags={blogTags} />
-
-        <ul className="blog-posts-list">
-          {isLoading ? (
-            <SkeletonTheme baseColor="#202020" highlightColor="#444">
-              {Array.from({ length: POSTS_PER_PAGE }).map((_, index) => (
-                <li key={index} className="blog-post-item skeleton">
-                  <Skeleton height={200} className="blog-banner-skeleton" />
-                  <div className="blog-content-skeleton">
-                    <Skeleton height={24} className="blog-title-skeleton" />
-                    <Skeleton count={3} className="blog-summary-skeleton" />
-                  </div>
-                </li>
-              ))}
-            </SkeletonTheme>
-          ) : (
-            paginatedBlogs.map((post, index) => (
+        <SkeletonBlogLoader>
+          <ul className="blog-posts-list">
+            {paginatedBlogs.map((post, index) => (
               <li
                 key={index}
                 className="blog-post-item active"
@@ -118,9 +102,9 @@ export default function BlogPage({
                   </div>
                 </Link>
               </li>
-            ))
-          )}
-        </ul>
+            ))}
+          </ul>
+        </SkeletonBlogLoader>
         <div className="pagination">
           {Array.from({ length: totalPages }, (_, i) => i + 1).map(
             (pageNum) => (
