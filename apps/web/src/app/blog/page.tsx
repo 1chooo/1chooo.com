@@ -1,19 +1,20 @@
 import Link from "next/link";
 import Image from "next/image";
+import Skeleton from "react-loading-skeleton";
+import { SkeletonTheme } from "react-loading-skeleton";
 import PageHeader from "@/components/page-header";
 import FilterSelectBox from "@/components/blog/filter-select-box";
 import FilterList from "@/components/blog/filter-list";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import { getBlogPosts } from "@/lib/db/blog";
-import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
+import { POSTS_PER_PAGE } from "@/lib/constants";
+
 import "react-loading-skeleton/dist/skeleton.css";
 
 export const metadata = {
   title: "Blog | Hugo ChunHo Lin (1chooo) | Open Source Enthusiast",
   description: "Read my thoughts on software development, design, and more.",
 };
-
-const POSTS_PER_PAGE = 4;
 
 export default function BlogPage({
   searchParams,
