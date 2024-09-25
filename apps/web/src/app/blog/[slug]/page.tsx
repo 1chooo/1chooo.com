@@ -22,11 +22,11 @@ export async function generateMetadata({
     title,
     publishedAt: publishedTime,
     summary: description,
-    image,
+    banner,
   } = post.metadata;
-  let ogImage = image
-    ? `https://leerob.io${image}`
-    : `https://leerob.io/og?title=${title}`;
+  let ogImage = banner
+    ? `https://1chooo.com${banner}`
+    : `https://1chooo.com/og?title=${title}`;
 
   return {
     title,
@@ -36,7 +36,7 @@ export async function generateMetadata({
       description,
       type: 'article',
       publishedTime,
-      url: `https://leerob.io/blog/${post.slug}`,
+      url: `https://1chooo.com/blog/${post.slug}`,
       images: [
         {
           url: ogImage,
