@@ -1,4 +1,8 @@
-# Support for TypeScript `5.x` in Create React App
+# Wiki
+
+Here, we will discuss the problems and solutions that we have encountered in the development process.
+
+## Support for TypeScript `5.x` in Create React App
 
 In the https://github.com/1chooo/1chooo.com/pull/76, when I tried to upgrade the `react-scripts` to `5.x`, I got the following error:
 
@@ -44,7 +48,7 @@ Add the following to the `package.json` to solve the problem: [^1]
 - [Start a New React Project](https://react.dev/learn/start-a-new-react-project)
 - [How can I get a compatible React package ecosystem having both react-scripts@x and typescript@^5?](https://stackoverflow.com/questions/78646710/how-can-i-get-a-compatible-react-package-ecosystem-having-both-react-scriptsx-a)
 
-# Migrate from Create React App to NextJS
+## Migrate from Create React App to NextJS
 
 ```js
 "scripts": {
@@ -68,7 +72,7 @@ $ npm install next
 - [How to Migrate from create-react-app to Vite using Jest and Browserslist](https://www.freecodecamp.org/news/how-to-migrate-from-create-react-app-to-vite/)
 - [Migrating from Create React App](https://nextjs-ja-translation-docs.vercel.app/docs/migrating/from-create-react-app)
 
-# Dangerously Set innerHTML
+## Dangerously Set innerHTML
 
 https://dev.to/shareef/rendering-markdown-made-easy-with-react-markdown-in-reactjs-and-nextjs-web-apps-259d
 
@@ -111,3 +115,30 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => (
 
 export default MarkdownRenderer;
 ```
+
+## Next.js Image Fast Loading
+
+
+- [Build an Image Compressor with Next.js](https://cloudinary.com/blog/guest_post/build-an-image-compressor-with-next-js)
+- [Next JS Image Optimization: Best Practices for Faster Loading](https://www.geeksforgeeks.org/next-js-image-optimization-best-practices-for-faster-loading/)
+- [14 Best Practices For Next JS Speed Optimization](https://alerty.ai/blog/next-js-speed-optimization)
+
+![](/images/wiki/blog-before.png)
+
+## SEO Tools
+
+- [PageSpeed Insights](https://pagespeed.web.dev/)
+
+## Loose Autocomplete
+
+```ts
+acceptString = (str: "foo" | "bar" | (string & {})) => {
+  console.log(str);
+};
+
+acceptString("baz");
+```
+
+https://www.threads.net/@jimmy.chiang/post/C_vl632ygU_/?xmt=AQGzwdnxgbmCCfAF8xCgI2zZiemQtJDR7omD6Mb26Ge3CA
+
+https://www.youtube.com/live/8HoOxOd86M4?t=2778&si=P2mxsBXVq8UmrAX_

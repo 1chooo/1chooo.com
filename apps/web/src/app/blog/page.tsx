@@ -72,9 +72,10 @@ export default function BlogPage({
                     <Image
                       src={post.metadata.banner}
                       alt={post.metadata.alt || "Blog post image"}
-                      loading="lazy"
                       width={1600}
                       height={900}
+                      priority={true}
+                      placeholder="empty"
                     />
                   </figure>
                   <div className="blog-content">
