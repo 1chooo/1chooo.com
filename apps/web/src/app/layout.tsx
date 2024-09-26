@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
-import "./globals.css";
+
+import { GoogleAnalytics } from "@/components/google/ga";
 import Hello from "@/components/hello";
-import { GoogleAnalytics } from '@next/third-parties/google'
 import NavBar from "@/components/nav-bar";
 import SideBar from "@/components/side-bar";
+
+import "./globals.css";
 
 const googleAnalyticId = "G-JGG75799PJ";
 
@@ -22,7 +24,7 @@ export const metadata: Metadata = {
       "I'm Hugo ChunHo Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
     images: [
       {
-        url: "https://raw.githubusercontent.com/1chooo/1chooo.com/main/docs/imgs/cover_transparent_bg.png",
+        url: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",
         width: 1200,
         height: 630,
         alt: "Hugo ChunHo Lin (1chooo) Cover Image",
@@ -34,7 +36,7 @@ export const metadata: Metadata = {
     title: "Hugo ChunHo Lin (1chooo) | Open Source Enthusiast",
     description:
       "I'm Hugo ChunHo Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
-    images: "https://raw.githubusercontent.com/1chooo/1chooo.com/main/docs/imgs/cover_transparent_bg.png",
+    images: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",
   },
 };
 
