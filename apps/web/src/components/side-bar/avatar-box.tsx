@@ -5,14 +5,18 @@ import { breakpoints } from '@/lib/constants';
 
 import "@/styles/side-bar/avatar-box.css";
 
-const AvatarBox: React.FC = () => {
+type AvatarBoxProps = {
+  avatar: string;
+};
+
+const AvatarBox: React.FC<AvatarBoxProps> = ({ avatar }) => {
   const imageSize = useResponsiveImageSize(breakpoints);
 
   return (
     <figure className="avatar-box">
       <Image
         id="profile-img"
-        src="/images/profile.jpg"
+        src={avatar}
         alt="Hugo ChunHo Lin"
         width={imageSize.width}
         height={imageSize.height}
