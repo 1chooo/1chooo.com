@@ -7,6 +7,7 @@ import { PiTrophy } from "react-icons/pi";
 import { PiBooks } from "react-icons/pi";
 
 const config: Config = {
+  avatar: '/images/profile.jpg',
   navItems: [
     { path: '/', label: 'About' },
     { path: '/resume', label: 'Resume' },

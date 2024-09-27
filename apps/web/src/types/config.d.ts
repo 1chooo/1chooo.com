@@ -12,6 +12,7 @@ import type { NavItem } from "@/types/nav-bar";
  */
 
 export type Config = {
+  avatar: string;
   navItems: NavItem[];
   socialMedia: SocialMedia;
   about: About;
