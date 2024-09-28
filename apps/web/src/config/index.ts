@@ -8,6 +8,11 @@ import { PiBooks } from "react-icons/pi";
 
 const config: Config = {
   avatar: '/images/profile.jpg',
+  firstName: 'Chun-Ho',
+  lastName: 'Lin',
+  MiddleName: 'Hugo' || '',
+  preferredName: 'Hugo' || '',
+  pronouns: 'He/Him',
   navItems: [
     { path: '/', label: 'About' },
     { path: '/resume', label: 'Resume' },
