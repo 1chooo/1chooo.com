@@ -18,6 +18,7 @@ export type Config = {
   MiddleName: string;
   preferredName: string;
   pronouns: string;
+  status: string;
   navItems: NavItem[];
   socialMedia: SocialMedia;
   about: About;
