@@ -67,8 +67,21 @@ function formatDate(date: string) {
     day: 'numeric',
     year: 'numeric',
   });
-
-  if (daysAgo < 1) {
+  
+  let daysLater: number = 0;
+  if (targetDate > currentDate) {
+    daysLater = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
+  }
+  
+  if (daysLater > 365) {
+    return `${fullDate} (${daysLater}d later)`;
+  } else if (daysLater > 30) {
+    const weeksAgo = Math.floor(daysLater / 7)
+    return `${fullDate} (${weeksAgo}w later)`;
+  } else if (daysLater > 7) {
+    const monthsAgo = Math.floor(daysLater / 30)
+    return `${fullDate} (${monthsAgo}mo later)`;
+  } else if (daysAgo < 1) {
     return 'Today';
   } else if (daysAgo < 7) {
     return `${fullDate} (${daysAgo}d ago)`;
