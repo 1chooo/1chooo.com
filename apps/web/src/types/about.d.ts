@@ -22,6 +22,10 @@ export type TechStack = {
  */
 export type About = {
   subHeader: string;
+  firstName: string;
+  lastName: string;
+  middleName: string;
+  preferredName: string;
   pronouns: string;
   introductions: string[];
   lifestyles: LifeStyle[];

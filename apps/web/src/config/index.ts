@@ -8,11 +8,6 @@ import { PiBooks } from "react-icons/pi";
 
 const config: Config = {
   avatar: '/images/profile.jpg',
-  firstName: 'Chun-Ho',
-  lastName: 'Lin',
-  MiddleName: 'Hugo' || '',
-  preferredName: 'Hugo' || '',
-  pronouns: 'He/Him',
   status: "Day ONE ⚡️",
   navItems: [
     { path: '/', label: 'About' },
@@ -29,7 +24,11 @@ const config: Config = {
   },
   about: {
     "subHeader": "$ ls -al Hugo 👨🏻‍💻",
-    "pronouns": "He/Him",
+    "firstName": 'Chun-Ho',
+    "lastName": 'Lin',
+    "middleName": 'Hugo' || '',
+    "preferredName": 'Hugo' || '',
+    "pronouns": 'He/Him',
     "introductions": [
       // "#### $ ls -al Hugo 👨🏻‍💻 (He/Him)",
       "I obtained my Bachelor's degree from [National Central University 🐿️](https://www.ncu.edu.tw/), driven by a *sincere passion* for **Software Engineering 💻.**",
