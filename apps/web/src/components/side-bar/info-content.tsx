@@ -13,7 +13,7 @@ const InfoContent: React.FC = () => (
   <div className="info-content">
     <h1
       className="name"
-      title="Chun-Ho (Hugo) Lin"
+      title={`${firstName} (${middleName}) ${lastName}`}
     >{firstName} ({middleName}) {lastName}
     </h1>
     <p className="title">

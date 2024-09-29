@@ -5,6 +5,15 @@ import { breakpoints } from '@/lib/constants';
 
 import "@/styles/side-bar/avatar-box.css";
 
+import config from '@/config';
+
+const { about } = config;
+const {
+  firstName,
+  lastName,
+  middleName,
+} = about;
+
 type AvatarBoxProps = {
   avatar: string;
 };
@@ -17,7 +26,7 @@ const AvatarBox: React.FC<AvatarBoxProps> = ({ avatar }) => {
       <Image
         id="profile-img"
         src={avatar}
-        alt="Hugo ChunHo Lin"
+        alt={`${firstName} (${middleName}) ${lastName}`}
         width={imageSize.width}
         height={imageSize.height}
         loading="lazy"
