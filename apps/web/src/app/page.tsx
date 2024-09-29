@@ -11,7 +11,14 @@ import H4 from '@/components/markdown/h4';
 
 const { about } = config;
 const { subHeader, pronouns } = about;
-const { header } = about;
+const { firstName, lastName } = config;
+const { preferredName } = config;
+
+const title =
+  preferredName === ''
+    ? `About ${firstName} ${lastName} 👨🏻‍💻`
+    : `About ${preferredName} 👨🏻‍💻`;
+
 
 const About = () => {
   const pathname = usePathname();
@@ -19,7 +26,7 @@ const About = () => {
   return (
     <PageContent
       documentTitle=''
-      title={header}
+      title={title}
       page="about"
       pathName={pathname}
     >

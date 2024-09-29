@@ -28,7 +28,6 @@ const config: Config = {
     "linkedinUsername": "1chooo"
   },
   about: {
-    "header": "About Hugo 👨🏻‍💻",
     "subHeader": "$ ls -al Hugo 👨🏻‍💻",
     "pronouns": "He/Him",
     "introductions": [
