@@ -21,8 +21,11 @@ export type TechStack = {
  *   React element.
  */
 export type About = {
-  header: string;
   subHeader: string;
+  firstName: string;
+  lastName: string;
+  middleName: string;
+  preferredName: string;
   pronouns: string;
   introductions: string[];
   lifestyles: LifeStyle[];

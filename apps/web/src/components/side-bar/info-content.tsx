@@ -1,10 +1,23 @@
 import React from 'react';
+import config from '@/config';
+
+const { status } = config;
+const { about } = config;
+const {
+  firstName,
+  lastName,
+  middleName,
+} = about;
 
 const InfoContent: React.FC = () => (
   <div className="info-content">
-    <h1 className="name" title="Hugo ChunHo Lin">Hugo ChunHo Lin</h1>
+    <h1
+      className="name"
+      title={`${firstName} (${middleName}) ${lastName}`}
+    >{firstName} ({middleName}) {lastName}
+    </h1>
     <p className="title">
-      <strong>Day ONE ⚡️</strong>
+      <strong>{status}</strong>
     </p>
   </div>
 );

@@ -5,13 +5,19 @@ import AboutText from '@/components/about/about-text';
 import GitHubStats from '@/components/about/github-stats';
 import TechStack from '@/components/about/tech-stack';
 import LifeStyles from '@/components/about/life-styles';
-import config from '@/config';
 import PageContent from '@/components/page-content';
 import H4 from '@/components/markdown/h4';
+import config from '@/config';
 
 const { about } = config;
 const { subHeader, pronouns } = about;
-const { header } = about;
+const { firstName, lastName } = about;
+const { preferredName } = about;
+
+const title =
+  preferredName === ''
+    ? `About ${firstName} ${lastName} 👨🏻‍💻`
+    : `About ${preferredName} 👨🏻‍💻`;
 
 const About = () => {
   const pathname = usePathname();
@@ -19,7 +25,7 @@ const About = () => {
   return (
     <PageContent
       documentTitle=''
-      title={header}
+      title={title}
       page="about"
       pathName={pathname}
     >
