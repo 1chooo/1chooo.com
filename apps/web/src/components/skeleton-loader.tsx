@@ -1,4 +1,5 @@
 "use client";
+
 import { useEffect, useState } from "react";
 import Skeleton, { SkeletonTheme } from "react-loading-skeleton";
 import "react-loading-skeleton/dist/skeleton.css";
@@ -9,9 +10,10 @@ const SkeletonBlogLoader = ({ children }: { children: React.ReactNode }) => {
   useEffect(() => {
     const timer = setTimeout(() => {
       setLoading(false);
-    }, 1000);
+    }, 100);
     return () => clearTimeout(timer);
   }, []);
+
 
   return loading ? (
     <SkeletonTheme baseColor="#202020" highlightColor="#444">
