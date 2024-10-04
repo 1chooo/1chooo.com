@@ -4,14 +4,17 @@ import PageHeader from "@/components/page-header";
 import FilterSelectBox from "@/components/blog/filter-select-box";
 import FilterList from "@/components/blog/filter-list";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
-import { getBlogPosts } from "@/lib/db/blog";
 import SkeletonBlogLoader from "@/components/skeleton-loader";
+import { getBlogPosts } from "@/lib/db/blog";
 import { POSTS_PER_PAGE } from "@/lib/constants";
+import config from "@/config";
+
+const { title } = config;
 
 import "react-loading-skeleton/dist/skeleton.css";
 
 export const metadata = {
-  title: "Blog | Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
+  title: `Blog | ${title}`,
   description: "Read my thoughts on software development, design, and more.",
 };
 
@@ -115,9 +118,8 @@ export default function BlogPage({
                   pathname: "/blog",
                   query: { ...searchParams, page: pageNum.toString() },
                 }}
-                className={`pagination-btn ${
-                  pageNum === currentPage ? "active" : ""
-                }`}
+                className={`pagination-btn ${pageNum === currentPage ? "active" : ""
+                  }`}
               >
                 {pageNum}
               </Link>
