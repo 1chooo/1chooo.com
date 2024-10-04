@@ -5,6 +5,9 @@ import { usePathname } from 'next/navigation';
 import MapBox from '@/components/contact/map-box';
 import { FaRegPaperPlane } from "react-icons/fa";
 import PageContent from "@/components/page-content";
+import config from '@/config';
+
+const { title } = config;
 
 const Contact = () => {
   const pathname = usePathname();
@@ -12,7 +15,8 @@ const Contact = () => {
   return (
     <PageContent
       documentTitle='Contact'
-      title="Hugo's Contact"
+      title={title}
+      header="Hugo's Contact"
       page="contact"
       pathName={pathname}
     >

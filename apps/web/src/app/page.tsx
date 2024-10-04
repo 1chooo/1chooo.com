@@ -13,8 +13,9 @@ const { about } = config;
 const { subHeader, pronouns } = about;
 const { firstName, lastName } = about;
 const { preferredName } = about;
+const { title } = config;
 
-const title =
+const header =
   preferredName === ''
     ? `About ${firstName} ${lastName} 👨🏻‍💻`
     : `About ${preferredName} 👨🏻‍💻`;
@@ -26,6 +27,7 @@ const About = () => {
     <PageContent
       documentTitle=''
       title={title}
+      header={header}
       page="about"
       pathName={pathname}
     >

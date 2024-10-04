@@ -2,10 +2,10 @@
 
 import React from 'react';
 
-const PageHeader = ({ title }: { title: string }) => (
+const PageHeader = ({ header }: { header: string }) => (
   <header>
     <h2 className="h2 article-title">
-      {title}
+      {header}
     </h2>
   </header>
 );

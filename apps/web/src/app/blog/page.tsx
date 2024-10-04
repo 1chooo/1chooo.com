@@ -11,7 +11,7 @@ import { POSTS_PER_PAGE } from "@/lib/constants";
 import "react-loading-skeleton/dist/skeleton.css";
 
 export const metadata = {
-  title: "Blog | Hugo ChunHo Lin (1chooo) | Open Source Enthusiast",
+  title: "Blog | Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
   description: "Read my thoughts on software development, design, and more.",
 };
 
@@ -55,7 +55,7 @@ export default function BlogPage({
 
   return (
     <article>
-      <PageHeader title="Hugo's Blog" />
+      <PageHeader header="Hugo's Blog" />
       <section className="blog-posts">
         <FilterList selectedTag={selectedTag} blogTags={blogTags} />
         <FilterSelectBox selectedTag={selectedTag} blogTags={blogTags} />

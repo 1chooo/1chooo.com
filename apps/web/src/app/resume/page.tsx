@@ -6,7 +6,9 @@ import DownloadCV from '@/components/resume/download-cv';
 import TimeLine from '@/components/resume/timeline';
 import PageContent from '@/components/page-content';
 
-import config from "@/config";
+import config from '@/config';
+
+const { title } = config;
 
 const { resume } = config;
 const { professionalExperiences } = resume;
@@ -25,7 +27,8 @@ const Resume = () => {
   return (
     <PageContent
       documentTitle='Resume'
-      title="Hugo's Resume"
+      title={title}
+      header="Hugo's Resume"
       page="resume"
       pathName={pathname}
     >

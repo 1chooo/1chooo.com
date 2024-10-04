@@ -5,6 +5,9 @@ import { usePathname } from 'next/navigation';
 import PageContent from '@/components/page-content';
 import Projects from '@/components/portfolio/projects';
 import { initializeCustomSelect, filterItemsByCategory } from '@/lib/utils/dom-utils';
+import config from '@/config';
+
+const { title } = config;
 
 const Portfolio = () => {
   const pathname = usePathname();
@@ -16,7 +19,8 @@ const Portfolio = () => {
   return (
     <PageContent
       documentTitle='Portfolio'
-      title="Hugo's Portfolio"
+      title={title}
+      header="Hugo's Portfolio"
       page="portfolio"
       pathName={pathname}
     >

@@ -8,6 +8,7 @@ import { PiBooks } from "react-icons/pi";
 
 const config: Config = {
   avatar: '/images/profile.jpg',
+  title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
   status: "Day ONE ⚡️",
   navItems: [
     { path: '/', label: 'About' },

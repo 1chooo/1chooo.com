@@ -1,20 +1,31 @@
 import React, { useEffect } from 'react';
 import PageHeader from '@/components/page-header';
+import config from '@/config';
+
+
 
 const PageContent: React.FC<{
   documentTitle: string;
   title: string;
+  header: string;
   children: React.ReactNode;
   page?: string;
   pathName?: string;
-}> = ({ documentTitle, title, children, page, pathName }) => {
+}> = ({
+  documentTitle,
+  title,
+  header,
+  children,
+  page,
+  pathName
+}) => {
 
   const isRootPage = pathName === '/' && page === 'about';
 
   if (isRootPage) {
-    documentTitle = "Hugo ChunHo Lin (1chooo) | Open Source Enthusiast";
+    documentTitle = title;
   } else {
-    documentTitle = `${documentTitle} | Hugo ChunHo Lin (1chooo) | Open Source Enthusiast`;
+    documentTitle = `${documentTitle} | ${title}`;
   }
 
   useEffect(() => {
@@ -23,7 +34,7 @@ const PageContent: React.FC<{
 
   return (
     <article data-page={isRootPage ? '' : page}>
-      <PageHeader title={title} />
+      <PageHeader header={header} />
       {children}
     </article>
   );

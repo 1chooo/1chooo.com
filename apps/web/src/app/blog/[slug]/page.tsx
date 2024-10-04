@@ -107,7 +107,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
   return (
     <article>
       <section className="blog-text">
-        <PageHeader title="Hugo's Blog" />
+        <PageHeader header="Hugo's Blog" />
         <h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">
           <MarkdownRenderer content={post.metadata.title} />
         </h1>
