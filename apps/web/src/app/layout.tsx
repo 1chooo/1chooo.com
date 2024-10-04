@@ -8,6 +8,7 @@ import config from "@/config";
 
 const { title } = config;
 const { description } = config;
+const { author } = config;
 
 import "./globals.css";
 
@@ -16,7 +17,7 @@ const googleAnalyticId = "G-JGG75799PJ";
 export const metadata: Metadata = {
   title: title,
   description: description,
-  authors: [{ name: "Hugo ChunHo Lin (1chooo)" }],
+  authors: [{ name: author }],
   keywords: ["Hugo ChunHo Lin", "1chooo", "Software Engineering", "Next.js", "React"],
   openGraph: {
     url: "https://1chooo.com/",

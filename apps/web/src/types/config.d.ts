@@ -15,6 +15,7 @@ export type Config = {
   avatar: string;
   title: string;
   description: string;
+  author: string;
   status: string;
   navItems: NavItem[];
   socialMedia: SocialMedia;

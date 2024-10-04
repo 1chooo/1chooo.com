@@ -10,6 +10,7 @@ const config: Config = {
   avatar: '/images/profile.jpg',
   title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
   description: "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+  author: "Chun-Ho (Hugo) Lin - 1chooo",
   status: "Day ONE ⚡️",
   navItems: [
     { path: '/', label: 'About' },
