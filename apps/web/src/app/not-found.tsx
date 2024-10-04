@@ -4,7 +4,11 @@ import React from 'react';
 import { usePathname } from 'next/navigation';
 import PageContent from '@/components/page-content';
 import MarkdownRenderer from '@/components/markdown/markdown-renderer';
+import config from '@/config';
+
 import '@/styles/about/about-text.css';
+
+const { title } = config;
 
 const errorMessages = [
   'This page doesn\'t exist.',
@@ -22,7 +26,8 @@ const NotFound: React.FC = () => {
   return (
     <PageContent
       documentTitle='Not Found'
-      title="404 Not Found"
+      title={title}
+      header="404 Not Found"
       page="404"
       pathName={pathname}
     >
