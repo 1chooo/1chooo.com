@@ -4,24 +4,29 @@ import { GoogleAnalytics } from "@/components/google/ga";
 import Hello from "@/components/hello";
 import NavBar from "@/components/nav-bar";
 import SideBar from "@/components/side-bar";
+import config from "@/config";
+
+const { title } = config;
+const { description } = config;
+const { author } = config;
+const { keywords } = config;
 
 import "./globals.css";
 
 const googleAnalyticId = "G-JGG75799PJ";
 
 export const metadata: Metadata = {
-  title: "Hugo ChunHo Lin (1chooo) | Open Source Enthusiast",
-  description:
-    "I'm Hugo ChunHo Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
-  authors: [{ name: "Hugo ChunHo Lin (1chooo)" }],
-  keywords: ["Hugo ChunHo Lin", "1chooo", "Software Engineering", "Next.js", "React"],
+  title: title,
+  description: description,
+  authors: [{ name: author }],
+  keywords: keywords,
   openGraph: {
     url: "https://1chooo.com/",
     type: "website",
     siteName: "Hugo ChunHo Lin (1chooo) | Open Source Enthusiast",
     title: "Hugo ChunHo Lin (1chooo) | Open Source Enthusiast",
     description:
-      "I'm Hugo ChunHo Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+      "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
     images: [
       {
         url: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",
@@ -35,7 +40,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Hugo ChunHo Lin (1chooo) | Open Source Enthusiast",
     description:
-      "I'm Hugo ChunHo Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+      "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
     images: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",
   },
 };

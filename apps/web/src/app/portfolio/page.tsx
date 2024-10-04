@@ -5,6 +5,17 @@ import { usePathname } from 'next/navigation';
 import PageContent from '@/components/page-content';
 import Projects from '@/components/portfolio/projects';
 import { initializeCustomSelect, filterItemsByCategory } from '@/lib/utils/dom-utils';
+import config from '@/config';
+
+const { title } = config;
+
+/**
+ * TODO: #257
+ * update the document title see (#341)
+ * export const metadata: Metadata = {
+ *   title: `Contact | ${title}`,
+ * };
+ */
 
 const Portfolio = () => {
   const pathname = usePathname();
@@ -14,9 +25,14 @@ const Portfolio = () => {
   }, []);
 
   return (
+    /**
+     * TODO: #257
+     * update the document title see (#341)
+     */
     <PageContent
       documentTitle='Portfolio'
-      title="Hugo's Portfolio"
+      title={title}
+      header="Hugo's Portfolio"
       page="portfolio"
       pathName={pathname}
     >

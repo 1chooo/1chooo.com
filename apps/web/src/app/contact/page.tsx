@@ -1,21 +1,28 @@
-'use client';
+"use client";
 
-import React from "react";
-import { usePathname } from 'next/navigation';
+import React, { useEffect } from 'react';
 import MapBox from '@/components/contact/map-box';
 import { FaRegPaperPlane } from "react-icons/fa";
-import PageContent from "@/components/page-content";
+import PageHeader from '@/components/page-header';
+import config from '@/config';
+
+const { title } = config;
+
+/**
+ * TODO: #341 still need to update with another method to avoid client side not available metadata
+ * export const metadata: Metadata = {
+ *   title: `Contact | ${title}`,
+ * };
+ */
 
 const Contact = () => {
-  const pathname = usePathname();
+  useEffect(() => {
+    document.title = `Contact | ${title}`;
+  }, [title]);
 
   return (
-    <PageContent
-      documentTitle='Contact'
-      title="Hugo's Contact"
-      page="contact"
-      pathName={pathname}
-    >
+    <article data-page=''>
+      <PageHeader header="Hugo's Contact" />
       <section className="contact-form">
         <MapBox />
         <h3 className="h3 form-title">Contact Form</h3>
@@ -56,7 +63,7 @@ const Contact = () => {
           </button>
         </form>
       </section>
-    </PageContent >
+    </article >
   );
 }
 
