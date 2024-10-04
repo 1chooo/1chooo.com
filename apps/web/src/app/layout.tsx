@@ -9,6 +9,7 @@ import config from "@/config";
 const { title } = config;
 const { description } = config;
 const { author } = config;
+const { keywords } = config;
 
 import "./globals.css";
 
@@ -18,7 +19,7 @@ export const metadata: Metadata = {
   title: title,
   description: description,
   authors: [{ name: author }],
-  keywords: ["Hugo ChunHo Lin", "1chooo", "Software Engineering", "Next.js", "React"],
+  keywords: keywords,
   openGraph: {
     url: "https://1chooo.com/",
     type: "website",

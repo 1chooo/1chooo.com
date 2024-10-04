@@ -11,6 +11,7 @@ const config: Config = {
   title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
   description: "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
   author: "Chun-Ho (Hugo) Lin - 1chooo",
+  keywords: ["Hugo ChunHo Lin", "1chooo", "Software Engineering", "Next.js", "React"],
   status: "Day ONE ⚡️",
   navItems: [
     { path: '/', label: 'About' },
