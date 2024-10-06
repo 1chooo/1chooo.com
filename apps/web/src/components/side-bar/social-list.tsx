@@ -6,7 +6,9 @@ import { MdAttachment, MdOutlineSignpost } from "react-icons/md";
 
 import config from "@/config";
 
-const { socialMedia } = config;
+const { about } = config;
+
+const { socialMedia } = about;
 const { githubUsername, twitterUsername, linkedinUsername, mediumUsername } = socialMedia;
 
 const socialLinks = [

@@ -1,7 +1,11 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
 import SocialList from '../components/side-bar/social-list';
-import { abouts } from '../config/about';
+import config from '@/config';
+
+const { about } = config;
+
+
 
 describe('SocialList', () => {
   it('should render the correct number of social links', () => {
@@ -12,7 +16,7 @@ describe('SocialList', () => {
 
   it('should render the correct social links', () => {
     render(<SocialList />);
-    const { socialMedia } = abouts;
+    const { socialMedia } = about;
     const { githubUsername, twitterUsername, linkedinUsername, mediumUsername } = socialMedia;
 
     expect(screen.getByRole('link', { name: 'GitHub' })).toHaveAttribute('href', `https://github.com/${githubUsername}`);
