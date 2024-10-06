@@ -20,19 +20,20 @@ const config: Config = {
     { path: '/blog', label: 'Blog' },
     { path: '/contact', label: 'Contact' }
   ],
-  socialMedia: {
-    "githubUsername": "1chooo",
-    "mediumUsername": "1chooo",
-    "twitterUsername": "1chooo___",
-    "linkedinUsername": "1chooo"
-  },
   about: {
     "subHeader": "$ ls -al Hugo 👨🏻‍💻",
     "firstName": 'Chun-Ho',
     "lastName": 'Lin',
-    "middleName": 'Hugo' || '',
-    "preferredName": 'Hugo' || '',
+    "middleName": "",
+    "preferredName": "Hugo",
+    "additionalName": "Hugo",
     "pronouns": 'He/Him',
+    "socialMedia": {
+      "githubUsername": "1chooo",
+      "mediumUsername": "1chooo",
+      "twitterUsername": "1chooo___",
+      "linkedinUsername": "1chooo"
+    },
     "introductions": [
       // "#### $ ls -al Hugo 👨🏻‍💻 (He/Him)",
       "I obtained my Bachelor's degree from [National Central University 🐿️](https://www.ncu.edu.tw/), driven by a *sincere passion* for **Software Engineering 💻.**",

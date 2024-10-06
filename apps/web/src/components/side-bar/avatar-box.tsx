@@ -12,6 +12,7 @@ const {
   firstName,
   lastName,
   middleName,
+  preferredName
 } = about;
 
 type AvatarBoxProps = {
@@ -26,7 +27,7 @@ const AvatarBox: React.FC<AvatarBoxProps> = ({ avatar }) => {
       <Image
         id="profile-img"
         src={avatar}
-        alt={`${firstName} (${middleName}) ${lastName}`}
+        alt={`${firstName} (${preferredName}) ${lastName}`}
         width={imageSize.width}
         height={imageSize.height}
         loading="lazy"
