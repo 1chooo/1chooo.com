@@ -6,7 +6,7 @@ export const TWITTER_USERNAME = '1chooo___';
 export const LINKEDIN_USERNAME = '1chooo';
 export const EMAIL = 'hugo970217@gmail.com';
 
-export const POSTS_PER_PAGE = 4;
+export const POSTS_PER_PAGE = 8;
 
 export const DEVOPS = {
   linux: "linux",
