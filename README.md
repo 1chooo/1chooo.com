@@ -2,31 +2,17 @@
   <img alt="1chooo.com Home Page" src="./.github/images/cover-transparent-with-1chooo-com.png">
 </a>
 
-<!-- <h1 align="center"><a href="https://1chooo.com">1chooo.com</a></h1> -->
-
-<!-- <h3 align="center">
-    <b><i>The Source Code of my Website.</i></b>
-</h3> -->
-
-<!-- <p align="center">
-    <i>Inspired by the <a href="https://github.com/codewithsadee/vcard-personal-portfolio">codewithsadee/vcard-personal-portfolio</a>, we aim to transform the <code>HTML/CSS</code> template into a React with Next.js project.</i>
-</p> -->
-
-<!-- <p align="center">
-  <a href="#-features"><strong>✨ Feature</strong></a> ·
-  <a href="#installation"><strong>Installation</strong></a> ·
-  <a href="#deploy-your-own"><strong>Deploy Your Own</strong></a> ·
-  <a href="#setting-up-locally"><strong>Setting Up Locally</strong></a> ·
-  <a href="#tech-stack"><strong>Tech Stack</strong></a> ·
-  <a href="#-contributing"><strong>🌏 Contributing</strong></a> ·
-  <a href="#-contact-info"><strong>📲 Contact Info</strong></a> ·
-  <a href="#-license"><strong>🪪 License</strong></a>
-</p> -->
+<p align="center">
+  <img alt="" src="https://img.shields.io/badge/Next.js-000000.svg?style=for-the-badge&logo=Next.js&labelColor=000">
+  <img alt="" src="https://img.shields.io/github/languages/top/1chooo/1chooo.com?style=for-the-badge&labelColor=000">
+  <img alt="" src="https://img.shields.io/github/license/1chooo/1chooo.com?style=for-the-badge&labelColor=000">
+  <img src="https://img.shields.io/github/stars/1chooo/1chooo.com?style=for-the-badge&labelColor=000" alt="Novel.sh's GitHub repo">
+</p>
 
 <p align="center">
-<strong>
-  <a href="#-abstract">📍 Abstract</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="#-features">✨ Feature</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="#-contributing">🌏 Contributing</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="#-contact-info">📲 Contact Info</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="#-license">🪪 License</a>
-</strong>
+  <strong>
+    <a href="#-abstract">📍 Abstract</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="#-features">✨ Feature</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="#-contributing">🌏 Contributing</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="#-contact-info">📲 Contact Info</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="#-license">🪪 License</a>
+  </strong>
 </p>
 
 ## 📍 Abstract
@@ -39,28 +25,11 @@ We'll also provide comprehensive documentation, including a user guide, code wal
 
 ## ✨ Features
 
-- 🚧 Skeleton Loading
+- 💀 Skeleton Loading
 - ⚡️ Next.js 14 with App Router
 - [🟩 GitHub Calendar Heatmap](https://github.com/grubersjoe/react-github-calendar)
 - ✍🏻 Markdown Rendering
 - 🧪 Components Unit Testing
-
-
-<!-- <p align="center">
-  <a href="./LICENSE">
-    <img src="https://img.shields.io/github/license/1chooo/1chooo.com?label=license&logo=github&color=blue&logoColor=fff&style=for-the-badge" alt="License" />
-  </a>
-  <a href="https://github.com/1chooo/1chooo.com"><img src="https://img.shields.io/github/stars/1chooo/1chooo.com?style=for-the-badge" alt="Novel.sh's GitHub repo"></a>
-</p> -->
-
-
-
-<!-- ## 🔨 Requirements
-
-Node, recommended >=20.11.0 with corepack enabled
-pnpm, recommended >=9.x
-Visual Studio Code with recommended extensions
-Optionally React Developer Tools -->
 
 ## 🌏 Contributing
 
