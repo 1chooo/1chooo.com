@@ -190,6 +190,15 @@ const config: Config = {
 - During the **Proof of Concept (POC)** phase, transform the trained model into a **Web Application** with a user interface using **\`Gradio\`**, the UI toolkit for the **\`FastAPI\`** framework.
           `,
         },
+        {
+          "company": "National Central University",
+          "location": "Taoyuan, Taiwan",
+          "role": "Website Developer",
+          "duration": "Jul. 2022 - Jan. 2023",
+          "tasksMarkdown": `
+- Collaborated with a team of 5 to develop a multi-user score management system for the [Center for Teacher Education](https://cte.ncu.edu.tw/zh-TW), reducing the time required for credit exemption by 80%, and maintained the server remotely using SSH.
+          `,
+        },
       ],
     },
   },
