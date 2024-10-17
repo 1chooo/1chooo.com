@@ -164,9 +164,9 @@ const config: Config = {
           "role": "Cloud Engineer Intern",
           "duration": "Mar. 2024 - May. 2024",
           "tasksMarkdown": `
-- Utilized a serverless architecture on **AWS Lambda**, performing **troubleshooting with CloudWatch**, deployed via **AWS CDK**, and integrated with **DynamoDB and Bedrock** services.
-- **Led a team of 5** to enhance the existing ticket system with Claude, boosting **cloud support engineer efficiency by 80%**. Integrated **multi-language** support and **image recognition**, achieving **95%** accuracy.
-- Identified issues in **10+** mock-cases, like **VPC entry failures, EC2 Apache Server restarts, and S3 photo access problems**. Documented solutions in a [Tech Note](https://github.com/1chooo/ecv-training-materials/tree/main/msp/aws_challenge) for sharing with interns.
+- Led a team of 5 to enhance the existing ticket system with Claude, boosting cloud support enigineer efficiency by 80%. Integrated multi-language support and image recognition, achieving 95% accuracy.
+- Utilized a serverless architecture on AWS Lambda, performing troubleshooting with CloudWatch, deployed via AWS CDK, and integrated with DynamoDB and Bedrock services.
+- Documented issues in 10+ mock cases, such as VPC entry failures, EC2 Apache server restarts, and S3 photo access problems, and provided detailed solutions for interns. Refer [here](https://github.com/1chooo/ecv-training-materials/tree/main/msp/aws_challenge) for a comprehensive list.
           `,
         },
         {
