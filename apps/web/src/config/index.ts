@@ -186,8 +186,9 @@ const config: Config = {
           "duration": "Jul. 2023 - Aug. 2023",
           "tasksMarkdown": `
 - **Smart Robot, Smart World 🦾:** Prompt-based Learning for manipulating with the Visual-World Robot
-- Implementing **Prompt Engineering and \`LangChain\`** allows the [NVIDIA Ominerve visual robot](https://www.nvidia.com/en-us/omniverse/) to function through **speech or text**, leading to an **83%** improvement in scenario test support across **6 to 11** scenarios.
-- During the **Proof of Concept (POC)** phase, transform the trained model into a **Web Application** with a user interface using **\`Gradio\`**, the UI toolkit for the **\`FastAPI\`** framework.
+- Collaborated with a team of 5, utilizing Git, a CI/CD pipeline, and following an agile Scrum workﬂow.
+- Executed a POC, adapting an LLM model for Smart Manufacturing, and was awarded 2nd best internship team.
+- Implemented Prompt Engineering and LangChain for the NVIDIA Ominerve visual robot, enabling seamless speech/text operation, boosting test support by 83% across 6-11 scenarios with 85% stability.
           `,
         },
         {
