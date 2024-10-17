@@ -177,6 +177,7 @@ const config: Config = {
           "tasksMarkdown": `
 - Educated **700+** cloud developers and achieved **96%** of user satisfaction by publishing and lecturing **2+ technical workshops, 1 UAD** on AWS cloud computing services **(Lex, Amazon S3, Lambda, API Gateway).**
 - **Developed** an **open-source** project called [AWS 101 LINE Bot](https://github.com/1chooo/aws-line-business-card-workshop) designed for integration with **AWS 101**.
+- Researched cloud suppliers for marketing, delivering a 35+ page study.
           `,
         },
         {
