@@ -185,9 +185,8 @@ const config: Config = {
           "role": "Software Engineer Intern",
           "duration": "Jul. 2023 - Aug. 2023",
           "tasksMarkdown": `
-- **Smart Robot, Smart World 🦾:** Prompt-based Learning for manipulating with the Visual-World Robot
-- Collaborated with a team of 5, utilizing Git, a CI/CD pipeline, and following an agile Scrum workﬂow.
-- Executed a POC, adapting an LLM model for Smart Manufacturing, and was awarded 2nd best internship team.
+- Executed a POC, adapting an LLM model for Smart Manufacturing, and was awarded Silver internship team.
+- Collaborated with a team of 5, utilized Git, a CI/CD pipeline, and followed an agile Scrum workflow.
 - Implemented Prompt Engineering and LangChain for the NVIDIA Ominerve visual robot, enabling seamless speech/text operation, boosting test support by 83% across 6-11 scenarios with 85% stability.
           `,
         },
