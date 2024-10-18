@@ -196,7 +196,7 @@ const config: Config = {
           "role": "Website Developer",
           "duration": "Jul. 2022 - Jan. 2023",
           "tasksMarkdown": `
-- Collaborated with a team of 5 to develop a multi-user score management system for the [Center for Teacher Education](https://cte.ncu.edu.tw/zh-TW), reducing the time required for credit exemption by 80%, and maintained the server remotely using SSH.
+- Partnered with a team of 2 to develop a multi-user score management system for the Center for Teacher Education, reducing credit exemption processing time by 80% and remotely maintaining the server via SSH.
           `,
         },
       ],
