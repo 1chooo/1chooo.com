@@ -175,9 +175,8 @@ const config: Config = {
           "role": "Campus Ambassador",
           "duration": "Aug. 2023 - Jan. 2024",
           "tasksMarkdown": `
-- Educated **700+** cloud developers and achieved **96%** of user satisfaction by publishing and lecturing **2+ technical workshops, 1 UAD** on AWS cloud computing services **(Lex, Amazon S3, Lambda, API Gateway).**
-- **Developed** an **open-source** project called [AWS 101 LINE Bot](https://github.com/1chooo/aws-line-business-card-workshop) designed for integration with **AWS 101**.
-- Researched cloud suppliers for marketing, delivering a 35+ page study.
+- Educated 700+ cloud developers and achieved 96% user satisfaction by conducting 2 technical workshops, developing an open-source project, and 1 UAD with AWS cloud services. Refer [here](https://github.com/aws-educate-tw/aws-line-business-card-workshop) for the source code.
+- Conducted a comprehensive 35+ page market research study on cloud suppliers as part of an 11-member team.
           `,
         },
         {
