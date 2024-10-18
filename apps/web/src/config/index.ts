@@ -129,27 +129,13 @@ const config: Config = {
           "company": "National Central University",
           "location": "Taoyuan, Taiwan",
           "role": "Teaching Assistant",
-          "duration": "Feb. 2024 - Jun. 2024",
+          "duration": "Feb. 2021 - Jun. 2024",
           "tasksMarkdown": `
-- 24 Spring: [GS4538 Linux and Edge Computing](https://ncuedu.tw/course/linux)
-        `,
-        },
-        {
-          "company": "National Central University",
-          "location": "Taoyuan, Taiwan",
-          "role": "Teaching Assistant",
-          "duration": "Sep. 2023 - Jun. 2024",
-          "tasksMarkdown": `
-- 23 Fall 24 Spring: [AP4063 Weather and Artificial Intelligence I/II]((https://github.com/weather-and-ai))
-        `,
-        },
-        {
-          "company": "National Central University",
-          "location": "Taoyuan, Taiwan",
-          "role": "Teaching Assistant",
-          "duration": "Sep, 2023 - Jan, 2024",
-          "tasksMarkdown": `
-- 23 Fall: [GS4719 Python Programming]((https://ncuedu.tw/course/python))
+- [GS4538 Linux and Edge Computing](https://ncuedu.tw/course/linux), 24 Spring
+- [AP4063 Weather and Artificial Intelligence I/II]((https://github.com/weather-and-ai)), 23 Fall 24 Spring
+- [GS4719 Python Programming]((https://ncuedu.tw/course/python)), 23 Fall
+- Freshman English, 22 Fall & 23 Spring
+- Student Service-Learning, 21 Spring
         `,
         },
       ],
