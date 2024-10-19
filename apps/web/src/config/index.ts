@@ -97,8 +97,9 @@ const config: Config = {
           duration: "Sep. 2020 — Jun. 2024",
           tasksMarkdown: `
 - **Minor Specialty:** Computer Science & Information Engineering
-- **Relevant Courses (Graduate):** The Attack and Defense of Computers, Software Engineering, Object-Oriented Analysis and Design.
-- **Relevant Courses (Undergraduate):** Linux And Edge Computing, Principles of Programming Languages, Operating System, Computer Organization, Computer Network, Algorithmics, Data Structures, Assembly Language and System Programming, Digital Design, Weather and Artificial Intelligence, Numerical Analysis.
+- **Graduate-level Courses:** The Attack and Defense of Computers, Object-Oriented Analysis and Design.
+- **B.S.-level Courses:** Software Engineering, Principles of Programming Languages, Assembly Language and System Programming, Operating System, Computer Network, Algorithmics, Data Structures, Digital Design, Numerical Analysis
+- TA: Linux and Edge Computing, Programming Python, Weather and Artificial Intelligence, Freshman English, Student Service-Learning
         `,
         },
       ],
