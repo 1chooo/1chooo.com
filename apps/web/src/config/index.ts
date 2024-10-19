@@ -35,7 +35,7 @@ const config: Config = {
       "linkedinUsername": "1chooo"
     },
     "introductions": [
-      // "#### $ ls -al Hugo 👨🏻‍💻 (He/Him)",
+      // "#### $ ls -al Hugo 👨🏻‍💻 (He/Him)", {/* TODO: #157 */}
       "I obtained my Bachelor's degree from [National Central University 🐿️](https://www.ncu.edu.tw/), driven by a *sincere passion* for **Software Engineering 💻.**",
       `My current research interests include ***Programming Language Theory, Operating Systems, and Compilers.*** To gain practical experience, I developed my own ***<a href="https://en.wikipedia.org/wiki/Lisp_(programming_language)">Lisp</a>*** interpreter using **<a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a>** <sup>[[Code](https://github.com/1chooo/compiler-101)]</sup> and implemented [***Monkey Programming***](https://monkeylang.org/) Compiler with [**GO**](https://go.dev/) <sup>[[Code](https://github.com/1chooo/monkey-prog-lang)]</sup>.`,
       "In my spare time, I do workouts 💪🏻, street photography 📸, and tech content writing ✍🏻.",
@@ -151,7 +151,7 @@ const config: Config = {
           "role": "Cloud Engineer Intern",
           "duration": "Mar. 2024 - May. 2024",
           "tasksMarkdown": `
-- Team leadership enhanced issue pools with LLM, boosting cloud support efficiency by 80% through multi-language support and 95% accurate image recognition. Recognized as top-performing internship team.
+- Led a team of 5 to enhance issue pools with LLM, boosting cloud support efficiency by 80% through multi-language support and 95% accurate image recognition. Honored as the top-achieving internship team.
 - Utilized a serverless architecture on AWS Lambda, performing troubleshooting with CloudWatch, deployed via AWS CDK, and integrated with DynamoDB and Bedrock services.
 - Documented issues in 10+ mock cases, such as VPC entry failures, EC2 Apache server restarts, and S3 photo access problems, and provided detailed solutions for interns. Refer [here](https://github.com/1chooo/ecv-training-materials/tree/main/msp/aws_challenge) for a comprehensive list.
           `,
