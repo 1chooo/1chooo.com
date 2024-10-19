@@ -30,8 +30,8 @@ const Resume = () => {
       <DownloadCV />
       {profExp}
       {education}
-      {awardLeadership}
       {teachingExp}
+      {awardLeadership}
     </article >
   );
 }
