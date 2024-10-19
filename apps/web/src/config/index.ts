@@ -132,9 +132,9 @@ const config: Config = {
           "role": "Teaching Assistant",
           "duration": "Feb. 2021 - Jun. 2024",
           "tasksMarkdown": `
-- [GS4538 Linux and Edge Computing](https://ncuedu.tw/course/linux), 24 Spring
-- [AP4063 Weather and Artificial Intelligence I/II]((https://github.com/weather-and-ai)), 23 Fall 24 Spring
-- [GS4719 Python Programming]((https://ncuedu.tw/course/python)), 23 Fall
+- GS4538 Linux and Edge Computing, 24 Spring <sup>[[Website](https://ncuedu.tw/course/linux)] | [[GitHub](https://github.com/NCU-GS4538-Linux)]</sup>
+- AP4063 Weather and Artificial Intelligence I/II, 23 Fall 24 Spring <sup>[[GitHub](https://github.com/weather-and-ai)]</sup>
+- GS4719 Python Programming, 23 Fall <sup>[[Website](https://ncuedu.tw/course/python)] | [[GitHub](https://github.com/NCU-GS4719-Python)]</sup>
 - Freshman English, 22 Fall & 23 Spring
 - Student Service-Learning, 21 Spring
         `,
