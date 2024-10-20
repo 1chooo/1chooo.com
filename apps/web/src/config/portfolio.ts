@@ -45,10 +45,10 @@ export const projectsData: Project[] = [
     link: 'https://github.com/1chooo/evolving-beasts',
   },
   {
-    title: 'Simple AI',
+    title: 'Refinaid',
     category: 'Web development',
     imageUrl: "/images/projects/portfolio_test.png",
-    link: 'https://github.com/1chooo/simple-ai',
+    link: 'https://github.com/1chooo/refinaid',
   },
   {
     title: 'Game Scope',
