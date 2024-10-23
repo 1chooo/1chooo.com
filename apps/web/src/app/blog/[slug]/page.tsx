@@ -67,12 +67,12 @@ function formatDate(date: string) {
     day: 'numeric',
     year: 'numeric',
   });
-  
+
   let daysLater: number = 0;
   if (targetDate > currentDate) {
     daysLater = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
   }
-  
+
   if (daysLater > 365) {
     return `${fullDate} (${daysLater}d later)`;
   } else if (daysLater > 30) {
@@ -105,21 +105,29 @@ export default function Blog({ params }: { params: { slug: string } }) {
   }
 
   return (
-    <article>
-      <section className="blog-text">
-        <PageHeader header="Hugo's Blog" />
-        <h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">
-          <MarkdownRenderer content={post.metadata.title} />
-        </h1>
-        <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
-          <Suspense fallback={<p className="h-5" />}>
-            <p className="text-sm text-neutral-600 dark:text-neutral-400">
-              {formatDate(post.metadata.publishedAt)}
-            </p>
-          </Suspense>
-        </div>
-        <MarkdownRenderer content={post.content} />
-      </section>
-    </article>
+    <div>
+      <article>
+        <section className="blog-text">
+          <PageHeader header="Hugo's Blog" />
+          <h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">
+            <MarkdownRenderer content={post.metadata.title} />
+          </h1>
+          <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
+            <Suspense fallback={<p className="h-5" />}>
+              <p className="text-sm text-neutral-600 dark:text-neutral-400">
+                {formatDate(post.metadata.publishedAt)}
+              </p>
+            </Suspense>
+          </div>
+          <MarkdownRenderer content={post.content} />
+        </section>
+      </article>
+
+      <article style={{ marginTop: '1rem' }}>
+        <section className="blog-text">
+          <PageHeader header="Comments" />
+        </section>
+      </article>
+    </div>
   );
 }
