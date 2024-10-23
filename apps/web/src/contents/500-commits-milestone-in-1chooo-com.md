@@ -1,134 +1,151 @@
 ---
-title: 打造 500 commits 的 GitHub Repository：10 個不可或缺的步驟
+title: "Built a 500 commits GitHub Repository: 10 essential steps you can't miss"
 category: Project
 publishedAt: 2024-08-28
-summary: 一個 500 commits 的 Side Project 是如何誕生的，跟著 Hugo 一起看下去吧！
+summary: A 500 commits Side Project is born, let's dive into how Hugo did it!
 tags: 
   - React
   - Typescript
 banner: /images/banner/500-commits-milestone-in-1chooo-com.png
-alt: 打造 500 commits 的 GitHub Repository：10 個不可或缺的步驟
+alt: Built a 500 commits GitHub Repository: 10 essential steps you can't miss
 ---
 
-> 一個 500 commits 的 Side Project 是如何誕生的，跟著 Hugo 一起看下去吧！
+> A 500 commits Side Project is born, let's dive into how Hugo did it!
 
-嘿大家！我是 Hugo！現在的我剛從中央大學剛畢業，開始了我的 Gap Year，我有了很多時間維護我的 Side Project，撰寫文章、自我成長的時間，今天我想跟各位分享一個對我來說很重要的里程碑：「我的個人網頁 -- [1chooo.com](https://1chooo.com) 的 [GitHub Repository](https://github.com/1chooo/1chooo.com) 達到 [500 個 commits](https://github.com/1chooo/1chooo.com/commit/b01a0417642b3679ec87427f0c783bcaafe5e7c1) 啦 🥳」這 500 個 commits 以大型專案來說無比尋常，甚至是小巫見大巫，不過對於我的個人 side project 是一大挑戰，畢竟要持續有新功能、新的專案目標、技術債，我才能繼續更新這個 project，因此我想透過這篇文章來分享我們做了哪些努力，並且又從中學到了什麼樣的寶貴經驗以及教訓。
+Hey everyone! I'm Hugo, and I’ve just graduated from National Central University. As I embark on my gap year, I now have ample time to focus on maintaining my side projects, writing articles, and pursuing personal growth. Today, I want to share a significant milestone with you all—my personal website, [1chooo.com](https://1chooo.com), has reached [500 commits](https://github.com/1chooo/1chooo.com/commit/b01a0417642b3679ec87427f0c783bcaafe5e7c1) on its [GitHub repository](https://github.com/1chooo/1chooo.com) 🥳.
 
-![打造 500 commits 的 GitHub Repository：10 個不可或缺的步驟 bu Hugo](/images/banner/500-commits-milestone-in-1chooo-com.png)
+While 500 commits might seem trivial for large-scale projects, it’s a major accomplishment for a personal side project like mine. Keeping this project alive has been a challenge—one that requires continuously introducing new features, setting new goals, and tackling technical debt. In this post, I want to reflect on the efforts that went into reaching this milestone, share the invaluable lessons I’ve learned along the way, and discuss some of the challenges I encountered.
 
-在進入今天的分享前，先帶大家看看我專案的成果，這個專案原先的發想就是是我想打造自己的網頁，過去我也曾經試過很多次的個人網頁架設，但是對於我想要的需求就是差了那麼一點，於是我開始透過 portfolio、personal website 的關鍵字在 GitHub 找尋符合我需求的設計，有點偷懶，不過我想這就是 Open Source 最重要的一環吧！於是我找到了符合我想要功能的個人網頁 -- [vcard-personal-portfolio](https://codewithsadee.github.io/vcard-personal-portfolio/)，這邊要特別感謝原作者 [Sadee](https://github.com/codewithsadee) 無私分享自己的專案成果，讓我可以在此基礎上進行修改。
+![Built a 500 commits GitHub Repository: 10 essential steps you can't miss by Hugo](/images/banner/500-commits-milestone-in-1chooo-com.png)
 
-在我的網頁上有五大頁面，分別是：**About, Resume, Portfolio, Blog, Contact**，也是我想要有的功能。
+
+Before diving into today’s discussion, let me give you a quick overview of my project's current state. The idea behind this project started with a simple desire—I wanted to create a personal website. Although I had attempted several iterations in the past, none of them quite met my expectations. So, I turned to GitHub, searching through keywords like "portfolio" and "personal website" to find a design that matched my vision. It felt a bit like taking a shortcut, but that’s the beauty of open source, right?
+
+Eventually, I came across a personal website template called [vcard-personal-portfolio](https://codewithsadee.github.io/vcard-personal-portfolio/), which had all the features I wanted. I owe a huge thanks to the original creator, [Sadee](https://github.com/codewithsadee), for generously sharing their work, allowing me to build and modify on top of it.
+
+My website consists of five main sections, each serving a specific purpose:
 
 ### About
 
-呈現我自己給大家認識，並且目標給予大家良好的第一印象。
+This page introduces me to visitors and aims to create a strong first impression.
 
 ![1chooo.com/about](/images/posts/500-commits-milestone-in-1chooo-com/about.png)
 
 ### Resume
 
-呈現我的專業能力，在這裡可以看到我過往的學歷、工作經驗、參加競賽的經驗。
+This section showcases my professional background, including my education, work experience, and competition history.
 
 ![1chooo.com/resume](/images/posts/500-commits-milestone-in-1chooo-com/resume.png)
 
 ### Portfolio
 
-我會在這裡放置我過去的作品，包含了各種類型的專案，例如：網頁、App、資料分析等等。
+Here, I display my past projects, ranging from web development and apps to data analysis.
 
 ![1chooo.com/portfolio](/images/posts/500-commits-milestone-in-1chooo-com/portfolio.png)
 
 ### Blog
 
-我會在這裡分享我的文章，囊括了技術文章、刷題經驗等等，總之就是想寫什麼就會寫什麼。
+This is where I share my writings, including technical articles and coding experiences. Essentially, I write whatever I feel like sharing.
 
 ![1chooo.com/blog](/images/posts/500-commits-milestone-in-1chooo-com/blog.png)
 
 ### Contact
 
-提供一個想聯絡我的管道，如果有任何問題請教或是討論都可以在這裡找到我。
+A dedicated space for people to reach out to me with any questions or discussions.
 
 ![1chooo.com/contact](/images/posts/500-commits-milestone-in-1chooo-com/contact.png)
 
-在看完我的網頁介紹後，我們可以開始進入正題前，想先以數據呈現來聊聊我做了哪些改動，我們可以條列出我有做過的十大 Feature：
+
+After giving you a quick tour of my website, let’s dive into the main topic. Before we get into the lessons and takeaways, I'd like to present some data that highlights the key features and changes I've implemented. Here are the top ten features I’ve introduced to the project:
+
+1. **Code Refactor**: I refactored the original codebase, transitioning from plain HTML, CSS, and JS to using the [React](https://react.dev/) framework for better scalability and maintainability. The website is now deployed via [Vercel](https://vercel.com/).
+2. **Componentization**: I extracted shared components to prevent "Copy-Paste Programming" and promote reusable code across the project.
+3. **Readable Commit Messages**: I followed the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) standard for structured, easy-to-read commit messages.
+4. **Issue Tracking**: I utilized GitHub Issues to keep track of changes and incorporated Milestones to monitor project progress.
+5. **Versioning with Tags**: I added tags to manage different releases, making version control more transparent and organized.
+6. **Google Analytics**: Integrated Google Analytics to track user behavior and gain insights into site traffic and interaction.
+7. **GitHub Dependency Bot**: Introduced the GitHub Dependency Bot to monitor and update dependencies, ensuring the project remains secure and up to date.
+8. **Next.js Migration**: Upgraded the aging Create-React-App to [Next.js](https://nextjs.org/) to leverage its modern features and improved performance.
+9. **Enhanced Documentation**: Improved the README and documentation to facilitate easier onboarding for future developers and contributors.
+10. **Component Unit Tests**: Implemented unit tests for each component to ensure everything functions correctly and maintain project stability.
+
+These changes not only improved the overall quality of my website but also helped me adopt best practices for modern web development.
 
 ![1chooo.com — 500 commits achieving 🥳](/images/posts/500-commits-milestone-in-1chooo-com/500-commit-achieving.png)
 
-1. 重構原始碼，將原本單純的 HTML、CSS、JS，改成使用 [React](https://react.dev/) 前端框架來撰寫，並使用 [Vercel](https://vercel.com/) 來部署我的網頁。
-2. 把共用的 Component，拉出來重寫，避免 Copy-Paste Programming 的情形發生。
-3. 整齊易讀的 Commit Message -- [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)。
-4. 用 Issues 來追蹤專案的改動，並且加上 Milestone 來追蹤專案的進度。
-5. 加入 Tag 管理版本不同版本的 Release。
-6. 加入 Google Analytics 來追蹤使用者行為。
-7. 引入 GitHub Dependency Bot 來追蹤我的專案的依賴套件是否需要升級以及是否有安全漏洞。
-8. 透過 [Next.js](https://nextjs.org/) 來更新老舊 Create-React-App 的依賴。
-9. 美觀的 README，以及 Document 的撰寫，讓未來的開發者可以快速上手。
-10. Component 的 Unit Test，確保每個 Component 都有正確的運作。
+### Code Refactoring
 
-### 重構程式碼
+In the original project by [Sadee](https://github.com/codewithsadee), the website was designed as a single-page application, meaning all the content was written within the same HTML file. Page transitions were achieved by manipulating sections within that file. While this approach allowed for quick adjustments by directly modifying the HTML, I soon encountered some significant limitations. Whenever I needed to make changes, I had to sift through thousands of lines of code to find the specific section I wanted to adjust. Moreover, since all the content was loaded at once, the entire page, including hidden sections, would be fetched on every visit, which negatively impacted performance. Additionally, the lack of a dedicated router made the code increasingly difficult to manage as the project grew. I realized that without a full rewrite, future expansions—like adding new features or pages—would be severely constrained, leaving me in a passive, reactive position.
 
-在原本作者 [Sadee](https://github.com/codewithsadee) 的專案中，是一頁式的網站設計，也就是說所有的內容都寫在同個 HTML 裡面，包含了頁面切換，如果要快速改動，其實只要直接做更改 HTML 的內容就好，不過這時候我就遇到了一些問題，每當我要做出改動的時候，我就要在上千行的原始碼裡面找我要調整的部分、另外載入畫面時所有的內容都會一起被載入，畢竟都寫在同個 HTML 裡面，並沒有任何頁面 Router 的切換，因此我便下定決心要整個改寫，否則以後我想加新功能、新頁面的時候，我會很被限制住、也處在整個專案的被動方。
+At this point, I considered my options among the major front-end frameworks: [React](https://react.dev/), [Vue](https://vuejs.org/), and [Laravel](https://laravel.com/). I opted for [React](https://react.dev/) in combination with [TypeScript](https://www.typescriptlang.org/) since I had previous experience with it and was confident I could rely on the wealth of community resources available for React development. This decision marked the beginning of a large-scale refactoring journey.
 
-這時候我想到了前端三大框架：[React](https://react.dev/)、[Vue](https://vuejs.org/)、[Laravel](https://laravel.com/)，我選擇了 [React](https://react.dev/) 並且搭配 [TypeScript](https://www.typescriptlang.org/)，因為這是我之前有開發經驗的前端框架，同時也找得到很多前人的經驗，因此就選擇了 React，因此我便開始了大量地改寫之旅，最首要的就是讀懂原始碼，並且把原本的 HTML、CSS、JS 都拆開，並且使用 React 的 Components 來撰寫，在初期是非常有挑戰性的，需要耗費大量的時間去理解，有些 Code 甚至需要耗費幾個星期才能完成改寫。
+The first step was to thoroughly understand the original codebase, which involved untangling the interwoven HTML, CSS, and JavaScript. I then rewrote it using React components, breaking down the structure into manageable, reusable pieces. This was no small task—some sections took weeks to fully refactor. However, transitioning the project to React allowed me to break up the monolithic HTML file into distinct components, each responsible for a specific section of the website. By integrating React Router, I implemented dynamic page transitions, ensuring only the necessary components were loaded when navigating between pages. 
 
-因為我之前有使用過，也覺得 React 的生態系很完整，有很多的套件可以使用，於是我便開始了我的改寫之旅，我把原本的 HTML、CSS、JS 都拆開，並且使用 React 來撰寫，這樣我就可以把每個頁面都拆開，並且使用 React Router 來做頁面的切換，這樣我就可以更方便的做出改動，也可以更方便的加入新功能，因此現在畫面上看到的內容都是透過 React Component 來呈現的，我也保有更多的修改空間，不會受限於原作者的設計。
+This refactor not only made the code more maintainable and easier to navigate but also provided me with the flexibility to extend the project in the future. The use of React components enabled cleaner separation of concerns, and I was no longer limited by the design choices of the original author.
 
-### Shared Component
 
-改寫完了是一回事，但我其實是第一次碰到前端工程的部分，我的 Components 基本上就是 return 出來的 HTML Code。於是我在自己 Code Review 的時候我就發現許多 Components 可以獨立出來，甚至是可以共用同樣的 Style，也就是說我發現了很多 Copy-Paste Programming 的情形在我的程式碼之中，其中我學到了 `map()` 的寫法，可以用傳入的參數來決定要 render 出來的 Component，這樣我就可以把重複的部分刪掉，詳細介紹可以看這篇文章 👉🏻 [如何透過 map() 讓你的 React TypeScript 專案更加優雅？](blog/make-your-react-more-elegant-with-map)。
+### Shared Components
 
-### Commit Message
+Refactoring was only part of the challenge, as I was stepping into front-end development for the first time. Initially, my React components were mostly just HTML code returned within `render` functions. However, during a self-review of my code, I noticed many opportunities for optimization. A significant issue was that several components could be made reusable, sharing similar styles and logic. In essence, I had fallen into a pattern of Copy-Paste Programming, where the same code was repeated in multiple places. 
 
-因為我常常使用 GitHub，幾乎是我每天的日常了，因此我開始對一些細節特別在意，像是 Commit Message，常常可以看到很多 Commit Message 都是：「Update、test、Upload 等字樣」也就是說看不出這次改動的痕跡，這樣的 Commit Message 對於未來的開發者來說是非常不友善的，因此我開始學習 [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/)，這是一個 Commit Message 的規範，提升了 Commit 的可讀性，也比較工整，想看更多細節可以看看這篇文章，我介紹了如何撰寫優美的 Commit Message 👉🏻 [Git Commit Message 到底怎麼寫才優美？](https://medium.com/@1chooo/git-commit-message-%E5%88%B0%E5%BA%95%E6%80%8E%E9%BA%BC%E5%AF%AB%E6%89%8D%E5%84%AA%E7%BE%8E-5b789157b549)
+Through this process, I learned to harness the power of the `map()` function in React. By passing in parameters, I could dynamically render components without duplicating code. This dramatically reduced redundancy and made the codebase cleaner and more maintainable. If you're interested in a more detailed breakdown of how to implement `map()` for elegance in a React TypeScript project, check out my article 👉🏻 [How to Make Your React TypeScript Project More Elegant with `map()`](blog/make-your-react-more-elegant-with-map).
+
+### Commit Messages
+
+As a frequent user of GitHub, paying attention to details has become part of my daily routine. One area where I became particularly meticulous is with commit messages. It’s common to see vague messages like "Update," "Test," or "Upload," which offer no insight into what changes were made. Such commit messages can be unfriendly to future developers (or even your future self), making it difficult to track changes or understand the project's evolution.
+
+To address this, I began following the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0.0/) specification. This standard improves the readability and organization of commit messages, ensuring that each message clearly reflects the changes made. For a deeper dive into writing clean, informative commit messages, feel free to explore my article 👉🏻 [How to Write Beautiful Git Commit Messages](https://medium.com/@1chooo/git-commit-message-%E5%88%B0%E5%BA%95%E6%80%8E%E9%BA%BC%E5%AF%AB%E6%89%8D%E5%84%AA%E7%BE%8E-5b789157b549).
 
 ![Well Commit Message in 1chooo.com!!!](/images/posts/500-commits-milestone-in-1chooo-com/well-commits.png)
 
-### Issues & Milestone
+### Issues & Milestones
 
-在專案的後期，我發現當 Commits 變多了，有些 Commit 是缺少文件做紀錄的，因此我開始透過 Issues 的形式來管理我要做出的改動，算是 Agile 的一種實踐，透過 Issues 我可以清楚的知道我要做什麼，也可以詳細預估我需要的工時，以及所需的技術（雖然我有時候還是直接 Push 到 Main Branch 哈哈！）。後來我還發現了 GitHub 還有一個 Milestone 的管理，我可以把要做的目標放在一起管理，這是在我對 Microsoft VSCode Docs 提交 PRs 時發現的，因此我立馬學起來，主要是透過日其月份去管理 Milestones，像是 August, 2024，這樣我就可以清楚的知道我這個月想要做什麼事情，就可以更有效率的管理我的專案。
+As my project evolved, the number of commits grew, and I realized that some commits lacked proper documentation. To manage changes more efficiently, I started using **Issues** as a way to keep track of the features and modifications I wanted to implement. This approach aligns with Agile practices, allowing me to clearly outline tasks, estimate the time needed, and identify the required technologies (though I must admit, there were still times I pushed directly to the `main` branch! 😅). 
+
+Later on, I discovered **GitHub Milestones** while submitting PRs to the Microsoft VSCode Docs. Milestones helped me group related tasks under a specific goal, usually organized by time periods like "August 2024," making it easier to manage my project effectively. By associating issues with milestones, I could better track progress and stay organized on what I wanted to accomplish each month.
 
 ![1chooo.com — August, 2024 Milestones](/images/posts/500-commits-milestone-in-1chooo-com/milestone.png)
 
-### Tag
+### Tagging & Releases
 
-因為每次開發都有想做的不同事情，因此我也會照著 Agile 的形式去快速迭代我的產品，因此當我達成了一些我想完成的功能時，我就會 Release 新的版本編號，這樣我就可以知道我這個版本做了哪些事情，也可以知道這個版本的功能有哪些，我是遵照 `vx.x.x` 的形式去命名，分成大功能、小功能、Bug 修復等。
+With each development iteration, I followed Agile principles to release new features and improvements quickly. After completing significant features or milestones, I released new versions of my site, using version numbers in the format of `vx.x.x` (e.g., major features, minor updates, and bug fixes). This versioning practice allowed me to track what changes were made in each release and the new functionalities added in that particular version.
 
-![1chooo.com — Releases](/images/posts/500-commits-milestone-in-1chooo-com/tag.png)
+![1chooo.com — Tagging and Releases](/images/posts/500-commits-milestone-in-1chooo-com/tag.png)
 
 ### Google Analytics
 
-有時候我會滿好奇這個網頁到底有沒有人在看，還是就我自己一個人點爽的，因此我就加入了 Google Analytics 來追蹤使用者的行為，有趣的是我發現有些使用者會從美國來、有些會從印度來呢！
+Sometimes, I wondered if anyone was actually visiting my website or if I was the only one constantly checking it. To satisfy my curiosity, I integrated **Google Analytics** to track user behavior on the site. Interestingly, I discovered visitors from the United States and even from India! This gave me a better understanding of my audience and helped me improve the site's content based on user interaction.
 
 ![1chooo.com — GA](/images/posts/500-commits-milestone-in-1chooo-com/ga.png)
 
 ### GitHub Dependency Bot
 
-這是我開發到中期才發現可以加入的功能，起初只是覺得好酷怎麼別人的專案會有 Dependency Bot，後來我才發現原來這是 GitHub 提供的功能，可以幫助我追蹤我的專案的依賴套件是否需要升級以及是否有安全漏洞，每週可以定期幫我檢查 Package 的更新，避免過時的 Package 的依賴。
+Midway through development, I realized I could incorporate the **GitHub Dependency Bot** feature. At first, I just thought it was cool when I saw it in other projects, but then I learned that it's a built-in GitHub functionality. The bot helps track dependencies within the project, alerting me when certain packages need updating or if there are any security vulnerabilities. It regularly checks for updates, keeping the project up-to-date and reducing the risk of using outdated packages.
 
-![Dependencies](/images/posts/500-commits-milestone-in-1chooo-com/dependabot.png)
+![GitHub Dependency Bot](/images/posts/500-commits-milestone-in-1chooo-com/dependabot.png)
 
 ### Next.js
 
-會有 Next.js 的升級，就是因為 GitHub Dependency Bot 的幫助，他讓我發現了要升級 TypeScript 時會部署不成功，詳情可以看看這篇 👉🏻 [讓老舊的 Create React App (CRA) 支援 TypeScript 5.x 吧！](/blog/goodbye-react-create-app)因此我又一次大改我的專案，把 React 的 Router 全部改成 Next.js 的 AppRouter，這也是一大工程，畢竟 React 都還沒摸熟，又來了一個新的框架，不過我還是克服啦！本以為需要花個一兩個月，其實肝了一個週末就全部寫完了！
+The decision to upgrade to **Next.js** was largely influenced by the **GitHub Dependency Bot**, which highlighted a deployment issue when upgrading **TypeScript**. You can read the full story in this post 👉🏻 [讓老舊的 Create React App (CRA) 支援 TypeScript 5.x 吧！](/blog/goodbye-react-create-app). This led to a major overhaul of my project, converting the entire **React Router** setup to **Next.js's AppRouter**. It was a significant learning curve, considering I was still getting the hang of React, but I managed to pull through! Initially, I thought it would take a month or two, but after an intense weekend of coding, the entire migration was complete!
 
-### README & Document
+### README & Documentation
 
-放在 GitHub 的 Project 就有一種「想讓別人看起來很專業的感覺」因此我花了很多時間去 用 [Canva](https://www.canva.com/) 去 Design 我的 Cover 同時也花了時間撰寫 Contributing Guideline，希望對這專案有興趣的人可以一同參與，把開源精神發揮出來，跟著大家一起成長。另外我也會花費時間撰寫 Document，紀錄整個專案的 Code Walkthrough，以及一些開發中所遇到的情況，這樣未來的開發者就可以快速上手，我也比較不需要去通靈自己一個月前寫了什麼爛 Code。
+Having a project on **GitHub** carries a certain desire to appear polished and professional. I dedicated considerable time using **Canva** to design a custom cover and writing a comprehensive **Contributing Guideline**. My hope was to encourage collaboration and embody the open-source spirit, allowing everyone to grow together. Additionally, I took the time to write proper documentation, including a **Code Walkthrough** and the challenges I faced during development. This will help future developers get up to speed quickly, and it also saves me from having to decipher my own code a month later!
 
 ![1chooo.com/README](/images/posts/500-commits-milestone-in-1chooo-com/readme.png)
 
 ### Unit Test
 
-最後一個 Feature 就是 Unit Test，我開始使用 [Jest](https://jestjs.io/) 來寫 Unit Test，這是我第一次寫 Unit Test，因此我也花了很多時間去學習，目前的覆蓋率還不是很高，加上我又大改 Framework 變成 Next.js，很多的 Testing 都需要重新寫，因此這是我目前正在努力的一個部分，希望可以在短期內把覆蓋率提高。
+The final feature I'd like to highlight is **Unit Testing**. I started using **[Jest](https://jestjs.io/)** to write unit tests, and this was my first time doing so. It took quite some time to learn, and although my test coverage isn't very high at the moment, I’m working hard to improve it. With the major overhaul from **React** to **Next.js**, a lot of the tests needed to be rewritten, which has been a challenge. However, increasing the coverage is one of my short-term goals, and I’m determined to get it done soon.
 
 ![Unit Test in 1chooo.com](/images/posts/500-commits-milestone-in-1chooo-com/tests.png)
 
-### 結語
+### Conclusion
 
-雖然到了 500 commits 這個里程碑，但是我其實還有很多想做的部分，像是完成 Blog 頁面的功能，目前仍然在償還這個技術債，因為一直想要以 Markdown 去 Render，但在一開始我完全沒有這部份的設計，如果要新增，我需要把 Components 做得更加彈性，這也是我正在努力的部分。同時還有 Render 文章數量的問題，要新增上一頁、下一頁的頁面切換。另外 Contact me 的寄信目前也還沒有完成，還在考量是不是直接串接一個 Lambda Function 還是真的寫一個 API 的 Auth 去做寄信的功能，這也是我目前正在思考的部分。
+Reaching the milestone of **500 commits** is significant, yet I still have numerous tasks I wish to accomplish. For instance, I'm currently working on finalizing the functionality of the Blog page. This is a task that comes with its own technical debt, as I initially lacked a design for rendering content in Markdown. Adding this feature requires me to enhance the flexibility of my components, which is an area I'm actively focusing on. Additionally, I'm addressing the issue of pagination, specifically the need for "Previous" and "Next" buttons to facilitate seamless navigation between articles. The "Contact Me" feature for sending emails is also pending, and I'm deliberating whether to connect it directly to a Lambda Function or to create a robust API for email authentication—this is another point I'm contemplating.
 
-要說這個專案感受最深的就是：我深刻感受到了軟體專案的 Myth，在開發的過程中，有時候會感受到吃力，比如說要加一個新的 Feature 的時候，完全受到過去寫法的制約，這時候我常常需要花很多時間去想哪裡可以調整，又或者說有沒有更好的實踐方式。再者有很多功能到底該不該加，加了我需要很多時間，但明明現在就能用啊！有時候都需要做內心拉扯，現階段情況就是無法做到完美，要想完美就需要花更多時間，但是現有時間下，又希望要做到最好，不要失去對自我的要求，這是一個很大的挑戰，也是我在這個專案中學到的最大的一點。
+Throughout this project, I’ve profoundly experienced the myths surrounding software development. There are moments when the process feels cumbersome, especially when attempting to implement new features. I often find myself constrained by previous coding decisions, which necessitates considerable time spent contemplating adjustments or seeking better practices. Furthermore, I wrestle with the decision of whether to add certain functionalities—while implementing them would consume significant time, they are functionalities that are usable in their current state. This internal conflict highlights the challenge of striving for perfection; achieving it requires more time, yet there is a desire to deliver the best possible outcome without compromising my standards. This balancing act has been one of the most valuable lessons I’ve learned during this project.
 
-未來我將持續更新以及維護這個專案，畢竟這代表我的個人形象展現，是我對於技術的一種實踐，更涵蓋了我對技術的自我要求，未來也還會有更多個 500 commits 的里程碑，大家可以持續關注我，我將繼續分享遇到的困難以及我是如何化解問題的！
+Moving forward, I will continue to update and maintain this project, as it represents my personal brand and serves as a testament to my technical pursuits. It encapsulates my commitment to excellence in technology, and I anticipate reaching more milestones of **500 commits** in the future. I invite you to follow my journey and share in the challenges I encounter and the solutions I devise.
 
-大家可以點擊 Follow 關注我追蹤我的最新動態，也可以到 GitHub Repo -- [1chooo.com](https://github.com/1chooo/1chooo.com) 點擊 Star ⭐️ 來支持我，謝謝大家！我們下次見！👋🏻
+Please feel free to click "Follow" to stay updated on my latest developments, and visit my GitHub repository—[1chooo.com](https://github.com/1chooo/1chooo.com)—to give it a star ⭐️ in support. Thank you all! Until next time! 👋🏻
