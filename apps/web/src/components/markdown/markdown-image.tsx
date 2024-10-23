@@ -15,7 +15,7 @@ const MarkdownImage: React.FC<MarkdownImageProps> = ({ src, alt }) => {
     <div
       style={{
         marginTop: '1rem',
-        maxWidth: '80%',
+        // maxWidth: '80%',
         margin: '0 auto',
         textAlign: 'center',
       }}
