@@ -1,37 +1,49 @@
 ---
-title: 提升 Next.js 效能：把重複載入的元件放入 global layout
+title: "Improve Next.js Performance: Move Shared Components to Global Layout"
 category: Project
 publishedAt: 2024-08-20
-summary: 透過 Next.js 的 Global Layout 來減少重複載入的元件，提升網頁效能。
+summary: Through Next.js's Global Layout, reduce the redundant loading of components to improve web performance.
 tags: 
-- React
-- Typescript
-- Next.js
+  - React
+  - Typescript
+  - Next.js
+  - Software Development
+  - Software Engineering
+  - Website Development
 banner: /images/banner/move-shared-components-to-global-layout.png
-alt: 提升 Next.js 效能：把重複載入的元件放入 global layout
+alt: "Improve Next.js Performance: Move Shared Components to Global Layout"
 ---
 
-我們今天也是來分享前端工程的相關技術，畢竟目前仍然努力地為我的網站 [1chooo.com](https://1chooo.com) 增加新的功能，以及償還過去的技術債 😢，在我的網站中，每個頁面都會共用 NavBar 來導引到不同的分頁，同時也會有 SideBar 來讓大家取得我的個人資訊，不過在過去的實作中，我每個頁面的 Component 中都包含了重複的元素，也就是說我只要切換頁面，這些重複的資訊就要重新載入一次，有時候網路不穩定的時候，還會造成圖片無法加載的問題，因此我想透過這次的篇幅來介紹我做了什麼改動。
+> Through Next.js's Global Layout, reduce the redundant loading of components to improve web performance.
 
-![提升 Next.js 效能：把重複載入的元件放入 global layout](/images/banner/move-shared-components-to-global-layout.png)
+Today, I’m excited to share some front-end development techniques, as I continue working to add new features and pay off technical debt for my website 😢, [1chooo.com](https://1chooo.com). As part of my ongoing efforts, I’ve noticed that each page on my site utilizes a shared NavBar for navigation and a SideBar that provides access to my personal information. However, in my previous implementations, these components were duplicated across every page, meaning that every time a user navigated to a new page, the same information was reloaded. This redundant loading often led to issues—particularly with images failing to load during periods of poor network connectivity.
 
-因為目前挑選的是 [Next.js](https://nextjs.org/) 作為我的前端框架，並搭配 [React](https://react.dev/) 來開發頁面上的 Components，想知道為什麼選擇 [Next.js](https://nextjs.org/) 的朋友可以看過去的這篇文章 -- [讓老舊的 Create React App (CRA) 支援 TypeScript 5.x 吧！](/blog/goodbye-react-create-app)因此我觀察到了在 [Next.js](https://nextjs.org/) 的專案結構之中（以我的[專案](https://github.com/1chooo/1chooo.com)為例）：
+In this post, I’ll walk through the improvements I’ve made to address these problems, ensuring more efficient rendering and a smoother user experience.
+
+![Improve Next.js Performance: Move Shared Components to Global Layout by Hugo](/images/banner/move-shared-components-to-global-layout.png)
+
+
+Since I am currently using [Next.js](https://nextjs.org/) as my front-end framework alongside [React](https://react.dev/) to develop the page components, I’ve made some observations about the project structure within Next.js (using my own [project](https://github.com/1chooo/1chooo.com) as an example):
 
 ```ts
 ...
 ├── app/
-│   |── portfolio/
-│   |   └── page.tsx    // Portfolio
-│   |── page.tsx        // Home
+│   ├── portfolio/
+│   │   └── page.tsx    // Portfolio
+│   ├── page.tsx        // Home
 │   └── layout.tsx
 └── components/
 ```
 
-頁面的路由 (App Router) 是透過 `app/` 目錄下的檔案來定義的，每個頁面要載入哪些 components 也是藉由這些檔案來加入的，同時我們可以看到在 `app/` 目錄下有一個 `layout.tsx` 的檔案，這個檔案就是我們要放置共用元件的地方，也就是 Global Layout 的存在，有點像是過去的 `index.html` 一樣，因此這次就是我下手的地方。
+For those curious about why I chose [Next.js](https://nextjs.org/), feel free to check out one of my earlier posts—[Updating an Outdated Create React App (CRA) to Support TypeScript 5.x](/blog/goodbye-react-create-app)—where I explain my decision in greater detail. 
 
-接著我們來觀察一下我的頁面組成，以 `about` 以及 `portfolio` 頁面為例：
+In this article, I'll delve into how the project structure in Next.js enhances the efficiency of my development process.
 
-`app/page.tsx`:
+The page routing in Next.js (App Router) is defined through the files located in the `app/` directory. These files also dictate which components are loaded on each page. Additionally, you'll notice the presence of a `layout.tsx` file in the `app/` directory. This file serves as the Global Layout, where shared components—like headers or sidebars—are placed, functioning similarly to the traditional `index.html` in older web projects. This is where I began making optimizations to improve performance and reduce redundancy.
+
+Let’s take a closer look at the structure of my pages, using the `about` and `portfolio` pages as examples:
+
+**`app/page.tsx` (About Page):**
 
 ```tsx
 const About = () => {
@@ -56,11 +68,9 @@ const About = () => {
     </main>
   );
 }
-
-export default About
 ```
 
-`app/portfolio/page.tsx`:
+**`app/portfolio/page.tsx` (Portfolio Page):**
 
 ```tsx
 const Portfolio = () => {
@@ -87,14 +97,15 @@ const Portfolio = () => {
     </main>
   );
 }
-
-export default Portfolio
 ```
 
-我重複寫了兩次的 `NavBar` 以及 `SideBar`，因此我可以把 `<article>` 這個 Tag 當成我傳入 layout 的 props，這樣就可以避免重複載入的問題，同時我也可以避免掉 Copy-paste Programming 接著我們來看看我如何改動：
+In both cases, components such as `SideBar` and `NavBar` are repeated, leading to redundancy. This is precisely why I began leveraging the `layout.tsx` file to refactor and consolidate these shared components, ensuring they load only once across all pages, thereby improving the overall efficiency of my site.
 
+I had been repeating both the `NavBar` and `SideBar` components across multiple pages, which led to redundant code and unnecessary reloading. To address this, I decided to pass the `<article>` tag as a prop to the layout, avoiding repeated loading and eliminating the pitfalls of copy-paste programming. Let's take a look at how I refactored this structure:
 
-我先設計一個新的 Component -- PageContent 可以用來組裝我的頁面元素，並且可以讓我設定頁面的 document title、載入特定 css 檔案等等：
+### Step 1: Creating a New `PageContent` Component
+
+I designed a new `PageContent` component to structure the elements of each page. This component allows me to set the document title, load specific CSS files, and more:
 
 ```tsx
 import React, { useEffect } from 'react';
@@ -108,14 +119,13 @@ const PageContent: React.FC<{
   pathName?: string;
 }> = ({ documentTitle, title, children, page, pathName }) => {
 
-  
-  // Check if the page is at root and should not have a specific `data-page` value.
+  // Handle edge case where 'About' page is at the root ("/") and doesn't have "/about" path.
   const isRootPage = pathName === '/' && page === 'about';
-  
+
   if (isRootPage) {
     documentTitle = "Hugo ChunHo Lin (1chooo) | Open Source Enthusiast";
   }
-  
+
   useEffect(() => {
     document.title = documentTitle;
   }, [documentTitle]);
@@ -130,17 +140,15 @@ const PageContent: React.FC<{
     </article>
   );
 };
-
-export default PageContent;
 ```
 
-我有特別做了例外處理，那就是 `About` 就是在 Root 不會有 `/about` 的路徑，因此我特別寫了一個判斷來讓 `About` 正常顯示。
+For the `About` page, which resides at the root (`/`) without an `/about` path, I added a condition to handle this exception. This ensures that the "About" page displays correctly without any path issues.
 
-接著我們就可以把重複的元件放入 `layout.tsx` 中：
+### Step 2: Moving Repeated Components to `layout.tsx`
 
-`app/layout.tsx`:
+Next, I moved the common components like `NavBar` and `SideBar` into `layout.tsx`, where they will load once for the entire application:
 
-``` diff
+```diff
   <body>
     <Hello />
 +   <main>
@@ -153,9 +161,11 @@ export default PageContent;
   </body>
 ```
 
-另外改寫一下 `About` 以及 `Portfolio` 的頁面：
+### Step 3: Refactoring the `About` and `Portfolio` Pages
 
-`app/page.tsx`:
+With the `PageContent` component in place and shared components moved to the layout, I refactored the `About` and `Portfolio` pages to utilize this new structure:
+
+**`app/page.tsx` (About Page):**
 
 ```tsx
 const About = () => {
@@ -172,14 +182,13 @@ const About = () => {
       <GitHubStats />
       <TechStack />
       <LifeStyles />
-    </PageContent >
+    </PageContent>
   );
 }
-
-export default About
 ```
 
-app/portfolio/page.tsx
+**`app/portfolio/page.tsx` (Portfolio Page):**
+
 ```tsx
 const Portfolio = () => {
   const pathname = usePathname();
@@ -199,11 +208,11 @@ const Portfolio = () => {
     </PageContent>
   );
 }
-
-export default Portfolio;
 ```
 
-做到這邊算是大功告成啦！我們已經把 `NavBar` 以及 `SideBar` 移入 `layout.tsx` 中，並且讓傳入的 `children` 可以用我們剛剛設計好的 `PageContent` 來包裝，這樣我們進入頁面就能一次把 `NavBar` 以及 `SideBar` 載入，還不需要在每個分頁都重寫一次，如果想看更多本次改動的更多細節，可以參考以下的 [PR](https://github.com/1chooo/1chooo.com/pull/114) 喔！
+### Final Thoughts
 
-最後，感謝大家跟我一起學習前端的技術，如果有更多實作上的細節，我將會繼續分享在我的 Blog 上，也歡迎大家來我的網頁的 GitHub Repo --  [1chooo.com](https://github.com/1chooo/1chooo.com) 看更多的實作細節，謝謝大家！
+With this refactor, I've successfully moved the `NavBar` and `SideBar` into `layout.tsx`, ensuring they only load once across all pages. Additionally, the dynamic content for each page is now wrapped in the reusable `PageContent` component, reducing the need for repetitive code. If you’d like to explore the detailed changes, feel free to check out the [PR](https://github.com/1chooo/1chooo.com/pull/114).
+
+Thank you all for following along as I continue to refine my front-end skills! For more technical details on my implementation, you can check out my website’s GitHub repository—[1chooo.com](https://github.com/1chooo/1chooo.com). Stay tuned for more updates!
 
