@@ -10,6 +10,7 @@ const { title } = config;
 const { description } = config;
 const { author } = config;
 const { keywords } = config;
+const { openGraph } = config;
 
 import "./globals.css";
 
@@ -21,20 +22,12 @@ export const metadata: Metadata = {
   authors: [{ name: author }],
   keywords: keywords,
   openGraph: {
-    url: "https://1chooo.com/",
+    url: openGraph.url,
     type: "website",
-    siteName: "Hugo ChunHo Lin (1chooo) | Open Source Enthusiast",
-    title: "Hugo ChunHo Lin (1chooo) | Open Source Enthusiast",
-    description:
-      "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
-    images: [
-      {
-        url: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",
-        width: 1200,
-        height: 630,
-        alt: "Hugo ChunHo Lin (1chooo) Cover Image",
-      },
-    ],
+    siteName: openGraph.siteName,
+    title: openGraph.title,
+    description: openGraph.description,
+    images: openGraph.images,
   },
   twitter: {
     card: "summary_large_image",
