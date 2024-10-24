@@ -7,6 +7,7 @@ import PageHeader from '@/components/page-header';
 import { getBlogPosts } from '@/lib/db/blog';
 
 import "@/styles/blog/blog-text.css"
+import Comments from '@/components/comments';
 
 export async function generateMetadata({
   params,
@@ -126,6 +127,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
       <article style={{ marginTop: '1rem' }}>
         <section className="blog-text">
           <PageHeader header="Comments" />
+          <Comments />
         </section>
       </article>
     </div>
