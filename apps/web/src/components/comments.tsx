@@ -14,7 +14,7 @@ const Comments: React.FC = () => {
       term="Welcome to @giscus/react component!"
       reactionsEnabled="1"
       emitMetadata="1"
-      inputPosition="top"
+      inputPosition="bottom"
       theme="dark"
       data-theme="dark"
       lang="en"
