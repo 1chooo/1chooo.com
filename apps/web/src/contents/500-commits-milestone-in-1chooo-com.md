@@ -16,7 +16,7 @@ Hey everyone! I'm Hugo, and I’ve just graduated from National Central Universi
 
 While 500 commits might seem trivial for large-scale projects, it’s a major accomplishment for a personal side project like mine. Keeping this project alive has been a challenge—one that requires continuously introducing new features, setting new goals, and tackling technical debt. In this post, I want to reflect on the efforts that went into reaching this milestone, share the invaluable lessons I’ve learned along the way, and discuss some of the challenges I encountered.
 
-![Built a 500 commits GitHub Repository: 10 essential steps you can't miss by Hugo](/images/banner/500-commits-milestone-in-1chooo-com.png)
+![Built a 500 commits GitHub Repository: 10 essential steps you can't miss by Hugo](/images/posts/500-commits-milestone-in-1chooo-com/500-commits-milestone-in-1chooo-com.png)
 
 
 Before diving into today’s discussion, let me give you a quick overview of my project's current state. The idea behind this project started with a simple desire—I wanted to create a personal website. Although I had attempted several iterations in the past, none of them quite met my expectations. So, I turned to GitHub, searching through keywords like "portfolio" and "personal website" to find a design that matched my vision. It felt a bit like taking a shortcut, but that’s the beauty of open source, right?

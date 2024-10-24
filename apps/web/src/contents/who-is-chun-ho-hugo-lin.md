@@ -5,7 +5,7 @@ category: Life
 tags:
   - Introduction
 summary: "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻."
-banner: https://miro.medium.com/v2/resize:fit:1400/format:webp/1*I6ElD-AdcBFYeUTIKV7SVg.jpeg
+banner: /images/banner/who-is-chun-ho-hugo-lin.png
 alt: "Who is Chun-Ho (Hugo) Lin 👨🏻‍💻"
 mathjax: true
 ---
