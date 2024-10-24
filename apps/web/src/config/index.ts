@@ -13,6 +13,21 @@ const config: Config = {
   author: "Chun-Ho (Hugo) Lin - 1chooo",
   keywords: ["Hugo ChunHo Lin", "1chooo", "Software Engineering", "Next.js", "React"],
   status: "Day ONE ⚡️",
+  openGraph: {
+    url: "https://1chooo.com/",
+    type: "website",
+    siteName: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
+    title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
+    description: "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+    images: [
+      {
+        url: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",
+        width: 1200,
+        height: 630,
+        alt: "Chun-Ho (Hugo) Lin - 1chooo Cover Image",
+      },
+    ],
+  },
   navItems: [
     { path: '/', label: 'About' },
     { path: '/resume', label: 'Resume' },
