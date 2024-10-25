@@ -1,17 +1,18 @@
 ---
-title: 讓老舊的 Create React App (CRA) 支援 TypeScript `5.x` 吧！
+title: Updating an Outdated Create React App (CRA) to Support TypeScript 5.x
 category: Project
 publishedAt: 2024-08-10
-summary: Create React App (CRA) 已經不再維護了，不過我們可以透過 `overrides` 來讓 CRA 支援 TypeScript `5.x` 的版本，讓我們來看看如何做吧！
+summary: Create React App (CRA) was officially deprecated by Facebook, and it's time to move on to other alternatives. However, we can still use CRA with TypeScript `5.x` by adding `overrides` to the `package.json`. Let's see how to do it!
 tags: 
   - React
   - Typescript
 banner: /images/banner/goodbye-react-create-app.png
-alt: 讓老舊的 Create React App (CRA) 支援 TypeScript `5.x` 吧！
+alt: Updating an Outdated Create React App (CRA) to Support TypeScript 5.x
 ---
 
+> Create React App (CRA) was officially deprecated by Facebook, and it's time to move on to other alternatives. However, we can still use CRA with TypeScript `5.x` by adding `overrides` to the `package.json`. Let's see how to do it!
 
-在最近這個暑假中，我幾乎都在為了我的個人網站 -- [1chooo.com](https://1chooo.com) 做開發，把一些過去想加上卻沒時間更新的技術債補回去，過去我採用的是 [React](https://react.dev/) 搭配 [TypeScript](https://www.typescriptlang.org/) 來開發，不過最近有遇到了一些問題，其中一個就是「[我無法將 Typescript 升級到 `^5` 的版本](https://github.com/1chooo/1chooo.com/pull/76)」，會出現以下的錯誤訊息：
+During this past summer, I dedicated most of my time to developing my personal website, [1chooo.com](https://1chooo.com), addressing several technical debts that I had postponed due to time constraints. In the past, I primarily used [React](https://react.dev/) alongside [TypeScript](https://www.typescriptlang.org/) for development. However, recently, I encountered some issues, one of which is related to "[chore(deps): bump typescript from 4.9.5 to 5.5.4](https://github.com/1chooo/1chooo.com/pull/76)." The following error message was displayed:
 
 ```typescript
 npm error code ERESOLVE
@@ -36,22 +37,23 @@ npm error node_modules/react-scripts
 npm error   react-scripts@"5.0.1" from the root project
 ```
 
-因此想透過本篇想紀錄的解決過程，以及相關脈絡資訊，如果電腦需要安裝 [Node.js, npm](https://nodejs.org/) 的話，可以參考我過去的文章 -- [如何在 Mac 安裝 Node.js & NPM](/2024/01/03/dev-env/mac-install-nodejs-npm/) 來安裝。
+Therefore, through this post, I aim to document the resolution process and provide the relevant contextual information. If your system requires the installation of [Node.js and npm](https://nodejs.org/), you can refer to my previous article — [How to Install Node.js & NPM on Mac](/blog/mac-install-nodejs-npm) — for installation instructions.
 
-![讓老舊的 Create React App (CRA) 支援 TypeScript `5.x` 吧！ by Hugo](/images/banner/goodbye-react-create-app.png)
+![Updating an Outdated Create React App (CRA) to Support TypeScript 5.x by Hugo](/images/banner/goodbye-react-create-app.png)
 
-過去我建立 React 專案的方式是透過 [`create-react-app` (CRA)](https://github.com/facebook/create-react-app) 來建立，不過在這次升級的過程中，我發現 [`create-react-app`](https://github.com/facebook/create-react-app) 似乎只支援到 [`v5.0.1`](https://github.com/facebook/create-react-app/releases/tag/v5.0.1) 的版本，並且可以從 Facebook 的 GitHub Repo 中發現，目前 CRA 已經沒有人在維護了，上次更新已經是 2022 年了，所以想當然爾，現在的 CRA 沒有支援 TypeScript `5.x` 的版本，只能支援到 `4.x` 的版本，這也是為什麼我目前無法升級 TypeScript 到 `5.x` 的原因。
+In the past, I used [`create-react-app` (CRA)](https://github.com/facebook/create-react-app) to set up my React projects. However, during this upgrade process, I discovered that CRA only supports up to [`v5.0.1`](https://github.com/facebook/create-react-app/releases/tag/v5.0.1). Looking at Facebook's GitHub repository, it's evident that CRA is no longer maintained, with its last update in 2022. Unsurprisingly, CRA does not support TypeScript `5.x`, only up to version `4.x`, which explains why I was unable to upgrade TypeScript to `5.x`.
+
 ![create-react-app v5.0.1](/images/posts/goodbye-react-create-app/create-react-app-v-5-0-1.png)
 
-因此我就開始在網路上搜尋為什麼 CRA 不再維護，以及有沒有其他的替代方案，首先我從 [React](https://react.dev/) 的官方文件中就寫明了建立 React App 的方式沒有 `create-react-app` 這個方式，反倒是建議使用像是 [Next.js, Remix, Gatsby, Expo (for native apps), etc.](https://react.dev/learn/start-a-new-react-project) 這些框架來建立 React App，我想這也是為什麼 CRA 不再維護的原因之一。
+I then started searching online for the reasons why CRA is no longer maintained and whether there are any alternatives. First, I found that [React’s](https://react.dev/) official documentation no longer mentions `create-react-app` as a recommended way to set up a React project. Instead, it suggests using frameworks like [Next.js, Remix, Gatsby, Expo (for native apps), etc.](https://react.dev/learn/start-a-new-react-project). This shift could be one of the reasons CRA is no longer supported.
 
 ![Start a New React Project](/images/posts/goodbye-react-create-app/start-a-new-react-project.png)
 
-我在 [Goodbye create-react-app](https://dev.to/ag2byte/create-react-app-is-officially-dead-h7o) 這篇文章中找到了一些 CRA 不再維護的原因，其中提到 CRA 這個專案已經被 Facebook 官方放棄了，主要是因為效能的關係，對於現行的方法而言太慢了，初始化的階段會花費太多時間，另外 CRA 也有一些因為過時所產生的警告，這些問題已經困擾開發者很久了，然而對於初學者來說也很難解決這些問題，因此 CRA 這個方式已經不再是最佳的選擇了。
+Additionally, I found an insightful article, [Goodbye create-react-app](https://dev.to/ag2byte/create-react-app-is-officially-dead-h7o), which outlines some of the reasons behind CRA’s discontinuation. The article explains that CRA was officially abandoned by Facebook due to performance issues. Specifically, it’s too slow for current needs, especially during initialization, and it produces outdated warnings that have frustrated developers for quite some time. These problems are also difficult for beginners to resolve, making CRA an outdated choice.
 
-另外我也在 [`create-react-app` (CRA)](https://github.com/facebook/create-react-app) 的 [Issues](https://github.com/facebook/create-react-app/issues/12628) 中找到一個別再用 CRA 的理由以及其他合適的建立 App 方法，總之挖掘資訊到現在，發現 CRA 基本上是被詬病已久的舊時代產物了，也是時候要更新。
+I also came across an [issue](https://github.com/facebook/create-react-app/issues/12628) in the [`create-react-app`](https://github.com/facebook/create-react-app) repository, which not only highlights reasons to avoid using CRA but also suggests alternatives for creating new apps. At this point, it became clear that CRA is an outdated relic of a previous era, and it's time to move on.
 
-不過身為軟體工程師，還是想要把問題解決，畢竟只是更新一個 Dependencies 而已，總會有解法讓我繼續使用 CRA 並且又能夠升級 TypeScript 到 `5.x` 的版本吧！於是我就找到了一個在 [`create-react-app`](https://github.com/facebook/create-react-app) 的 PR -- [(react-scripts) Support for TypeScript 5.x #13080](https://github.com/facebook/create-react-app/issues/13080)，這個 PR 也是關於 Typescript 升級不到 `5.x` 的問題，同時也有解決方法在裡面，其實只要在 `package.json` 中加入以下的 [`overrides`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#overrides) 就可以解決這個問題：
+However, as a software engineer, I still wanted to solve the immediate problem — after all, it's just a dependency update! Surely, there must be a workaround to keep using CRA while upgrading TypeScript to version `5.x`. Eventually, I found a pull request in the [`create-react-app`](https://github.com/facebook/create-react-app) repository — [(react-scripts) Support for TypeScript 5.x #13080](https://github.com/facebook/create-react-app/issues/13080) — that addresses the TypeScript upgrade issue and provides a solution. By simply adding the following [`overrides`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#overrides) to the `package.json`, the problem can be resolved:
 
 ```json
 "dependencies": {
@@ -63,8 +65,8 @@ npm error   react-scripts@"5.0.1" from the root project
 },
 ```
 
-這邊要特別注意，`overrides` 的版本要跟 dependencies 中 TypeScript 的版本一樣，這樣才能夠解決這個問題。如果想瞭解更多 `overrides` 的用法，可以參考 [`package.json`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#overrides) 的官方文件以了解更多。
+It's important to ensure that the version specified in `overrides` matches the TypeScript version in the dependencies to resolve the issue. For more information on using `overrides`, you can refer to the official [`package.json`](https://docs.npmjs.com/cli/v8/configuring-npm/package-json#overrides) documentation.
 
-目前到這邊已經算是成功解決 Typescript 升級到 `5.x` 的問題了，不過我覺得這樣其實治標不治本，畢竟 CRA 已經是沒有在維護的工具了，因此我也開啟了一個新的坑，那就是把我的 React App 整合到 [Next.js](https://nextjs.org/) 中，這樣就可以解決 CRA 不再維護的問題，同時也可以享受到 Next.js 的優點，這也是我接下來為自己開的新坑。
+At this point, the TypeScript upgrade issue is successfully resolved. However, I see this as a temporary fix since CRA is no longer maintained. This has opened up a new path for me — migrating my React app to [Next.js](https://nextjs.org/), which not only addresses the lack of CRA support but also brings the benefits of Next.js. This is the new challenge I’ve set for myself.
 
-未來我會持續更新這個坑，並且把我的 React App 整合到 Next.js 中，希望可以順利完成這個整合，因為目前搜尋下來看起來是要整份重寫了⋯⋯想看更多的話可以持續關注，也可以參觀我目前的個人網站 -- [1chooo.com](https://1chooo.com)，也可以到 GitHub 上看到網站的原始碼 -- [1chooo/1chooo.com](https://github.com/1chooo/1chooo.com)，我將會持續更新，希望這篇可以幫助到需要的人喔～
+In the future, I plan to continue documenting my progress as I integrate my React app into Next.js, hoping the migration goes smoothly (even though it looks like I'll need to rewrite a lot!). Stay tuned for more updates, and feel free to check out my current personal website — [1chooo.com](https://1chooo.com) — or view the code on GitHub — [1chooo/1chooo.com](https://github.com/1chooo/1chooo.com). I hope this post helps anyone who’s facing similar issues!
