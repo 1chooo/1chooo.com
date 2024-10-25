@@ -79,7 +79,7 @@ export default function BlogPage({
                       height={900}
                       priority={true}
                       placeholder="empty"
-                      loading="eager"
+                      loading="lazy"
                     />
                   </figure>
                   <div className="blog-content">
