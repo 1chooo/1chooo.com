@@ -11,7 +11,12 @@
 
 <p align="center">
   <strong>
-    <a href="#-abstract">📍 Abstract</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="#-features">✨ Feature</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="#-contributing">🌏 Contributing</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="#-contact-info">📲 Contact Info</a>&nbsp;&nbsp;&bull;&nbsp;&nbsp;<a href="#-license">🪪 License</a>
+    <a href="#-abstract">📍 Abstract</a>&nbsp;&nbsp;&bull;&nbsp;
+    <a href="#-features">✨ Feature</a>&nbsp;&nbsp;&bull;&nbsp;
+    <a href="#-contributing">🌏 Contributing</a>&nbsp;&nbsp;&bull;&nbsp;
+    <a href="#-contact-info">📲 Contact Info</a>&nbsp;&nbsp;&bull;&nbsp;
+    <a href="#-license">🪪 License</a>&nbsp;&nbsp;&bull;&nbsp;
+    <a href="https://docs.1chooo.com">📚 Docs</a>
   </strong>
 </p>
 
@@ -27,15 +32,21 @@ We'll also provide comprehensive documentation, including a user guide, code wal
 
 - 💀 Skeleton Loading
 - ⚡️ Next.js 14 with App Router
-- [🟩 GitHub Calendar Heatmap](https://github.com/grubersjoe/react-github-calendar)
 - ✍🏻 Markdown Rendering
 - 🧪 Components Unit Testing
+- 🟩 [GitHub Calendar Heatmap]
+- 💎 [giscus]
+
+[GitHub Calendar Heatmap]: https://github.com/grubersjoe/react-github-calendar
+[giscus]: https://giscus.app/
 
 ## 🌏 Contributing
 
 [PRs](https://github.com/1chooo/1chooo.com/pulls) and [Issues](https://github.com/1chooo/1chooo.com/issues) are welcome! 🫵🏻
 
-Please read the [Contributing Guideline](https://docs.1chooo.com/contributing) for details on our code of conduct, and the process for submitting pull requests to us.
+Please read the [Contributing Guideline] for details on our code of conduct, and the process for submitting pull requests to us.
+
+[Contributing Guideline]: https://docs.1chooo.com/contributing
 
 ## 🔩 Getting Started
 
@@ -62,7 +73,7 @@ $ npm run dev   # Open http://localhost:3000 with your browser to see the result
 ## 🪪 License
 
 This work is licensed under a
-[Creative Commons Attribution 4.0 International License][cc-by] by [Hugo ChunHo Lin](https://1chooo.com).
+[Creative Commons Attribution 4.0 International License][cc-by] by [Hugo ChunHo Lin][1chooo-com].
 
 [cc-by]: http://creativecommons.org/licenses/by/4.0/
 
@@ -76,4 +87,6 @@ If a significant portion of the source code is used, please provide a link back 
 
 Please remove all of my personal information by running `npm run delete`.
 
-Made with 🖤 by [@1chooo](https://1chooo.com)
+Made with 🖤 by [@1chooo][1chooo-com]
+
+[1chooo-com]: https://1chooo.com
