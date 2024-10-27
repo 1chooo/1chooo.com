@@ -6,17 +6,17 @@ tags:
   - VSCode
   - Tailwind
   - Unknown at rule
-summary: "Although this message doesn't disrupt the functionality, it can be distracting. Today, we'll dig into why this issue occurs and how to resolve it."
+summary: "Although this message doesn't disrupt the functionality, it can be distracting. However, as Software Engineer, we can't let these smells distract us from our work. That's why I decided to investigate the issue and find a solution. Today, I'll share the steps I took to resolve the 'Unknown rule @tailwind' issue in VSCode."
 banner: /images/banner/unknown-at-rule-tailwind-in-vscode.png
 alt: 'Solving the "Unknown rule @tailwind" Issue in VSCode'
 mathjax: false
 ---
 
-Hey there 👋, it's Hugo. Today, I'll walk you through a common issue I encountered while developing my portfolio website—one that you might also face when integrating Tailwind CSS in a VSCode environment. When I added Tailwind to my project, I was greeted by the following error message: `Unknown at rule @tailwind`
+Hey there 👋, it's Hugo. Today, I'll walk you through a common issue I encountered while developing my portfolio website—one that you might also face when integrating [Tailwind CSS](https://tailwindcss.com) in a [VSCode](https://code.visualstudio.com/) environment. When I added Tailwind to my project, I was greeted by the following error message: `Unknown at rule @tailwind`
 
 ![Unknown Tailwind Error](/images/posts/unknown-at-rule-tailwind-in-vscode/unknown-tailwind-message.png)
 
-Although this message doesn't disrupt the functionality, it can be distracting. Today, we'll dig into why this issue occurs and how to resolve it. 
+Although this message doesn't disrupt the functionality, it can be distracting. However, as Software Engineer, we can't let these smells distract us from our work. That's why I decided to investigate the issue and find a solution. Today, I'll share the steps I took to resolve the "Unknown rule @tailwind" issue in VSCode.
 
 ![Solving the "Unknown rule @tailwind" Issue in VSCod by Hugo](/images/banner/unknown-at-rule-tailwind-in-vscode.png)
 
