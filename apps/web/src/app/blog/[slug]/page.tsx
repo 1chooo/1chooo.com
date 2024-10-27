@@ -4,10 +4,10 @@ import { notFound } from 'next/navigation';
 import { unstable_noStore as noStore } from 'next/cache';
 import MarkdownRenderer from '@/components/markdown/markdown-renderer';
 import PageHeader from '@/components/page-header';
+import Comments from '@/components/comments';
 import { getBlogPosts } from '@/lib/db/blog';
 
 import "@/styles/blog/blog-text.css"
-import Comments from '@/components/comments';
 
 export async function generateMetadata({
   params,
@@ -34,10 +34,12 @@ export async function generateMetadata({
     description,
     openGraph: {
       title,
+      siteName: 'Hugo\'s Blog',
       description,
       type: 'article',
       publishedTime,
       url: `https://1chooo.com/blog/${post.slug}`,
+      locale: 'en_US',
       images: [
         {
           url: ogImage,
