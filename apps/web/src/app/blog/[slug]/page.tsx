@@ -34,7 +34,7 @@ export async function generateMetadata({
     description,
     openGraph: {
       title,
-      siteName: 'Hugo\'s Blog',
+      siteName: 'Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast',
       description,
       type: 'article',
       publishedTime,
