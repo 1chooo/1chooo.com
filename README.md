@@ -30,13 +30,17 @@ We'll also provide comprehensive documentation, including a user guide, code wal
 
 ## ✨ Features
 
-- 💀 Skeleton Loading
-- ⚡️ Next.js 14 with App Router
-- ✍🏻 Markdown Rendering
-- 🧪 Components Unit Testing
+- 💀 [Skeleton Loading]
+- ⚡️ [Next.js 14 with App Router]
+- ✍🏻 [Markdown Rendering]
+- 🧪 [Jest - Components Unit Testing]
 - 🟩 [GitHub Calendar Heatmap]
 - 💎 [giscus]
 
+[Skeleton Loading]: https://github.com/dvtng/react-loading-skeleton
+[Next.js 14 with App Router]: https://nextjs.org/
+[Markdown Rendering]: https://github.com/hashicorp/next-mdx-remote
+[Jest - Components Unit Testing]: https://jestjs.io/
 [GitHub Calendar Heatmap]: https://github.com/grubersjoe/react-github-calendar
 [giscus]: https://giscus.app/
 
