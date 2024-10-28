@@ -1,6 +1,6 @@
 export const projectTags = [
   "All",
-  "Applications",
+  "App development",
   "Web development",
   "Line Bot",
   "Data Science",
@@ -27,6 +27,12 @@ export const projectsData: Project[] = [
     link: 'https://github.com/1chooo/1chooo.com',
   },
   {
+    title: 'UML Editor',
+    category: 'App development',
+    imageUrl: "https://github.com/1chooo/uml-editor/raw/main/docs/imgs/cover.png",
+    link: 'https://github.com/1chooo/uml-editor',
+  },
+  {
     title: 'AWS Educate 101',
     category: 'Line Bot',
     imageUrl: "/images/projects/aws_edu_101.png",
@@ -34,13 +40,13 @@ export const projectsData: Project[] = [
   },
   {
     title: 'Thermal Calculator',
-    category: 'Applications',
+    category: 'App development',
     imageUrl: "/images/projects/thermal_calculator.png",
     link: 'https://github.com/1chooo/thermal-calculator',
   },
   {
     title: 'Gym Route',
-    category: 'Applications',
+    category: 'App development',
     imageUrl: "/images/projects/gym_route.png",
     link: 'https://github.com/1chooo/gym-route',
   },
