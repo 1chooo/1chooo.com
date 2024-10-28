@@ -21,9 +21,9 @@ export const projectsData: Project[] = [
     link: 'https://github.com/TODAM-tw/todam-ticket-system',
   },
   {
-    title: 'React vCard Portfolio',
+    title: '1chooo.com',
     category: 'Web development',
-    imageUrl: "/images/projects/react_vcard_portfolio.png",
+    imageUrl: "/images/projects/1chooo-com.png",
     link: 'https://github.com/1chooo/1chooo.com',
   },
   {
@@ -35,7 +35,7 @@ export const projectsData: Project[] = [
   {
     title: 'AWS Educate 101',
     category: 'Line Bot',
-    imageUrl: "/images/projects/aws_edu_101.png",
+    imageUrl: "/images/projects/aws-edu-101.png",
     link: 'https://github.com/1chooo/aws-line-business-card-workshop',
   },
   {
@@ -53,7 +53,7 @@ export const projectsData: Project[] = [
   {
     title: 'Evolving Beasts',
     category: 'Line Bot',
-    imageUrl: "/images/projects/evolving_beasts.png",
+    imageUrl: "/images/projects/evolving-beasts.png",
     link: 'https://github.com/1chooo/evolving-beasts',
   },
   {
