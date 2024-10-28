@@ -29,7 +29,7 @@ export const projectsData: Project[] = [
   {
     title: 'UML Editor',
     category: 'App development',
-    imageUrl: "https://github.com/1chooo/uml-editor/raw/main/docs/imgs/cover.png",
+    imageUrl: "/images/projects/uml-editor.png",
     link: 'https://github.com/1chooo/uml-editor',
   },
   {
