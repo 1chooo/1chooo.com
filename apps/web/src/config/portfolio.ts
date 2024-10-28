@@ -17,7 +17,7 @@ export const projectsData: Project[] = [
   {
     title: 'TODAM-tw',
     category: 'Web development',
-    imageUrl: "https://github.com/TODAM-tw/todam-ticket-system/raw/main/docs/imgs/cover.png",
+    imageUrl: "/images/projects/todam-tw.png",
     link: 'https://github.com/TODAM-tw/todam-ticket-system',
   },
   {
@@ -41,13 +41,13 @@ export const projectsData: Project[] = [
   {
     title: 'Thermal Calculator',
     category: 'App development',
-    imageUrl: "/images/projects/thermal_calculator.png",
+    imageUrl: "/images/projects/thermal-calculator.png",
     link: 'https://github.com/1chooo/thermal-calculator',
   },
   {
     title: 'Gym Route',
     category: 'App development',
-    imageUrl: "/images/projects/gym_route.png",
+    imageUrl: "/images/projects/gym-route.png",
     link: 'https://github.com/1chooo/gym-route',
   },
   {
@@ -65,7 +65,7 @@ export const projectsData: Project[] = [
   {
     title: 'Game Scope',
     category: 'Data Science',
-    imageUrl: "/images/projects/game_scope.png",
+    imageUrl: "/images/projects/game-scope.png",
     link: 'https://github.com/1chooo/game-scope',
   },
 ];
