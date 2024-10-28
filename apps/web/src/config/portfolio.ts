@@ -59,7 +59,7 @@ export const projectsData: Project[] = [
   {
     title: 'Refinaid',
     category: 'Web development',
-    imageUrl: "/images/projects/portfolio_test.png",
+    imageUrl: "/images/projects/refinaid.png",
     link: 'https://github.com/1chooo/refinaid',
   },
   {
