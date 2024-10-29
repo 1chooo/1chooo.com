@@ -39,6 +39,12 @@ export const projectsData: Project[] = [
     link: 'https://github.com/1chooo/aws-line-business-card-workshop',
   },
   {
+    title: 'Anon Chat',
+    category: 'Web development',
+    imageUrl: "/images/projects/anon-chat.png",
+    link: 'https://github.com/1chooo/anon-chat',
+  },
+  {
     title: 'Hua Tank',
     category: 'App development',
     imageUrl: "/images/projects/hua-tank.png",
