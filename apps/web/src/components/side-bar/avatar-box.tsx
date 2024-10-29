@@ -30,7 +30,7 @@ const AvatarBox: React.FC<AvatarBoxProps> = ({ avatar }) => {
         alt={`${firstName} (${preferredName}) ${lastName}`}
         width={imageSize.width}
         height={imageSize.height}
-        loading="lazy"
+        loading="eager"
       />
     </figure>
   );
