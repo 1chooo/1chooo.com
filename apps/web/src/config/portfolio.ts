@@ -15,16 +15,22 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
-    title: 'TODAM-TW',
+    title: 'Refinaid',
     category: 'Web development',
-    imageUrl: "/images/projects/todam-tw.png",
-    link: 'https://github.com/TODAM-tw/todam-ticket-system',
+    imageUrl: "/images/projects/refinaid.png",
+    link: 'https://github.com/1chooo/refinaid',
   },
   {
     title: '1chooo.com',
     category: 'Web development',
     imageUrl: "/images/projects/1chooo-com.png",
     link: 'https://github.com/1chooo/1chooo.com',
+  },
+  {
+    title: 'TODAM-TW',
+    category: 'Web development',
+    imageUrl: "/images/projects/todam-tw.png",
+    link: 'https://github.com/TODAM-tw/todam-ticket-system',
   },
   {
     title: 'UML Editor',
@@ -51,6 +57,12 @@ export const projectsData: Project[] = [
     link: 'https://github.com/1chooo/hua-tank',
   },
   {
+    title: 'NCUFresh',
+    category: 'Web development',
+    imageUrl: "/images/projects/ncufresh.png",
+    link: 'https://22.ncufresh.ncu.edu.tw/',
+  },
+  {
     title: 'Thermal Calculator',
     category: 'App development',
     imageUrl: "/images/projects/thermal-calculator.png",
@@ -67,12 +79,6 @@ export const projectsData: Project[] = [
     category: 'Line Bot',
     imageUrl: "/images/projects/evolving-beasts.png",
     link: 'https://github.com/1chooo/evolving-beasts',
-  },
-  {
-    title: 'Refinaid',
-    category: 'Web development',
-    imageUrl: "/images/projects/refinaid.png",
-    link: 'https://github.com/1chooo/refinaid',
   },
   {
     title: 'Game Scope',
