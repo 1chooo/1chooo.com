@@ -15,7 +15,7 @@ export interface Project {
 
 export const projectsData: Project[] = [
   {
-    title: 'TODAM-tw',
+    title: 'TODAM-TW',
     category: 'Web development',
     imageUrl: "/images/projects/todam-tw.png",
     link: 'https://github.com/TODAM-tw/todam-ticket-system',
