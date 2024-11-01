@@ -1,28 +1,29 @@
 ---
-title: 如何透過 `map()` 讓你的 React TypeScript 專案更加優雅？
+title: How to Make Your React TypeScript Project More Elegant with `map()`
 category: Project
 publishedAt: 2024-02-15
-summary: 透過 React TypeScript 和 `map()` 方法打造更優雅的個人部落格。在這篇文章中，我分享了如何利用 `map()` 方法來處理部落格文章列表的動態渲染，並展示了 ChatGPT 提供的修改建議和實作過程中的思考。
+summary: With React TypeScript and `map()`, you can create a more elegant personal blog. In this article, I share how to use the `map()` method to handle dynamic rendering of blog post lists and show the thought process of implementing the modification suggestions provided by ChatGPT.
 tags: 
 - React
 - Frontend
 - map
 - TypeScript
 banner: /images/banner/make-your-react-more-elegant-with-map.png
-alt: 如何透過 map() 讓你的 React TypeScript 專案更加優雅？
+alt: How to Make Your React TypeScript Project More Elegant with `map()`
 ---
 
-> 透過 React TypeScript 和 `map()` 方法打造更優雅的個人部落格。在這篇文章中，我分享了如何利用 `map()` 方法來處理部落格文章列表的動態渲染，並展示了 ChatGPT 提供的修改建議和實作過程中的思考。
+> With React TypeScript and `map()`, you can create a more elegant personal blog. In this article, I share how to use the `map()` method to handle dynamic rendering of blog post lists and show the thought process of implementing the modification suggestions provided by ChatGPT.
 
-![如何透過 `map()` 讓你的 React TypeScript 專案更加優雅？](/images/banner/make-your-react-more-elegant-with-map.png)
+![How to Make Your React TypeScript Project More Elegant with `map()` by Hugo](/images/banner/make-your-react-more-elegant-with-map.png)
 
-2024 年的寒假，我本就規劃著要再重新更新我的履歷以及個人網頁，因此在 GitHub 找到了很符合我目前需求的 Portfolio 設計 codewithsadee/vcard-personal-portfolio，本想著就照著作者的模板將自己的資訊換上就好，但是作者提供的模板沒有更多的部落格文章瀏覽設計，所有網頁內容都是在同個 index.html 裡，如果把關於我的內容塞滿載入時間太久了，因此我想說那就把每個分頁都變成一個路由去處理，可是又覺得可以來玩玩看 ReactTS，於是就開始了我的部落格爆改之旅。
+Hey this is Hugo 👋 In the winter break of 2024, I planned to update my resume and personal website. I found a Portfolio design [codewithsadee/vcard-personal-portfolio](https://github.com/codewithsadee/vcard-personal-portfolio) on GitHub that suited my current needs. I thought I could just replace the information with my own, but the template provided by the author did not have a design for more blog post browsing. All the web content is in the same `index.html`. If I fill the content about me, the loading time is too long. So I thought about turning each page into a route to handle it, but I thought I could play with ReactTS, so I started my blog makeover journey.
 
-本篇我想分享我是如何透過 `map()` 使我的 React 專案更為整潔的過程，以及我是如何透過 ChtGPT 給予我修改建議，以及輔助我實作出來的過程。
+In this article, I share how I used React TypeScript and `map()` to create a more elegant personal blog. I will show you how to use the `map()` method to handle dynamic rendering of blog post lists and the thought process of implementing the modification suggestions provided by ChatGPT.
 
-![透過 map() 動態渲染成果](https://miro.medium.com/v2/format:webp/1*KkNkB-tsC-ktJ9d76GhKIA.png)
 
-原先的部落格頁面的寫法是這樣的：
+![The effect of dynamic rendering through map()](https://miro.medium.com/v2/format:webp/1*KkNkB-tsC-ktJ9d76GhKIA.png)
+
+The original blog page was written like this:
 
 ```tsx
 <ul className="blog-posts-list">
@@ -94,11 +95,11 @@ alt: 如何透過 map() 讓你的 React TypeScript 專案更加優雅？
 </ul>
 ```
 
-由上方程式碼我們可以看出，如果需要新增更多文章，那我們的文章會變得非常的冗長，於是我便詢問 ChatGPT：「這樣檔案太長了，你會有什麼建議改寫？因為目前功能是互相關連的，我是 .tsx」
+Due to the above code, we can see that if we need to add more articles, our articles will become very long. So I asked ChatGPT: "This file is too long, do you have any suggestions for rewriting? Because the current functionality is interrelated, I am using `.tsx`."
 
-於是乎 ChatGPT 幫我找到了這些 blog-post-item 裡面的重複程式碼，並且建議我可以透過 map() 來處理，於是我便開始了我的改寫之旅。
+Then ChatGPT helped me find the repeated code in these `blog-post-item`s and suggested that I could handle it through `map()`. So I started my rewrite journey.
 
-首先是先建立一個 interface 來把重複的資訊給模組化，因為每個 <li></li> 裡都有這些重複的內容，包括了 title, category, imageUrl, date, content, link，因此先將 Post 的型別給構建出來：
+First, I created an interface to modularize the repeated information. Because each `<li></li>` contains this repeated content, including title, category, imageUrl, date, content, link, I first built the type of Post:
 
 ```tsx
 interface Post {
@@ -112,8 +113,7 @@ interface Post {
 }
 ```
 
-接著是依據剛剛建立的 interface Post把 Post 會用到的資料存成可以取用的陣列 postData：
-
+Later, I created an array `postsData` based on the newly created interface Post to store the data that Post will use:
 
 ```tsx
 const postsData: Post[] = [
@@ -132,7 +132,7 @@ const postsData: Post[] = [
       </p>
     ),
     link: 'https://medium.com/@1chooo/%E5%A6%82%E4%BD%95%E9%80%8F%E9%81%8E-map-%E8%AE%93%E4%BD%A0%E7%9A%84-react-typescript-%E5%B0%88%E6%A1%88%E6%9B%B4%E5%8A%A0%E5%84%AA%E9%9B%85-f1e5bdca1710',
-    alt: '如何透過 map() 讓你的 React TypeScript 專案更加優雅？'
+    alt: 'How to Make Your React TypeScript Project More Elegant with `map()`'
   },
   {
     title: (
@@ -154,7 +154,7 @@ const postsData: Post[] = [
 ];
 ```
 
-如此一來，我們就可以透過 map() 來將 postsData 裡的資料給取出來，並且將重複的程式碼給簡化：
+In this way, we can use `map()` to extract the data from `postsData` and simplify the repeated code:
 
 ```tsx
 <ul className="blog-posts-list">
@@ -195,6 +195,12 @@ const postsData: Post[] = [
 </ul>
 ```
 
-有了這樣的改寫之後，我們就可以透過 postsData 來新增更多的文章，而不用擔心程式碼會變得非常的冗長，這樣的改寫方式也讓我們的程式碼更為整潔，並且更容易維護。
+With this rewrite, we can add more articles through `postsData` without worrying about the code becoming very long. This rewriting method also makes our code cleaner and easier to maintain.
 
-最後也想分享我這次實作出來的感想，本想說把原本作者的寫法直接全部放到 ReactComponent 裡全部 return 出來，成功在網頁上顯示就好，不過後來發現這樣我每要新增一個文章的內容，我的 Component 裡的程式碼一次就要新增快三十行，然而這些程式碼都是重複的（做同樣事情）好在有請 ChatGPT 幫我做 Code Review，提出了使用 map() 的建議，也讓初嘗試 React 開發的我，有機會更認識這個框架，最後祝大家「龜年龍 🐲 某 BUG 啦！」
+Finally, I would like to share my thoughts on the implementation I made this time. I originally wanted to directly return all the author's writing in ReactComponent, and successfully displayed it on the webpage. However, I found that if I need to add more article content, my Component code needs to add nearly thirty lines at a time, and these codes are all repetitive (doing the same thing). Fortunately, I asked ChatGPT for a Code Review, which suggested using `map()`, allowing me to get to know this framework better. Wish you all "Happy New Year and no BUGs!"
+
+I hope you enjoyed this article and found it helpful. If you have any questions or suggestions, feel free to leave a comment below. You can also find me on [GitHub](https://github.com/1chooo) and You can also visit my [personal website](https://1chooo.com)
+
+---
+
+There are some updates: We have changed the new way to render the post lists and we successfully support the renderring of the post with only writing markdown files. Keep in touch with me and I will share more about this in the future.
