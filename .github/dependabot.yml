@@ -24,13 +24,3 @@ updates:
     reviewers:
       - "1chooo"
     open-pull-requests-limit: 20
-
-  - package-ecosystem: "npm"
-    directory: "/" # Root directory
-    schedule:
-      interval: "weekly"
-    assignees:
-      - "1chooo"
-    reviewers:
-      - "1chooo"
-    open-pull-requests-limit: 20
