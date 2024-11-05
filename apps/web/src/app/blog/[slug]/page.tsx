@@ -6,8 +6,11 @@ import MarkdownRenderer from '@/components/markdown/markdown-renderer';
 import PageHeader from '@/components/page-header';
 import Comments from '@/components/comments';
 import { getBlogPosts } from '@/lib/db/blog';
+import config from '@/config';
 
 import "@/styles/blog/blog-text.css"
+
+const { giscusConfig } = config;
 
 export async function generateMetadata({
   params,
@@ -129,7 +132,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
       <article style={{ marginTop: '1rem' }}>
         <section className="blog-text">
           <PageHeader header="Comments" />
-          <Comments />
+          <Comments giscusConfig={giscusConfig}/>
         </section>
       </article>
     </div>
