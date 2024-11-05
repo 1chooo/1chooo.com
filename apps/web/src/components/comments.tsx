@@ -1,24 +1,24 @@
 "use client";
 
 import Giscus from "@giscus/react";
+import type { GiscusProps } from "@giscus/react";
 
-const Comments: React.FC = () => {
+const Comments: React.FC<{ giscusConfig: GiscusProps }> = ({ giscusConfig }) => {
   return (
     <Giscus
-      id="comments"
-      repo="1chooo/1chooo.com"
-      repoId="R_kgDOLBatdw"
-      category="General"
-      categoryId="DIC_kwDOLBatd84CjpPs"
-      mapping="pathname"
-      term="Welcome to @giscus/react component!"
-      reactionsEnabled="1"
-      emitMetadata="1"
-      inputPosition="bottom"
-      theme="dark"
-      data-theme="dark"
-      lang="en"
-      loading="lazy"
+      id={giscusConfig.id}
+      repo={giscusConfig.repo}
+      repoId={giscusConfig.repoId}
+      category={giscusConfig.category}
+      categoryId={giscusConfig.categoryId}
+      mapping={giscusConfig.mapping}
+      term={giscusConfig.term}
+      reactionsEnabled={giscusConfig.reactionsEnabled}
+      emitMetadata={giscusConfig.emitMetadata}
+      inputPosition={giscusConfig.inputPosition}
+      theme={giscusConfig.theme}
+      lang={giscusConfig.lang}
+      loading={giscusConfig.loading}
     />
   );
 }

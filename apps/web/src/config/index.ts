@@ -204,6 +204,21 @@ const config: Config = {
       ],
     },
   },
+  "giscusConfig": {
+    id: "comments",
+    repo: "1chooo/1chooo.com",
+    repoId: "R_kgDOLBatdw",
+    category: "General",
+    categoryId: "DIC_kwDOLBatd84CjpPs",
+    mapping: "pathname",
+    term: "Welcome to @giscus/react component!",
+    reactionsEnabled: "1",
+    emitMetadata: "1",
+    inputPosition: "bottom",
+    theme: "dark",
+    lang: "en",
+    loading: "lazy",
+  }
 };
 
 export default config;

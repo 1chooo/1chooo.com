@@ -2,6 +2,7 @@ import type { About } from "@/types/about";
 import type { Resume } from "@/types/resume";
 import type { NavItem } from "@/types/nav-bar";
 import { OpenGraph } from "./open-graph";
+import type { GiscusProps } from "@giscus/react";
 
 /**
  * Type definition for the Web app configuration.
@@ -21,4 +22,5 @@ export type Config = {
   navItems: NavItem[];
   about: About;
   resume: Resume;
+  giscusConfig: GiscusProps;
 }
