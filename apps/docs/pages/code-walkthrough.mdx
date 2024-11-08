@@ -2,7 +2,25 @@ import { FileTree } from 'nextra/components'
 
 # Code Walkthrough
 
-[1chooo.com](https://1chooo.com) is a web application that allows users to showcase their projects and portfolios. This document provides a high-level overview of the codebase and the architecture of the application.
+[1chooo.com](https://1chooo.com) is a web application that allows users to showcase their projects, blogs and portfolios. In the GitHub repository -- [1chooo.com](https://github.com/1chooo/1chooo.com), the codebase is organized into the mono-repo structure through Next.js Turbo. And we provide a high-level overview of the codebase and the architecture of the application. in this document.
+
+## The Overview of the File Structure
+
+<FileTree>
+  <FileTree.Folder name=".github" />
+  <FileTree.Folder name="apps" defaultOpen>
+    <FileTree.Folder name="docs" />
+    <FileTree.Folder name="web" />
+  </FileTree.Folder>
+  <FileTree.Folder name="package" />
+  <FileTree.File name=".gitignore" />
+  <FileTree.File name="CONTRIBUTING.md" />
+  <FileTree.File name="LICENSE" />
+  <FileTree.File name="README.md" />
+  <FileTree.File name="package-lock.json" />
+  <FileTree.File name="package.json" />
+  <FileTree.File name="turbo.json" />
+</FileTree>
 
 ## The Complete Project Folder Structure
 
@@ -67,17 +85,3 @@ Estimated People Required (organic) 2.31
 Processed 219960 bytes, 0.220 megabytes (SI)
 ───────────────────────────────────────────────────────────────────────────────
 ```
-
- 
-<FileTree>
-  <FileTree.Folder name="pages" defaultOpen>
-    <FileTree.File name="_meta.json" />
-    <FileTree.File name="contact.md" />
-    <FileTree.File name="index.mdx" />
-    <FileTree.Folder name="about">
-      <FileTree.File name="_meta.json" />
-      <FileTree.File name="legal.md" />
-      <FileTree.File name="index.mdx" />
-    </FileTree.Folder>
-  </FileTree.Folder>
-</FileTree>
