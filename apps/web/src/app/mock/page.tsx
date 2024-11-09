@@ -5,13 +5,13 @@ import FilterSelectBox from "@/components/portfolio/v2/filter-select-box";
 import FilterList from "@/components/portfolio/v2/filter-list";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import { getPortfolioPosts } from "@/lib/db/portfolio";
-import { POSTS_PER_PAGE } from "@/lib/constants";
 import config from "@/config";
 import { LuEye } from "react-icons/lu";
+import "react-loading-skeleton/dist/skeleton.css";
+
 
 const { title } = config;
-
-import "react-loading-skeleton/dist/skeleton.css";
+const POSTS_PER_PAGE = 9;
 
 export const metadata = {
   title: `Portfolio | ${title}`,
