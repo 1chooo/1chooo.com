@@ -1,3 +1,5 @@
+<a name="readme-top"></a>
+
 <a href="https://1chooo.com">
   <img alt="1chooo.com Home Page" src="./.github/images/cover-transparent-with-1chooo-com.png">
 </a>
@@ -94,3 +96,9 @@ Please remove all of my personal information by running `npm run delete`.
 Made with 🖤 by [@1chooo][1chooo-com]
 
 [1chooo-com]: https://1chooo.com
+
+<p align="right" style="font-size: 14px; color: #555; margin-top: 20px;">
+    <a href="#readme-top" style="text-decoration: none; color: #007bff; font-weight: bold;">
+        ↑ Back to Top ↑
+    </a>
+</p>
