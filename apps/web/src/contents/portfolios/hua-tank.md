@@ -1,10 +1,16 @@
 ---
 title: "Hua Tank V.S. Bogy"
-category: Web Development
-publishedAt: 2023-01-31
+category: Game Development
+startDate: 2022-12-09
+endDate: 2022-01-15
+publishedAt: 2023-01-15
 summary: "Final Project of CE2012 - Assembly Language and System Programming"
 tags: 
-  - 
+  - Assembly
+  - Game
+  - Ascii Art
+  - Tank
+  - Bogy
 banner: /images/projects/hua-tank.png
 alt: "Hua Tank V.S. Bogy | Final Project of CE2012 - Assembly Language and System Programming"
 ---
