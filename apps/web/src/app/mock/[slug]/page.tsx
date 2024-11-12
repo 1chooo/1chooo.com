@@ -99,7 +99,7 @@ function formatDate(date: string) {
   }
 }
 
-export default function Blog({ params }: { params: { slug: string } }) {
+export default function Portfolio({ params }: { params: { slug: string } }) {
   let post = getPortfolioPosts().find((post) => post.slug === params.slug);
 
   if (!post) {
@@ -110,7 +110,7 @@ export default function Blog({ params }: { params: { slug: string } }) {
     <div>
       <article>
         <section className="blog-text">
-          <PageHeader header="Hugo's Blog" />
+          <PageHeader header="Hugo's Portfolio" />
           <h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">
             <MarkdownRenderer content={post.metadata.title} />
           </h1>
