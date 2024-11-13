@@ -38,7 +38,7 @@ Therefore, we just only need to add some `CSS` code to achieve this effect. Here
 
 Then, it works perfectly on my website. Here is the demo:
 
-![The Linear Gradient Effect on My Website](/images/posts/how-to-add-linear-gradient-effect-to-text/after.png)
+![The Linear Gradient Effect on 1chooo.com](/images/posts/how-to-add-linear-gradient-effect-to-text/after.png)
 
 We can see that the gradient effect is applied to my name, **Chun-Ho (Hugo) Lin.**
 
@@ -146,6 +146,6 @@ I chose the first solution to solve this problem. And below is the segment of th
 
 After implementing the code, the problem was solved. Here is the demo:
 
-![Final Result of the Linear Gradient Effect on My Website](/images/posts/how-to-add-linear-gradient-effect-to-text/final.png)
+![Final Result of the Linear Gradient Effect on 1chooo.com](/images/posts/how-to-add-linear-gradient-effect-to-text/final.png)
 
 Now, the text is readable when selected. The gradient effect is applied to my name, Chun-Ho (Hugo) Lin, and the text is visible when selected. We value the credits to ChatGPT for helping us solve this problem. If you want to add a gradient effect to text on your website, you can follow the steps above. Hope this article helps you create a smooth and customizable linear gradient effect for text on your website. 🚀 Follow me to catch up the latest tips for developing website!!!
