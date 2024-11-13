@@ -6,7 +6,7 @@ tags:
   - VSCode
   - MDX
 summary: "A quick guide on how to enable word wrap for MDX files in VSCode with just one simple configuration."
-banner: /images/banner/how-to-enable-word-wrap-mdx-files-in-vscode.png
+banner: /images/banner/posts/how-to-enable-word-wrap-mdx-files-in-vscode.png
 alt: "How to Enable Word Wrap for MDX Files in VSCode"
 mathjax: false
 ---

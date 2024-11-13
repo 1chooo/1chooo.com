@@ -6,7 +6,7 @@ summary: Create React App (CRA) was officially deprecated by Facebook, and it's 
 tags: 
   - React
   - Typescript
-banner: /images/banner/goodbye-react-create-app.png
+banner: /images/banner/posts/goodbye-react-create-app.png
 alt: Updating an Outdated Create React App (CRA) to Support TypeScript 5.x
 ---
 
@@ -39,7 +39,7 @@ npm error   react-scripts@"5.0.1" from the root project
 
 Therefore, through this post, I aim to document the resolution process and provide the relevant contextual information. If your system requires the installation of [Node.js and npm](https://nodejs.org/), you can refer to my previous article — [How to Install Node.js & NPM on Mac](/blog/mac-install-nodejs-npm) — for installation instructions.
 
-![Updating an Outdated Create React App (CRA) to Support TypeScript 5.x by Hugo](/images/banner/goodbye-react-create-app.png)
+![Updating an Outdated Create React App (CRA) to Support TypeScript 5.x by Hugo](/images/posts/banner/goodbye-react-create-app.png)
 
 In the past, I used [`create-react-app` (CRA)](https://github.com/facebook/create-react-app) to set up my React projects. However, during this upgrade process, I discovered that CRA only supports up to [`v5.0.1`](https://github.com/facebook/create-react-app/releases/tag/v5.0.1). Looking at Facebook's GitHub repository, it's evident that CRA is no longer maintained, with its last update in 2022. Unsurprisingly, CRA does not support TypeScript `5.x`, only up to version `4.x`, which explains why I was unable to upgrade TypeScript to `5.x`.
 

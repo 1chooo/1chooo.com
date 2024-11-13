@@ -1,12 +1,12 @@
 ---
-title: "💯✅ LeetCode 1550. Three Consecutive Odds | Go'
+title: "💯✅ LeetCode 1550. Three Consecutive Odds | Go"
 publishedAt: '2024-07-02'
 category: LeetCode
 tags:
   - Array
   - Go
 summary: 'Given an integer array arr, return true if there are three consecutive odd numbers in the array. Otherwise, return false.'
-banner: /images/banner/1550-three-consecutive-odds.png
+banner: /images/banner/posts/1550-three-consecutive-odds.png
 alt: "💯✅ LeetCode 1550. Three Consecutive Odds | Go"
 mathjax: true
 ---
@@ -14,7 +14,7 @@ mathjax: true
 
 Link 👉🏻 [1550. Three Consecutive Odds](https://leetcode.com/problems/three-consecutive-odds)
 
-![💯✅ LeetCode 1550. Three Consecutive Odds | Go by Hugo](/images/banner/1550-three-consecutive-odds.png)
+![💯✅ LeetCode 1550. Three Consecutive Odds | Go by Hugo](/images/posts/banner/1550-three-consecutive-odds.png)
 
 
 ### Description

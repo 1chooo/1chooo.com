@@ -8,14 +8,14 @@ tags:
 	- Array
 	- Sliding Window
 summary: 'There is a bookstore owner that has a store open for `n` minutes. Every minute, some number of customers enter the store. You are given an integer array `customers` of length `n` where `customers[i]` is the number of the customer that enters the store at the start of the <code>i<sup>th</sup></code> minute and all those customers leave after the end of that minute.'
-banner: /images/banner/1052-grumpy-bookstore-owner.png
+banner: /images/banner/posts/1052-grumpy-bookstore-owner.png
 alt: "[✅ Beats 💯] LeetCode 1052. Grumpy Bookstore Owner - Easy Solution | Go"
 mathjax: true
 ---
 
 Link 👉🏻 [1052. Grumpy Bookstore Owner](https://leetcode.com/problems/grumpy-bookstore-owner/)
 
-![[✅ Beats 💯] LeetCode 1052. Grumpy Bookstore Owner - Easy Solution | Go](/images/banner/1052-grumpy-bookstore-owner.png)
+![[✅ Beats 💯] LeetCode 1052. Grumpy Bookstore Owner - Easy Solution | Go](/images/banner/posts/1052-grumpy-bookstore-owner.png)
 
 ### Description
 

@@ -9,14 +9,14 @@ tags:
     - Array
     - Hash Table
 summary: 'Given an array of integers `nums` and an integer `target`, *return indices of the two numbers such that they add up to `target`*.'
-banner: /images/banner/0001-two-sum.png
+banner: /images/banner/posts/0001-two-sum.png
 alt: "LeetCode 0001. Two Sum - Hash Map Solution | Go, Python, C++"
 mathjax: true
 ---
 
 Link 👉🏻 [1. Two Sum](https://leetcode.com/problems/two-sum/)
 
-![Two Sum by Hugo](/images/banner/0001-two-sum.png)
+![Two Sum by Hugo](/images/banner/posts/0001-two-sum.png)
 
 ### Description
 

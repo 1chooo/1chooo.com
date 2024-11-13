@@ -9,7 +9,7 @@ tags:
   - Collaboration
   - Git Graph
 summary: "In the latest VSCode 1.93 version, VSCode has built Git Graph right into its Source Control tool, so we don't need an extra extension to see our Git history anymore. Let's explore this cool new feature together!"
-banner: /images/banner/say-goodbye-to-git-graph-in-vscode.png
+banner: /images/banner/posts/say-goodbye-to-git-graph-in-vscode.png
 alt: "Say Goodbye to Git Graph in VSCode: A New Era of Source Control Visualization"
 mathjax: true
 ---

@@ -8,13 +8,13 @@ tags:
 - Frontend
 - map
 - TypeScript
-banner: /images/banner/make-your-react-more-elegant-with-map.png
+banner: /images/banner/posts/make-your-react-more-elegant-with-map.png
 alt: How to Make Your React TypeScript Project More Elegant with `map()`
 ---
 
 > With React TypeScript and `map()`, you can create a more elegant personal blog. In this article, I share how to use the `map()` method to handle dynamic rendering of blog post lists and show the thought process of implementing the modification suggestions provided by ChatGPT.
 
-![How to Make Your React TypeScript Project More Elegant with `map()` by Hugo](/images/banner/make-your-react-more-elegant-with-map.png)
+![How to Make Your React TypeScript Project More Elegant with `map()` by Hugo](/images/banner/posts/make-your-react-more-elegant-with-map.png)
 
 Hey this is Hugo 👋 In the winter break of 2024, I planned to update my resume and personal website. I found a Portfolio design [codewithsadee/vcard-personal-portfolio](https://github.com/codewithsadee/vcard-personal-portfolio) on GitHub that suited my current needs. I thought I could just replace the information with my own, but the template provided by the author did not have a design for more blog post browsing. All the web content is in the same `index.html`. If I fill the content about me, the loading time is too long. So I thought about turning each page into a route to handle it, but I thought I could play with ReactTS, so I started my blog makeover journey.
 
