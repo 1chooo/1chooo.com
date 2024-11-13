@@ -14,7 +14,7 @@ mathjax: true
 
 Link 👉🏻 [1550. Three Consecutive Odds](https://leetcode.com/problems/three-consecutive-odds)
 
-![💯✅ LeetCode 1550. Three Consecutive Odds | Go by Hugo](/images/posts/banner/1550-three-consecutive-odds.png)
+![💯✅ LeetCode 1550. Three Consecutive Odds | Go by Hugo](/images/banner/posts/1550-three-consecutive-odds.png)
 
 
 ### Description

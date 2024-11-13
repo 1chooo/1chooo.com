@@ -13,7 +13,7 @@ mathjax: true
 
 Link 👉🏻 [1791. Find Center of Star Graph](https://leetcode.com/problems/find-center-of-star-graph/)
 
-![\[O(1) Time and Space\] LeetCode 1791. Find Center of Star Graph - Easy Solution | Go by Hugo](/images/posts/banner/1791-find-center-of-star-graph.png)
+![\[O(1) Time and Space\] LeetCode 1791. Find Center of Star Graph - Easy Solution | Go by Hugo](/images/banner/posts/1791-find-center-of-star-graph.png)
 
 ### Description
 

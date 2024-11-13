@@ -14,7 +14,7 @@ mathjax: true
 
 Link 👉🏻 [2181. Merge Nodes in Between Zeros](https://leetcode.com/problems/merge-nodes-in-between-zeros)
 
-![💯✅ LeetCode 2181. Merge Nodes in Between Zeros | Go by Hugo](/images/posts/banner/2181-merge-nodes-in-between-zeros.png)
+![💯✅ LeetCode 2181. Merge Nodes in Between Zeros | Go by Hugo](/images/banner/posts/2181-merge-nodes-in-between-zeros.png)
 
 ## Description
 

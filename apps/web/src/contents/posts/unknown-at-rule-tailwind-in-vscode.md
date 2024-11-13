@@ -18,7 +18,7 @@ Hey there 👋, it's Hugo. Today, I'll walk you through a common issue I encount
 
 Although this message doesn't disrupt the functionality, it can be distracting. However, as Software Engineer, we can't let these smells distract us from our work. That's why I decided to investigate the issue and find a solution. Today, I'll share the steps I took to resolve the "Unknown rule @tailwind" issue in VSCode.
 
-![Solving the "Unknown rule @tailwind" Issue in VSCod by Hugo](/images/posts/banner/unknown-at-rule-tailwind-in-vscode.png)
+![Solving the "Unknown rule @tailwind" Issue in VSCode by Hugo](/images/banner/posts/unknown-at-rule-tailwind-in-vscode.png)
 
 ## Understanding the Cause
 
