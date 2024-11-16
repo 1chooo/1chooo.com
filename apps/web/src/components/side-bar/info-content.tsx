@@ -1,6 +1,8 @@
 import React from 'react';
 import config from '@/config';
 
+import "@/styles/side-bar/info-content.css";
+
 const { status } = config;
 const { about } = config;
 const {

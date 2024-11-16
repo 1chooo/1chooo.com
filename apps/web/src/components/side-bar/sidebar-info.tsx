@@ -4,6 +4,8 @@ import InfoContent from './info-content';
 import InfoMoreButton from './info-more-button';
 import config from '@/config';
 
+import "@/styles/side-bar/sidebar-info.css";
+
 const avatar = config.avatar;
 
 interface SideBarInfoProps {

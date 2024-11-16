@@ -1,6 +1,8 @@
 import React from 'react';
 import { MdExpandMore } from 'react-icons/md';
 
+import "@/styles/side-bar/info-more-btn.css";
+
 interface InfoMoreButtonProps {
   onClick: () => void;
 }
