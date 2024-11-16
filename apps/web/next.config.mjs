@@ -7,9 +7,11 @@
  * @type {import('next').NextConfig}
  */
 
+import { rehypeGithubAlerts } from 'rehype-github-alerts'
+import remarkGfm from 'remark-gfm'
+import createMDX from '@next/mdx'
 
 const nextConfig = {
-  /* config options here */
   images: {
     domains: ['skillicons.dev', 'blog.1chooo.com'], // Use domains instead of remotePatterns
     dangerouslyAllowSVG: true, // Enable SVG support for remote SVG images
@@ -24,5 +26,13 @@ const nextConfig = {
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   transpilePackages: ['next-mdx-remote'],
 }
- 
-export default nextConfig
+
+const withMDX = createMDX({
+  // Add markdown plugins here, as desired
+  remarkPlugins: [remarkGfm],
+  rehypePlugins: [rehypeGithubAlerts],
+
+})
+
+// Merge MDX config with Next.js config
+export default withMDX(nextConfig)
