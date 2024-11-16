@@ -2,6 +2,7 @@ import React from 'react';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
+import { rehypeGithubAlerts } from 'rehype-github-alerts'
 
 import Anchor from './anchor';
 import BlockQuote from './block-quote';
@@ -24,7 +25,7 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
   <ReactMarkdown
     className={className}
     remarkPlugins={[remarkGfm]}
-    rehypePlugins={[rehypeRaw]}
+    rehypePlugins={[rehypeRaw, rehypeGithubAlerts]}
     components={{
       p: ({ node, children }) => {
         const hasImage = node && node.children && node.children.some(isImageNode);
