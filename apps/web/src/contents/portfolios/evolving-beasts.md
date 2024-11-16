@@ -5,6 +5,6 @@ publishedAt: 2023-08-31
 summary: 
 tags: 
   - 
-banner: /images/projects/evolving-beasts.png
+banner: /images/banner/projects/evolving-beasts.png
 alt: 
 ---

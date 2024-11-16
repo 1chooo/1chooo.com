@@ -5,6 +5,6 @@ publishedAt: 2024-01-31
 summary: 
 tags: 
   - 
-banner: /images/projects/anon-chat.png
+banner: /images/banner/projects/anon-chat.png
 alt: 
 ---

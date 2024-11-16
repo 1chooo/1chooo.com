@@ -9,7 +9,7 @@ tags:
     - Array
     - Hash Table
 summary: 
-banner: /images/projects/refinaid.png
+banner: /images/banner/projects/refinaid.png
 alt: 
 ---
 

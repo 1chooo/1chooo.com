@@ -5,6 +5,6 @@ publishedAt: 2024-08-28
 summary: 
 tags: 
   - 
-banner: /images/projects/1chooo-com.png
+banner: /images/banner/projects/1chooo-com.png
 alt: 
 ---

@@ -5,6 +5,6 @@ publishedAt: 2022-07-31
 summary: 
 tags: 
   - 
-banner: /images/projects/ncufresh.png
+banner: /images/banner/projects/ncufresh.png
 alt: 
 ---
