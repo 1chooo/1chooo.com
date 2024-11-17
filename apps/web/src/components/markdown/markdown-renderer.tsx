@@ -27,12 +27,13 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
     remarkPlugins={[remarkGfm]}
     rehypePlugins={[rehypeRaw, rehypeGithubAlerts]}
     components={{
-      p: ({ node, children }) => {
+      p: (props) => {
+        const { node, children, ...rest } = props;
         const hasImage = node && node.children && node.children.some(isImageNode);
         if (hasImage) {
           return <>{children}</>;
         }
-        return <p>{children}</p>;
+        return <p {...rest}>{children}</p>;
       },
       a: (props) => <Anchor {...props} />,
       sup: 'sup',

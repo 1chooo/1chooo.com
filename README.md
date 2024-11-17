@@ -38,6 +38,7 @@ We'll also provide comprehensive documentation, including a user guide, code wal
 - 🧪 [Jest - Components Unit Testing]
 - 🟩 [GitHub Calendar Heatmap]
 - 💎 [giscus]
+- 🚨 [GitHub Alerts]
 
 [Skeleton Loading]: https://github.com/dvtng/react-loading-skeleton
 [Next.js 14 with App Router]: https://nextjs.org/
@@ -45,6 +46,7 @@ We'll also provide comprehensive documentation, including a user guide, code wal
 [Jest - Components Unit Testing]: https://jestjs.io/
 [GitHub Calendar Heatmap]: https://github.com/grubersjoe/react-github-calendar
 [giscus]: https://giscus.app/
+[GitHub Alerts]: https://github.com/chrisweb/rehype-github-alerts
 
 ## 🌏 Contributing
 
