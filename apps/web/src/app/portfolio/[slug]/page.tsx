@@ -37,7 +37,7 @@ export async function generateMetadata({
       description,
       type: 'article',
       publishedTime,
-      url: `https://1chooo.com/mock/${post.slug}`,
+      url: `https://1chooo.com/portfolio/${post.slug}`,
       locale: 'en_US',
       images: [
         {

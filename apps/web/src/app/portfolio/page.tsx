@@ -76,7 +76,7 @@ export default function Portfolio({
               className="project-item active"
               data-category={post.metadata.category}
             >
-              <Link href={`/mock/${post.slug}`} rel="noopener noreferrer">
+              <Link href={`/portfolio/${post.slug}`} rel="noopener noreferrer">
                 <figure className="project-img">
                   <div className="project-item-icon-box">
                     <LuEye />
@@ -103,7 +103,7 @@ export default function Portfolio({
               <Link
                 key={pageNum}
                 href={{
-                  pathname: "/mock",
+                  pathname: "/portfolio",
                   query: { ...searchParams, page: pageNum.toString() },
                 }}
                 className={`pagination-btn ${pageNum === currentPage ? "active" : ""
