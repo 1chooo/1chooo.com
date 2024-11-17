@@ -13,9 +13,10 @@ export const NavBar: React.FC = () => {
   const pathname = usePathname();
 
   const isActive = (path: string) => {
-    if (path === '/blog' && pathname.startsWith('/blog')) {
+    if (path === '/blog' && pathname.startsWith('/blog'))
       return true;
-    }
+    else if (path === '/portfolio' && pathname.startsWith('/portfolio'))
+      return true;
     return pathname === path;
   };
 
