@@ -16,7 +16,7 @@ const FilterList: React.FC<FilterListProps> = ({
       {blogTags.map((tag, index) => (
         <li className="filter-item" key={index}>
           <Link
-            href={`/mock?tag=${encodeURIComponent(tag || '')}`}
+            href={`/portfolio?tag=${encodeURIComponent(tag || '')}`}
             className={`filter-btn ${selectedTag === tag ? 'active' : ''}`}
           >
             {tag}
