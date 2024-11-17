@@ -2003,6 +2003,7 @@ textarea.form-input::-webkit-resizer {
   display: flex;
   margin-bottom: 4px;
   align-items: center;
+  font-weight: 600;
 }
 
 .markdown-alert-title>svg {
