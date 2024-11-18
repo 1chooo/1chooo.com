@@ -11,6 +11,10 @@
     "type": "git",
     "url": "https://github.com/1chooo/1chooo.com"
   },
+  "homepage": "https://1chooo.com",
+  "bugs": {
+    "url": "https://github.com/1chooo/1chooo.com/issues"
+  },
   "keywords": [
     "next",
     "react",
