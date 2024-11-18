@@ -1,8 +1,14 @@
 import React from 'react'
-import { DocsThemeConfig } from 'nextra-theme-docs'
+import type { DocsThemeConfig } from 'nextra-theme-docs';
 
-const config: DocsThemeConfig = {
+export default {
   logo: <span>1chooo.com Documentation</span>,
+  footer: {
+    component: null
+  },
+  editLink: {
+    component: null
+  },
   head: (
     <>
       <link rel="icon" href="/favicon.ico" type="image/png" />
@@ -12,10 +18,4 @@ const config: DocsThemeConfig = {
     link: 'https://github.com/1chooo/1chooo.com',
   },
   docsRepositoryBase: 'https://github.com/1chooo/1chooo.com/tree/main/apps/docs',
-  footer: {
-    text: '2024 © 1chooo',
-  },
-  // ... other theme options
-}
-
-export default config
+} as DocsThemeConfig;
