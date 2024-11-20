@@ -1,5 +1,5 @@
 import React from 'react';
-import slugify from 'slugify';
+import slugify from '@/lib/utils/slugify';
 
 interface HeaderProps {
   level: 1 | 2 | 3 | 4 | 5 | 6;
