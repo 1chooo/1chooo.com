@@ -8,15 +8,12 @@ import Anchor from './anchor';
 import BlockQuote from './block-quote';
 import CodeBlock from './code-block';
 import MarkdownImage from './markdown-image';
+import Paragraph from './paragraph';
 
 interface MarkdownRendererProps {
   className?: string;
   content: string;
 }
-
-const isImageNode = (node: any): node is Element => {
-  return node && node.type === 'element' && node.tagName === 'img';
-};
 
 const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
   className,
@@ -27,14 +24,8 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
     remarkPlugins={[remarkGfm]}
     rehypePlugins={[rehypeRaw, rehypeGithubAlerts]}
     components={{
-      p: (props) => {
-        const { node, children, ...rest } = props;
-        const hasImage = node && node.children && node.children.some(isImageNode);
-        if (hasImage) {
-          return <>{children}</>;
-        }
-        return <p {...rest}>{children}</p>;
-      },
+      p: ({ node, children, ...props }) =>
+        <Paragraph node={node} children={children} {...props} />,
       a: (props) => <Anchor {...props} />,
       sup: 'sup',
       sub: 'sub',
