@@ -21,7 +21,7 @@ const Anchor: React.FC<AnchorProps> = ({ children, ...props }) => {
 
   return (
     <a
-      className="code-highlight-yellow"
+      className="blog-text-a"
       target="_blank"
       rel="noreferrer"
       {...props}
