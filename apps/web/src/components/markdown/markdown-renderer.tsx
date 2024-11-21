@@ -55,37 +55,9 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({
           }}
         />
       ),
-      // h1: (props) => (
-      //   <h1
-      //     {...props}
-      //     style={{
-      //       marginTop: '3.0rem',
-      //       marginBottom: '2.0rem',
-      //     }}
-      //   />
-      // ),
-      // h2: (props) => (
-      //   <h2
-      //     {...props}
-      //     style={{
-      //       marginTop: '2.5rem',
-      //       marginBottom: '1.5rem',
-      //     }}
-      //   />
-      // ),
-      // h3: (props) => (
-      //   <h3
-      //     {...props}
-      //     style={{
-      //       marginTop: '2.0rem',
-      //       marginBottom: '1.0rem',
-      //     }}
-      //   />
-      // ),
-      // Usage:
-h1: ({ children, ...props }) => <AnchorHeader level={1} {...props}>{children}</AnchorHeader>,
-h2: ({ children, ...props }) => <AnchorHeader level={2} {...props}>{children}</AnchorHeader>,
-h3: ({ children, ...props }) => <AnchorHeader level={3} {...props}>{children}</AnchorHeader>,
+      h1: ({ children, ...props }) => <AnchorHeader level={1} {...props}>{children}</AnchorHeader>,
+      h2: ({ children, ...props }) => <AnchorHeader level={2} {...props}>{children}</AnchorHeader>,
+      h3: ({ children, ...props }) => <AnchorHeader level={3} {...props}>{children}</AnchorHeader>,
       blockquote: (props) => <BlockQuote {...props}>{props.children}</BlockQuote>,
       code({ node, inline, className, children, ...props }: any) {
         const match = /language-(\w+)/.exec(className || '');
