@@ -1,25 +1,30 @@
 import React from 'react';
-import { projectTags } from '@/config/portfolio';
-import { handleItemClick } from '@/lib/utils/filter-utils';
+import Link from 'next/link';
 
 interface FilterListProps {
-  selectedValue: string;
-  setSelectedValue: React.Dispatch<React.SetStateAction<string>>;
+  selectedTag: string;
+  blogTags: string[];
 }
 
-const FilterList: React.FC<FilterListProps> = ({ selectedValue, setSelectedValue }) => (
-  <ul className="filter-list">
-    {projectTags.map((tag) => (
-      <li className="filter-item" key={tag}>
-        <button
-          className={`filter-btn ${selectedValue === tag ? 'active' : ''}`}
-          onClick={() => handleItemClick(tag, setSelectedValue)}
-        >
-          {tag}
-        </button>
-      </li>
-    ))}
-  </ul>
-);
+const FilterList: React.FC<FilterListProps> = ({ 
+  selectedTag,
+  blogTags
+}) => {
+
+  return (
+    <ul className="filter-list">
+      {blogTags.map((tag, index) => (
+        <li className="filter-item" key={index}>
+          <Link
+            href={`/portfolio?tag=${encodeURIComponent(tag || '')}`}
+            className={`filter-btn ${selectedTag === tag ? 'active' : ''}`}
+          >
+            {tag}
+          </Link>
+        </li>
+      ))}
+    </ul>
+  );
+};
 
 export default FilterList;

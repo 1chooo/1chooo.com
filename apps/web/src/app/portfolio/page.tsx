@@ -1,8 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import PageHeader from "@/components/page-header";
-import FilterSelectBox from "@/components/portfolio/v2/filter-select-box";
-import FilterList from "@/components/portfolio/v2/filter-list";
+import FilterSelectBox from "@/components/portfolio/filter-select-box";
+import FilterList from "@/components/portfolio/filter-list";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import { getPortfolioPosts } from "@/lib/db/portfolio";
 import config from "@/config";
