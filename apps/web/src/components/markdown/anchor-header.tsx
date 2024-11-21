@@ -35,8 +35,8 @@ const AnchorHeader: React.FC<HeaderProps> = ({ level, children, ...props }) => {
     <Tag id={id} className="anchor-header" style={margins} {...props}>
       <a href={`#${id}`}>
         <span className="hash">#</span>
-        {children}
       </a>
+        {children}
     </Tag>
   );
 };
