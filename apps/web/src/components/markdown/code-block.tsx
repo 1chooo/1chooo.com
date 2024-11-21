@@ -19,9 +19,9 @@ const CodeBlock: React.FC<CodeBlockProps> = ({ language, children }) => (
     style={oneDark}
     PreTag="div"
     language={language}
-    wrapLongLines={true}
+    // wrapLongLines={true}
     showLineNumbers={true}
-    wrapLines={true}
+    // wrapLines={true}
     showInlineLineNumbers={true}
   >
     {String(children).trimEnd()}
