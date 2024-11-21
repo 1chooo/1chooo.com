@@ -1,5 +1,5 @@
 ---
-title: "Give Your GitHub Repos a Makeover with VS Code's Material Icons"
+title: "Give Your GitHub Repos a Makeover with VSCode's Material Icons"
 category: DevEnv
 publishedAt: 2024-11-15
 tags: 
