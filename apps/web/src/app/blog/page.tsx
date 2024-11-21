@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Balancer from 'react-wrap-balancer'
 import PageHeader from "@/components/page-header";
 import FilterSelectBox from "@/components/blog/filter-select-box";
 import FilterList from "@/components/blog/filter-list";
@@ -98,7 +99,7 @@ export default function BlogPage({
                       </time>
                     </div>
                     <h3 className="h3 blog-item-title">
-                      <MarkdownRenderer content={post.metadata.title} />
+                      <Balancer><MarkdownRenderer content={post.metadata.title} /></Balancer>
                     </h3>
                     <MarkdownRenderer
                       className="blog-summary"
