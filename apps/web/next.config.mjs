@@ -25,6 +25,9 @@ const nextConfig = {
   // Configure `pageExtensions` to include markdown and MDX files
   pageExtensions: ['js', 'jsx', 'md', 'mdx', 'ts', 'tsx'],
   transpilePackages: ['next-mdx-remote'],
+  sassOptions: {
+    implementation: 'sass-embedded',
+  },
 }
 
 const withMDX = createMDX({
