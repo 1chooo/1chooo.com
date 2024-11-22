@@ -50,6 +50,171 @@ class Solution {
 };
 ```
 
+## [2490. Circular Sentence](https://leetcode.com/problems/circular-sentence/description/?envType=daily-question&envId=2024-11-02) [Easy] - 2024-11-02
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/circular-sentence
+ * Runtime: 0ms (100.00%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+  public:
+    bool isCircularSentence(string sentence) {
+        int len = sentence.size();
+
+        if (sentence[0] != sentence[len - 1])
+            return false;
+
+        for (int i = 1; i < len - 1; i++) {
+            if (sentence[i] == ' ' &&
+                sentence[i - 1] != sentence[i + 1])
+                return false;
+        }
+
+        return true;
+    }
+};
+```
+
+## [796. Rotate String](https://leetcode.com/problems/rotate-string) [Easy] - 2024-11-03
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/rotate-string
+ * Runtime: 0ms (100.00%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+public:
+    bool rotateString(string s, string goal) {
+        if (s.length() != goal.length()) {
+            return false;
+        }
+
+        string rotated = s;
+
+        for (int i = 0; i < s.length(); i++) {
+            if (rotated == goal)
+                return true;
+            
+            char ch = rotated[0];
+            rotated.erase(0, 1);
+            rotated.push_back(ch);
+        }
+        return false;
+    }
+};
+
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/rotate-string
+ * Runtime: 0ms (100.00%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+public:
+    bool rotateString(string s, string goal) {
+        if (s.length() != goal.length()) {
+            return false;
+        }
+        
+        string doubled = s + s;
+
+        return doubled.find(goal) != string::npos;
+    }
+};
+```
+
+## [3163. String Compression III](https://leetcode.com/problems/string-compression-iii) [Medium] - 2024-11-04
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/string-compression-iii
+ * Runtime: 11ms (94.02%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+  public:
+    string compressedString(string word) {
+        string result = "";
+        char comp = word[0];
+        int count = 1;
+        int len = word.size();
+
+        for (int i = 1; i < len; i++) {
+            if (word[i] == comp && count < 9) {
+                count++;
+            } else {
+                result.push_back(count + '0');
+                result.push_back(comp);
+
+                comp = word[i];
+                count = 1;
+            }
+        }
+
+        result.push_back(count + '0');
+        result.push_back(comp);
+
+        return result;
+    }
+};
+```
+
+## [2914. Minimum Number of Changes to Make Binary String Beautiful](https://leetcode.com/problems/minimum-number-of-changes-to-make-binary-string-beautiful) [Medium] - 2024-11-05
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/minimum-number-of-changes-to-make-binary-string-beautiful
+ * Runtime: 0ms (100.00%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+  public:
+    int minChanges(string s) {
+        int len = s.size();
+        int count = 0;
+
+        for (int i = 0; i < len - 1; i += 2)
+            if (s[i] != s[i + 1])
+                count++;
+
+        return count;
+    }
+};
+```
+
+
 ## [2257. Count Unguarded Cells in the Grid](https://leetcode.com/problems/count-unguarded-cells-in-the-grid/description/?envType=daily-question&envId=2024-11-21) [Medium] - 2024-11-21
 
 ```cpp
@@ -107,3 +272,45 @@ class Solution {
 };
 ```
 
+## [1072. Flip Columns For Maximum Number of Equal Rows](https://leetcode.com/problems/flip-columns-for-maximum-number-of-equal-rows/description/?envType=daily-question&envId=2024-11-22) [Medium] - 2024-11-22
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/flip-columns-for-maximum-number-of-equal-rows
+ * Runtime: 12ms (89.13%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+  public:
+    int maxEqualRowsAfterFlips(vector<vector<int>> &matrix) {
+        unordered_map<string, int> patternCount;
+
+        for (const auto &row : matrix) {
+            string pattern = "";
+
+            // Generate a pattern string for this row based on the first row
+            for (int j = 0; j < row.size(); ++j) {
+                // Compare with the first element in the row to determine if flip is needed
+                pattern += (row[j] ^ row[0]) ? '1' : '0';
+            }
+
+            // Increment the count for this pattern
+            patternCount[pattern]++;
+        }
+
+        // Find the maximum count of rows with the same pattern
+        int maxRows = 0;
+        for (const auto &entry : patternCount) {
+            maxRows = max(maxRows, entry.second);
+        }
+
+        return maxRows;
+    }
+};
+```
