@@ -215,7 +215,7 @@ const config: Config = {
     reactionsEnabled: "1",
     emitMetadata: "1",
     inputPosition: "bottom",
-    theme: "dark",
+    theme: "dark_tritanopia",
     lang: "en",
     loading: "lazy",
   }
