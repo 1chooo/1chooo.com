@@ -19,6 +19,7 @@ const { subHeader, pronouns } = about;
 const { firstName, lastName } = about;
 const { preferredName } = about;
 const { title } = config;
+const { introduction } = config.about;
 
 export const metadata: Metadata = {
   title: title,
@@ -52,7 +53,7 @@ const About = () => {
     <article data-page=''>
       <PageHeader header={header} />
       <H4 text={`${subHeader} (${pronouns})`} />
-      <AboutText />
+      <AboutText introduction={introduction} />
       <H4 text="$ ls -al Latest Articles" />
       <section>
         <ul className="latest-post-list has-scrollbar">
