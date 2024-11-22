@@ -26,9 +26,7 @@ const About = () => {
   return (
     <article data-page=''>
       <PageHeader header={header} />
-      {/* TODO: #157 */}
       <H4 text={`${subHeader} (${pronouns})`} />
-      <br />
       <AboutText />
       <GitHubStats />
       <TechStack />
