@@ -1,5 +1,6 @@
 import React from 'react';
 import slugify from '@/lib/utils/slugify';
+import { IoLink } from "react-icons/io5";
 
 interface HeaderProps {
   level: 1 | 2 | 3 | 4 | 5 | 6;
@@ -34,9 +35,9 @@ const AnchorHeader: React.FC<HeaderProps> = ({ level, children, ...props }) => {
   return (
     <Tag id={id} className="anchor-header" style={margins} {...props}>
       <a href={`#${id}`}>
-        <span className="hash">#</span>
+        <span className="hash"><IoLink /></span>
       </a>
-        {children}
+      {children}
     </Tag>
   );
 };

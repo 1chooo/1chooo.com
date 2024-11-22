@@ -2052,6 +2052,8 @@ textarea.form-input::-webkit-resizer {
   opacity: 0;
   color: hsl(0, 0%, 84%);
   transition: opacity 0.2s ease-in-out;
+  transform: scale(0.8);
+  top: 0.2rem;
 }
 
 .anchor-header:hover .hash {
