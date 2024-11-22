@@ -44,6 +44,7 @@ export type About = {
   additionalName: string;
   pronouns: string;
   socialMedia: SocialMedia;
+  introduction: string;
   introductions: string[];
   lifestyles: LifeStyle[];
   programmingLanguage: TechStack[];

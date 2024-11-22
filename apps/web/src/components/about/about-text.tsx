@@ -4,7 +4,7 @@ import MarkdownRenderer from '@/components/markdown/markdown-renderer';
 import config from '@/config';
 import "@/styles/about/about-text.css"
 
-const { introductions } = config.about;
+const { introduction, introductions } = config.about;
 
 const AboutText: React.FC = () => {
 
@@ -15,7 +15,8 @@ const AboutText: React.FC = () => {
 
   return (
     <section className="about-text">
-      {renderIntroduction()}
+      {/* {renderIntroduction()} */}
+      <MarkdownRenderer content={introduction} />
     </section>
   );
 };
