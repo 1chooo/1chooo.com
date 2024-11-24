@@ -33,7 +33,7 @@ const header =
 const About = () => {
   let allBlogs = getBlogPosts();
 
-  const selectedPosts = allBlogs
+  let selectedPosts = allBlogs
     .map(post => ({
       ...post,
       metadata: {
@@ -46,8 +46,11 @@ const About = () => {
         return -1;
       }
       return 1;
-    })
-    .slice(0, 5);
+    });
+
+  if (selectedPosts.length > 5) {
+    selectedPosts = selectedPosts.slice(0, 5);
+  }
 
   return (
     <article data-page=''>
