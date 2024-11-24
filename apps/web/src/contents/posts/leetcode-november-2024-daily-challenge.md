@@ -314,3 +314,87 @@ class Solution {
     }
 };
 ```
+
+## [1861. Rotating the Box](https://leetcode.com/problems/rotating-the-box/) [Medium] - 2024-11-23
+
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/rotating-the-box
+ * Runtime: 131ms (100.00%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+  public:
+    vector<vector<char>> rotateTheBox(vector<vector<char>> &box) {
+        int m = box.size();
+        int n = box[0].size();
+
+        for (auto &row : box) {
+            int dropPosition = n - 1;
+
+            for (int currPos = n - 1; currPos >= 0; currPos--) {
+                if (row[currPos] == '*') {
+                    dropPosition = currPos - 1;
+                } else if (row[currPos] == '#') {
+                    swap(row[dropPosition], row[currPos]);
+                    dropPosition--;
+                }
+            }
+        }
+
+        vector<vector<char>> rotatedBox(n, vector<char>(m));
+        for (int i = 0; i < m; i++) {
+            for (int j = 0; j < n; j++) {
+                rotatedBox[j][m - 1 - i] = box[i][j];
+            }
+        }
+
+        return rotatedBox;
+    }
+};
+```
+
+## [1975. Maximum Matrix Sum](https://leetcode.com/problems/maximum-matrix-sum/) [Medium] - 2024-11-24
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/maximum-matrix-sum/
+ * Runtime: 0ms (100.00%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+public:
+    long long maxMatrixSum(vector<vector<int>>& matrix) {
+        int minValue = INT_MAX;
+        long long sum = 0;
+        int negCount = 0;
+
+        for (int i = 0; i < matrix.size(); i++) {
+            for (int j = 0; j < matrix[0].size(); j++) {
+                if (matrix[i][j] < 0)
+                    negCount++;
+                int absValue = abs(matrix[i][j]);
+                minValue = min(minValue, absValue);
+                sum += absValue;
+            }
+        }
+
+        if (negCount % 2 == 0)
+            return sum;
+        return sum - 2 * minValue;
+    }
+};
+```
