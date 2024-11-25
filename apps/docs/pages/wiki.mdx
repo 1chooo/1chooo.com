@@ -116,6 +116,54 @@ const MarkdownRenderer: React.FC<MarkdownRendererProps> = ({ content }) => (
 export default MarkdownRenderer;
 ```
 
+## React Wrap Balancer
+
+> [React Wrap Balancer] is a simple React Component that makes your titles more readable in different viewport sizes. It improves the wrapping to avoid situations like single word in the last line, makes the content more "balanced": [^1]
+
+[React Wrap Balancer]: https://react-wrap-balancer.vercel.app/
+
+![Simple React Component That Makes Titles More Readable](https://github.com/shuding/react-wrap-balancer/raw/main/.github/demo.gif)
+
+### Usage
+
+We have to install the package first:
+
+```bash
+npm i react-wrap-balancer
+```
+
+Then we can use it in our project:
+
+```tsx
+import Balancer from 'react-wrap-balancer'
+
+// ...
+
+function Title() {
+  return (
+    <h1>
+      <Balancer>My Awesome Title</Balancer>
+    </h1>
+  )
+}
+```
+
+If we have multiple `<Balancer>` components used, we can wrap them with `<Provider>` to share the re-balance logic:
+
+```tsx
+import { Provider } from 'react-wrap-balancer'
+
+// ...
+
+function App() {
+  return (
+    <Provider>
+      <MyApp/>
+    </Provider>
+  )
+}
+```
+
 ## Next.js Image Fast Loading
 
 
@@ -147,3 +195,82 @@ acceptString("baz");
 https://www.threads.net/@jimmy.chiang/post/C_vl632ygU_/?xmt=AQGzwdnxgbmCCfAF8xCgI2zZiemQtJDR7omD6Mb26Ge3CA
 
 https://www.youtube.com/live/8HoOxOd86M4?t=2778&si=P2mxsBXVq8UmrAX_
+
+## Robots.txt
+
+```tsx
+/**
+ * https://www.cloudflare.com/zh-tw/learning/bots/what-is-robots-txt/
+ * https://www.cloudflare.com/robots.txt
+ * https://github.com/vercel/vercel/blob/3e4223684609dbdb7d9a2b286294fe07941bf0d4/examples/hydrogen-2/app/routes/%5Brobots.txt%5D.tsx#
+ * https://github.com/vercel/vercel/blob/3e4223684609dbdb7d9a2b286294fe07941bf0d4/packages/cli/test/dev/integration-2.test.ts#
+ * https://github.com/vercel/vercel/blob/3e4223684609dbdb7d9a2b286294fe07941bf0d4/examples/hydrogen/src/routes/robots.txt.server.ts
+ * @returns 
+ */
+
+const robotsTxtContent = `
+#               ________
+#    __,_,     |        |
+#   [_|_/      |   OK   |
+#    //        |________|
+#  _//    __  /
+# (_|)   |@@|
+#  \\ \\__ \\--/ __
+#   \\o__|----|  |   __
+#       \\ }{ /\\ )_ / _\\
+#       /\\__\\/ \\__O (__
+#      (--/\\--)    \\__/
+#      _)(  )(_
+#     \`---''---\`
+User-agent: *
+Disallow:
+`;
+```
+
+```ts
+/**
+ * This API endpoint generates a robots.txt file. Use this to control
+ * access to your resources from SEO crawlers.
+ * Learn more: https://developers.google.com/search/docs/advanced/robots/create-robots-txt
+ */
+
+import type {HydrogenRequest} from '@shopify/hydrogen';
+
+export async function api(request) {
+  const url = new URL(request.url);
+
+  return new Response(robotsTxtData({url: url.origin}), {
+    headers: {
+      'content-type': 'text/plain',
+      // Cache for 24 hours
+      'cache-control': `max-age=${60 * 60 * 24}`,
+    },
+  });
+}
+
+function robotsTxtData({url}: {url: string}) {
+  const sitemapUrl = url ? `${url}/sitemap.xml` : undefined;
+
+  return `
+User-agent: *
+Disallow: /admin
+Disallow: /cart
+Disallow: /orders
+Disallow: /checkouts/
+Disallow: /checkout
+Disallow: /carts
+Disallow: /account
+${sitemapUrl ? `Sitemap: ${sitemapUrl}` : ''}
+
+# Google adsbot ignores robots.txt unless specifically named!
+User-agent: adsbot-google
+Disallow: /checkouts/
+Disallow: /checkout
+Disallow: /carts
+Disallow: /orders
+
+User-agent: Pinterest
+Crawl-delay: 1
+`.trim();
+}
+```
