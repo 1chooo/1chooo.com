@@ -54,8 +54,6 @@ I obtained my Bachelor's degree from [National Central University 🐿️](https
 
 My current research interests include ***Programming Language Theory, Operating Systems, and Compilers.*** To gain practical experience, I developed my own ***<a href="https://en.wikipedia.org/wiki/Lisp_(programming_language)">Lisp</a>*** interpreter using **<a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a>** <sup>[[Code](https://github.com/1chooo/compiler-101)]</sup> and implemented [***Monkey Programming***](https://monkeylang.org/) Compiler with **<a href="https://go.dev/">GO</a>** <sup>[[Code](https://github.com/1chooo/monkey-prog-lang)]</sup>.
 
-I will apply for Master's programs in Computer Science/Software Engineering for 2024-25 cycle. Here is my current [CV](/resume) <sup>[[Docs](/cv.pdf)]</sup> (October 2024).
-
 In my spare time, I do workouts 💪🏻, street photography 📸, and tech content writing ✍🏻.
 
 **<code>Self-motivated, Team player, Love coding 👨🏻‍💻</code>**
