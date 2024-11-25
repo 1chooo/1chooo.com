@@ -214,6 +214,295 @@ class Solution {
 };
 ```
 
+## [3011. Find if Array Can Be Sorted](https://leetcode.com/problems/find-if-array-can-be-sorted) [Medium] - 2024-11-06
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/find-if-array-can-be-sorted
+ * Runtime: 0ms (100.00%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+public:
+    static bool canSortArray(const vector<int>& nums) {
+        uint16_t preMax = 0, currentMin = 0, currentMax = 0;
+        uint8_t prevBitCount = 0;
+
+        for (const uint16_t num : nums) {
+            const uint8_t currentBitCount = popcount(num);
+            if (prevBitCount == currentBitCount) {
+                currentMin = min(currentMin, num);
+                currentMax = max(currentMax, num);
+            } else if (currentMin < preMax) {
+                return false;
+            } else {
+                preMax = currentMax;
+                currentMin = currentMax = num;
+                prevBitCount = currentBitCount;
+            }
+        }
+        return currentMin >= preMax;
+    }
+};
+```
+
+## [2275. Largest Combination With Bitwise AND Greater Than Zero](https://leetcode.com/problems/largest-combination-with-bitwise-and-greater-than-zero) [Medium] - 2024-11-07
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/largest-combination-with-bitwise-and-greater-than-zero
+ * Runtime: 15ms (92.54%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+  public:
+    int largestCombination(vector<int> &candidates) {
+        int ans = 0;
+
+        for (int i = 0; i < 24; i++) {
+            int count = 0;
+            for (auto candidate : candidates)
+                count += (candidate >> i) & 1;
+            ans = max(ans, count);
+        }
+
+        return ans;
+    }
+};
+```
+
+## [1829. Maximum XOR for Each Query](https://leetcode.com/problems/maximum-xor-for-each-query)
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/maximum-xor-for-each-query
+ * Runtime: 0ms (100.00%)
+ * Reference: https://leetcode.com/problems/maximum-xor-for-each-query/solutions/6021112/beats-100-very-short-simple-solution/
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+  public:
+    vector<int> getMaximumXor(vector<int> &nums, int maximumBit) {
+        int mask = (1LL << maximumBit) - 1;
+        int n = nums.size();
+        vector<int> res(n);
+
+        for (int i = 0, curr = 0; i < n; i++) {
+            curr ^= nums[i];
+            res[n - i - 1] = ~curr & mask;
+        }
+
+        return res;
+    }
+};
+```
+
+## [3133. Minimum Array End](https://leetcode.com/problems/minimum-array-end) [Medium] - 2024-11-09
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/minimum-array-end
+ * Runtime: 0ms (100.00%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+  public:
+    long minEnd(int n, int x) {
+        long result = x;
+        long remaining = n - 1;
+        long position = 1;
+
+        while (remaining) {
+            if (!(x & position)) {
+                result |= (remaining & 1) * position;
+                remaining >>= 1;
+            }
+            position <<= 1;
+        }
+
+        return result;
+    }
+};
+```
+
+## [3097. Shortest Subarray With OR at Least K II](https://leetcode.com/problems/shortest-subarray-with-or-at-least-k-ii) [Medium] - 2024-11-10
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/shortest-subarray-with-or-at-least-k-ii/
+ * Runtime: 47ms (79.12%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+  public:
+    int minimumSubarrayLength(vector<int> &nums, int k) {
+        int n = nums.size();
+        vector<int> bitCount(32, 0);
+        int currentOR = 0;
+        int left = 0;
+        int minLength = INT_MAX;
+
+        for (int right = 0; right < n; right++) {
+            currentOR |= nums[right];
+
+            for (int bit = 0; bit < 32; bit++)
+                if (nums[right] & (1 << bit))
+                    bitCount[bit]++;
+
+            while (left <= right && currentOR >= k) {
+                minLength = min(minLength, right - left + 1);
+
+                int updatedOR = 0;
+                for (int bit = 0; bit < 32; bit++) {
+                    if (nums[left] & (1 << bit))
+                        bitCount[bit]--;
+                    if (bitCount[bit] > 0)
+                        updatedOR |= (1 << bit);
+                }
+                currentOR = updatedOR;
+                left++;
+            }
+        }
+
+        return minLength == INT_MAX ? -1 : minLength;
+    }
+};
+```
+
+## [2601. Prime Subtraction Operation](https://leetcode.com/problems/prime-subtraction-operation) [Medium] - 2024-11-11
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/prime-subtraction-operation
+ * Runtime: 0ms (100.00%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+  public:
+    bool primeSubOperation(vector<int> &nums) {
+        int maxElement = getMaxElement(nums);
+
+        vector<bool> sieve(maxElement + 1, true);
+        sieve[1] = false;
+        for (int i = 2; i <= sqrt(maxElement + 1); i++)
+            if (sieve[i])
+                for (int j = i * i; j <= maxElement; j += i)
+                    sieve[j] = false;
+
+        int currValue = 1;
+        int i = 0;
+        while (i < nums.size()) {
+            int difference = nums[i] - currValue;
+
+            if (difference < 0)
+                return false;
+
+            if (sieve[difference] == true ||
+                difference == 0) {
+                i++;
+                currValue++;
+            } else {
+                currValue++;
+            }
+        }
+        return true;
+    }
+
+  private:
+    int getMaxElement(vector<int> &nums) {
+        int max = -1;
+        for (int num : nums)
+            if (num > max)
+                max = num;
+        return max;
+    }
+};
+```
+
+## [2070. Most Beautiful Item for Each Query](https://leetcode.com/problems/most-beautiful-item-for-each-query/) [Medium] - 2024-11-12
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/most-beautiful-item-for-each-query/
+ * Runtime: 46ms (84.43%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+  public:
+    vector<int> maximumBeauty(
+        vector<vector<int>> &items, vector<int> &queries) {
+        int queriesSize = queries.size();
+        vector<pair<int, int>> sortedQueries;
+        vector<int> results(queriesSize);
+        int itemIndex = 0;
+        int currentMaxBeauty = 0;
+
+        for (int i = 0; i < queriesSize; i++) {
+            sortedQueries.push_back({queries[i], i});
+        }
+        sort(sortedQueries.begin(), sortedQueries.end());
+        sort(items.begin(), items.end());
+
+        for (int i = 1; i < items.size(); i++) {
+            items[i][1] = max(items[i - 1][1], items[i][1]);
+        }
+
+        for (int i = 0; i < queriesSize; i++) {
+            while (itemIndex < items.size() &&
+                   items[itemIndex][0] <= sortedQueries[i].first) {
+                currentMaxBeauty = max(currentMaxBeauty, items[itemIndex][1]);
+                itemIndex++;
+            }
+            results[sortedQueries[i].second] = currentMaxBeauty;
+        }
+
+        return results;
+    }
+};
+```
+
 
 ## [2257. Count Unguarded Cells in the Grid](https://leetcode.com/problems/count-unguarded-cells-in-the-grid/description/?envType=daily-question&envId=2024-11-21) [Medium] - 2024-11-21
 
@@ -395,6 +684,71 @@ public:
         if (negCount % 2 == 0)
             return sum;
         return sum - 2 * minValue;
+    }
+};
+```
+
+## [773. Sliding Puzzle](https://leetcode.com/problems/sliding-puzzle/) [Hard] - 2024-11-25
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/sliding-puzzle/
+ * Runtime: 3ms (92.73%)
+ * https://leetcode.com/problems/sliding-puzzle/solutions/6080339/easy-to-understand-using-bfs/
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+  public:
+    int slidingPuzzle(vector<vector<int>> &board) {
+        string s = "";
+        for (auto &r : board) {
+            for (int n : r) {
+                s += to_string(n);
+            }
+        }
+
+        string g = "123450";
+
+        vector<vector<int>> n = {
+            {1, 3},
+            {0, 2, 4},
+            {1, 5},
+            {0, 4},
+            {1, 3, 5},
+            {2, 4}};
+
+        queue<pair<string, int>> q;
+        unordered_set<string> v;
+
+        q.push({s, 0});
+        v.insert(s);
+
+        while (!q.empty()) {
+            auto [c, m] = q.front();
+            q.pop();
+
+            if (c == g) return m;
+
+            int z = c.find('0');
+
+            for (int x : n[z]) {
+                string t = c;
+                swap(t[z], t[x]);
+
+                if (v.find(t) == v.end()) {
+                    q.push({t, m + 1});
+                    v.insert(t);
+                }
+            }
+        }
+
+        return -1;
     }
 };
 ```
