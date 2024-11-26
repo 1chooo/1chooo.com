@@ -503,6 +503,376 @@ class Solution {
 };
 ```
 
+## [2563. Count the Number of Fair Pairs](https://leetcode.com/problems/count-the-number-of-fair-pairs/) [Medium] - 2024-11-13
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/count-the-number-of-fair-pairs
+ * Runtime: 27ms (94.05%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+  public:
+    long long countFairPairs(std::vector<int> &nums, int lower, int upper) {
+        std::sort(nums.begin(), nums.end());
+
+        return countLess(nums, upper) - countLess(nums, lower - 1);
+    }
+
+  private:
+    long long countLess(const std::vector<int> &nums, int sum) {
+        long long res = 0;
+        int j = nums.size() - 1;
+        for (int i = 0; i < j; ++i) {
+            while (i < j && nums[i] + nums[j] > sum) {
+                --j;
+            }
+            res += j - i;
+        }
+        return res;
+    }
+};
+```
+
+## [2064. Minimized Maximum of Products Distributed to Any Store](https://leetcode.com/problems/minimized-maximum-of-products-distributed-to-any-store/) [Medium] - 2024-11-14
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/minimized-maximum-of-products-distributed-to-any-store
+ * Runtime: 21ms (93.63%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+  private:
+    bool canDistribute(int n, vector<int> &quantities, int mid) {
+        int stores = 0;
+        for (auto x : quantities) {
+            stores += x / mid;
+            if (x % mid) stores++;
+            if (stores > n) return 0;
+        }
+        return stores <= n;
+    }
+
+  public:
+    int minimizedMaximum(int n, vector<int> &quantities) {
+        int s = 1, e = 100000, ans = -1;
+        while (s <= e) {
+            int mid = s + (e - s) / 2;
+            if (canDistribute(n, quantities, mid)) {
+                ans = mid;
+                e = mid - 1;
+            } else {
+                s = mid + 1;
+            }
+        }
+        return ans;
+    }
+};
+```
+
+## [1574. Shortest Subarray to be Removed to Make Array Sorted](https://leetcode.com/problems/shortest-subarray-to-be-removed-to-make-array-sorted/) [Medium] - 2024-11-15
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/shortest-subarray-to-be-removed-to-make-array-sorted
+ * Runtime: 0ms (100.00%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+  public:
+    int findLengthOfShortestSubarray(vector<int> &arr) {
+        int n = arr.size();
+
+        int left = 0;
+        while (left + 1 < n &&
+               arr[left] <= arr[left + 1]) {
+            left++;
+        }
+
+        if (left == n - 1)
+            return 0;
+
+        int right = n - 1;
+        while (right > 0 && arr[right - 1] <= arr[right]) {
+            right--;
+        }
+
+        int result = min(n - left - 1, right);
+
+        int i = 0, j = right;
+        while (i <= left && j < n) {
+            if (arr[i] <= arr[j]) {
+                result = min(result, j - i - 1);
+                i++;
+            } else {
+                j++;
+            }
+        }
+
+        return result;
+    }
+};
+```
+
+## [3254. Find the Power of K-Size Subarrays I](https://leetcode.com/problems/find-the-power-of-k-size-subarrays-i/) [Medium] - 2024-11-16
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/find-the-power-of-k-size-subarrays-i
+ * Runtime: 0ms (100.00%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+  public:
+    vector<int> resultsArray(vector<int> &nums, int k) {
+        vector<int> result;
+        int left = 0;
+        int consecutiveCount = 1;
+
+        for (int right = 0; right < nums.size(); right++) {
+            if (right > 0 &&
+                nums[right - 1] + 1 == nums[right]) {
+                consecutiveCount++;
+            }
+
+            if (right - left + 1 > k) {
+                if (nums[left] + 1 == nums[left + 1]) {
+                    consecutiveCount--;
+                }
+                left++;
+            }
+
+            if (right - left + 1 == k) {
+                result.push_back(consecutiveCount == k ? nums[right] : -1);
+            }
+        }
+
+        return result;
+    }
+};
+```
+
+## [862. Shortest Subarray with Sum at Least K](https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k/) [Medium] - 2024-11-17
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/shortest-subarray-with-sum-at-least-k
+ * Runtime: 19ms (97.68%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+  public:
+    int shortestSubarray(vector<int> &nums, int k) {
+        int n = nums.size();
+        vector<long> pref(n + 1, 0);
+
+        for (int i = 0; i < n; ++i) {
+            pref[i + 1] = pref[i] + nums[i];
+        }
+        
+        deque<int> dq;
+
+        int ans = n + 1;
+        for (int right = 0; right <= n; ++right) {
+            while (!dq.empty() &&
+                   pref[right] <= pref[dq.back()]) {
+                dq.pop_back();
+            }
+            while (!dq.empty() &&
+                   pref[right] - pref[dq.front()] >= k) {
+                ans = min(ans, right - dq.front());
+                dq.pop_front();
+            }
+            dq.push_back(right);
+        }
+        return ans == n + 1 ? -1 : ans;
+    }
+};
+```
+
+## [1652. Defuse the Bomb](https://leetcode.com/problems/defuse-the-bomb/) [Easy] - 2024-11-18
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/defuse-the-bomb
+ * Runtime: 0ms (100.00%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+  public:
+    vector<int> decrypt(vector<int> &code, int k) {
+        int n = code.size();
+        vector<int> ans(n, 0);
+
+        if (k == 0) {
+            fill(code.begin(), code.end(), 0);
+            return code;
+        }
+
+        for (int i = 0; i < n; i++) {
+            int total = 0;
+            if (k > 0) {
+                for (int j = 1; j <= k; j++) {
+                    total += code[(i + j) % n];
+                }
+            }
+            for (int j = 1; j <= -k; j++) {
+                total += code[(i - j + n) % n];
+            }
+
+            ans[i] = total;
+        }
+
+        return ans;
+    }
+};
+```
+
+## [2461. Maximum Sum of Distinct Subarrays With Length K](https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k/) [Medium] - 2024-11-19
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/maximum-sum-of-distinct-subarrays-with-length-k
+ * Runtime: 4ms (98.55%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+  public:
+    static long long maximumSubarraySum(vector<int> &nums, int k) {
+        const int n = nums.size();
+        bitset<100001> in_arr = 0;
+        long long sum = 0, maxSum = 0;
+
+        for (int l = 0, r = 0, len = 0; r < n; r++) {
+            int x = nums[r];
+            sum += x;
+            while (l < r &&
+                   (len > k - 1 || in_arr[x])) {
+                in_arr[nums[l]] = 0;
+                sum -= nums[l];
+                l++;
+                len--;
+            }
+            in_arr[x] = 1;
+            len++;
+            if (len == k)
+                maxSum = max(maxSum, sum);
+        }
+
+        return maxSum;
+    }
+};
+```
+
+## [2516. Take K of Each Character From Left and Right](https://leetcode.com/problems/take-k-of-each-character-from-left-and-right/) [Medium] - 2024-11-20
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/take-k-of-each-character-from-left-and-right/
+ * Runtime: 8ms (79.02%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+  public:
+    int takeCharacters(string s, int k) {
+        int n = s.size();
+        int l = 0, r = 0;
+        int ans = n;
+        int countA = 0, countB = 0, countC = 0;
+        int totalA = 0, totalB = 0, totalC = 0;
+
+        for (char ch : s) {
+            if (ch == 'a')
+                totalA++;
+            else if (ch == 'b')
+                totalB++;
+            else if (ch == 'c')
+                totalC++;
+        }
+
+        if (totalA < k ||
+            totalB < k ||
+            totalC < k) {
+            return -1;
+        }
+
+        while (r < n) {
+            if (s[r] == 'a')
+                countA++;
+            if (s[r] == 'b')
+                countB++;
+            if (s[r] == 'c')
+                countC++;
+            r++;
+
+            while (countA > totalA - k ||
+                   countB > totalB - k ||
+                   countC > totalC - k) {
+                if (s[l] == 'a')
+                    countA--;
+                if (s[l] == 'b')
+                    countB--;
+                if (s[l] == 'c')
+                    countC--;
+                l++;
+            }
+
+            ans = min(ans, n - (r - l));
+        }
+
+        return ans;
+    }
+};
+```
 
 ## [2257. Count Unguarded Cells in the Grid](https://leetcode.com/problems/count-unguarded-cells-in-the-grid/description/?envType=daily-question&envId=2024-11-21) [Medium] - 2024-11-21
 
@@ -749,6 +1119,44 @@ class Solution {
         }
 
         return -1;
+    }
+};
+```
+
+## [2924. Find Champion II](https://leetcode.com/problems/find-champion-ii/) [Medium] - 2024-11-26
+
+```cpp
+/**
+ * Author: 1chooo<hugo970217@gmail.com>
+ * Problem: https://leetcode.com/problems/find-champion-ii/
+ * Runtime: 0ms (100.00%)
+ */
+
+const static auto _ = []() {
+    cin.tie(nullptr)->sync_with_stdio(false);
+    return nullptr;
+}();
+
+class Solution {
+  public:
+    static int findChampion(int n, vector<vector<int>> &edges) {
+        vector<int> inDegree(n, 0);
+
+        for (auto &edge : edges) {
+            int weakerTeam = edge[1];
+            inDegree[weakerTeam]++;
+        }
+
+        vector<int> zeroInDegreeNodes;
+        for (int team = 0; team < n; team++) {
+            if (inDegree[team] == 0)
+                zeroInDegreeNodes.push_back(team);
+        }
+
+        if (zeroInDegreeNodes.size() != 1)
+            return -1;
+        else
+            return zeroInDegreeNodes[0];
     }
 };
 ```
