@@ -2,7 +2,7 @@
 title: "Make Your Titles More Readable: React Wrap Balancer"
 category: Project
 publishedAt: 2024-11-25
-summary: 
+summary: "React Wrap Balancer is a simple React Component that makes your titles more readable in different viewport sizes. It improves the wrapping to avoid situations like single word in the last line, makes the content more 'balanced'."
 tags: 
   - React
   - Typescript
