@@ -2,6 +2,10 @@
   #copyright 2024 @1chooo
 \*-----------------------------------*/
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   /**
   * colors
