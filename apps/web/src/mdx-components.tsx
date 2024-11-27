@@ -1,7 +1,7 @@
 import type { MDXComponents } from 'mdx/types'
-import AnchorHeader from '../markdown/anchor-header'
-import MarkdownImage from '../markdown/markdown-image'
-import Anchor from '../markdown/anchor'
+import AnchorHeader from '@/components/markdown/anchor-header'
+import MarkdownImage from '@/components/markdown/markdown-image'
+import Anchor from '@/components/markdown/anchor'
 
 // This file allows you to provide custom React components
 // to be used in MDX files. You can import and use any
