@@ -11,7 +11,8 @@ import "@/styles/blog/blog-text.css"
 export async function generateMetadata({ params }: {
   readonly params: { readonly slug: string };
 }): Promise<Metadata | undefined> {
-  let post = getPortfolioPosts().find((post) => post.slug === params.slug);
+  let posts = await getPortfolioPosts();
+  let post = posts.find((post) => post.slug === params.slug);
   if (!post) {
     return;
   }
@@ -97,10 +98,11 @@ function formatDate(date: string) {
   }
 }
 
-export default function Portfolio({ params }: {
+export default async function Portfolio({ params }: {
   readonly params: { readonly slug: string }
 }) {
-  let post = getPortfolioPosts().find((post) => post.slug === params.slug);
+  let posts = await getPortfolioPosts();
+  let post = posts.find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();

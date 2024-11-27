@@ -7,7 +7,6 @@ import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import { getPortfolioPosts } from "@/lib/db/portfolio";
 import config from "@/config";
 import { LuEye } from "react-icons/lu";
-import "react-loading-skeleton/dist/skeleton.css";
 
 /**
  * TODO: #257
@@ -25,10 +24,10 @@ export const metadata = {
   description: "Read my thoughts on software development, design, and more.",
 };
 
-export default function Portfolio({ searchParams }: {
+export default async function Portfolio({ searchParams }: {
   readonly searchParams: { tag?: string; page?: string };
 }) {
-  let allBlogs = getPortfolioPosts();
+  let allBlogs = await getPortfolioPosts();
   const blogTags = [
     "All",
     ...Array.from(
@@ -85,8 +84,9 @@ export default function Portfolio({ searchParams }: {
                     width={1600}
                     height={900}
                     priority={true}
-                    placeholder="empty"
+                    placeholder="blur"
                     loading="eager"
+                    blurDataURL="https://docs.1chooo.com/images/cover-with-1chooo-com.png"
                   />
                 </figure>
                 <h3 className="project-title"><MarkdownRenderer content={post.metadata.title} /></h3>
