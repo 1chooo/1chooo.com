@@ -5,7 +5,7 @@ import PageHeader from "@/components/page-header";
 import FilterSelectBox from "@/components/blog/filter-select-box";
 import FilterList from "@/components/blog/filter-list";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
-import SkeletonBlogLoader from "@/components/skeleton-loader";
+// import SkeletonBlogLoader from "@/components/skeleton-loader";
 import { getBlogPosts } from "@/lib/db/blog";
 import { POSTS_PER_PAGE } from "@/lib/constants";
 import config from "@/config";
@@ -19,10 +19,10 @@ export const metadata = {
   description: "Read my thoughts on software development, design, and more.",
 };
 
-export default function BlogPage({ searchParams }: {
+export default async function BlogPage({ searchParams }: {
   readonly searchParams: { tag?: string; page?: string };
 }) {
-  let allBlogs = getBlogPosts();
+  let allBlogs = await getBlogPosts();
   const blogTags = [
     "All",
     ...Array.from(
@@ -61,7 +61,7 @@ export default function BlogPage({ searchParams }: {
       <section className="blog-posts">
         <FilterList selectedTag={selectedTag} blogTags={blogTags} />
         <FilterSelectBox selectedTag={selectedTag} blogTags={blogTags} />
-        <SkeletonBlogLoader>
+        {/* <SkeletonBlogLoader> */}
           <ul className="blog-posts-list">
             {paginatedBlogs.map((post, index) => (
               <li
@@ -76,9 +76,10 @@ export default function BlogPage({ searchParams }: {
                       alt={post.metadata.alt || "Blog post image"}
                       width={1600}
                       height={900}
-                      priority={true}
-                      placeholder="empty"
+                      priority={false}
+                      placeholder="blur"
                       loading="eager"
+                      blurDataURL="https://docs.1chooo.com/images/cover-with-1chooo-com.png"
                     />
                   </figure>
                   <div className="blog-content">
@@ -108,7 +109,7 @@ export default function BlogPage({ searchParams }: {
               </li>
             ))}
           </ul>
-        </SkeletonBlogLoader>
+        {/* </SkeletonBlogLoader> */}
         <div className="pagination">
           {Array.from({ length: totalPages }, (_, i) => i + 1).map(
             (pageNum) => (
