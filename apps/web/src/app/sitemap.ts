@@ -7,20 +7,32 @@ import { getPortfolioPosts } from '@/lib/db/portfolio';
  * @returns [{ url: string, lastModified: string }]
  */
 export default async function sitemap() {
-  let blogs = getBlogPosts().map((post) => ({
+  let blogs = await getBlogPosts();
+  let blogMaps = blogs.map((post: {
+    metadata: {
+      publishedAt: string
+    }; slug: string
+  }) => ({
     url: `https://1chooo.com/blog/${post.slug}`,
     lastModified: post.metadata.publishedAt,
   }));
 
-  let portfolios = getPortfolioPosts().map((post) => ({
+  let portfolios = await getPortfolioPosts();
+  let portfolioMaps = portfolios.map((post: { metadata: { publishedAt: string }; slug: string }) => ({
     url: `https://1chooo.com/portfolio/${post.slug}`,
     lastModified: post.metadata.publishedAt,
   }));
 
-  let routes = ['', '/resume', '/portfolio', '/blog', '/contact'].map((route) => ({
+  let routes = [
+    '',
+    '/resume',
+    '/portfolio',
+    '/blog',
+    '/contact'
+  ].map((route) => ({
     url: `https://1chooo.com${route}`,
     lastModified: new Date().toISOString().split('T')[0],
   }));
 
-  return [...routes, ...blogs, ...portfolios];
+  return [...routes, ...blogMaps, ...portfolioMaps];
 }
