@@ -5,14 +5,11 @@ import PageHeader from "@/components/page-header";
 import FilterSelectBox from "@/components/blog/filter-select-box";
 import FilterList from "@/components/blog/filter-list";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
-// import SkeletonBlogLoader from "@/components/skeleton-loader";
 import { getBlogPosts } from "@/lib/db/blog";
 import { POSTS_PER_PAGE } from "@/lib/constants";
 import config from "@/config";
 
 const { title } = config;
-
-import "react-loading-skeleton/dist/skeleton.css";
 
 export const metadata = {
   title: `Blog | ${title}`,
@@ -61,55 +58,53 @@ export default async function BlogPage({ searchParams }: {
       <section className="blog-posts">
         <FilterList selectedTag={selectedTag} blogTags={blogTags} />
         <FilterSelectBox selectedTag={selectedTag} blogTags={blogTags} />
-        {/* <SkeletonBlogLoader> */}
-          <ul className="blog-posts-list">
-            {paginatedBlogs.map((post, index) => (
-              <li
-                key={index}
-                className="blog-post-item active"
-                data-category={post.metadata.category}
-              >
-                <Link href={`/blog/${post.slug}`} rel="noopener noreferrer">
-                  <figure className="blog-banner-box">
-                    <Image
-                      src={post.metadata.banner}
-                      alt={post.metadata.alt || "Blog post image"}
-                      width={1600}
-                      height={900}
-                      priority={false}
-                      placeholder="blur"
-                      loading="eager"
-                      blurDataURL="https://docs.1chooo.com/images/cover-with-1chooo-com.png"
-                    />
-                  </figure>
-                  <div className="blog-content">
-                    <div className="blog-meta">
-                      <p className="blog-category">{post.metadata.category}</p>
-                      <span className="dot"></span>
-                      <time dateTime={post.metadata.publishedAt}>
-                        {new Date(post.metadata.publishedAt).toLocaleDateString(
-                          "en-us",
-                          {
-                            month: "long",
-                            day: "numeric",
-                            year: "numeric",
-                          }
-                        )}
-                      </time>
-                    </div>
-                    <h3 className="h3 blog-item-title">
-                      <Balancer><MarkdownRenderer content={post.metadata.title} /></Balancer>
-                    </h3>
-                    <MarkdownRenderer
-                      className="blog-summary"
-                      content={post.metadata.summary}
-                    />
+        <ul className="blog-posts-list">
+          {paginatedBlogs.map((post, index) => (
+            <li
+              key={index}
+              className="blog-post-item active"
+              data-category={post.metadata.category}
+            >
+              <Link href={`/blog/${post.slug}`} rel="noopener noreferrer">
+                <figure className="blog-banner-box">
+                  <Image
+                    src={post.metadata.banner}
+                    alt={post.metadata.alt || "Blog post image"}
+                    width={1600}
+                    height={900}
+                    priority={false}
+                    placeholder="blur"
+                    loading="eager"
+                    blurDataURL="https://docs.1chooo.com/images/cover-with-1chooo-com.png"
+                  />
+                </figure>
+                <div className="blog-content">
+                  <div className="blog-meta">
+                    <p className="blog-category">{post.metadata.category}</p>
+                    <span className="dot"></span>
+                    <time dateTime={post.metadata.publishedAt}>
+                      {new Date(post.metadata.publishedAt).toLocaleDateString(
+                        "en-us",
+                        {
+                          month: "long",
+                          day: "numeric",
+                          year: "numeric",
+                        }
+                      )}
+                    </time>
                   </div>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        {/* </SkeletonBlogLoader> */}
+                  <h3 className="h3 blog-item-title">
+                    <Balancer><MarkdownRenderer content={post.metadata.title} /></Balancer>
+                  </h3>
+                  <MarkdownRenderer
+                    className="blog-summary"
+                    content={post.metadata.summary}
+                  />
+                </div>
+              </Link>
+            </li>
+          ))}
+        </ul>
         <div className="pagination">
           {Array.from({ length: totalPages }, (_, i) => i + 1).map(
             (pageNum) => (
