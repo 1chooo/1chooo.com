@@ -1,5 +1,4 @@
 import React from 'react';
-import '@/styles/h4-about.css';
 
 interface H4Props {
   text: string;
@@ -7,7 +6,7 @@ interface H4Props {
 
 const H4: React.FC<H4Props> = ({ text }) => {
   return (
-    <h4 className="h4-about">
+    <h4 className="text-light-gray text-lg font-bold mt-[30px] mb-[30px]">
       <code>{text}</code>
     </h4>
   );
