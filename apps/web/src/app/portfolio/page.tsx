@@ -27,24 +27,24 @@ export const metadata = {
 export default async function Portfolio({ searchParams }: {
   readonly searchParams: { tag?: string; page?: string };
 }) {
-  let allBlogs = await getPortfolioPosts();
+  let allPortfolioPosts = await getPortfolioPosts();
   const blogTags = [
     "All",
     ...Array.from(
-      new Set(allBlogs.map((post) => post.metadata.category ?? ""))
+      new Set(allPortfolioPosts.map((post) => post.metadata.category ?? ""))
     ),
   ];
   const selectedTag = searchParams.tag || "All";
   const currentPage = parseInt(searchParams.page || "1", 10);
 
   // Filter blogs based on the selected tag
-  const filteredBlogs =
+  const filteredPortfolioPosts =
     selectedTag === "All"
-      ? allBlogs
-      : allBlogs.filter((post) => post.metadata.category === selectedTag);
+      ? allPortfolioPosts
+      : allPortfolioPosts.filter((post) => post.metadata.category === selectedTag);
 
   // Sort blogs by date
-  const sortedBlogs = filteredBlogs.sort((a, b) => {
+  const sortedPortfolioPosts = filteredPortfolioPosts.sort((a, b) => {
     if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
       return -1;
     }
@@ -52,10 +52,10 @@ export default async function Portfolio({ searchParams }: {
   });
 
   // Calculate total pages
-  const totalPages = Math.ceil(sortedBlogs.length / POSTS_PER_PAGE);
+  const totalPages = Math.ceil(sortedPortfolioPosts.length / POSTS_PER_PAGE);
 
   // Get blogs for current page
-  const paginatedBlogs = sortedBlogs.slice(
+  const paginatedPortfolioPosts = sortedPortfolioPosts.slice(
     (currentPage - 1) * POSTS_PER_PAGE,
     currentPage * POSTS_PER_PAGE
   );
@@ -67,7 +67,7 @@ export default async function Portfolio({ searchParams }: {
         <FilterList selectedTag={selectedTag} blogTags={blogTags} />
         <FilterSelectBox selectedTag={selectedTag} blogTags={blogTags} />
         <ul className="project-list">
-          {paginatedBlogs.map((post, index) => (
+          {paginatedPortfolioPosts.map((post, index) => (
             <li
               key={index}
               className="project-item active"
