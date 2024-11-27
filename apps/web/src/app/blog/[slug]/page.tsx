@@ -15,7 +15,8 @@ const { giscusConfig } = config;
 export async function generateMetadata({ params }: {
   readonly params: { readonly slug: string };
 }): Promise<Metadata | undefined> {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+  let posts = await getBlogPosts();
+  let post = posts.find((post) => post.slug === params.slug);
   if (!post) {
     return;
   }
@@ -101,10 +102,11 @@ function formatDate(date: string) {
   }
 }
 
-export default function Blog({ params }: {
+export default async function Blog({ params }: {
   readonly params: { readonly slug: string }
 }) {
-  let post = getBlogPosts().find((post) => post.slug === params.slug);
+  let posts = await getBlogPosts();
+  let post = posts.find((post) => post.slug === params.slug);
 
   if (!post) {
     notFound();
