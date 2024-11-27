@@ -32,8 +32,8 @@ const header =
     ? `About ${firstName} ${lastName} 👨🏻‍💻`
     : `About ${preferredName} 👨🏻‍💻`;
 
-const About = () => {
-  let allBlogs = getBlogPosts();
+const About = async () => {
+  let allBlogs = await getBlogPosts();
 
   let selectedPosts = allBlogs
     .map(post => ({

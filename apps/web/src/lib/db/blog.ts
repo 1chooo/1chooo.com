@@ -1,3 +1,5 @@
+// https://github.com/alexchantastic/next-mdx-blog-example/blob/main/src/posts.ts
+
 import fs from 'fs';
 import path from 'path';
 
@@ -61,6 +63,6 @@ function getMDXData(dir: string) {
   });
 }
 
-export function getBlogPosts() {
+export async function getBlogPosts() {
   return getMDXData(path.join(process.cwd(), 'src/contents/posts'));
 }

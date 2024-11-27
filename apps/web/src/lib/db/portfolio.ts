@@ -41,26 +41,26 @@ function readMDXFile(filePath: string) {
   return parseFrontmatter(rawContent);
 }
 
-// function extractTweetIds(content) {
-//   let tweetMatches = content.match(/<StaticTweet\sid="[0-9]+"\s\/>/g);
-//   return tweetMatches?.map((tweet) => tweet.match(/[0-9]+/g)[0]) || [];
-// }
+function extractTweetIds(content: any) {
+  let tweetMatches = content.match(/<StaticTweet\sid="[0-9]+"\s\/>/g);
+  return tweetMatches?.map((tweet: any) => tweet.match(/[0-9]+/g)[0]) || [];
+}
 
 function getMDXData(dir: string) {
   let mdxFiles = getMDXFiles(dir);
   return mdxFiles.map((file) => {
     let { metadata, content } = readMDXFile(path.join(dir, file));
     let slug = path.basename(file, path.extname(file));
-    // let tweetIds = extractTweetIds(content);
+    let tweetIds = extractTweetIds(content);
     return {
       metadata,
       slug,
-      // tweetIds,
+      tweetIds,
       content,
     };
   });
 }
 
-export function getPortfolioPosts() {
+export async function getPortfolioPosts() {
   return getMDXData(path.join(process.cwd(), 'src/contents/portfolios'));
 }
