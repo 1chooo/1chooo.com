@@ -2031,33 +2031,3 @@ textarea.form-input::-webkit-resizer {
 .markdown-alert-caution .markdown-alert-title {
   color: var(--github-alert-caution-color);
 }
-
-.anchor-header {
-  position: relative;
-  margin: 0;
-  cursor: pointer;
-  color: hsl(0, 0%, 84%);
-}
-
-.anchor-header a {
-  text-decoration: none;
-  color: hsl(0, 0%, 84%);
-}
-
-.anchor-header a:hover {
-  text-decoration: underline;
-}
-
-.anchor-header .hash {
-  position: absolute;
-  left: -1.5rem;
-  opacity: 0;
-  color: hsl(0, 0%, 84%);
-  transition: opacity 0.2s ease-in-out;
-  transform: scale(0.8);
-  top: 0.2rem;
-}
-
-.anchor-header:hover .hash {
-  opacity: 1;
-}

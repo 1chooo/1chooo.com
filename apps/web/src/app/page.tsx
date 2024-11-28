@@ -7,7 +7,7 @@ import GitHubStats from '@/components/about/github-stats';
 import TechStack from '@/components/about/tech-stack';
 import LifeStyles from '@/components/about/life-styles';
 import PageHeader from '@/components/page-header';
-import H4 from '@/components/markdown/h4';
+import AboutHeader from '@/components/about/about-header';
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import { FaRegPenToSquare } from "react-icons/fa6";
 import SeeMoreButton from "@/components/about/see-more-btn";
@@ -57,9 +57,9 @@ const About = async () => {
   return (
     <article data-page=''>
       <PageHeader header={header} />
-      <H4 text={`${subHeader} (${pronouns})`} />
+      <AboutHeader text={`${subHeader} (${pronouns})`} />
       <AboutText introduction={introduction} />
-      <H4 text="$ ls -al Latest Articles" />
+      <AboutHeader text="$ ls -al Latest Articles" />
       <section>
         <ul className="latest-post-list has-scrollbar">
           {selectedPosts.map((post, index) => (

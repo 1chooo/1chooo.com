@@ -1,4 +1,4 @@
-import H4 from '@/components/markdown/h4';
+import AboutHeader from '@/components/about/about-header';
 import ServiceItem from './service-item';
 
 import config from '@/config';
@@ -11,7 +11,7 @@ const subHeader = "$ ls -al Life Style";
 const LifeStyles: React.FC = () => {
   return (
     <section className="service">
-      <H4 text={subHeader} />
+      <AboutHeader text={subHeader} />
 
       <ul className="service-list">
         {lifestyles.map((lifestyle: LifeStyle) => (
