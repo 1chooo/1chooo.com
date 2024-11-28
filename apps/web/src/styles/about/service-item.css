@@ -36,10 +36,6 @@
     text-align: center;
 }
 
-.service-item-title {
-    margin-bottom: 7px;
-}
-
 .service-item-text {
     color: var(--light-gray);
     font-size: var(--fs-6);
