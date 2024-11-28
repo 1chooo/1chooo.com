@@ -54,7 +54,7 @@ const GitHubStats: FC = () => {
   const isMobile = windowWidth <= MOBILE_BREAKPOINT;
 
   return (
-    <section className="about-text">
+    <section className="text-light-gray">
       <AboutHeader text={subHeaderText} />
       <GitHubCalendar
         username={username}
