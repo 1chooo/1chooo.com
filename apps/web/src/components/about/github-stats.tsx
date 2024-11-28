@@ -4,7 +4,7 @@ import React, { useEffect, useState, FC } from 'react';
 import GitHubCalendar from 'react-github-calendar';
 import { ThemeInput } from 'react-activity-calendar';
 
-import H4 from '@/components/markdown/h4';
+import AboutHeader from '@/components/about/about-header';
 
 import config from '@/config';
 
@@ -54,8 +54,8 @@ const GitHubStats: FC = () => {
   const isMobile = windowWidth <= MOBILE_BREAKPOINT;
 
   return (
-    <section className="about-text">
-      <H4 text={subHeaderText} />
+    <section className="text-light-gray">
+      <AboutHeader text={subHeaderText} />
       <GitHubCalendar
         username={username}
         blockSize={isMobile ? MOBILE_CALENDAR_SIZE : LAPTOP_CALENDAR_SIZE}

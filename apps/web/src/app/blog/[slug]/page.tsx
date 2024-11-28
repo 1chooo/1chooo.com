@@ -117,7 +117,7 @@ export default async function Blog({ params }: {
       <article>
         <section className="blog-text">
           <PageHeader header="Hugo's Blog" />
-          <h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">
+          <h1 className="title font-semibold text-2xl tracking-tighter max-w-[650px]">
             <MarkdownRenderer content={post.metadata.title} />
           </h1>
           <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">

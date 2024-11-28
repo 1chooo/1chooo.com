@@ -19,7 +19,7 @@ const ServiceItem: React.FC<ServiceItemProps> = ({ lifestyle }) => {
         />
       </div>
       <div className="service-content-box">
-        <h4 className="h4 service-item-title">{lifestyle.title}</h4>
+        <h4 className="text-white-2 text-lg font-bold mb-[7px]">{lifestyle.title}</h4>
         <p className="service-item-text">{lifestyle.text}</p>
       </div>
     </li>

@@ -56,7 +56,7 @@ My current research interests include ***Programming Language Theory, Operating 
 
 In my spare time, I do workouts 💪🏻, street photography 📸, and tech content writing ✍🏻.
 
-**<code>Self-motivated, Team player, Love coding 👨🏻‍💻</code>**
+**<pre>Self-motivated, Team player, Love coding 👨🏻‍💻</pre>**
     `,
     "lifestyles": [
       {
