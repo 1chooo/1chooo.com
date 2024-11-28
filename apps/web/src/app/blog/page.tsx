@@ -93,13 +93,13 @@ export default async function BlogPage({ searchParams }: {
                       )}
                     </time>
                   </div>
-                  <h3 className="h3 blog-item-title">
+                  <h3 className="text-2xl text-white-2 font-semibold leading-[1.3] transition-all hover:text-orange-yellow-crayola">
                     <Balancer><MarkdownRenderer content={post.metadata.title} /></Balancer>
                   </h3>
-                  <MarkdownRenderer
-                    className="blog-summary"
+                  <Balancer><MarkdownRenderer
+                    className="text-light-gray text-s font-light leading-6 overflow-hidden line-clamp-2"
                     content={post.metadata.summary}
-                  />
+                  /></Balancer>
                 </div>
               </Link>
             </li>
