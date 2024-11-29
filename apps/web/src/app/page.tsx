@@ -22,6 +22,7 @@ const { firstName, lastName } = about;
 const { preferredName } = about;
 const { title } = config;
 const { introduction } = config.about;
+const { lifestyles } = about;
 
 export const metadata: Metadata = {
   title: title,
@@ -55,7 +56,7 @@ const About = async () => {
   }
 
   return (
-    <article data-page=''>
+    <article>
       <PageHeader header={header} />
       <AboutHeader text={`${subHeader} (${pronouns})`} />
       <AboutText introduction={introduction} />
@@ -92,7 +93,8 @@ const About = async () => {
       <SeeMoreButton badge="See All Articles" path="/blog" icon={FaRegPenToSquare} />
       <GitHubStats />
       <TechStack />
-      <LifeStyles />
+      <AboutHeader text={"$ ls -al Life Style"} />
+      <LifeStyles lifestyles={lifestyles}/>
     </article>
   );
 }
