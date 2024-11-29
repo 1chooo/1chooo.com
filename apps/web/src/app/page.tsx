@@ -91,10 +91,11 @@ const About = async () => {
         </ul>
       </section>
       <SeeMoreButton badge="See All Articles" path="/blog" icon={FaRegPenToSquare} />
+      <AboutHeader text="$ ls -al GitHub Stats" />
       <GitHubStats />
       <TechStack />
-      <AboutHeader text={"$ ls -al Life Style"} />
-      <LifeStyles lifestyles={lifestyles}/>
+      <AboutHeader text="$ ls -al Life Style" />
+      <LifeStyles lifestyles={lifestyles} />
     </article>
   );
 }

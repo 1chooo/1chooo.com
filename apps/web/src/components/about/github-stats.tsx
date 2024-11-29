@@ -22,8 +22,6 @@ const { about } = config;
 const { socialMedia } = about;
 const { githubUsername } = socialMedia;
 
-const subHeaderText = '$ ls -al GitHub Stats';
-
 const MOBILE_CALENDAR_SIZE = 12;
 const LAPTOP_CALENDAR_SIZE = 12;
 const MOBILE_BREAKPOINT = 768;
@@ -55,7 +53,6 @@ const GitHubStats: FC = () => {
 
   return (
     <section className="text-light-gray">
-      <AboutHeader text={subHeaderText} />
       <GitHubCalendar
         username={username}
         blockSize={isMobile ? MOBILE_CALENDAR_SIZE : LAPTOP_CALENDAR_SIZE}
