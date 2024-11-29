@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import AboutText from '@/components/about/about-text';
 import GitHubStats from '@/components/about/github-stats';
 import TechStack from '@/components/about/tech-stack';
 import LifeStyles from '@/components/about/life-styles';
@@ -7,6 +6,7 @@ import PageHeader from '@/components/page-header';
 import AboutHeader from '@/components/about/about-header';
 import SeeMoreButton from "@/components/about/see-more-btn";
 import LatestArticles from "@/components/about/latest-articles";
+import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import { getBlogPosts } from "@/lib/db/blog";
 import { FaRegPenToSquare } from "react-icons/fa6";
 import config from '@/config';
@@ -51,7 +51,7 @@ const About = async () => {
     <article>
       <PageHeader header={header} />
       <AboutHeader text={`${subHeader} (${pronouns})`} />
-      <AboutText introduction={introduction} />
+      <MarkdownRenderer className="text-light-gray leading-relaxed" content={introduction} />
       <AboutHeader text="$ ls -al Latest Articles" />
       <LatestArticles posts={selectedPosts} />
       <SeeMoreButton badge="See All Articles" path="/blog" icon={FaRegPenToSquare} />
