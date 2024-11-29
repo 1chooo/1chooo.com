@@ -5,6 +5,9 @@ import { MdOutlineDevices } from "react-icons/md";
 import { IoSchoolOutline } from "react-icons/io5";
 import { PiTrophy } from "react-icons/pi";
 import { PiBooks } from "react-icons/pi";
+import { LiaDumbbellSolid } from "react-icons/lia";
+
+import {GoalIcon, MarkGithubIcon, PencilIcon, DeviceCameraIcon} from '@primer/octicons-react'
 
 const config: Config = {
   avatar: '/images/profile.webp',
@@ -60,22 +63,22 @@ In my spare time, I do workouts 💪🏻, street photography 📸, and tech cont
     `,
     "lifestyles": [
       {
-        icon: '/images/icons/developer.png',
+        icon: MarkGithubIcon,
         title: "Open Source Contributor",
         text: "Actively contributing to open source projects on GitHub."
       },
       {
-        icon: '/images/icons/writing.png',
+        icon: PencilIcon,
         title: "Content Creator",
         text: "Love to share my knowledge and experience with others."
       },
       {
-        icon: '/images/icons/dumbbell.png',
+        icon: GoalIcon,
         title: "Workouts",
         text: "Basketball and weight training defines my active workout lifestyle."
       },
       {
-        icon: '/images/icons/camera.png',
+        icon: DeviceCameraIcon,
         title: "Photography",
         text: "Sky brings freedom; streets, a reminder of others' contributions."
       }
