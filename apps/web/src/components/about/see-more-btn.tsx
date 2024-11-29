@@ -1,13 +1,15 @@
 import Link from "next/link";
 import React from 'react';
-import type { IconType } from "react-icons";
+import type { IconType as ReactIconType } from "react-icons";
+import type { Icon as OcticonsType } from "@primer/octicons-react";
+
 
 import "@/styles/about/see-more-btn.css"
 
 interface SeeMoreButtonProps {
   badge: string;
   path: string;
-  icon: IconType;
+  icon: ReactIconType | OcticonsType;
 }
 
 const SeeMoreButton: React.FC<SeeMoreButtonProps> = ({ badge, path, icon: Icon }) => {

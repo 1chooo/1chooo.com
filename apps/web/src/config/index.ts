@@ -5,8 +5,6 @@ import { MdOutlineDevices } from "react-icons/md";
 import { IoSchoolOutline } from "react-icons/io5";
 import { PiTrophy } from "react-icons/pi";
 import { PiBooks } from "react-icons/pi";
-import { LiaDumbbellSolid } from "react-icons/lia";
-
 import {GoalIcon, MarkGithubIcon, PencilIcon, DeviceCameraIcon} from '@primer/octicons-react'
 
 const config: Config = {
@@ -59,7 +57,7 @@ My current research interests include ***Programming Language Theory, Operating 
 
 In my spare time, I do workouts 💪🏻, street photography 📸, and tech content writing ✍🏻.
 
-**<pre>Self-motivated, Team player, Love coding 👨🏻‍💻</pre>**
+**Self-motivated, Team player, Love coding 👨🏻‍💻**
     `,
     "lifestyles": [
       {
