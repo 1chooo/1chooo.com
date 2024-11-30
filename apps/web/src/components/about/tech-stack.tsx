@@ -7,20 +7,17 @@ type TechStack = {
   icon: JSX.Element;
 };
 
-type TechStackCategory = {
-  category: string;
-  stacks: TechStack[];
+type TechStackProps = {
+  techStacks: {
+    programmingLanguages: TechStack[];
+    tools: TechStack[];
+  };
 };
 
-
-type TechStackV1Props = {
-  techStacks: TechStackCategory[];
-};
-
-const TechStackV1: React.FC<TechStackV1Props> = ( {techStacks} ) => {
+const TechStack: React.FC<TechStackProps> = ({ techStacks }) => {
   return (
     <ul className="service-list mt-[30px] grid grid-cols-2 gap-[20px] lg:gap-y-[20px] lg:gap-x-[25px]">
-      {techStacks.map(({ category, stacks }) => (
+      {Object.entries(techStacks).map(([category, stacks]) => (
         <li key={category} className="service-item">
           <div className="tech-stack-container">
             {stacks.map((stack) => (
@@ -35,4 +32,4 @@ const TechStackV1: React.FC<TechStackV1Props> = ( {techStacks} ) => {
   );
 };
 
-export default TechStackV1;
+export default TechStack;

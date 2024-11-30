@@ -38,21 +38,9 @@ import { BiLogoFlask } from "react-icons/bi";
 import { VscTerminalLinux } from "react-icons/vsc";
 import { DiRedis } from "react-icons/di";
 
-type TechStack = {
-  name: string;
-  icon: JSX.Element;
-};
-
-type TechStackCategory = {
-  category: string;
-  stacks: TechStack[];
-};
-
-const techStacks: TechStackCategory[] = [
-  {
-    category: "Programming Languages",
-    stacks: [
-      { name: "Python", icon: <AiOutlinePython /> },
+const techStacks = {
+  programmingLanguages: [
+    { name: "Python", icon: <AiOutlinePython /> },
       { name: "TypeScript", icon: <TbBrandTypescript /> },
       { name: "Go", icon: <TbBrandGolang /> },
       { name: "C++", icon: <TbBrandCpp /> },
@@ -65,12 +53,9 @@ const techStacks: TechStackCategory[] = [
       { name: "MySQL", icon: <TbBrandMysql /> },
       { name: "Redis", icon: <DiRedis /> },
       { name: "Tailwind", icon: <TbBrandTailwind /> },
-    ],
-  },
-  {
-    category: "Frameworks and Tools",
-    stacks: [
-      { name: "React", icon: <FaReact /> },
+  ],
+  tools: [
+    { name: "React", icon: <FaReact /> },
       { name: "Next.js", icon: <TbBrandNextjs /> },
       { name: "AWS", icon: <FaAws /> },
       { name: "FastAPI", icon: <SiFastapi /> },
@@ -80,9 +65,9 @@ const techStacks: TechStackCategory[] = [
       { name: "Kubernetes", icon: <SiKubernetes /> },
       { name: "Azure", icon: <SiMicrosoftazure /> },
       { name: "Lambda", icon: <SiAwslambda /> },
-    ],
-  },
-];
+  ],
+};
+
 
 const { about,
   title
@@ -90,7 +75,7 @@ const { about,
 const {
   subHeader, pronouns, firstName,
   lastName, preferredName, introduction,
-  lifestyles, programmingLanguage, devOps
+  lifestyles
 } = about;
 
 export const metadata: Metadata = {
