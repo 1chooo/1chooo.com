@@ -407,36 +407,6 @@ main {
   margin-bottom: 15px;
 }
 
-.techstack-list {
-  display: flex;
-  justify-content: flex-start;
-  align-items: flex-start;
-  gap: 10px;
-  margin: 0 -15px;
-  padding: 25px;
-  padding-bottom: 25px;
-  overflow-x: auto;
-  scroll-behavior: smooth;
-  overscroll-behavior-inline: contain;
-  scroll-snap-type: inline mandatory;
-  scroll-padding-inline: 25px;
-}
-
-.techstack-item {
-  min-width: 50%;
-  scroll-snap-align: start;
-}
-
-.techstack-item img {
-  width: 100%;
-  filter: grayscale(1);
-  transition: var(--transition-1);
-}
-
-.techstack-item img:hover {
-  filter: grayscale(0);
-}
-
 .testimonials-item {
   min-width: 100%;
   scroll-snap-align: center;
@@ -1207,17 +1177,6 @@ textarea.form-input::-webkit-resizer {
 \*-----------------------------------*/
 
 /**
-* responsive larger than 250px screen
-* TODO: maybe we need to support smaller screen
-*/
-
-@media (min-width: 250px) {
-  .techstack-item {
-    min-width: calc(25% - 20px);
-  }
-}
-
-/**
 * responsive larger than 375px screen
 */
 
@@ -1228,15 +1187,6 @@ textarea.form-input::-webkit-resizer {
 
   .clients-item {
     min-width: calc(33.33% - 10px);
-  }
-
-  .techstack-item {
-    min-width: calc(20% - 35px);
-  }
-
-  .techstack-list {
-    padding: 5px;
-    margin: 0 0px;
   }
 
   /**
@@ -1269,14 +1219,6 @@ textarea.form-input::-webkit-resizer {
   .project-img,
   .blog-banner-box {
     height: auto;
-  }
-
-  .techstack-item {
-    min-width: calc(15% - 10px);
-  }
-
-  .techstack-list {
-    padding: 25px;
   }
 }
 
@@ -1422,18 +1364,8 @@ textarea.form-input::-webkit-resizer {
     scroll-padding-inline: 45px;
   }
 
-  .techstack-list {
-    gap: 10px;
-    margin: 0 -30px;
-    scroll-padding-inline: 45px;
-  }
-
   .clients-item {
     min-width: calc(33.33% - 35px);
-  }
-
-  .techstack-item {
-    min-width: calc(15% - 25px);
   }
 
   /**
@@ -1668,10 +1600,6 @@ textarea.form-input::-webkit-resizer {
 
   .clients-item {
     min-width: calc(25% - 38px);
-  }
-
-  .techstack-item {
-    min-width: calc(10% - 20px);
   }
 
   /**
