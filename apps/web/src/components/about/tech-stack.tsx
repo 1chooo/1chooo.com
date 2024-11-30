@@ -1,27 +1,38 @@
-import Image from 'next/image';
+import React from "react";
 
-import type { TechStack as TechStackType } from '@/types/about';
+import "./tech-stack.css";
 
-interface TechStackProps {
-  techStack: TechStackType[];
-}
+type TechStack = {
+  name: string;
+  icon: JSX.Element;
+};
 
-const TechStack: React.FC<TechStackProps> = ({ techStack }) => {
+type TechStackCategory = {
+  category: string;
+  stacks: TechStack[];
+};
+
+
+type TechStackV1Props = {
+  techStacks: TechStackCategory[];
+};
+
+const TechStackV1: React.FC<TechStackV1Props> = ( {techStacks} ) => {
   return (
-    <ul className="techstack-list has-scrollbar">
-      {techStack.map((item: TechStackType) => (
-        <li key={item.id} className="techstack-item">
-          <Image
-            id={item.id}
-            src={item.src}
-            alt={item.alt}
-            width={65}
-            height={65}
-          />
+    <ul className="service-list mt-[30px] grid grid-cols-2 gap-[20px] lg:gap-y-[20px] lg:gap-x-[25px]">
+      {techStacks.map(({ category, stacks }) => (
+        <li key={category} className="service-item">
+          <div className="tech-stack-container">
+            {stacks.map((stack) => (
+              <div key={stack.name} className="tech-icon text-orange-yellow-crayola">
+                {stack.icon}
+              </div>
+            ))}
+          </div>
         </li>
       ))}
     </ul>
   );
-}
+};
 
-export default TechStack;
+export default TechStackV1;
