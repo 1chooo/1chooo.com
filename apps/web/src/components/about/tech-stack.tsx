@@ -1,6 +1,6 @@
 import React from "react";
 
-import "./tech-stack.css";
+import "@/styles/about/tech-stack.css";
 
 type TechStack = {
   name: string;
@@ -24,7 +24,7 @@ const TechStackV1: React.FC<TechStackV1Props> = ( {techStacks} ) => {
         <li key={category} className="service-item">
           <div className="tech-stack-container">
             {stacks.map((stack) => (
-              <div key={stack.name} className="tech-icon text-orange-yellow-crayola">
+              <div key={stack.name} className="tech-icon text-white-2">
                 {stack.icon}
               </div>
             ))}
