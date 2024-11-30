@@ -62,12 +62,12 @@ In my spare time, I do workouts 💪🏻, street photography 📸, and tech cont
     "lifestyles": [
       {
         icon: MarkGithubIcon,
-        title: "Open Source Contributor",
+        title: "Open Source",
         text: "Actively contributing to open source projects on GitHub."
       },
       {
         icon: PencilIcon,
-        title: "Content Creator",
+        title: "Content Creation",
         text: "Love to share my knowledge and experience with others."
       },
       {
