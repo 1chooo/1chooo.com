@@ -1,24 +1,3 @@
-.has-scrollbar::-webkit-scrollbar {
-    /* for vertical scrollbar */
-    width: 5px;
-    /* for horizontal scrollbar */
-    height: 5px;
-}
-
-.has-scrollbar::-webkit-scrollbar-track {
-    background: var(--onyx);
-    border-radius: 5px;
-}
-
-.has-scrollbar::-webkit-scrollbar-thumb {
-    background: var(--orange-yellow-crayola);
-    border-radius: 5px;
-}
-
-.has-scrollbar::-webkit-scrollbar-button {
-    width: 20px;
-}
-
 .latest-post-list {
     display: flex;
     justify-content: flex-start;
@@ -63,11 +42,6 @@
     animation: scaleUp 0.25s ease forwards;
 }
 
-.latest-post-item>a:hover .latest-post-title {
-    color: var(--orange-yellow-crayola);
-    font-weight: bold;
-}
-
 .latest-post-item>a {
     width: 100%;
 }
@@ -107,15 +81,6 @@
 .latest-post-item>a:hover .latest-post-item-icon-box {
     --scale: 1;
     opacity: 1;
-}
-
-.latest-post-title {
-    margin-left: 10px;
-    color: var(--white-2);
-    font-size: var(--fs-5);
-    font-weight: var(--fw-400);
-    text-transform: capitalize;
-    line-height: 1.3;
 }
 
 @media (min-width: 375px) {

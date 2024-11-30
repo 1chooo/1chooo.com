@@ -23,7 +23,7 @@ const LatestArticles = ({ posts }: { posts: Post[] }) => {
 
   useEffect(() => {
     const updateVisiblePosts = () => {
-      const isMobile = window.innerWidth <= 768;
+      const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
       setVisiblePosts(isMobile ? posts.slice(0, 2) : posts.slice(0, 3));
     };
 
@@ -38,7 +38,7 @@ const LatestArticles = ({ posts }: { posts: Post[] }) => {
         {visiblePosts.map((post) => (
           <li
             key={post.slug}
-            className="latest-post-item active"
+            className="latest-post-item group active"
             data-category={post.metadata.category}
           >
             <Link href={`/blog/${post.slug}`} rel="noopener noreferrer">
@@ -56,7 +56,7 @@ const LatestArticles = ({ posts }: { posts: Post[] }) => {
                   loading="eager"
                 />
               </figure>
-              <h3 className="latest-post-title">
+              <h3 className="ml-[10px] text-white-2 text-base font-normal capitalize leading-[1.3] group-hover:text-orange-yellow-crayola group-hover:font-bold">
                 <MarkdownRenderer content={post.metadata.title} />
               </h3>
             </Link>
