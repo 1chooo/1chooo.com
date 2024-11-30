@@ -1,11 +1,16 @@
 // https://github.com/sleepymalc/pbb.wtf/blob/main/config.js
+// https://react-icons.github.io/react-icons/
+// https://primer.style/foundations/icons/
 
 import { Config } from "@/types/config";
 import { MdOutlineDevices } from "react-icons/md";
 import { IoSchoolOutline } from "react-icons/io5";
-import { PiTrophy } from "react-icons/pi";
-import { PiBooks } from "react-icons/pi";
-import {GoalIcon, MarkGithubIcon, PencilIcon, DeviceCameraIcon} from '@primer/octicons-react'
+import { PiTrophy, PiBooks } from "react-icons/pi";
+import { GoalIcon } from '@primer/octicons-react'
+import { LuGithub, LuPencil } from "react-icons/lu";
+import { TbPhotoSquareRounded } from "react-icons/tb";
+import { TbBrandCpp } from "react-icons/tb";
+
 
 const config: Config = {
   avatar: '/images/profile.webp',
@@ -61,12 +66,12 @@ In my spare time, I do workouts 💪🏻, street photography 📸, and tech cont
     `,
     "lifestyles": [
       {
-        icon: MarkGithubIcon,
+        icon: LuGithub,
         title: "Open Source",
         text: "Actively contributing to open source projects on GitHub."
       },
       {
-        icon: PencilIcon,
+        icon: LuPencil,
         title: "Content Creation",
         text: "Love to share my knowledge and experience with others."
       },
@@ -76,7 +81,7 @@ In my spare time, I do workouts 💪🏻, street photography 📸, and tech cont
         text: "Basketball and weight training defines my active workout lifestyle."
       },
       {
-        icon: DeviceCameraIcon,
+        icon: TbPhotoSquareRounded,
         title: "Photography",
         text: "Sky brings freedom; streets, a reminder of others' contributions."
       }
