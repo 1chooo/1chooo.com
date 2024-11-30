@@ -1,6 +1,7 @@
 // https://github.com/afiiif/pokemon-world/blob/main/src/types/pokemon.ts
 
 import type { Icon } from '@primer/octicons-react';
+import type { IconType } from 'react-icons';
 
 export type LifeStyle = {
   icon: Icon;
@@ -9,10 +10,16 @@ export type LifeStyle = {
 }
 
 export type TechStack = {
-  id: string;
-  src: string;
-  alt: string;
-}
+  name: string;
+  icon: Icon | IconType;
+};
+
+type TechStackProps = {
+  techStacks: {
+    programmingLanguages: TechStack[];
+    tools: TechStack[];
+  };
+};
 
 export type SocialMedia = {
   githubUsername: string;
@@ -48,6 +55,10 @@ export type About = {
   socialMedia: SocialMedia;
   introduction: string;
   lifestyles: LifeStyle[];
-  programmingLanguage: TechStack[];
-  devOps: TechStack[];
+  techStacks: {
+    programmingLanguages: TechStack[];
+    tools: TechStack[];
+  };
 }
+
+

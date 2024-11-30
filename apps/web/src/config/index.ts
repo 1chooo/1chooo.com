@@ -8,8 +8,27 @@ import { IoSchoolOutline } from "react-icons/io5";
 import { PiTrophy, PiBooks } from "react-icons/pi";
 import { GoalIcon } from '@primer/octicons-react'
 import { LuGithub, LuPencil } from "react-icons/lu";
-import { TbPhotoSquareRounded } from "react-icons/tb";
-import { TbBrandCpp } from "react-icons/tb";
+import {
+  TbBrandCpp, TbBrandTypescript,
+  TbBrandGolang, TbMarkdown,
+  TbBrandNextjs, TbBrandDjango,
+  TbBrandApple, TbBrandTailwind,
+  TbBrandDocker, TbBrandMysql,
+  TbPhotoSquareRounded
+} from "react-icons/tb";
+import { FaReact, FaAws } from "react-icons/fa";
+import { AiOutlinePython } from "react-icons/ai";
+import { RiJavaLine, RiJavascriptLine } from "react-icons/ri";
+import {
+  SiLatex,
+  SiFastapi,
+  SiKubernetes,
+  SiMicrosoftazure,
+  SiAwslambda,
+} from "react-icons/si";
+import { BiLogoFlask } from "react-icons/bi";
+import { VscTerminalLinux } from "react-icons/vsc";
+import { DiRedis } from "react-icons/di";
 
 
 const config: Config = {
@@ -86,26 +105,35 @@ In my spare time, I do workouts 💪🏻, street photography 📸, and tech cont
         text: "Sky brings freedom; streets, a reminder of others' contributions."
       }
     ],
-    "programmingLanguage": [
-      { id: 'python', src: 'https://skillicons.dev/icons?i=python', alt: 'python' },
-      { id: 'ts', src: 'https://skillicons.dev/icons?i=ts', alt: 'ts' },
-      { id: 'go', src: 'https://skillicons.dev/icons?i=go', alt: 'go' },
-      { id: 'cpp', src: 'https://skillicons.dev/icons?i=cpp', alt: 'cpp' },
-      { id: 'java', src: 'https://skillicons.dev/icons?i=java', alt: 'java' },
-      { id: 'md', src: 'https://skillicons.dev/icons?i=md', alt: 'md' },
-      { id: 'bash', src: 'https://skillicons.dev/icons?i=bash', alt: 'bash' },
-      { id: 'latex', src: 'https://skillicons.dev/icons?i=latex', alt: 'latex' },
-    ],
-    "devOps": [
-      { id: 'linux', src: 'https://skillicons.dev/icons?i=linux', alt: 'linux' },
-      { id: 'aws', src: 'https://skillicons.dev/icons?i=aws', alt: 'aws' },
-      { id: 'fastapi', src: 'https://skillicons.dev/icons?i=fastapi', alt: 'fastapi' },
-      { id: 'react', src: 'https://skillicons.dev/icons?i=react', alt: 'react' },
-      { id: 'nextjs', src: 'https://skillicons.dev/icons?i=nextjs', alt: 'nextjs' },
-      { id: 'flask', src: 'https://skillicons.dev/icons?i=flask', alt: 'flask' },
-      { id: 'docker', src: 'https://skillicons.dev/icons?i=docker', alt: 'docker' },
-      { id: 'githubactions', src: 'https://skillicons.dev/icons?i=githubactions', alt: 'githubactions' },
-    ]
+    "techStacks": {
+      "programmingLanguages": [
+        { name: "Python", icon: AiOutlinePython },
+        { name: "TypeScript", icon: TbBrandTypescript },
+        { name: "Go", icon: TbBrandGolang },
+        { name: "C++", icon: TbBrandCpp },
+        { name: "Java", icon: RiJavaLine },
+        { name: "Markdown", icon: TbMarkdown },
+        { name: "LaTeX", icon: SiLatex },
+        { name: "JavaScript", icon: RiJavascriptLine },
+        { name: "Linux", icon: VscTerminalLinux },
+        { name: "Apple", icon: TbBrandApple },
+        { name: "MySQL", icon: TbBrandMysql },
+        { name: "Redis", icon: DiRedis },
+        { name: "Tailwind", icon: TbBrandTailwind },
+      ],
+      "tools": [
+        { name: "React", icon: FaReact },
+        { name: "Next.js", icon: TbBrandNextjs },
+        { name: "AWS", icon: FaAws },
+        { name: "FastAPI", icon: SiFastapi },
+        { name: "Django", icon: TbBrandDjango },
+        { name: "Flask", icon: BiLogoFlask },
+        { name: "Docker", icon: TbBrandDocker },
+        { name: "Kubernetes", icon: SiKubernetes },
+        { name: "Azure", icon: SiMicrosoftazure },
+        { name: "Lambda", icon: SiAwslambda },
+      ],
+    },
   },
   resume: {
     "educations": {
