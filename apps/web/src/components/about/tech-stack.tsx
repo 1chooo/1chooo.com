@@ -1,10 +1,12 @@
 import React from "react";
+import type { Icon } from '@primer/octicons-react';
+import type { IconType } from 'react-icons';
 
 import "@/styles/about/tech-stack.css";
 
 type TechStack = {
   name: string;
-  icon: JSX.Element;
+  icon: Icon | IconType;
 };
 
 type TechStackProps = {
@@ -22,7 +24,7 @@ const TechStack: React.FC<TechStackProps> = ({ techStacks }) => {
           <div className="tech-stack-container">
             {stacks.map((stack) => (
               <div key={stack.name} className="tech-icon text-white-2">
-                {stack.icon}
+                <stack.icon />
               </div>
             ))}
           </div>

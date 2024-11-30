@@ -6,76 +6,18 @@ import AboutHeader from '@/components/about/about-header';
 import SeeMoreButton from "@/components/about/see-more-btn";
 import LatestArticles from "@/components/about/latest-articles";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
+import TechStack from "@/components/about/tech-stack";
 import { getBlogPosts } from "@/lib/db/blog";
 import { FaRegPenToSquare } from "react-icons/fa6";
 import config from '@/config';
-import TechStack from "@/components/about/tech-stack";
-
-import React from "react";
-import {
-  TbBrandCpp,
-  TbBrandTypescript,
-  TbBrandGolang,
-  TbMarkdown,
-  TbBrandNextjs,
-  TbBrandDjango,
-  TbBrandApple,
-  TbBrandTailwind,
-  TbBrandDocker,
-  TbBrandMysql,
-} from "react-icons/tb";
-import { FaReact, FaAws } from "react-icons/fa";
-import { AiOutlinePython } from "react-icons/ai";
-import { RiJavaLine, RiJavascriptLine } from "react-icons/ri";
-import {
-  SiLatex,
-  SiFastapi,
-  SiKubernetes,
-  SiMicrosoftazure,
-  SiAwslambda,
-} from "react-icons/si";
-import { BiLogoFlask } from "react-icons/bi";
-import { VscTerminalLinux } from "react-icons/vsc";
-import { DiRedis } from "react-icons/di";
-
-const techStacks = {
-  programmingLanguages: [
-    { name: "Python", icon: <AiOutlinePython /> },
-      { name: "TypeScript", icon: <TbBrandTypescript /> },
-      { name: "Go", icon: <TbBrandGolang /> },
-      { name: "C++", icon: <TbBrandCpp /> },
-      { name: "Java", icon: <RiJavaLine /> },
-      { name: "Markdown", icon: <TbMarkdown /> },
-      { name: "LaTeX", icon: <SiLatex /> },
-      { name: "JavaScript", icon: <RiJavascriptLine /> },
-      { name: "Linux", icon: <VscTerminalLinux /> },
-      { name: "Apple", icon: <TbBrandApple /> },
-      { name: "MySQL", icon: <TbBrandMysql /> },
-      { name: "Redis", icon: <DiRedis /> },
-      { name: "Tailwind", icon: <TbBrandTailwind /> },
-  ],
-  tools: [
-    { name: "React", icon: <FaReact /> },
-      { name: "Next.js", icon: <TbBrandNextjs /> },
-      { name: "AWS", icon: <FaAws /> },
-      { name: "FastAPI", icon: <SiFastapi /> },
-      { name: "Django", icon: <TbBrandDjango /> },
-      { name: "Flask", icon: <BiLogoFlask /> },
-      { name: "Docker", icon: <TbBrandDocker /> },
-      { name: "Kubernetes", icon: <SiKubernetes /> },
-      { name: "Azure", icon: <SiMicrosoftazure /> },
-      { name: "Lambda", icon: <SiAwslambda /> },
-  ],
-};
 
 
-const { about,
-  title
-} = config;
+
+const { about, title } = config;
 const {
   subHeader, pronouns, firstName,
   lastName, preferredName, introduction,
-  lifestyles
+  lifestyles, techStacks
 } = about;
 
 export const metadata: Metadata = {
@@ -116,7 +58,7 @@ const About = async () => {
       <AboutHeader text="$ ls -al GitHub Stats" />
       <GitHubStats />
       <AboutHeader text="$ ls -al Tech Stack" />
-      <TechStack techStacks={techStacks}/>
+      <TechStack techStacks={techStacks} />
       <AboutHeader text="$ ls -al Life Style" />
       <LifeStyles lifestyles={lifestyles} />
     </article>
