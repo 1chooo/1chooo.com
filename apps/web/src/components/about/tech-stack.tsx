@@ -11,27 +11,22 @@ type TechStack = {
 };
 
 type TechStackProps = {
-  techStacks: {
-    programmingLanguages: TechStack[];
-    tools: TechStack[];
-  };
+  techStacks: TechStack[];
 };
 
 const TechStack: React.FC<TechStackProps> = ({ techStacks }) => {
   return (
     <section><AboutHeader text="$ ls -al Tech Stack" />
-      <ul className="service-list mt-[30px] grid grid-cols-2 gap-[20px] lg:gap-y-[20px] lg:gap-x-[25px]">
-        {Object.entries(techStacks).map(([category, stacks]) => (
-          <li key={category} className="service-item">
-            <div className="tech-stack-container">
-              {stacks.map((stack) => (
-                <div key={stack.name} className="tech-icon text-white-2 hover:scale-110 hover:text-orange-yellow-crayola">
-                  <stack.icon />
-                </div>
-              ))}
-            </div>
-          </li>
-        ))}
+      <ul className="mt-[30px] grid grid-cols-1 gap-[20px] md:grid-cols-2 lg:grid-cols-2 lg:gap-y-[20px] lg:gap-x-[25px]">
+        <li className="service-item">
+          <div className="tech-stack-container">
+            {techStacks.map((stack) => (
+              <div key={stack.name} className="tech-icon text-white-2 hover:scale-110 hover:text-orange-yellow-crayola">
+                <stack.icon />
+              </div>
+            ))}
+          </div>
+        </li>
       </ul>
     </section>
   );

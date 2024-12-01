@@ -14,13 +14,6 @@ export type TechStack = {
   icon: Icon | IconType;
 };
 
-type TechStackProps = {
-  techStacks: {
-    programmingLanguages: TechStack[];
-    tools: TechStack[];
-  };
-};
-
 export type SocialMedia = {
   githubUsername: string;
   mediumUsername: string;
@@ -55,10 +48,5 @@ export type About = {
   socialMedia: SocialMedia;
   introduction: string;
   lifestyles: LifeStyle[];
-  techStacks: {
-    programmingLanguages: TechStack[];
-    tools: TechStack[];
-  };
+  techStacks: TechStack[];
 }
-
-

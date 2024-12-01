@@ -10,19 +10,14 @@ import { GoalIcon } from '@primer/octicons-react'
 import { LuGithub, LuPencil } from "react-icons/lu";
 import {
   TbBrandCpp, TbBrandTypescript,
-  TbBrandGolang, TbMarkdown,
-  TbBrandNextjs, TbBrandDjango,
-  TbPhotoSquareRounded, TbBrandTailwind,
-  TbBrandDocker, TbBrandMysql,
+  TbBrandGolang, TbBrandNextjs,
+  TbPhotoSquareRounded, TbBrandDocker, TbBrandMysql,
 } from "react-icons/tb";
 import { FaReact, FaAws } from "react-icons/fa";
 import { AiOutlinePython } from "react-icons/ai";
-import { RiJavaLine, RiJavascriptLine } from "react-icons/ri";
+import { RiJavaLine } from "react-icons/ri";
 import {
-  SiLatex,
-  SiFastapi,
-  SiKubernetes,
-  SiMicrosoftazure,
+  SiLatex, SiFastapi, SiMicrosoftazure,
 } from "react-icons/si";
 import { BiLogoFlask } from "react-icons/bi";
 import { VscTerminalLinux } from "react-icons/vsc";
@@ -102,33 +97,24 @@ In my spare time, I do workouts 💪🏻, street photography 📸, and tech cont
         text: "Sky brings freedom; streets, a reminder of others' contributions."
       }
     ],
-    "techStacks": {
-      "programmingLanguages": [
-        { name: "Python", icon: AiOutlinePython },
-        { name: "TypeScript", icon: TbBrandTypescript },
-        { name: "Go", icon: TbBrandGolang },
-        { name: "C++", icon: TbBrandCpp },
-        { name: "Java", icon: RiJavaLine },
-        { name: "Markdown", icon: TbMarkdown },
-        { name: "LaTeX", icon: SiLatex },
-        { name: "JavaScript", icon: RiJavascriptLine },
-        { name: "Linux", icon: VscTerminalLinux },
-        { name: "MySQL", icon: TbBrandMysql },
-        { name: "Redis", icon: DiRedis },
-        { name: "Tailwind", icon: TbBrandTailwind },
-      ],
-      "tools": [
-        { name: "React", icon: FaReact },
-        { name: "Next.js", icon: TbBrandNextjs },
-        { name: "AWS", icon: FaAws },
-        { name: "FastAPI", icon: SiFastapi },
-        { name: "Django", icon: TbBrandDjango },
-        { name: "Flask", icon: BiLogoFlask },
-        { name: "Docker", icon: TbBrandDocker },
-        { name: "Kubernetes", icon: SiKubernetes },
-        { name: "Azure", icon: SiMicrosoftazure },
-      ],
-    },
+    "techStacks": [
+      { name: "Python", icon: AiOutlinePython },
+      { name: "TypeScript", icon: TbBrandTypescript },
+      { name: "Go", icon: TbBrandGolang },
+      { name: "C++", icon: TbBrandCpp },
+      { name: "Java", icon: RiJavaLine },
+      { name: "LaTeX", icon: SiLatex },
+      { name: "Linux", icon: VscTerminalLinux },
+      { name: "MySQL", icon: TbBrandMysql },
+      { name: "Redis", icon: DiRedis },
+      { name: "React", icon: FaReact },
+      { name: "Next.js", icon: TbBrandNextjs },
+      { name: "AWS", icon: FaAws },
+      { name: "Docker", icon: TbBrandDocker },
+      { name: "FastAPI", icon: SiFastapi },
+      { name: "Flask", icon: BiLogoFlask },
+      { name: "Azure", icon: SiMicrosoftazure },
+    ],
   },
   resume: {
     "educations": {
