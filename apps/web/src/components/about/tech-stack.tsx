@@ -25,7 +25,7 @@ const TechStack: React.FC<TechStackProps> = ({ techStacks }) => {
           <li key={category} className="service-item">
             <div className="tech-stack-container">
               {stacks.map((stack) => (
-                <div key={stack.name} className="tech-icon text-white-2">
+                <div key={stack.name} className="tech-icon text-white-2 hover:scale-110 hover:text-orange-yellow-crayola">
                   <stack.icon />
                 </div>
               ))}
