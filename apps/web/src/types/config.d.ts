@@ -23,4 +23,6 @@ export type Config = {
   about: About;
   resume: Resume;
   giscusConfig: GiscusProps;
+  googleAnalyticId: string;
+  googleTagManagerId: string;
 }
