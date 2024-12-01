@@ -2,6 +2,7 @@ import React from "react";
 import AboutHeader from "@/components/about/about-header";
 import type { Icon } from '@primer/octicons-react';
 import type { IconType } from 'react-icons';
+import Globe from "@/components/about/globe";
 
 import "@/styles/about/tech-stack.css";
 
@@ -26,6 +27,9 @@ const TechStack: React.FC<TechStackProps> = ({ techStacks }) => {
               </div>
             ))}
           </div>
+        </li>
+        <li className="service-item [@media(max-width:1024px)]:h-[200px]">
+          <Globe />
         </li>
       </ul>
     </section>
