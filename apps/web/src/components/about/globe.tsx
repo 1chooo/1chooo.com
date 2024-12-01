@@ -63,7 +63,7 @@ const Globe: React.FC = () => {
 
   return (
     <div className='absolute inset-x-0 bottom-[-190px] mx-auto aspect-square h-[388px] [@media(max-width:420px)]:bottom-[-140px] [@media(max-width:420px)]:h-[320px] [@media(min-width:768px)_and_(max-width:858px)]:h-[380px]'>
-      <div className='flex items-center gap-2 text-white-2 mt-4 [@media(min-width:1024px)]:ml-4 [@media(min-width:768px)]:ml-4 [@media(min-width:375px)]:ml-4 [@media(max-width:768px)]:mt-6'>
+      <div className='flex items-center gap-2 text-white-2 mt-4 ml-4'>
         <LuMapPin size={24} />
         <h2 className='text-sm font-light'>Taipei, Taiwan 🇹🇼</h2>
       </div>

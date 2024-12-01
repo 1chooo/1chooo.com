@@ -1,10 +1,9 @@
 import type { Metadata } from "next";
-import GitHubStats from '@/components/about/github-stats';
 import LifeStyles from '@/components/about/life-styles';
 import PageHeader from '@/components/page-header';
 import AboutHeader from '@/components/about/about-header';
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
-import TechStack from "@/components/about/tech-stack";
+import CodingStats from "@/components/about/coding-stats";
 import { getBlogPosts } from "@/lib/db/blog";
 import config from '@/config';
 import LatestArticles from "@/components/about/latest-articles";
@@ -50,8 +49,7 @@ const About = async () => {
       <MarkdownRenderer className="text-light-gray leading-relaxed" content={introduction} />
       <AboutHeader text="$ ls -al Latest Articles" />
       <LatestArticles posts={selectedPosts} />
-      <GitHubStats />
-      <TechStack techStacks={techStacks} />
+      <CodingStats techStacks={techStacks} />
       <LifeStyles lifestyles={lifestyles} />
     </article>
   );
