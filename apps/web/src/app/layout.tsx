@@ -5,15 +5,14 @@ import NavBar from "@/components/nav-bar";
 import SideBar from "@/components/side-bar";
 import config from "@/config";
 
-const {
-  title, description, author,
-  keywords, openGraph
-} = config;
-
 import "./globals.css";
 
-const googleAnalyticId = "G-JGG75799PJ";
-const googleTagManagerId = "GTM-PDJ3NF4Q";
+const {
+  title, description, 
+  author, keywords, 
+  googleAnalyticId, googleTagManagerId,
+  openGraph, 
+} = config;
 
 export const metadata: Metadata = {
   title: title,
@@ -46,7 +45,6 @@ const RootLayout = (props: RootLayoutProps) => {
   return (
     <html lang="en">
       <head>
-        {/* Favicon and Manifest */}
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/logo192.png" />
         <link rel="manifest" href="/manifest.json" />

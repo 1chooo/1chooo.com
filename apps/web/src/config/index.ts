@@ -253,7 +253,9 @@ In my spare time, I do workouts 💪🏻, street photography 📸, and tech cont
     theme: "dark_tritanopia",
     lang: "en",
     loading: "lazy",
-  }
+  },
+  "googleAnalyticId": "G-JGG75799PJ",
+  "googleTagManagerId": "GTM-PDJ3NF4Q"
 };
 
 export default config;
