@@ -1,20 +1,19 @@
 import type { Metadata } from "next";
-
-import { GoogleAnalytics } from "@/components/google/ga";
+import { GoogleAnalytics, GoogleTagManager } from "@/components/google";
 import Hello from "@/components/hello";
 import NavBar from "@/components/nav-bar";
 import SideBar from "@/components/side-bar";
 import config from "@/config";
 
-const { title } = config;
-const { description } = config;
-const { author } = config;
-const { keywords } = config;
-const { openGraph } = config;
+const {
+  title, description, author,
+  keywords, openGraph
+} = config;
 
 import "./globals.css";
 
 const googleAnalyticId = "G-JGG75799PJ";
+const googleTagManagerId = "GTM-PDJ3NF4Q";
 
 export const metadata: Metadata = {
   title: title,
@@ -64,6 +63,7 @@ const RootLayout = (props: RootLayoutProps) => {
         </main>
       </body>
       <GoogleAnalytics gaId={googleAnalyticId} />
+      <GoogleTagManager gtmId={googleTagManagerId} />
     </html>
   );
 }
