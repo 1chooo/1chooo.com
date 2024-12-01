@@ -5,6 +5,8 @@ import Link from "next/link";
 import Image from "next/image";
 import { LuEye } from "react-icons/lu";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
+import SeeMoreButton from "@/components/about/see-more-btn";
+import { FaRegPenToSquare } from "react-icons/fa6";
 import "@/styles/about/latest-posts.css";
 
 type Post = {
@@ -63,6 +65,7 @@ const LatestArticles = ({ posts }: { posts: Post[] }) => {
           </li>
         ))}
       </ul>
+      <SeeMoreButton badge="See All Articles" path="/blog" icon={FaRegPenToSquare} />
     </section>
   );
 };
