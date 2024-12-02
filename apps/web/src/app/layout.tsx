@@ -19,6 +19,7 @@ export const metadata: Metadata = {
   title: title,
   description: description,
   authors: [{ name: author }],
+  creator: author,
   keywords: keywords,
   openGraph: {
     url: openGraph.url,
@@ -28,12 +29,24 @@ export const metadata: Metadata = {
     description: openGraph.description,
     images: openGraph.images,
   },
+  manifest: '/manifest.webmanifest',
   twitter: {
     card: "summary_large_image",
     title: "Hugo ChunHo Lin (1chooo) | Open Source Enthusiast",
     description:
       "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
     images: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",
+  },
+  icons: {
+    icon: '/favicon.ico',
+    shortcut: '/favicon.ico',
+    apple: [
+      {
+        url: '/logo192.png',
+        sizes: '192x192',
+        type: 'image/png'
+      }
+    ],
   },
 };
 
@@ -45,12 +58,6 @@ const RootLayout = (props: RootLayoutProps) => {
   const { children } = props
   return (
     <html lang="en" className={`${roboto.className}`}>
-      <head>
-        <link rel="icon" href="/favicon.ico" />
-        <link rel="apple-touch-icon" href="/logo192.png" />
-        <link rel="manifest" href="/manifest.json" />
-      </head>
-
       <body>
         <Hello />
         <main>
