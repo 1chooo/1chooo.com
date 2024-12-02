@@ -17,7 +17,7 @@ import { FaReact, FaAws } from "react-icons/fa";
 import { AiOutlinePython } from "react-icons/ai";
 import { RiJavaLine } from "react-icons/ri";
 import {
-  SiLatex, SiFastapi, SiMicrosoftazure,
+  SiLatex, SiFastapi,
 } from "react-icons/si";
 import { BiLogoFlask } from "react-icons/bi";
 import { VscTerminalLinux } from "react-icons/vsc";
@@ -113,7 +113,6 @@ In my spare time, I do workouts 💪🏻, street photography 📸, and tech cont
       { name: "Docker", icon: TbBrandDocker },
       { name: "FastAPI", icon: SiFastapi },
       { name: "Flask", icon: BiLogoFlask },
-      { name: "Azure", icon: SiMicrosoftazure },
     ],
   },
   resume: {
