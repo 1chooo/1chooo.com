@@ -22,40 +22,33 @@ import { FileTree } from 'nextra/components'
   <FileTree.File name="turbo.json" />
 </FileTree>
 
-## The Complete Project Folder Structure
+### apps/web
 
-```
-.
-├── .github/
-├── docs/
-│   ├── code-walkthrough/
-│   │   └── README.md
-│   ├── imgs/
-│   │   └── jwt_auth_middleware.go
-│   ├── user-guides/
-│   │   ├── login_route.go
-│   │   ├── profile_route.go
-│   │   ├── refresh_token_route.go
-│   │   ├── route.go
-│   │   ├── signup_route.go
-│   │   └── task_route.go
-│   ├── CONTRIBUTING.md
-│   └── README.md
-├── public/
-├── src/
-├── .eslintrc.json
-├── .gitignore
-├── CONTRIBUTING.md
-├── LICENSE
-├── next.env.d.ts
-├── next.config.js
-├── package-lock.json
-├── package.json
-├── postcss.config.js
-├── README.md
-├── tailwind.config.js
-└── tsconfig.json
-```
+<FileTree>
+  <FileTree.Folder name="public" />
+  <FileTree.Folder name="src" defaultOpen>
+    <FileTree.Folder name="app" />
+    <FileTree.Folder name="components" />
+    <FileTree.Folder name="config" />
+    <FileTree.Folder name="contents" />
+    <FileTree.Folder name="hooks" />
+    <FileTree.Folder name="lib" />
+    <FileTree.Folder name="styles" />
+    <FileTree.Folder name="tests" />
+    <FileTree.Folder name="types" />
+    <FileTree.File name="mdx-components.tsx" />
+  </FileTree.Folder>
+  <FileTree.Folder name=".eslintrc.js" />
+  <FileTree.File name=".gitignore" />
+  <FileTree.File name="jest.config.ts" />
+  <FileTree.File name="jest.setup.ts" />
+  <FileTree.File name="next-env.d.ts" />
+  <FileTree.File name="next.config.mjs" />
+  <FileTree.File name="package.json" />
+  <FileTree.File name="postcss.config.js" />
+  <FileTree.File name="tailwind.config.js" />
+  <FileTree.File name="tsconfig.config.js" />
+</FileTree>
 
 ## Code Counter with Complexity Calculations by [`scc`](https://github.com/boyter/scc) 
 
