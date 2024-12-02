@@ -83,7 +83,7 @@ In my spare time, I do workouts 💪🏻, street photography 📸, and tech cont
       },
       {
         icon: LuPencil,
-        title: "Content Creation",
+        title: "Storytelling",
         text: "Love to share my knowledge and experience with others."
       },
       {
