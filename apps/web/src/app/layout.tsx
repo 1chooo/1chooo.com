@@ -4,14 +4,15 @@ import Hello from "@/components/hello";
 import NavBar from "@/components/nav-bar";
 import SideBar from "@/components/side-bar";
 import config from "@/config";
+import { roboto } from "./font";
 
 import "./globals.css";
 
 const {
-  title, description, 
-  author, keywords, 
+  title, description,
+  author, keywords,
   googleAnalyticId, googleTagManagerId,
-  openGraph, 
+  openGraph,
 } = config;
 
 export const metadata: Metadata = {
@@ -43,7 +44,7 @@ type RootLayoutProps = {
 const RootLayout = (props: RootLayoutProps) => {
   const { children } = props
   return (
-    <html lang="en">
+    <html lang="en" className={`${roboto.className}`}>
       <head>
         <link rel="icon" href="/favicon.ico" />
         <link rel="apple-touch-icon" href="/logo192.png" />
