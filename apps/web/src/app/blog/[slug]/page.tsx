@@ -12,11 +12,12 @@ import "@/styles/blog/blog-text.css"
 
 const { giscusConfig } = config;
 
-export async function generateMetadata({ params }: {
-  readonly params: { readonly slug: string };
-}): Promise<Metadata | undefined> {
+type tParams = Promise<{ slug: string }>;
+
+export async function generateMetadata({ params }: { params: tParams }): Promise<Metadata | undefined> {
+  const { slug } = await params;
   let posts = await getBlogPosts();
-  let post = posts.find((post) => post.slug === params.slug);
+  let post = posts.find((post) => post.slug === slug);
   if (!post) {
     return;
   }
@@ -102,11 +103,10 @@ function formatDate(date: string) {
   }
 }
 
-export default async function Blog({ params }: {
-  readonly params: { readonly slug: string }
-}) {
+export default async function Blog(props: { params: tParams }) {
+  const { slug } = await props.params;
   let posts = await getBlogPosts();
-  let post = posts.find((post) => post.slug === params.slug);
+  let post = posts.find((post) => post.slug === slug);
 
   if (!post) {
     notFound();

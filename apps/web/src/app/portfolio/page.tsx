@@ -8,14 +8,6 @@ import { getPortfolioPosts } from "@/lib/db/portfolio";
 import config from "@/config";
 import { LuEye } from "react-icons/lu";
 
-/**
- * TODO: #257
- * update the document title see (#341)
- * export const metadata: Metadata = {
- *   title: `Contact | ${title}`,
- * };
- */
-
 const { title } = config;
 const POSTS_PER_PAGE = 9;
 
@@ -24,18 +16,20 @@ export const metadata = {
   description: "Read my thoughts on software development, design, and more.",
 };
 
-export default async function Portfolio({ searchParams }: {
-  readonly searchParams: { tag?: string; page?: string };
-}) {
-  let allPortfolioPosts = await getPortfolioPosts();
+type tParams = Promise<{ tag?: string; page?: string }>;
+
+export default async function Portfolio({ searchParams }: { searchParams: tParams }) {
+  const { tag = "All", page = "1" } = await searchParams;
+
+  const allPortfolioPosts = await getPortfolioPosts();
   const blogTags = [
     "All",
     ...Array.from(
       new Set(allPortfolioPosts.map((post) => post.metadata.category ?? ""))
     ),
   ];
-  const selectedTag = searchParams.tag || "All";
-  const currentPage = parseInt(searchParams.page || "1", 10);
+  const selectedTag = tag;
+  const currentPage = parseInt(page, 10);
 
   // Filter blogs based on the selected tag
   const filteredPortfolioPosts =
@@ -102,10 +96,9 @@ export default async function Portfolio({ searchParams }: {
                 key={pageNum}
                 href={{
                   pathname: "/portfolio",
-                  query: { ...searchParams, page: pageNum.toString() },
+                  query: { tag: selectedTag, page: pageNum.toString() },
                 }}
-                className={`pagination-btn ${pageNum === currentPage ? "active" : ""
-                  }`}
+                className={`pagination-btn ${pageNum === currentPage ? "active" : ""}`}
               >
                 {pageNum}
               </Link>
