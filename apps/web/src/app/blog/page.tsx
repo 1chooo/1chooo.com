@@ -111,11 +111,10 @@ export default async function BlogPage({ searchParams }: {
               <Link
                 key={pageNum}
                 href={{
-                  pathname: "/blog",
-                  query: { ...searchParams, page: pageNum.toString() },
+                  pathname: "/portfolio",
+                  query: { tag: selectedTag, page: pageNum.toString() },
                 }}
-                className={`pagination-btn ${pageNum === currentPage ? "active" : ""
-                  }`}
+                className={`pagination-btn ${pageNum === currentPage ? "active" : ""}`}
               >
                 {pageNum}
               </Link>

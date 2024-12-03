@@ -8,14 +8,6 @@ import { getPortfolioPosts } from "@/lib/db/portfolio";
 import config from "@/config";
 import { LuEye } from "react-icons/lu";
 
-/**
- * TODO: #257
- * update the document title see (#341)
- * export const metadata: Metadata = {
- *   title: `Contact | ${title}`,
- * };
- */
-
 const { title } = config;
 const POSTS_PER_PAGE = 9;
 
@@ -27,7 +19,7 @@ export const metadata = {
 export default async function Portfolio({ searchParams }: {
   readonly searchParams: { tag?: string; page?: string };
 }) {
-  let allPortfolioPosts = await getPortfolioPosts();
+  const allPortfolioPosts = await getPortfolioPosts();
   const blogTags = [
     "All",
     ...Array.from(
@@ -102,10 +94,9 @@ export default async function Portfolio({ searchParams }: {
                 key={pageNum}
                 href={{
                   pathname: "/portfolio",
-                  query: { ...searchParams, page: pageNum.toString() },
+                  query: { tag: selectedTag, page: pageNum.toString() },
                 }}
-                className={`pagination-btn ${pageNum === currentPage ? "active" : ""
-                  }`}
+                className={`pagination-btn ${pageNum === currentPage ? "active" : ""}`}
               >
                 {pageNum}
               </Link>
@@ -116,3 +107,4 @@ export default async function Portfolio({ searchParams }: {
     </article>
   );
 }
+
