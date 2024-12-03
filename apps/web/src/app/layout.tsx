@@ -5,6 +5,7 @@ import NavBar from "@/components/nav-bar";
 import SideBar from "@/components/side-bar";
 import config from "@/config";
 import { roboto } from "./font";
+import { WebVitals } from "@/components/web-vitals";
 
 import "./globals.css";
 
@@ -58,6 +59,7 @@ const RootLayout = (props: RootLayoutProps) => {
   const { children } = props
   return (
     <html lang="en" className={`${roboto.className}`}>
+      <WebVitals />
       <body>
         <Hello />
         <main>
