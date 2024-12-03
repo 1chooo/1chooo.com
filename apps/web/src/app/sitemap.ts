@@ -9,9 +9,7 @@ import { getPortfolioPosts } from '@/lib/db/portfolio';
 export default async function sitemap() {
   let blogs = await getBlogPosts();
   let blogMaps = blogs.map((post: {
-    metadata: {
-      publishedAt: string
-    }; slug: string
+    metadata: { publishedAt: string }; slug: string
   }) => ({
     url: `https://1chooo.com/blog/${post.slug}`,
     lastModified: post.metadata.publishedAt,
