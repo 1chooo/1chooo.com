@@ -53,7 +53,8 @@ const LatestArticles = ({ posts }: { posts: Post[] }) => {
                   alt={post.metadata.alt || "Blog post image"}
                   width={1600}
                   height={900}
-                  priority={true}
+                  priority
+                  quality={50}
                   placeholder="empty"
                   loading="eager"
                 />
