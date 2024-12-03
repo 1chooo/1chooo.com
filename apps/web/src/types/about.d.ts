@@ -14,13 +14,6 @@ export type TechStack = {
   icon: Icon | IconType;
 };
 
-export type SocialMedia = {
-  githubUsername: string;
-  mediumUsername: string;
-  twitterUsername: string;
-  linkedinUsername: string;
-}
-
 /**
  * Type definition for the About component.
  *
@@ -45,7 +38,7 @@ export type About = {
   preferredName: string;
   additionalName: string;
   pronouns: string;
-  socialMedia: SocialMedia;
+  githubUsername: string;
   introduction: string;
   lifestyles: LifeStyle[];
   techStacks: TechStack[];

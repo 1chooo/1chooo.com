@@ -68,12 +68,7 @@ const config: Config = {
     "preferredName": "Hugo",
     "additionalName": "Hugo",
     "pronouns": 'He/Him',
-    "socialMedia": {
-      "githubUsername": "1chooo",
-      "mediumUsername": "1chooo",
-      "twitterUsername": "1chooo___",
-      "linkedinUsername": "1chooo"
-    },
+    "githubUsername": "1chooo",
     "introduction": `
 I obtained my Bachelor's degree from [National Central University 🐿️](https://www.ncu.edu.tw/), driven by a *sincere passion* for **Software Engineering 💻.**
 

@@ -16,9 +16,7 @@ const yellowTheme: ThemeInput = {
 };
 
 const { about } = config;
-
-const { socialMedia } = about;
-const { githubUsername } = socialMedia;
+const { githubUsername } = about;
 
 const MOBILE_CALENDAR_SIZE = 12;
 const LAPTOP_CALENDAR_SIZE = 12;
