@@ -3,22 +3,21 @@
 // https://primer.style/foundations/icons/
 
 import { Config } from "@/types/config";
-import { MdOutlineDevices } from "react-icons/md";
+import { MdOutlineDevices, MdAttachment } from "react-icons/md";
 import { IoSchoolOutline } from "react-icons/io5";
-import { PiTrophy, PiBooks } from "react-icons/pi";
+import { PiTrophy, PiBooks, PiMediumLogoBold } from "react-icons/pi";
 import { GoalIcon } from '@primer/octicons-react'
-import { LuGithub, LuPencil } from "react-icons/lu";
+import { LuGithub, LuPencil, LuLinkedin, LuRss } from "react-icons/lu";
 import {
   TbBrandCpp, TbBrandTypescript,
   TbBrandGolang, TbBrandNextjs,
   TbPhotoSquareRounded, TbBrandDocker, TbBrandMysql,
 } from "react-icons/tb";
 import { FaReact, FaAws } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 import { AiOutlinePython } from "react-icons/ai";
 import { RiJavaLine } from "react-icons/ri";
-import {
-  SiLatex, SiFastapi,
-} from "react-icons/si";
+import { SiLatex, SiFastapi } from "react-icons/si";
 import { BiLogoFlask } from "react-icons/bi";
 import { VscTerminalLinux } from "react-icons/vsc";
 import { DiRedis } from "react-icons/di";
@@ -52,6 +51,14 @@ const config: Config = {
     { path: '/portfolio', label: 'Portfolio' },
     { path: '/blog', label: 'Blog' },
     { path: '/contact', label: 'Contact' }
+  ],
+  socialLinks: [
+    { url: `https://github.com/1chooo`, icon: LuGithub, name: 'GitHub' },
+    { url: `https://www.linkedin.com/in/1chooo/`, icon: LuLinkedin, name: 'LinkedIn' },
+    { url: `https://medium.com/@1chooo`, icon: PiMediumLogoBold, name: 'Medium' },
+    { url: `https://twitter.com/1chooo___`, icon: FaXTwitter, name: 'Twitter' },
+    { url: `/rss.xml`, icon: LuRss, name: 'RSS Feed' },
+    { url: `/cv.pdf`, icon: MdAttachment, name: 'CV' },
   ],
   about: {
     "subHeader": "$ ls -al Hugo 👨🏻‍💻",

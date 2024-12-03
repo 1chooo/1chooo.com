@@ -4,7 +4,7 @@ import type { IconType } from "react-icons";
 
 interface SocialLink {
   url: string;
-  icon: Icon | IconType;
+  icon: Icon | IconType | React.FC;
   name: string;
 }
 

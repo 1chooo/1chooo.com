@@ -11,6 +11,12 @@ import type { GiscusProps } from "@giscus/react";
  * @param {Resume} resume
  */
 
+type SocialLink = {
+  url: string;
+  icon: Icon | IconType | React.FC;
+  name: string;
+}
+
 export type Config = {
   avatar: string;
   title: string;
@@ -21,6 +27,7 @@ export type Config = {
   siteURL: string;
   openGraph: OpenGraph
   navItems: NavItem[];
+  socialLinks: SocialLink[];
   about: About;
   resume: Resume;
   giscusConfig: GiscusProps;
