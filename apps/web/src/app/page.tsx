@@ -1,12 +1,20 @@
 import type { Metadata } from "next";
-import LifeStyles from '@/components/about/life-styles';
+import dynamic from 'next/dynamic';
+import { Suspense } from 'react';
 import PageHeader from '@/components/page-header';
 import AboutHeader from '@/components/about/about-header';
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
-import CodingStats from "@/components/about/coding-stats";
 import { getBlogPosts } from "@/lib/db/blog";
 import config from '@/config';
 import LatestArticles from "@/components/about/latest-articles";
+const DynamicLifeStyles = dynamic(() => import('@/components/about/life-styles'), {
+  loading: () => <p>Loading life styles...</p>,
+});
+
+const DynamicCodingStats = dynamic(() => import('@/components/about/coding-stats'), {
+  loading: () => <p>Loading coding stats...</p>,
+});
+
 
 const { about, title } = config;
 const {
@@ -49,8 +57,12 @@ const About = async () => {
       <MarkdownRenderer className="text-light-gray leading-relaxed" content={introduction} />
       <AboutHeader text="$ ls -al Latest Articles" />
       <LatestArticles posts={selectedPosts} />
-      <CodingStats techStacks={techStacks} />
-      <LifeStyles lifestyles={lifestyles} />
+      <Suspense fallback={<div>Loading coding stats...</div>}>
+        <DynamicCodingStats techStacks={techStacks} />
+      </Suspense>
+      <Suspense fallback={<div>Loading life styles...</div>}>
+        <DynamicLifeStyles lifestyles={lifestyles} />
+      </Suspense>
     </article>
   );
 };
