@@ -18,6 +18,7 @@ export type Config = {
   author: string;
   keywords: string[];
   status: string;
+  siteURL: string;
   openGraph: OpenGraph
   navItems: NavItem[];
   about: About;

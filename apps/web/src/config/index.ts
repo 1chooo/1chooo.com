@@ -30,6 +30,7 @@ const config: Config = {
   author: "Chun-Ho (Hugo) Lin - 1chooo",
   keywords: ["Hugo ChunHo Lin", "1chooo", "Software Engineering", "Next.js", "React"],
   status: "Day ONE ⚡️",
+  siteURL: "https://1chooo.com",
   openGraph: {
     url: "https://1chooo.com/",
     type: "website",
