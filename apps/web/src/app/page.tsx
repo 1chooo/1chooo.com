@@ -6,7 +6,11 @@ import AboutHeader from '@/components/about/about-header';
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import { getBlogPosts } from "@/lib/db/blog";
 import config from '@/config';
-import LatestArticles from "@/components/about/latest-articles";
+
+const DynamicLatestArticles = dynamic(() => import('@/components/about/latest-articles'), {
+  loading: () => <p>Loading latest articles...</p>,
+});
+
 const DynamicLifeStyles = dynamic(() => import('@/components/about/life-styles'), {
   loading: () => <p>Loading life styles...</p>,
 });
@@ -56,7 +60,9 @@ const About = async () => {
       <AboutHeader text={`${subHeader} (${pronouns})`} />
       <MarkdownRenderer className="text-light-gray leading-relaxed" content={introduction} />
       <AboutHeader text="$ ls -al Latest Articles" />
-      <LatestArticles posts={selectedPosts} />
+      <Suspense fallback={<div>Loading latest articles...</div>}>
+        <DynamicLatestArticles posts={selectedPosts} />
+      </Suspense>
       <Suspense fallback={<div>Loading coding stats...</div>}>
         <DynamicCodingStats techStacks={techStacks} />
       </Suspense>

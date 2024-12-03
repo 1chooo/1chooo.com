@@ -9,7 +9,7 @@ tags:
   - Chrome Plugin
   - Software Development
 summary: "Today, I will show you how to give your GitHub repos a step-by-step makeover with VS Code's Material Icons. Let's dive in."
-banner: /images/banner/posts/give-your-github-repos-a-makeover-with-vscodes-material-icons.png
+banner: /images/banner/posts/give-your-github-repos-a-makeover-with-vscodes-material-icons.webp
 alt: "Give Your GitHub Repos a Makeover with VS Code's Material Icons"
 ---
 
@@ -17,7 +17,7 @@ Hey there! 👋 This is Hugo. I am a very addicted and heavy user of GitHub and 
 
 Today, I will show you how to give your GitHub repos a step-by-step makeover with VS Code's Material Icons. Let's dive in.
 
-![Give Your GitHub Repos a Makeover with VS Code's Material Icons by Hugo](/images/banner/posts/give-your-github-repos-a-makeover-with-vscodes-material-icons.png)
+![Give Your GitHub Repos a Makeover with VS Code's Material Icons by Hugo](/images/banner/posts/give-your-github-repos-a-makeover-with-vscodes-material-icons.webp)
 
 In the original state of GitHub, the file icon looks like this:
 
