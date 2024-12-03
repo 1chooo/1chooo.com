@@ -274,3 +274,56 @@ Crawl-delay: 1
 `.trim();
 }
 ```
+
+## Font Optimization
+
+[refactor(font): add Roboto font and update layout to optimize with next/font (#556)](https://github.com/1chooo/1chooo.com/pull/558)
+
+### Before
+
+```diff filename="src/app/global.css" {3}
+.root {
+  /* font-family */
+-  --ff-poppins: "Poppins", sans-serif;
+}
+
+- html {
+-   font-family: var(--ff-poppins);
+- }
+```
+
+```ts filename="src/app/font.ts"
+import { Roboto } from "next/font/google";
+
+export const roboto = Roboto({
+  weight: ['400', '700'],
+  style: ['normal', 'italic'],
+  subsets: ['latin'],
+  display: 'swap',
+})
+```
+
+```diff filename="src/app/layout.tsx"
+import { roboto } from "./font";
+
+const RootLayout = (props: RootLayoutProps) => {
+  const { children } = props
+  return (
+-    <html lang="en">
++    <html lang="en" className={`${roboto.className}`}>
+```
+
+## Dynamic Manifest
+
+Next.js provides a convenient way to generate a web app manifest dynamically using its metadata API. This approach allows you to customize your manifest based on your application's configuration or environment. This allows browsers to present the web app similarly to native applications, enabling features like installation on the home screen and full-screen display. [^2]
+
+- [Generate a Manifest file](https://nextjs.org/docs/app/api-reference/file-conventions/metadata/manifest#generate-a-manifest-file)
+
+[^2]: [Generate a Web App Manifest with Next.js](https://magill.dev/post/generate-a-web-app-manifest-with-nextjs)
+
+
+
+## RSS Feed
+
+- [xml](https://www.npmjs.com/package/xml)
+- [rss](https://www.npmjs.com/package/rss)
