@@ -16,9 +16,11 @@ export const metadata = {
   description: "Read my thoughts on software development, design, and more.",
 };
 
-export default async function Portfolio({ searchParams }: {
-  readonly searchParams: { tag?: string; page?: string };
-}) {
+type tParams = Promise<{ tag?: string; page?: string }>;
+
+export default async function Portfolio({ searchParams }: { searchParams: tParams }) {
+  const { tag = "All", page = "1" } = await searchParams;
+
   const allPortfolioPosts = await getPortfolioPosts();
   const blogTags = [
     "All",
@@ -26,8 +28,8 @@ export default async function Portfolio({ searchParams }: {
       new Set(allPortfolioPosts.map((post) => post.metadata.category ?? ""))
     ),
   ];
-  const selectedTag = searchParams.tag || "All";
-  const currentPage = parseInt(searchParams.page || "1", 10);
+  const selectedTag = tag;
+  const currentPage = parseInt(page, 10);
 
   // Filter blogs based on the selected tag
   const filteredPortfolioPosts =
@@ -107,4 +109,3 @@ export default async function Portfolio({ searchParams }: {
     </article>
   );
 }
-

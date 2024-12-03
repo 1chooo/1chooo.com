@@ -16,9 +16,10 @@ export const metadata = {
   description: "Read my thoughts on software development, design, and more.",
 };
 
-export default async function BlogPage({ searchParams }: {
-  readonly searchParams: { tag?: string; page?: string };
-}) {
+type tParams = Promise<{ tag?: string; page?: string }>;
+
+export default async function BlogPage({ searchParams }: { searchParams: tParams }) {
+  const { tag = "All", page = "1" } = await searchParams;
   let allBlogs = await getBlogPosts();
   const blogTags = [
     "All",
@@ -26,8 +27,8 @@ export default async function BlogPage({ searchParams }: {
       new Set(allBlogs.map((post) => post.metadata.category ?? ""))
     ),
   ];
-  const selectedTag = searchParams.tag || "All";
-  const currentPage = parseInt(searchParams.page || "1", 10);
+  const selectedTag = tag;
+  const currentPage = parseInt(page, 10);
 
   // Filter blogs based on the selected tag
   const filteredBlogs =
@@ -111,7 +112,7 @@ export default async function BlogPage({ searchParams }: {
               <Link
                 key={pageNum}
                 href={{
-                  pathname: "/portfolio",
+                  pathname: "/blog",
                   query: { tag: selectedTag, page: pageNum.toString() },
                 }}
                 className={`pagination-btn ${pageNum === currentPage ? "active" : ""}`}
