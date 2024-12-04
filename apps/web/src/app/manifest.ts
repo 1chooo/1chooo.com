@@ -1,12 +1,18 @@
 import type { MetadataRoute } from 'next'
- 
+
+import config from "@/config";
+
+const { title, description } = config;
+
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: '1chooo.com',
+    name: `${title}`,
     short_name: '1chooo.com',
-    description: 'Next.js App',
+    categories: ['portfolio', 'blog', 'personal', 'web development'],
+    description: `${description}`,
     start_url: '/',
     display: 'standalone',
+    lang: 'en-US',
     background_color: '#fff',
     theme_color: '#fff',
     icons: [
@@ -14,7 +20,20 @@ export default function manifest(): MetadataRoute.Manifest {
         src: '/favicon.ico',
         sizes: 'any',
         type: 'image/x-icon',
+        purpose: 'any',
       },
+      {
+        src: '/favicon.ico',
+        sizes: 'any',
+        type: 'image/x-icon',
+        purpose: 'maskable',
+      },
+      {
+        src: '/favicon.ico',
+        sizes: 'any',
+        type: 'image/x-icon',
+        purpose: 'monochrome',
+      }
     ],
   }
 }
