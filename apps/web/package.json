@@ -24,6 +24,7 @@
   ],
   "dependencies": {
     "@repo/math": "*",
+    "@repo/ui": "*",
     "@codesandbox/sandpack-react": "^2.19.3",
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
