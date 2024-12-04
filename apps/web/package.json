@@ -23,6 +23,8 @@
     "markdown"
   ],
   "dependencies": {
+    "@repo/math": "*",
+    "@repo/ui": "*",
     "@codesandbox/sandpack-react": "^2.19.3",
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
@@ -64,7 +66,8 @@
     "build": "next build",
     "start": "next start",
     "test": "jest",
-    "test:watch": "jest --watch"
+    "test:watch": "jest --watch",
+    "check-types": "tsc --noEmit"
   },
   "eslintConfig": {
     "extends": [
