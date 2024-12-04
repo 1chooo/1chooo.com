@@ -1,6 +1,6 @@
 {
   "name": "1chooo-com",
-  "version": "0.4.2",
+  "version": "0.4.4",
   "private": true,
   "license": "CC-BY-4.0",
   "author": {
@@ -100,5 +100,6 @@
     "sass-loader": "^16.0.1",
     "tailwindcss": "^3.4.15",
     "typescript": "^5.5.4"
-  }
+  },
+  "packageManager": "npm@10.9.0"
 }
