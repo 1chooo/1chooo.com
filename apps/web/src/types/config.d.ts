@@ -3,6 +3,8 @@ import type { Resume } from "@/types/resume";
 import type { NavItem } from "@/types/nav-bar";
 import { OpenGraph } from "./open-graph";
 import type { GiscusProps } from "@giscus/react";
+import type { Icon } from "@primer/octicons-react";
+import type { IconType } from "react-icons";
 
 /**
  * Type definition for the Web app configuration.
