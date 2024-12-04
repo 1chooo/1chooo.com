@@ -5,6 +5,7 @@ import createGlobe from 'cobe';
 import { useSpring } from 'react-spring';
 import { LuMapPin } from "react-icons/lu";
 
+// https://github.com/shuding/cobe/tree/main/website/pages/docs/showcases
 const Globe: React.FC = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const pointerInteracting = useRef<number | null>(null)
