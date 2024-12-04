@@ -7,6 +7,7 @@ import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import { getBlogPosts } from "@/lib/db/blog";
 import config from '@/config';
 import { add } from '@repo/math/add';
+import { subtract } from "@/repo/math/subtract";
 
 const DynamicLatestArticles = dynamic(() => import('@/components/about/latest-articles'), {
   loading: () => <p>Loading latest articles...</p>,
@@ -71,6 +72,7 @@ const About = async () => {
         <DynamicLifeStyles lifestyles={lifestyles} />
       </Suspense>
       <div>{add(1, 2)}</div>;
+      <div>{subtract(5, 4)}</div>;
     </article>
   );
 };
