@@ -389,18 +389,6 @@ main {
   line-height: 1.6;
 }
 
-.techstack p {
-  margin-bottom: 15px;
-  color: var(--light-gray);
-  font-size: var(--fs-6);
-  font-weight: var(--fw-300);
-  line-height: 1.6;
-}
-
-.techstack {
-  margin-bottom: 15px;
-}
-
 .testimonials-item {
   min-width: 100%;
   scroll-snap-align: center;
