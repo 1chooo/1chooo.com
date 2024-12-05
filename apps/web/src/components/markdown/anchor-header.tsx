@@ -1,5 +1,5 @@
 import React from 'react';
-import slugify from '@/lib/utils/slugify';
+import slugify from '@/lib/slugify';
 
 import { IoLink } from 'react-icons/io5';
 
