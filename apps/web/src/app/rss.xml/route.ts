@@ -16,18 +16,18 @@ export const GET = async () => {
     image_url: `https://www.1chooo.com/og`
   })
 
-  let blogs = await getBlogPosts();
+  let posts = await getBlogPosts();
 
-  for (const blog of blogs) {
+  for (const post of posts) {
     let {
       title,
       publishedAt,
       summary,
-    } = blog.metadata;
+    } = post.metadata;
 
     feed.item({
       title,
-      url: `https://www.1chooo.com/blog/${blog.slug}`,
+      url: `https://www.1chooo.com/post/${post.slug}`,
       publishedAt,
       description: summary,
       author: author
