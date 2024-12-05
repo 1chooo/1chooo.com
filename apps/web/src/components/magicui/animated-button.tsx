@@ -17,7 +17,7 @@ const AnimatedButton: React.FC<AnimatedButtonProps> = ({ path, bannerText, icon:
   return (
     <Link href={path}>
       <motion.button
-        className="relative overflow-hidden px-6 py-3 bg-border-gradient-onyx text-orange-yellow-crayola font-semibold group rounded-xl"
+        className="relative overflow-hidden px-6 py-3 bg-border-gradient-onyx text-orange-yellow-crayola font-semibold group rounded-xl z-0 shadow-lg"
         whileHover={{
           scale: 1.1,
           backgroundColor: 'hsl(45, 100%, 10%)',
