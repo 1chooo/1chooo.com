@@ -88,44 +88,6 @@
 }
 
 /*-----------------------------------*\
-  #PAGINATION
-\*-----------------------------------*/
-
-.pagination {
-  display: flex;
-  justify-content: center;
-  margin-top: 20px;
-}
-
-.pagination-btn {
-  /* adjust the text to the center */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: var(--border-gradient-onyx);
-  border: none;
-  padding: 10px 15px;
-  margin: 0 5px;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  font-size: 16px;
-  color: hsl(0, 0%, 98%);
-  transition: background-color 0.3s ease;
-  border-radius: 14px;
-}
-
-.pagination-btn.active {
-  color: hsl(45, 100%, 71%);
-  animation: scaleUp 0.25s ease forwards;
-}
-
-.pagination-btn:hover {
-  background-color: hsl(45, 100%, 10%);
-  scale: 1.1;
-}
-
-/*-----------------------------------*\
   #RESET
 \*-----------------------------------*/
 
@@ -1226,6 +1188,7 @@ textarea.form-input::-webkit-resizer {
 
   .project-list {
     grid-template-columns: repeat(3, 1fr);
+    /* grid-template-columns: 1fr 1fr; */
   }
 
   /**

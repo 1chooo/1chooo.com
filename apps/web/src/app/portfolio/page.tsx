@@ -4,6 +4,7 @@ import PageHeader from "@/components/page-header";
 import FilterSelectBox from "@/components/portfolio/filter-select-box";
 import FilterList from "@/components/portfolio/filter-list";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
+import Pagination from "@/components/pagination";
 import { getPortfolioPosts } from "@/lib/db/portfolio";
 import config from "@/config";
 import { LuEye } from "react-icons/lu";
@@ -63,7 +64,7 @@ export default async function Portfolio({ searchParams }: { searchParams: tParam
         <ul className="project-list">
           {paginatedPortfolioPosts.map((post, index) => (
             <li
-              key={index}
+              key={post.slug} // Avoid using index for keys
               className="project-item active"
               data-category={post.metadata.category}
             >
@@ -89,22 +90,12 @@ export default async function Portfolio({ searchParams }: { searchParams: tParam
             </li>
           ))}
         </ul>
-        <div className="pagination">
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-            (pageNum) => (
-              <Link
-                key={pageNum}
-                href={{
-                  pathname: "/portfolio",
-                  query: { tag: selectedTag, page: pageNum.toString() },
-                }}
-                className={`pagination-btn ${pageNum === currentPage ? "active" : ""}`}
-              >
-                {pageNum}
-              </Link>
-            )
-          )}
-        </div>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          selectedTag={selectedTag}
+          basePath="/portfolio"
+        />
       </section>
     </article>
   );

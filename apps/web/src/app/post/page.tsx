@@ -5,6 +5,7 @@ import PageHeader from "@/components/page-header";
 import FilterSelectBox from "@/components/post/filter-select-box";
 import FilterList from "@/components/post/filter-list";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
+import Pagination from "@/components/pagination";
 import { getBlogPosts } from "@/lib/db/blog";
 import { POSTS_PER_PAGE } from "@/lib/constants";
 import config from "@/config";
@@ -106,22 +107,12 @@ export default async function Post({ searchParams }: { searchParams: tParams }) 
             </li>
           ))}
         </ul>
-        <div className="pagination">
-          {Array.from({ length: totalPages }, (_, i) => i + 1).map(
-            (pageNum) => (
-              <Link
-                key={pageNum}
-                href={{
-                  pathname: "/post",
-                  query: { tag: selectedTag, page: pageNum.toString() },
-                }}
-                className={`pagination-btn ${pageNum === currentPage ? "active" : ""}`}
-              >
-                {pageNum}
-              </Link>
-            )
-          )}
-        </div>
+        <Pagination
+          currentPage={currentPage}
+          totalPages={totalPages}
+          selectedTag={selectedTag}
+          basePath="/post"
+        />
       </section>
     </article>
   );
