@@ -49,8 +49,8 @@ const config: Config = {
     { path: '/', label: 'About' },
     { path: '/resume', label: 'Resume' },
     { path: '/portfolio', label: 'Portfolio' },
-    { path: '/blog', label: 'Blog' },
-    { path: '/contact', label: 'Contact' }
+    { path: '/post', label: 'Post' },
+    // { path: '/contact', label: 'Contact' }
   ],
   socialLinks: [
     { url: `https://github.com/1chooo`, icon: LuGithub, name: 'GitHub' },

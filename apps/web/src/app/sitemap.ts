@@ -11,7 +11,7 @@ export default async function sitemap() {
   let blogMaps = blogs.map((post: {
     metadata: { publishedAt: string }; slug: string
   }) => ({
-    url: `https://1chooo.com/blog/${post.slug}`,
+    url: `https://1chooo.com/post/${post.slug}`,
     lastModified: post.metadata.publishedAt,
   }));
 
@@ -25,8 +25,8 @@ export default async function sitemap() {
     '',
     '/resume',
     '/portfolio',
-    '/blog',
-    '/contact'
+    '/post',
+    // '/contact'
   ].map((route) => ({
     url: `https://1chooo.com${route}`,
     lastModified: new Date().toISOString().split('T')[0],

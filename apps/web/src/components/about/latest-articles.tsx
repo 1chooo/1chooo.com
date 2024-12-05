@@ -66,7 +66,7 @@ const LatestArticles = ({ posts }: { posts: Post[] }) => {
           </li>
         ))}
       </ul>
-      <SeeMoreButton badge="See All Articles" path="/blog" icon={FaRegPenToSquare} />
+      <SeeMoreButton badge="See All Articles" path="/post" icon={FaRegPenToSquare} />
     </section>
   );
 };
