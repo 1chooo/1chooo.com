@@ -1,6 +1,6 @@
 {
   "name": "1chooo-com",
-  "version": "0.4.4",
+  "version": "0.4.5",
   "private": true,
   "license": "CC-BY-4.0",
   "author": {
@@ -23,14 +23,14 @@
     "markdown"
   ],
   "dependencies": {
-    "@repo/math": "*",
-    "@repo/ui": "*",
     "@codesandbox/sandpack-react": "^2.19.3",
     "@mdx-js/loader": "^3.1.0",
     "@mdx-js/react": "^3.1.0",
     "@next/mdx": "^15.0.3",
     "@next/third-parties": "^15.0.1",
     "@primer/octicons-react": "^19.12.0",
+    "@repo/math": "*",
+    "@repo/ui": "*",
     "@testing-library/user-event": "^14.5.2",
     "@types/jest": "^29.5.12",
     "@types/mdx": "^2.0.13",
