@@ -4,9 +4,6 @@
   "version": "0.0.0",
   "private": true,
   "exports": {
-    "./button": "./src/button.tsx",
-    "./card": "./src/card.tsx",
-    "./code": "./src/code.tsx",
     "./testimonials": "./src/testimonials.tsx",
     "./skills-bar": "./src/skills-bar.tsx"
   },
