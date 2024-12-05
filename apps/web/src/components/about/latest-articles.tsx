@@ -5,8 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 import { LuEye } from "react-icons/lu";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
-import SeeMoreButton from "@/components/about/see-more-btn";
-import { FaRegPenToSquare } from "react-icons/fa6";
+import AnimatedButton from '@/components/magicui/animated-button'
+import { ArrowRightIcon } from "@primer/octicons-react";
+import { sendGTMEvent } from "@/components/google";
+
 import "@/styles/about/latest-posts.css";
 
 type Post = {
@@ -19,6 +21,16 @@ type Post = {
     publishedAt: string;
   };
 };
+
+const handleSeeMorePostsClick = () => {
+  console.log("See More Posts button clicked!");
+  // TODO: customize button onclick effect https://articles.readytowork.jp/google-analytics-in-next-js-a26cc2b28db5
+  sendGTMEvent({
+    event: 'seeMorePostsClicked',
+    value: 'GTM-PDJ3NF4Q'
+  })
+};
+
 
 const LatestArticles = ({ posts }: { posts: Post[] }) => {
   const [visiblePosts, setVisiblePosts] = useState<Post[]>([]);
@@ -33,6 +45,14 @@ const LatestArticles = ({ posts }: { posts: Post[] }) => {
     window.addEventListener("resize", updateVisiblePosts);
     return () => window.removeEventListener("resize", updateVisiblePosts);
   }, [posts]);
+
+  const SeeMorePostsButton =
+    <AnimatedButton
+      path="/post"
+      bannerText="See More Posts"
+      icon={ArrowRightIcon}
+      onclick={handleSeeMorePostsClick}
+    />;
 
   return (
     <section>
@@ -66,7 +86,7 @@ const LatestArticles = ({ posts }: { posts: Post[] }) => {
           </li>
         ))}
       </ul>
-      <SeeMoreButton badge="See All Articles" path="/post" icon={FaRegPenToSquare} />
+      <div className="flex justify-center">{SeeMorePostsButton}</div>
     </section>
   );
 };
