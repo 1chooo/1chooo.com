@@ -51,7 +51,7 @@ const LatestArticles = ({ posts }: { posts: Post[] }) => {
       path="/post"
       bannerText="See More Posts"
       icon={ArrowRightIcon}
-      onclick={handleSeeMorePostsClick}
+      onClick={handleSeeMorePostsClick}
     />;
 
   return (
