@@ -3,11 +3,11 @@
 import { useEffect, useState } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import { LuEye } from "react-icons/lu";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
-import AnimatedButton from '@/components/magicui/animated-button'
-import { ArrowRightIcon } from "@primer/octicons-react";
 import { sendGTMEvent } from "@/components/google";
+import SeeMoreButton from "@/components/about/see-more-button";
+import { LuEye } from "react-icons/lu";
+import { ArrowRightIcon } from "@primer/octicons-react";
 
 import "@/styles/about/latest-posts.css";
 
@@ -46,14 +46,6 @@ const LatestArticles = ({ posts }: { posts: Post[] }) => {
     return () => window.removeEventListener("resize", updateVisiblePosts);
   }, [posts]);
 
-  const SeeMorePostsButton =
-    <AnimatedButton
-      path="/post"
-      bannerText="See More Posts"
-      icon={ArrowRightIcon}
-      onClick={handleSeeMorePostsClick}
-    />;
-
   return (
     <section>
       <ul className="latest-post-list">
@@ -86,7 +78,7 @@ const LatestArticles = ({ posts }: { posts: Post[] }) => {
           </li>
         ))}
       </ul>
-      <div className="flex justify-center">{SeeMorePostsButton}</div>
+      <SeeMoreButton badge="See More Posts" path="/post" icon={ArrowRightIcon} />
     </section>
   );
 };
