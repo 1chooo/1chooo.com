@@ -121,7 +121,8 @@
 }
 
 .pagination-btn:hover {
-  background-color: hsl(45, 100%, 71%);
+  background-color: hsl(45, 100%, 10%);
+  scale: 1.1;
 }
 
 /*-----------------------------------*\
