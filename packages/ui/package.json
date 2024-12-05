@@ -7,7 +7,8 @@
     "./button": "./src/button.tsx",
     "./card": "./src/card.tsx",
     "./code": "./src/code.tsx",
-    "./testimonials": "./src/testimonials.tsx"
+    "./testimonials": "./src/testimonials.tsx",
+    "./skills-bar": "./src/skills-bar.tsx"
   },
   "scripts": {
     "lint": "eslint . --max-warnings 0",
