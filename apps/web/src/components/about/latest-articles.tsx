@@ -5,9 +5,10 @@ import Link from "next/link";
 import Image from "next/image";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import { sendGTMEvent } from "@/components/google";
-import SeeMoreButton from "@/components/about/see-more-button";
 import { LuEye } from "react-icons/lu";
 import { ArrowRightIcon } from "@primer/octicons-react";
+import { cn } from "@/lib/utils";
+import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
 
 import "@/styles/about/latest-posts.css";
 
@@ -78,7 +79,20 @@ const LatestArticles = ({ posts }: { posts: Post[] }) => {
           </li>
         ))}
       </ul>
-      <SeeMoreButton badge="See More Posts" path="/post" icon={ArrowRightIcon} />
+      <div className="z-10 flex  items-center justify-center">
+        <div
+          className={cn(
+            "group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800",
+          )}
+        >
+          <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
+            <Link href="/post">
+              <span>✨ See More Posts</span>
+              <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5 relative top-[-2px]" />
+            </Link>
+          </AnimatedShinyText>
+        </div>
+      </div>
     </section>
   );
 };
