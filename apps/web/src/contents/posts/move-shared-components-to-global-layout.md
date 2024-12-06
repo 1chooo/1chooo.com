@@ -10,7 +10,7 @@ tags:
   - Software Development
   - Software Engineering
   - Website Development
-banner: /images/banner/posts/move-shared-components-to-global-layout.png
+banner: /images/banner/posts/move-shared-components-to-global-layout.webp
 alt: "Improve Next.js Performance: Move Shared Components to Global Layout"
 ---
 
@@ -20,7 +20,7 @@ Today, I’m excited to share some front-end development techniques, as I contin
 
 In this post, I’ll walk through the improvements I’ve made to address these problems, ensuring more efficient rendering and a smoother user experience.
 
-![Improve Next.js Performance: Move Shared Components to Global Layout by Hugo](/images/banner/posts/move-shared-components-to-global-layout.png)
+![Improve Next.js Performance: Move Shared Components to Global Layout by Hugo](/images/banner/posts/move-shared-components-to-global-layout.webp)
 
 
 Since I am currently using [Next.js](https://nextjs.org/) as my front-end framework alongside [React](https://react.dev/) to develop the page components, I’ve made some observations about the project structure within Next.js (using my own [project](https://github.com/1chooo/1chooo.com) as an example):

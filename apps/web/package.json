@@ -1,6 +1,6 @@
 {
   "name": "1chooo-com",
-  "version": "0.4.5",
+  "version": "0.5.0",
   "private": true,
   "license": "CC-BY-4.0",
   "author": {
@@ -72,6 +72,7 @@
     "start": "next start",
     "test": "jest",
     "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
     "check-types": "tsc --noEmit"
   },
   "eslintConfig": {

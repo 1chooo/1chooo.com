@@ -1,10 +1,10 @@
 ---
 title: "Game Scope"
-category: Data Analysis
+category: Web Development
 publishedAt: 2023-01-31
 summary: 
 tags: 
   - 
-banner: /images/banner/projects/game-scope.png
+banner: /images/banner/projects/game-scope.webp
 alt: 
 ---
