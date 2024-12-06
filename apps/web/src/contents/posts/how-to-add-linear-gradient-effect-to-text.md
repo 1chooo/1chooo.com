@@ -9,7 +9,7 @@ tags:
   - Web Development
   - Web Design
 summary: "In this article, I will take my website-1chooo.com as an example to show you how to create a smooth and customizable linear gradient effect for text on your website. Also, we will share the problem we encountered to achieve this effect and how we solved with ChatGPT. (including the prompt we used, the response we got, and the code we implemented) So, let's dive in!"
-banner: /images/banner/posts/how-to-add-linear-gradient-effect-to-text.png
+banner: /images/banner/posts/how-to-add-linear-gradient-effect-to-text.webp
 alt: "How to Add a Gradient Effect to Text for Eye-Catching Web Design"
 ---
 
@@ -17,7 +17,7 @@ Hey there 👋! This is Hugo. In today's digital landscape, text styling trends 
 
 In this article, I will take my website-[1chooo.com](https://1chooo.com) as an example to show you how to create a smooth and customizable linear gradient effect for text on your website. Also, we will share the problem we encountered to achieve this effect and how we solved with ChatGPT. (including the prompt we used, the response we got, and the code we implemented) So, let's dive in!
 
-![How to Add a Gradient Effect to Text for Eye-Catching Web Design by Hugo](/images/banner/posts/how-to-add-linear-gradient-effect-to-text.png)
+![How to Add a Gradient Effect to Text for Eye-Catching Web Design by Hugo](/images/banner/posts/how-to-add-linear-gradient-effect-to-text.webp)
 
 First, I visit the [Next.js](https://nextjs.org/) official website to get some inspiration. After opening the developer tools (F12), I found that the gradient effect is applied to the text in the hero section.
 

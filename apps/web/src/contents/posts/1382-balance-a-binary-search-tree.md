@@ -12,14 +12,14 @@ tags:
   - Binary Search Tree
   - Binary Tree
 summary: 'Given the `root` of a binary search tree, return a balanced binary search tree with the same node values. If there is more than one answer, return any of them.'
-banner: /images/banner/posts/1382-balance-a-binary-search-tree.png
+banner: /images/banner/posts/1382-balance-a-binary-search-tree.webp
 alt: "LeetCode 1382. Balance a Binary Search Tree - Easy Solution | Go"
 mathjax: true
 ---
 
 Link 👉🏻 [1382. Balance a Binary Search Tree](https://leetcode.com/problems/balance-a-binary-search-tree/)
 
-![LeetCode 1382. Balance a Binary Search Tree - Easy Solution | Go by Hugo](/images/banner/posts/1382-balance-a-binary-search-tree.png)
+![LeetCode 1382. Balance a Binary Search Tree - Easy Solution | Go by Hugo](/images/banner/posts/1382-balance-a-binary-search-tree.webp)
 
 
 ### Description

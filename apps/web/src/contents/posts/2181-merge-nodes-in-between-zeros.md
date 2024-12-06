@@ -7,14 +7,14 @@ tags:
   - Simulation
   - Go
 summary: "You are given the head of a linked list, which contains a series of integers separated by 0's. The beginning and end of the linked list will have Node.val == 0."
-banner: /images/banner/posts/2181-merge-nodes-in-between-zeros.png
+banner: /images/banner/posts/2181-merge-nodes-in-between-zeros.webp
 alt: "💯✅ LeetCode 2181. Merge Nodes in Between Zeros | Go"
 mathjax: true
 ---
 
 Link 👉🏻 [2181. Merge Nodes in Between Zeros](https://leetcode.com/problems/merge-nodes-in-between-zeros)
 
-![💯✅ LeetCode 2181. Merge Nodes in Between Zeros | Go by Hugo](/images/banner/posts/2181-merge-nodes-in-between-zeros.png)
+![💯✅ LeetCode 2181. Merge Nodes in Between Zeros | Go by Hugo](/images/banner/posts/2181-merge-nodes-in-between-zeros.webp)
 
 ## Description
 
