@@ -26,7 +26,7 @@ export default async function sitemap() {
     '/resume',
     '/portfolio',
     '/post',
-    // '/contact'
+    '/gallery'
   ].map((route) => ({
     url: `https://1chooo.com${route}`,
     lastModified: new Date().toISOString().split('T')[0],
