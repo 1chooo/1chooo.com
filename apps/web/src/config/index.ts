@@ -50,6 +50,7 @@ const config: Config = {
     { path: '/resume', label: 'Resume' },
     { path: '/portfolio', label: 'Portfolio' },
     { path: '/post', label: 'Post' },
+    { path: '/gallery', label: 'Gallery' },
   ],
   socialLinks: [
     { url: `https://github.com/1chooo`, icon: LuGithub, name: 'GitHub' },
