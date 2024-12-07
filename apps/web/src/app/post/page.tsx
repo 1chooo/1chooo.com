@@ -5,10 +5,10 @@ import FilterSelectBox from "@/components/post/filter-select-box";
 import FilterList from "@/components/post/filter-list";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import Pagination from "@/components/pagination";
-import { getBlogPosts } from "@/lib/db/blog";
 import { POSTS_PER_PAGE } from "@/lib/constants";
 import config from "@/config";
 import { ProgressBarLink } from "@/components/progress-bar";
+import { getBlogPosts } from "@/lib/db/v1/posts";
 
 const { title } = config;
 
@@ -37,19 +37,19 @@ export default async function Post({ searchParams }: { searchParams: tParams }) 
       ? allBlogs
       : allBlogs.filter((post) => post.metadata.category === selectedTag);
 
-  // Sort blogs by date
-  const sortedBlogs = filteredBlogs.sort((a, b) => {
-    if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
-      return -1;
-    }
-    return 1;
-  });
+  // // Sort blogs by date
+  // const sortedBlogs = filteredBlogs.sort((a, b) => {
+  //   if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
+  //     return -1;
+  //   }
+  //   return 1;
+  // });
 
   // Calculate total pages
-  const totalPages = Math.ceil(sortedBlogs.length / POSTS_PER_PAGE);
+  const totalPages = Math.ceil(filteredBlogs.length / POSTS_PER_PAGE);
 
   // Get blogs for current page
-  const paginatedBlogs = sortedBlogs.slice(
+  const paginatedBlogs = filteredBlogs.slice(
     (currentPage - 1) * POSTS_PER_PAGE,
     currentPage * POSTS_PER_PAGE
   );

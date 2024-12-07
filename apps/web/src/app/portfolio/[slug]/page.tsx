@@ -4,7 +4,7 @@ import { notFound } from 'next/navigation';
 import { unstable_noStore as noStore } from 'next/cache';
 import MarkdownRenderer from '@/components/markdown/markdown-renderer';
 import PageHeader from '@/components/page-header';
-import { getPortfolioPosts } from '@/lib/db/portfolio';
+import { getPortfolioPosts } from '@/lib/db/v1/portfolio';
 
 import "@/styles/blog/blog-text.css"
 
