@@ -6,6 +6,7 @@ import SideBar from "@/components/side-bar";
 import config from "@/config";
 import { roboto } from "./font";
 import { WebVitals } from "@/components/web-vitals";
+import { ProgressBar } from "@/components/progress-bar";
 
 import "./globals.css";
 
@@ -59,16 +60,19 @@ const RootLayout = (props: RootLayoutProps) => {
   const { children } = props
   return (
     <html lang="en" className={`${roboto.className}`}>
+
       <WebVitals />
       <body>
-        <Hello />
-        <main>
-          <SideBar />
-          <div className="main-content">
-            <NavBar />
-            {children}
-          </div>
-        </main>
+        <ProgressBar className="fixed top-0 h-1 bg-yellow-500" >
+          <Hello />
+          <main>
+            <SideBar />
+            <div className="main-content">
+              <NavBar />
+              {children}
+            </div>
+          </main>
+        </ProgressBar>
       </body>
       <GoogleAnalytics gaId={googleAnalyticId} />
       <GoogleTagManager gtmId={googleTagManagerId} />

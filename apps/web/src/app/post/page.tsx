@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import Balancer from 'react-wrap-balancer'
 import PageHeader from "@/components/page-header";
@@ -9,6 +8,7 @@ import Pagination from "@/components/pagination";
 import { getBlogPosts } from "@/lib/db/blog";
 import { POSTS_PER_PAGE } from "@/lib/constants";
 import config from "@/config";
+import { ProgressBarLink } from "@/components/progress-bar";
 
 const { title } = config;
 
@@ -67,7 +67,7 @@ export default async function Post({ searchParams }: { searchParams: tParams }) 
               className="blog-post-item active"
               data-category={post.metadata.category}
             >
-              <Link href={`/post/${post.slug}`} rel="noopener noreferrer">
+              <ProgressBarLink href={`/post/${post.slug}`} rel="noopener noreferrer">
                 <figure className="blog-banner-box">
                   <Image
                     src={post.metadata.banner}
@@ -103,7 +103,7 @@ export default async function Post({ searchParams }: { searchParams: tParams }) 
                     content={post.metadata.summary}
                   />
                 </div>
-              </Link>
+              </ProgressBarLink>
             </li>
           ))}
         </ul>

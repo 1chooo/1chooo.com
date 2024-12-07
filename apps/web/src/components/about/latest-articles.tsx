@@ -1,7 +1,6 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import Link from "next/link";
 import Image from "next/image";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import { sendGTMEvent } from "@/components/google";
@@ -9,6 +8,7 @@ import { LuEye } from "react-icons/lu";
 import { ArrowRightIcon } from "@primer/octicons-react";
 import { cn } from "@/lib/utils";
 import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
+import { ProgressBarLink } from "@/components/progress-bar";
 
 import "@/styles/about/latest-posts.css";
 
@@ -56,7 +56,7 @@ const LatestArticles = ({ posts }: { posts: Post[] }) => {
             className="latest-post-item group active"
             data-category={post.metadata.category}
           >
-            <Link href={`/blog/${post.slug}`} rel="noopener noreferrer">
+            <ProgressBarLink href={`/post/${post.slug}`} rel="noopener noreferrer">
               <figure className="latest-post-img">
                 <div className="latest-post-item-icon-box">
                   <LuEye />
@@ -75,7 +75,7 @@ const LatestArticles = ({ posts }: { posts: Post[] }) => {
               <h3 className="ml-[10px] text-white-2 text-base font-normal capitalize leading-[1.3] group-hover:text-orange-yellow-crayola group-hover:font-bold">
                 <MarkdownRenderer content={post.metadata.title} />
               </h3>
-            </Link>
+            </ProgressBarLink>
           </li>
         ))}
       </ul>
@@ -86,10 +86,10 @@ const LatestArticles = ({ posts }: { posts: Post[] }) => {
           )}
         >
           <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-            <Link href="/post">
+            <ProgressBarLink href="/post">
               <span>✨ See More Posts</span>
               <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5 relative top-[-2px]" />
-            </Link>
+            </ProgressBarLink>
           </AnimatedShinyText>
         </div>
       </div>
