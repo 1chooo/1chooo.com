@@ -9,6 +9,7 @@ import Anchor from '@/components/markdown/anchor'
 // components from other libraries, and more.
 const components: MDXComponents = {
   // Allows customizing built-in components, e.g. to add styling.
+  p: (props) => (<p {...props} className="mb-4" />),
   h1: ({ children, ...props }) => <AnchorHeader level={1} {...props}>{children}</AnchorHeader>,
   h2: ({ children, ...props }) => <AnchorHeader level={2} {...props}>{children}</AnchorHeader>,
   h3: ({ children, ...props }) => <AnchorHeader level={3} {...props}>{children}</AnchorHeader>,
