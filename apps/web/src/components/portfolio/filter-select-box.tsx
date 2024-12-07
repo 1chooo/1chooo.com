@@ -2,7 +2,7 @@
 
 import React, { useState } from 'react';
 import { MdExpandMore } from 'react-icons/md';
-import Link from 'next/link';
+import { ProgressBarLink } from "@/components/progress-bar";
 
 interface FilterSelectBoxProps {
   selectedTag: string;
@@ -37,9 +37,9 @@ const FilterSelectBox: React.FC<FilterSelectBoxProps> = ({
                   setIsSelectActive(false);
                 }}
               >
-                <Link href={`/portfolio?tag=${encodeURIComponent(tag)}`}>
+                <ProgressBarLink href={`/portfolio?tag=${encodeURIComponent(tag)}`}>
                   {tag}
-                </Link>
+                </ProgressBarLink>
               </button>
             </li>
           ))}

@@ -1,5 +1,5 @@
 import React from 'react';
-import Link from 'next/link';
+import { ProgressBarLink } from "@/components/progress-bar";
 
 interface FilterListProps {
   selectedTag: string;
@@ -14,12 +14,12 @@ const FilterList: React.FC<FilterListProps> = ({
     <ul className="filter-list">
       {blogTags.map((tag, index) => (
         <li className="filter-item" key={index}>
-          <Link
+          <ProgressBarLink
             href={`/portfolio?tag=${encodeURIComponent(tag)}`}
             className={`filter-btn ${selectedTag === tag ? 'active' : ''}`}
           >
             {tag}
-          </Link>
+          </ProgressBarLink>
         </li>
       ))}
     </ul>

@@ -1,4 +1,3 @@
-import Link from "next/link";
 import Image from "next/image";
 import PageHeader from "@/components/page-header";
 import FilterSelectBox from "@/components/portfolio/filter-select-box";
@@ -8,6 +7,7 @@ import Pagination from "@/components/pagination";
 import { getPortfolioPosts } from "@/lib/db/portfolio";
 import config from "@/config";
 import { LuEye } from "react-icons/lu";
+import { ProgressBarLink } from "@/components/progress-bar";
 
 const { title } = config;
 const POSTS_PER_PAGE = 9;
@@ -68,7 +68,7 @@ export default async function Portfolio({ searchParams }: { searchParams: tParam
               className="project-item active"
               data-category={post.metadata.category}
             >
-              <Link href={`/portfolio/${post.slug}`} rel="noopener noreferrer">
+              <ProgressBarLink href={`/portfolio/${post.slug}`} rel="noopener noreferrer">
                 <figure className="project-img">
                   <div className="project-item-icon-box">
                     <LuEye />
@@ -76,17 +76,18 @@ export default async function Portfolio({ searchParams }: { searchParams: tParam
                   <Image
                     src={post.metadata.banner}
                     alt={post.metadata.alt || "Portfolio post image"}
-                    width={1600}
-                    height={900}
-                    priority={true}
+                    width={960}
+                    height={540}
+                    priority
                     placeholder="blur"
                     loading="eager"
+                    quality={50}
                     blurDataURL="https://docs.1chooo.com/images/cover-with-1chooo-com.png"
                   />
                 </figure>
                 <h3 className="project-title"><MarkdownRenderer content={post.metadata.title} /></h3>
                 <p className="project-category">{post.metadata.category}</p>
-              </Link>
+              </ProgressBarLink>
             </li>
           ))}
         </ul>

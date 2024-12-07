@@ -1,9 +1,9 @@
 'use client';
 
 import React from 'react';
-import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import config from '@/config';
+import { ProgressBarLink } from "@/components/progress-bar";
 
 import '@/styles/nav-bar.css'
 
@@ -25,12 +25,12 @@ export const NavBar: React.FC = () => {
       <ul className="navbar-list">
         {navItems.map(item => (
           <li key={item.path} className="navbar-item">
-            <Link
+            <ProgressBarLink
               href={item.path}
               className={`navbar-link ${isActive(item.path) ? 'active' : ''}`}
             >
               {item.label}
-            </Link>
+            </ProgressBarLink>
           </li>
         ))}
       </ul>
