@@ -3,9 +3,9 @@ import dynamic from 'next/dynamic';
 import { Suspense } from 'react';
 import PageHeader from '@/components/page-header';
 import AboutHeader from '@/components/about/about-header';
-import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import { getBlogPosts } from "@/lib/db/blog";
 import config from '@/config';
+import Introduction from "@/contents/about/introduction.mdx";
 
 const DynamicLatestArticles = dynamic(() => import('@/components/about/latest-articles'), {
   loading: () => <p>Loading latest articles...</p>,
@@ -58,7 +58,9 @@ const About = async () => {
     <article>
       <PageHeader header={header} />
       <AboutHeader text={`${subHeader} (${pronouns})`} />
-      <MarkdownRenderer className="text-light-gray leading-relaxed" content={introduction} />
+      <div className="text-light-gray leading-relaxed">
+        <Introduction />
+      </div>
       <AboutHeader text="$ ls -al Latest Articles" />
       <Suspense fallback={<div>Loading latest articles...</div>}>
         <DynamicLatestArticles posts={selectedPosts} />
@@ -69,6 +71,7 @@ const About = async () => {
       <Suspense fallback={<div>Loading life styles...</div>}>
         <DynamicLifeStyles lifestyles={lifestyles} />
       </Suspense>
+      
     </article>
   );
 };
