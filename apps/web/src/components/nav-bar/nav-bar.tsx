@@ -22,12 +22,12 @@ export const NavBar: React.FC = () => {
 
   return (
     <nav className="navbar">
-      <ul className="navbar-list">
+      <ul className="navbar-list flex flex-wrap justify-center">
         {navItems.map(item => (
           <li key={item.path} className="navbar-item">
             <ProgressBarLink
               href={item.path}
-              className={`navbar-link ${isActive(item.path) ? 'active' : ''}`}
+              className={`navbar-link text-light-gray ${isActive(item.path) ? 'active' : ''}`}
             >
               {item.label}
             </ProgressBarLink>
