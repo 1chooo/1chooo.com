@@ -21,7 +21,7 @@
     "@repo/typescript-config": "*",
     "@types/node": "^22",
     "@types/react": "19.0.1",
-    "@types/react-dom": "^18",
+    "@types/react-dom": "^19",
     "eslint": "9.16.0",
     "eslint-config-next": "15.0.3",
     "typescript": "^5.5.4"
