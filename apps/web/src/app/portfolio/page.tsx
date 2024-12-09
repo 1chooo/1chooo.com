@@ -38,14 +38,6 @@ export default async function Portfolio({ searchParams }: { searchParams: tParam
       ? allPortfolioPosts
       : allPortfolioPosts.filter((post) => post.metadata.category === selectedTag);
 
-  // // Sort blogs by date
-  // const sortedPortfolioPosts = filteredPortfolioPosts.sort((a, b) => {
-  //   if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
-  //     return -1;
-  //   }
-  //   return 1;
-  // });
-
   // Calculate total pages
   const totalPages = Math.ceil(filteredPortfolioPosts.length / POSTS_PER_PAGE);
 

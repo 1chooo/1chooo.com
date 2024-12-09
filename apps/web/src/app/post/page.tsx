@@ -8,7 +8,7 @@ import Pagination from "@/components/pagination";
 import { POSTS_PER_PAGE } from "@/lib/constants";
 import config from "@/config";
 import { ProgressBarLink } from "@/components/progress-bar";
-import { getBlogPosts } from "@/lib/db/v1/posts";
+import { getBlogPosts } from "@/lib/db/v1/post";
 
 const { title } = config;
 
@@ -36,14 +36,6 @@ export default async function Post({ searchParams }: { searchParams: tParams }) 
     selectedTag === "All"
       ? allBlogs
       : allBlogs.filter((post) => post.metadata.category === selectedTag);
-
-  // // Sort blogs by date
-  // const sortedBlogs = filteredBlogs.sort((a, b) => {
-  //   if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
-  //     return -1;
-  //   }
-  //   return 1;
-  // });
 
   // Calculate total pages
   const totalPages = Math.ceil(filteredBlogs.length / POSTS_PER_PAGE);
