@@ -40,7 +40,7 @@
     "**/*.tsx",
     "**/*.jsx",
     ".next/types/**/*.ts",
-    "next.config.mjs",
+    "next.config.ts",
     "jest.config.ts",
     "jest.setup.ts",
     "postcss.config.mjs",
