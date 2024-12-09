@@ -20,7 +20,7 @@ const AvatarBox: React.FC<AvatarBoxProps> = ({ avatar }) => {
   const imageSize = useResponsiveImageSize(breakpoints);
 
   return (
-    <figure className="bg-bg-gradient-onyx rounded-[10px] flex items-center justify-center"
+    <figure className="bg-gradient-onyx rounded-[10px] flex items-center justify-center"
       style={{ width: `${imageSize.width}px`, height: `${imageSize.height}px` }}>
       <Image
         id="profile-img"
