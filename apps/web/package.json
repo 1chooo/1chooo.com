@@ -33,7 +33,7 @@
     "@types/jest": "^29.5.12",
     "@types/node": "^22.5.1",
     "@types/react": "^18.2.48",
-    "@types/react-dom": "^18.2.18",
+    "@types/react-dom": "^19.0.1",
     "bootstrap": "^5.3.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
