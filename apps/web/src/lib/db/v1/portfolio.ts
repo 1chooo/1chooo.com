@@ -1,4 +1,3 @@
-import { unstable_cache as cache } from 'next/cache'
 import fs from 'fs/promises'
 import path from 'path'
 
@@ -12,8 +11,7 @@ type Metadata = {
   image?: string
 }
 
-// Cache the file reading and parsing
-export const getPortfolioPosts = cache(async () => {
+export const getPortfolioPosts = async () => {
   const postsDirectory = path.join(process.cwd(), 'src/contents/portfolios')
   
   // Use Promise.all to read files concurrently
@@ -45,7 +43,7 @@ export const getPortfolioPosts = cache(async () => {
     new Date(b.metadata.publishedAt).getTime() - 
     new Date(a.metadata.publishedAt).getTime()
   )
-})
+}
 
 // Helper functions remain the same but use RegExp.exec() for better performance
 function parseFrontmatter(fileContent: string) {
