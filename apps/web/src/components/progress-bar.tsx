@@ -26,7 +26,6 @@ interface ProgressContextType {
   reset: () => void;
 }
 
-
 const ProgressBarContext = createContext<ProgressContextType | null>(null);
 
 export function useProgressBar() {
@@ -39,7 +38,15 @@ export function useProgressBar() {
   return progress;
 }
 
-export function ProgressBar({ className, children }: { className: string, children: ReactNode }) {
+interface ProgressBarProps {
+  className: string
+  children: ReactNode
+}
+
+export function ProgressBar({
+  className,
+  children
+}: ProgressBarProps) {
   let progress = useProgress();
   let width = useMotionTemplate`${progress.value}%`;
 
@@ -54,7 +61,6 @@ export function ProgressBar({ className, children }: { className: string, childr
           />
         )}
       </AnimatePresence>
-
       {children}
     </ProgressBarContext.Provider>
   );
