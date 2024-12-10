@@ -1,6 +1,5 @@
 import type { Metadata } from "next";
 import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
 import PageHeader from '@/components/page-header';
 import AboutHeader from '@/components/about/about-header';
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
@@ -53,15 +52,9 @@ const About = async () => {
       <AboutHeader text={`${subHeader} (${pronouns})`} />
       <MarkdownRenderer className="text-light-gray leading-relaxed" content={introduction} />
       <AboutHeader text="$ ls -al Latest Articles" />
-      <Suspense fallback={<div>Loading latest articles...</div>}>
-        <DynamicLatestArticles posts={selectedPosts} />
-      </Suspense>
-      <Suspense fallback={<div>Loading coding stats...</div>}>
-        <DynamicCodingStats techStacks={techStacks} />
-      </Suspense>
-      <Suspense fallback={<div>Loading life styles...</div>}>
-        <DynamicLifeStyles lifestyles={lifestyles} />
-      </Suspense>
+      <DynamicLatestArticles posts={selectedPosts} />
+      <DynamicCodingStats techStacks={techStacks} />
+      <DynamicLifeStyles lifestyles={lifestyles} />
     </article>
   );
 };
