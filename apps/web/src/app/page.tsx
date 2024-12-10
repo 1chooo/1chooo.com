@@ -1,10 +1,10 @@
 import type { Metadata } from "next";
 import dynamic from 'next/dynamic';
-import { Suspense } from 'react';
+import React, { Suspense } from 'react';
 import PageHeader from '@/components/page-header';
 import AboutHeader from '@/components/about/about-header';
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
-import { getBlogPosts } from "@/lib/db/blog";
+import { getBlogPosts } from "@/lib/db/v1/post";
 import config from '@/config';
 
 const DynamicLatestArticles = dynamic(() => import('@/components/about/latest-articles'), {
@@ -39,20 +39,13 @@ const header =
 const About = async () => {
   let allBlogs = await getBlogPosts();
 
-  let selectedPosts = allBlogs
-    .map((post) => ({
-      ...post,
-      metadata: {
-        ...post.metadata,
-        category: post.metadata.category || "Uncategorized",
-      },
-    }))
-    .sort((a, b) => {
-      if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
-        return -1;
-      }
-      return 1;
-    });
+  let selectedPosts = allBlogs.map((post: any) => ({
+    ...post,
+    metadata: {
+      ...post.metadata,
+      category: post.metadata.category || "Uncategorized",
+    },
+  }));
 
   return (
     <article>

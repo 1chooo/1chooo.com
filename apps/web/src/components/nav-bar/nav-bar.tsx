@@ -9,7 +9,7 @@ import '@/styles/nav-bar.css'
 
 const navItems = config.navItems;
 
-export const NavBar: React.FC = () => {
+export const NavBar = () => {
   const pathname = usePathname();
 
   const isActive = (path: string) => {

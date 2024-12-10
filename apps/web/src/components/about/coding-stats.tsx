@@ -12,11 +12,11 @@ type TechStack = {
   icon: Icon | IconType;
 };
 
-type TechStackProps = {
+interface Props {
   techStacks: TechStack[];
-};
+}
 
-const CodingStats: React.FC<TechStackProps> = ({ techStacks }) => {
+function CodingStats ({ techStacks }: Props): JSX.Element {
   return (
     <section>
       <AboutHeader text="$ ls -al Coding Stats" />
@@ -25,7 +25,7 @@ const CodingStats: React.FC<TechStackProps> = ({ techStacks }) => {
           <div className="tech-stack-container">
             {techStacks.map((stack) => (
               <div key={stack.name} className="tech-icon text-white-2 hover:scale-110 hover:text-orange-yellow-crayola">
-                <stack.icon />
+                {React.createElement(stack.icon as React.ElementType)}
               </div>
             ))}
           </div>

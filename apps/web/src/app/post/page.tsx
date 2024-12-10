@@ -8,7 +8,7 @@ import Pagination from "@/components/pagination";
 import { POSTS_PER_PAGE } from "@/lib/constants";
 import config from "@/config";
 import { ProgressBarLink } from "@/components/progress-bar";
-import { getBlogPosts } from "@/lib/db/v1/posts";
+import { getBlogPosts } from "@/lib/db/v1/post";
 
 const { title } = config;
 
