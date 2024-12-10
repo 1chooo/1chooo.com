@@ -4,23 +4,23 @@
 # https://docs.github.com/code-security/dependabot/dependabot-version-updates/configuration-options-for-the-dependabot.yml-file
 
 version: 2
-updates:
-  - package-ecosystem: "npm" # See documentation for possible values
-    directory: "/apps/web/" # Location of package manifests
-    schedule:
-      interval: "weekly"
-    assignees:
-      - "1chooo"
-    reviewers:
-      - "1chooo"
-    open-pull-requests-limit: 20
-  
-  - package-ecosystem: "npm"
-    directory: "/apps/docs/"
-    schedule:
-      interval: "weekly"
-    assignees:
-      - "1chooo"
-    reviewers:
-      - "1chooo"
-    open-pull-requests-limit: 20
+# updates:
+#   - package-ecosystem: "npm" # See documentation for possible values
+#     directory: "/apps/web/" # Location of package manifests
+#     schedule:
+#       interval: "weekly"
+#     assignees:
+#       - "1chooo"
+#     reviewers:
+#       - "1chooo"
+#     open-pull-requests-limit: 20
+#   
+#   - package-ecosystem: "npm"
+#     directory: "/apps/docs/"
+#     schedule:
+#       interval: "weekly"
+#     assignees:
+#       - "1chooo"
+#     reviewers:
+#       - "1chooo"
+#     open-pull-requests-limit: 20
