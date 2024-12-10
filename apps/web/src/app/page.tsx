@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import dynamic from 'next/dynamic';
-import React, { Suspense } from 'react';
+import { Suspense } from 'react';
 import PageHeader from '@/components/page-header';
 import AboutHeader from '@/components/about/about-header';
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";

@@ -1,5 +1,5 @@
-import { getBlogPosts } from '@/lib/db/blog';
-import { getPortfolioPosts } from '@/lib/db/portfolio';
+import { getBlogPosts } from '@/lib/db/v1/post';
+import { getPortfolioPosts } from '@/lib/db/v1/portfolio';
 
 /**
  * This function returns an array of objects with the URL and last modified date

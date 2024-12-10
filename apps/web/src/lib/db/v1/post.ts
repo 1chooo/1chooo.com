@@ -1,4 +1,4 @@
-import { cache } from 'react'
+import { unstable_cache as cache } from 'next/cache'
 import fs from 'fs/promises'
 import path from 'path'
 
