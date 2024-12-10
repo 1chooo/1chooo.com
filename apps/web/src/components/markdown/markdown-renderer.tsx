@@ -18,7 +18,7 @@ interface Props {
   content: string;
 }
 
-function MarkdownRenderer({ className, content }: Props): JSX.Element {
+function MarkdownRenderer({ className, content }: Props) {
   return (
     <ReactMarkdown
       className={className}

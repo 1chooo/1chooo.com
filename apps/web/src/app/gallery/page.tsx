@@ -15,7 +15,7 @@ const Gallery = async () => {
     <article>
       <PageHeader header="Hugo's Gallery" />
       <BlurFadeDemo />
-      <AnimatedGradientTextDemo />
+      {await AnimatedGradientTextDemo()}
     </article>
   );
 };

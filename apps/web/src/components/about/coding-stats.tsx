@@ -16,7 +16,7 @@ interface Props {
   techStacks: TechStack[];
 }
 
-function CodingStats ({ techStacks }: Props): JSX.Element {
+function CodingStats ({ techStacks }: Props) {
   return (
     <section>
       <AboutHeader text="$ ls -al Coding Stats" />
