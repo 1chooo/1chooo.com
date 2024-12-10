@@ -3,9 +3,15 @@
  * https://nextjs.org/docs/app/api-reference/next-config-js
  */
 
-import type { NextConfig } from 'next'
+/**
+ * @type {import('next').NextConfig}
+ */
 
-const nextConfig: NextConfig = {
+import { rehypeGithubAlerts } from 'rehype-github-alerts'
+import remarkGfm from 'remark-gfm'
+import createMDX from '@next/mdx'
+
+const nextConfig = {
   images: {
     domains: ['skillicons.dev', 'blog.1chooo.com'], // Use domains instead of remotePatterns
     dangerouslyAllowSVG: true, // Enable SVG support for remote SVG images
@@ -24,4 +30,12 @@ const nextConfig: NextConfig = {
   },
 }
 
-export default nextConfig;
+const withMDX = createMDX({
+  // Add markdown plugins here, as desired
+  remarkPlugins: [remarkGfm],
+  rehypePlugins: [rehypeGithubAlerts],
+
+})
+
+// Merge MDX config with Next.js config
+export default withMDX(nextConfig)
