@@ -5,14 +5,12 @@ import { MdExpandMore } from 'react-icons/md';
 import { ProgressBarLink } from "@/components/progress-bar";
 
 interface FilterSelectBoxProps {
+  path: string;
   selectedTag: string;
   blogTags: string[];
 }
-
-const FilterSelectBox: React.FC<FilterSelectBoxProps> = ({
-  selectedTag,
-  blogTags
-}) => {
+function FilterSelectBox({ path, selectedTag,
+  blogTags }: FilterSelectBoxProps) {
   const [isSelectActive, setIsSelectActive] = useState(false);
 
   return (
@@ -37,7 +35,7 @@ const FilterSelectBox: React.FC<FilterSelectBoxProps> = ({
                   setIsSelectActive(false);
                 }}
               >
-                <ProgressBarLink href={`/post?tag=${encodeURIComponent(tag)}`}>
+                <ProgressBarLink href={`${path}?tag=${encodeURIComponent(tag)}`}>
                   {tag}
                 </ProgressBarLink>
               </button>

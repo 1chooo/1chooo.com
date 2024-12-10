@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Balancer from 'react-wrap-balancer'
 import PageHeader from "@/components/page-header";
-import FilterSelectBox from "@/components/post/filter-select-box";
-import FilterList from "@/components/post/filter-list";
+import FilterSelectBox from "@/components/filter/filter-select-box";
+import FilterList from "@/components/filter/filter-list";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import Pagination from "@/components/pagination";
 import { POSTS_PER_PAGE } from "@/lib/constants";
@@ -50,8 +50,8 @@ export default async function Post({ searchParams }: { searchParams: tParams }) 
     <article>
       <PageHeader header="Hugo's Blog" />
       <section className="blog-posts">
-        <FilterList selectedTag={selectedTag} blogTags={blogTags} />
-        <FilterSelectBox selectedTag={selectedTag} blogTags={blogTags} />
+        <FilterList path="post" selectedTag={selectedTag} blogTags={blogTags} />
+        <FilterSelectBox path="post" selectedTag={selectedTag} blogTags={blogTags} />
         <ul className="blog-posts-list">
           {paginatedBlogs.map((post, index) => (
             <li
