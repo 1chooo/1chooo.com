@@ -1,7 +1,7 @@
 import Image from "next/image";
 import PageHeader from "@/components/page-header";
-import FilterSelectBox from "@/components/portfolio/filter-select-box";
-import FilterList from "@/components/portfolio/filter-list";
+import FilterSelectBox from "@/components/filter/filter-select-box";
+import FilterList from "@/components/filter/filter-list";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import Pagination from "@/components/pagination";
 import { getPortfolioPosts } from "@/lib/db/v1/portfolio";
@@ -51,8 +51,8 @@ export default async function Portfolio({ searchParams }: { searchParams: tParam
     <article>
       <PageHeader header="Hugo's Portfolio" />
       <section className="projects">
-        <FilterList selectedTag={selectedTag} blogTags={blogTags} />
-        <FilterSelectBox selectedTag={selectedTag} blogTags={blogTags} />
+        <FilterList path="portfolio" selectedTag={selectedTag} blogTags={blogTags} />
+        <FilterSelectBox path="portfolio" selectedTag={selectedTag} blogTags={blogTags} />
         <ul className="project-list">
           {paginatedPortfolioPosts.map((post, index) => (
             <li
