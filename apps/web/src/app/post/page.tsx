@@ -37,14 +37,6 @@ export default async function Post({ searchParams }: { searchParams: tParams }) 
       ? allBlogs
       : allBlogs.filter((post) => post.metadata.category === selectedTag);
 
-  // // Sort blogs by date
-  // const sortedBlogs = filteredBlogs.sort((a, b) => {
-  //   if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
-  //     return -1;
-  //   }
-  //   return 1;
-  // });
-
   // Calculate total pages
   const totalPages = Math.ceil(filteredBlogs.length / POSTS_PER_PAGE);
 
