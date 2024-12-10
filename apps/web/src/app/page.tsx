@@ -40,19 +40,13 @@ const About = async () => {
   let allBlogs = await getBlogPosts();
 
   let selectedPosts = allBlogs
-    .map((post) => ({
+    .map((post: any) => ({
       ...post,
       metadata: {
         ...post.metadata,
         category: post.metadata.category || "Uncategorized",
       },
-    }))
-    .sort((a, b) => {
-      if (new Date(a.metadata.publishedAt) > new Date(b.metadata.publishedAt)) {
-        return -1;
-      }
-      return 1;
-    });
+    }));
 
   return (
     <article>

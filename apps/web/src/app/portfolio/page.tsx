@@ -26,7 +26,7 @@ export default async function Portfolio({ searchParams }: { searchParams: tParam
   const blogTags = [
     "All",
     ...Array.from(
-      new Set(allPortfolioPosts.map((post) => post.metadata.category ?? ""))
+      new Set(allPortfolioPosts.map((post: any) => post.metadata.category ?? ""))
     ),
   ];
   const selectedTag = tag;
@@ -36,7 +36,7 @@ export default async function Portfolio({ searchParams }: { searchParams: tParam
   const filteredPortfolioPosts =
     selectedTag === "All"
       ? allPortfolioPosts
-      : allPortfolioPosts.filter((post) => post.metadata.category === selectedTag);
+      : allPortfolioPosts.filter((post: any) => post.metadata.category === selectedTag);
 
   // Calculate total pages
   const totalPages = Math.ceil(filteredPortfolioPosts.length / POSTS_PER_PAGE);
@@ -54,7 +54,7 @@ export default async function Portfolio({ searchParams }: { searchParams: tParam
         <FilterList selectedTag={selectedTag} blogTags={blogTags} />
         <FilterSelectBox selectedTag={selectedTag} blogTags={blogTags} />
         <ul className="project-list">
-          {paginatedPortfolioPosts.map((post, index) => (
+          {paginatedPortfolioPosts.map((post: any) => (
             <li
               key={post.slug} // Avoid using index for keys
               className="project-item active"

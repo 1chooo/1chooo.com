@@ -13,7 +13,7 @@ type tParams = Promise<{ slug: string }>;
 export async function generateMetadata({ params }: { params: tParams }): Promise<Metadata | undefined> {
   const { slug } = await params;
   let posts = await getPortfolioPosts();
-  let post = posts.find((post) => post.slug === slug);
+  let post = posts.find((post: any) => post.slug === slug);
   if (!post) {
     return;
   }
@@ -102,7 +102,7 @@ function formatDate(date: string) {
 export default async function Portfolio(props: { params: tParams }) {
   const { slug } = await props.params;
   let posts = await getPortfolioPosts();
-  let post = posts.find((post) => post.slug === slug);
+  let post = posts.find((post: any) => post.slug === slug);
 
   if (!post) {
     notFound();
