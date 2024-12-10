@@ -5,7 +5,7 @@ import { unstable_noStore as noStore } from 'next/cache';
 import MarkdownRenderer from '@/components/markdown/markdown-renderer';
 import PageHeader from '@/components/page-header';
 import Comments from '@/components/comments';
-import { getBlogPosts } from "@/lib/db/v1/post";
+import { getBlogPosts } from "@/lib/db/v1/posts";
 import config from '@/config';
 
 import "@/styles/blog/blog-text.css"
