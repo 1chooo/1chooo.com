@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState, FC } from 'react';
+import React, { useEffect, useState } from 'react';
 import GitHubCalendar from 'react-github-calendar';
 import { ThemeInput } from 'react-activity-calendar';
 
@@ -22,7 +22,7 @@ const MOBILE_CALENDAR_SIZE = 12;
 const LAPTOP_CALENDAR_SIZE = 12;
 const MOBILE_BREAKPOINT = 768;
 
-const GitHubStats: FC = () => {
+function GitHubStats({ }) {
   const [username, setUsername] = useState<string>(githubUsername);
   const [windowWidth, setWindowWidth] = useState<number>(0);
 
