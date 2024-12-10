@@ -9,7 +9,6 @@ import {
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
-  ComponentProps,
   ReactNode,
   createContext,
   startTransition,
@@ -19,9 +18,16 @@ import {
   useState,
 } from "react";
 
-const ProgressBarContext = createContext<ReturnType<typeof useProgress> | null>(
-  null
-);
+interface ProgressContextType {
+  state: "initial" | "in-progress" | "completing" | "complete";
+  value: ReturnType<typeof useSpring>;
+  start: () => void;
+  done: () => void;
+  reset: () => void;
+}
+
+
+const ProgressBarContext = createContext<ProgressContextType | null>(null);
 
 export function useProgressBar() {
   let progress = useContext(ProgressBarContext);
@@ -54,45 +60,51 @@ export function ProgressBar({ className, children }: { className: string, childr
   );
 }
 
+interface ProgressBarLinkProps {
+  href: string | {
+    pathname: string
+    query?: Record<string, string>
+  }
+  children: React.ReactNode
+  className?: string
+  [key: string]: any
+}
+
 export function ProgressBarLink({
   href,
   children,
-  ...rest
-}: ComponentProps<typeof Link>) {
-  let progress = useProgressBar();
-  let router = useRouter();
+  ...props
+}: ProgressBarLinkProps) {
+  let progress = useProgressBar()
+  let router = useRouter()
 
-  const handleClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
-    e.preventDefault();
-    progress.start();
+  let handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    e.preventDefault()
+    progress.start()
 
-    let url: string;
+    let url: string
     if (typeof href === 'string') {
-      url = href;
+      url = href
     } else if (typeof href === 'object' && href !== null) {
-      const { pathname, query } = href;
-      const searchParams = new URLSearchParams(query as Record<string, string>).toString();
-      url = `${pathname}${searchParams ? `?${searchParams}` : ''}`;
+      let { pathname, query } = href
+      let searchParams = new URLSearchParams(query || {}).toString()
+      url = `${pathname}${searchParams ? `?${searchParams}` : ''}`
     } else {
-      console.error('Invalid href prop');
-      return;
+      console.error('Invalid href prop')
+      return
     }
 
     startTransition(() => {
-      router.push(url);
-      progress.done();
-    });
-  };
+      router.push(url)
+      progress.done()
+    })
+  }
 
   return (
-    <Link
-      href={href}
-      onClick={handleClick}
-      {...rest}
-    >
+    <Link href={href} onClick={handleClick} {...props}>
       {children}
     </Link>
-  );
+  )
 }
 
 function useProgress() {
