@@ -10,8 +10,7 @@ type TechStack = {
   icon: Icon | IconType;
 };
 
-const TechItem: React.FC<TechItemProps> = ({ techSteck }) => {
-
+function TechItem({ techSteck }: TechItemProps) {
   return (
     <li className="service-item">
       <div className="tech-stack-container">

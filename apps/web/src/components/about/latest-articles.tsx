@@ -32,8 +32,11 @@ const handleSeeMorePostsClick = () => {
   })
 };
 
+interface LatestArticlesProps {
+  posts: Post[];
+}
 
-const LatestArticles = ({ posts }: { posts: Post[] }) => {
+function LatestArticles({ posts }: LatestArticlesProps) {
   const [visiblePosts, setVisiblePosts] = useState<Post[]>([]);
 
   useEffect(() => {
