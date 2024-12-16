@@ -9,7 +9,7 @@ interface TimeLineProps {
   data: ProfessionalExperience | Education | AwardLeaderships | TeachingExperience;
 }
 
-const TimeLine: React.FC<TimeLineProps> = ({ data }) => {
+function TimeLine({ data }: TimeLineProps) {
 
   const { icon } = data;
   const { title } = data;
