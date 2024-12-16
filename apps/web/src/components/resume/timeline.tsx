@@ -10,17 +10,13 @@ interface TimeLineProps {
 }
 
 function TimeLine({ data }: TimeLineProps) {
-
   const { icon } = data;
   const { title } = data;
   const { items } = data;
 
   return (
     <section className="timeline">
-      <IconTitle
-        icon={icon}
-        title={title}
-      />
+      <IconTitle icon={icon} title={title} />
       <TimelineList items={items} />
     </section>
   );
