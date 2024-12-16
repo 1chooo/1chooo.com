@@ -9,7 +9,7 @@ import '@/styles/nav-bar.css'
 
 const navItems = config.navItems;
 
-export const NavBar = () => {
+function NavBar({ }) {
   const pathname = usePathname();
 
   const isActive = (path: string) => {
@@ -37,3 +37,5 @@ export const NavBar = () => {
     </nav>
   );
 }
+
+export default NavBar;
