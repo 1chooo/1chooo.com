@@ -8,7 +8,7 @@ interface HeaderProps {
   children: React.ReactNode;
 }
 
-const AnchorHeader: React.FC<HeaderProps> = ({ level, children, ...props }) => {
+function AnchorHeader ({ level, children, ...props }: HeaderProps) {
   let Tag = `h${level}` as keyof JSX.IntrinsicElements;
   let id = slugify(children?.toString() ?? '', { lower: true });
 

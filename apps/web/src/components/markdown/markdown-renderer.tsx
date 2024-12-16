@@ -13,12 +13,14 @@ import MarkdownImage from './markdown-image';
 import Paragraph from './paragraph';
 import AnchorHeader from './anchor-header';
 
-interface Props {
+interface MarkdownRendererProps {
   className?: string;
   content: string;
 }
 
-function MarkdownRenderer({ className, content }: Props) {
+function MarkdownRenderer({
+  className, content
+}: MarkdownRendererProps) {
   return (
     <ReactMarkdown
       className={className}
