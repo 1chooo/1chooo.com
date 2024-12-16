@@ -12,11 +12,11 @@ const {
   preferredName
 } = about;
 
-type AvatarBoxProps = {
+interface AvatarBoxProps {
   avatar: string;
 };
 
-const AvatarBox: React.FC<AvatarBoxProps> = ({ avatar }) => {
+function AvatarBox({ avatar }: AvatarBoxProps) {
   const imageSize = useResponsiveImageSize(breakpoints);
 
   return (

@@ -12,7 +12,7 @@ interface SocialListProps {
   socialLinks: SocialLink[];
 }
 
-const SocialList: React.FC<SocialListProps> = ({ socialLinks }) => {
+function SocialList({ socialLinks }: SocialListProps) {
   return (
     <ul className="social-list">
       {socialLinks.map(({ url, icon: Icon, name }) => (
@@ -30,7 +30,7 @@ const SocialList: React.FC<SocialListProps> = ({ socialLinks }) => {
       ))}
     </ul>
   );
-}
+};
 
 export default SocialList;
 
