@@ -6,14 +6,14 @@ tags:
   - Graph
   - Go
 summary: 'In a star graph, the center node will appear in each of the edges which means every node will contain the center node. So, we just need to find the common node in the first two edges.'
-banner: /images/banner/posts/1791-find-center-of-star-graph.png
+banner: /images/banner/posts/1791-find-center-of-star-graph.webp
 alt: "[O(1) Time and Space] LeetCode 1791. Find Center of Star Graph - Easy Solution | Go"
 mathjax: true
 ---
 
 Link 👉🏻 [1791. Find Center of Star Graph](https://leetcode.com/problems/find-center-of-star-graph/)
 
-![\[O(1) Time and Space\] LeetCode 1791. Find Center of Star Graph - Easy Solution | Go by Hugo](/images/banner/posts/1791-find-center-of-star-graph.png)
+![\[O(1) Time and Space\] LeetCode 1791. Find Center of Star Graph - Easy Solution | Go by Hugo](/images/banner/posts/1791-find-center-of-star-graph.webp)
 
 ### Description
 

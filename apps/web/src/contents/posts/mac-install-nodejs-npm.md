@@ -8,14 +8,14 @@ tags:
 - npm
 - Mac
 - Install
-banner: /images/banner/posts/mac-install-nodejs-npm.png
+banner: /images/banner/posts/mac-install-nodejs-npm.webp
 ---
 
 新年剛好把 MacOS 重灌，讓這台老 macbook pro 2020 重獲新生，也藉此機會重新建置開發環境。
 
 因此我們將示範如何在 Mac 安裝 `Node.js` 以及 `NPM`，其實直接從官網安裝 `Node.js` 時就會同時安裝 `NPM`，因此我將以 Mac 作為示範如何在成功安裝 `Node.js`，並且展示成功結果！
 
-![如何在 Mac 安裝 Node.js & NPM by Hugo](/images/banner/posts/mac-install-nodejs-npm.png)
+![如何在 Mac 安裝 Node.js & NPM by Hugo](/images/banner/posts/mac-install-nodejs-npm.webp)
 
 👉🏻 [Node.js 官網連結](https://nodejs.org/en?source=post_page-----3d7101d998f4--------------------------------)
 
