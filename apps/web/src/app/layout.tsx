@@ -56,8 +56,7 @@ type RootLayoutProps = {
   children: React.ReactNode
 }
 
-const RootLayout = (props: RootLayoutProps) => {
-  const { children } = props
+function RootLayout({ children }: RootLayoutProps) {
   return (
     <html lang="en" className={`${roboto.className}`}>
 

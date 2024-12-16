@@ -14,7 +14,7 @@ const errorMessages = [
   'If this is a mistake, [let us know](https://github.com/1chooo/1chooo.com/issues/new), and we will try to fix it!',
 ];
 
-const NotFound: React.FC = () => {
+function NotFound({ }) {
   const pathname = usePathname();
 
   const renderErrorMessage = () =>

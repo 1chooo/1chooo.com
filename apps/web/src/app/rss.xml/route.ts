@@ -6,7 +6,7 @@ import config from '@/config';
 
 const { title, description, author } = config;
 
-export const GET = async () => {
+export async function GET() {
   const feed = new RSS({
     title: title,
     description: description,
