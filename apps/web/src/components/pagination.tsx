@@ -7,12 +7,12 @@ interface PaginationProps {
   basePath: string;
 }
 
-const Pagination: React.FC<PaginationProps> = ({
+function Pagination({
   currentPage,
   totalPages,
   selectedTag,
   basePath,
-}) => {
+}: PaginationProps) {
   return (
     <div className="flex justify-center mt-5">
       {Array.from({ length: totalPages }, (_, i) => i + 1).map((pageNum) => (
