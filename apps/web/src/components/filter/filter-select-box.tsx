@@ -9,8 +9,12 @@ interface FilterSelectBoxProps {
   selectedTag: string;
   blogTags: string[];
 }
-function FilterSelectBox({ path, selectedTag,
-  blogTags }: FilterSelectBoxProps) {
+
+function FilterSelectBox({
+  path,
+  selectedTag,
+  blogTags
+}: FilterSelectBoxProps) {
   const [isSelectActive, setIsSelectActive] = useState(false);
 
   return (
