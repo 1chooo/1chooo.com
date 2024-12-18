@@ -16,10 +16,10 @@ function SocialList({ socialLinks }: SocialListProps) {
   return (
     <ul className="social-list">
       {socialLinks.map(({ url, icon: Icon, name }) => (
-        <li className="social-item" key={name}>
+        <li className="social-item hover:scale-110 hover:text-orange-yellow-crayola" key={name}>
           <Link
             href={url}
-            className="social-link"
+            className="text-light-gray-70 text-lg hover:scale-110 hover:text-orange-yellow-crayola"
             target="_blank"
             rel="noopener noreferrer"
             aria-label={name}
