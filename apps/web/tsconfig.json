@@ -35,16 +35,17 @@
     "target": "ES2017"
   },
   "include": [
-    "next-env.d.ts",
+    "**/*.jsx",
     "**/*.ts",
     "**/*.tsx",
-    "**/*.jsx",
     ".next/types/**/*.ts",
-    "next.config.mjs",
+    "eslint.config.js",
     "jest.config.ts",
     "jest.setup.ts",
+    "next-env.d.ts",
+    "next.config.mjs",
     "postcss.config.mjs",
-    "eslint.config.js"
+    "dist/types/**/*.ts"
   ],
   "exclude": [
     "node_modules"
