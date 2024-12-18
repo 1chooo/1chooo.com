@@ -1,4 +1,4 @@
-"use client";
+'use client';
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -25,11 +25,10 @@ type Post = {
 
 const handleSeeMorePostsClick = () => {
   console.log("See More Posts button clicked!");
-  // TODO: customize button onclick effect https://articles.readytowork.jp/google-analytics-in-next-js-a26cc2b28db5
   sendGTMEvent({
     event: 'seeMorePostsClicked',
     value: 'GTM-PDJ3NF4Q'
-  })
+  });
 };
 
 interface LatestArticlesProps {
@@ -37,18 +36,22 @@ interface LatestArticlesProps {
 }
 
 function LatestArticles({ posts }: LatestArticlesProps) {
+  const [isMobile, setIsMobile] = useState(false);
   const [visiblePosts, setVisiblePosts] = useState<Post[]>([]);
 
   useEffect(() => {
-    const updateVisiblePosts = () => {
-      const isMobile = typeof window !== "undefined" && window.innerWidth <= 768;
-      setVisiblePosts(isMobile ? posts.slice(0, 2) : posts.slice(0, 3));
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth <= 768);
     };
 
-    updateVisiblePosts();
-    window.addEventListener("resize", updateVisiblePosts);
-    return () => window.removeEventListener("resize", updateVisiblePosts);
-  }, [posts]);
+    checkMobile();
+    window.addEventListener("resize", checkMobile);
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
+  useEffect(() => {
+    setVisiblePosts(isMobile ? posts.slice(0, 2) : posts.slice(0, 3));
+  }, [isMobile, posts]);
 
   return (
     <section>
@@ -82,14 +85,14 @@ function LatestArticles({ posts }: LatestArticlesProps) {
           </li>
         ))}
       </ul>
-      <div className="z-10 flex  items-center justify-center">
+      <div className="z-10 flex items-center justify-center">
         <div
           className={cn(
             "group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800",
           )}
         >
           <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
-            <ProgressBarLink href="/post">
+            <ProgressBarLink href="/post" onClick={handleSeeMorePostsClick}>
               <span>✨ See More Posts</span>
               <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5 relative top-[-2px]" />
             </ProgressBarLink>
@@ -98,6 +101,6 @@ function LatestArticles({ posts }: LatestArticlesProps) {
       </div>
     </section>
   );
-};
+}
 
 export default LatestArticles;
