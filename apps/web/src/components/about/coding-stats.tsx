@@ -24,7 +24,10 @@ function CodingStats({ techStacks }: CodingStatsProps) {
         <li className="service-item">
           <div className="tech-stack-container">
             {techStacks.map((stack) => (
-              <div key={stack.name} className="tech-icon text-white-2 hover:scale-110 hover:text-orange-yellow-crayola">
+              <div
+                key={stack.name}
+                className="flex flex-col items-center justify-center text-3xl text-white-2 hover:scale-110 hover:text-orange-yellow-crayola"
+              >
                 {React.createElement(stack.icon as React.ElementType)}
               </div>
             ))}
