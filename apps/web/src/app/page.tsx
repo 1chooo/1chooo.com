@@ -18,12 +18,11 @@ const DynamicCodingStats = dynamic(() => import('@/components/about/coding-stats
   loading: () => <p>Loading coding stats...</p>,
 });
 
-
 const { about, title } = config;
 const {
   subHeader, pronouns, firstName,
   lastName, preferredName, introduction,
-  lifestyles, techStacks
+  lifestyles, techStacks, githubUsername
 } = about;
 
 export const metadata: Metadata = {
@@ -53,7 +52,7 @@ async function About({ }) {
       <MarkdownRenderer className="text-light-gray leading-relaxed" content={introduction} />
       <AboutHeader text="$ ls -al Latest Articles" />
       <DynamicLatestArticles posts={selectedPosts} />
-      <DynamicCodingStats techStacks={techStacks} />
+      <DynamicCodingStats techStacks={techStacks} githubUsername={githubUsername} />
       <DynamicLifeStyles lifestyles={lifestyles} />
     </article>
   );
