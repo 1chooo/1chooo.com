@@ -1,13 +1,14 @@
-'use client';
-
+import type { Metadata } from "next";
 import React from 'react';
-import { usePathname } from 'next/navigation';
-import PageContent from '@/components/page-content';
+import PageHeader from '@/components/page-header';
 import MarkdownRenderer from '@/components/markdown/markdown-renderer';
 import config from '@/config';
 
-
 const { title } = config;
+
+export const metadata: Metadata = {
+  title: `Not Found | ${title}`,
+};
 
 const errorMessages = [
   'This page doesn\'t exist.',
@@ -15,25 +16,15 @@ const errorMessages = [
 ];
 
 function NotFound({ }) {
-  const pathname = usePathname();
-
-  const renderErrorMessage = () =>
-    errorMessages.map((item, index) => (
-      <MarkdownRenderer key={`${item}-${index}`} content={item} />
-    ));
-
   return (
-    <PageContent
-      documentTitle='Not Found'
-      title={title}
-      header="404 Not Found"
-      page="404"
-      pathName={pathname}
-    >
+    <article>
+      <PageHeader header="404 Not Found" />
       <section className="text-light-gray leading-relaxed">
-        {renderErrorMessage()}
+        {errorMessages.map((item, index) => (
+          <MarkdownRenderer key={`${item}-${index}`} content={item} />
+        ))}
       </section>
-    </PageContent>
+    </article>
   )
 }
 

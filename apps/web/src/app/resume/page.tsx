@@ -24,7 +24,7 @@ const teachingExp = <TimeLine data={teachingExperiences} />;
 
 function Resume({ }) {
   return (
-    <article data-page=''>
+    <article>
       <PageHeader header="Hugo's Resume" />
       <DownloadCV />
       {profExp}
