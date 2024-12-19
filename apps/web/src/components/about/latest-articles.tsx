@@ -94,7 +94,7 @@ function LatestArticles({ posts }: LatestArticlesProps) {
           <AnimatedShinyText className="inline-flex items-center justify-center px-4 py-1 transition ease-out hover:text-neutral-600 hover:duration-300 hover:dark:text-neutral-400">
             <ProgressBarLink href="/post" onClick={handleSeeMorePostsClick}>
               <span>✨ See More Posts</span>
-              <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5 relative top-[-2px]" />
+              <ArrowRightIcon className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
             </ProgressBarLink>
           </AnimatedShinyText>
         </div>
