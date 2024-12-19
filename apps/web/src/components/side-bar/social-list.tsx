@@ -4,7 +4,7 @@ import type { IconType } from "react-icons";
 
 interface SocialLink {
   url: string;
-  icon: Icon | IconType | React.FC;
+  icon: Icon | IconType;
   name: string;
 }
 
@@ -16,7 +16,7 @@ function SocialList({ socialLinks }: SocialListProps) {
   return (
     <ul className="social-list">
       {socialLinks.map(({ url, icon: Icon, name }) => (
-        <li className="social-item hover:scale-110 hover:text-orange-yellow-crayola" key={name}>
+        <li key={name}>
           <Link
             href={url}
             className="text-light-gray-70 text-lg hover:scale-110 hover:text-orange-yellow-crayola"
