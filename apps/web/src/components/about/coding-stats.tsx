@@ -12,11 +12,11 @@ type TechStack = {
   icon: Icon | IconType;
 };
 
-interface Props {
+interface CodingStatsProps {
   techStacks: TechStack[];
 }
 
-function CodingStats ({ techStacks }: Props) {
+function CodingStats({ techStacks }: CodingStatsProps) {
   return (
     <section>
       <AboutHeader text="$ ls -al Coding Stats" />
