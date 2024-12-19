@@ -2,13 +2,15 @@
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
+
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import { sendGTMEvent } from "@/components/google";
-import { LuEye } from "react-icons/lu";
-import { ArrowRightIcon } from "@primer/octicons-react";
-import { cn } from "@/lib/utils";
 import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
 import { ProgressBarLink } from "@/components/progress-bar";
+
+import { cn } from "@/lib/utils";
+import { LuEye } from "react-icons/lu";
+import { ArrowRightIcon } from "@primer/octicons-react";
 
 import "@/styles/about/latest-posts.css";
 
@@ -72,7 +74,7 @@ function LatestArticles({ posts }: LatestArticlesProps) {
           >
             <ProgressBarLink href={`/post/${post.slug}`} rel="noopener noreferrer">
               <figure className="latest-post-img">
-                <div className="latest-post-item-icon-box">
+                <div className="absolute latest-post-item-icon-box text-orange-yellow-crayola text-xl bg-jet p-[18px] rounded-xl top-1/2 left-1/2 transition-all duration-250 ease-linear">
                   <LuEye />
                 </div>
                 <Image
