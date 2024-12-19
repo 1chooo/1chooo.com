@@ -36,10 +36,12 @@ interface LatestArticlesProps {
 }
 
 function LatestArticles({ posts }: LatestArticlesProps) {
+  const [isMounted, setIsMounted] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   const [visiblePosts, setVisiblePosts] = useState<Post[]>([]);
 
   useEffect(() => {
+    setIsMounted(true);
     const checkMobile = () => {
       setIsMobile(window.innerWidth <= 768);
     };
@@ -50,8 +52,14 @@ function LatestArticles({ posts }: LatestArticlesProps) {
   }, []);
 
   useEffect(() => {
-    setVisiblePosts(isMobile ? posts.slice(0, 2) : posts.slice(0, 3));
-  }, [isMobile, posts]);
+    if (isMounted) {
+      setVisiblePosts(isMobile ? posts.slice(0, 2) : posts.slice(0, 3));
+    }
+  }, [isMounted, isMobile, posts]);
+
+  if (!isMounted) {
+    return null; // or a loading placeholder
+  }
 
   return (
     <section>
