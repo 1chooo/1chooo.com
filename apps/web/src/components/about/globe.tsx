@@ -105,7 +105,7 @@ function Globe() {
               if (pointerInteracting.current !== null) {
                 let delta = e.clientX - pointerInteracting.current
                 pointerInteractionMovement.current = delta
-                void api.start({
+                api.start({
                   r: delta / 200
                 })
               }
@@ -114,7 +114,7 @@ function Globe() {
               if (pointerInteracting.current !== null && e.touches[0]) {
                 let delta = e.touches[0].clientX - pointerInteracting.current
                 pointerInteractionMovement.current = delta
-                void api.start({
+                api.start({
                   r: delta / 100
                 })
               }
