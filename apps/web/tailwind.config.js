@@ -33,6 +33,13 @@ module.exports = {
         md: `calc(var(--radius) - 2px)`,
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        'shadow-1': '-4px 8px 24px hsla(0, 0%, 0%, 0.25)',
+        'shadow-2': '0 16px 30px hsla(0, 0%, 0%, 0.25)',
+        'shadow-3': '0 16px 40px hsla(0, 0%, 0%, 0.25)',
+        'shadow-4': '0 25px 50px hsla(0, 0%, 0%, 0.15)',
+        'shadow-5': '0 24px 80px hsla(0, 0%, 0%, 0.25)',
+      },
       animation: {
         "shiny-text": "shiny-text 8s infinite",
         gradient: "gradient 8s linear infinite",
