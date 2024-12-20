@@ -12,7 +12,7 @@ const {
   preferredName
 } = about;
 
-function InfoContent({ }) {
+function InfoContent() {
   return (
     <div className="info-content">
       <h1

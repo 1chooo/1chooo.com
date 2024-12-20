@@ -6,7 +6,7 @@ import { useSpring } from 'react-spring';
 import { LuMapPin } from "react-icons/lu";
 
 // https://github.com/shuding/cobe/tree/main/website/pages/docs/showcases
-function Globe({ }) {
+function Globe() {
   let canvasRef = useRef<HTMLCanvasElement>(null)
   let pointerInteracting = useRef<number | null>(null)
   let pointerInteractionMovement = useRef(0)
