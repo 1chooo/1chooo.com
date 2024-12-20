@@ -5,6 +5,10 @@ module.exports = {
   ],
   theme: {
     extend: {
+      screens: {
+        'custom-md': '580px',
+        'custom-lg': '1250px',
+      },
       colors: {
         'jet': 'hsl(0, 0%, 22%)',
         'onyx': 'hsl(240, 1%, 17%)',
