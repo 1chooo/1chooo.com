@@ -5,6 +5,7 @@ import AboutHeader from '@/components/about/about-header';
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import { getBlogPosts } from "@/lib/db/v1/post";
 import config from '@/config';
+import Welcome from '@/markdown/welcome.mdx'
 
 const DynamicLatestArticles = dynamic(() => import('@/components/about/latest-articles'), {
   loading: () => <p>Loading latest articles...</p>,
@@ -54,6 +55,7 @@ async function About() {
       <DynamicLatestArticles posts={selectedPosts} />
       <DynamicCodingStats techStacks={techStacks} githubUsername={githubUsername} />
       <DynamicLifeStyles lifestyles={lifestyles} />
+      <Welcome />
     </article>
   );
 };
