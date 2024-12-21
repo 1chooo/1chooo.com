@@ -43,7 +43,7 @@
     "jest.config.ts",
     "jest.setup.ts",
     "next-env.d.ts",
-    "next.config.mjs",
+    "next.config.ts",
     "postcss.config.mjs",
     "dist/types/**/*.ts"
   ],
