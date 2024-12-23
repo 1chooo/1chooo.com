@@ -48,6 +48,8 @@ function Heading({text = 'Hello, world!'}: Props) {
 
 We must have docstring and type hint for every public class and method/function. The format of the docstring is as follows:
 
+#### Class
+
 ```python
 class MyClass:
     """summary of class
@@ -73,8 +75,11 @@ class MyClass:
             str: description of return value
         """
         return
+```
 
+#### Function
 
+```python
 def func(arg1: int, arg2: str) -> str:
     """summary of function
 
@@ -89,6 +94,8 @@ def func(arg1: int, arg2: str) -> str:
 ```
 
 ### Naming Convention
+
+We follow the naming convention as follows:
 
 1. class name: `CamelCase`
 2. method/function name: `snake_case`
