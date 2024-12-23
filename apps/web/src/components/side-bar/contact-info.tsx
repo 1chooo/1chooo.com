@@ -1,5 +1,7 @@
 import React from "react";
 
+import "@/styles/side-bar/contact-info.css";
+
 interface ContactInfoProps {
   title: string;
   children: React.ReactNode;
