@@ -42,6 +42,60 @@ function Heading({text = 'Hello, world!'}: Props) {
 }
 ```
 
+## Python
+
+### Docstring and Type Hint
+
+We must have docstring and type hint for every public class and method/function. The format of the docstring is as follows:
+
+```python
+class MyClass:
+    """summary of class
+
+    Attributes:
+        attr1 (int): description of attr1
+        attr2 (str): description of attr2
+
+    methods:
+        method1: description of method1
+    """
+    attr1: int
+    attr2: str
+
+    def method1(self, arg1: int, arg2: str) -> str:
+        """summary of method1
+
+        Args:
+            arg1 (int): description of arg1
+            arg2 (str): description of arg2
+
+        Returns:
+            str: description of return value
+        """
+        return
+
+
+def func(arg1: int, arg2: str) -> str:
+    """summary of function
+
+    Args:
+        arg1 (int): description of arg1
+        arg2 (str): description of arg2
+
+    Returns:
+        str: description of return value
+    """
+    return
+```
+
+### Naming Convention
+
+1. class name: `CamelCase`
+2. method/function name: `snake_case`
+3. private method/function name: `_snake_case`
+4. variable name: `snake_case`
+5. private variable name: `_snake_case`
+6. read only constant name: `UPPER_SNAKE_CASE`
 
 ## Coding Patterns
 
