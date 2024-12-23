@@ -48,8 +48,6 @@ function Heading({text = 'Hello, world!'}: Props) {
 
 We must have docstring and type hint for every public class and method/function. The format of the docstring is as follows:
 
-#### Class
-
 ```python
 class MyClass:
     """summary of class
@@ -76,8 +74,6 @@ class MyClass:
         """
         return
 ```
-
-#### Function
 
 ```python
 def func(arg1: int, arg2: str) -> str:
