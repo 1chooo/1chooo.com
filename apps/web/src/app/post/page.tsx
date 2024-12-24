@@ -1,16 +1,16 @@
 import { Suspense } from "react";
 import Image from "next/image";
 import Balancer from 'react-wrap-balancer'
+import Loading from "@/app/post/loading";
 import PageHeader from "@/components/page-header";
 import FilterSelectBox from "@/components/filter/filter-select-box";
 import FilterList from "@/components/filter/filter-list";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import Pagination from "@/components/pagination";
-import { POSTS_PER_PAGE } from "@/lib/constants";
-import config from "@/config";
 import { ProgressBarLink } from "@/components/progress-bar";
+import { POSTS_PER_PAGE } from "@/lib/constants";
 import { getBlogPosts } from "@/lib/db/v1/post";
-import Loading from "./loading";
+import config from "@/config";
 
 const { title } = config;
 
@@ -49,7 +49,6 @@ async function BlogPosts({ searchParams }: { searchParams: tParams }) {
   );
 
   return (
-
     <section className="blog-posts">
       <FilterList path="post" selectedTag={selectedTag} blogTags={blogTags} />
       <FilterSelectBox path="post" selectedTag={selectedTag} blogTags={blogTags} />
@@ -107,7 +106,6 @@ async function BlogPosts({ searchParams }: { searchParams: tParams }) {
         basePath="/post"
       />
     </section>
-
   );
 }
 
