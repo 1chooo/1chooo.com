@@ -338,3 +338,45 @@ How to minimize main thread work in React Component https://aatifbandey.medium.c
 
 https://github.com/luciancah/nextjs-ko/blob/7f67677d32f7247d0d468f1b3e1bceb43a6e03bd/pages/docs/app/building-your-application/optimizing/analytics.mdx#L17
 https://github.com/axiomhq/next-axiom/tree/0ad6cf706dc154b17bd65e11d850a8c2b710db61/src/webVitals
+
+## Using `setTimeout` with `Promise` for Delayed Execution
+
+When testing rendering effects or simulating delays in asynchronous operations, you can use `setTimeout` wrapped in a `Promise`. This approach ensures clean and readable code, especially in `async/await` contexts.
+
+### Code Example
+
+To add a timeout in your tests or development workflows:
+
+```typescript
+await new Promise(resolve => setTimeout(resolve, 3000));
+```
+
+### Explanation
+
+1. **`setTimeout`**: Executes a function after a specified delay (in milliseconds).
+2. **`Promise`**: Allows `setTimeout` to work seamlessly with `async/await`.
+3. **`3000`**: Represents the delay in milliseconds (3 seconds in this example).
+
+### When to Use
+
+- To simulate network latency or slow computations.
+- To test skeleton loaders or other rendering effects.
+- To delay execution for debugging or animations.
+
+### Usage in a Function
+
+```typescript
+async function simulateLoadingEffect() {
+  console.log('Loading...');
+  await new Promise(resolve => setTimeout(resolve, 3000));
+  console.log('Done!');
+}
+
+simulateLoadingEffect();
+```
+
+### Output
+
+1. Displays "Loading..."
+2. Waits for 3 seconds
+3. Displays "Done!"
