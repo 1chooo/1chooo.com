@@ -1,7 +1,7 @@
 import { Suspense } from "react";
 import Image from "next/image";
 import Balancer from 'react-wrap-balancer'
-import Loading from "@/app/post/loading";
+import Loading from "@/components/loading";
 import PageHeader from "@/components/page-header";
 import FilterSelectBox from "@/components/filter/filter-select-box";
 import FilterList from "@/components/filter/filter-list";
