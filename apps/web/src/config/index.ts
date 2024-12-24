@@ -72,7 +72,7 @@ const config: Config = {
     "introduction": `
 I obtained my Bachelor's degree from [National Central University 🐿️](https://www.ncu.edu.tw/), driven by a *sincere passion* for **Software Engineering 💻.**
 
-Software is built by humans. Unfortunately, human makes errors, **LOTS of ERRORS.** Throughout human history, humans have learned to craft machines and tools to help us construct complex architects. Inspired by this, I am dedicated to exploring practical methodologies and tools that improve the quality, reliability, and efficiency of large-scale software systems.
+Software is built by humans. Unfortunately, humans make errors, **LOTS of ERRORS.** Throughout human history, humans have learned to craft machines and tools to help us construct complex architecture. Inspired by this, I explore practical methodologies and tools to improve large-scale software systems' quality, reliability, and efficiency.
 
 In my spare time, I focus on contributing to open-source projects, alongside working out 💪🏻, capturing street photography 📸, and writing tech content ✍🏻.
 
