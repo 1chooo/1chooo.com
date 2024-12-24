@@ -72,9 +72,9 @@ const config: Config = {
     "introduction": `
 I obtained my Bachelor's degree from [National Central University 🐿️](https://www.ncu.edu.tw/), driven by a *sincere passion* for **Software Engineering 💻.**
 
-My current research interests include ***Programming Language Theory, Operating Systems, and Compilers.*** To gain practical experience, I developed my own ***<a href="https://en.wikipedia.org/wiki/Lisp_(programming_language)">Lisp</a>*** interpreter using **<a href="https://en.wikipedia.org/wiki/C_(programming_language)">C</a>** <sup>[[Code](https://github.com/1chooo/compiler-101)]</sup> and implemented [***Monkey Programming***](https://monkeylang.org/) Compiler with **<a href="https://go.dev/">GO</a>** <sup>[[Code](https://github.com/1chooo/monkey-prog-lang)]</sup>.
+Software is built by humans. Unfortunately, human makes errors, LOTS OF ERRORS. Through out human history, humans have learned to craft machines and tools to help them build complex architects. I am dedicated to exploring practical methodologies and tools that improve the quality, reliability, and efficiency of software systems.
 
-In my spare time, I do workouts 💪🏻, street photography 📸, and tech content writing ✍🏻.
+In my spare time, I focus on contributing to open-source projects, alongside working out 💪🏻, capturing street photography 📸, and writing tech content ✍🏻.
 
 **Self-motivated, Team player, Love coding 👨🏻‍💻**
     `,
