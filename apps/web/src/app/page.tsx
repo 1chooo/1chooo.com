@@ -72,26 +72,31 @@ const header =
     ? `About ${firstName} ${lastName} 👨🏻‍💻`
     : `About ${preferredName} 👨🏻‍💻`;
 
-const structuredData = {
-  "@context": "http://schema.org",
-  "id": "http://www.1chooo.com#person",
-  "@type": "Person",
-  "givenName": "Chun-Ho",
-  "familyName": "Lin",
-  "additionalName": "Hugo",
-  "gender": "male",
-  "birthPlace": "New Taipei, TW",
-  "nationality": "Taiwan",
-  "jobTitle": "Software Engineer",
-  "skills": "Software Engineering, Web Development, Open Source",
-  "alumniOf": "National Central University",
-  "image": "https://www.1chooo.com/images/profile.webp",
-  "url": "http://www.1chooo.com",
-  "sameAs": [
-      "https://www.linkedin.com/in/1chooo/",
-      "http://github.com/1chooo",
-      "https://medium.com/@1chooo",
-  ],
+const addJsonLd = () => {
+  return {
+    __html: `{
+      "@context": "http://schema.org",
+      "id": "http://www.1chooo.com#person",
+      "@type": "Person",
+      "givenName": "Chun-Ho",
+      "familyName": "Lin",
+      "additionalName": "Hugo",
+      "gender": "male",
+      "birthPlace": "New Taipei, TW",
+      "nationality": "Taiwan",
+      "jobTitle": "Software Engineer",
+      "skills": "Software Engineering, Web Development, Open Source",
+      "alumniOf": "National Central University",
+      "image": "https://www.1chooo.com/images/profile.webp",
+      "url": "http://www.1chooo.com",
+      "sameAs": [
+          "https://www.linkedin.com/in/1chooo/",
+          "http://github.com/1chooo",
+          "https://medium.com/@1chooo",
+      ],
+    }
+  `,
+  }
 }
 
 async function About() {
@@ -110,7 +115,8 @@ async function About() {
       <Script
         id="application/ld+json"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+        dangerouslySetInnerHTML={addJsonLd()}
+        key="1chooo-website-jsonld"
       />
       <PageHeader header={header} />
       <AboutHeader id="introduction" text={`${subHeader} (${pronouns})`} />
