@@ -14,8 +14,14 @@ const {
   title, description,
   author, keywords,
   googleAnalyticId, googleTagManagerId,
-  openGraph,
+  openGraph, about, avatar
 } = config;
+const {
+  firstName,
+  lastName,
+  middleName,
+  preferredName
+} = about;
 
 export const metadata: Metadata = {
   title: title,
@@ -65,7 +71,13 @@ function RootLayout({ children }: RootLayoutProps) {
         <ProgressBar className="fixed top-0 h-1 bg-yellow-500" >
           <Hello />
           <main>
-            <SideBar />
+            <SideBar
+              avatar={avatar}
+              firstName={firstName}
+              lastName={lastName}
+              middleName={middleName}
+              preferredName={preferredName}
+            />
             <div className="main-content">
               <NavBar />
               {children}

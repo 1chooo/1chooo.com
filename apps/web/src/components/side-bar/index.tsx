@@ -4,17 +4,21 @@ import React, { useState, useRef } from 'react';
 import SideBarInfo from '@/components/side-bar/sidebar-info';
 import SideBarInfoMore from '@/components/side-bar/sidebar-info-more';
 
-import config from '@/config';
-const avatar = config.avatar;
-const { about } = config;
-const {
+interface SideBarProps {
+  avatar: string;
+  firstName: string;
+  lastName: string;
+  middleName: string;
+  preferredName: string;
+}
+
+function SideBar({
+  avatar,
   firstName,
   lastName,
   middleName,
   preferredName
-} = about;
-
-function SideBar() {
+}: SideBarProps) {
   const [isActive, setIsActive] = useState(false);
   const sideBarRef = useRef<HTMLDivElement>(null);
 
