@@ -23,10 +23,11 @@ const DynamicCodingStats = dynamic(() => import('@/components/about/coding-stats
 const {
   about, title, description,
   author, keywords,
-  openGraph, 
+  openGraph,
 } = config;
 const {
   subHeader, pronouns, firstName,
+  middleName,
   lastName, preferredName, introduction,
   lifestyles, techStacks, githubUsername
 } = about;
@@ -71,37 +72,27 @@ const header =
     ? `About ${firstName} ${lastName} 👨🏻‍💻`
     : `About ${preferredName} 👨🏻‍💻`;
 
-const jsonData = {
-  '@context': 'https://schema.org',
-  '@type': 'WebSite',
-  "name": `${firstName} ${lastName}`,
-  "url": "https://www.1chooo.com",
-  author: {
-    '@type': 'Person',
-    name: `${firstName} ${lastName}`,
-    url: "https://www.1chooo.com",
-    sameAs: [
-      "https://www.linkedin.com/in/1chooo",
-    ],
-  },
-  mainEntityOfPage: {
-    '@type': 'WebPage',
-    '@id': 'https://www.1chooo.com',
-  },
-  "inLanguage": 'en-US',
-  "copyrightYear": new Date().getFullYear(),
+const structuredData = {
+  "@context": "http://schema.org",
+  "id": "http://www.1chooo.com#person",
+  "@type": "Person",
+  "givenName": "Chun-Ho",
+  "familyName": "Lin",
+  "additionalName": "Hugo",
+  "gender": "male",
+  "birthPlace": "New Taipei, TW",
+  "nationality": "Taiwan",
   "jobTitle": "Software Engineer",
-  "keywords": keywords,
-  "worksFor": {
-    "@type": "Organization",
-    "name": "1chooo.com",
-    "url": "https://1chooo.com"
-  },
-  "image": "https://1chooo.com/images/1chooo-avatar.png",
-  "email": "hugo970217@gmail.com",
-  dateModified: new Date().toISOString(),
-  dateCreated: '2024-01-06',
-};
+  "skills": "Software Engineering, Web Development, Open Source",
+  "alumniOf": "National Central University",
+  "image": "https://www.1chooo.com/images/profile.webp",
+  "url": "http://www.1chooo.com",
+  "sameAs": [
+      "https://www.linkedin.com/in/1chooo/",
+      "http://github.com/1chooo",
+      "https://medium.com/@1chooo",
+  ],
+}
 
 async function About() {
   let allBlogs = await getBlogPosts();
@@ -117,13 +108,13 @@ async function About() {
   return (
     <article>
       <Script
+        id="application/ld+json"
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonData) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
       />
       <PageHeader header={header} />
-      <AboutHeader text={`${subHeader} (${pronouns})`} />
+      <AboutHeader id="introduction" text={`${subHeader} (${pronouns})`} />
       <MarkdownRenderer className="text-light-gray leading-relaxed" content={introduction} />
-      <AboutHeader text="$ ls -al Latest Articles" />
       <Suspense fallback={<p>Loading latest articles...</p>}>
         <DynamicLatestArticles posts={selectedPosts} />
       </Suspense>

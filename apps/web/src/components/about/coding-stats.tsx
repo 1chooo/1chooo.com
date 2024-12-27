@@ -30,7 +30,7 @@ function CodingStats({ techStacks, githubUsername }: CodingStatsProps) {
 
   return (
     <section>
-      <AboutHeader text="$ ls -al Coding Stats" />
+      <AboutHeader id="coding-stats" text="$ ls -al Coding Stats" />
       <ul className="mt-[30px] grid grid-cols-1 gap-[20px] md:grid-cols-2 lg:grid-cols-2 lg:gap-y-[20px] lg:gap-x-[25px]">
         <li className="service-item">
           <div className="tech-stack-container">
