@@ -7,6 +7,7 @@ import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import { sendGTMEvent } from "@/components/google";
 import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
 import { ProgressBarLink } from "@/components/progress-bar";
+import AboutHeader from "@/components/about/about-header";
 
 import { cn } from "@/lib/utils";
 import { LuEye } from "react-icons/lu";
@@ -65,6 +66,7 @@ function LatestArticles({ posts }: LatestArticlesProps) {
 
   return (
     <section>
+      <AboutHeader id="latest-articles" text="$ ls -al Latest Articles" />
       <ul className="latest-post-list">
         {visiblePosts.map((post) => (
           <li

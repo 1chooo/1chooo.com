@@ -23,7 +23,7 @@ function AvatarBox({ avatar }: AvatarBoxProps) {
     <figure className="bg-gradient-onyx rounded-[10px] flex items-center justify-center"
       style={{ width: `${imageSize.width}px`, height: `${imageSize.height}px` }}>
       <Image
-        id="profile-img"
+        id={`1chooo`}
         src={avatar}
         alt={`${firstName} (${preferredName}) ${lastName}`}
         width={imageSize.width}
