@@ -1,7 +1,3 @@
-// https://github.com/sleepymalc/pbb.wtf/blob/main/config.js
-// https://react-icons.github.io/react-icons/
-// https://primer.style/foundations/icons/
-
 import { Config } from "@/types/config";
 import { MdOutlineDevices, MdAttachment } from "react-icons/md";
 import { IoSchoolOutline } from "react-icons/io5";
