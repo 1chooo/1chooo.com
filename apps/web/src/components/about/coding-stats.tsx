@@ -44,7 +44,7 @@ function CodingStats({ techStacks, githubUsername }: CodingStatsProps) {
             ))}
           </div>
         </li>
-        <li className="service-item [@media(max-width:1024px)]:h-[200px]">
+        <li className="service-item [@media(max-width:1250px)]:h-[200px]">
           <Globe />
         </li>
       </ul>
