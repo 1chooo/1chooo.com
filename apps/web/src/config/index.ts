@@ -234,8 +234,8 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
     lang: "en",
     loading: "lazy",
   },
-  "googleAnalyticId": "G-JGG75799PJ",
-  "googleTagManagerId": "GTM-PDJ3NF4Q"
+  "googleAnalyticId": process.env.NEXT_PUBLIC_GA_ID || '',
+  "googleTagManagerId": process.env.NEXT_PUBLIC_GTM_ID || '',
 };
 
 export default config;
