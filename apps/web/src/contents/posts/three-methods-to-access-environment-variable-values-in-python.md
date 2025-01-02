@@ -46,6 +46,8 @@ import os
 print(os.environ['1CHOOO_DOMAIN_NAME'])
 ```
 
+result:
+
 ```bash
 https://1chooo.com
 ```
@@ -64,6 +66,8 @@ import os
 # access environment variable
 print(os.getenv('1CHOOO_DOMAIN_NAME'))
 ```
+
+result:
 
 ```bash
 https://1chooo.com
@@ -94,6 +98,8 @@ load_dotenv()
 # access environment variable
 print(f"1chooo Domain Name: {os.getenv('1CHOOO_DOMAIN_NAME')}")
 ```
+
+result:
 
 ```bash
 1chooo Domain Name: https://1chooo.com
