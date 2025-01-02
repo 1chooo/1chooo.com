@@ -14,7 +14,8 @@ const { giscusConfig } = config;
 
 type tParams = Promise<{ slug: string }>;
 
-export async function generateMetadata({ params }: { params: tParams }): Promise<Metadata | undefined> {
+export async function generateMetadata(
+  { params }: { params: tParams }): Promise<Metadata | undefined> {
   const { slug } = await params;
   let posts = await getBlogPosts();
   let post = posts.find((post) => post.slug === slug);
