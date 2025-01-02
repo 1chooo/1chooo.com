@@ -70,17 +70,23 @@ const addJsonLd = () => {
   return {
     __html: `{
       "@context": "http://schema.org",
-      "id": "http://www.1chooo.com#person",
       "@type": "Person",
+      "@id": "http://www.1chooo.com#person",
       "givenName": "Chun-Ho",
       "familyName": "Lin",
       "additionalName": "Hugo",
       "gender": "male",
       "birthPlace": "New Taipei, TW",
       "nationality": "Taiwan",
+      "alumniOf":[
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "National Central University",
+          "sameAs": "https://www.ncu.edu.tw/"
+        },
+      ],
       "jobTitle": "Software Engineer",
       "skills": "Software Engineering, Web Development, Open Source",
-      "alumniOf": "National Central University",
       "image": "https://www.1chooo.com/images/profile.webp",
       "url": "http://www.1chooo.com",
       "sameAs": [
