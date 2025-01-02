@@ -37,7 +37,7 @@ function CodingStats({ techStacks, githubUsername }: CodingStatsProps) {
             {techStacks.map((stack) => (
               <div
                 key={stack.name}
-                className="flex flex-col items-center justify-center text-3xl text-white-2 hover:scale-110 hover:text-orange-yellow-crayola"
+                className="text-3xl text-white-2 hover:scale-110 hover:text-orange-yellow-crayola"
               >
                 {React.createElement(stack.icon as React.ElementType)}
               </div>

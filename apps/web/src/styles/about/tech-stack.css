@@ -26,13 +26,6 @@
   padding: 10px;
 }
 
-.icon-label {
-  margin-top: 5px;
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  text-align: center;
-}
-
 @media (min-width: 580px) {
   .service-item {
     display: flex;
