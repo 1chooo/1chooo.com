@@ -13,7 +13,7 @@ function MarkdownImage({ src, alt }: MarkdownImageProps) {
 
   return (
     <div className="my-10 text-center">
-      <div 
+      <div
         className="relative mx-auto rounded-2xl overflow-hidden max-h-[200px] sm:max-h-[400px]"
         style={{
           maxWidth: '100%',
