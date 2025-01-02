@@ -127,7 +127,11 @@ export default async function Post(props: { params: tParams }) {
               </p>
             </Suspense>
           </div>
-          <MarkdownRenderer content={post.content} />
+          <div className="flex justify-center">
+            <div className="w-[90%] sm:w-[90%] md:w-[90%] lg:w-[80%] xl:w-[80%]">
+              <MarkdownRenderer content={post.content} />
+            </div>
+          </div>
         </section>
       </article>
 
