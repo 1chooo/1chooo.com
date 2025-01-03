@@ -15,12 +15,32 @@ export const sendToGA4 = (metric: NextWebVitalsMetric, gaId: string | undefined)
   }
 };
 
+function fixNum(num: number) {
+  return Number((num / 1000).toFixed(6));
+}
+
 export const logMetric = (metric: NextWebVitalsMetric) => {
   switch (metric.name) {
-    case 'FCP':
-    case 'LCP':
-      console.log(`${metric.name}:`, metric.value);
+    case 'Next.js-hydration':
+      console.log('Next.js hydration (s): ', metric.value);
       break;
-    // Add other cases as needed
+    case 'FCP':
+      console.log(`First Contentful Paint (s): `, metric.value);
+      break;
+    case 'LCP':
+      console.log('Largest Contentful Paint (s): ', metric.value);
+      break;
+    case 'CLS':
+      console.log('Cumulative Layout Shift (s): ', fixNum(metric.startTime));
+      break;
+    case 'FID':
+      console.log('First Input Delay (s): ', metric.value);
+      break;
+    case 'TTFB':
+      console.log('Time to First Byte (s): ', metric.value);
+      break;
+    default:
+      console.log(`${metric.name} (s): `, metric.value);
+      break;
   }
 };
