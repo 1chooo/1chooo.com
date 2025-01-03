@@ -8,7 +8,7 @@ import { ThemeInput } from 'react-activity-calendar';
 
 import "@/styles/about/tech-stack.css";
 
-type TechStack = {
+interface TechStack {
   name: string;
   icon: Icon | IconType;
 };
@@ -29,8 +29,11 @@ function CodingStats({ techStacks, githubUsername }: CodingStatsProps) {
   };
 
   return (
-    <section>
-      <AboutHeader id="coding-stats" text="$ ls -al Coding Stats" />
+    <section id="coding-stats">
+      <AboutHeader
+        id="coding-stats"
+        text="$ ls -al Coding Stats"
+      />
       <ul className="mt-[30px] grid grid-cols-1 gap-[20px] md:grid-cols-2 lg:grid-cols-2 lg:gap-y-[20px] lg:gap-x-[25px]">
         <li className="service-item">
           <div className="tech-stack-container">
@@ -39,7 +42,7 @@ function CodingStats({ techStacks, githubUsername }: CodingStatsProps) {
                 key={stack.name}
                 className="text-3xl text-white-2 hover:scale-110 hover:text-orange-yellow-crayola"
               >
-                {React.createElement(stack.icon as React.ElementType)}
+                <stack.icon />
               </div>
             ))}
           </div>
@@ -48,7 +51,10 @@ function CodingStats({ techStacks, githubUsername }: CodingStatsProps) {
           <Globe />
         </li>
       </ul>
-      <section className="text-light-gray mt-5">
+      <section
+        id="github-calendar"
+        className="text-light-gray mt-5"
+      >
         <GitHubCalendar
           username={githubUsername}
           blockSize={12}
