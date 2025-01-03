@@ -23,7 +23,7 @@ const DynamicCodingStats = dynamic(() => import('@/components/about/coding-stats
 const {
   about, title, description,
   author, keywords,
-  openGraph,
+  openGraph, siteURL
 } = config;
 const {
   subHeader, pronouns, firstName,
@@ -71,10 +71,10 @@ const addJsonLd = () => {
     __html: `{
       "@context": "http://schema.org",
       "@type": "Person",
-      "@id": "http://www.1chooo.com#person",
-      "givenName": "Chun-Ho",
-      "familyName": "Lin",
-      "additionalName": "Hugo",
+      "@id": "${siteURL}#person",
+      "givenName": ${firstName},
+      "familyName": ${lastName},
+      "additionalName": ${preferredName},
       "gender": "male",
       "birthPlace": "New Taipei, TW",
       "nationality": "Taiwan",
@@ -88,7 +88,7 @@ const addJsonLd = () => {
       "jobTitle": "Software Engineer",
       "skills": "Software Engineering, Web Development, Open Source",
       "image": "https://www.1chooo.com/images/profile.webp",
-      "url": "http://www.1chooo.com",
+      "url": ${siteURL},
       "sameAs": [
         "https://www.linkedin.com/in/1chooo/",
         "http://github.com/1chooo",
