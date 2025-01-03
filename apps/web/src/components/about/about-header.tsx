@@ -1,5 +1,5 @@
 interface AboutHeaderProps {
-  id: string;
+  id?: string;
   text: string;
 }
 
