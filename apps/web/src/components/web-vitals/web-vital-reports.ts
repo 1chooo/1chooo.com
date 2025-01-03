@@ -1,9 +1,9 @@
 import { NextWebVitalsMetric } from 'next/app'
 
-export const sendToGA4 = (metric: NextWebVitalsMetric, GA_ID: string | undefined) => {
+export const sendToGA4 = (metric: NextWebVitalsMetric, gaId: string | undefined) => {
   let metricValue = Math.round(metric.name === 'CLS' ? metric.value * 1000 : metric.value);
 
-  if (GA_ID && typeof window !== 'undefined' && window.gtag) {
+  if (gaId && typeof window !== 'undefined' && window.gtag) {
     window.gtag('event', metric.name, {
       value: metricValue,
       event_label: metric.id,
@@ -11,7 +11,7 @@ export const sendToGA4 = (metric: NextWebVitalsMetric, GA_ID: string | undefined
     });
     console.log(`[GA4] Sent metric: ${metric.name}, value: ${metricValue}, id: ${metric.id}`);
   } else {
-    console.warn('[GA4] gtag is not available or GA_ID is missing');
+    console.warn('[GA4] gtag is not available or Google Analytics ID is missing');
   }
 };
 

@@ -6,11 +6,15 @@ import { sendToGA4, logMetric } from './web-vital-reports'
 /**
  * @see https://github.com/madewithnovel/next.js/blob/80185c2dea73ed8a70fe03b75b43e950af3ef7a6/app/vitals.tsx
  */
-export function WebVitals() {
-  const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
-  
+
+interface WebVitalsProps {
+  gaId: string | undefined;
+}
+
+export function WebVitals({ gaId }: WebVitalsProps) {
+
   useReportWebVitals((metric) => {
-    sendToGA4(metric, GA_ID);
+    sendToGA4(metric, gaId);
     logMetric(metric);
   });
 
