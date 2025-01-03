@@ -35,7 +35,7 @@ function CodingStats({ techStacks, githubUsername }: CodingStatsProps) {
         text="$ ls -al Coding Stats"
       />
       <ul className="mt-[30px] grid grid-cols-1 gap-[20px] md:grid-cols-2 lg:grid-cols-2 lg:gap-y-[20px] lg:gap-x-[25px]">
-        <li className="service-item">
+        <li className="relative rounded-2xl shadow-shadow-2 coding-item bg-gradient-onyx before:absolute before:content-[''] before:rounded-2xl">
           <div className="tech-stack-container">
             {techStacks.map((stack) => (
               <div
@@ -47,7 +47,7 @@ function CodingStats({ techStacks, githubUsername }: CodingStatsProps) {
             ))}
           </div>
         </li>
-        <li className="service-item [@media(max-width:1250px)]:h-[200px]">
+        <li className="relative rounded-2xl shadow-shadow-2 coding-item bg-gradient-onyx before:absolute before:content-[''] before:rounded-2xl [@media(max-width:1250px)]:h-[200px]">
           <Globe />
         </li>
       </ul>
