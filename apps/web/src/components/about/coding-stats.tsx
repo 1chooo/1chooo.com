@@ -6,7 +6,7 @@ import Globe from "@/components/about/globe";
 import GitHubCalendar from 'react-github-calendar';
 import { ThemeInput } from 'react-activity-calendar';
 
-import "@/styles/about/tech-stack.css";
+import "@/styles/about/coding-stats.css";
 
 interface TechStack {
   name: string;
