@@ -5,6 +5,7 @@
 
 .service-item::before {
     inset: 1px;
+    background: var(--bg-gradient-jet);
     z-index: -1;
 }
 
