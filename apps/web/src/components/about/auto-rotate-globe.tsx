@@ -5,16 +5,14 @@ import createGlobe from 'cobe';
 import { useSpring } from 'react-spring';
 import { LuMapPin } from "react-icons/lu";
 
-/**
- * @see https://github.com/shuding/cobe/tree/main/website/pages/docs/showcases
- */
-function Globe() {
-  let canvasRef = useRef<HTMLCanvasElement>(null)
-  let pointerInteracting = useRef<number | null>(null)
-  let pointerInteractionMovement = useRef(0)
-  let fadeMask = 'radial-gradie</div>nt(circle at 50% 50%, rgb(0, 0, 0) 60%, rgb(0, 0, 0, 0) 70%)'
+function AutoRotatingGlobe() {
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const pointerInteracting = useRef<number | null>(null);
+  const pointerInteractionMovement = useRef(0);
+  const fadeMask = 'radial-gradient(circle at 50% 50%, rgb(0, 0, 0) 60%, rgb(0, 0, 0, 0) 70%)';
+  const rotationRef = useRef<number>(0);
 
-  let [{ r }, api] = useSpring(() => ({
+  const [{ r }, api] = useSpring(() => ({
     r: 0,
     config: {
       mass: 1,
@@ -22,20 +20,26 @@ function Globe() {
       friction: 40,
       precision: 0.001
     }
-  }))
+  }));
 
   useEffect(() => {
     let width = 0;
+    let currentPhi = 0;
+    let globe: ReturnType<typeof createGlobe>;
 
-    let onResize = () => {
+    const onResize = () => {
       if (canvasRef.current && (width = canvasRef.current.offsetWidth)) {
-        window.addEventListener('resize', onResize);
+        canvasRef.current.width = width * 2;
+        canvasRef.current.height = width * 2;
       }
     };
+
+    window.addEventListener('resize', onResize);
     onResize();
 
-    if (!canvasRef?.current) return;
-    let globe = createGlobe(canvasRef.current, {
+    if (!canvasRef.current) return;
+
+    globe = createGlobe(canvasRef.current, {
       devicePixelRatio: 2,
       width: width * 2,
       height: width * 2,
@@ -46,23 +50,27 @@ function Globe() {
       mapSamples: 12_000,
       mapBrightness: 2,
       baseColor: [0.8, 0.8, 0.8],
-      markerColor: [1,	0.85,	0.42],
+      markerColor: [1, 0.85, 0.42],
       glowColor: [0.5, 0.5, 0.5],
       markers: [{ location: [25.105497, 121.597366], size: 0.1 }],
       scale: 1.05,
       onRender: (state) => {
-        state.phi = 2.75 + r.get();
+        if (!pointerInteracting.current) {
+          // Auto-rotate when not interacting
+          currentPhi += 0.005;
+        }
+        state.phi = currentPhi + r.get();
         state.width = width * 2;
         state.height = width * 2;
+        rotationRef.current = currentPhi;
       }
-    })
+    });
 
     return () => {
       globe.destroy();
       window.removeEventListener('resize', onResize);
-    }
-  }, [r])
-
+    };
+  }, [r]);
 
   return (
     <div className='absolute inset-x-0 bottom-[-190px] mx-auto aspect-square h-[388px] [@media(max-width:420px)]:bottom-[-140px] [@media(max-width:420px)]:h-[320px] [@media(min-width:768px)_and_(max-width:858px)]:h-[380px]'>
@@ -92,48 +100,47 @@ function Globe() {
           <canvas
             ref={canvasRef}
             onPointerDown={(e) => {
-              pointerInteracting.current = e.clientX - pointerInteractionMovement.current
-              canvasRef.current && (canvasRef.current.style.cursor = 'grabbing')
+              pointerInteracting.current = e.clientX - pointerInteractionMovement.current;
+              if (canvasRef.current) canvasRef.current.style.cursor = 'grabbing';
             }}
             onPointerUp={() => {
-              pointerInteracting.current = null
-              canvasRef.current && (canvasRef.current.style.cursor = 'grab')
+              pointerInteracting.current = null;
+              if (canvasRef.current) canvasRef.current.style.cursor = 'grab';
             }}
             onPointerOut={() => {
-              pointerInteracting.current = null
-              canvasRef.current && (canvasRef.current.style.cursor = 'grab')
+              pointerInteracting.current = null;
+              if (canvasRef.current) canvasRef.current.style.cursor = 'grab';
             }}
             onMouseMove={(e) => {
               if (pointerInteracting.current !== null) {
-                let delta = e.clientX - pointerInteracting.current
-                pointerInteractionMovement.current = delta
+                const delta = e.clientX - pointerInteracting.current;
+                pointerInteractionMovement.current = delta;
                 api.start({
                   r: delta / 200
-                })
+                });
               }
             }}
             onTouchMove={(e) => {
               if (pointerInteracting.current !== null && e.touches[0]) {
-                let delta = e.touches[0].clientX - pointerInteracting.current
-                pointerInteractionMovement.current = delta
+                const delta = e.touches[0].clientX - pointerInteracting.current;
+                pointerInteractionMovement.current = delta;
                 api.start({
                   r: delta / 100
-                })
+                });
               }
             }}
             style={{
               width: '100%',
               height: '100%',
               contain: 'layout paint size',
-              cursor: 'auto',
+              cursor: 'grab',
               userSelect: 'none'
             }}
           />
         </div>
       </div>
     </div>
-
   );
 }
 
-export default Globe;
+export default AutoRotatingGlobe;
