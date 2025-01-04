@@ -1,7 +1,8 @@
 import React from "react";
 import IconBox from "../icon-box";
-import ContactInfo from "./contact-info";
 import { IconType } from "react-icons";
+
+import "@/styles/side-bar/contact-info.css";
 
 interface ContactItemProps {
   icon: IconType;
@@ -15,7 +16,12 @@ function ContactItem({
   return (
     <li className=" min-w-full flex items-center gap-4">
       <IconBox icon={icon} />
-      <ContactInfo title={title}>{children}</ContactInfo>
+      <div className="contact-info">
+        <p className="text-light-gray-70 uppercase mb-1 text-xs">
+          {title}
+        </p>
+        {children}
+      </div>
     </li>
   );
 }
