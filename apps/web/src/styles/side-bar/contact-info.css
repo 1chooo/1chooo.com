@@ -9,11 +9,3 @@
         width: calc(100% - 64px);
     }
 }
-
-@media (min-width: 1250px) {
-    .contact-info :is(.contact-link) {
-        white-space: nowrap;
-        overflow: hidden;
-        text-overflow: ellipsis;
-    }
-}

@@ -15,7 +15,7 @@ function ContactsList() {
       <ContactItem icon={LuMail} title="Email">
         <Link
           href="mailto:hugo970217@gmail.com"
-          className="contact-link block text-white-2 text-sm font-light"
+          className="block text-white-2 text-sm font-light custom-lg:truncate"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -26,7 +26,7 @@ function ContactsList() {
       <ContactItem icon={LuGithub} title="Github">
         <Link
           href="https://github.com/1chooo"
-          className="contact-link block text-white-2 text-sm font-light"
+          className="contact-link block text-white-2 text-sm font-light custom-lg:truncate"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -37,7 +37,7 @@ function ContactsList() {
       <ContactItem icon={LuLinkedin} title="Linkedin">
         <Link
           href="https://www.linkedin.com/in/1chooo/"
-          className="contact-link block text-white-2 text-sm font-light"
+          className="contact-link block text-white-2 text-sm font-light custom-lg:truncate"
           target="_blank"
           rel="noopener noreferrer"
         >
