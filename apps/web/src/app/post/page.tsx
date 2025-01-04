@@ -50,16 +50,27 @@ async function BlogPosts({ searchParams }: { searchParams: tParams }) {
 
   return (
     <section className="blog-posts">
-      <FilterList path="post" selectedTag={selectedTag} blogTags={blogTags} />
-      <FilterSelectBox path="post" selectedTag={selectedTag} blogTags={blogTags} />
+      <FilterList
+        path="post"
+        selectedTag={selectedTag}
+        blogTags={blogTags}
+      />
+      <FilterSelectBox
+        path="post"
+        selectedTag={selectedTag}
+        blogTags={blogTags}
+      />
       <ul className="blog-posts-list">
-        {paginatedBlogs.map((post, index) => (
+        {paginatedBlogs.map((post) => (
           <li
-            key={index}
+            key={post.slug}
             className="blog-post-item active"
             data-category={post.metadata.category}
           >
-            <ProgressBarLink href={`/post/${post.slug}`} rel="noopener noreferrer">
+            <ProgressBarLink
+              href={`/post/${post.slug}`}
+              rel="noopener noreferrer"
+            >
               <figure className="blog-banner-box">
                 <Image
                   src={post.metadata.banner}
@@ -88,7 +99,9 @@ async function BlogPosts({ searchParams }: { searchParams: tParams }) {
                   </time>
                 </div>
                 <h3 className="text-2xl text-white-2 font-semibold leading-[1.3] transition-all hover:text-orange-yellow-crayola">
-                  <Balancer><MarkdownRenderer content={post.metadata.title} /></Balancer>
+                  <Balancer>
+                    <MarkdownRenderer content={post.metadata.title} />
+                  </Balancer>
                 </h3>
                 <MarkdownRenderer
                   className="text-light-gray text-s font-light leading-6 overflow-hidden line-clamp-2"

@@ -4,10 +4,10 @@ import FilterSelectBox from "@/components/filter/filter-select-box";
 import FilterList from "@/components/filter/filter-list";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import Pagination from "@/components/pagination";
+import { ProgressBarLink } from "@/components/progress-bar";
 import { getPortfolioPosts } from "@/lib/db/v1/portfolio";
 import config from "@/config";
 import { LuEye } from "react-icons/lu";
-import { ProgressBarLink } from "@/components/progress-bar";
 
 const { title } = config;
 const POSTS_PER_PAGE = 9;
@@ -51,12 +51,20 @@ export default async function Portfolio({ searchParams }: { searchParams: tParam
     <article>
       <PageHeader header="Hugo's Portfolio" />
       <section className="projects">
-        <FilterList path="portfolio" selectedTag={selectedTag} blogTags={blogTags} />
-        <FilterSelectBox path="portfolio" selectedTag={selectedTag} blogTags={blogTags} />
+        <FilterList
+          path="portfolio"
+          selectedTag={selectedTag}
+          blogTags={blogTags}
+        />
+        <FilterSelectBox
+          path="portfolio"
+          selectedTag={selectedTag}
+          blogTags={blogTags}
+        />
         <ul className="project-list">
-          {paginatedPortfolioPosts.map((post, index) => (
+          {paginatedPortfolioPosts.map((post) => (
             <li
-              key={post.slug} // Avoid using index for keys
+              key={post.slug}
               className="project-item active"
               data-category={post.metadata.category}
             >
@@ -77,8 +85,12 @@ export default async function Portfolio({ searchParams }: { searchParams: tParam
                     blurDataURL="https://docs.1chooo.com/images/cover-with-1chooo-com.png"
                   />
                 </figure>
-                <h3 className="project-title"><MarkdownRenderer content={post.metadata.title} /></h3>
-                <p className="project-category">{post.metadata.category}</p>
+                <h3 className="project-title">
+                  <MarkdownRenderer content={post.metadata.title} />
+                </h3>
+                <p className="project-category">
+                  {post.metadata.category}
+                </p>
               </ProgressBarLink>
             </li>
           ))}
