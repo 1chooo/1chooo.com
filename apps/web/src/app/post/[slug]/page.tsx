@@ -1,5 +1,6 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import type { Metadata } from 'next';
+import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { unstable_noStore as noStore } from 'next/cache';
 import MarkdownRenderer from '@/components/markdown/markdown-renderer';
@@ -7,6 +8,7 @@ import PageHeader from '@/components/page-header';
 import Comments from '@/components/comments';
 import { getBlogPosts } from "@/lib/db/v1/post";
 import config from '@/config';
+import { LuFacebook, LuTwitter } from 'react-icons/lu';
 
 import "@/styles/blog/blog-text.css"
 
@@ -113,21 +115,49 @@ export default async function Post(props: { params: tParams }) {
     notFound();
   }
 
+  const shareUrl = `https://www.1chooo.com/post/${post.slug}`
+  const shareText = `Check out this post:`
+
   return (
     <div>
       <article>
         <section className="blog-text">
-          <PageHeader header="Hugo's Blog" />
-          <h1 className="title font-semibold text-2xl tracking-tighter max-w-[650px]">
+          <header>
+            <h1 className="relative pb-[7px] mb-[30px] font-semibold text-3xl text-light-gray after:content-[''] after:absolute after:bottom-0 after:left-0 after:w-[30px] after:h-[3px] after:rounded-sm  after:bg-text-gradient-yellow sm:pb-[15px] sm:after:w-[40px] sm:after:h-[5px] md:pb-[20px]">
+              {"Hugo's Blog"}
+            </h1>
+          </header>
+          <h1 className="title font-semibold text-4xl text-white-2 tracking-tighter max-w-[650px]">
             <MarkdownRenderer content={post.metadata.title} />
           </h1>
-          <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
-            <Suspense fallback={<p className="h-5" />}>
-              <p className="text-sm text-neutral-600 dark:text-neutral-400">
-                {formatDate(post.metadata.publishedAt)}
-              </p>
-            </Suspense>
+          <div className="flex items-center justify-between mt-4 text-sm w-full text-neutral-600 dark:text-neutral-400">
+            <div className="flex items-center space-x-2">
+              <span>{formatDate(post.metadata.publishedAt)}</span>
+              <span className="w-1 h-1 bg-current rounded-full" aria-hidden="true"></span>
+              <span>{post.metadata.category}</span>
+            </div>
+            <div className="flex items-center space-x-2 ml-4">
+              <Link
+                href={`https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(shareUrl)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-orange-yellow-crayola transition-colors"
+                aria-label="Share on Facebook"
+              >
+                <LuFacebook className="w-5 h-5" />
+              </Link>
+              <Link
+                href={`https://twitter.com/intent/tweet?url=${encodeURIComponent(shareUrl)}&text=${encodeURIComponent(shareText)}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-orange-yellow-crayola transition-colors"
+                aria-label="Share on Twitter"
+              >
+                <LuTwitter className="w-5 h-5" />
+              </Link>
+            </div>
           </div>
+          <div className="separator"></div>
           <div className="flex justify-center">
             <div className="w-[90%] sm:w-[90%] md:w-[90%] lg:w-[80%] xl:w-[80%]">
               <MarkdownRenderer content={post.content} />
