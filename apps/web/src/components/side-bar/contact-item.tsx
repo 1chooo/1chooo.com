@@ -1,5 +1,5 @@
 import React from "react";
-import IconBox from "../icon-box";
+import IconBox from "@/components/icon-box";
 import { IconType } from "react-icons";
 
 import "@/styles/side-bar/contact-info.css";
