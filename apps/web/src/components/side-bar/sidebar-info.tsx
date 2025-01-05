@@ -28,9 +28,7 @@ function SideBarInfo({
 
   return (
     <div className="sidebar-info">
-      <figure
-        className="avatar-box"
-        style={{ width: `${imageSize.width}px`, height: `${imageSize.height}px` }}>
+      <figure className="avatar-box">
         <Image
           id={`${firstName} (${preferredName}) ${lastName}`}
           src={avatar}
