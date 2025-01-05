@@ -30,7 +30,7 @@ const handleSeeMorePostsClick = () => {
   console.log("See More Posts button clicked!");
   sendGTMEvent({
     event: 'seeMorePostsClicked',
-    value: 'GTM-PDJ3NF4Q'
+    value: process.env.NEXT_PUBLIC_GTM_ID
   });
 };
 

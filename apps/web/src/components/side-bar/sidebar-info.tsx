@@ -28,8 +28,7 @@ function SideBarInfo({
 
   return (
     <div className="sidebar-info">
-      <figure className="bg-gradient-onyx rounded-[10px] flex items-center justify-center"
-        style={{ width: `${imageSize.width}px`, height: `${imageSize.height}px` }}>
+      <figure className="avatar-box">
         <Image
           id={`${firstName} (${preferredName}) ${lastName}`}
           src={avatar}

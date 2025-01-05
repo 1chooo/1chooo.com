@@ -1,19 +1,12 @@
-.service-item {
-  position: relative;
-  background: var(--border-gradient-onyx);
+.coding-item {
   padding: 20px;
-  border-radius: 14px;
-  box-shadow: var(--shadow-2);
   z-index: 1;
   overflow: hidden;
 }
 
-.service-item::before {
-  content: "";
-  position: absolute;
+.coding-item::before {
   inset: 1px;
   background: var(--bg-gradient-jet);
-  border-radius: inherit;
   z-index: -1;
 }
 
@@ -26,15 +19,8 @@
   padding: 10px;
 }
 
-.icon-label {
-  margin-top: 5px;
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  text-align: center;
-}
-
 @media (min-width: 580px) {
-  .service-item {
+  .coding-item {
     display: flex;
     justify-content: flex-start;
     align-items: flex-start;

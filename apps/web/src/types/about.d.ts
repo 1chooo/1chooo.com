@@ -14,12 +14,16 @@ export type TechStack = {
   icon: Icon | IconType;
 };
 
+interface TechStacks {
+  programmingLanguages: TechStack[];
+  frameworks: TechStack[];
+}
+
 /**
  * Type definition for the About component.
  *
  * @example
  * about: {
- *   "subHeader": "$ ls -al Hugo 👨🏻‍💻",
  *   "firstName": 'Chun-Ho',
  *   "lastName": 'Lin',
  *   "middleName": "",
@@ -31,7 +35,6 @@ export type TechStack = {
  * @returns {About} The About component.
  */
 export type About = {
-  subHeader: string;
   firstName: string;
   lastName: string;
   middleName: string;
@@ -41,5 +44,5 @@ export type About = {
   githubUsername: string;
   introduction: string;
   lifestyles: LifeStyle[];
-  techStacks: TechStack[];
+  techStacks: TechStacks;
 }

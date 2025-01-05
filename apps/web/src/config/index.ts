@@ -4,19 +4,21 @@ import { IoSchoolOutline } from "react-icons/io5";
 import { PiTrophy, PiBooks, PiMediumLogoBold } from "react-icons/pi";
 import { GoalIcon } from '@primer/octicons-react'
 import { LuGithub, LuPencil, LuLinkedin, LuRss } from "react-icons/lu";
-import {
-  TbBrandCpp, TbBrandTypescript,
-  TbBrandGolang, TbBrandNextjs,
-  TbPhotoSquareRounded, TbBrandDocker, TbBrandMysql,
-} from "react-icons/tb";
-import { FaReact, FaAws } from "react-icons/fa";
 import { FaXTwitter } from "react-icons/fa6";
+import { FaReact, FaAws } from "react-icons/fa";
 import { AiOutlinePython } from "react-icons/ai";
-import { RiJavaLine } from "react-icons/ri";
-import { SiLatex, SiFastapi } from "react-icons/si";
+import { RiJavaLine, RiJavascriptLine } from "react-icons/ri";
+import { SiLatex, SiFastapi, SiKubernetes } from "react-icons/si";
 import { BiLogoFlask } from "react-icons/bi";
 import { VscTerminalLinux } from "react-icons/vsc";
 import { DiRedis } from "react-icons/di";
+import {
+  TbBrandCpp, TbBrandTypescript,
+  TbBrandGolang, TbBrandNextjs,
+  TbBrandDjango, TbBrandDocker, TbBrandMysql,
+  TbMarkdown, TbBrandAstro, TbBrandTerraform,
+  TbPhotoSquareRounded
+} from "react-icons/tb";
 
 const config: Config = {
   avatar: '/images/profile.webp',
@@ -25,9 +27,9 @@ const config: Config = {
   author: "Chun-Ho (Hugo) Lin - 1chooo",
   keywords: ["Hugo ChunHo Lin", "1chooo", "Software Engineering", "Next.js", "React"],
   status: "Day ONE ⚡️",
-  siteURL: "https://1chooo.com",
+  siteURL: "https://www.1chooo.com",
   openGraph: {
-    url: "https://1chooo.com/",
+    url: "https://www.1chooo.com/",
     type: "website",
     siteName: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
     title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
@@ -57,7 +59,6 @@ const config: Config = {
     { url: `/cv.pdf`, icon: MdAttachment, name: 'CV' },
   ],
   about: {
-    "subHeader": "$ ls -al Hugo 👨🏻‍💻",
     "firstName": 'Chun-Ho',
     "lastName": 'Lin',
     "middleName": "",
@@ -96,23 +97,33 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
         text: "Sky brings freedom; streets, a reminder of others' contributions."
       }
     ],
-    "techStacks": [
-      { name: "Python", icon: AiOutlinePython },
-      { name: "TypeScript", icon: TbBrandTypescript },
-      { name: "Go", icon: TbBrandGolang },
-      { name: "C++", icon: TbBrandCpp },
-      { name: "Java", icon: RiJavaLine },
-      { name: "LaTeX", icon: SiLatex },
-      { name: "Linux", icon: VscTerminalLinux },
-      { name: "MySQL", icon: TbBrandMysql },
-      { name: "Redis", icon: DiRedis },
-      { name: "React", icon: FaReact },
-      { name: "Next.js", icon: TbBrandNextjs },
-      { name: "AWS", icon: FaAws },
-      { name: "Docker", icon: TbBrandDocker },
-      { name: "FastAPI", icon: SiFastapi },
-      { name: "Flask", icon: BiLogoFlask },
-    ],
+    "techStacks": {
+      programmingLanguages: [
+        { name: 'Python', icon: AiOutlinePython },
+        { name: 'TypeScript', icon: TbBrandTypescript },
+        { name: 'Golang', icon: TbBrandGolang },
+        { name: 'C++', icon: TbBrandCpp },
+        { name: 'Java', icon: RiJavaLine },
+        { name: 'JavaScript', icon: RiJavascriptLine },
+        { name: 'LaTeX', icon: SiLatex },
+        { name: 'Markdown', icon: TbMarkdown },
+        { name: 'Astro', icon: TbBrandAstro },
+        { name: 'Terraform', icon: TbBrandTerraform },
+      ],
+      frameworks: [
+        { name: 'React', icon: FaReact },
+        { name: 'FastAPI', icon: SiFastapi },
+        { name: 'Flask', icon: BiLogoFlask },
+        { name: 'Redis', icon: DiRedis },
+        { name: 'Linux Terminal', icon: VscTerminalLinux },
+        { name: 'AWS', icon: FaAws },
+        { name: 'Next.js', icon: TbBrandNextjs },
+        { name: 'Docker', icon: TbBrandDocker },
+        { name: 'MySQL', icon: TbBrandMysql },
+        { name: 'Django', icon: TbBrandDjango },
+        { name: 'Kubernetes', icon: SiKubernetes },
+      ],
+    }
   },
   resume: {
     "educations": {
@@ -234,8 +245,8 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
     lang: "en",
     loading: "lazy",
   },
-  "googleAnalyticId": "G-JGG75799PJ",
-  "googleTagManagerId": "GTM-PDJ3NF4Q"
+  "googleAnalyticId": process.env.NEXT_PUBLIC_GA_ID || '',
+  "googleTagManagerId": process.env.NEXT_PUBLIC_GTM_ID || '',
 };
 
 export default config;

@@ -23,12 +23,10 @@ const DynamicCodingStats = dynamic(() => import('@/components/about/coding-stats
 const {
   about, title, description,
   author, keywords,
-  openGraph,
+  openGraph, siteURL
 } = config;
 const {
-  subHeader, pronouns, firstName,
-  middleName,
-  lastName, preferredName, introduction,
+  firstName, lastName, preferredName, introduction,
   lifestyles, techStacks, githubUsername
 } = about;
 
@@ -67,32 +65,33 @@ export const metadata: Metadata = {
   },
 };
 
-const header =
-  preferredName === ''
-    ? `About ${firstName} ${lastName} 👨🏻‍💻`
-    : `About ${preferredName} 👨🏻‍💻`;
-
 const addJsonLd = () => {
   return {
     __html: `{
       "@context": "http://schema.org",
-      "id": "http://www.1chooo.com#person",
       "@type": "Person",
-      "givenName": "Chun-Ho",
-      "familyName": "Lin",
-      "additionalName": "Hugo",
+      "@id": "${siteURL}#person",
+      "givenName": ${firstName},
+      "familyName": ${lastName},
+      "additionalName": ${preferredName},
       "gender": "male",
       "birthPlace": "New Taipei, TW",
       "nationality": "Taiwan",
+      "alumniOf":[
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "National Central University",
+          "sameAs": "https://www.ncu.edu.tw/"
+        },
+      ],
       "jobTitle": "Software Engineer",
       "skills": "Software Engineering, Web Development, Open Source",
-      "alumniOf": "National Central University",
       "image": "https://www.1chooo.com/images/profile.webp",
-      "url": "http://www.1chooo.com",
+      "url": ${siteURL},
       "sameAs": [
-          "https://www.linkedin.com/in/1chooo/",
-          "http://github.com/1chooo",
-          "https://medium.com/@1chooo",
+        "https://www.linkedin.com/in/1chooo/",
+        "http://github.com/1chooo",
+        "https://medium.com/@1chooo",
       ],
     }
   `,
@@ -110,6 +109,9 @@ async function About() {
     },
   }));
 
+  let header = preferredName ?
+    `About ${preferredName} 👨🏻‍💻` : `About ${firstName} ${lastName} 👨🏻‍💻`;
+
   return (
     <article>
       <Script
@@ -119,13 +121,22 @@ async function About() {
         key="1chooo-website-jsonld"
       />
       <PageHeader header={header} />
-      <AboutHeader id="introduction" text={`${subHeader} (${pronouns})`} />
-      <MarkdownRenderer className="text-light-gray leading-relaxed" content={introduction} />
+      <AboutHeader
+        id="introduction"
+        text="$ ls -al Hugo 👨🏻‍💻 (He/Him)"
+      />
+      <MarkdownRenderer
+        className="text-light-gray leading-relaxed"
+        content={introduction}
+      />
       <Suspense fallback={<p>Loading latest articles...</p>}>
         <DynamicLatestArticles posts={selectedPosts} />
       </Suspense>
       <Suspense fallback={<p>Loading latest articles...</p>}>
-        <DynamicCodingStats techStacks={techStacks} githubUsername={githubUsername} />
+        <DynamicCodingStats
+          techStacks={techStacks}
+          githubUsername={githubUsername}
+        />
       </Suspense>
       <Suspense fallback={<p>Loading latest articles...</p>}>
         <DynamicLifeStyles lifestyles={lifestyles} />
