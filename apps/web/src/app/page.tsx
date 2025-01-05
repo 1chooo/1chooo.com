@@ -26,8 +26,7 @@ const {
   openGraph, siteURL
 } = config;
 const {
-  subHeader, pronouns, firstName,
-  lastName, preferredName, introduction,
+  firstName, lastName, preferredName, introduction,
   lifestyles, techStacks, githubUsername
 } = about;
 
@@ -122,13 +121,22 @@ async function About() {
         key="1chooo-website-jsonld"
       />
       <PageHeader header={header} />
-      <AboutHeader id="introduction" text={`${subHeader} (${pronouns})`} />
-      <MarkdownRenderer className="text-light-gray leading-relaxed" content={introduction} />
+      <AboutHeader
+        id="introduction"
+        text="$ ls -al Hugo 👨🏻‍💻 (He/Him)"
+      />
+      <MarkdownRenderer
+        className="text-light-gray leading-relaxed"
+        content={introduction}
+      />
       <Suspense fallback={<p>Loading latest articles...</p>}>
         <DynamicLatestArticles posts={selectedPosts} />
       </Suspense>
       <Suspense fallback={<p>Loading latest articles...</p>}>
-        <DynamicCodingStats techStacks={techStacks} githubUsername={githubUsername} />
+        <DynamicCodingStats
+          techStacks={techStacks}
+          githubUsername={githubUsername}
+        />
       </Suspense>
       <Suspense fallback={<p>Loading latest articles...</p>}>
         <DynamicLifeStyles lifestyles={lifestyles} />

@@ -19,7 +19,6 @@ export type TechStack = {
  *
  * @example
  * about: {
- *   "subHeader": "$ ls -al Hugo 👨🏻‍💻",
  *   "firstName": 'Chun-Ho',
  *   "lastName": 'Lin',
  *   "middleName": "",
@@ -31,7 +30,6 @@ export type TechStack = {
  * @returns {About} The About component.
  */
 export type About = {
-  subHeader: string;
   firstName: string;
   lastName: string;
   middleName: string;

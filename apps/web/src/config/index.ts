@@ -57,7 +57,6 @@ const config: Config = {
     { url: `/cv.pdf`, icon: MdAttachment, name: 'CV' },
   ],
   about: {
-    "subHeader": "$ ls -al Hugo 👨🏻‍💻",
     "firstName": 'Chun-Ho',
     "lastName": 'Lin',
     "middleName": "",

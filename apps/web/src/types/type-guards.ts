@@ -34,7 +34,6 @@ export const isAbout = (obj: unknown): obj is About => {
   return (
     isSocialMedia(obj.socialMedia) &&
     typeof obj.header === 'string' &&
-    typeof obj.subHeader === 'string' &&
     typeof obj.pronouns === 'string' &&
     Array.isArray(obj.introductions) &&
     obj.introductions.every(item => typeof item === 'string') &&
