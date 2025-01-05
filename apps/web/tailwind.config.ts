@@ -1,5 +1,7 @@
-/** @type {import('tailwindcss').Config} */
-module.exports = {
+import type { Config } from 'tailwindcss'
+import animate from 'tailwindcss-animate'
+
+const config: Partial<Config> = {
   content: [
     "./src/**/*.{js,ts,jsx,tsx,mdx}"
   ],
@@ -85,6 +87,8 @@ module.exports = {
       },
     },
   },
-  plugins: [require("tailwindcss-animate")],
+  plugins: [animate],
 }
 // https://ui.shadcn.com/docs/installation/manual
+
+export default config
