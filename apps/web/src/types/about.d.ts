@@ -14,6 +14,11 @@ export type TechStack = {
   icon: Icon | IconType;
 };
 
+interface TechStacks {
+  programmingLanguages: TechStack[];
+  frameworks: TechStack[];
+}
+
 /**
  * Type definition for the About component.
  *
@@ -39,5 +44,5 @@ export type About = {
   githubUsername: string;
   introduction: string;
   lifestyles: LifeStyle[];
-  techStacks: TechStack[];
+  techStacks: TechStacks;
 }
