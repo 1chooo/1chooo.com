@@ -8,9 +8,9 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaReact, FaAws } from "react-icons/fa";
 import { AiOutlinePython } from "react-icons/ai";
 import { RiJavaLine, RiJavascriptLine } from "react-icons/ri";
-import { SiLatex, SiFastapi, SiKubernetes } from "react-icons/si";
+import { SiLatex, SiFastapi, SiKubernetes, SiPostman } from "react-icons/si";
 import { BiLogoFlask } from "react-icons/bi";
-import { VscTerminalLinux } from "react-icons/vsc";
+import { VscTerminalLinux, VscAzure } from "react-icons/vsc";
 import { DiRedis } from "react-icons/di";
 import {
   TbBrandCpp, TbBrandTypescript,
@@ -122,6 +122,8 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
         { name: 'MySQL', icon: TbBrandMysql },
         { name: 'Django', icon: TbBrandDjango },
         { name: 'Kubernetes', icon: SiKubernetes },
+        { name: 'Postman', icon: SiPostman },
+        { name: 'Azure', icon: VscAzure },
       ],
     }
   },
