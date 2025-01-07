@@ -21,10 +21,6 @@ function CodeBlock({ language, children }: CodeBlockProps) {
       style={oneDark}
       PreTag="div"
       language={language}
-      // wrapLongLines={true}
-      showLineNumbers={true}
-      // wrapLines={true}
-      showInlineLineNumbers={true}
     >
       {String(children).trimEnd()}
     </SyntaxHighlighter>

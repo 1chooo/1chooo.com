@@ -27,7 +27,7 @@ describe("SeeMoreButton", () => {
 
     expect(sendGTMEvent).toHaveBeenCalledWith({
       event: "buttonClicked",
-      value: "GTM-PDJ3NF4Q",
+      value: process.env.NEXT_PUBLIC_GTM_ID,
     });
   });
 

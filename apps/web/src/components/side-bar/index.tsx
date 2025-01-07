@@ -4,7 +4,21 @@ import React, { useState, useRef } from 'react';
 import SideBarInfo from '@/components/side-bar/sidebar-info';
 import SideBarInfoMore from '@/components/side-bar/sidebar-info-more';
 
-function SideBar() {
+interface SideBarProps {
+  avatar: string;
+  firstName: string;
+  lastName: string;
+  middleName: string;
+  preferredName: string;
+}
+
+function SideBar({
+  avatar,
+  firstName,
+  lastName,
+  middleName,
+  preferredName
+}: SideBarProps) {
   const [isActive, setIsActive] = useState(false);
   const sideBarRef = useRef<HTMLDivElement>(null);
 
@@ -16,7 +30,14 @@ function SideBar() {
 
   return (
     <aside className={sideBarState} ref={sideBarRef} data-sidebar>
-      <SideBarInfo onToggle={handleSidebarToggle} />
+      <SideBarInfo
+        onToggle={handleSidebarToggle}
+        avatar={avatar}
+        firstName={firstName}
+        lastName={lastName}
+        middleName={middleName}
+        preferredName={preferredName}
+      />
       <SideBarInfoMore />
     </aside>
   );

@@ -1,7 +1,7 @@
 {
   "name": "@repo/ui",
   "type": "module",
-  "version": "0.0.0",
+  "version": "0.6.1",
   "private": true,
   "exports": {
     "./testimonials": "./src/testimonials.tsx",
@@ -20,10 +20,10 @@
     "@types/react": "^18.2.61",
     "@types/react-dom": "^18.2.19",
     "eslint": "^8.57.0",
-    "typescript": "^5.3.3"
+    "typescript": "^5"
   },
   "dependencies": {
-    "next": "^15.0.3",
-    "react": "^18.2.0"
+    "next": "^15",
+    "react": "^18"
   }
 }

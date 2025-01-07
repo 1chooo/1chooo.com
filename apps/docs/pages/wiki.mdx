@@ -338,3 +338,149 @@ How to minimize main thread work in React Component https://aatifbandey.medium.c
 
 https://github.com/luciancah/nextjs-ko/blob/7f67677d32f7247d0d468f1b3e1bceb43a6e03bd/pages/docs/app/building-your-application/optimizing/analytics.mdx#L17
 https://github.com/axiomhq/next-axiom/tree/0ad6cf706dc154b17bd65e11d850a8c2b710db61/src/webVitals
+
+## Using `setTimeout` with `Promise` for Delayed Execution
+
+When testing rendering effects or simulating delays in asynchronous operations, you can use `setTimeout` wrapped in a `Promise`. This approach ensures clean and readable code, especially in `async/await` contexts.
+
+### Code Example
+
+To add a timeout in your tests or development workflows:
+
+```typescript
+await new Promise(resolve => setTimeout(resolve, 3000));
+```
+
+### Explanation
+
+1. **`setTimeout`**: Executes a function after a specified delay (in milliseconds).
+2. **`Promise`**: Allows `setTimeout` to work seamlessly with `async/await`.
+3. **`3000`**: Represents the delay in milliseconds (3 seconds in this example).
+
+### When to Use
+
+- To simulate network latency or slow computations.
+- To test skeleton loaders or other rendering effects.
+- To delay execution for debugging or animations.
+
+### Usage in a Function
+
+```typescript
+async function simulateLoadingEffect() {
+  console.log('Loading...');
+  await new Promise(resolve => setTimeout(resolve, 3000));
+  console.log('Done!');
+}
+
+simulateLoadingEffect();
+```
+
+### Output
+
+1. Displays "Loading..."
+2. Waits for 3 seconds
+3. Displays "Done!"
+
+## application/ld+json
+
+### Example - [Apple](https://www.apple.com/)
+
+```tsx
+<script type="application/ld+json">
+	{
+		"@context": "http://schema.org",
+		"@id": "https://www.apple.com/#organization",
+		"@type": "Organization",
+		"name": "Apple",
+		"url": "https://www.apple.com/",
+		"logo": "https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png?202110180743",
+		"subOrganization": {
+			"@type": "Organization",
+			"name": "Apple Support",
+			"url": "https://support.apple.com",
+	    "@id": "https://support.apple.com/#organization"
+		},
+		"contactPoint": [
+			{
+				"@type": "ContactPoint",
+				"telephone": "+1-800-692-7753",
+				"contactType": "sales",
+				"areaServed": "US"
+			},
+			{
+				"@type": "ContactPoint",
+				"telephone": "+1-800-275-2273",
+				"contactType": "technical support",
+				"areaServed": "US",
+				"availableLanguage": ["EN", "ES"]
+			},
+			{
+				"@type": "ContactPoint",
+				"telephone": "+1-800-275-2273",
+				"contactType": "customer support",
+				"areaServed": "US",
+				"availableLanguage": ["EN", "ES"]
+			}
+		],
+		"sameAs": [
+			"http://www.wikidata.org/entity/Q312",
+			"https://www.youtube.com/user/Apple",
+			"https://www.linkedin.com/company/apple",
+			"https://www.facebook.com/Apple",
+			"https://www.twitter.com/Apple"
+		]
+	}
+</script>
+```
+
+### Example - [honghong.me](https://honghong.me/)
+
+> https://github.com/tszhong0411/honghong.me/blob/main/apps/web/src/app/page.tsx
+
+```bash
+$ npm i schema-dts
+```
+
+```tsx
+const jsonLd: WithContext<WebSite> = {
+  '@context': 'https://schema.org',
+  '@type': 'WebSite',
+  name: SITE_TITLE,
+  description: SITE_DESCRIPTION,
+  url: SITE_URL,
+  author: {
+    '@type': 'Person',
+    name: SITE_NAME,
+    url: SITE_URL,
+    sameAs: [SITE_FACEBOOK_URL, SITE_INSTAGRAM_URL, SITE_X_URL, SITE_GITHUB_URL, SITE_YOUTUBE_URL]
+  },
+  mainEntityOfPage: {
+    '@type': 'WebPage',
+    '@id': SITE_URL
+  },
+  inLanguage: 'en-US',
+  copyrightYear: new Date().getFullYear(),
+  keywords: SITE_KEYWORDS,
+  dateCreated: '2020-12-05',
+  dateModified: new Date().toISOString()
+}
+
+<script
+  type='application/ld+json'
+  dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+/>
+```
+
+### References
+
+- https://developers.google.com/search/docs/appearance/structured-data
+- https://search.google.com/test/rich-results
+- https://validator.schema.org/
+- http://linter.structured-data.org/
+- https://stackoverflow.com/questions/59318263/how-can-i-use-application-ldjson-in-nextjs
+- https://z3388638.medium.com/%E4%BD%BF%E7%94%A8-json-ld-%E8%99%95%E7%90%86-seo-%E4%B8%A6%E8%AE%93-google-%E9%87%9D%E5%B0%8D%E4%B8%8D%E5%90%8C%E5%BD%A2%E5%BC%8F%E7%B6%B2%E7%AB%99%E5%81%9A%E7%8D%A8%E7%89%B9%E7%9A%84%E6%90%9C%E5%B0%8B%E7%B5%90%E6%9E%9C%E5%91%88%E7%8F%BE-9c74783c017a
+- https://www.fabian-kleiser.de/blog/adding-json-ld-to-a-personal-website/
+- https://jsonld.com/person/
+- https://schemantra.com/schema_list/Person
+- https://www.npmjs.com/package/schema-dts
+- https://nextjs.org/learn-pages-router/seo/rendering-and-ranking/metadata

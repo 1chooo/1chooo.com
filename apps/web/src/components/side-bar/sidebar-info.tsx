@@ -1,21 +1,45 @@
 import React from 'react';
-import AvatarBox from './avatar-box';
 import InfoContent from './info-content';
 import InfoMoreButton from './info-more-button';
-import config from '@/config';
+import Image from 'next/image';
+import { useResponsiveImageSize } from '@/hooks/use-responsive-image-size';
+import { breakpoints } from '@/lib/constants';
 
 import "@/styles/side-bar/sidebar-info.css";
 
-const avatar = config.avatar;
-
 interface SideBarInfoProps {
   onToggle: () => void;
+  avatar: string;
+  firstName: string;
+  lastName: string;
+  middleName: string;
+  preferredName: string;
 }
 
-function SideBarInfo({ onToggle }: SideBarInfoProps) {
+function SideBarInfo({
+  onToggle,
+  avatar,
+  firstName,
+  lastName,
+  middleName,
+  preferredName,
+}: SideBarInfoProps) {
+  const imageSize = useResponsiveImageSize(breakpoints);
+
   return (
     <div className="sidebar-info">
-      <AvatarBox avatar={avatar} />
+      <figure className="avatar-box">
+        <Image
+          id={`${firstName} (${preferredName}) ${lastName}`}
+          src={avatar}
+          alt={`${firstName} (${preferredName}) ${lastName}`}
+          width={imageSize.width}
+          height={imageSize.height}
+          quality={50}
+          loading="eager"
+          priority
+        />
+      </figure>
       <InfoContent />
       <InfoMoreButton onClick={onToggle} />
     </div>
