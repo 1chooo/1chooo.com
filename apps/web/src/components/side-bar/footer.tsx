@@ -8,7 +8,7 @@ function Footer() {
   return (
     <footer className="footer">
       <div className="footer-copyright">
-        © 2024 <Link href="https://1chooo.com" target="_blank" rel="noopener noreferrer">1chooo</Link>
+        © 2024-2025 <Link href="https://1chooo.com" target="_blank" rel="noopener noreferrer">1chooo</Link>
       </div>
       <div className="footer-links">
         <Link
