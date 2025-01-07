@@ -3,12 +3,18 @@ import Link from "next/link";
 
 import "@/styles/side-bar/footer.css";
 
-// All rights reserved and subject to the Privacy Policy and Terms and Conditions.
 function Footer() {
   return (
     <footer className="footer">
       <div className="footer-copyright">
-        © 2024-2025 <Link href="https://1chooo.com" target="_blank" rel="noopener noreferrer">1chooo</Link>
+        &copy; 2024 - 2025{" "}
+        <Link
+          href="https://1chooo.com"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          1chooo
+        </Link>
       </div>
       <div className="footer-links">
         <Link
