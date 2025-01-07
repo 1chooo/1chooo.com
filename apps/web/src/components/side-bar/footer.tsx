@@ -9,6 +9,7 @@ function Footer() {
       <div className="footer-copyright">
         &copy; 2024 - 2025{" "}
         <Link
+          className="inline text-orange-yellow-crayola underline hover:text-opacity-70"
           href="https://1chooo.com"
           target="_blank"
           rel="noopener noreferrer"
@@ -18,6 +19,7 @@ function Footer() {
       </div>
       <div className="footer-links">
         <Link
+          className="inline text-orange-yellow-crayola underline hover:text-opacity-70"
           href="https://github.com/1chooo/1chooo.com"
           target="_blank"
           rel="noopener noreferrer"
@@ -25,6 +27,7 @@ function Footer() {
           Vcard
         </Link>
         <Link
+          className="inline text-orange-yellow-crayola underline hover:text-opacity-70"
           href="https://docs.1chooo.com/terms"
           target="_blank"
           rel="noopener noreferrer"
@@ -32,6 +35,7 @@ function Footer() {
           Terms
         </Link>
         <Link
+          className="inline text-orange-yellow-crayola underline hover:text-opacity-70"
           href="https://docs.1chooo.com"
           target="_blank"
           rel="noopener noreferrer"
