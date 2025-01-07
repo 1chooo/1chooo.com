@@ -12,6 +12,7 @@ export function useMDXComponents(components: MDXComponents): MDXComponents {
     h1: ({ children }) => (
       <h1 style={{ color: 'red', fontSize: '48px' }}>{children}</h1>
     ),
+    p: (props) => <p className="mb-4 text-white-1" {...props} />,
     img: (props) => (
       <Image
         sizes="100vw"

@@ -5,7 +5,6 @@ import AboutHeader from '@/components/about/about-header';
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import { getBlogPosts } from "@/lib/db/v1/post";
 import config from '@/config';
-import Welcome from '@/markdown/welcome.mdx'
 import { Suspense } from "react";
 import Script from "next/script";
 
@@ -142,7 +141,6 @@ async function About() {
       <Suspense fallback={<p>Loading latest articles...</p>}>
         <DynamicLifeStyles lifestyles={lifestyles} />
       </Suspense>
-      <Welcome />
     </article>
   );
 };
