@@ -3,8 +3,8 @@ import type { Resume } from "@/types/resume";
 import type { NavItem } from "@/types/nav-bar";
 import { OpenGraph } from "./open-graph";
 import type { GiscusProps } from "@giscus/react";
-import type { Icon } from "@primer/octicons-react";
-import type { IconType } from "react-icons";
+import type { IconType as ReactIconType } from "react-icons";
+import type { Icon as OcticonsType } from "@primer/octicons-react";
 
 /**
  * Type definition for the Web app configuration.
@@ -15,7 +15,7 @@ import type { IconType } from "react-icons";
 
 export type SocialLink = {
   url: string;
-  icon: Icon | IconType | React.FC;
+  icon: ReactIconType | OcticonsType;
   name: string;
 }
 
