@@ -1,9 +1,10 @@
-import type { Icon } from '@primer/octicons-react';
-import type { IconType } from 'react-icons';
+import type { IconType as ReactIconType } from "react-icons";
+import type { Icon as OcticonsType } from "@primer/octicons-react";
+
 import "@/styles/icon-box.css";
 
 interface IconBoxProps {
-  icon: IconType | Icon;
+  icon: ReactIconType | OcticonsType;
 }
 
 function IconBox({ icon: Icon }: IconBoxProps) {

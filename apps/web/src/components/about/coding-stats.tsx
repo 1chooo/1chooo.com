@@ -1,7 +1,7 @@
 import React from "react";
 import AboutHeader from "@/components/about/about-header";
-import type { Icon } from '@primer/octicons-react';
-import type { IconType } from 'react-icons';
+import type { IconType as ReactIconType } from "react-icons";
+import type { Icon as OcticonsType } from "@primer/octicons-react";
 import Globe from "@/components/about/globe";
 import GitHubCalendar from 'react-github-calendar';
 import { ThemeInput } from 'react-activity-calendar';
@@ -12,7 +12,7 @@ import "@/styles/about/coding-stats.css";
 
 interface TechStack {
   name: string;
-  icon: Icon | IconType;
+  icon: ReactIconType | OcticonsType;
 };
 
 interface TechStacks {

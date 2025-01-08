@@ -1,17 +1,18 @@
 // https://github.com/afiiif/pokemon-world/blob/main/src/types/pokemon.ts
 
 import type { Icon } from '@primer/octicons-react';
-import type { IconType } from 'react-icons';
+import type { IconType as ReactIconType } from "react-icons";
+import type { Icon as OcticonsType } from "@primer/octicons-react";
 
 export type LifeStyle = {
-  icon: Icon;
+  icon: ReactIconType | OcticonsType;
   title: string;
   text: string;
 }
 
 export type TechStack = {
   name: string;
-  icon: Icon | IconType;
+  icon: ReactIconType | OcticonsType;
 };
 
 interface TechStacks {

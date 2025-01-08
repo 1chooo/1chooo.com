@@ -1,10 +1,10 @@
 import Link from "next/link";
-import type { Icon } from "@primer/octicons-react";
-import type { IconType } from "react-icons";
+import type { IconType as ReactIconType } from "react-icons";
+import type { Icon as OcticonsType } from "@primer/octicons-react";
 
 interface SocialLink {
   url: string;
-  icon: Icon | IconType;
+  icon: ReactIconType | OcticonsType;
   name: string;
 }
 

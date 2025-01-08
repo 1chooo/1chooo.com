@@ -1,4 +1,5 @@
-import { IconType } from "react-icons";
+import type { IconType as ReactIconType } from "react-icons";
+import type { Icon as OcticonsType } from "@primer/octicons-react";
 
 export type Resume = {
   educations: Education;
@@ -14,14 +15,14 @@ export type ResumeProps = {
   name: string;
   title: string;
   items: {
-    icon: IconType;
+    icon: ReactIconType | OcticonsType;
     title: string;
     text: string;
   }[];
 };
 
 export type Education = {
-  icon: IconType;
+  icon: ReactIconType | OcticonsType;
   title: string;
   items: {
     company: string;
@@ -33,7 +34,7 @@ export type Education = {
 };
 
 export type AwardLeaderships = {
-  icon: IconType;
+  icon: ReactIconType | OcticonsType;
   title: string;
   items: {
     company: string;
@@ -45,7 +46,7 @@ export type AwardLeaderships = {
 };
 
 export type TeachingExperience = {
-  icon: IconType;
+  icon: ReactIconType | OcticonsType;
   title: string;
   items: {
     company: string;
@@ -57,7 +58,7 @@ export type TeachingExperience = {
 };
 
 export type ProfessionalExperience = {
-  icon: IconType;
+  icon: ReactIconType | OcticonsType;
   title: string;
   items: {
     company: string;
