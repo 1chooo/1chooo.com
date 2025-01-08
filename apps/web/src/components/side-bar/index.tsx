@@ -3,6 +3,9 @@
 import React, { useState, useRef } from 'react';
 import SideBarInfo from '@/components/side-bar/sidebar-info';
 import SideBarInfoMore from '@/components/side-bar/sidebar-info-more';
+import config from "@/config";
+
+const { socialLinks, contacts } = config;
 
 interface SideBarProps {
   avatar: string;
@@ -38,7 +41,7 @@ function SideBar({
         middleName={middleName}
         preferredName={preferredName}
       />
-      <SideBarInfoMore />
+      <SideBarInfoMore contacts={contacts} socialLinks={socialLinks} />
     </aside>
   );
 };

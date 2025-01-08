@@ -3,9 +3,11 @@ import { MdOutlineDevices, MdAttachment } from "react-icons/md";
 import { IoSchoolOutline } from "react-icons/io5";
 import { PiTrophy, PiBooks, PiMediumLogoBold } from "react-icons/pi";
 import { GoalIcon } from '@primer/octicons-react'
-import { LuGithub, LuPencil, LuLinkedin, LuRss } from "react-icons/lu";
+import { LuGithub, LuPencil, LuLinkedin, LuRss, LuMail, LuMapPin } from "react-icons/lu";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaReact, FaAws } from "react-icons/fa";
+import { TbPhoneCalling } from "react-icons/tb";
+import { IoCalendarOutline } from "react-icons/io5";
 import { AiOutlinePython } from "react-icons/ai";
 import { RiJavaLine, RiJavascriptLine } from "react-icons/ri";
 import { SiLatex, SiFastapi, SiKubernetes, SiPostman } from "react-icons/si";
@@ -49,6 +51,41 @@ const config: Config = {
     { path: '/portfolio', label: 'Portfolio' },
     { path: '/post', label: 'Post' },
     { path: '/gallery', label: 'Gallery' },
+  ],
+  contacts: [
+    {
+      icon: LuMapPin,
+      title: "Location",
+      content: "Taipei, Taiwan 🇹🇼",
+    },
+    {
+      icon: LuMail,
+      title: "Email",
+      link: "mailto:hugo970217@gmail.com",
+      content: "hugo970217@gmail.com",
+    },
+    // {
+    //   icon: TbPhoneCalling,
+    //   title: "Phone",
+    //   content: "404 Not Found 📲",
+    // },
+    {
+      icon: LuGithub,
+      title: "GitHub",
+      link: "https://github.com/1chooo",
+      content: "1chooo",
+    },
+    // {
+    //   icon: IoCalendarOutline,
+    //   title: "Birthday",
+    //   content: "January 27, 2002 🐻",
+    // },
+    {
+      icon: LuLinkedin,
+      title: "LinkedIn",
+      link: "https://www.linkedin.com/in/1chooo/",
+      content: "Chun-Ho (Hugo) Lin",
+    },
   ],
   socialLinks: [
     { url: `https://github.com/1chooo`, icon: LuGithub, name: 'GitHub' },

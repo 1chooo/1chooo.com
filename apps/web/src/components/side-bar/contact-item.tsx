@@ -1,17 +1,9 @@
 import React from "react";
 import IconBox from "@/components/icon-box";
 import Link from "next/link";
-import type { IconType as ReactIconType } from "react-icons";
-import type { Icon as OcticonsType } from "@primer/octicons-react";
+import type { Contact } from "@/types/config";
 
 import "@/styles/side-bar/contact-info.css";
-
-interface Contact {
-  icon: ReactIconType | OcticonsType;
-  title: string;
-  content?: string;
-  link?: string;
-}
 
 interface ContactItemProps {
   contact: Contact;

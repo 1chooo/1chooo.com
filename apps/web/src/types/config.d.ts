@@ -13,10 +13,17 @@ import type { IconType } from "react-icons";
  * @param {Resume} resume
  */
 
-type SocialLink = {
+export type SocialLink = {
   url: string;
   icon: Icon | IconType | React.FC;
   name: string;
+}
+
+export type Contact = {
+  icon: ReactIconType | OcticonsType;
+  title: string;
+  content?: string;
+  link?: string;
 }
 
 export type Config = {
@@ -29,6 +36,7 @@ export type Config = {
   siteURL: string;
   openGraph: OpenGraph
   navItems: NavItem[];
+  contacts: Contact[];
   socialLinks: SocialLink[];
   about: About;
   resume: Resume;
