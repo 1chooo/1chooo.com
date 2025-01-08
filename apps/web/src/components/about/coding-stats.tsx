@@ -7,12 +7,13 @@ import GitHubCalendar from 'react-github-calendar';
 import { ThemeInput } from 'react-activity-calendar';
 import { Marquee } from './marquee'
 import { LuMapPin, LuZap } from "react-icons/lu";
+import type { VCardIconType } from "@/types/config";
 
 import "@/styles/about/coding-stats.css";
 
 interface TechStack {
   name: string;
-  icon: ReactIconType | OcticonsType;
+  icon: VCardIconType;
 };
 
 interface TechStacks {

@@ -1,5 +1,4 @@
-import type { IconType as ReactIconType } from "react-icons";
-import type { Icon as OcticonsType } from "@primer/octicons-react";
+import type { VCardIconType } from "@/types/config";
 
 export type Resume = {
   educations: Education;
@@ -15,14 +14,14 @@ export type ResumeProps = {
   name: string;
   title: string;
   items: {
-    icon: ReactIconType | OcticonsType;
+    icon: VCardIconType;
     title: string;
     text: string;
   }[];
 };
 
 export type Education = {
-  icon: ReactIconType | OcticonsType;
+  icon: VCardIconType;
   title: string;
   items: {
     company: string;
@@ -34,7 +33,7 @@ export type Education = {
 };
 
 export type AwardLeaderships = {
-  icon: ReactIconType | OcticonsType;
+  icon: VCardIconType;
   title: string;
   items: {
     company: string;
@@ -46,7 +45,7 @@ export type AwardLeaderships = {
 };
 
 export type TeachingExperience = {
-  icon: ReactIconType | OcticonsType;
+  icon: VCardIconType;
   title: string;
   items: {
     company: string;
@@ -58,7 +57,7 @@ export type TeachingExperience = {
 };
 
 export type ProfessionalExperience = {
-  icon: ReactIconType | OcticonsType;
+  icon: VCardIconType;
   title: string;
   items: {
     company: string;

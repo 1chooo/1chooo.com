@@ -1,13 +1,12 @@
 import React from 'react';
-import type { IconType as ReactIconType } from "react-icons";
-import type { Icon as OcticonsType } from "@primer/octicons-react";
 import { sendGTMEvent } from "@/components/google";
 import { ProgressBarLink } from "@/components/progress-bar";
+import type { VCardIconType } from "@/types/config";
 
 interface SeeMoreButtonProps {
   badge: string;
   path: string;
-  icon: ReactIconType | OcticonsType;
+  icon: VCardIconType;
 }
 
 // TODO: customize button onclick effect https://articles.readytowork.jp/google-analytics-in-next-js-a26cc2b28db5
