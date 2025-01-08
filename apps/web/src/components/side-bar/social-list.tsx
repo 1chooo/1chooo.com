@@ -1,10 +1,9 @@
 import Link from "next/link";
-import type { IconType as ReactIconType } from "react-icons";
-import type { Icon as OcticonsType } from "@primer/octicons-react";
+import type { VCardIconType } from "@/types/config";
 
 interface SocialLink {
   url: string;
-  icon: ReactIconType | OcticonsType;
+  icon: VCardIconType;
   name: string;
 }
 

@@ -6,21 +6,16 @@ import type { GiscusProps } from "@giscus/react";
 import type { IconType as ReactIconType } from "react-icons";
 import type { Icon as OcticonsType } from "@primer/octicons-react";
 
-/**
- * Type definition for the Web app configuration.
- * 
- * @param {About} about
- * @param {Resume} resume
- */
+export type VCardIconType = ReactIconType | OcticonsType;
 
 export type SocialLink = {
   url: string;
-  icon: ReactIconType | OcticonsType;
+  icon: VCardIconType;
   name: string;
 }
 
 export type Contact = {
-  icon: ReactIconType | OcticonsType;
+  icon: VCardIconType;
   title: string;
   content?: string;
   link?: string;

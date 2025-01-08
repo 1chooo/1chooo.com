@@ -1,9 +1,8 @@
-import type { IconType as ReactIconType } from "react-icons";
-import type { Icon as OcticonsType } from "@primer/octicons-react";
 import IconBox from "../icon-box";
+import type { VCardIconType } from "@/types/config";
 
 interface IconTitleProps {
-  icon: ReactIconType | OcticonsType;
+  icon: VCardIconType;
   title: string;
 }
 
