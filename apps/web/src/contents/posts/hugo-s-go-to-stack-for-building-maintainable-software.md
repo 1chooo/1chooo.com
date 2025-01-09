@@ -1,6 +1,6 @@
 ---
 title: "Hugo's Go-To Stack for Building Maintainable Software"
-publishedAt: '2024-01-09'
+publishedAt: '2025-01-09'
 category: Coding
 tags: 
   - React
@@ -9,14 +9,14 @@ tags:
   - Software Development
   - Software Engineering
 summary: "Here's a quick summary of my go-to tech stack for software development. My experience comes from being highly active on GitHub, with over 5,000 contributions in 2024. Additionally, I'll share insights on writing maintainable, clean, and scalable code."
-banner: /images/banner/posts/hugo-s-go-to-stack-for-building-software.webp
+banner: /images/banner/posts/hugo-s-go-to-stack-for-building-maintainable-software.webp
 alt: "Hugo's Go-To Stack for Building Maintainable Software"
 mathjax: false
 ---
 
 Hey there 👋 This is Hugo. Here's a quick summary of my go-to tech stack for Software Development. My experience comes from being highly active on GitHub, with over 5,000 contributions in 2024 (check it out [here](https://github.com/1chooo?tab=overview&from=2024-12-01&to=2024-12-31)). Additionally, I'll share insights on writing maintainable, clean, and scalable code.
 
-![Hugo's Go-To Stack for Building Software](/images/banner/posts/hugo-s-go-to-stack-for-building-software.webp)
+![Hugo's Go-To Stack for Building Software](/images/banner/posts/hugo-s-go-to-stack-for-building-maintainable-software.webp)
 
 ## React
 
