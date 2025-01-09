@@ -1,18 +1,20 @@
 ---
-title: "Hugo's Go-To Stack for Building Software"
-publishedAt: '2024-12-10'
+title: "Hugo's Go-To Stack for Building Maintainable Software"
+publishedAt: '2024-01-09'
 category: Coding
 tags: 
   - React
   - Web Development
+  - Clean Code
+  - Software Development
+  - Software Engineering
 summary: "Here's a quick summary of my go-to tech stack for software development. My experience comes from being highly active on GitHub, with over 5,000 contributions in 2024. Additionally, I'll share insights on writing maintainable, clean, and scalable code."
 banner: /images/banner/posts/hugo-s-go-to-stack-for-building-software.webp
-alt: "Hugo's Go-To Stack for Building Software"
+alt: "Hugo's Go-To Stack for Building Maintainable Software"
 mathjax: false
 ---
 
-Hey there 👋 This is Hugo. Here's a quick summary of my go-to tech stack for software development. My experience comes from being highly active on GitHub, with over 5,000 contributions in 2024 (check it out [here](https://github.com/1chooo?tab=overview&from=2024-12-01&to=2024-12-10)). Additionally, I'll share insights on writing maintainable, clean, and scalable code.
-
+Hey there 👋 This is Hugo. Here's a quick summary of my go-to tech stack for Software Development. My experience comes from being highly active on GitHub, with over 5,000 contributions in 2024 (check it out [here](https://github.com/1chooo?tab=overview&from=2024-12-01&to=2024-12-31)). Additionally, I'll share insights on writing maintainable, clean, and scalable code.
 
 ![Hugo's Go-To Stack for Building Software](/images/banner/posts/hugo-s-go-to-stack-for-building-software.webp)
 
@@ -102,15 +104,19 @@ We follow the naming convention as follows:
 
 ## Coding Patterns
 
-### `let` vs `const`
+### Larger files > many small components
 
+Many people advocate for clean, modular, and maintainable code. While these principles are essential, there are drawbacks when we scale this approach to large codebases, especially those with millions of lines of code.
 
+Over-splitting components can lead to excessive files, which increases maintenance costs, introduces unnecessary complexity, and can even make the codebase harder to understand. In extreme cases, the team may spend far more time deciphering the logic of the codebase than actually implementing features or fixing bugs. For instance, it becomes a frustrating and time-consuming process if we want to edit a minor feature or fix a tiny bug but need to navigate through dozens of files to fully grasp the logic. It's akin to wanting to cut down a single tree but having to traverse an entire forest.
 
-https://overreacted.io/on-let-vs-const/ 
+As a result, it's essential to strike a balance between maintaining clean code and ensuring long-term maintainability so that the codebase remains understandable and manageable without becoming overly fragmented.
 
-Copy/paste is better than the wrong abstraction [^2].
+> Copy/paste is better than the wrong abstraction [^2].
+>
+> [Lee Robinson (leerob)](https://leerob.com/), VP of Product [@vercel](https://vercel.com/home)
 
+> the wrong duplication is better than the wrong abstraction
 
 [^1]: [Why "he" does not write React.FC on each function?](https://stackoverflow.com/questions/71189879/why-he-does-not-write-react-fc-on-each-function)
 [^2]: [Lee Robinson - Stack](https://leerob.com/n/stack)
-
