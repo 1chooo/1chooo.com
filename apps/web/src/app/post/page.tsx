@@ -19,9 +19,11 @@ export const metadata = {
   description: "Read my thoughts on software development, design, and more.",
 };
 
-type tParams = Promise<{ tag?: string; page?: string }>;
+type BlogQueryParams = Promise<{ tag?: string; page?: string }>;
 
-async function BlogPosts({ searchParams }: { searchParams: tParams }) {
+async function BlogPosts(
+  { searchParams }: { searchParams: BlogQueryParams }
+) {
   const { tag = "All", page = "1" } = await searchParams;
   let allBlogs = await getBlogPosts();
   const blogTags = [
@@ -122,7 +124,9 @@ async function BlogPosts({ searchParams }: { searchParams: tParams }) {
   );
 }
 
-export default function Post({ searchParams }: { searchParams: tParams }) {
+export default function Post(
+  { searchParams }: { searchParams: BlogQueryParams }
+) {
   return (
     <article>
       <PageHeader header="Hugo's Blog" />
