@@ -92,7 +92,7 @@ const addJsonLd = () => {
         "https://www.linkedin.com/in/1chooo/",
         "http://github.com/1chooo",
         "https://medium.com/@1chooo",
-      ],
+      ]
     }
   `,
   }
