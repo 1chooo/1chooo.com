@@ -114,9 +114,9 @@ As a result, it's essential to strike a balance between maintaining clean code a
 
 > Copy/paste is better than the wrong abstraction [^2].
 >
-> [Lee Robinson (leerob)](https://leerob.com/), VP of Product [@vercel](https://vercel.com/home)
+> [Lee Robinson (leerob)](https://leerob.com/), VP of Product [@vercel](https://vercel.com/home).
 
-> the wrong duplication is better than the wrong abstraction
+> The wrong duplication is better than the wrong abstraction.
 
 [^1]: [Why "he" does not write React.FC on each function?](https://stackoverflow.com/questions/71189879/why-he-does-not-write-react-fc-on-each-function)
 [^2]: [Lee Robinson - Stack](https://leerob.com/n/stack)
