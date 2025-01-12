@@ -6,10 +6,12 @@ interface BlockQuoteProps {
 
 function BlockQuote({ children }: BlockQuoteProps) {
   return (
-    <blockquote style={{ borderLeft: '4px solid #ccc', paddingLeft: '1em', color: '#666' }}>
+    <blockquote
+      className="border-l-4 border-gray-300 pl-4 text-white-2 text-xl italic font-serif"
+    >
       {children}
     </blockquote>
   )
-};
+}
 
 export default BlockQuote;
