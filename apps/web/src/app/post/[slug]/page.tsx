@@ -127,7 +127,7 @@ export default async function Post(props: { params: tParams }) {
               {"Hugo's Blog"}
             </h1>
           </header>
-          <h1 className="title font-semibold text-4xl text-white-2 tracking-tighter max-w-[650px]">
+          <h1 className="font-semibold text-4xl text-white-2 max-w-[650px]">
             <MarkdownRenderer content={post.metadata.title} />
           </h1>
           <div className="flex items-center justify-between mt-4 text-sm w-full text-neutral-600 dark:text-neutral-400">
