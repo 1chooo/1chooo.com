@@ -1,7 +1,5 @@
 import React from "react";
 import AboutHeader from "@/components/about/about-header";
-import type { IconType as ReactIconType } from "react-icons";
-import type { Icon as OcticonsType } from "@primer/octicons-react";
 import Globe from "@/components/about/globe";
 import GitHubCalendar from 'react-github-calendar';
 import { ThemeInput } from 'react-activity-calendar';
