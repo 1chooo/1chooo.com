@@ -10,20 +10,20 @@
   },
   "dependencies": {
     "@repo/ui": "*",
-    "next": "15.1.4",
+    "next": "^15",
     "nextra": "3.3.1",
     "nextra-theme-docs": "3.3.1",
-    "react": "19.0.0",
-    "react-dom": "19.0.0"
+    "react": "^18",
+    "react-dom": "^18"
   },
   "devDependencies": {
     "@repo/eslint-config": "*",
     "@repo/typescript-config": "*",
     "@types/node": "^22",
-    "@types/react": "19.0.0",
-    "@types/react-dom": "19.0.0",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
     "eslint": "9.16.0",
-    "eslint-config-next": "15.1.4",
+    "eslint-config-next": "^15",
     "typescript": "5.7.3"
   }
 }
