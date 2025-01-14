@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
-import { sendGTMEvent } from "@/components/google";
+import { sendGTMEvent } from "@next/third-parties/google";
 import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
 import { ProgressBarLink } from "@/components/progress-bar";
 import AboutHeader from "@/components/about/about-header";

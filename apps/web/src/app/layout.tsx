@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { GoogleAnalytics, GoogleTagManager } from "@/components/google";
+import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import Hello from "@/components/hello";
 import NavBar from "@/components/nav-bar";
 import SideBar from "@/components/side-bar";

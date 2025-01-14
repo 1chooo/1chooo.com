@@ -2,7 +2,7 @@
 
 'use client';
 
-import { GoogleAnalytics, GoogleTagManager, sendGAEvent } from '@/components/google';
+import { GoogleAnalytics, GoogleTagManager, sendGAEvent } from "@next/third-parties/google";
 
 import config from "@/config";
 
