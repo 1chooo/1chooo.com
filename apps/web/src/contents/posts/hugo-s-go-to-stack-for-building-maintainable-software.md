@@ -112,11 +112,8 @@ Over-splitting components can lead to excessive files, which increases maintenan
 
 As a result, it's essential to strike a balance between maintaining clean code and ensuring long-term maintainability so that the codebase remains understandable and manageable without becoming overly fragmented.
 
-> Copy/paste is better than the wrong abstraction [^2].
->
-> [Lee Robinson (leerob)](https://leerob.com/), VP of Product [@vercel](https://vercel.com/home).
+> Copy/paste is better than the wrong abstraction - [Lee Robinson (leerob)](https://leerob.com/), VP of Product [@vercel](https://vercel.com/home) ([Source](https://leerob.com/n/stack))
 
 > The wrong duplication is better than the wrong abstraction.
 
 [^1]: [Why "he" does not write React.FC on each function?](https://stackoverflow.com/questions/71189879/why-he-does-not-write-react-fc-on-each-function)
-[^2]: [Lee Robinson - Stack](https://leerob.com/n/stack)
