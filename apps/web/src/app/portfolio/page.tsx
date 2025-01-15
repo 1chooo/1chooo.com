@@ -17,9 +17,11 @@ export const metadata = {
   description: "Read my thoughts on software development, design, and more.",
 };
 
-type tParams = Promise<{ tag?: string; page?: string }>;
+type PortfolioQueryParams = Promise<{ tag?: string; page?: string }>;
 
-export default async function Portfolio({ searchParams }: { searchParams: tParams }) {
+export default async function Portfolio(
+  { searchParams }: { searchParams: PortfolioQueryParams }
+) {
   const { tag = "All", page = "1" } = await searchParams;
 
   const allPortfolioPosts = await getPortfolioPosts();
