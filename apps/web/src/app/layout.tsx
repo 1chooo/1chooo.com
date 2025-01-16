@@ -8,7 +8,7 @@ import { roboto } from "./font";
 import { WebVitals } from "@/components/web-vitals";
 import { ProgressBar } from "@/components/progress-bar";
 
-import "./globals.css";
+import "@/styles/globals.css";
 
 const {
   title, description,
