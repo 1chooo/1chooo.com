@@ -2,13 +2,17 @@
 
 'use client';
 
-import { GoogleAnalytics, GoogleTagManager, sendGAEvent } from "@next/third-parties/google";
-
+import {
+  GoogleAnalytics,
+  GoogleTagManager,
+  sendGAEvent,
+} from "@next/third-parties/google";
 import config from "@/config";
 
-import "./globals.css";
-
-const { googleAnalyticId, googleTagManagerId } = config;
+let {
+  googleAnalyticId,
+  googleTagManagerId
+} = config;
 
 const ANALYTICS = {
   driver: 'ga4',
