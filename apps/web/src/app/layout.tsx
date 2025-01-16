@@ -1,12 +1,15 @@
 import type { Metadata } from "next";
-import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import {
+  GoogleAnalytics,
+  GoogleTagManager,
+} from "@next/third-parties/google";
+import { roboto } from "@/app/font";
 import Hello from "@/components/hello";
 import NavBar from "@/components/nav-bar";
-import SideBar from "@/components/side-bar";
-import config from "@/config";
-import { roboto } from "./font";
-import { WebVitals } from "@/components/web-vitals";
 import { ProgressBar } from "@/components/progress-bar";
+import SideBar from "@/components/side-bar";
+import { WebVitals } from "@/components/web-vitals";
+import config from "@/config";
 
 import "@/styles/globals.css";
 
