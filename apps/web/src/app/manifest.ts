@@ -1,10 +1,9 @@
 import type { MetadataRoute } from 'next'
+import config from "@/config"
 
-import config from "@/config";
+const { title, description } = config
 
-const { title, description } = config;
-
-export default function manifest(): MetadataRoute.Manifest {
+function manifest(): MetadataRoute.Manifest {
   return {
     name: `${title}`,
     short_name: '1chooo.com',
@@ -37,3 +36,5 @@ export default function manifest(): MetadataRoute.Manifest {
     ],
   }
 }
+
+export default manifest
