@@ -62,11 +62,11 @@ export const metadata: Metadata = {
   },
 }
 
-type RootLayoutProps = {
-  children: React.ReactNode
-}
-
-function RootLayout({ children }: Readonly<RootLayoutProps>) {
+function RootLayout({
+  children,
+}: {
+  readonly children: React.ReactNode;
+}) {
   return (
     <html lang="en" className={`${roboto.className}`}>
       <WebVitals gaId={googleAnalyticId} />
