@@ -1,30 +1,31 @@
-import type { Metadata } from "next";
+import type { Metadata } from "next"
 import {
   GoogleAnalytics,
   GoogleTagManager,
-} from "@next/third-parties/google";
-import { roboto } from "@/app/font";
-import Hello from "@/components/hello";
-import NavBar from "@/components/nav-bar";
-import { ProgressBar } from "@/components/progress-bar";
-import SideBar from "@/components/side-bar";
-import { WebVitals } from "@/components/web-vitals";
-import config from "@/config";
+} from "@next/third-parties/google"
+import { roboto } from "@/app/font"
+import Hello from "@/components/hello"
+import NavBar from "@/components/nav-bar"
+import { ProgressBar } from "@/components/progress-bar"
+import SideBar from "@/components/side-bar"
+import { WebVitals } from "@/components/web-vitals"
+import config from "@/config"
 
-import "@/styles/globals.css";
+import "@/styles/globals.css"
 
 const {
   title, description,
   author, keywords,
   googleAnalyticId, googleTagManagerId,
   openGraph, about, avatar
-} = config;
+} = config
+
 const {
   firstName,
   lastName,
   middleName,
   preferredName
-} = about;
+} = about
 
 export const metadata: Metadata = {
   title: title,
@@ -59,13 +60,13 @@ export const metadata: Metadata = {
       }
     ],
   },
-};
+}
 
 type RootLayoutProps = {
   children: React.ReactNode
 }
 
-function RootLayout({ children }: RootLayoutProps) {
+function RootLayout({ children }: Readonly<RootLayoutProps>) {
   return (
     <html lang="en" className={`${roboto.className}`}>
       <WebVitals gaId={googleAnalyticId} />
@@ -90,7 +91,7 @@ function RootLayout({ children }: RootLayoutProps) {
       <GoogleAnalytics gaId={googleAnalyticId} />
       <GoogleTagManager gtmId={googleTagManagerId} />
     </html>
-  );
+  )
 }
 
 export default RootLayout
