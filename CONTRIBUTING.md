@@ -12,10 +12,10 @@ Welcome to the [1chooo.com](https://github.com/1chooo/1chooo.com) repository! We
   - [Pull Requests:](#pull-requests-1)
 - [Getting Started](#getting-started)
   - [Available Scripts](#available-scripts)
-    - [`npm start`](#npm-start)
-    - [`npm test`](#npm-test)
-    - [`npm run build`](#npm-run-build)
-    - [`npm run eject`](#npm-run-eject)
+    - [`pnpm start`](#pnpm-start)
+    - [`pnpm test`](#pnpm-test)
+    - [`pnpm run build`](#pnpm-run-build)
+    - [`pnpm run eject`](#pnpm-run-eject)
   - [Learn More](#learn-more)
 - [Conventional Commits](#conventional-commits)
 
@@ -34,7 +34,7 @@ We welcome contributions through [pull requests](https://github.com/1chooo/1choo
 3. Make your changes and commit following the [Conventional Commits](#conventional-commits) guidelines.
 4. Push your changes to your forked repository.
 5. Open a pull request from your branch to the `main` branch of the original repository.
-6. Make sure you run `npm test` before submitting your pull request to ensure there are no issues.
+6. Make sure you run `pnpm test` before submitting your pull request to ensure there are no issues.
 
 ## Setup
 
@@ -86,7 +86,7 @@ sudo npx create-react-app . --template typescript
 
 In the project directory, you can run:
 
-#### `npm start`
+#### `pnpm start`
 
 Runs the app in the development mode.\
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
@@ -94,12 +94,12 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.\
 You will also see any lint errors in the console.
 
-#### `npm test`
+#### `pnpm test`
 
 Launches the test runner in the interactive watch mode.\
 See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-#### `npm run build`
+#### `pnpm run build`
 
 Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
@@ -109,7 +109,7 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-#### `npm run eject`
+#### `pnpm run eject`
 
 **Note: this is a one-way operation. Once you `eject`, you can’t go back!**
 

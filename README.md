@@ -58,11 +58,27 @@ Please read the [Contributing Guideline] for details on our code of conduct, and
 
 ## 🔩 Getting Started
 
+> [!NOTE]
+> We choose [`pnpm`](https://pnpm.io/) as our package manager. Make sure you have it installed before running the following commands.
+
 ```shell
 $ git clone git@github.com:1chooo/1chooo.com.git
 $ cd 1chooo.com
-$ npm install
-$ npm run dev   # Open http://localhost:3000 with your browser to see the result.
+$ pnpm install
+```
+
+### Run the Web App
+
+```shell
+$ cd apps/web
+$ pnpm run dev   # Open http://localhost:3000 with your browser to see the result.
+```
+
+### Run the Docs
+
+```shell
+$ cd apps/docs
+$ pnpm run dev   # Open http://localhost:3001 with your browser to see the result.
 ```
 
 ## 📲 Contact Info
@@ -80,20 +96,20 @@ $ npm run dev   # Open http://localhost:3000 with your browser to see the result
 
 ## 🪪 License
 
-This work is licensed under a
-[Creative Commons Attribution 4.0 International License][cc-by] by [Hugo ChunHo Lin][1chooo-com].
-
-[cc-by]: http://creativecommons.org/licenses/by/4.0/
-
-1. You are free to use this code as inspiration.
-2. Please do not copy it directly.
-3. Crediting the author is appreciated.
+> [!IMPORTANT]
+> This work is licensed under a [Creative Commons Attribution 4.0 International License][cc-by] by [Chun-Ho (Hugo) Lin][1chooo-com].
+> 
+> [cc-by]: http://creativecommons.org/licenses/by/4.0/
+> 
+> 1. You are free to use this code as inspiration.
+> 2. Please do not copy it directly.
+> 3. Crediting the author is appreciated.
 
 This software can be modified and reused without restriction.
 The original license must be included with any copies of this software.
 If a significant portion of the source code is used, please provide a link back to this repository.
 
-Please remove all of my personal information by running `npm run delete`.
+Please remove all of my personal information by running `pnpm run delete`.
 
 Made with 🖤 by [@1chooo][1chooo-com]
 
