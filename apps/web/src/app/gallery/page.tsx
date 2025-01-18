@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import { BlurFadeDemo } from "@/components/magicui/blur-fade-demo";
+import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
 import PageHeader from '@/components/page-header';
 import config from '@/config';
-import { BlurFadeDemo } from "@/components/magicui/blur-fade-demo";
-import Link from "next/link";
-import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
 import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
