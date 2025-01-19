@@ -1,12 +1,10 @@
-import React from "react";
-import Link from "next/link";
-
-import "@/styles/side-bar/footer.css";
+import React from "react"
+import Link from "next/link"
 
 function Footer() {
   return (
-    <footer className="footer">
-      <div className="footer-copyright">
+    <footer className="py-4 px-8 text-center text-sm text-light-gray">
+      <div className="mb-2">
         &copy; 2024 - 2025{" "}
         <Link
           className="inline text-orange-yellow-crayola underline hover:text-opacity-70"
@@ -17,7 +15,7 @@ function Footer() {
           1chooo
         </Link>
       </div>
-      <div className="footer-links">
+      <div className="space-x-4">
         <Link
           className="inline text-orange-yellow-crayola underline hover:text-opacity-70"
           href="https://github.com/1chooo/1chooo.com"
@@ -44,7 +42,7 @@ function Footer() {
         </Link>
       </div>
     </footer>
-  );
-};
+  )
+}
 
-export default Footer;
+export default Footer
