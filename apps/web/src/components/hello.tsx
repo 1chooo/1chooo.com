@@ -5,9 +5,18 @@ import { useEffect } from 'react'
 function Hello() {
   useEffect(() => {
     console.log(`
-Hi This is Hugo!!!
+|￣￣￣￣￣￣￣￣￣￣￣￣|
+| Open-source ≠ Free |
+|____________________|
+      \\ (•◡•) /
+       \\     /
+        -————
+        |   |
+       _|   |_
 
-Love the design? More details at https://github.com/1chooo/1chooo.com
+Hi There 👋 This is Hugo!
+
+Love the design? Star ✨ on https://github.com/1chooo/1chooo.com
 `)
   }, [])
 
