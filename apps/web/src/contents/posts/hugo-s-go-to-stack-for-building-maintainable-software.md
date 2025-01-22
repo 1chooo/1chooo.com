@@ -29,7 +29,8 @@ We only use `FC` type when we need to pass and extract children from props [^1].
 interface Props {
   text?: string;
 }
-const Heading: React.FC<Props> = ({ text = 'Hello, world!' }) => {
+
+const Heading: React.FC<Props> = ({ text = "Hello, world!" }) => {
   return <h1>{text}</h1>;
 };
 ```
@@ -39,7 +40,8 @@ const Heading: React.FC<Props> = ({ text = 'Hello, world!' }) => {
 interface Props {
   text?: string;
 }
-function Heading({text = 'Hello, world!'}: Props) {
+
+function Heading({text = "Hello, world!"}: Props) {
   return <h1>{text}</h1>;
 }
 ```
