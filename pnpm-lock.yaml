@@ -296,8 +296,8 @@ importers:
         specifier: workspace:*
         version: link:../typescript-config
       '@turbo/gen':
-        specifier: ^2.3.3
-        version: 2.3.3(@types/node@22.10.7)(typescript@5.7.3)
+        specifier: ^2.3.4
+        version: 2.3.4(@types/node@22.10.7)(typescript@5.7.3)
       '@types/eslint':
         specifier: ^9.6.1
         version: 9.6.1
@@ -2007,12 +2007,12 @@ packages:
   '@tsconfig/node16@1.0.4':
     resolution: {integrity: sha512-vxhUy4J8lyeyinH7Azl1pdd43GJhZH/tP2weN8TntQblOY+A0XbT8DJk1/oCPuOOyg/Ja757rG0CgHcWC8OfMA==}
 
-  '@turbo/gen@2.3.3':
-    resolution: {integrity: sha512-MIXXX0sVRvfTWOrLhjDT1KJ15dqzRlNlHIvNeWoS5ZtTMQ9XuBl9D5ek/5vMj77n+84mFRS/VKAoEuScOIWwaw==}
+  '@turbo/gen@2.3.4':
+    resolution: {integrity: sha512-HXBa2SW8LFFduVIFgHpz/M7U1670AJncQD3TC+Bt/xS3pyzp2KLebxq8EKNjbNZ8J86vhdqIg+AhXg5MfeMFZQ==}
     hasBin: true
 
-  '@turbo/workspaces@2.3.3':
-    resolution: {integrity: sha512-PSys7Hy5NuX76HBleOkd8wlRtI4GCzLHS2XUpKeGIj0vpzH4fqE+tpi7fBb5t9U7UiyM6E6pyabSKjoD2zUsoQ==}
+  '@turbo/workspaces@2.3.4':
+    resolution: {integrity: sha512-ffoap9R2AT29ZT9jFwBiOWHcd65Aio2L42P9DseESDOdC6Eke9nxUYrvSe+4AVjMqO3OXYyftIo5dX8F3jDRuw==}
     hasBin: true
 
   '@types/acorn@4.0.6':
@@ -9432,9 +9432,9 @@ snapshots:
 
   '@tsconfig/node16@1.0.4': {}
 
-  '@turbo/gen@2.3.3(@types/node@22.10.7)(typescript@5.7.3)':
+  '@turbo/gen@2.3.4(@types/node@22.10.7)(typescript@5.7.3)':
     dependencies:
-      '@turbo/workspaces': 2.3.3
+      '@turbo/workspaces': 2.3.4
       commander: 10.0.1
       fs-extra: 10.1.0
       inquirer: 8.2.6
@@ -9452,7 +9452,7 @@ snapshots:
       - supports-color
       - typescript
 
-  '@turbo/workspaces@2.3.3':
+  '@turbo/workspaces@2.3.4':
     dependencies:
       commander: 10.0.1
       execa: 5.1.1
@@ -9632,7 +9632,7 @@ snapshots:
   '@types/glob@7.2.0':
     dependencies:
       '@types/minimatch': 5.1.2
-      '@types/node': 22.10.7
+      '@types/node': 22.10.10
 
   '@types/graceful-fs@4.1.9':
     dependencies:
@@ -9739,7 +9739,7 @@ snapshots:
 
   '@types/through@0.0.33':
     dependencies:
-      '@types/node': 22.10.7
+      '@types/node': 22.10.10
 
   '@types/tinycolor2@1.4.6': {}
 
