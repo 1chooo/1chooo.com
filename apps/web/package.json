@@ -35,7 +35,7 @@
     "@testing-library/user-event": "^14.6.1",
     "@types/jest": "^29.5.12",
     "@types/mdx": "^2.0.13",
-    "@types/node": "^22.10.7",
+    "@types/node": "^22.10.10",
     "bootstrap": "^5.3.3",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",
