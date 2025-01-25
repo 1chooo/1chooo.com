@@ -45,7 +45,7 @@
     "framer-motion": "^12.0.1",
     "moment": "^2.30.1",
     "motion": "^12.0.1",
-    "next": "15.1.5",
+    "next": "15.1.6",
     "react": "^18",
     "react-activity-calendar": "^2.7.7",
     "react-bootstrap": "^2.10.4",
