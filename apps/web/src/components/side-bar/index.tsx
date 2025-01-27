@@ -13,6 +13,7 @@ interface SideBarProps {
   lastName: string;
   middleName: string;
   preferredName: string;
+  status: string;
 }
 
 function SideBar({
@@ -20,7 +21,8 @@ function SideBar({
   firstName,
   lastName,
   middleName,
-  preferredName
+  preferredName,
+  status,
 }: SideBarProps) {
   const [isActive, setIsActive] = useState(false);
   const sideBarRef = useRef<HTMLDivElement>(null);
@@ -40,6 +42,7 @@ function SideBar({
         lastName={lastName}
         middleName={middleName}
         preferredName={preferredName}
+        status={status}
       />
       <SideBarInfoMore contacts={contacts} socialLinks={socialLinks} />
     </aside>

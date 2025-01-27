@@ -17,14 +17,15 @@ const {
   title, description,
   author, keywords,
   googleAnalyticId, googleTagManagerId,
-  openGraph, about, avatar
+  openGraph, about, avatar,
+  status,
 } = config
 
 const {
   firstName,
   lastName,
   middleName,
-  preferredName
+  preferredName,
 } = about
 
 export const metadata: Metadata = {
@@ -80,6 +81,7 @@ function RootLayout({
               lastName={lastName}
               middleName={middleName}
               preferredName={preferredName}
+              status={status}
             />
             <div className="main-content">
               <NavBar />
