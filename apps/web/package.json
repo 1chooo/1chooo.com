@@ -44,7 +44,7 @@
     "lucide-react": "^0.474.0",
     "framer-motion": "^12.0.1",
     "moment": "^2.30.1",
-    "motion": "^12.0.1",
+    "motion": "^12.0.6",
     "next": "15.1.6",
     "react": "^18",
     "react-activity-calendar": "^2.7.7",
