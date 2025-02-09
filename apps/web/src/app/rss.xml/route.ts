@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server'
-import RSS from "@/lib/rss";
+import RSS from 'rss';
 import { getBlogPosts } from '@/lib/db/v1/post';
 import { getPortfolioPosts } from '@/lib/db/v1/portfolio';
 import config from '@/config';

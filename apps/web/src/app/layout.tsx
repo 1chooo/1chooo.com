@@ -11,7 +11,7 @@ import SideBar from "@/components/side-bar"
 import { WebVitals } from "@/components/web-vitals"
 import config from "@/config"
 
-import "@/styles/globals.css"
+import "@/app/globals.css"
 
 const {
   title, description,
