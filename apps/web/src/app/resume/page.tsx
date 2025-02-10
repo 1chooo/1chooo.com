@@ -5,19 +5,22 @@ import PageHeader from '@/components/page-header';
 import config from '@/config';
 import DownloadCV from "@/components/resume/download-cv";
 
-const { title } = config;
-
-const { resume } = config;
-const { professionalExperiences } = resume;
-const { educations } = resume;
-const { awardLeaderships } = resume;
-const { teachingExperiences } = resume;
+const {
+  title,
+  resume,
+} = config;
+const {
+  professionalExperiences,
+  educations,
+  awardLeaderships,
+  teachingExperiences,
+} = resume;
 
 export const metadata: Metadata = {
   title: `Resume | ${title}`,
 };
 
-function Resume() {
+export default function Resume() {
   return (
     <article>
       <PageHeader header="Hugo's Resume" />
@@ -28,6 +31,4 @@ function Resume() {
       <TimeLine data={teachingExperiences} />
     </article >
   );
-}
-
-export default Resume
+};

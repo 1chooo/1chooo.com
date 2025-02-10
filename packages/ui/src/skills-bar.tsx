@@ -1,5 +1,4 @@
-import React from "react";
-import "./styles/skills-bar.css";
+import "@/styles/skills-bar.css";
 
 interface Skill {
   name: string;
@@ -12,6 +11,7 @@ interface SkillsBarProps {
 
 /**
  * @example
+ * import SkillsBar from "@repo/ui/skills-bar";
  * 
  * const skills = [
  *   { name: "JavaScript", level: 80 },
@@ -20,9 +20,9 @@ interface SkillsBarProps {
  *   { name: "Node.js", level: 65 },
  * ];
  * 
- * <SkillBars skills={skills}/>
+ * <SkillsBar skills={skills}/>
  */
-const SkillsBar: React.FC<SkillsBarProps> = ({ skills }) => {
+export default function SkillsBar({ skills }: SkillsBarProps) {
   return (
     <section className="skill">
       <ul className="skills-list content-card">
@@ -44,5 +44,3 @@ const SkillsBar: React.FC<SkillsBarProps> = ({ skills }) => {
     </section>
   );
 };
-
-export default SkillsBar;
