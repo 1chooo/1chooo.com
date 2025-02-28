@@ -39,14 +39,11 @@ export function useProgressBar() {
 }
 
 interface ProgressBarProps {
-  className: string
-  children: ReactNode
+  className: string;
+  children: ReactNode;
 }
 
-export function ProgressBar({
-  className,
-  children
-}: ProgressBarProps) {
+export function ProgressBar({ className, children }: ProgressBarProps) {
   let progress = useProgress();
   let width = useMotionTemplate`${progress.value}%`;
 
@@ -67,13 +64,15 @@ export function ProgressBar({
 }
 
 interface ProgressBarLinkProps {
-  href: string | {
-    pathname: string
-    query?: Record<string, string>
-  }
-  children: React.ReactNode
-  className?: string
-  [key: string]: any
+  href:
+    | string
+    | {
+        pathname: string;
+        query?: Record<string, string>;
+      };
+  children: React.ReactNode;
+  className?: string;
+  [key: string]: any;
 }
 
 export function ProgressBarLink({
@@ -81,36 +80,36 @@ export function ProgressBarLink({
   children,
   ...props
 }: ProgressBarLinkProps) {
-  let progress = useProgressBar()
-  let router = useRouter()
+  let progress = useProgressBar();
+  let router = useRouter();
 
   let handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    progress.start()
+    e.preventDefault();
+    progress.start();
 
-    let url: string
-    if (typeof href === 'string') {
-      url = href
-    } else if (typeof href === 'object' && href !== null) {
-      let { pathname, query } = href
-      let searchParams = new URLSearchParams(query || {}).toString()
-      url = `${pathname}${searchParams ? `?${searchParams}` : ''}`
+    let url: string;
+    if (typeof href === "string") {
+      url = href;
+    } else if (typeof href === "object" && href !== null) {
+      let { pathname, query } = href;
+      let searchParams = new URLSearchParams(query || {}).toString();
+      url = `${pathname}${searchParams ? `?${searchParams}` : ""}`;
     } else {
-      console.error('Invalid href prop')
-      return
+      console.error("Invalid href prop");
+      return;
     }
 
     startTransition(() => {
-      router.push(url)
-      progress.done()
-    })
-  }
+      router.push(url);
+      progress.done();
+    });
+  };
 
   return (
     <Link href={href} onClick={handleClick} {...props}>
       {children}
     </Link>
-  )
+  );
 }
 
 function useProgress() {
@@ -145,7 +144,7 @@ function useProgress() {
 
       value.set(Math.min(current + diff, 99));
     },
-    state === "in-progress" ? 750 : null
+    state === "in-progress" ? 750 : null,
   );
 
   useEffect(() => {
@@ -172,7 +171,7 @@ function useProgress() {
 
   function done() {
     setState((state) =>
-      state === "initial" || state === "in-progress" ? "completing" : state
+      state === "initial" || state === "in-progress" ? "completing" : state,
     );
   }
 

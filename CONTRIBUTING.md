@@ -3,6 +3,7 @@
 Welcome to the [1chooo.com](https://github.com/1chooo/1chooo.com) repository! We're glad you're interested in contributing to our `React` portfolio project. By contributing, you help make our project better and more useful for everyone. Below are some guidelines to get you started.
 
 ## Table of Contents<!-- omit in toc -->
+
 - [Issues](#issues)
 - [Pull Requests](#pull-requests)
 - [Setup](#setup)
@@ -29,8 +30,8 @@ We welcome contributions through [pull requests](https://github.com/1chooo/1choo
 
 1. Fork the repository.
 2. Create a new branch with a descriptive name:
-    - For bug fixes: `fix/issue-number-fix-description`
-    - For features: `feature/description-of-feature`
+   - For bug fixes: `fix/issue-number-fix-description`
+   - For features: `feature/description-of-feature`
 3. Make your changes and commit following the [Conventional Commits](#conventional-commits) guidelines.
 4. Push your changes to your forked repository.
 5. Open a pull request from your branch to the `main` branch of the original repository.
@@ -64,10 +65,9 @@ upstream        git@github.com:1chooo/1chooo.com.git (push)
 
 If you have any valuable ideas to contribute, please create a pull request and provide details about the outstanding work you've done.
 
-
 > [!IMPORTANT]  
 > **Make sure to synchronize and update your repository before writing any code.**
-> 
+>
 > 1. Run `git stash save` to temporarily stash your local changes.
 > 2. Run `git fetch upstream` to sync the source project with your local copy.
 > 3. Run `git checkout main` to switch to the main branch.
@@ -137,4 +137,3 @@ We follow the [Conventional Commits](https://www.conventionalcommits.org/en/v1.0
 
 - `feat(homepage): add new hero section`
 - `fix(styles): correct header alignment`
-

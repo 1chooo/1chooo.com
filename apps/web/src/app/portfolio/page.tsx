@@ -19,16 +19,18 @@ export const metadata = {
 
 type PortfolioQueryParams = Promise<{ tag?: string; page?: string }>;
 
-export default async function Portfolio(
-  { searchParams }: { searchParams: PortfolioQueryParams }
-) {
+export default async function Portfolio({
+  searchParams,
+}: {
+  searchParams: PortfolioQueryParams;
+}) {
   const { tag = "All", page = "1" } = await searchParams;
 
   const allPortfolioPosts = await getPortfolioPosts();
   const blogTags = [
     "All",
     ...Array.from(
-      new Set(allPortfolioPosts.map((post) => post.metadata.category ?? ""))
+      new Set(allPortfolioPosts.map((post) => post.metadata.category ?? "")),
     ),
   ];
   const selectedTag = tag;
@@ -38,7 +40,9 @@ export default async function Portfolio(
   const filteredPortfolioPosts =
     selectedTag === "All"
       ? allPortfolioPosts
-      : allPortfolioPosts.filter((post) => post.metadata.category === selectedTag);
+      : allPortfolioPosts.filter(
+          (post) => post.metadata.category === selectedTag,
+        );
 
   // Calculate total pages
   const totalPages = Math.ceil(filteredPortfolioPosts.length / POSTS_PER_PAGE);
@@ -46,7 +50,7 @@ export default async function Portfolio(
   // Get blogs for current page
   const paginatedPortfolioPosts = filteredPortfolioPosts.slice(
     (currentPage - 1) * POSTS_PER_PAGE,
-    currentPage * POSTS_PER_PAGE
+    currentPage * POSTS_PER_PAGE,
   );
 
   return (
@@ -70,7 +74,10 @@ export default async function Portfolio(
               className="project-item active"
               data-category={post.metadata.category}
             >
-              <ProgressBarLink href={`/portfolio/${post.slug}`} rel="noopener noreferrer">
+              <ProgressBarLink
+                href={`/portfolio/${post.slug}`}
+                rel="noopener noreferrer"
+              >
                 <figure className="project-img">
                   <div className="project-item-icon-box">
                     <LuEye />
@@ -90,9 +97,7 @@ export default async function Portfolio(
                 <h3 className="project-title">
                   <MarkdownRenderer content={post.metadata.title} />
                 </h3>
-                <p className="project-category">
-                  {post.metadata.category}
-                </p>
+                <p className="project-category">{post.metadata.category}</p>
               </ProgressBarLink>
             </li>
           ))}

@@ -14,4 +14,3 @@ export interface CharMap {
 export interface LocaleMap {
   [key: string]: CharMap;
 }
-

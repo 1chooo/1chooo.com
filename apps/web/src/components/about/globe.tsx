@@ -1,17 +1,18 @@
-'use client'
+"use client";
 
-import React, { useEffect, useRef } from 'react';
-import createGlobe from 'cobe';
-import { useSpring } from 'react-spring';
+import React, { useEffect, useRef } from "react";
+import createGlobe from "cobe";
+import { useSpring } from "react-spring";
 
 /**
  * @see https://github.com/shuding/cobe/tree/main/website/pages/docs/showcases
  */
 function Globe() {
-  let canvasRef = useRef<HTMLCanvasElement>(null)
-  let pointerInteracting = useRef<number | null>(null)
-  let pointerInteractionMovement = useRef(0)
-  let fadeMask = 'radial-gradie</div>nt(circle at 50% 50%, rgb(0, 0, 0) 60%, rgb(0, 0, 0, 0) 70%)'
+  let canvasRef = useRef<HTMLCanvasElement>(null);
+  let pointerInteracting = useRef<number | null>(null);
+  let pointerInteractionMovement = useRef(0);
+  let fadeMask =
+    "radial-gradie</div>nt(circle at 50% 50%, rgb(0, 0, 0) 60%, rgb(0, 0, 0, 0) 70%)";
 
   let [{ r }, api] = useSpring(() => ({
     r: 0,
@@ -19,16 +20,16 @@ function Globe() {
       mass: 1,
       tension: 280,
       friction: 40,
-      precision: 0.001
-    }
-  }))
+      precision: 0.001,
+    },
+  }));
 
   useEffect(() => {
     let width = 0;
 
     let onResize = () => {
       if (canvasRef.current && (width = canvasRef.current.offsetWidth)) {
-        window.addEventListener('resize', onResize);
+        window.addEventListener("resize", onResize);
       }
     };
     onResize();
@@ -53,74 +54,74 @@ function Globe() {
         state.phi = 2.75 + r.get();
         state.width = width * 2;
         state.height = width * 2;
-      }
-    })
+      },
+    });
 
     return () => {
       globe.destroy();
-      window.removeEventListener('resize', onResize);
-    }
-  }, [r])
-
+      window.removeEventListener("resize", onResize);
+    };
+  }, [r]);
 
   return (
     <div
       style={{
-        width: '100%',
-        height: '100%',
-        display: 'flex',
-        placeItems: 'center',
-        placeContent: 'center',
-        overflow: 'visible'
+        width: "100%",
+        height: "100%",
+        display: "flex",
+        placeItems: "center",
+        placeContent: "center",
+        overflow: "visible",
       }}
     >
       <div
         style={{
-          width: '100%',
-          aspectRatio: '1/1',
+          width: "100%",
+          aspectRatio: "1/1",
           maxWidth: 800,
           WebkitMaskImage: fadeMask,
-          maskImage: fadeMask
+          maskImage: fadeMask,
         }}
       >
         <canvas
           ref={canvasRef}
           onPointerDown={(e) => {
-            pointerInteracting.current = e.clientX - pointerInteractionMovement.current
-            canvasRef.current && (canvasRef.current.style.cursor = 'grabbing')
+            pointerInteracting.current =
+              e.clientX - pointerInteractionMovement.current;
+            canvasRef.current && (canvasRef.current.style.cursor = "grabbing");
           }}
           onPointerUp={() => {
-            pointerInteracting.current = null
-            canvasRef.current && (canvasRef.current.style.cursor = 'grab')
+            pointerInteracting.current = null;
+            canvasRef.current && (canvasRef.current.style.cursor = "grab");
           }}
           onPointerOut={() => {
-            pointerInteracting.current = null
-            canvasRef.current && (canvasRef.current.style.cursor = 'grab')
+            pointerInteracting.current = null;
+            canvasRef.current && (canvasRef.current.style.cursor = "grab");
           }}
           onMouseMove={(e) => {
             if (pointerInteracting.current !== null) {
-              let delta = e.clientX - pointerInteracting.current
-              pointerInteractionMovement.current = delta
+              let delta = e.clientX - pointerInteracting.current;
+              pointerInteractionMovement.current = delta;
               api.start({
-                r: delta / 200
-              })
+                r: delta / 200,
+              });
             }
           }}
           onTouchMove={(e) => {
             if (pointerInteracting.current !== null && e.touches[0]) {
-              let delta = e.touches[0].clientX - pointerInteracting.current
-              pointerInteractionMovement.current = delta
+              let delta = e.touches[0].clientX - pointerInteracting.current;
+              pointerInteractionMovement.current = delta;
               api.start({
-                r: delta / 100
-              })
+                r: delta / 100,
+              });
             }
           }}
           style={{
-            width: '100%',
-            height: '100%',
-            contain: 'layout paint size',
-            cursor: 'auto',
-            userSelect: 'none'
+            width: "100%",
+            height: "100%",
+            contain: "layout paint size",
+            cursor: "auto",
+            userSelect: "none",
           }}
         />
       </div>

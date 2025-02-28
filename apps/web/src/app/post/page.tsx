@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import Image from "next/image";
-import Balancer from 'react-wrap-balancer'
+import Balancer from "react-wrap-balancer";
 import Loading from "@/components/loading";
 import PageHeader from "@/components/page-header";
 import FilterSelectBox from "@/components/filter/filter-select-box";
@@ -21,15 +21,13 @@ export const metadata = {
 
 type BlogQueryParams = Promise<{ tag?: string; page?: string }>;
 
-async function BlogPosts(
-  { searchParams }: { searchParams: BlogQueryParams }
-) {
+async function BlogPosts({ searchParams }: { searchParams: BlogQueryParams }) {
   const { tag = "All", page = "1" } = await searchParams;
   let allBlogs = await getBlogPosts();
   const blogTags = [
     "All",
     ...Array.from(
-      new Set(allBlogs.map((post) => post.metadata.category ?? ""))
+      new Set(allBlogs.map((post) => post.metadata.category ?? "")),
     ),
   ];
   const selectedTag = tag;
@@ -47,16 +45,12 @@ async function BlogPosts(
   // Get blogs for current page
   const paginatedBlogs = filteredBlogs.slice(
     (currentPage - 1) * POSTS_PER_PAGE,
-    currentPage * POSTS_PER_PAGE
+    currentPage * POSTS_PER_PAGE,
   );
 
   return (
     <section className="blog-posts">
-      <FilterList
-        path="post"
-        selectedTag={selectedTag}
-        blogTags={blogTags}
-      />
+      <FilterList path="post" selectedTag={selectedTag} blogTags={blogTags} />
       <FilterSelectBox
         path="post"
         selectedTag={selectedTag}
@@ -96,7 +90,7 @@ async function BlogPosts(
                         month: "long",
                         day: "numeric",
                         year: "numeric",
-                      }
+                      },
                     )}
                   </time>
                 </div>
@@ -124,9 +118,11 @@ async function BlogPosts(
   );
 }
 
-export default function Post(
-  { searchParams }: { searchParams: BlogQueryParams }
-) {
+export default function Post({
+  searchParams,
+}: {
+  searchParams: BlogQueryParams;
+}) {
   return (
     <article>
       <PageHeader header="Hugo's Blog" />

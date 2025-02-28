@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { useEffect, useState } from "react";
 import Image from "next/image";
@@ -29,8 +29,8 @@ type Post = {
 const handleSeeMorePostsClick = () => {
   console.log("See More Posts button clicked!");
   sendGTMEvent({
-    event: 'seeMorePostsClicked',
-    value: process.env.NEXT_PUBLIC_GTM_ID
+    event: "seeMorePostsClicked",
+    value: process.env.NEXT_PUBLIC_GTM_ID,
   });
 };
 
@@ -74,7 +74,10 @@ function LatestArticles({ posts }: LatestArticlesProps) {
             className="latest-post-item group active"
             data-category={post.metadata.category}
           >
-            <ProgressBarLink href={`/post/${post.slug}`} rel="noopener noreferrer">
+            <ProgressBarLink
+              href={`/post/${post.slug}`}
+              rel="noopener noreferrer"
+            >
               <figure className="latest-post-img">
                 <div className="absolute latest-post-item-icon-box text-orange-yellow-crayola text-xl bg-jet p-[18px] rounded-xl top-1/2 left-1/2 transition-all duration-250 ease-linear">
                   <LuEye />

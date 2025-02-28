@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
-import React from 'react';
-import PageHeader from '@/components/page-header';
-import MarkdownRenderer from '@/components/markdown/markdown-renderer';
-import config from '@/config';
+import React from "react";
+import PageHeader from "@/components/page-header";
+import MarkdownRenderer from "@/components/markdown/markdown-renderer";
+import config from "@/config";
 
 const { title } = config;
 
@@ -11,8 +11,8 @@ export const metadata: Metadata = {
 };
 
 const errorMessages = [
-  'This page doesn\'t exist.',
-  'If this is a mistake, [let us know](https://github.com/1chooo/1chooo.com/issues/new), and we will try to fix it!',
+  "This page doesn't exist.",
+  "If this is a mistake, [let us know](https://github.com/1chooo/1chooo.com/issues/new), and we will try to fix it!",
 ];
 
 function NotFound() {
@@ -25,7 +25,7 @@ function NotFound() {
         ))}
       </section>
     </article>
-  )
+  );
 }
 
-export default NotFound
+export default NotFound;

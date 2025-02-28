@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ReactNode } from "react";
 
 interface AnchorProps {
   children?: ReactNode;
@@ -10,10 +10,11 @@ interface AnchorProps {
 }
 
 function Anchor({ children, ...props }: AnchorProps) {
-  const isEmpty = !children ||
+  const isEmpty =
+    !children ||
     (Array.isArray(children) && children.length === 0) ||
-    (typeof children === 'string' && children.trim().length === 0) ||
-    (React.Children.count(children) === 0);
+    (typeof children === "string" && children.trim().length === 0) ||
+    React.Children.count(children) === 0;
 
   if (isEmpty) {
     return null;
@@ -29,6 +30,6 @@ function Anchor({ children, ...props }: AnchorProps) {
       {children}
     </a>
   );
-};
+}
 
 export default Anchor;

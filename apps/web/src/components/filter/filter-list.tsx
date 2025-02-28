@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 import { ProgressBarLink } from "@/components/progress-bar";
 
 interface FilterListProps {
@@ -14,7 +14,7 @@ function FilterList({ path, selectedTag, blogTags }: FilterListProps) {
         <li className="filter-item" key={index}>
           <ProgressBarLink
             href={`/${path}?tag=${encodeURIComponent(tag)}`}
-            className={`filter-btn ${selectedTag === tag ? 'active' : ''}`}
+            className={`filter-btn ${selectedTag === tag ? "active" : ""}`}
           >
             {tag}
           </ProgressBarLink>
@@ -22,6 +22,6 @@ function FilterList({ path, selectedTag, blogTags }: FilterListProps) {
       ))}
     </ul>
   );
-};
+}
 
 export default FilterList;

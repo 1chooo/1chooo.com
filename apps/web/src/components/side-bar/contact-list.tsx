@@ -16,6 +16,6 @@ function ContactsList({ contacts }: ContactsListProps) {
       ))}
     </ul>
   );
-};
+}
 
 export default ContactsList;

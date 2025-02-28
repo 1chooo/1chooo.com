@@ -1,11 +1,11 @@
 ---
 title: "[O(1) Time and Space] LeetCode 1791. Find Center of Star Graph - Easy Solution | Go"
-publishedAt: '2024-06-27'
+publishedAt: "2024-06-27"
 category: LeetCode
 tags:
   - Graph
   - Go
-summary: 'In a star graph, the center node will appear in each of the edges which means every node will contain the center node. So, we just need to find the common node in the first two edges.'
+summary: "In a star graph, the center node will appear in each of the edges which means every node will contain the center node. So, we just need to find the common node in the first two edges."
 banner: /images/banner/posts/1791-find-center-of-star-graph.webp
 alt: "[O(1) Time and Space] LeetCode 1791. Find Center of Star Graph - Easy Solution | Go"
 mathjax: true
@@ -13,7 +13,7 @@ mathjax: true
 
 Link 👉🏻 [1791. Find Center of Star Graph](https://leetcode.com/problems/find-center-of-star-graph/)
 
-![\[O(1) Time and Space\] LeetCode 1791. Find Center of Star Graph - Easy Solution | Go by Hugo](/images/banner/posts/1791-find-center-of-star-graph.webp)
+![[O(1) Time and Space] LeetCode 1791. Find Center of Star Graph - Easy Solution | Go by Hugo](/images/banner/posts/1791-find-center-of-star-graph.webp)
 
 ### Description
 
@@ -29,12 +29,10 @@ You are given a 2D integer array `edges` where each <code>edges[i] = [u<sub>i</s
 - Output: <code>2</code>
 - Explanation: <code>As shown in the figure above, node 2 is connected to every other node, so 2 is the center.</code>
 
-
 **Example 2:**
 
 - Input: <code>edges = [[1,2],[5,1],[1,3],[1,4]]</code>
 - Output: <code>1</code>
- 
 
 **Constraints:**
 
@@ -44,7 +42,6 @@ You are given a 2D integer array `edges` where each <code>edges[i] = [u<sub>i</s
 - <code>1 <= u<sub>i</sub>, v<sub>i</sub> <= n</code>
 - <code>u<sub>i</sub> != v<sub>i</sub></code>
 - <code>The given edges represent a valid star graph.</code>
-
 
 ### Intuition
 

@@ -14,9 +14,9 @@ interface GradualSpacingProps {
 
 /**
  * @example
- * 
+ *
  * import { GradualSpacing } from "@/components/magicui/gradual-spacing";
- * 
+ *
  * export function GradualSpacingDemo() {
  *   return (
  *     <GradualSpacing

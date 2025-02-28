@@ -12,14 +12,14 @@ interface SkillsBarProps {
 /**
  * @example
  * import SkillsBar from "@repo/ui/skills-bar";
- * 
+ *
  * const skills = [
  *   { name: "JavaScript", level: 80 },
  *   { name: "TypeScript", level: 70 },
  *   { name: "React", level: 75 },
  *   { name: "Node.js", level: 65 },
  * ];
- * 
+ *
  * <SkillsBar skills={skills}/>
  */
 export default function SkillsBar({ skills }: SkillsBarProps) {
@@ -43,4 +43,4 @@ export default function SkillsBar({ skills }: SkillsBarProps) {
       </ul>
     </section>
   );
-};
+}

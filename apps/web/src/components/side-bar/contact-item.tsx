@@ -31,9 +31,7 @@ function ContactItem({ contact }: ContactItemProps) {
     <li className="min-w-full flex items-center gap-4">
       <IconBox icon={Icon} />
       <div className="contact-info">
-        <p className="text-light-gray-70 uppercase mb-1 text-xs">
-          {title}
-        </p>
+        <p className="text-light-gray-70 uppercase mb-1 text-xs">{title}</p>
         {ContentElement}
       </div>
     </li>

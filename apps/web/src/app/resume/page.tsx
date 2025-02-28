@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
 import React from "react";
-import TimeLine from '@/components/resume/timeline';
-import PageHeader from '@/components/page-header';
-import config from '@/config';
+import TimeLine from "@/components/resume/timeline";
+import PageHeader from "@/components/page-header";
+import config from "@/config";
 import DownloadCV from "@/components/resume/download-cv";
 
-const {
-  title,
-  resume,
-} = config;
+const { title, resume } = config;
 const {
   professionalExperiences,
   educations,
@@ -29,6 +26,6 @@ export default function Resume() {
       <TimeLine data={educations} />
       <TimeLine data={awardLeaderships} />
       <TimeLine data={teachingExperiences} />
-    </article >
+    </article>
   );
-};
+}

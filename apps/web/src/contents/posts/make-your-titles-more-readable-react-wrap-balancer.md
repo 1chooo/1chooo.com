@@ -3,7 +3,7 @@ title: "Make Your Titles More Readable: React Wrap Balancer"
 category: Project
 publishedAt: 2024-11-25
 summary: "React Wrap Balancer is a simple React Component that makes your titles more readable in different viewport sizes. It improves the wrapping to avoid situations like single word in the last line, makes the content more 'balanced'."
-tags: 
+tags:
   - React
   - Typescript
   - Next.js
@@ -35,7 +35,7 @@ npm i react-wrap-balancer
 Then we can use it in our project:
 
 ```tsx
-import Balancer from 'react-wrap-balancer'
+import Balancer from "react-wrap-balancer";
 
 // ...
 
@@ -44,23 +44,23 @@ function Title() {
     <h1>
       <Balancer>My Awesome Title</Balancer>
     </h1>
-  )
+  );
 }
 ```
 
 If we have multiple `<Balancer>` components used, we can wrap them with `<Provider>` to share the re-balance logic:
 
 ```tsx
-import { Provider } from 'react-wrap-balancer'
+import { Provider } from "react-wrap-balancer";
 
 // ...
 
 function App() {
   return (
     <Provider>
-      <MyApp/>
+      <MyApp />
     </Provider>
-  )
+  );
 }
 ```
 
@@ -69,7 +69,6 @@ function App() {
 We can see the difference between using and not using the package (applied to my portfolio website):
 
 ![The before and after of using React Wrap Balancer](/images/posts/make-your-titles-more-readable-react-wrap-balancer/demo-01.png)
-
 
 ![The before and after of using React Wrap Balancer](/images/posts/make-your-titles-more-readable-react-wrap-balancer/demo-02.png)
 

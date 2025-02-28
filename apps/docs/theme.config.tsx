@@ -1,13 +1,13 @@
-import React from 'react'
-import type { DocsThemeConfig } from 'nextra-theme-docs';
+import React from "react";
+import type { DocsThemeConfig } from "nextra-theme-docs";
 
 export default {
   logo: <span>1chooo.com Documentation</span>,
   footer: {
-    component: null
+    component: null,
   },
   editLink: {
-    component: null
+    component: null,
   },
   head: (
     <>
@@ -15,7 +15,8 @@ export default {
     </>
   ),
   project: {
-    link: 'https://github.com/1chooo/1chooo.com',
+    link: "https://github.com/1chooo/1chooo.com",
   },
-  docsRepositoryBase: 'https://github.com/1chooo/1chooo.com/tree/main/apps/docs',
+  docsRepositoryBase:
+    "https://github.com/1chooo/1chooo.com/tree/main/apps/docs",
 } as DocsThemeConfig;

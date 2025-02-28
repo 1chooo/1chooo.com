@@ -3,7 +3,7 @@ title: "Improve Next.js Performance: Move Shared Components to Global Layout"
 category: Project
 publishedAt: 2024-08-20
 summary: Through Next.js's Global Layout, reduce the redundant loading of components to improve web performance.
-tags: 
+tags:
   - React
   - Typescript
   - Next.js
@@ -22,7 +22,6 @@ In this post, I’ll walk through the improvements I’ve made to address these 
 
 ![Improve Next.js Performance: Move Shared Components to Global Layout by Hugo](/images/banner/posts/move-shared-components-to-global-layout.webp)
 
-
 Since I am currently using [Next.js](https://nextjs.org/) as my front-end framework alongside [React](https://react.dev/) to develop the page components, I’ve made some observations about the project structure within Next.js (using my own [project](https://github.com/1chooo/1chooo.com) as an example):
 
 ```ts
@@ -35,7 +34,7 @@ Since I am currently using [Next.js](https://nextjs.org/) as my front-end framew
 └── components/
 ```
 
-For those curious about why I chose [Next.js](https://nextjs.org/), feel free to check out one of my earlier posts—[Updating an Outdated Create React App (CRA) to Support TypeScript 5.x](/blog/goodbye-react-create-app)—where I explain my decision in greater detail. 
+For those curious about why I chose [Next.js](https://nextjs.org/), feel free to check out one of my earlier posts—[Updating an Outdated Create React App (CRA) to Support TypeScript 5.x](/blog/goodbye-react-create-app)—where I explain my decision in greater detail.
 
 In this article, I'll delve into how the project structure in Next.js enhances the efficiency of my development process.
 
@@ -55,7 +54,7 @@ const About = () => {
       <div className="main-content">
         <NavBar />
         <article
-          className={`about ${pathname === '/' ? 'active' : ''}`}
+          className={`about ${pathname === "/" ? "active" : ""}`}
           data-page="about"
         >
           <Header title="About Hugo 👨🏻‍💻" />
@@ -67,7 +66,7 @@ const About = () => {
       </div>
     </main>
   );
-}
+};
 ```
 
 **`app/portfolio/page.tsx` (Portfolio Page):**
@@ -78,7 +77,8 @@ const Portfolio = () => {
 
   useEffect(() => {
     initializeCustomSelect(filterItemsByCategory);
-    document.title = "Portfolio - Hugo ChunHo Lin (1chooo) | Open Source Enthusiast";
+    document.title =
+      "Portfolio - Hugo ChunHo Lin (1chooo) | Open Source Enthusiast";
   }, []);
 
   return (
@@ -87,7 +87,7 @@ const Portfolio = () => {
       <div className="main-content">
         <NavBar />
         <article
-          className={`portfolio ${pathname === '/portfolio' ? 'active' : ''}`}
+          className={`portfolio ${pathname === "/portfolio" ? "active" : ""}`}
           data-page="portfolio"
         >
           <Header title="Hugo's Portfolio" />
@@ -96,7 +96,7 @@ const Portfolio = () => {
       </div>
     </main>
   );
-}
+};
 ```
 
 In both cases, components such as `SideBar` and `NavBar` are repeated, leading to redundancy. This is precisely why I began leveraging the `layout.tsx` file to refactor and consolidate these shared components, ensuring they load only once across all pages, thereby improving the overall efficiency of my site.
@@ -108,8 +108,8 @@ I had been repeating both the `NavBar` and `SideBar` components across multiple 
 I designed a new `PageContent` component to structure the elements of each page. This component allows me to set the document title, load specific CSS files, and more:
 
 ```tsx
-import React, { useEffect } from 'react';
-import Header from '@/components/header';
+import React, { useEffect } from "react";
+import Header from "@/components/header";
 
 const PageContent: React.FC<{
   documentTitle: string;
@@ -118,9 +118,8 @@ const PageContent: React.FC<{
   page?: string;
   pathName?: string;
 }> = ({ documentTitle, title, children, page, pathName }) => {
-
   // Handle edge case where 'About' page is at the root ("/") and doesn't have "/about" path.
-  const isRootPage = pathName === '/' && page === 'about';
+  const isRootPage = pathName === "/" && page === "about";
 
   if (isRootPage) {
     documentTitle = "Hugo ChunHo Lin (1chooo) | Open Source Enthusiast";
@@ -132,8 +131,8 @@ const PageContent: React.FC<{
 
   return (
     <article
-      className={`${page} ${isRootPage || (pathName === `/${page}`) ? 'active' : ''}`}
-      data-page={isRootPage ? '' : page}
+      className={`${page} ${isRootPage || pathName === `/${page}` ? "active" : ""}`}
+      data-page={isRootPage ? "" : page}
     >
       <Header title={title} />
       {children}
@@ -173,7 +172,7 @@ const About = () => {
 
   return (
     <PageContent
-      documentTitle=''
+      documentTitle=""
       title={abouts.header}
       page="about"
       pathName={pathname}
@@ -184,7 +183,7 @@ const About = () => {
       <LifeStyles />
     </PageContent>
   );
-}
+};
 ```
 
 **`app/portfolio/page.tsx` (Portfolio Page):**
@@ -199,7 +198,7 @@ const Portfolio = () => {
 
   return (
     <PageContent
-      documentTitle='Portfolio'
+      documentTitle="Portfolio"
       title="Hugo's Portfolio"
       page="portfolio"
       pathName={pathname}
@@ -207,7 +206,7 @@ const Portfolio = () => {
       <Projects />
     </PageContent>
   );
-}
+};
 ```
 
 ### Final Thoughts
@@ -215,4 +214,3 @@ const Portfolio = () => {
 With this refactor, I've successfully moved the `NavBar` and `SideBar` into `layout.tsx`, ensuring they only load once across all pages. Additionally, the dynamic content for each page is now wrapped in the reusable `PageContent` component, reducing the need for repetitive code. If you’d like to explore the detailed changes, feel free to check out the [PR](https://github.com/1chooo/1chooo.com/pull/114).
 
 Thank you all for following along as I continue to refine my front-end skills! For more technical details on my implementation, you can check out my website’s GitHub repository—[1chooo.com](https://github.com/1chooo/1chooo.com). Stay tuned for more updates!
-

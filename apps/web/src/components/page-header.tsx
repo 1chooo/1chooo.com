@@ -12,6 +12,6 @@ function PageHeader({ header }: PageHeaderProps) {
       </h1>
     </header>
   );
-};
+}
 
 export default PageHeader;

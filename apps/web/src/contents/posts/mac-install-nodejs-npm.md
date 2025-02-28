@@ -3,11 +3,11 @@ title: "如何在 Mac 安裝 Node.js & NPM"
 category: DevEnv
 publishedAt: 2024-01-03
 summary: "新年剛好把 MacOS 重灌，讓這台老 macbook pro 2020 重獲新生，也藉此機會重新建置開發環境。因此我們將示範如何在 Mac 安裝 Node.js 以及 NPM，其實直接從官網安裝 Node.js 時就會同時安裝 NPM，因此我將以 Mac 作為示範如何在成功安裝 Node.js，並且展示成功結果！"
-tags: 
-- Node
-- npm
-- Mac
-- Install
+tags:
+  - Node
+  - npm
+  - Mac
+  - Install
 banner: /images/banner/posts/mac-install-nodejs-npm.webp
 ---
 
@@ -67,16 +67,16 @@ $ which node
 
 ```javascript
 // server.js
-const http = require('http');
+const http = require("http");
 
 const server = http.createServer((req, res) => {
   res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end('Hello World\n');
+  res.setHeader("Content-Type", "text/plain");
+  res.end("Hello World\n");
 });
 
-server.listen(3000, 'localhost', () => {
-  console.log('Server running at http://localhost:3000/');
+server.listen(3000, "localhost", () => {
+  console.log("Server running at http://localhost:3000/");
 });
 ```
 

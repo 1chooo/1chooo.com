@@ -21,7 +21,6 @@ function TimelineList({ items }: TimelineListProps) {
       ))}
     </ol>
   );
-};
-
+}
 
 export default TimelineList;

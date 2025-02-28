@@ -2,7 +2,7 @@
 title: "How to Add a Gradient Effect to Text for Eye-Catching Web Design"
 category: Project
 publishedAt: 2024-11-13
-tags: 
+tags:
   - Front End Development
   - ChatGPT
   - Portfolio
@@ -76,6 +76,7 @@ I have the upper style, but if I set the text background in linear-gradient, onc
 To achieve the desired selection styling on text with a gradient background, we can add a workaround since the linear gradient with `background-clip: text` does not play well with `::selection`. Here are two options to make sure the text is readable with the selected background and color:
 
 ### Solution 1: Apply a Transparent Gradient Overlay
+
 You can add a transparent text fill color on selection, which allows the `::selection` background and text color to apply correctly. Here’s how:
 
 ```css
@@ -108,6 +109,7 @@ You can add a transparent text fill color on selection, which allows the `::sele
 This code snippet overrides the selection for `.name` and allows you to control the color without affecting the gradient. The `-webkit-text-fill-color` set to black ensures that selected text is readable.
 
 ### Solution 2: Use a Separate Shadow for Selection
+
 Another option is to add a subtle `text-shadow` to simulate the gradient color but still allow a solid color on selection.
 
 ```css

@@ -1,6 +1,6 @@
-import React, { JSX } from 'react';
-import slugify from '@/lib/slugify';
-import { IoLink } from 'react-icons/io5';
+import React, { JSX } from "react";
+import slugify from "@/lib/slugify";
+import { IoLink } from "react-icons/io5";
 
 interface HeaderProps {
   level: 1 | 2 | 3 | 4 | 5 | 6;
@@ -9,26 +9,26 @@ interface HeaderProps {
 
 function AnchorHeader({ level, children, ...props }: HeaderProps) {
   let Tag = `h${level}` as keyof JSX.IntrinsicElements;
-  let id = slugify(children?.toString() ?? '', { lower: true });
+  let id = slugify(children?.toString() ?? "", { lower: true });
 
   let getMargins = (level: number) => {
     switch (level) {
       case 1:
-        return 'text-3xl text-white-2 font-bold mt-14 mb-10';
+        return "text-3xl text-white-2 font-bold mt-14 mb-10";
       case 2:
-        return 'text-2xl text-white-2 font-bold mt-12 mb-8';
+        return "text-2xl text-white-2 font-bold mt-12 mb-8";
       case 3:
-        return 'text-xl text-white-2 font-bold mt-10 mb-6';
+        return "text-xl text-white-2 font-bold mt-10 mb-6";
       case 4:
-        return 'text-lg text-white-2 font-semibold mt-8 mb-4';
+        return "text-lg text-white-2 font-semibold mt-8 mb-4";
       case 5:
-        return 'text-base text-white-2 font-semibold mt-6 mb-3';
+        return "text-base text-white-2 font-semibold mt-6 mb-3";
       case 6:
-        return 'text-sm text-white-2 font-semibold mt-4 mb-2';
+        return "text-sm text-white-2 font-semibold mt-4 mb-2";
       case 7:
-        return 'text-xs text-white-2 font-semibold mt-4 mb-2';
+        return "text-xs text-white-2 font-semibold mt-4 mb-2";
       default:
-        return '';
+        return "";
     }
   };
 
@@ -51,6 +51,6 @@ function AnchorHeader({ level, children, ...props }: HeaderProps) {
       {children}
     </Tag>
   );
-};
+}
 
 export default AnchorHeader;

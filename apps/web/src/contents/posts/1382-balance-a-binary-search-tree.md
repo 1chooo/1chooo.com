@@ -1,8 +1,8 @@
 ---
 title: "LeetCode 1382. Balance a Binary Search Tree - Easy Solution | Go"
-publishedAt: '2024-06-30'
+publishedAt: "2024-06-30"
 category: LeetCode
-tags: 
+tags:
   - Go
   - Tree
   - Divide and Conquer
@@ -11,7 +11,7 @@ tags:
   - Depth-First Search
   - Binary Search Tree
   - Binary Tree
-summary: 'Given the `root` of a binary search tree, return a balanced binary search tree with the same node values. If there is more than one answer, return any of them.'
+summary: "Given the `root` of a binary search tree, return a balanced binary search tree with the same node values. If there is more than one answer, return any of them."
 banner: /images/banner/posts/1382-balance-a-binary-search-tree.webp
 alt: "LeetCode 1382. Balance a Binary Search Tree - Easy Solution | Go"
 mathjax: true
@@ -20,7 +20,6 @@ mathjax: true
 Link 👉🏻 [1382. Balance a Binary Search Tree](https://leetcode.com/problems/balance-a-binary-search-tree/)
 
 ![LeetCode 1382. Balance a Binary Search Tree - Easy Solution | Go by Hugo](/images/banner/posts/1382-balance-a-binary-search-tree.webp)
-
 
 ### Description
 
@@ -42,12 +41,11 @@ A binary search tree is balanced if the depth of the two subtrees of every node 
 
 - Input: `root = [2,1,3]`
 - Output: `[2,1,3]`
- 
+
 **Constraints:**
 
 - The number of nodes in the tree is in the range <code>[1, 10<sup>4</sup>]</code>.
 - <code>1 <= Node.val <= 10<sup>5</sup></code>
-
 
 ### Intuition
 

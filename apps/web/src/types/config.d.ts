@@ -12,14 +12,14 @@ export type SocialLink = {
   url: string;
   icon: VCardIconType;
   name: string;
-}
+};
 
 export type Contact = {
   icon: VCardIconType;
   title: string;
   content?: string;
   link?: string;
-}
+};
 
 export type Config = {
   avatar: string;
@@ -29,7 +29,7 @@ export type Config = {
   keywords: string[];
   status: string;
   siteURL: string;
-  openGraph: OpenGraph
+  openGraph: OpenGraph;
   navItems: NavItem[];
   contacts: Contact[];
   socialLinks: SocialLink[];
@@ -38,4 +38,4 @@ export type Config = {
   giscusConfig: GiscusProps;
   googleAnalyticId: string;
   googleTagManagerId: string;
-}
+};

@@ -1,8 +1,8 @@
-import React from 'react';
-import InfoMoreButton from './info-more-button';
-import Image from 'next/image';
-import { useResponsiveImageSize } from '@/hooks/use-responsive-image-size';
-import { breakpoints } from '@/lib/constants';
+import React from "react";
+import InfoMoreButton from "./info-more-button";
+import Image from "next/image";
+import { useResponsiveImageSize } from "@/hooks/use-responsive-image-size";
+import { breakpoints } from "@/lib/constants";
 
 import "@/styles/side-bar/sidebar-info.css";
 
@@ -45,7 +45,8 @@ function SideBarInfo({
         <h1
           className="name"
           title={`${firstName} (${preferredName}) ${lastName}`}
-        >{firstName} ({preferredName}) {lastName}
+        >
+          {firstName} ({preferredName}) {lastName}
         </h1>
         <p className="text-white-1 bg-onyx text-xs font-light max-w-max rounded-[8px] custom-lg:m-auto px-[12px] py-[3px] md:px-[18px] md:py-[5px]">
           <strong>{status}</strong>
@@ -54,6 +55,6 @@ function SideBarInfo({
       <InfoMoreButton onClick={onToggle} />
     </div>
   );
-};
+}
 
 export default SideBarInfo;

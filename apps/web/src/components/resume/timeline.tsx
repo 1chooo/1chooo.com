@@ -6,7 +6,11 @@ import type { AwardLeaderships } from "@/types/resume";
 import type { TeachingExperience } from "@/types/resume";
 
 interface TimeLineProps {
-  data: ProfessionalExperience | Education | AwardLeaderships | TeachingExperience;
+  data:
+    | ProfessionalExperience
+    | Education
+    | AwardLeaderships
+    | TeachingExperience;
 }
 
 function TimeLine({ data }: TimeLineProps) {
