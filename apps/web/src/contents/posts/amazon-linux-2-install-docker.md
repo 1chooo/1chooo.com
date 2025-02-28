@@ -1,9 +1,9 @@
 ---
 title: "AWS: 如何在 AWS EC2 Amazon Linux 2 上安裝 Docker"
 category: DevOps
-publishedAt: '2024-04-11'
+publishedAt: "2024-04-11"
 summary: "在我們需要做 DevOps 時，我們常常會需要用到 Containerization 技術，而 Docker 是目前最為廣泛使用的 Containerization 技術之一。同時我們也可能會用到雲端的算力來幫助我們完成這些工作，因此我們今天將會介紹如何在 Amazon Linux 2 上安裝 Docker。"
-tags: 
+tags:
   - Docker
   - AWS
   - EC2
@@ -37,9 +37,9 @@ $ ssh -i "your.pem" ec2-user@<ec2-public-ip>.compute-1.amazonaws.com
 [ec2-user]@your-ip ~ $
 ```
 
-### 檢查安裝所需的 [yum](https://en.wikipedia.org/wiki/Yum_(software))
+### 檢查安裝所需的 [yum](<https://en.wikipedia.org/wiki/Yum_(software)>)
 
-透過 [yum](https://en.wikipedia.org/wiki/Yum_(software)) 來檢查我們的版本，並且我們也會用作安裝 Docker 的套件。
+透過 [yum](<https://en.wikipedia.org/wiki/Yum_(software)>) 來檢查我們的版本，並且我們也會用作安裝 Docker 的套件。
 
 ```bash
 # 檢查 yum 的版本
@@ -47,7 +47,6 @@ $ sudo yum update
 Loaded plugins: extras_suggestions, langpacks, priorities, update-motd
 No packages marked for update
 ```
-
 
 透過 yum 來搜尋 Docker 的套件，並且查看 Docker 的資訊。
 
@@ -71,7 +70,6 @@ Name        : docker
 ...
 ...
 ```
-
 
 ### 安裝 Docker 以及啟動 Docker 服務
 
@@ -103,7 +101,6 @@ Server:
   Version:          20.10.25
   ...
 ```
-
 
 啟動我們的 Docker 服務。
 
@@ -163,13 +160,13 @@ Successfully installed ... docker-compose-1.29.2 ...
 
 > **⚠️ 注意**
 > 如果在安裝 `docker-compose` 時出現錯誤，可能是因為 `urllib3` 的版本支援問題，我們可以透過 `pip3 install urllib3==1.26.15` 來安裝特定版本的 `urllib3`。
-> 
+>
 > 可以參考 [Persisting spaCy import error: NotOpenSSLWarning: urllib3 v2.0 only supports OpenSSL 1.1.1+ #12750](https://github.com/explosion/spaCy/discussions/12750) 來排除
-> 
+>
 > 我們也可以使用 `wget` 來下載 `docker-compose` 並且安裝。
 
 ```bash
-$ wget https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m) 
+$ wget https://github.com/docker/compose/releases/latest/download/docker-compose-$(uname -s)-$(uname -m)
 $ sudo mv docker-compose-$(uname -s)-$(uname -m) /usr/local/bin/docker-compose
 $ sudo chmod -v +x /usr/local/bin/docker-compose
 ```
@@ -183,7 +180,6 @@ docker-py version: <module 'docker.version' from '/home/ec2-user/.local/lib/pyth
 CPython version: 3.7.16
 OpenSSL version: OpenSSL 1.0.2k-fips  26 Jan 2017
 ```
-
 
 這時我們就可以開始使用 Docker 來做 Containerization 的工作了。
 
@@ -199,7 +195,6 @@ $ sudo systemctl restart docker.service
 # get the service status
 $ sudo systemctl status docker.service
 ```
-
 
 ### Reference
 

@@ -8,4 +8,4 @@ export type Post = {
   // content: React.ReactNode;
   link: string;
   alt: string;
-}
+};

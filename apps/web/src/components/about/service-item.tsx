@@ -1,4 +1,4 @@
-import type { LifeStyle } from '@/types/about';
+import type { LifeStyle } from "@/types/about";
 import "@/styles/about/service-item.css";
 
 interface ServiceItemProps {
@@ -13,8 +13,12 @@ function ServiceItem({ lifestyle }: ServiceItemProps) {
       </div>
 
       <div className="text-center sm:text-left">
-        <h4 className="text-white-2 text-lg font-bold mb-[7px]">{lifestyle.title}</h4>
-        <p className="text-light-gray text-sm font-light leading-6">{lifestyle.text}</p>
+        <h4 className="text-white-2 text-lg font-bold mb-[7px]">
+          {lifestyle.title}
+        </h4>
+        <p className="text-light-gray text-sm font-light leading-6">
+          {lifestyle.text}
+        </p>
       </div>
     </li>
   );

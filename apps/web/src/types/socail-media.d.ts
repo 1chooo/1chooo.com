@@ -3,4 +3,4 @@ export type SocialMedia = {
   mediumUsername: string;
   twitterUsername: string;
   linkedinUsername: string;
-}
+};

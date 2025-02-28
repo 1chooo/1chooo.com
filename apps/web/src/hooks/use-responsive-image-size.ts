@@ -1,16 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 export type ImageSize = {
   width: number;
   height: number;
-}
+};
 
 export type Breakpoint = {
   maxWidth: number;
   size: ImageSize;
-}
+};
 
-export const useResponsiveImageSize = (breakpoints: Breakpoint[]): ImageSize => {
+export const useResponsiveImageSize = (
+  breakpoints: Breakpoint[],
+): ImageSize => {
   const defaultBreakpoint = breakpoints.length - 1;
   const [imageSize, setImageSize] = useState<ImageSize>(() => {
     return breakpoints[defaultBreakpoint].size;
@@ -30,10 +32,10 @@ export const useResponsiveImageSize = (breakpoints: Breakpoint[]): ImageSize => 
 
     handleResize();
 
-    window.addEventListener('resize', handleResize);
+    window.addEventListener("resize", handleResize);
 
     return () => {
-      window.removeEventListener('resize', handleResize);
+      window.removeEventListener("resize", handleResize);
     };
   }, [breakpoints, defaultBreakpoint]);
 

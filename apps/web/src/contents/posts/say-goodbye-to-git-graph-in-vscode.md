@@ -1,6 +1,6 @@
 ---
 title: "Say Goodbye to Git Graph in VSCode: A New Era of Source Control Visualization"
-publishedAt: '2024-09-09'
+publishedAt: "2024-09-09"
 category: DevEnv
 tags:
   - VSCode

@@ -2,8 +2,15 @@ import { Config } from "@/types/config";
 import { MdOutlineDevices, MdAttachment } from "react-icons/md";
 import { IoSchoolOutline } from "react-icons/io5";
 import { PiTrophy, PiBooks, PiMediumLogoBold } from "react-icons/pi";
-import { GoalIcon } from '@primer/octicons-react'
-import { LuGithub, LuPencil, LuLinkedin, LuRss, LuMail, LuMapPin } from "react-icons/lu";
+import { GoalIcon } from "@primer/octicons-react";
+import {
+  LuGithub,
+  LuPencil,
+  LuLinkedin,
+  LuRss,
+  LuMail,
+  LuMapPin,
+} from "react-icons/lu";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaReact, FaAws } from "react-icons/fa";
 import { TbPhoneCalling } from "react-icons/tb";
@@ -15,17 +22,24 @@ import { BiLogoFlask } from "react-icons/bi";
 import { VscTerminalLinux, VscAzure } from "react-icons/vsc";
 import { DiRedis } from "react-icons/di";
 import {
-  TbBrandCpp, TbBrandTypescript,
-  TbBrandGolang, TbBrandNextjs,
-  TbBrandDjango, TbBrandDocker, TbBrandMysql,
-  TbMarkdown, TbBrandAstro, TbBrandTerraform,
-  TbPhotoSquareRounded
+  TbBrandCpp,
+  TbBrandTypescript,
+  TbBrandGolang,
+  TbBrandNextjs,
+  TbBrandDjango,
+  TbBrandDocker,
+  TbBrandMysql,
+  TbMarkdown,
+  TbBrandAstro,
+  TbBrandTerraform,
+  TbPhotoSquareRounded,
 } from "react-icons/tb";
 
 const config: Config = {
-  avatar: '/images/profile.webp',
+  avatar: "/images/profile.webp",
   title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
-  description: "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+  description:
+    "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
   author: "Chun-Ho (Hugo) Lin - 1chooo",
   keywords: [
     "Hugo ChunHo Lin",
@@ -41,7 +55,8 @@ const config: Config = {
     type: "website",
     siteName: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
     title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
-    description: "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+    description:
+      "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
     images: [
       {
         url: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",
@@ -52,11 +67,11 @@ const config: Config = {
     ],
   },
   navItems: [
-    { path: '/', label: 'About' },
-    { path: '/resume', label: 'Resume' },
-    { path: '/portfolio', label: 'Portfolio' },
-    { path: '/post', label: 'Post' },
-    { path: '/gallery', label: 'Gallery' },
+    { path: "/", label: "About" },
+    { path: "/resume", label: "Resume" },
+    { path: "/portfolio", label: "Portfolio" },
+    { path: "/post", label: "Post" },
+    { path: "/gallery", label: "Gallery" },
   ],
   contacts: [
     {
@@ -94,22 +109,30 @@ const config: Config = {
     },
   ],
   socialLinks: [
-    { url: `https://github.com/1chooo`, icon: LuGithub, name: 'GitHub' },
-    { url: `https://www.linkedin.com/in/1chooo/`, icon: LuLinkedin, name: 'LinkedIn' },
-    { url: `https://medium.com/@1chooo`, icon: PiMediumLogoBold, name: 'Medium' },
-    { url: `https://twitter.com/1chooo___`, icon: FaXTwitter, name: 'Twitter' },
-    { url: `/rss.xml`, icon: LuRss, name: 'RSS Feed' },
-    { url: `/cv.pdf`, icon: MdAttachment, name: 'CV' },
+    { url: `https://github.com/1chooo`, icon: LuGithub, name: "GitHub" },
+    {
+      url: `https://www.linkedin.com/in/1chooo/`,
+      icon: LuLinkedin,
+      name: "LinkedIn",
+    },
+    {
+      url: `https://medium.com/@1chooo`,
+      icon: PiMediumLogoBold,
+      name: "Medium",
+    },
+    { url: `https://twitter.com/1chooo___`, icon: FaXTwitter, name: "Twitter" },
+    { url: `/rss.xml`, icon: LuRss, name: "RSS Feed" },
+    { url: `/cv.pdf`, icon: MdAttachment, name: "CV" },
   ],
   about: {
-    "firstName": 'Chun-Ho',
-    "lastName": 'Lin',
-    "middleName": "",
-    "preferredName": "Hugo",
-    "additionalName": "Hugo",
-    "pronouns": 'He/Him',
-    "githubUsername": "1chooo",
-    "introduction": `
+    firstName: "Chun-Ho",
+    lastName: "Lin",
+    middleName: "",
+    preferredName: "Hugo",
+    additionalName: "Hugo",
+    pronouns: "He/Him",
+    githubUsername: "1chooo",
+    introduction: `
 I obtained my Bachelor's degree from [National Central University 🐿️](https://www.ncu.edu.tw/), driven by a *sincere passion* for **Software Engineering 💻.**
 
 Software is built by humans. Unfortunately, humans make errors, <mark class="text-orange-yellow-crayola bg-transparent"><b>LOTS of ERRORS.</b></mark> Throughout human history, humans have learned to craft machines and tools to help us construct complex architecture. Inspired by this, I explore practical methodologies and tools to improve large-scale software systems' quality, reliability, and efficiency.
@@ -118,63 +141,63 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
 
 **Self-motivated, Team player, Love coding 👨🏻‍💻**
     `,
-    "lifestyles": [
+    lifestyles: [
       {
         icon: LuGithub,
         title: "Open Source",
-        text: "Actively contributing to open source projects on GitHub."
+        text: "Actively contributing to open source projects on GitHub.",
       },
       {
         icon: LuPencil,
         title: "Storytelling",
-        text: "Love to share my knowledge and experience with others."
+        text: "Love to share my knowledge and experience with others.",
       },
       {
         icon: GoalIcon,
         title: "Workouts",
-        text: "Basketball and weight training defines my active workout lifestyle."
+        text: "Basketball and weight training defines my active workout lifestyle.",
       },
       {
         icon: TbPhotoSquareRounded,
         title: "Photography",
-        text: "Sky brings freedom; streets, a reminder of others' contributions."
-      }
+        text: "Sky brings freedom; streets, a reminder of others' contributions.",
+      },
     ],
-    "techStacks": {
+    techStacks: {
       programmingLanguages: [
-        { name: 'Python', icon: AiOutlinePython },
-        { name: 'TypeScript', icon: TbBrandTypescript },
-        { name: 'Golang', icon: TbBrandGolang },
-        { name: 'C++', icon: TbBrandCpp },
-        { name: 'Java', icon: RiJavaLine },
-        { name: 'JavaScript', icon: RiJavascriptLine },
-        { name: 'LaTeX', icon: SiLatex },
-        { name: 'Markdown', icon: TbMarkdown },
-        { name: 'Astro', icon: TbBrandAstro },
-        { name: 'Terraform', icon: TbBrandTerraform },
+        { name: "Python", icon: AiOutlinePython },
+        { name: "TypeScript", icon: TbBrandTypescript },
+        { name: "Golang", icon: TbBrandGolang },
+        { name: "C++", icon: TbBrandCpp },
+        { name: "Java", icon: RiJavaLine },
+        { name: "JavaScript", icon: RiJavascriptLine },
+        { name: "LaTeX", icon: SiLatex },
+        { name: "Markdown", icon: TbMarkdown },
+        { name: "Astro", icon: TbBrandAstro },
+        { name: "Terraform", icon: TbBrandTerraform },
       ],
       frameworks: [
-        { name: 'React', icon: FaReact },
-        { name: 'FastAPI', icon: SiFastapi },
-        { name: 'Flask', icon: BiLogoFlask },
-        { name: 'Redis', icon: DiRedis },
-        { name: 'Linux Terminal', icon: VscTerminalLinux },
-        { name: 'AWS', icon: FaAws },
-        { name: 'Next.js', icon: TbBrandNextjs },
-        { name: 'Docker', icon: TbBrandDocker },
-        { name: 'MySQL', icon: TbBrandMysql },
-        { name: 'Django', icon: TbBrandDjango },
-        { name: 'Kubernetes', icon: SiKubernetes },
-        { name: 'Postman', icon: SiPostman },
-        { name: 'Azure', icon: VscAzure },
+        { name: "React", icon: FaReact },
+        { name: "FastAPI", icon: SiFastapi },
+        { name: "Flask", icon: BiLogoFlask },
+        { name: "Redis", icon: DiRedis },
+        { name: "Linux Terminal", icon: VscTerminalLinux },
+        { name: "AWS", icon: FaAws },
+        { name: "Next.js", icon: TbBrandNextjs },
+        { name: "Docker", icon: TbBrandDocker },
+        { name: "MySQL", icon: TbBrandMysql },
+        { name: "Django", icon: TbBrandDjango },
+        { name: "Kubernetes", icon: SiKubernetes },
+        { name: "Postman", icon: SiPostman },
+        { name: "Azure", icon: VscAzure },
       ],
-    }
+    },
   },
   resume: {
-    "educations": {
-      "icon": IoSchoolOutline,
-      "title": "Education",
-      "items": [
+    educations: {
+      icon: IoSchoolOutline,
+      title: "Education",
+      items: [
         {
           company: "National Central University",
           location: "Taoyuan, Taiwan",
@@ -189,10 +212,10 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
         },
       ],
     },
-    "awardLeaderships": {
-      "icon": PiTrophy,
-      "title": "Award & Leaderships",
-      "items": [
+    awardLeaderships: {
+      icon: PiTrophy,
+      title: "Award & Leaderships",
+      items: [
         {
           company: "2023 Weather Hackathon",
           location: "Taipei, Taiwan",
@@ -207,16 +230,16 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
         },
       ],
     },
-    "teachingExperiences": {
-      "icon": PiBooks,
-      "title": "Teaching",
-      "items": [
+    teachingExperiences: {
+      icon: PiBooks,
+      title: "Teaching",
+      items: [
         {
-          "company": "National Central University",
-          "location": "Taoyuan, Taiwan",
-          "role": "Teaching Assistant",
-          "duration": "Feb. 2021 - Jun. 2024",
-          "tasksMarkdown": `
+          company: "National Central University",
+          location: "Taoyuan, Taiwan",
+          role: "Teaching Assistant",
+          duration: "Feb. 2021 - Jun. 2024",
+          tasksMarkdown: `
 - GS4538 Linux and Edge Computing, 24 Spring, Dr. Chia-Kai Chang <sup>[[Website](https://ncuedu.tw/course/linux)] | [[GitHub](https://github.com/NCU-GS4538-Linux)]</sup>
 - AP4064 Weather and Artificial Intelligence II, 24 Spring, Mr. Che-Wei Chou <sup>[[GitHub](https://github.com/weather-and-ai)]</sup>
 - AP4063 Weather and Artificial Intelligence I, 23 Fall, Mr. Che-Wei Chou <sup>[[GitHub](https://github.com/weather-and-ai)]</sup>
@@ -227,60 +250,60 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
         },
       ],
     },
-    "professionalExperiences": {
-      "icon": MdOutlineDevices,
-      "title": "Professional Experience",
-      "items": [
+    professionalExperiences: {
+      icon: MdOutlineDevices,
+      title: "Professional Experience",
+      items: [
         {
-          "company": "eCloudvalley Digital Technology",
-          "location": "New Taipei, Taiwan",
-          "role": "Cloud Engineer Intern",
-          "duration": "Mar. 2024 - May. 2024",
-          "tasksMarkdown": `
+          company: "eCloudvalley Digital Technology",
+          location: "New Taipei, Taiwan",
+          role: "Cloud Engineer Intern",
+          duration: "Mar. 2024 - May. 2024",
+          tasksMarkdown: `
 - Led a team of 5 to enhance issue pools with AWS Bedrock, boosting cloud support efficiency by 80% through multi-language support and 95% accurate image recognition. Honored as the top-achieving internship team.
 - Utilized a serverless architecture on AWS Lambda, performing troubleshooting with CloudWatch, deployed via AWS CDK, and integrated with DynamoDB and Bedrock services.
 - Documented issues in 10+ mock cases, such as VPC entry failures, EC2 Apache server restarts, and S3 photo access problems, and provided detailed solutions for interns. Refer [here](https://github.com/1chooo/ecv-training-materials/tree/main/msp/aws_challenge) for a comprehensive list.
           `,
         },
         {
-          "company": "Amazon Web Services",
-          "location": "Taipei, Taiwan",
-          "role": "Campus Ambassador",
-          "duration": "Aug. 2023 - Jan. 2024",
-          "tasksMarkdown": `
+          company: "Amazon Web Services",
+          location: "Taipei, Taiwan",
+          role: "Campus Ambassador",
+          duration: "Aug. 2023 - Jan. 2024",
+          tasksMarkdown: `
 - Educated 700+ cloud developers and achieved 96% user satisfaction by conducting 2 technical workshops, developing an open-source project, and 1 UAD with AWS cloud services. Refer [here](https://github.com/aws-educate-tw/aws-line-business-card-workshop) for the source code.
 - Conducted a comprehensive 35+ page market research study on cloud suppliers as part of an 11-member team.
           `,
         },
         {
-          "company": "PEGATRON Corporation",
-          "location": "Taipei, Taiwan",
-          "role": "Software Engineer Intern",
-          "duration": "Jul. 2023 - Aug. 2023",
-          "tasksMarkdown": `
+          company: "PEGATRON Corporation",
+          location: "Taipei, Taiwan",
+          role: "Software Engineer Intern",
+          duration: "Jul. 2023 - Aug. 2023",
+          tasksMarkdown: `
 - Executed a POC, adapting an LLM model for Smart Manufacturing, and was awarded Silver internship team.
 - Collaborated with a team of 5, utilized Git, a CI/CD pipeline, and followed an agile Scrum workflow.
 - Implemented Prompt Engineering and LangChain for the NVIDIA Ominerve visual robot, enabling seamless speech/text operation, boosting test support by 83% across 6-11 scenarios with 85% stability.
           `,
         },
         {
-          "company": "National Central University",
-          "location": "Taoyuan, Taiwan",
-          "role": "Website Developer",
-          "duration": "Jul. 2022 - Jan. 2023",
-          "tasksMarkdown": `
+          company: "National Central University",
+          location: "Taoyuan, Taiwan",
+          role: "Website Developer",
+          duration: "Jul. 2022 - Jan. 2023",
+          tasksMarkdown: `
 - Partnered with a team of 2 to develop a multi-user score management system for the Center for Teacher Education, reducing credit exemption processing time by 80% and remotely maintaining the server via SSH.
           `,
         },
       ],
     },
   },
-  "giscusConfig": {
+  giscusConfig: {
     id: "comments",
     repo: "1chooo/1chooo.com",
-    repoId: process.env.NEXT_PUBLIC_GISCUS_REPO_ID || '',
+    repoId: process.env.NEXT_PUBLIC_GISCUS_REPO_ID || "",
     category: "General",
-    categoryId: process.env.NEXT_PUBLIC_GISCUS_CONFIG_CATEGORY_ID || '',
+    categoryId: process.env.NEXT_PUBLIC_GISCUS_CONFIG_CATEGORY_ID || "",
     mapping: "pathname",
     term: "Welcome to @giscus/react component!",
     reactionsEnabled: "1",
@@ -290,8 +313,8 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
     lang: "en",
     loading: "lazy",
   },
-  "googleAnalyticId": process.env.NEXT_PUBLIC_GA_ID || '',
-  "googleTagManagerId": process.env.NEXT_PUBLIC_GTM_ID || '',
+  googleAnalyticId: process.env.NEXT_PUBLIC_GA_ID || "",
+  googleTagManagerId: process.env.NEXT_PUBLIC_GTM_ID || "",
 };
 
 export default config;

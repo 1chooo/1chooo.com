@@ -12,6 +12,6 @@ function AboutHeader({ id, text }: AboutHeaderProps) {
       <code>{text}</code>
     </h2>
   );
-};
+}
 
 export default AboutHeader;

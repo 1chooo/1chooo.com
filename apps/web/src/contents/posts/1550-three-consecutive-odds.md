@@ -1,26 +1,23 @@
 ---
 title: "💯✅ LeetCode 1550. Three Consecutive Odds | Go"
-publishedAt: '2024-07-02'
+publishedAt: "2024-07-02"
 category: LeetCode
 tags:
   - Array
   - Go
-summary: 'Given an integer array arr, return true if there are three consecutive odd numbers in the array. Otherwise, return false.'
+summary: "Given an integer array arr, return true if there are three consecutive odd numbers in the array. Otherwise, return false."
 banner: /images/banner/posts/1550-three-consecutive-odds.webp
 alt: "💯✅ LeetCode 1550. Three Consecutive Odds | Go"
 mathjax: true
 ---
 
-
 Link 👉🏻 [1550. Three Consecutive Odds](https://leetcode.com/problems/three-consecutive-odds)
 
 ![💯✅ LeetCode 1550. Three Consecutive Odds | Go by Hugo](/images/banner/posts/1550-three-consecutive-odds.webp)
 
-
 ### Description
 
 Given an integer array `arr`, return `true` if there are three consecutive odd numbers in the array. Otherwise, return `false`.
- 
 
 **Example 1:**
 
@@ -28,13 +25,11 @@ Given an integer array `arr`, return `true` if there are three consecutive odd n
 - Output: `false`
 - Explanation: `There are no three consecutive odds.`
 
-
 **Example 2:**
 
 - Input: `arr = [1,2,34,3,4,5,7,23,12]`
 - Output: `true`
 - Explanation: `[5,7,23] are three consecutive odds.`
- 
 
 **Constraints:**
 
@@ -56,7 +51,6 @@ We have to check if there are "three consecutive odd numbers" in the array. We c
 
 - Time Complexity: $O(N)$
 - Space Complexity: $O(1)$
-
 
 ### Code
 

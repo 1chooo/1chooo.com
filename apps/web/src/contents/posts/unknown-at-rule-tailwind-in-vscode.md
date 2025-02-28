@@ -1,8 +1,8 @@
 ---
 title: 'Solving the "Unknown rule @tailwind" Issue in VSCode'
-publishedAt: '2024-10-27'
+publishedAt: "2024-10-27"
 category: DevEnv
-tags: 
+tags:
   - VSCode
   - Tailwind
   - Unknown at rule
@@ -35,6 +35,7 @@ To address this, simply install the [`PostCSS Language Support`](https://marketp
 ### How to Install PostCSS Language Support
 
 1. Open the extension marketplace in VSCode.
+
    - **Shortcut**: Press `Ctrl/Command + Shift + X`.
    - **Manual Navigation**: Click the Extensions icon on the left toolbar.
 
@@ -49,7 +50,6 @@ Once installed, you should see that the `@tailwind` rule is no longer flagged as
 ![No More Tailwind Alert](/images/posts/unknown-at-rule-tailwind-in-vscode/no-tailwind-alert-message.png)
 
 After above steps, you should no longer see the "Unknown at rule @tailwind" message in your VSCode editor. This simple solution will help you work more efficiently with Tailwind CSS in your projects. If you still want to catch up on more tips and tricks when working with VSCode, follow my blog for more helpful content.
-
 
 ## Additional Resources
 

@@ -1,17 +1,16 @@
-import { SlugifyOptions, CharMap } from './types';
-import { charMap, locales } from './data';
+import { SlugifyOptions, CharMap } from "./types";
+import { charMap, locales } from "./data";
 
 function slugify(string: string, options?: SlugifyOptions | string): string {
-  if (typeof string !== 'string') {
-    throw new Error('slugify: string argument expected');
+  if (typeof string !== "string") {
+    throw new Error("slugify: string argument expected");
   }
 
-  const opts: SlugifyOptions = typeof options === 'string'
-    ? { replacement: options }
-    : options || {};
+  const opts: SlugifyOptions =
+    typeof options === "string" ? { replacement: options } : options || {};
 
-  const locale = locales[opts.locale || ''] || {};
-  const replacement = opts.replacement === undefined ? '-' : opts.replacement;
+  const locale = locales[opts.locale || ""] || {};
+  const replacement = opts.replacement === undefined ? "-" : opts.replacement;
   const trim = opts.trim === undefined ? true : opts.trim;
 
   let slug = Array.from(string.normalize())
@@ -19,14 +18,14 @@ function slugify(string: string, options?: SlugifyOptions | string): string {
       let appendChar = locale[ch];
       if (appendChar === undefined) appendChar = charMap[ch];
       if (appendChar === undefined) appendChar = ch;
-      if (appendChar === replacement) appendChar = ' ';
-      
+      if (appendChar === replacement) appendChar = " ";
+
       return result + appendChar;
-    }, '')
-    .replace(opts.remove || /[^\w\s$*_+~.()'"!\-:@]+/g, '');
+    }, "")
+    .replace(opts.remove || /[^\w\s$*_+~.()'"!\-:@]+/g, "");
 
   if (opts.strict) {
-    slug = slug.replace(/[^A-Za-z0-9\s]/g, '');
+    slug = slug.replace(/[^A-Za-z0-9\s]/g, "");
   }
 
   if (trim) {
@@ -51,4 +50,3 @@ namespace slugify {
 }
 
 export default slugify;
-

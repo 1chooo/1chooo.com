@@ -1,7 +1,7 @@
-import AboutHeader from '@/components/about/about-header';
-import ServiceItem from '@/components/about/service-item';
+import AboutHeader from "@/components/about/about-header";
+import ServiceItem from "@/components/about/service-item";
 
-import type { LifeStyle } from '@/types/about';
+import type { LifeStyle } from "@/types/about";
 
 interface LifeStylesProps {
   lifestyles: LifeStyle[];

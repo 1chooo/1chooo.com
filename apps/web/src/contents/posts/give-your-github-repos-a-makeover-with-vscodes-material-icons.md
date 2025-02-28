@@ -2,7 +2,7 @@
 title: "Give Your GitHub Repos a Makeover with VSCode's Material Icons"
 category: DevEnv
 publishedAt: 2024-11-15
-tags: 
+tags:
   - GitHub
   - VSCode
   - Material Icons
@@ -47,10 +47,8 @@ What I take is `React` Pack because it's the same as my VSCode.
 
 ![My settings of Material Icons for GitHub](/images/posts/give-your-github-repos-a-makeover-with-vscodes-material-icons/my-settings.png)
 
-
 To sum up, with the help of [Material Icons for GitHub], you can give your GitHub repos a makeover with VS Code's Material Icons. It's very easy to use. Just install the plugin and pick up the style you like. I hope you enjoy it. 😊
 
 If you want to catch up with me, you can follow me on [Medium](https://medium.com/@1chooo), I will share more cool plugins with you. See you next time. 👋
-
 
 [Material Icons for GitHub]: https://chromewebstore.google.com/detail/material-icons-for-github/bggfcpfjbdkhfhfmkjpbhnkhnpjjeomc

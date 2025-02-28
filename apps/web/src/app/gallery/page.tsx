@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BlurFadeDemo } from "@/components/magicui/blur-fade-demo";
 import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
-import PageHeader from '@/components/page-header';
-import config from '@/config';
+import PageHeader from "@/components/page-header";
+import config from "@/config";
 import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
 
@@ -33,13 +33,12 @@ function Gallery() {
             >
               Thanks for Magic UI!
             </span>
-
             <ChevronRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5 text-white-1" />
           </AnimatedGradientText>
         </Link>
       </div>
     </article>
   );
-};
+}
 
 export default Gallery;

@@ -1,8 +1,8 @@
 "use client";
 
-import React, { useState, useRef } from 'react';
-import SideBarInfo from '@/components/side-bar/sidebar-info';
-import SideBarInfoMore from '@/components/side-bar/sidebar-info-more';
+import React, { useState, useRef } from "react";
+import SideBarInfo from "@/components/side-bar/sidebar-info";
+import SideBarInfoMore from "@/components/side-bar/sidebar-info-more";
 import config from "@/config";
 
 const { socialLinks, contacts } = config;
@@ -28,10 +28,10 @@ function SideBar({
   const sideBarRef = useRef<HTMLDivElement>(null);
 
   const handleSidebarToggle = () => {
-    setIsActive(prevState => !prevState);
+    setIsActive((prevState) => !prevState);
   };
 
-  const sideBarState = `sidebar ${isActive ? 'active' : ''}`;
+  const sideBarState = `sidebar ${isActive ? "active" : ""}`;
 
   return (
     <aside className={sideBarState} ref={sideBarRef} data-sidebar>
@@ -47,6 +47,6 @@ function SideBar({
       <SideBarInfoMore contacts={contacts} socialLinks={socialLinks} />
     </aside>
   );
-};
+}
 
 export default SideBar;

@@ -1,15 +1,16 @@
-'use client'
+"use client";
 
-import React, { useEffect, useRef } from 'react';
-import createGlobe from 'cobe';
-import { useSpring } from 'react-spring';
+import React, { useEffect, useRef } from "react";
+import createGlobe from "cobe";
+import { useSpring } from "react-spring";
 import { LuMapPin } from "react-icons/lu";
 
 function AutoRotatingGlobe() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const pointerInteracting = useRef<number | null>(null);
   const pointerInteractionMovement = useRef(0);
-  const fadeMask = 'radial-gradient(circle at 50% 50%, rgb(0, 0, 0) 60%, rgb(0, 0, 0, 0) 70%)';
+  const fadeMask =
+    "radial-gradient(circle at 50% 50%, rgb(0, 0, 0) 60%, rgb(0, 0, 0, 0) 70%)";
   const rotationRef = useRef<number>(0);
 
   const [{ r }, api] = useSpring(() => ({
@@ -18,8 +19,8 @@ function AutoRotatingGlobe() {
       mass: 1,
       tension: 280,
       friction: 40,
-      precision: 0.001
-    }
+      precision: 0.001,
+    },
   }));
 
   useEffect(() => {
@@ -34,7 +35,7 @@ function AutoRotatingGlobe() {
       }
     };
 
-    window.addEventListener('resize', onResize);
+    window.addEventListener("resize", onResize);
     onResize();
 
     if (!canvasRef.current) return;
@@ -63,60 +64,62 @@ function AutoRotatingGlobe() {
         state.width = width * 2;
         state.height = width * 2;
         rotationRef.current = currentPhi;
-      }
+      },
     });
 
     return () => {
       globe.destroy();
-      window.removeEventListener('resize', onResize);
+      window.removeEventListener("resize", onResize);
     };
   }, [r]);
 
   return (
-    <div className='absolute inset-x-0 bottom-[-190px] mx-auto aspect-square h-[388px] [@media(max-width:420px)]:bottom-[-140px] [@media(max-width:420px)]:h-[320px] [@media(min-width:768px)_and_(max-width:858px)]:h-[380px]'>
-      <div className='flex items-center gap-2 text-white-2 mt-4 ml-4'>
+    <div className="absolute inset-x-0 bottom-[-190px] mx-auto aspect-square h-[388px] [@media(max-width:420px)]:bottom-[-140px] [@media(max-width:420px)]:h-[320px] [@media(min-width:768px)_and_(max-width:858px)]:h-[380px]">
+      <div className="flex items-center gap-2 text-white-2 mt-4 ml-4">
         <LuMapPin size={24} />
-        <h2 className='text-sm font-light'>Taipei, Taiwan (UTC +08:00)</h2>
+        <h2 className="text-sm font-light">Taipei, Taiwan (UTC +08:00)</h2>
       </div>
       <div
         style={{
-          width: '100%',
-          height: '100%',
-          display: 'flex',
-          placeItems: 'center',
-          placeContent: 'center',
-          overflow: 'visible'
+          width: "100%",
+          height: "100%",
+          display: "flex",
+          placeItems: "center",
+          placeContent: "center",
+          overflow: "visible",
         }}
       >
         <div
           style={{
-            width: '100%',
-            aspectRatio: '1/1',
+            width: "100%",
+            aspectRatio: "1/1",
             maxWidth: 800,
             WebkitMaskImage: fadeMask,
-            maskImage: fadeMask
+            maskImage: fadeMask,
           }}
         >
           <canvas
             ref={canvasRef}
             onPointerDown={(e) => {
-              pointerInteracting.current = e.clientX - pointerInteractionMovement.current;
-              if (canvasRef.current) canvasRef.current.style.cursor = 'grabbing';
+              pointerInteracting.current =
+                e.clientX - pointerInteractionMovement.current;
+              if (canvasRef.current)
+                canvasRef.current.style.cursor = "grabbing";
             }}
             onPointerUp={() => {
               pointerInteracting.current = null;
-              if (canvasRef.current) canvasRef.current.style.cursor = 'grab';
+              if (canvasRef.current) canvasRef.current.style.cursor = "grab";
             }}
             onPointerOut={() => {
               pointerInteracting.current = null;
-              if (canvasRef.current) canvasRef.current.style.cursor = 'grab';
+              if (canvasRef.current) canvasRef.current.style.cursor = "grab";
             }}
             onMouseMove={(e) => {
               if (pointerInteracting.current !== null) {
                 const delta = e.clientX - pointerInteracting.current;
                 pointerInteractionMovement.current = delta;
                 api.start({
-                  r: delta / 200
+                  r: delta / 200,
                 });
               }
             }}
@@ -125,16 +128,16 @@ function AutoRotatingGlobe() {
                 const delta = e.touches[0].clientX - pointerInteracting.current;
                 pointerInteractionMovement.current = delta;
                 api.start({
-                  r: delta / 100
+                  r: delta / 100,
                 });
               }
             }}
             style={{
-              width: '100%',
-              height: '100%',
-              contain: 'layout paint size',
-              cursor: 'grab',
-              userSelect: 'none'
+              width: "100%",
+              height: "100%",
+              contain: "layout paint size",
+              cursor: "grab",
+              userSelect: "none",
             }}
           />
         </div>

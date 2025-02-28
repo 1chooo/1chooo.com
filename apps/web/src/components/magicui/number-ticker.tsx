@@ -6,7 +6,7 @@ import { useInView, useMotionValue, useSpring } from "motion/react";
 import { cn } from "@/lib/utils";
 
 /**
- * 
+ *
  * @see https://magicui.design/docs/components/number-ticker
  */
 export function NumberTicker({

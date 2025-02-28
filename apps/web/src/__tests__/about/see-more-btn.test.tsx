@@ -1,4 +1,4 @@
-import '@testing-library/jest-dom';
+import "@testing-library/jest-dom";
 import { render, screen, fireEvent } from "@testing-library/react";
 import SeeMoreButton from "@/components/about/see-more-button";
 import { sendGTMEvent } from "@/components/google";
@@ -13,14 +13,18 @@ describe("SeeMoreButton", () => {
   const mockPath = "/example-path";
 
   it("navigates to the correct path when clicked", () => {
-    render(<SeeMoreButton badge={mockBadge} path={mockPath} icon={FaArrowRight} />);
+    render(
+      <SeeMoreButton badge={mockBadge} path={mockPath} icon={FaArrowRight} />,
+    );
 
     const link = screen.getByRole("link");
     expect(link).toHaveAttribute("href", mockPath);
   });
 
   it("sends the GTM event when clicked", () => {
-    render(<SeeMoreButton badge={mockBadge} path={mockPath} icon={FaArrowRight} />);
+    render(
+      <SeeMoreButton badge={mockBadge} path={mockPath} icon={FaArrowRight} />,
+    );
 
     const button = screen.getByRole("button");
     fireEvent.click(button);
@@ -32,7 +36,9 @@ describe("SeeMoreButton", () => {
   });
 
   it("applies the correct styles on hover and active states", () => {
-    render(<SeeMoreButton badge={mockBadge} path={mockPath} icon={FaArrowRight} />);
+    render(
+      <SeeMoreButton badge={mockBadge} path={mockPath} icon={FaArrowRight} />,
+    );
 
     const button = screen.getByRole("button");
 

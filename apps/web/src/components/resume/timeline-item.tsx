@@ -34,6 +34,6 @@ function TimelineItem({
       </div>
     </li>
   );
-};
+}
 
 export default TimelineItem;

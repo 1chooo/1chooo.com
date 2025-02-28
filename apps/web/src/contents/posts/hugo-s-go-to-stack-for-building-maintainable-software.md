@@ -1,8 +1,8 @@
 ---
 title: "Hugo's Go-To Stack for Building Maintainable Software"
-publishedAt: '2025-01-09'
+publishedAt: "2025-01-09"
 category: Coding
-tags: 
+tags:
   - React
   - Web Development
   - Clean Code
@@ -41,7 +41,7 @@ interface Props {
   text?: string;
 }
 
-function Heading({text = "Hello, world!"}: Props) {
+function Heading({ text = "Hello, world!" }: Props) {
   return <h1>{text}</h1>;
 }
 ```

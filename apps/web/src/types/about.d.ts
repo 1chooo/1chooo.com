@@ -6,7 +6,7 @@ export type LifeStyle = {
   icon: VCardIconType;
   title: string;
   text: string;
-}
+};
 
 export type TechStack = {
   name: string;
@@ -44,4 +44,4 @@ export type About = {
   introduction: string;
   lifestyles: LifeStyle[];
   techStacks: TechStacks;
-}
+};

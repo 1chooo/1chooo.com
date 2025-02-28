@@ -1,6 +1,6 @@
 ---
 title: "Who is Chun-Ho (Hugo) Lin 👨🏻‍💻"
-publishedAt: '2025-01-02'
+publishedAt: "2025-01-02"
 category: Life
 tags:
   - Introduction
@@ -14,7 +14,7 @@ alt: "Who is Chun-Ho (Hugo) Lin"
 mathjax: true
 ---
 
-I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from [National Central University 🐿️](https://www.ncu.edu.tw/), driven by a *sincere passion* for **Software Engineering 💻.**
+I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from [National Central University 🐿️](https://www.ncu.edu.tw/), driven by a _sincere passion_ for **Software Engineering 💻.**
 
 ![Hugo was the Cloud Ambassador at AWS.](https://miro.medium.com/v2/resize:fit:1400/format:webp/1*bLp6dAkksB3iG4kDxMP0bA.jpeg)
 

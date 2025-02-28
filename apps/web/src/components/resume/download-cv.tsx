@@ -6,11 +6,7 @@ import { cn } from "@/lib/utils";
 function DownloadCV() {
   return (
     <div className="z-10 flex items-center justify-center mt-5 mb-5">
-      <Link
-        href="/cv.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-      >
+      <Link href="/cv.pdf" target="_blank" rel="noopener noreferrer">
         <AnimatedGradientText>
           📑 <hr className="mx-2 h-4 w-px shrink-0 bg-gray-300" />{" "}
           <span
@@ -20,7 +16,6 @@ function DownloadCV() {
           >
             Download Hugo's full CV
           </span>
-
           <ChevronRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5 text-white-1" />
         </AnimatedGradientText>
       </Link>

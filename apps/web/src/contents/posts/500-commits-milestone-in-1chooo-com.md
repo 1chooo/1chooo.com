@@ -3,7 +3,7 @@ title: "Built a 500 commits GitHub Repository: 10 essential steps you can't miss
 category: Project
 publishedAt: 2024-08-28
 summary: A 500 commits Side Project is born, let's dive into how Hugo did it!
-tags: 
+tags:
   - React
   - Typescript
 banner: /images/banner/posts/500-commits-milestone-in-1chooo-com.webp
@@ -17,7 +17,6 @@ Hey everyone! I'm Hugo, and I’ve just graduated from National Central Universi
 While 500 commits might seem trivial for large-scale projects, it’s a major accomplishment for a personal side project like mine. Keeping this project alive has been a challenge—one that requires continuously introducing new features, setting new goals, and tackling technical debt. In this post, I want to reflect on the efforts that went into reaching this milestone, share the invaluable lessons I’ve learned along the way, and discuss some of the challenges I encountered.
 
 ![Built a 500 commits GitHub Repository: 10 essential steps you can't miss by Hugo](/images/banner/posts/500-commits-milestone-in-1chooo-com.webp)
-
 
 Before diving into today’s discussion, let me give you a quick overview of my project's current state. The idea behind this project started with a simple desire—I wanted to create a personal website. Although I had attempted several iterations in the past, none of them quite met my expectations. So, I turned to GitHub, searching through keywords like "portfolio" and "personal website" to find a design that matched my vision. It felt a bit like taking a shortcut, but that’s the beauty of open source, right?
 
@@ -55,7 +54,6 @@ A dedicated space for people to reach out to me with any questions or discussion
 
 ![1chooo.com/contact](/images/posts/500-commits-milestone-in-1chooo-com/contact.png)
 
-
 After giving you a quick tour of my website, let’s dive into the main topic. Before we get into the lessons and takeaways, I'd like to present some data that highlights the key features and changes I've implemented. Here are the top ten features I’ve introduced to the project:
 
 1. **Code Refactor**: I refactored the original codebase, transitioning from plain HTML, CSS, and JS to using the [React](https://react.dev/) framework for better scalability and maintainability. The website is now deployed via [Vercel](https://vercel.com/).
@@ -79,14 +77,13 @@ In the original project by [Sadee](https://github.com/codewithsadee), the websit
 
 At this point, I considered my options among the major front-end frameworks: [React](https://react.dev/), [Vue](https://vuejs.org/), and [Laravel](https://laravel.com/). I opted for [React](https://react.dev/) in combination with [TypeScript](https://www.typescriptlang.org/) since I had previous experience with it and was confident I could rely on the wealth of community resources available for React development. This decision marked the beginning of a large-scale refactoring journey.
 
-The first step was to thoroughly understand the original codebase, which involved untangling the interwoven HTML, CSS, and JavaScript. I then rewrote it using React components, breaking down the structure into manageable, reusable pieces. This was no small task—some sections took weeks to fully refactor. However, transitioning the project to React allowed me to break up the monolithic HTML file into distinct components, each responsible for a specific section of the website. By integrating React Router, I implemented dynamic page transitions, ensuring only the necessary components were loaded when navigating between pages. 
+The first step was to thoroughly understand the original codebase, which involved untangling the interwoven HTML, CSS, and JavaScript. I then rewrote it using React components, breaking down the structure into manageable, reusable pieces. This was no small task—some sections took weeks to fully refactor. However, transitioning the project to React allowed me to break up the monolithic HTML file into distinct components, each responsible for a specific section of the website. By integrating React Router, I implemented dynamic page transitions, ensuring only the necessary components were loaded when navigating between pages.
 
 This refactor not only made the code more maintainable and easier to navigate but also provided me with the flexibility to extend the project in the future. The use of React components enabled cleaner separation of concerns, and I was no longer limited by the design choices of the original author.
 
-
 ### Shared Components
 
-Refactoring was only part of the challenge, as I was stepping into front-end development for the first time. Initially, my React components were mostly just HTML code returned within `render` functions. However, during a self-review of my code, I noticed many opportunities for optimization. A significant issue was that several components could be made reusable, sharing similar styles and logic. In essence, I had fallen into a pattern of Copy-Paste Programming, where the same code was repeated in multiple places. 
+Refactoring was only part of the challenge, as I was stepping into front-end development for the first time. Initially, my React components were mostly just HTML code returned within `render` functions. However, during a self-review of my code, I noticed many opportunities for optimization. A significant issue was that several components could be made reusable, sharing similar styles and logic. In essence, I had fallen into a pattern of Copy-Paste Programming, where the same code was repeated in multiple places.
 
 Through this process, I learned to harness the power of the `map()` function in React. By passing in parameters, I could dynamically render components without duplicating code. This dramatically reduced redundancy and made the codebase cleaner and more maintainable. If you're interested in a more detailed breakdown of how to implement `map()` for elegance in a React TypeScript project, check out my article 👉🏻 [How to Make Your React TypeScript Project More Elegant with `map()`](blog/make-your-react-more-elegant-with-map).
 
@@ -100,7 +97,7 @@ To address this, I began following the [Conventional Commits](https://www.conven
 
 ### Issues & Milestones
 
-As my project evolved, the number of commits grew, and I realized that some commits lacked proper documentation. To manage changes more efficiently, I started using **Issues** as a way to keep track of the features and modifications I wanted to implement. This approach aligns with Agile practices, allowing me to clearly outline tasks, estimate the time needed, and identify the required technologies (though I must admit, there were still times I pushed directly to the `main` branch! 😅). 
+As my project evolved, the number of commits grew, and I realized that some commits lacked proper documentation. To manage changes more efficiently, I started using **Issues** as a way to keep track of the features and modifications I wanted to implement. This approach aligns with Agile practices, allowing me to clearly outline tasks, estimate the time needed, and identify the required technologies (though I must admit, there were still times I pushed directly to the `main` branch! 😅).
 
 Later on, I discovered **GitHub Milestones** while submitting PRs to the Microsoft VSCode Docs. Milestones helped me group related tasks under a specific goal, usually organized by time periods like "August 2024," making it easier to manage my project effectively. By associating issues with milestones, I could better track progress and stay organized on what I wanted to accomplish each month.
 

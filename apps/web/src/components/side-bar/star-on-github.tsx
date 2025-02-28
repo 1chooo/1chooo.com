@@ -1,4 +1,4 @@
-import Link from "next/link"
+import Link from "next/link";
 import { cn } from "@/lib/utils";
 import NumberTicker from "@/registry/default/magicui/number-ticker";
 import { buttonVariants } from "@/components/ui/button";
@@ -17,9 +17,9 @@ async function StarOnGitHub() {
       {
         headers: process.env.GITHUB_OAUTH_TOKEN
           ? {
-            Authorization: `Bearer ${process.env.GITHUB_OAUTH_TOKEN}`,
-            "Content-Type": "application/json",
-          }
+              Authorization: `Bearer ${process.env.GITHUB_OAUTH_TOKEN}`,
+              "Content-Type": "application/json",
+            }
           : {},
         next: {
           revalidate: 3600,

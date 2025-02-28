@@ -1,7 +1,7 @@
-import React from 'react';
-import ContactsList from './contact-list';
-import SocialList from './social-list';
-import Footer from './footer';
+import React from "react";
+import ContactsList from "./contact-list";
+import SocialList from "./social-list";
+import Footer from "./footer";
 
 import type { Contact } from "@/types/config";
 import type { SocialLink } from "@/types/config";
@@ -11,8 +11,7 @@ interface SideBarInfoMoreProps {
   socialLinks: SocialLink[];
 }
 
-function SideBarInfoMore(
-  { contacts, socialLinks }: SideBarInfoMoreProps) {
+function SideBarInfoMore({ contacts, socialLinks }: SideBarInfoMoreProps) {
   return (
     <div className="sidebar-info-more">
       <div className="separator"></div>
@@ -23,6 +22,6 @@ function SideBarInfoMore(
       <Footer />
     </div>
   );
-};
+}
 
 export default SideBarInfoMore;

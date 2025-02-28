@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useState } from 'react';
-import { MdExpandMore } from 'react-icons/md';
+import React, { useState } from "react";
+import { MdExpandMore } from "react-icons/md";
 import { ProgressBarLink } from "@/components/progress-bar";
 
 interface FilterSelectBoxProps {
@@ -13,19 +13,17 @@ interface FilterSelectBoxProps {
 function FilterSelectBox({
   path,
   selectedTag,
-  blogTags
+  blogTags,
 }: FilterSelectBoxProps) {
   const [isSelectActive, setIsSelectActive] = useState(false);
 
   return (
     <div className="filter-select-box">
       <button
-        className={`filter-select ${isSelectActive ? 'active' : ''}`}
+        className={`filter-select ${isSelectActive ? "active" : ""}`}
         onClick={() => setIsSelectActive(!isSelectActive)}
       >
-        <div className="select-value">
-          {selectedTag || 'Select category'}
-        </div>
+        <div className="select-value">{selectedTag || "Select category"}</div>
         <div className="select-icon">
           <MdExpandMore />
         </div>
@@ -39,7 +37,9 @@ function FilterSelectBox({
                   setIsSelectActive(false);
                 }}
               >
-                <ProgressBarLink href={`${path}?tag=${encodeURIComponent(tag)}`}>
+                <ProgressBarLink
+                  href={`${path}?tag=${encodeURIComponent(tag)}`}
+                >
                   {tag}
                 </ProgressBarLink>
               </button>
@@ -49,6 +49,6 @@ function FilterSelectBox({
       )}
     </div>
   );
-};
+}
 
 export default FilterSelectBox;

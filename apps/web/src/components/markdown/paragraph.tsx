@@ -1,4 +1,4 @@
-import React from 'react';
+import React from "react";
 
 interface ParagraphProps {
   node: any;
@@ -8,20 +8,20 @@ interface ParagraphProps {
 
 function Paragraph({ node, children, ...rest }: ParagraphProps) {
   const isImageNode = (node: any): boolean => {
-    return node &&
-      node.type === 'element' &&
-      node.tagName === 'img';
+    return node && node.type === "element" && node.tagName === "img";
   };
 
-  const hasImage = node &&
-    node.children &&
-    node.children.some(isImageNode);
+  const hasImage = node && node.children && node.children.some(isImageNode);
 
   if (hasImage) {
     return <>{children}</>;
   }
 
-  return <p {...rest} className="mb-4">{children}</p>;
-};
+  return (
+    <p {...rest} className="mb-4">
+      {children}
+    </p>
+  );
+}
 
 export default Paragraph;

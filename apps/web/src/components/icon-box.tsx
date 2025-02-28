@@ -12,6 +12,6 @@ function IconBox({ icon: Icon }: IconBoxProps) {
       <Icon />
     </div>
   );
-};
+}
 
 export default IconBox;

@@ -16,14 +16,14 @@ function MarkdownImage({ src, alt }: MarkdownImageProps) {
       <div
         className="relative mx-auto rounded-2xl overflow-hidden max-h-[200px] sm:max-h-[400px]"
         style={{
-          maxWidth: '100%',
+          maxWidth: "100%",
           aspectRatio: aspectRatio,
         }}
       >
         <Image
           className="object-contain rounded-2xl"
           src={src}
-          alt={alt ?? 'Image'}
+          alt={alt ?? "Image"}
           fill
           priority={true}
           onLoadingComplete={(target) => {
@@ -41,4 +41,3 @@ function MarkdownImage({ src, alt }: MarkdownImageProps) {
 }
 
 export default MarkdownImage;
-

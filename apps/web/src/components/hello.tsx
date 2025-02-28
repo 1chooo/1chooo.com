@@ -1,6 +1,6 @@
-'use client'
+"use client";
 
-import { useEffect } from 'react'
+import { useEffect } from "react";
 
 function Hello() {
   useEffect(() => {
@@ -17,10 +17,10 @@ function Hello() {
 Hi There 👋 This is Hugo!
 
 Love the design? Star ✨ on https://github.com/1chooo/1chooo.com
-`)
-  }, [])
+`);
+  }, []);
 
-  return null
+  return null;
 }
 
-export default Hello
+export default Hello;

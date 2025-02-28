@@ -4,7 +4,7 @@
  * https://github.com/vercel/vercel/blob/3e4223684609dbdb7d9a2b286294fe07941bf0d4/examples/hydrogen-2/app/routes/%5Brobots.txt%5D.tsx#
  * https://github.com/vercel/vercel/blob/3e4223684609dbdb7d9a2b286294fe07941bf0d4/packages/cli/test/dev/integration-2.test.ts#
  * https://github.com/vercel/vercel/blob/3e4223684609dbdb7d9a2b286294fe07941bf0d4/examples/hydrogen/src/routes/robots.txt.server.ts
- * @returns 
+ * @returns
  */
 
 const robotsTxtContent = `
@@ -25,21 +25,17 @@ User-agent: *
 Disallow:
 `;
 
-
-
-
 export default function robots() {
   return {
     rules: [
       {
-        userAgent: '*',
+        userAgent: "*",
       },
     ],
-    sitemap: 'https://1chooo.com/sitemap.xml',
-    host: 'https://1chooo.com',
+    sitemap: "https://1chooo.com/sitemap.xml",
+    host: "https://1chooo.com",
   };
 }
-
 
 /**
  * This API endpoint generates a robots.txt file. Use this to control
