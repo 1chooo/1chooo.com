@@ -12,7 +12,7 @@ type Metadata = {
 };
 
 export const getBlogPosts = async () => {
-  await new Promise((resolve) => setTimeout(resolve, 3000));
+  // await new Promise((resolve) => setTimeout(resolve, 3000));
 
   const postsDirectory = path.join(process.cwd(), "src/contents/posts");
 
