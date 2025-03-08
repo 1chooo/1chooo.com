@@ -24,21 +24,6 @@ importers:
         specifier: 5.7.3
         version: 5.7.3
 
-  apps/blog:
-    dependencies:
-      '@astrojs/mdx':
-        specifier: ^4.1.0
-        version: 4.1.0(astro@5.4.2(@types/node@22.13.5)(jiti@1.21.7)(rollup@4.35.0)(sass@1.83.4)(terser@5.39.0)(typescript@5.7.3)(yaml@2.7.0))
-      '@astrojs/rss':
-        specifier: ^4.0.11
-        version: 4.0.11
-      '@astrojs/sitemap':
-        specifier: ^3.2.1
-        version: 3.2.1
-      astro:
-        specifier: ^5.4.2
-        version: 5.4.2(@types/node@22.13.5)(jiti@1.21.7)(rollup@4.35.0)(sass@1.83.4)(terser@5.39.0)(typescript@5.7.3)(yaml@2.7.0)
-
   apps/docs:
     dependencies:
       '@repo/ui':
@@ -226,6 +211,21 @@ importers:
       typescript:
         specifier: 5.7.3
         version: 5.7.3
+
+  apps/web-v2:
+    dependencies:
+      '@astrojs/mdx':
+        specifier: ^4.1.0
+        version: 4.1.0(astro@5.4.2(@types/node@22.13.5)(jiti@1.21.7)(rollup@4.35.0)(sass@1.83.4)(terser@5.39.0)(typescript@5.7.3)(yaml@2.7.0))
+      '@astrojs/rss':
+        specifier: ^4.0.11
+        version: 4.0.11
+      '@astrojs/sitemap':
+        specifier: ^3.2.1
+        version: 3.2.1
+      astro:
+        specifier: ^5.4.2
+        version: 5.4.2(@types/node@22.13.5)(jiti@1.21.7)(rollup@4.35.0)(sass@1.83.4)(terser@5.39.0)(typescript@5.7.3)(yaml@2.7.0)
 
   packages/eslint-config:
     devDependencies:
@@ -7212,7 +7212,7 @@ snapshots:
     dependencies:
       sitemap: 8.0.0
       stream-replace-string: 2.0.0
-      zod: 3.24.1
+      zod: 3.24.2
 
   '@astrojs/telemetry@3.2.0':
     dependencies:
