@@ -5,6 +5,7 @@ const nextConfig: NextConfig = {
     dangerouslyAllowSVG: true,
     unoptimized: true,
   },
+  transpilePackages: ["@workspace/ui"],
 };
 
 export default nextConfig;
