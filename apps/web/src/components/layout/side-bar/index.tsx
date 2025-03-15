@@ -1,8 +1,8 @@
 "use client";
 
 import React, { useState, useRef } from "react";
-import SideBarInfo from "@/components/side-bar/sidebar-info";
-import SideBarInfoMore from "@/components/side-bar/sidebar-info-more";
+import SideBarInfo from "@/components/layout/side-bar/sidebar-info";
+import SideBarInfoMore from "@/components/layout/side-bar/sidebar-info-more";
 import config from "@/config";
 
 const { socialLinks, contacts } = config;

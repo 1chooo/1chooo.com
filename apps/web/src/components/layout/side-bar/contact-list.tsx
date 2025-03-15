@@ -1,5 +1,5 @@
 import React from "react";
-import ContactItem from "@/components/side-bar/contact-item";
+import ContactItem from "@/components/layout/side-bar/contact-item";
 import type { Contact } from "@/types/config";
 
 import "@/styles/side-bar/contact-list.css";
