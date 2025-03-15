@@ -8,9 +8,8 @@ export default {
   thanks: "Special Thanks",
   contributing: "Contributing",
   demo: {
-    title: "Demo",
-    type: "page",
-    href: "https://1chooo.com",
-    newWindow: true,
-  },
+    type: 'page',
+    title: 'Demo',
+    href: 'https://www.1chooo.com'
+  }
 };
