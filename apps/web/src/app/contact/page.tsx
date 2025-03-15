@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useEffect } from "react";
-import MapBox from "@/components/contact/map-box";
+import MapBox from "@/components/section/contact/map-box";
 import { FaRegPaperPlane } from "react-icons/fa";
 import PageHeader from "@/components/page-header";
 import config from "@/config";
