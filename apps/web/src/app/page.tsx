@@ -129,9 +129,7 @@ async function About() {
       <BlurFade inView delay={0.6}>
         <CodingStats techStacks={techStacks} githubUsername={githubUsername} />
       </BlurFade>
-      <BlurFade inView delay={0.8}>
-        <LifeStyles lifestyles={lifestyles} />
-      </BlurFade>
+      <LifeStyles lifestyles={lifestyles} />
     </article>
   );
 }
