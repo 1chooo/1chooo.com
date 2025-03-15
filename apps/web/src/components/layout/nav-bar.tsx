@@ -21,9 +21,9 @@ function NavBar() {
 
   return (
     <nav className="navbar">
-      <ul className="flex flex-wrap justify-center items-center px-2.5 sm:gap-5 lg:gap-8 lg:px-5">
+      <ul className="flex flex-wrap justify-center items-center px-2.5 sm:gap-5 lg:gap-[30px] lg:px-5">
         {navItems.map((item) => (
-          <li key={item.path} className="navbar-item">
+          <li key={item.path}>
             <ProgressBarLink
               href={item.path}
               className={`navbar-link text-light-gray ${isActive(item.path) ? "active" : ""}`}
