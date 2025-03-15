@@ -127,10 +127,7 @@ async function About() {
         <LatestArticles posts={selectedPosts} />
       </BlurFade>
       <BlurFade inView delay={0.6}>
-        <CodingStats
-          techStacks={techStacks}
-          githubUsername={githubUsername}
-        />
+        <CodingStats techStacks={techStacks} githubUsername={githubUsername} />
       </BlurFade>
       <BlurFade inView delay={0.8}>
         <LifeStyles lifestyles={lifestyles} />
