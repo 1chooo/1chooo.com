@@ -1,5 +1,5 @@
 import React from "react";
-import AboutHeader from "@/components/about/about-header";
+import CodeHeader from "@/components/section/about/code-header";
 import Globe from "@/components/about/globe";
 import GitHubCalendar from "react-github-calendar";
 import { ThemeInput } from "react-activity-calendar";
@@ -36,7 +36,7 @@ function CodingStats({ techStacks, githubUsername }: CodingStatsProps) {
 
   return (
     <section id="coding-stats">
-      <AboutHeader id="coding-stats" text="$ ls -al Coding Stats" />
+      <CodeHeader id="coding-stats" text="$ ls -al Coding Stats" />
       <ul className="mt-[30px] grid grid-cols-1 gap-[20px] md:grid-cols-2 lg:grid-cols-2 lg:gap-y-[20px] lg:gap-x-[25px]">
         <li className="relative rounded-2xl shadow-shadow-2 coding-item bg-gradient-onyx before:absolute before:content-[''] before:rounded-2xl">
           <div className="shadow-feature-card dark:shadow-feature-card-dark flex flex-col gap-2 overflow-hidden rounded-xl p-2">

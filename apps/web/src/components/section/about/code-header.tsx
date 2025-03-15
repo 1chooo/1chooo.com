@@ -1,9 +1,9 @@
-interface AboutHeaderProps {
+interface CodeHeaderProps {
   id?: string;
   text: string;
 }
 
-function AboutHeader({ id, text }: AboutHeaderProps) {
+function CodeHeader({ id, text }: CodeHeaderProps) {
   return (
     <h2
       id={id}
@@ -14,4 +14,4 @@ function AboutHeader({ id, text }: AboutHeaderProps) {
   );
 }
 
-export default AboutHeader;
+export default CodeHeader;

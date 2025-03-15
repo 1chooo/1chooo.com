@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Script from "next/script";
 import PageHeader from "@/components/page-header";
-import AboutHeader from "@/components/about/about-header";
+import CodeHeader from "@/components/section/about/code-header";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import { getBlogPosts } from "@/lib/db/v1/post";
 import { BlurFade } from "@/components/magicui/blur-fade";
@@ -117,7 +117,7 @@ async function About() {
         <PageHeader header={header} />
       </BlurFade>
       <BlurFade inView delay={0.2}>
-        <AboutHeader id="introduction" text="$ ls -al Hugo 👨🏻‍💻 (He/Him)" />
+        <CodeHeader id="introduction" text="$ ls -al Hugo 👨🏻‍💻 (He/Him)" />
         <MarkdownRenderer
           className="text-light-gray leading-relaxed"
           content={introduction}
