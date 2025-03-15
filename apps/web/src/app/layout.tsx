@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { roboto } from "@/app/font";
 import Hello from "@/components/hello";
-import NavBar from "@/components/nav-bar";
+import NavBar from "@/components/layout/nav-bar";
 import { ProgressBar } from "@/components/progress-bar";
 import SideBar from "@/components/side-bar";
 import { WebVitals } from "@/components/web-vitals";

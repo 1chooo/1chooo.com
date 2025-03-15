@@ -2,18 +2,19 @@
 
 import React from "react";
 import { usePathname } from "next/navigation";
-import config from "@/config";
 import { ProgressBarLink } from "@/components/progress-bar";
+import config from "@/config";
 
 import "@/styles/nav-bar.css";
 
-const navItems = config.navItems;
+const { navItems } = config;
 
 function NavBar() {
   const pathname = usePathname();
 
   const isActive = (path: string) => {
-    if (path === "/post" && pathname.startsWith("/post")) return true;
+    if (path === "/post" && pathname.startsWith("/post"))
+      return true;
     else if (path === "/portfolio" && pathname.startsWith("/portfolio"))
       return true;
     return pathname === path;
