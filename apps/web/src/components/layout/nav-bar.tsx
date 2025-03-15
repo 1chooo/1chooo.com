@@ -21,7 +21,7 @@ function NavBar() {
 
   return (
     <nav className="navbar">
-      <ul className="navbar-list flex flex-wrap justify-center">
+      <ul className="flex flex-wrap justify-center items-center px-2.5 sm:gap-5 lg:gap-8 lg:px-5">
         {navItems.map((item) => (
           <li key={item.path} className="navbar-item">
             <ProgressBarLink
