@@ -13,8 +13,7 @@ function NavBar() {
   const pathname = usePathname();
 
   const isActive = (path: string) => {
-    if (path === "/post" && pathname.startsWith("/post"))
-      return true;
+    if (path === "/post" && pathname.startsWith("/post")) return true;
     else if (path === "/portfolio" && pathname.startsWith("/portfolio"))
       return true;
     return pathname === path;
