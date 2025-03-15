@@ -1,32 +1,14 @@
 import type { Metadata } from "next";
-import dynamic from "next/dynamic";
 import Script from "next/script";
 import PageHeader from "@/components/page-header";
 import AboutHeader from "@/components/about/about-header";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import { getBlogPosts } from "@/lib/db/v1/post";
+import { BlurFade } from "@/components/magicui/blur-fade";
 import config from "@/config";
-
-const DynamicLatestArticles = dynamic(
-  () => import("@/components/about/latest-articles"),
-  {
-    loading: () => <p>Loading latest articles...</p>,
-  },
-);
-
-const DynamicLifeStyles = dynamic(
-  () => import("@/components/about/life-styles"),
-  {
-    loading: () => <p>Loading life styles...</p>,
-  },
-);
-
-const DynamicCodingStats = dynamic(
-  () => import("@/components/about/coding-stats"),
-  {
-    loading: () => <p>Loading coding stats...</p>,
-  },
-);
+import LatestArticles from "@/components/about/latest-articles";
+import LifeStyles from "@/components/about/life-styles";
+import CodingStats from "@/components/about/coding-stats";
 
 const { about, title, description, author, keywords, openGraph, siteURL } =
   config;
@@ -131,18 +113,28 @@ async function About() {
         dangerouslySetInnerHTML={addJsonLd()}
         key="1chooo-website-jsonld"
       />
-      <PageHeader header={header} />
-      <AboutHeader id="introduction" text="$ ls -al Hugo 👨🏻‍💻 (He/Him)" />
-      <MarkdownRenderer
-        className="text-light-gray leading-relaxed"
-        content={introduction}
-      />
-      <DynamicLatestArticles posts={selectedPosts} />
-      <DynamicCodingStats
-        techStacks={techStacks}
-        githubUsername={githubUsername}
-      />
-      <DynamicLifeStyles lifestyles={lifestyles} />
+      <BlurFade inView>
+        <PageHeader header={header} />
+      </BlurFade>
+      <BlurFade inView delay={0.2}>
+        <AboutHeader id="introduction" text="$ ls -al Hugo 👨🏻‍💻 (He/Him)" />
+        <MarkdownRenderer
+          className="text-light-gray leading-relaxed"
+          content={introduction}
+        />
+      </BlurFade>
+      <BlurFade inView delay={0.4}>
+        <LatestArticles posts={selectedPosts} />
+      </BlurFade>
+      <BlurFade inView delay={0.6}>
+        <CodingStats
+          techStacks={techStacks}
+          githubUsername={githubUsername}
+        />
+      </BlurFade>
+      <BlurFade inView delay={0.8}>
+        <LifeStyles lifestyles={lifestyles} />
+      </BlurFade>
     </article>
   );
 }
