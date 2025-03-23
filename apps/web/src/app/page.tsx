@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     description: openGraph.description,
     images: openGraph.images,
   },
-  manifest: "/manifest.webmanifest",
+  manifest: "/manifest.json",
   twitter: {
     card: "summary_large_image",
     title: "Hugo ChunHo Lin (1chooo) | Open Source Enthusiast",
