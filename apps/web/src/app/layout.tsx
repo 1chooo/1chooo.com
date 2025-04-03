@@ -78,7 +78,7 @@ function RootLayout({ children }: { readonly children: React.ReactNode }) {
               status={status}
             />
             <div className="main-content">
-              <NavBar navItems={navItems}/>
+              <NavBar navItems={navItems} />
               {children}
             </div>
           </main>
