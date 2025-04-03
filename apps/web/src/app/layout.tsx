@@ -22,6 +22,7 @@ const {
   about,
   avatar,
   status,
+  navItems,
 } = config;
 
 const { firstName, lastName, middleName, preferredName } = about;
@@ -77,7 +78,7 @@ function RootLayout({ children }: { readonly children: React.ReactNode }) {
               status={status}
             />
             <div className="main-content">
-              <NavBar />
+              <NavBar navItems={navItems}/>
               {children}
             </div>
           </main>
