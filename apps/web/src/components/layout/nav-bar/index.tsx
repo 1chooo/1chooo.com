@@ -23,7 +23,7 @@ function NavBar({ navItems }: NavBarProps) {
   };
 
   return (
-    <nav className="navbar">
+    <nav className="navbar fixed bottom-0 left-0 w-full backdrop-blur-[10px] bg-[hsla(240,1%,17%,0.75)] border border-[var(--jet)] shadow-xl z-[5] lg:absolute lg:bottom-auto lg:top-0 lg:left-auto lg:right-0 lg:w-max lg:shadow-none lg:px-5">
       <ul className="flex flex-wrap justify-center items-center px-2.5 sm:gap-5 lg:gap-[30px] lg:px-5">
         {navItems.map((item) => (
           <li key={item.path}>
