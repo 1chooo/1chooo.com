@@ -11,12 +11,6 @@
     z-index: 5;
 }
 
-.navbar-link {
-    padding: 20px 7px;
-    transition: color var(--transition-1);
-    display: block;
-}
-
 @media (min-width: 580px) {
     .navbar {
         border-radius: 20px 20px 0 0;
@@ -34,9 +28,5 @@
         border-radius: 0 20px;
         padding: 0 20px;
         box-shadow: none;
-    }
-
-    .navbar-link {
-        font-weight: var(--fw-500);
     }
 }
