@@ -21,7 +21,6 @@ function SideBarInfo({
   avatar,
   firstName,
   lastName,
-  middleName,
   preferredName,
   status,
 }: SideBarInfoProps) {
@@ -48,8 +47,8 @@ function SideBarInfo({
         >
           {firstName} ({preferredName}) {lastName}
         </h1>
-        <p className="text-white-1 bg-onyx text-xs font-light max-w-max rounded-[8px] custom-lg:m-auto px-[12px] py-[3px] md:px-[18px] md:py-[5px]">
-          <strong>{status}</strong>
+        <p className="text-white-1 bg-onyx text-xs font-light max-w-max rounded-[8px] custom-lg:m-auto px-3 py-1 md:px-[18px] md:py-[5px]">
+          {status}
         </p>
       </div>
       <InfoMoreButton onClick={onToggle} />
