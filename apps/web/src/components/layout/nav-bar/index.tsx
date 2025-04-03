@@ -29,7 +29,7 @@ function NavBar({ navItems }: NavBarProps) {
           <li key={item.path}>
             <ProgressBarLink
               href={item.path}
-              className={`navbar-link text-light-gray ${isActive(item.path) ? "active" : ""}`}
+              className={`navbar-link text-light-gray md:text-[15px] sm:text-[14px] text-[11px] ${isActive(item.path) ? "active" : ""}`}
             >
               {item.label}
             </ProgressBarLink>
