@@ -22,11 +22,6 @@
     color: var(--light-gray-70);
 }
 
-.navbar-link.active {
-    color: var(--orange-yellow-crayola);
-    font-weight: bold;
-}
-
 @media (min-width: 580px) {
     .navbar {
         border-radius: 20px 20px 0 0;
