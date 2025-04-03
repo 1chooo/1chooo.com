@@ -43,3 +43,8 @@ export const breakpoints: Breakpoint[] = [
   { maxWidth: 1250, size: { width: 120, height: 120 } },
   { maxWidth: Infinity, size: { width: 150, height: 150 } },
 ];
+
+export const EXAMPLE_PATH = "blog-starter";
+export const CMS_NAME = "Markdown";
+export const HOME_OG_IMAGE_URL =
+  "https://docs.1chooo.com/images/cover-with-1chooo-com.png";
