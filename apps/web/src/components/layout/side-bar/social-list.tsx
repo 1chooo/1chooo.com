@@ -1,11 +1,5 @@
 import Link from "next/link";
-import type { VCardIconType } from "@/types/config";
-
-interface SocialLink {
-  url: string;
-  icon: VCardIconType;
-  name: string;
-}
+import type { SocialLink } from "@/types/config";
 
 interface SocialListProps {
   socialLinks: SocialLink[];
