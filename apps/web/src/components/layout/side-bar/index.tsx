@@ -1,9 +1,13 @@
 "use client";
 
-import React, { useState, useRef } from "react";
+import { useState, useRef } from "react";
 import SideBarInfo from "@/components/layout/side-bar/sidebar-info";
-import SideBarInfoMore from "@/components/layout/side-bar/sidebar-info-more";
+import ContactsList from "./contact-list";
+import SocialList from "./social-list";
+import Footer from "./footer";
 import config from "@/config";
+
+import type { Contact, SocialLink } from "@/types/config";
 
 const { socialLinks, contacts } = config;
 
@@ -14,6 +18,8 @@ interface SideBarProps {
   middleName: string;
   preferredName: string;
   status: string;
+  contacts?: Contact[];
+  socialLinks?: SocialLink[];
 }
 
 function SideBar({
@@ -23,6 +29,8 @@ function SideBar({
   middleName,
   preferredName,
   status,
+  contacts: propContacts = contacts,
+  socialLinks: propSocialLinks = socialLinks,
 }: SideBarProps) {
   const [isActive, setIsActive] = useState(false);
   const sideBarRef = useRef<HTMLDivElement>(null);
@@ -44,7 +52,15 @@ function SideBar({
         preferredName={preferredName}
         status={status}
       />
-      <SideBarInfoMore contacts={contacts} socialLinks={socialLinks} />
+
+      <div className="sidebar-info-more">
+        <div className="separator"></div>
+        <ContactsList contacts={propContacts} />
+        <div className="separator-no-line"></div>
+        <SocialList socialLinks={propSocialLinks} />
+        <div className="separator-footer"></div>
+        <Footer />
+      </div>
     </aside>
   );
 }
