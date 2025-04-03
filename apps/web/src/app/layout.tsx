@@ -43,9 +43,8 @@ export const metadata: Metadata = {
   manifest: "/manifest.json",
   twitter: {
     card: "summary_large_image",
-    title: "Hugo ChunHo Lin (1chooo) | Open Source Enthusiast",
-    description:
-      "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+    title: title,
+    description: description,
     images: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",
   },
   icons: {
