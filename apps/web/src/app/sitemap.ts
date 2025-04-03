@@ -1,31 +1,30 @@
+import type { MetadataRoute } from "next";
 import { getBlogPosts } from "@/lib/db/v1/post";
 import { getPortfolioPosts } from "@/lib/db/v1/portfolio";
+import config from "@/config";
 
-/**
- * This function returns an array of objects with the URL and last modified date
- * @see https://github.com/leerob/site/blob/1129b6d81937cef493edb060f87e6f2ac9f335ed/app/sitemap.ts
- * @returns [{ url: string, lastModified: string }]
- */
-export default async function sitemap() {
+const { siteURL } = config;
+
+function mapPostsToSitemap(
+  posts: { metadata: { publishedAt: string }; slug: string }[],
+  prefix: string,
+) {
+  return posts.map((post) => ({
+    url: `${siteURL}/${prefix}/${post.slug}`,
+    lastModified: post.metadata.publishedAt,
+  }));
+}
+
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   let blogs = await getBlogPosts();
-  let blogMaps = blogs.map(
-    (post: { metadata: { publishedAt: string }; slug: string }) => ({
-      url: `https://1chooo.com/post/${post.slug}`,
-      lastModified: post.metadata.publishedAt,
-    }),
-  );
+  let blogMaps = mapPostsToSitemap(blogs, "post");
 
   let portfolios = await getPortfolioPosts();
-  let portfolioMaps = portfolios.map(
-    (post: { metadata: { publishedAt: string }; slug: string }) => ({
-      url: `https://1chooo.com/portfolio/${post.slug}`,
-      lastModified: post.metadata.publishedAt,
-    }),
-  );
+  let portfolioMaps = mapPostsToSitemap(portfolios, "portfolio");
 
   let routes = ["", "/resume", "/portfolio", "/post", "/gallery"].map(
     (route) => ({
-      url: `https://1chooo.com${route}`,
+      url: `${siteURL}${route}`,
       lastModified: new Date().toISOString().split("T")[0],
     }),
   );
