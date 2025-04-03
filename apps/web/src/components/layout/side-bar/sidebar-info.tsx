@@ -1,10 +1,12 @@
-import React from "react";
-import InfoMoreButton from "./info-more-button";
+"use client";
+
 import Image from "next/image";
+import { MdExpandMore } from "react-icons/md";
 import { useResponsiveImageSize } from "@/hooks/use-responsive-image-size";
 import { breakpoints } from "@/lib/constants";
 
 import "@/styles/side-bar/sidebar-info.css";
+import "@/styles/side-bar/info-more-btn.css";
 
 interface SideBarInfoProps {
   onToggle: () => void;
@@ -51,7 +53,11 @@ function SideBarInfo({
           {status}
         </p>
       </div>
-      <InfoMoreButton onClick={onToggle} />
+
+      <button className="info-more-btn" onClick={onToggle} data-sidebar-btn>
+        <span>Show Contacts</span>
+        <MdExpandMore />
+      </button>
     </div>
   );
 }
