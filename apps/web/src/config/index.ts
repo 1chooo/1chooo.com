@@ -135,11 +135,11 @@ const config: Config = {
     introduction: `
 I obtained my Bachelor's degree from [National Central University 🐿️](https://www.ncu.edu.tw/), driven by a *sincere passion* for **Software Engineering 💻.**
 
-Software is built by humans. Unfortunately, humans make errors, <mark class="text-orange-yellow-crayola bg-transparent"><b>LOTS of ERRORS.</b></mark> Throughout human history, humans have learned to craft machines and tools to help us construct complex architecture. Inspired by this, I explore practical methodologies and tools to improve large-scale software systems' quality, reliability, and efficiency.
+Software is built by humans. Unfortunately, humans make errors, ***LOTS of ERRORS 💣.*** Throughout human history, humans have learned to craft machines and tools to help us construct complex architecture. Inspired by this, I explore practical methodologies and tools to improve large-scale software systems' quality, reliability, and efficiency.
 
 In my spare time, I focus on contributing to open-source projects, alongside working out 💪🏻, capturing street photography 📸, and writing tech content ✍🏻.
 
-**Self-motivated, Team player, Love coding 👨🏻‍💻**
+**Self-motivated, Team player, Love coding 👨🏻‍💻 (Building until scale is an issue)**
     `,
     lifestyles: [
       {
