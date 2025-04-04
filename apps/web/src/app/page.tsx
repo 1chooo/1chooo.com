@@ -1,17 +1,30 @@
 import type { Metadata } from "next";
 import Script from "next/script";
+
 import PageHeader from "@/components/page-header";
 import CodeHeader from "@/components/section/about/code-header";
-import MarkdownRenderer from "@/components/markdown/markdown-renderer";
-import { getBlogPosts } from "@/lib/db/v1/post";
 import { BlurFade } from "@/components/magicui/blur-fade";
-import config from "@/config";
 import LatestArticles from "@/components/about/latest-articles";
 import LifeStyles from "@/components/about/life-styles";
 import CodingStats from "@/components/about/coding-stats";
 
-const { about, title, description, author, keywords, openGraph, siteURL } =
-  config;
+import { getBlogPosts } from "@/lib/db/v1/post";
+import markdownToHtml from "@/lib/markdownToHtml";
+import { cn } from "@workspace/ui/lib/utils";
+
+import config from "@/config";
+
+import markdownStyles from "@/styles/markdown-styles.module.css";
+
+const {
+  about,
+  title,
+  description,
+  author,
+  keywords,
+  openGraph,
+  siteURL,
+} = config;
 const {
   firstName,
   lastName,
@@ -104,6 +117,8 @@ async function About() {
     ? `About ${preferredName} 👨🏻‍💻`
     : `About ${firstName} ${lastName} 👨🏻‍💻`;
 
+  const content = await markdownToHtml(introduction || "");
+
   return (
     <article>
       <Script
@@ -117,9 +132,9 @@ async function About() {
       </BlurFade>
       <BlurFade inView delay={0.2}>
         <CodeHeader id="introduction" text="$ ls -al Hugo 👨🏻‍💻 (He/Him)" />
-        <MarkdownRenderer
-          className="text-light-gray leading-relaxed"
-          content={introduction}
+        <div
+          className={cn(markdownStyles["markdown"])}
+          dangerouslySetInnerHTML={{ __html: content }}
         />
       </BlurFade>
       <BlurFade inView delay={0.4}>
