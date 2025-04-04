@@ -3,11 +3,11 @@ import { notFound } from "next/navigation";
 import { getAllPosts, getPostBySlug } from "@/lib/api";
 import { CMS_NAME } from "@/lib/constants";
 import markdownToHtml from "@/lib/markdownToHtml";
-import Alert from "@/app/(exp)/remark/_components/alert";
 import Container from "@/app/(exp)/remark/_components/container";
 import Header from "@/app/(exp)/remark/_components/header";
 import { PostBody } from "@/app/(exp)/remark/_components/post-body";
 import { PostHeader } from "@/app/(exp)/remark/_components/post-header";
+import PageHeader from "@/components/page-header";
 
 export default async function Post(props: Params) {
   const params = await props.params;
@@ -20,21 +20,19 @@ export default async function Post(props: Params) {
   const content = await markdownToHtml(post.content || "");
 
   return (
-    <main>
-      <Alert preview={post.preview} />
+    <article>
+      <PageHeader header="Hugo's Blog" />
       <Container>
         <Header />
-        <article className="mb-32">
-          <PostHeader
-            title={post.title}
-            coverImage={post.coverImage}
-            date={post.date}
-            author={post.author}
-          />
-          <PostBody content={content} />
-        </article>
+        <PostHeader
+          title={post.title}
+          coverImage={post.coverImage}
+          date={post.date}
+          author={post.author}
+        />
+        <PostBody content={content} />
       </Container>
-    </main>
+    </article>
   );
 }
 

@@ -1,8 +1,8 @@
 import Container from "@/app/(exp)/remark/_components/container";
 import { HeroPost } from "@/app/(exp)/remark/_components/hero-post";
-import { Intro } from "@/app/(exp)/remark/_components/intro";
 import { MoreStories } from "@/app/(exp)/remark/_components/more-stories";
 import { getAllPosts } from "@/lib/api";
+import PageHeader from "@/components/page-header";
 
 export default function Index() {
   const allPosts = getAllPosts();
@@ -12,9 +12,9 @@ export default function Index() {
   const morePosts = allPosts.slice(1);
 
   return (
-    <main>
+    <article>
+      <PageHeader header="Hugo's Blog" />
       <Container>
-        <Intro />
         <HeroPost
           title={heroPost.title}
           coverImage={heroPost.coverImage}
@@ -25,6 +25,6 @@ export default function Index() {
         />
         {morePosts.length > 0 && <MoreStories posts={morePosts} />}
       </Container>
-    </main>
+    </article>
   );
 }
