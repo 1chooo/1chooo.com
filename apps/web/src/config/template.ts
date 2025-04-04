@@ -13,8 +13,6 @@ import {
 } from "react-icons/lu";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaReact, FaAws } from "react-icons/fa";
-import { TbPhoneCalling } from "react-icons/tb";
-import { IoCalendarOutline } from "react-icons/io5";
 import { AiOutlinePython } from "react-icons/ai";
 import { RiJavaLine, RiJavascriptLine } from "react-icons/ri";
 import { SiLatex, SiFastapi, SiKubernetes, SiPostman } from "react-icons/si";
@@ -48,7 +46,7 @@ const config: Config = {
     "Next.js",
     "React",
   ],
-  status: "Day ONE ⚡️",
+  status: "Building until Scale is an Issue 🚀",
   siteURL: "https://www.1chooo.com",
   openGraph: {
     url: "https://www.1chooo.com/",
@@ -85,22 +83,12 @@ const config: Config = {
       link: "mailto:hugo970217@gmail.com",
       content: "hugo970217@gmail.com",
     },
-    // {
-    //   icon: TbPhoneCalling,
-    //   title: "Phone",
-    //   content: "404 Not Found 📲",
-    // },
     {
       icon: LuGithub,
       title: "GitHub",
       link: "https://github.com/1chooo",
       content: "1chooo",
     },
-    // {
-    //   icon: IoCalendarOutline,
-    //   title: "Birthday",
-    //   content: "January 27, 2002 🐻",
-    // },
     {
       icon: LuLinkedin,
       title: "LinkedIn",
@@ -135,7 +123,7 @@ const config: Config = {
     introduction: `
 I obtained my Bachelor's degree from [National Central University 🐿️](https://www.ncu.edu.tw/), driven by a *sincere passion* for **Software Engineering 💻.**
 
-Software is built by humans. Unfortunately, humans make errors, <mark class="text-orange-yellow-crayola bg-transparent"><b>LOTS of ERRORS.</b></mark> Throughout human history, humans have learned to craft machines and tools to help us construct complex architecture. Inspired by this, I explore practical methodologies and tools to improve large-scale software systems' quality, reliability, and efficiency.
+Software is built by humans. Unfortunately, humans make errors, ***LOTS of ERRORS 💣.*** Throughout human history, humans have learned to craft machines and tools to help us construct complex architecture. Inspired by this, I explore practical methodologies and tools to improve large-scale software systems' quality, reliability, and efficiency.
 
 In my spare time, I focus on contributing to open-source projects, alongside working out 💪🏻, capturing street photography 📸, and writing tech content ✍🏻.
 
@@ -301,9 +289,9 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
   giscusConfig: {
     id: "comments",
     repo: "1chooo/1chooo.com",
-    repoId: "R_kgDOLBatdw",
+    repoId: process.env.NEXT_PUBLIC_GISCUS_REPO_ID || "",
     category: "General",
-    categoryId: "DIC_kwDOLBatd84CjpPs",
+    categoryId: process.env.NEXT_PUBLIC_GISCUS_CONFIG_CATEGORY_ID || "",
     mapping: "pathname",
     term: "Welcome to @giscus/react component!",
     reactionsEnabled: "1",

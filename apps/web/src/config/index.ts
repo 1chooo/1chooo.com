@@ -13,8 +13,6 @@ import {
 } from "react-icons/lu";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaReact, FaAws } from "react-icons/fa";
-import { TbPhoneCalling } from "react-icons/tb";
-import { IoCalendarOutline } from "react-icons/io5";
 import { AiOutlinePython } from "react-icons/ai";
 import { RiJavaLine, RiJavascriptLine } from "react-icons/ri";
 import { SiLatex, SiFastapi, SiKubernetes, SiPostman } from "react-icons/si";
@@ -48,7 +46,7 @@ const config: Config = {
     "Next.js",
     "React",
   ],
-  status: "Day ONE ⚡️",
+  status: "Building until Scale is an Issue 🚀",
   siteURL: "https://www.1chooo.com",
   openGraph: {
     url: "https://www.1chooo.com/",
@@ -85,22 +83,12 @@ const config: Config = {
       link: "mailto:hugo970217@gmail.com",
       content: "hugo970217@gmail.com",
     },
-    // {
-    //   icon: TbPhoneCalling,
-    //   title: "Phone",
-    //   content: "404 Not Found 📲",
-    // },
     {
       icon: LuGithub,
       title: "GitHub",
       link: "https://github.com/1chooo",
       content: "1chooo",
     },
-    // {
-    //   icon: IoCalendarOutline,
-    //   title: "Birthday",
-    //   content: "January 27, 2002 🐻",
-    // },
     {
       icon: LuLinkedin,
       title: "LinkedIn",
@@ -139,7 +127,7 @@ Software is built by humans. Unfortunately, humans make errors, ***LOTS of ERROR
 
 In my spare time, I focus on contributing to open-source projects, alongside working out 💪🏻, capturing street photography 📸, and writing tech content ✍🏻.
 
-**Self-motivated, Team player, Love coding 👨🏻‍💻 (Building until scale is an issue)**
+**Self-motivated, Team player, Love coding 👨🏻‍💻**
     `,
     lifestyles: [
       {
