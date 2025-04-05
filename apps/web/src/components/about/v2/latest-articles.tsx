@@ -30,7 +30,7 @@ export function LatestArticles({ posts }: Props) {
   useEffect(() => {
     setIsMounted(true);
     const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
+      setIsMobile(window.innerWidth <= 580);
     };
 
     checkMobile();
