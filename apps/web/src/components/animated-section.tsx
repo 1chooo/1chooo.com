@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { motion, useInView } from "motion/react"
+import { useRef } from "react";
+import { motion, useInView } from "motion/react";
 
 function AnimatedSection({
   children,
@@ -11,8 +11,8 @@ function AnimatedSection({
   },
   transition = { duration: 0.6 },
 }) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
     <motion.div
@@ -24,7 +24,7 @@ function AnimatedSection({
     >
       {children}
     </motion.div>
-  )
+  );
 }
 
 export default AnimatedSection;

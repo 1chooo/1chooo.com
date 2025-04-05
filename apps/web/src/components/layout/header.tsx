@@ -28,10 +28,11 @@ function Header({ navigationLinks }: NavigationHeaderProps) {
             <li key={link.path}>
               <ProgressBarLink
                 href={link.path}
-                className={`block p-5 px-[7px] text-light-gray transition-colors duration-250 ease-in-out md:text-[15px] sm:text-[14px] text-[11px] ${isActive(link.path)
-                  ? "active text-orange-yellow-crayola hover:text-orange-yellow-crayola font-bold"
-                  : "hover:text-light-gray-70 font-medium"
-                  }`}
+                className={`block p-5 px-[7px] text-light-gray transition-colors duration-250 ease-in-out md:text-[15px] sm:text-[14px] text-[11px] ${
+                  isActive(link.path)
+                    ? "active text-orange-yellow-crayola hover:text-orange-yellow-crayola font-bold"
+                    : "hover:text-light-gray-70 font-medium"
+                }`}
               >
                 {link.label}
               </ProgressBarLink>

@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { useRef } from "react"
-import { motion, useInView } from "motion/react"
+import { useRef } from "react";
+import { motion, useInView } from "motion/react";
 
 function StaggeredAnimationSection({ children }) {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   const containerVariants = {
     hidden: { opacity: 0 },
@@ -15,12 +15,12 @@ function StaggeredAnimationSection({ children }) {
         staggerChildren: 0.2,
       },
     },
-  }
+  };
 
   const itemVariants = {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0, transition: { duration: 0.5 } },
-  }
+  };
 
   return (
     <motion.div
@@ -40,7 +40,7 @@ function StaggeredAnimationSection({ children }) {
         <motion.div variants={itemVariants}>{children}</motion.div>
       )}
     </motion.div>
-  )
+  );
 }
 
-export default StaggeredAnimationSection
+export default StaggeredAnimationSection;
