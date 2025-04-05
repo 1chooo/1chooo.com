@@ -89,7 +89,7 @@ export function LatestArticles({ posts }: Props) {
         </div>
       </StaggeredAnimationSection>
 
-      <BlurFade inView delay={0.5} direction="up">
+      <BlurFade inView delay={0.4} direction="up">
         <div className="z-10 flex items-center justify-center my-4">
           <div
             className={cn(
