@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
+import Script from "next/script";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
-import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import { roboto } from "@/app/font";
 import Header from "@/components/layout/header";
@@ -24,6 +24,7 @@ const {
   avatar,
   status,
   navigationLinks,
+  siteURL,
 } = config;
 
 const { firstName, lastName, middleName, preferredName } = about;
@@ -62,6 +63,39 @@ export const metadata: Metadata = {
   },
 };
 
+const addJsonLd = () => {
+  return {
+    __html: `{
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "@id": "${siteURL}#person",
+      "givenName": ${firstName},
+      "familyName": ${lastName},
+      "additionalName": ${preferredName},
+      "gender": "male",
+      "birthPlace": "New Taipei, TW",
+      "nationality": "Taiwan",
+      "alumniOf":[
+        {
+          "@type": "CollegeOrUniversity",
+          "name": "National Central University",
+          "sameAs": "https://www.ncu.edu.tw/"
+        },
+      ],
+      "jobTitle": "Software Engineer",
+      "skills": "Software Engineering, Web Development, Open Source",
+      "image": "https://www.1chooo.com/images/profile.webp",
+      "url": ${siteURL},
+      "sameAs": [
+        "https://www.linkedin.com/in/1chooo/",
+        "http://github.com/1chooo",
+        "https://medium.com/@1chooo",
+      ]
+    }
+  `,
+  };
+};
+
 function RootLayout({ children }: { readonly children: React.ReactNode }) {
   return (
     <html lang="en" className={`${roboto.className}`}>
@@ -84,7 +118,12 @@ function RootLayout({ children }: { readonly children: React.ReactNode }) {
             </div>
           </main>
         </ProgressBar>
-        <SpeedInsights />
+        <Script
+          id="application/ld+json"
+          type="application/ld+json"
+          dangerouslySetInnerHTML={addJsonLd()}
+          key="1chooo-website-jsonld"
+        />
       </body>
       <GoogleAnalytics gaId={googleAnalyticId} />
       <GoogleTagManager gtmId={googleTagManagerId} />
