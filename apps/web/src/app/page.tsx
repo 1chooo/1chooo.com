@@ -45,9 +45,9 @@ async function About() {
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </AnimatedSection>
-      <BlurFade inView delay={0.4}>
+      {/* <BlurFade inView delay={0.4}> */}
         {allPosts.length > 0 && <LatestArticles posts={allPosts} />}
-      </BlurFade>
+      {/* </BlurFade> */}
       <BlurFade inView delay={0.6}>
         <CodingStats techStacks={techStacks} githubUsername={githubUsername} />
       </BlurFade>

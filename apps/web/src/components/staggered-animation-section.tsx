@@ -28,7 +28,7 @@ function StaggeredAnimationSection({ children }) {
       initial="hidden"
       animate={isInView ? "visible" : "hidden"}
       variants={containerVariants}
-      className="grid grid-cols-1 md:grid-cols-3 gap-6"
+      className="grid grid-cols-2 md:grid-cols-3 gap-6"
     >
       {Array.isArray(children.props.children) ? (
         children.props.children.map((child, index) => (
