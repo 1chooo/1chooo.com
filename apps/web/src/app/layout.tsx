@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { SpeedInsights } from '@vercel/speed-insights/next';
 
 import { roboto } from "@/app/font";
 import Header from "@/components/layout/header";
@@ -83,6 +84,7 @@ function RootLayout({ children }: { readonly children: React.ReactNode }) {
             </div>
           </main>
         </ProgressBar>
+        <SpeedInsights />
       </body>
       <GoogleAnalytics gaId={googleAnalyticId} />
       <GoogleTagManager gtmId={googleTagManagerId} />
