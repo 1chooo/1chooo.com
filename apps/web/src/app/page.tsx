@@ -7,7 +7,7 @@ import { BlurFade } from "@/components/magicui/blur-fade";
 import LatestArticles from "@/components/about/latest-articles";
 import LifeStyles from "@/components/about/life-styles";
 import CodingStats from "@/components/about/coding-stats";
-
+import AnimatedSection from "@/components/animated-section";
 import { getBlogPosts } from "@/lib/db/v1/post";
 import markdownToHtml from "@/lib/markdownToHtml";
 import { cn } from "@workspace/ui/lib/utils";
@@ -127,16 +127,16 @@ async function About() {
         dangerouslySetInnerHTML={addJsonLd()}
         key="1chooo-website-jsonld"
       />
-      <BlurFade inView>
+      <AnimatedSection>
         <PageHeader header={header} />
-      </BlurFade>
-      <BlurFade inView delay={0.2}>
-        <CodeHeader id="introduction" text="$ ls -al Hugo 👨🏻‍💻 (He/Him)" />
+      </AnimatedSection>
+      <AnimatedSection>
+      <CodeHeader id="introduction" text="$ ls -al Hugo 👨🏻‍💻 (He/Him)" />
         <div
           className={cn(markdownStyles["markdown"])}
           dangerouslySetInnerHTML={{ __html: content }}
         />
-      </BlurFade>
+      </AnimatedSection>
       <BlurFade inView delay={0.4}>
         <LatestArticles posts={selectedPosts} />
       </BlurFade>
