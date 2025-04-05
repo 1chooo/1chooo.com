@@ -1,13 +1,13 @@
 import PageHeader from "@/components/page-header";
 import CodeHeader from "@/components/section/about/code-header";
 import { BlurFade } from "@/components/magicui/blur-fade";
-import LatestArticles from "@/components/about/latest-articles";
 import LifeStyles from "@/components/about/life-styles";
 import CodingStats from "@/components/about/coding-stats";
 import AnimatedSection from "@/components/animated-section";
-import { getBlogPosts } from "@/lib/db/v1/post";
 import markdownToHtml from "@/lib/markdownToHtml";
 import { cn } from "@workspace/ui/lib/utils";
+import { getAllPosts } from "@/lib/api";
+import { MoreStories } from "@/components/about/v2/latest-articles";
 
 import config from "@/config";
 
@@ -25,15 +25,7 @@ const {
 } = about;
 
 async function About() {
-  let allBlogs = await getBlogPosts();
-
-  let selectedPosts = allBlogs.map((post: any) => ({
-    ...post,
-    metadata: {
-      ...post.metadata,
-      category: post.metadata.category || "Uncategorized",
-    },
-  }));
+  const allPosts = getAllPosts();
 
   let header = preferredName
     ? `About ${preferredName} 👨🏻‍💻`
@@ -54,7 +46,7 @@ async function About() {
         />
       </AnimatedSection>
       <BlurFade inView delay={0.4}>
-        <LatestArticles posts={selectedPosts} />
+        {allPosts.length > 0 && <MoreStories posts={allPosts} />}
       </BlurFade>
       <BlurFade inView delay={0.6}>
         <CodingStats techStacks={techStacks} githubUsername={githubUsername} />
