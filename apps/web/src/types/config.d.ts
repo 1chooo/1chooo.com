@@ -1,6 +1,6 @@
 import type { About } from "@/types/about";
 import type { Resume } from "@/types/resume";
-import type { NavItem } from "@/types/nav-bar";
+import type { NavigationLink } from "@/types/nav-bar";
 import { OpenGraph } from "./open-graph";
 import type { GiscusProps } from "@giscus/react";
 import type { IconType as ReactIconType } from "react-icons";
@@ -30,7 +30,7 @@ export type Config = {
   status: string;
   siteURL: string;
   openGraph: OpenGraph;
-  navItems: NavItem[];
+  navigationLinks: NavigationLink[];
   contacts: Contact[];
   socialLinks: SocialLink[];
   about: About;

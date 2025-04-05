@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 import { roboto } from "@/app/font";
-import NavBar from "@/components/layout/nav-bar";
+import Header from "@/components/layout/header";
 import SideBar from "@/components/layout/side-bar";
 import Hello from "@/components/hello";
 import { ProgressBar } from "@/components/progress-bar";
@@ -22,7 +22,7 @@ const {
   about,
   avatar,
   status,
-  navItems,
+  navigationLinks,
 } = config;
 
 const { firstName, lastName, middleName, preferredName } = about;
@@ -78,7 +78,7 @@ function RootLayout({ children }: { readonly children: React.ReactNode }) {
               status={status}
             />
             <div className="main-content">
-              <NavBar navItems={navItems} />
+              <Header navigationLinks={navigationLinks} />
               {children}
             </div>
           </main>

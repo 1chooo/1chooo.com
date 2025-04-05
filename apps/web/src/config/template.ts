@@ -64,7 +64,7 @@ const config: Config = {
       },
     ],
   },
-  navItems: [
+  navigationLinks: [
     { path: "/", label: "About" },
     { path: "/resume", label: "Resume" },
     { path: "/portfolio", label: "Portfolio" },
