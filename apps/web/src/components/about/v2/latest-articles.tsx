@@ -55,9 +55,9 @@ export function LatestArticles({ posts }: Props) {
       </BlurFade>
 
       <StaggeredAnimationSection>
-        <ul className="latest-post-list">
+        <div className="latest-post-list">
           {visiblePosts.map((post) => (
-            <li
+            <div
               key={post.slug}
               className="latest-post-item group active"
             >
@@ -84,9 +84,9 @@ export function LatestArticles({ posts }: Props) {
                   {post.title}
                 </h3>
               </ProgressBarLink>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
       </StaggeredAnimationSection>
 
       <BlurFade inView delay={0.5} direction="up">
