@@ -7,7 +7,7 @@ import AnimatedSection from "@/components/animated-section";
 import markdownToHtml from "@/lib/markdownToHtml";
 import { cn } from "@workspace/ui/lib/utils";
 import { getAllPosts } from "@/lib/api";
-import { MoreStories } from "@/components/about/v2/latest-articles";
+import { LatestArticles } from "@/components/about/v2/latest-articles";
 
 import config from "@/config";
 
@@ -46,7 +46,7 @@ async function About() {
         />
       </AnimatedSection>
       <BlurFade inView delay={0.4}>
-        {allPosts.length > 0 && <MoreStories posts={allPosts} />}
+        {allPosts.length > 0 && <LatestArticles posts={allPosts} />}
       </BlurFade>
       <BlurFade inView delay={0.6}>
         <CodingStats techStacks={techStacks} githubUsername={githubUsername} />

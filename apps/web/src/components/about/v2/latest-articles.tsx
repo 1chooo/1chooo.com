@@ -13,7 +13,7 @@ type Props = {
   posts: Post[];
 };
 
-export function MoreStories({ posts }: Props) {
+export function LatestArticles({ posts }: Props) {
   return (
     <section>
       <CodeHeader id="latest-articles" text="$ ls -al Latest Articles" />
