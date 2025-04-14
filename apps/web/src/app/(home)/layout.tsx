@@ -1,5 +1,5 @@
-import type { Metadata } from "next";
 import Script from "next/script";
+
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 import { roboto } from "@/app/fonts";
@@ -9,6 +9,8 @@ import Hello from "@/components/hello";
 import { ProgressBar } from "@/components/progress-bar";
 import { WebVitals } from "@/components/web-vitals";
 import config from "@/config";
+
+import type { Metadata } from "next";
 import type { JsonLdHtml } from "@/types/json-ld";
 
 import "@/app/globals.css";
@@ -36,7 +38,7 @@ const addJsonLd = (): JsonLdHtml => {
 
 function RootLayout({ children }: { readonly children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${roboto.className}`}>
+    <html lang="en" className={roboto.className}>
       <WebVitals gaId={googleAnalyticId} />
       <body>
         <ProgressBar className="fixed top-0 h-1 bg-yellow-500">
