@@ -110,7 +110,7 @@ const config: Config = {
     },
     { url: `https://twitter.com/1chooo___`, icon: FaXTwitter, name: "Twitter" },
     { url: `/rss.xml`, icon: LuRss, name: "RSS Feed" },
-    { url: `/cv.pdf`, icon: MdAttachment, name: "CV" },
+    { url: `/cv`, icon: MdAttachment, name: "CV" },
   ],
   about: {
     firstName: "Chun-Ho",
