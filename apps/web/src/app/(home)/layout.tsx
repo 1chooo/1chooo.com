@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Script from "next/script";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
-import { roboto } from "@/app/font";
+import { roboto } from "@/app/fonts";
 import Header from "@/components/layout/header";
 import SideBar from "@/components/layout/side-bar";
 import Hello from "@/components/hello";
