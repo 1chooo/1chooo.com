@@ -1,14 +1,17 @@
-/**
- * https://json-ld.org/
- * https://www.npmjs.com/package/jsonld
- */
-
 export interface CollegeOrUniversity {
   "@type": "CollegeOrUniversity"
   name: string
   sameAs: string
 }
 
+/**
+ * Schema.org type for Person
+ * 
+ * This is a simplified version of the schema.org Person type.
+ * It includes only the properties that are relevant for this application.
+ * 
+ * @see https://schema.org/Person
+ */
 export interface Person {
   "@context": "http://schema.org"
   "@type": "Person"
