@@ -36,7 +36,7 @@ const addJsonLd = (): JsonLdHtml => {
   }
 }
 
-function RootLayout({ children }: { readonly children: React.ReactNode }) {
+function HomeLayout({ children }: { readonly children: React.ReactNode }) {
   return (
     <html lang="en" className={roboto.className}>
       <WebVitals gaId={googleAnalyticId} />
@@ -71,4 +71,4 @@ function RootLayout({ children }: { readonly children: React.ReactNode }) {
   );
 }
 
-export default RootLayout;
+export default HomeLayout;
