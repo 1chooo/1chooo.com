@@ -23,7 +23,7 @@ const {
   status,
   navigationLinks,
   jsonLdPerson,
-  homeMetaData
+  homeMetaData,
 } = config;
 
 const { firstName, lastName, middleName, preferredName } = about;
@@ -33,8 +33,8 @@ export const metadata: Metadata = homeMetaData;
 const addJsonLd = (): JsonLdHtml => {
   return {
     __html: JSON.stringify(jsonLdPerson, null, 2),
-  }
-}
+  };
+};
 
 function HomeLayout({ children }: { readonly children: React.ReactNode }) {
   return (

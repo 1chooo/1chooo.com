@@ -8,6 +8,6 @@ export const roboto = Roboto({
 });
 
 export const robotoMono = Roboto_Mono({
-  subsets: ['latin'],
-  display: 'swap',
+  subsets: ["latin"],
+  display: "swap",
 });

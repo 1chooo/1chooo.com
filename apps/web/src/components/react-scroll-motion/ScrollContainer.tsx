@@ -75,7 +75,7 @@ const ScrollContainer: FC<ScrollContainerProps> = (props) => {
           realPage,
           currentPage,
           currentProgress,
-        } as ScrollData)
+        }) as ScrollData,
     );
 
     if (snap !== "none") {

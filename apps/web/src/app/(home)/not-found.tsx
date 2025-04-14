@@ -3,8 +3,8 @@ import React from "react";
 import PageHeader from "@/components/page-header";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
 import config from "@/config";
-import Link from "next/link"
-import { Home, ArrowLeft } from "lucide-react"
+import Link from "next/link";
+import { Home, ArrowLeft } from "lucide-react";
 
 const { title } = config;
 
@@ -55,15 +55,17 @@ function NotFound() {
         <div className="mt-12 pt-6 border-t border-gray-800 text-sm text-gray-500">
           <p>
             Still having trouble?{" "}
-            <Link href="mailto:hugo970217@gmail.com" className="text-primary underline underline-offset-2">
+            <Link
+              href="mailto:hugo970217@gmail.com"
+              className="text-primary underline underline-offset-2"
+            >
               Contact me
             </Link>{" "}
             and I'll help you find what you're looking for.
           </p>
         </div>
       </div>
-
-    </article >
+    </article>
   );
 }
 

@@ -9,7 +9,6 @@ author:
 ogImage:
   url: "/images/banner/posts/three-methods-to-access-environment-variable-values-in-python.png"
 
-
 publishedAt: "2024-12-26"
 category: Project
 tags:

@@ -31,7 +31,7 @@ const environment = new Proxy(
       }
       return undefined;
     },
-  }
+  },
 );
 
 export default environment;

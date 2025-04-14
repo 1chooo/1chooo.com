@@ -115,7 +115,8 @@ const config: Config = {
   homeMetaData: {
     metadataBase: new URL("https://www.1chooo.com"),
     title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
-    description: "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+    description:
+      "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
     authors: [{ name: "Chun-Ho (Hugo) Lin" }],
     creator: "Chun-Ho (Hugo) Lin",
     keywords: [
@@ -130,7 +131,8 @@ const config: Config = {
       type: "website",
       siteName: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
       title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
-      description: "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+      description:
+        "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
       images: [
         {
           url: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",
@@ -144,7 +146,8 @@ const config: Config = {
     twitter: {
       card: "summary_large_image",
       title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
-      description: "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+      description:
+        "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
       images: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",
     },
     icons: {

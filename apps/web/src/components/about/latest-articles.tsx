@@ -57,10 +57,7 @@ export function LatestArticles({ posts }: Props) {
       <StaggeredAnimationSection>
         <div className="latest-post-list">
           {visiblePosts.map((post) => (
-            <div
-              key={post.slug}
-              className="latest-post-item group active"
-            >
+            <div key={post.slug} className="latest-post-item group active">
               <ProgressBarLink
                 href={`/post/${post.slug}`}
                 rel="noopener noreferrer"

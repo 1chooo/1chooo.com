@@ -26,7 +26,7 @@ const Animator: FC<AnimatorProps> = (props) => {
 
   useEffect(
     () => (typeof window !== "undefined" ? setIsSSR(false) : undefined),
-    []
+    [],
   );
 
   const calculatedStyle: CSSProperties | undefined = useMemo(
@@ -34,16 +34,16 @@ const Animator: FC<AnimatorProps> = (props) => {
       isSSR
         ? style
         : currentPage === page // for current (out)
-        ? ({
-            ...computeStyle(animation?.out?.style, currentProgress),
-            ...style,
-          } as CSSProperties)
-        : currentPage === page - 1 // for next (in)
-        ? ({
-            ...computeStyle(animation?.in?.style, currentProgress),
-            ...style,
-          } as CSSProperties)
-        : { display: "none" },
+          ? ({
+              ...computeStyle(animation?.out?.style, currentProgress),
+              ...style,
+            } as CSSProperties)
+          : currentPage === page - 1 // for next (in)
+            ? ({
+                ...computeStyle(animation?.in?.style, currentProgress),
+                ...style,
+              } as CSSProperties)
+            : { display: "none" },
     [
       isSSR,
       currentPage,
@@ -52,7 +52,7 @@ const Animator: FC<AnimatorProps> = (props) => {
       animation?.in?.style,
       currentProgress,
       style,
-    ]
+    ],
   );
 
   return (
