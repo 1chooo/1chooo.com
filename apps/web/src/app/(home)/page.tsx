@@ -35,7 +35,7 @@ async function About() {
 
   return (
     <article>
-      <AnimatedSection>
+      <AnimatedSection id="about">
         <PageHeader header={header} />
       </AnimatedSection>
       <AnimatedSection>
@@ -45,9 +45,7 @@ async function About() {
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </AnimatedSection>
-      {/* <BlurFade inView delay={0.4}> */}
-        {allPosts.length > 0 && <LatestArticles posts={allPosts} />}
-      {/* </BlurFade> */}
+      {allPosts.length > 0 && <LatestArticles posts={allPosts} />}
       <BlurFade inView delay={0.6}>
         <CodingStats techStacks={techStacks} githubUsername={githubUsername} />
       </BlurFade>
