@@ -1,6 +1,5 @@
 import PageHeader from "@/components/page-header";
 import CodeHeader from "@/components/section/about/code-header";
-import { BlurFade } from "@/components/magicui/blur-fade";
 import LifeStyles from "@/components/about/life-styles";
 import CodingStats from "@/components/about/coding-stats";
 import AnimatedSection from "@/components/animated-section";
@@ -46,9 +45,7 @@ async function About() {
         />
       </AnimatedSection>
       {allPosts.length > 0 && <LatestArticles posts={allPosts} />}
-      <BlurFade inView delay={0.6}>
-        <CodingStats techStacks={techStacks} githubUsername={githubUsername} />
-      </BlurFade>
+      <CodingStats techStacks={techStacks} githubUsername={githubUsername} />
       <LifeStyles lifestyles={lifestyles} />
     </article>
   );
