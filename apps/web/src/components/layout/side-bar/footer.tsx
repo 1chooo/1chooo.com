@@ -26,9 +26,7 @@ function Footer() {
         </Link>
         <Link
           className="inline text-orange-yellow-crayola underline hover:text-opacity-70"
-          href="https://docs.1chooo.com/terms"
-          target="_blank"
-          rel="noopener noreferrer"
+          href="/terms"
         >
           Terms
         </Link>
