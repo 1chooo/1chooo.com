@@ -27,8 +27,8 @@ interface CodingStatsProps {
 
 function CodingStats({ techStacks, githubUsername }: CodingStatsProps) {
   const yellowTheme: ThemeInput = {
-    light: ["hsl(0, 0%, 92%)", "#FFDA6B"],
-    dark: ["hsl(0, 0%, 22%)", "#FFDA6B"],
+    light: ["#EBEBEB", "#FFDA6B"],
+    dark: ["#383838", "#FFDA6B"],
   };
 
   return (
