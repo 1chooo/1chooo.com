@@ -119,7 +119,7 @@ const config: Config = {
     authors: [{ name: "Chun-Ho (Hugo) Lin" }],
     creator: "Chun-Ho (Hugo) Lin",
     keywords: [
-      "Hugo ChunHo Lin",
+      "Chun-Ho (Hugo) Lin",
       "1chooo",
       "Software Engineering",
       "Next.js",
