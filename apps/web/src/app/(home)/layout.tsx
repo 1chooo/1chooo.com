@@ -9,6 +9,7 @@ import Hello from "@/components/hello";
 import { ProgressBar } from "@/components/progress-bar";
 import { WebVitals } from "@/components/web-vitals";
 import config from "@/config";
+import type { JsonLdHtml } from "@/types/json-ld";
 
 import "@/app/globals.css";
 
@@ -24,7 +25,7 @@ const {
   avatar,
   status,
   navigationLinks,
-  siteURL,
+  jsonLdPerson,
 } = config;
 
 const { firstName, lastName, middleName, preferredName } = about;
@@ -63,38 +64,11 @@ export const metadata: Metadata = {
   },
 };
 
-const addJsonLd = () => {
+const addJsonLd = (): JsonLdHtml => {
   return {
-    __html: `{
-      "@context": "http://schema.org",
-      "@type": "Person",
-      "@id": "${siteURL}#person",
-      "givenName": ${firstName},
-      "familyName": ${lastName},
-      "additionalName": ${preferredName},
-      "gender": "male",
-      "birthPlace": "New Taipei, TW",
-      "nationality": "Taiwan",
-      "alumniOf":[
-        {
-          "@type": "CollegeOrUniversity",
-          "name": "National Central University",
-          "sameAs": "https://www.ncu.edu.tw/"
-        },
-      ],
-      "jobTitle": "Software Engineer",
-      "skills": "Software Engineering, Web Development, Open Source",
-      "image": "https://www.1chooo.com/images/profile.webp",
-      "url": ${siteURL},
-      "sameAs": [
-        "https://www.linkedin.com/in/1chooo/",
-        "http://github.com/1chooo",
-        "https://medium.com/@1chooo",
-      ]
-    }
-  `,
-  };
-};
+    __html: JSON.stringify(jsonLdPerson, null, 2),
+  }
+}
 
 function RootLayout({ children }: { readonly children: React.ReactNode }) {
   return (

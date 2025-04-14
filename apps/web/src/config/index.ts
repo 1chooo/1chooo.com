@@ -286,6 +286,33 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
       ],
     },
   },
+  jsonLdPerson: {
+    "@context": "http://schema.org",
+    "@type": "Person",
+    "@id": "https://www.1chooo.com/#person",
+    givenName: "Chun-Ho",
+    familyName: "Lin",
+    additionalName: "Hugo",
+    gender: "male",
+    birthPlace: "New Taipei, TW",
+    nationality: "Taiwan",
+    alumniOf: [
+      {
+        "@type": "CollegeOrUniversity",
+        name: "National Central University",
+        sameAs: "https://www.ncu.edu.tw/",
+      },
+    ],
+    jobTitle: "Software Engineer",
+    skills: "Software Engineering, Web Development, Open Source",
+    image: "https://www.1chooo.com/images/profile.webp",
+    url: "https://www.1chooo.com",
+    sameAs: [
+      "https://www.linkedin.com/in/1chooo/",
+      "http://github.com/1chooo",
+      "https://medium.com/@1chooo",
+    ],
+  },
   giscusConfig: {
     id: "comments",
     repo: "1chooo/1chooo.com",
