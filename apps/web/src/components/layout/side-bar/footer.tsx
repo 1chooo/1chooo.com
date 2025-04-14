@@ -3,12 +3,12 @@ import Link from "next/link";
 
 function Footer() {
   return (
-    <footer className="py-4 px-8 text-center text-sm text-light-gray">
+    <footer className="py-4 px-6 text-center text-sm text-light-gray">
       <div className="mb-2">
-        &copy; 2024 - 2025{" "}
+        &copy; {new Date().getFullYear()}{" "}
         <Link
           className="inline text-orange-yellow-crayola underline hover:text-opacity-70"
-          href="https://1chooo.com"
+          href="https://www.1chooo.com"
           target="_blank"
           rel="noopener noreferrer"
         >
@@ -22,7 +22,7 @@ function Footer() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Vcard
+          Code
         </Link>
         <Link
           className="inline text-orange-yellow-crayola underline hover:text-opacity-70"
