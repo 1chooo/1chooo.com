@@ -6,7 +6,7 @@ import AnimatedSection from "@/components/animated-section";
 import markdownToHtml from "@/lib/markdownToHtml";
 import { cn } from "@workspace/ui/lib/utils";
 import { getAllPosts } from "@/lib/api";
-import { LatestArticles } from "@/components/about/v2/latest-articles";
+import { LatestArticles } from "@/components/about/latest-articles";
 
 import config from "@/config";
 
