@@ -6,6 +6,7 @@ import type { GiscusProps } from "@giscus/react";
 import type { IconType as ReactIconType } from "react-icons";
 import type { Icon as OcticonsType } from "@primer/octicons-react";
 import type { Person } from "@/types/json-ld";
+import type { Metadata } from "next";
 
 export type VCardIconType = ReactIconType | OcticonsType;
 
@@ -34,6 +35,7 @@ export type Config = {
   navigationLinks: NavigationLink[];
   contacts: Contact[];
   socialLinks: SocialLink[];
+  homeMetaData: Metadata;
   about: About;
   resume: Resume;
   jsonLdPerson: Person;

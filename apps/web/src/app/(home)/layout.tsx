@@ -14,55 +14,19 @@ import type { JsonLdHtml } from "@/types/json-ld";
 import "@/app/globals.css";
 
 const {
-  title,
-  description,
-  author,
-  keywords,
   googleAnalyticId,
   googleTagManagerId,
-  openGraph,
   about,
   avatar,
   status,
   navigationLinks,
   jsonLdPerson,
+  homeMetaData
 } = config;
 
 const { firstName, lastName, middleName, preferredName } = about;
 
-export const metadata: Metadata = {
-  title: title,
-  description: description,
-  authors: [{ name: author }],
-  creator: author,
-  keywords: keywords,
-  openGraph: {
-    url: openGraph.url,
-    type: "website",
-    siteName: openGraph.siteName,
-    title: openGraph.title,
-    description: openGraph.description,
-    images: openGraph.images,
-  },
-  manifest: "/manifest.json",
-  twitter: {
-    card: "summary_large_image",
-    title: title,
-    description: description,
-    images: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",
-  },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: [
-      {
-        url: "/logo192.png",
-        sizes: "192x192",
-        type: "image/png",
-      },
-    ],
-  },
-};
+export const metadata: Metadata = homeMetaData;
 
 const addJsonLd = (): JsonLdHtml => {
   return {
