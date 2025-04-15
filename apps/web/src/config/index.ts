@@ -87,7 +87,7 @@ const config: Config = {
       icon: LuGithub,
       title: "GitHub",
       link: "https://github.com/1chooo",
-      content: "1chooo",
+      content: "@1chooo",
     },
     {
       icon: LuLinkedin,
@@ -97,20 +97,36 @@ const config: Config = {
     },
   ],
   socialLinks: [
-    { url: `https://github.com/1chooo`, icon: LuGithub, name: "GitHub" },
     {
-      url: `https://www.linkedin.com/in/1chooo/`,
+      url: "https://github.com/1chooo",
+      icon: LuGithub,
+      name: "GitHub",
+    },
+    {
+      url: "https://www.linkedin.com/in/1chooo/",
       icon: LuLinkedin,
       name: "LinkedIn",
     },
     {
-      url: `https://medium.com/@1chooo`,
+      url: "https://medium.com/@1chooo",
       icon: PiMediumLogoBold,
       name: "Medium",
     },
-    { url: `https://twitter.com/1chooo___`, icon: FaXTwitter, name: "Twitter" },
-    { url: `/rss.xml`, icon: LuRss, name: "RSS Feed" },
-    { url: `/cv`, icon: MdAttachment, name: "CV" },
+    {
+      url: "https://twitter.com/1chooo___",
+      icon: FaXTwitter,
+      name: "Twitter",
+    },
+    {
+      url: `/rss.xml`,
+      icon: LuRss,
+      name: "RSS Feed",
+    },
+    {
+      url: `/cv`,
+      icon: MdAttachment,
+      name: "CV",
+    },
   ],
   homeMetaData: {
     metadataBase: new URL("https://www.1chooo.com"),
