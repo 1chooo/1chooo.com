@@ -57,7 +57,7 @@ function CodingStats({ techStacks, githubUsername }: CodingStatsProps) {
                 {techStacks.frameworks.map((stack) => (
                   <stack.icon
                     key={stack.name}
-                    className="size-10 text-white-2 hover:scale-110 hover:text-orange-yellow-crayola"
+                    className="size-10 text-white-2 hover:scale-110 hover:text-orange-yellow-crayola duration-300"
                   />
                 ))}
               </Marquee>
