@@ -18,3 +18,14 @@
         padding: 30px;
     }
 }
+
+@media (min-width: 580px) and (max-width: 639px) {
+    .service-item {
+        flex-direction: row;
+        align-items: center;
+    }
+
+    .service-item>div:last-child {
+        text-align: left;
+    }
+}
