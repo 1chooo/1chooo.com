@@ -1,16 +1,16 @@
-.service-item {
+.gradient-card {
     padding: 20px;
     z-index: 1;
 }
 
-.service-item::before {
+.gradient-card::before {
     inset: 1px;
     background: var(--bg-gradient-jet);
     z-index: -1;
 }
 
 @media (min-width: 580px) {
-    .service-item {
+    .gradient-card {
         display: flex;
         justify-content: flex-start;
         align-items: flex-start;
@@ -20,12 +20,12 @@
 }
 
 @media (min-width: 580px) and (max-width: 639px) {
-    .service-item {
+    .gradient-card {
         flex-direction: row;
         align-items: center;
     }
 
-    .service-item>div:last-child {
+    .gradient-card>div:last-child {
         text-align: left;
     }
 }
