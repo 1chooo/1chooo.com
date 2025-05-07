@@ -8,7 +8,7 @@ interface ServiceItemProps {
 
 function ServiceItem({ lifestyle }: ServiceItemProps) {
   return (
-    <div className="service-item bg-border-gradient-onyx relative shadow-shadow-2 rounded-2xl before:absolute before:content-[''] before:rounded-2xl">
+    <div className="service-item bg-border-gradient-onyx group relative shadow-shadow-2 rounded-2xl before:absolute before:content-[''] before:rounded-2xl hover:scale-105 duration-300">
       <div className="mb-2.5 sm:mb-0 sm:mt-2 flex justify-center items-center">
         <lifestyle.icon className="text-orange-yellow-crayola" size={24} />
       </div>
