@@ -46,7 +46,7 @@ const config: Config = {
     "Next.js",
     "React",
   ],
-  status: "Building until Scale is an Issue 🚀",
+  status: "Dive Deep. 🤿",
   siteURL: "https://www.1chooo.com",
   openGraph: {
     url: "https://www.1chooo.com/",
