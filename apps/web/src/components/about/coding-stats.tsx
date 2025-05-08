@@ -1,12 +1,16 @@
 import React from "react";
-import CodeHeader from "@/components/section/about/code-header";
-import Globe from "@/components/about/globe";
+
 import GitHubCalendar from "react-github-calendar";
 import { ThemeInput } from "react-activity-calendar";
-import { Marquee } from "./marquee";
-import { LuMapPin, LuZap } from "react-icons/lu";
-import type { VCardIconType } from "@/types/config";
+
 import { BlurFade } from "@/components/magicui/blur-fade";
+import CodeHeader from "@/components/section/about/code-header";
+import Globe from "@/components/about/globe";
+import { Marquee } from "@/components/about/marquee";
+
+import { LuMapPin, LuZap } from "react-icons/lu";
+
+import type { VCardIconType } from "@/types/config";
 
 import "@/styles/about/coding-stats.css";
 
