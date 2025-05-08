@@ -7,7 +7,7 @@ interface SocialListProps {
 
 function SocialList({ socialLinks }: SocialListProps) {
   return (
-    <ul className="flex justify-start items-center gap-[15px] pb-1 pl-[7px] xl:justify-center md:justify-center">
+    <ul className="flex items-center gap-4 pb-1 pl-2 justify-center">
       {socialLinks.map(({ url, icon: Icon, name }) => (
         <li
           key={name}
