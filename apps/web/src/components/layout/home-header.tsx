@@ -6,11 +6,11 @@ import { ProgressBarLink } from "@/components/progress-bar";
 import type { NavigationLink } from "@/types/nav-bar";
 import { BlurFade } from "@/components/magicui/blur-fade";
 
-interface NavigationHeaderProps {
+interface HomeHeaderProps {
   navigationLinks: NavigationLink[];
 }
 
-function Header({ navigationLinks }: NavigationHeaderProps) {
+function HomeHeader({ navigationLinks }: HomeHeaderProps) {
   const currentPath = usePathname();
 
   const isActive = (path: string) => {
@@ -28,11 +28,10 @@ function Header({ navigationLinks }: NavigationHeaderProps) {
             <li key={link.path}>
               <ProgressBarLink
                 href={link.path}
-                className={`block p-5 px-[7px] text-light-gray transition-colors duration-250 ease-in-out md:text-[15px] sm:text-[14px] text-[11px] ${
-                  isActive(link.path)
+                className={`block p-5 px-[7px] text-light-gray transition-colors duration-250 ease-in-out md:text-[15px] sm:text-[14px] text-[11px] ${isActive(link.path)
                     ? "active text-orange-yellow-crayola hover:text-orange-yellow-crayola font-bold"
                     : "hover:text-light-gray-70 font-medium"
-                }`}
+                  }`}
               >
                 {link.label}
               </ProgressBarLink>
@@ -44,4 +43,4 @@ function Header({ navigationLinks }: NavigationHeaderProps) {
   );
 }
 
-export default Header;
+export default HomeHeader;

@@ -3,7 +3,7 @@ import Script from "next/script";
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 
 import { roboto } from "@/app/fonts";
-import Header from "@/components/layout/header";
+import HomeHeader from "@/components/layout/home-header";
 import SideBar from "@/components/layout/side-bar";
 import Hello from "@/components/hello";
 import { ProgressBar } from "@/components/progress-bar";
@@ -113,7 +113,7 @@ function RootLayout({ children }: { readonly children: React.ReactNode }) {
               status={status}
             />
             <div className="main-content">
-              <Header navigationLinks={navigationLinks} />
+              <HomeHeader navigationLinks={navigationLinks} />
               {children}
             </div>
           </main>
