@@ -1,6 +1,7 @@
 import Script from "next/script";
 
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/next";
 
 import { roboto } from "@/app/fonts";
 import HomeHeader from "@/components/layout/home-header";
@@ -64,6 +65,7 @@ function HomeLayout({ children }: { readonly children: React.ReactNode }) {
           dangerouslySetInnerHTML={addJsonLd()}
           key="1chooo-website-jsonld"
         />
+        <Analytics />
       </body>
       <GoogleAnalytics gaId={googleAnalyticId} />
       <GoogleTagManager gtmId={googleTagManagerId} />
