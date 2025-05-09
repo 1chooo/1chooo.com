@@ -157,6 +157,16 @@ interface SideBarProps {
   socialLinks?: SocialLink[];
 }
 
+/**
+ * @todo
+ *  ⨯ Error: Functions cannot be passed directly to Client Components unless you explicitly expose it by marking it with "use server". Or maybe you meant to call this function rather than return it.  
+ * {icon: function LuLinkedin, title: ..., link: ..., content: ...}  
+ *        ^^^^^^^^^^^^^^^^^^^
+ *     at stringify (<anonymous>)
+ *     at stringify (<anonymous>) {
+ *   digest: '2918074666'
+ * }
+ */
 function SideBar({
   avatar,
   firstName,
@@ -164,7 +174,7 @@ function SideBar({
   middleName,
   preferredName,
   status,
-  contacts: propContacts = contacts,
+  contacts: propContacts = contacts,    // default to config or we might get the error
   socialLinks: propSocialLinks = socialLinks,
 }: SideBarProps) {
   const [isActive, setIsActive] = useState(false);
