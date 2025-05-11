@@ -1,49 +1,40 @@
-import CompanyCard from "@/components/resume/company-card"
+import type { Metadata } from "next";
+import React from "react";
+import TimeLine from "@/components/resume/v2/timeline";
+import PageHeader from "@/components/page-header";
+import config from "@/config";
+import DownloadCV from "@/components/resume/download-cv";
+import SkillsBar from "@/components/resume/skills-bar";
 
-export default function Page() {
+const skills = [
+  { name: "JavaScript", level: 80 },
+  { name: "TypeScript", level: 70 },
+  { name: "React", level: 75 },
+  { name: "Node.js", level: 65 },
+];
+
+const { title, resume } = config;
+const {
+  professionalExperiences,
+  educations,
+  awardLeaderships,
+  teachingExperiences,
+} = resume;
+
+export const metadata: Metadata = {
+  title: `Resume | ${title}`,
+};
+
+export default function Resume() {
   return (
-    <div className="container mx-auto p-4 md:p-6 lg:p-8">
-      <h1 className="text-2xl font-bold mb-6 text-gray-900 dark:text-white">Company Experience</h1>
-      <div className="grid gap-6">
-        <CompanyCard
-          companyImage="/favicon.ico?height=40&width=40"
-          companyName="Acme Corporation"
-          title="Senior Developer"
-          position="Full-time"
-          date="Jan 2022 - Present"
-          description={[
-            "Led the development of the company's flagship product using React and Next.js",
-            "Implemented CI/CD pipelines and improved deployment processes",
-            "Mentored junior developers and conducted code reviews",
-          ]}
-        />
-
-        <CompanyCard
-          companyImage="/favicon.ico?height=40&width=40"
-          companyName="Tech Innovations"
-          title="Frontend Engineer"
-          position="Contract"
-          date="Mar 2020 - Dec 2021"
-          description={[
-            "Designed and developed responsive user interfaces for various client projects",
-            "Worked with a team of designers to implement pixel-perfect designs",
-            "Optimized application performance and improved load times by 40%",
-          ]}
-        />
-
-        <CompanyCard
-          companyImage="/favicon.ico?height=40&width=40"
-          companyName="Digital Solutions"
-          title="Web Developer"
-          position="Part-time"
-          date="Jun 2018 - Feb 2020"
-          description={[
-            "Created and maintained websites for small businesses",
-            "Implemented SEO best practices and improved site performance",
-            "Provided technical support and training to clients",
-          ]}
-        />
-      </div>
-    </div>
-  )
+    <article>
+      <PageHeader header="Hugo's Resume" />
+      <DownloadCV />
+      <TimeLine data={professionalExperiences} />
+      <TimeLine data={educations} />
+      <TimeLine data={awardLeaderships} />
+      <TimeLine data={teachingExperiences} />
+      <SkillsBar skills={skills} />
+    </article>
+  );
 }
