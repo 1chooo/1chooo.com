@@ -378,13 +378,6 @@ article {
   font-weight: var(--fw-500);
 }
 
-.has-scrollbar::-webkit-scrollbar {
-  /* for vertical scrollbar */
-  width: 5px;
-  /* for horizontal scrollbar */
-  height: 5px;
-}
-
 .has-scrollbar::-webkit-scrollbar-track {
   background: var(--onyx);
   border-radius: 5px;
