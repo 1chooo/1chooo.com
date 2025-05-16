@@ -6,6 +6,8 @@ import { ProgressBarLink } from "@/components/progress-bar";
 import { BlurFade } from "@/components/magicui/blur-fade";
 import type { NavigationLink } from "@/types/nav-bar";
 
+import "@/styles/nav-bar.css";
+
 interface HomeHeaderProps {
   navigationLinks: NavigationLink[];
 }
@@ -21,19 +23,16 @@ function HomeHeader({ navigationLinks }: HomeHeaderProps) {
   };
 
   return (
-    <header className="fixed bottom-0 left-0 w-full backdrop-blur-[10px] bg-[hsla(240,1%,17%,0.75)] border border-jet shadow-xl z-10 lg:absolute lg:bottom-auto lg:top-0 lg:left-auto lg:right-0 lg:w-max lg:shadow-none lg:px-5 rounded-t-xl sm:rounded-t-[20px] lg:rounded-[0_20px]">
+    <header className="navbar">
       <BlurFade direction="up">
         <ul className="flex flex-wrap justify-center items-center px-2.5 sm:gap-5 lg:gap-[30px] lg:px-5">
-          {navigationLinks.map((link) => (
-            <li key={link.path}>
+          {navigationLinks.map((item) => (
+            <li key={item.path}>
               <ProgressBarLink
-                href={link.path}
-                className={`block p-5 px-[7px] text-light-gray transition-colors duration-250 ease-in-out md:text-[15px] sm:text-[14px] text-[11px] ${isActive(link.path)
-                    ? "active text-orange-yellow-crayola hover:text-orange-yellow-crayola font-bold"
-                    : "hover:text-light-gray-70 font-medium"
-                  }`}
+                href={item.path}
+                className={`navbar-link text-light-gray ${isActive(item.path) ? "active" : ""}`}
               >
-                {link.label}
+                {item.label}
               </ProgressBarLink>
             </li>
           ))}
