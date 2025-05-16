@@ -23,7 +23,7 @@ export default function CompanyCard({
   ],
 }: Partial<CompanyCardProps>) {
   return (
-    <div className="w-full rounded-lg border border-gray-200 bg-white shadow-sm transition-all hover:shadow-md dark:border-gray-800 dark:bg-gray-950">
+    <div className="w-full rounded-lg border border-gray-200 bg-white shadow-xs transition-all hover:shadow-md dark:border-gray-800 dark:bg-gray-950">
       {/* Card Header */}
       <div className="flex flex-row items-center gap-4 p-6 pb-4">
         <div className="h-12 w-12 overflow-hidden rounded-md">
