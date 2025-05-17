@@ -10,7 +10,10 @@ interface LifeStylesProps {
 function LifeStyles({ lifestyles }: LifeStylesProps) {
   return (
     <AboutSection id="life-styles" aboutSectionTitle="Life Styles">
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6" style={{ marginTop: "2rem" }}>
+      <div
+        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6"
+        style={{ marginTop: "2rem" }}
+      >
         {lifestyles.map((lifestyle: LifeStyle, index) => (
           <GradientCard key={lifestyle.title || index}>
             <div className="mb-2.5 sm:mb-0 sm:mt-2 flex justify-center items-center">

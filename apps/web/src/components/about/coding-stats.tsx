@@ -1,6 +1,5 @@
 import AboutSection from "@/components/section/about-section";
 
-
 import React from "react";
 
 import GitHubCalendar from "react-github-calendar";

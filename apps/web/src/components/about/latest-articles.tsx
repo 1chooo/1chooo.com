@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 
 import AboutSection from "@/components/section/about-section";
 
-
 import Image from "next/image";
 import { Post } from "@/interfaces/post";
 

@@ -9,7 +9,7 @@ import { LatestArticles } from "@/components/about/latest-articles";
 
 import config from "@/config";
 
-import "@/styles/markdown-styles.css"
+import "@/styles/markdown-styles.css";
 
 const { about } = config;
 const {

@@ -1,5 +1,5 @@
 import { Config } from "@/types/config";
-import { Icons } from "@/components/icons"
+import { Icons } from "@/components/icons";
 
 import { IoSchoolOutline } from "react-icons/io5";
 import { PiTrophy, PiBooks, PiMediumLogoBold } from "react-icons/pi";
