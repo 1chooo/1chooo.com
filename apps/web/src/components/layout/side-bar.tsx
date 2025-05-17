@@ -83,7 +83,7 @@ function SideBar({
           >
             {firstName} ({preferredName}) {lastName}
           </h1>
-          <p className="text-white-1 bg-onyx text-xs font-light max-w-max rounded-[8px] custom-lg:m-auto px-3 py-1 md:px-[18px] md:py-[5px]">
+          <p className="title">
             {status}
           </p>
         </div>
