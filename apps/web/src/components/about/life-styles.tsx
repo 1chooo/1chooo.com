@@ -1,5 +1,5 @@
-import CodeHeader from "@/components/section/about/code-header";
 import GradientCard from "@/components/ui/gradient-card";
+import AboutSection from "@/components/section/about-section";
 
 import type { LifeStyle } from "@/types/about";
 
@@ -9,9 +9,8 @@ interface LifeStylesProps {
 
 function LifeStyles({ lifestyles }: LifeStylesProps) {
   return (
-    <section id="life-styles">
-      <CodeHeader text="$ ls -al Life Style" />
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
+    <AboutSection id="life-styles" aboutSectionTitle="Life Styles">
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6" style={{ marginTop: "2rem" }}>
         {lifestyles.map((lifestyle: LifeStyle, index) => (
           <GradientCard key={lifestyle.title || index}>
             <div className="mb-2.5 sm:mb-0 sm:mt-2 flex justify-center items-center">
@@ -32,7 +31,7 @@ function LifeStyles({ lifestyles }: LifeStylesProps) {
           </GradientCard>
         ))}
       </div>
-    </section>
+    </AboutSection>
   );
 }
 

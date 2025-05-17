@@ -1,10 +1,12 @@
+import AboutSection from "@/components/section/about-section";
+
+
 import React from "react";
 
 import GitHubCalendar from "react-github-calendar";
 import { ThemeInput } from "react-activity-calendar";
 
 import { BlurFade } from "@/components/magicui/blur-fade";
-import CodeHeader from "@/components/section/about/code-header";
 import Globe from "@/components/about/globe";
 import { Marquee } from "@/components/about/marquee";
 
@@ -36,11 +38,7 @@ function CodingStats({ techStacks, githubUsername }: CodingStatsProps) {
   };
 
   return (
-    <section id="coding-stats">
-      <BlurFade inView delay={0.4} direction="down">
-        <CodeHeader id="coding-stats" text="$ ls -al Coding Stats" />
-      </BlurFade>
-
+    <AboutSection id="coding-stats" aboutSectionTitle="Coding Stats">
       <BlurFade inView delay={0.4} direction="left">
         <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-2 lg:gap-y-5 lg:gap-x-6">
           <div className="coding-item relative rounded-2xl shadow-shadow-2 bg-gradient-onyx before:absolute before:content-[''] before:rounded-2xl">
@@ -96,7 +94,7 @@ function CodingStats({ techStacks, githubUsername }: CodingStatsProps) {
           />
         </section>
       </BlurFade>
-    </section>
+    </AboutSection>
   );
 }
 

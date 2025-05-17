@@ -1,5 +1,4 @@
 import PageHeader from "@/components/page-header";
-import CodeHeader from "@/components/section/about/code-header";
 import LifeStyles from "@/components/about/life-styles";
 import CodingStats from "@/components/about/coding-stats";
 import AnimatedSection from "@/components/animated-section";
@@ -38,7 +37,6 @@ async function About() {
         <PageHeader header={header} />
       </AnimatedSection>
       <AnimatedSection>
-        <CodeHeader id="introduction" text="$ ls -al Hugo 👨🏻‍💻 (He/Him)" />
         <div
           className={cn("markdown")}
           dangerouslySetInnerHTML={{ __html: content }}
