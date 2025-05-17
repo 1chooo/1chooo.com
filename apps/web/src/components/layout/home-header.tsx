@@ -25,9 +25,9 @@ function HomeHeader({ navigationLinks }: HomeHeaderProps) {
   return (
     <header className="navbar">
       <BlurFade direction="up">
-        <ul className="flex flex-wrap justify-center items-center px-2.5 sm:gap-5 lg:gap-[30px] lg:px-5">
+        <ul className="navbar-list">
           {navigationLinks.map((item) => (
-            <li key={item.path}>
+            <li className="navbar-item" key={item.path}>
               <ProgressBarLink
                 href={item.path}
                 className={`navbar-link text-light-gray ${isActive(item.path) ? "active" : ""}`}
