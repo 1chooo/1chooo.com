@@ -1,5 +1,6 @@
 import { Config } from "@/types/config";
-import { MdOutlineDevices, MdAttachment } from "react-icons/md";
+import { Icons } from "@/components/icons"
+
 import { IoSchoolOutline } from "react-icons/io5";
 import { PiTrophy, PiBooks, PiMediumLogoBold } from "react-icons/pi";
 import { GoalIcon } from "@primer/octicons-react";
@@ -124,7 +125,7 @@ const config: Config = {
     },
     {
       url: `/cv`,
-      icon: MdAttachment,
+      icon: Icons.Attachment,
       name: "CV",
     },
   ],
@@ -305,7 +306,7 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
       ],
     },
     professionalExperiences: {
-      icon: MdOutlineDevices,
+      icon: Icons.Devices,
       title: "Professional Experience",
       items: [
         {
