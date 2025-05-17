@@ -2,9 +2,159 @@
   #copyright 2024-2025 @1chooo
 \*-----------------------------------*/
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import 'tailwindcss';
+
+@theme {
+  --breakpoint-custom-md: 580px;
+  --breakpoint-custom-lg: 1250px;
+
+  --color-jet: hsl(0, 0%, 22%);
+  --color-onyx: hsl(240, 1%, 17%);
+  --color-eerie-black-1: hsl(240, 2%, 13%);
+  --color-eerie-black-2: hsl(240, 2%, 12%);
+  --color-smoky-black: hsl(0, 0%, 7%);
+  --color-white-1: hsl(0, 0%, 100%);
+  --color-white-2: hsl(0, 0%, 98%);
+  --color-orange-yellow-crayola: hsl(45, 100%, 72%);
+  --color-orange-yellow-crayola-dark: hsl(45, 100%, 10%);
+  --color-vegas-gold: hsl(45, 54%, 58%);
+  --color-light-gray: hsl(0, 0%, 84%);
+  --color-light-gray-70: hsla(0, 0%, 84%, 0.7);
+  --color-bittersweet-shimmer: hsl(0, 43%, 51%);
+  --color-color-1: hsl(var(--color-1));
+  --color-color-2: hsl(var(--color-2));
+  --color-color-3: hsl(var(--color-3));
+  --color-color-4: hsl(var(--color-4));
+  --color-color-5: hsl(var(--color-5));
+
+  --background-image-gradient-onyx: linear-gradient(
+    to bottom right,
+    hsl(240, 1%, 25%) 3%,
+    hsl(0, 0%, 19%) 97%
+  );
+  --background-image-gradient-jet:
+    linear-gradient(
+      to bottom right,
+      hsla(240, 1%, 18%, 0.251) 0%,
+      hsla(240, 2%, 11%, 0) 100%
+    ),
+    hsl(240, 2%, 13%);
+  --background-image-gradient-yellow-1: linear-gradient(
+    to bottom right,
+    hsl(45, 100%, 71%) 0%,
+    hsla(36, 100%, 69%, 0) 50%
+  );
+  --background-image-gradient-yellow-2:
+    linear-gradient(
+      135deg,
+      hsla(45, 100%, 71%, 0.251) 0%,
+      hsla(35, 100%, 68%, 0) 59.86%
+    ),
+    hsl(240, 2%, 13%);
+  --background-image-border-gradient-onyx: linear-gradient(
+    to bottom right,
+    hsl(0, 0%, 25%) 0%,
+    hsla(0, 0%, 25%, 0) 50%
+  );
+  --background-image-text-gradient-yellow: linear-gradient(
+    to right,
+    hsl(45, 100%, 72%),
+    hsl(35, 100%, 68%)
+  );
+
+  --radius-lg: var(--radius);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-sm: calc(var(--radius) - 4px);
+
+  --shadow-shadow-1: -4px 8px 24px hsla(0, 0%, 0%, 0.25);
+  --shadow-shadow-2: 0 16px 30px hsla(0, 0%, 0%, 0.25);
+  --shadow-shadow-3: 0 16px 40px hsla(0, 0%, 0%, 0.25);
+  --shadow-shadow-4: 0 25px 50px hsla(0, 0%, 0%, 0.15);
+  --shadow-shadow-5: 0 24px 80px hsla(0, 0%, 0%, 0.25);
+
+  --animate-shiny-text: shiny-text 8s infinite;
+  --animate-gradient: gradient 8s linear infinite;
+  --animate-marquee: marquee var(--duration) linear infinite;
+  --animate-marquee-vertical: marquee-vertical var(--duration) linear infinite;
+  --animate-marquee-left: marquee-left var(--duration, 30s) linear infinite;
+  --animate-marquee-up: marquee-up var(--duration, 30s) linear infinite;
+  --animate-rainbow: rainbow var(--speed, 2s) infinite linear;
+
+  @keyframes shiny-text {
+    0%,
+    90%,
+    100% {
+      background-position: calc(-100% - var(--shiny-width)) 0;
+    }
+    30%,
+    60% {
+      background-position: calc(100% + var(--shiny-width)) 0;
+    }
+  }
+  @keyframes gradient {
+    to {
+      background-position: var(--bg-size) 0;
+    }
+  }
+  @keyframes marquee {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-vertical {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-left {
+    from {
+      transform: translateX(0);
+    }
+    to {
+      transform: translateX(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes marquee-up {
+    from {
+      transform: translateY(0);
+    }
+    to {
+      transform: translateY(calc(-100% - var(--gap)));
+    }
+  }
+  @keyframes rainbow {
+    0% {
+      background-position: 0%;
+    }
+    100% {
+      background-position: 200%;
+    }
+  }
+}
+
+/*
+  The default border color has changed to `currentcolor` in Tailwind CSS v4,
+  so we've added these compatibility styles to make sure everything still
+  looks the same as it did with Tailwind CSS v3.
+
+  If we ever want to remove these styles, we need to add an explicit border
+  color utility to any element that depends on these defaults.
+*/
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+}
 
 :root {
   /**

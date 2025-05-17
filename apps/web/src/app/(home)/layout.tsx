@@ -15,6 +15,7 @@ import type { Metadata } from "next";
 import type { JsonLdHtml } from "@/types/json-ld";
 
 import "@/app/globals.css";
+import "@workspace/ui/globals.css";
 
 const {
   googleAnalyticId,
