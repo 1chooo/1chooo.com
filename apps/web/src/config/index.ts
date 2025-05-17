@@ -193,8 +193,6 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
 Software is built by humans. Unfortunately, humans make errors, ***LOTS of ERRORS 💣.*** Throughout human history, humans have learned to craft machines and tools to help us construct complex architecture. Inspired by this, I explore practical methodologies and tools to improve large-scale software systems' quality, reliability, and efficiency.
 
 In my spare time, I focus on contributing to open-source projects, alongside working out 💪🏻, capturing street photography 📸, and writing tech content ✍🏻.
-
-**Self-motivated, Team player, Love coding 👨🏻‍💻**
     `,
     lifestyles: [
       {

@@ -1,5 +1,6 @@
 import { Config } from "@/types/config";
-import { MdOutlineDevices, MdAttachment } from "react-icons/md";
+import { Icons } from "@/components/icons"
+
 import { IoSchoolOutline } from "react-icons/io5";
 import { PiTrophy, PiBooks, PiMediumLogoBold } from "react-icons/pi";
 import { GoalIcon } from "@primer/octicons-react";
@@ -124,7 +125,7 @@ const config: Config = {
     },
     {
       url: `/cv`,
-      icon: MdAttachment,
+      icon: Icons.Attachment,
       name: "CV",
     },
   ],
@@ -192,8 +193,6 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
 Software is built by humans. Unfortunately, humans make errors, ***LOTS of ERRORS 💣.*** Throughout human history, humans have learned to craft machines and tools to help us construct complex architecture. Inspired by this, I explore practical methodologies and tools to improve large-scale software systems' quality, reliability, and efficiency.
 
 In my spare time, I focus on contributing to open-source projects, alongside working out 💪🏻, capturing street photography 📸, and writing tech content ✍🏻.
-
-**Self-motivated, Team player, Love coding 👨🏻‍💻**
     `,
     lifestyles: [
       {
@@ -305,7 +304,7 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
       ],
     },
     professionalExperiences: {
-      icon: MdOutlineDevices,
+      icon: Icons.Devices,
       title: "Professional Experience",
       items: [
         {
