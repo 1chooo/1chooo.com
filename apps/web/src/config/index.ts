@@ -33,6 +33,8 @@ import {
   TbPhotoSquareRounded,
 } from "react-icons/tb";
 
+import { Github } from "lucide-react";
+
 const config: Config = {
   avatar: "/images/profile.webp",
   title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
@@ -75,7 +77,7 @@ const config: Config = {
     {
       icon: LuMapPin,
       title: "Location",
-      content: "Taipei, Taiwan 🇹🇼",
+      content: "Los Angeles, CA 🇺🇸",
     },
     {
       icon: LuMail,
