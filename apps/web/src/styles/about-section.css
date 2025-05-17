@@ -1,0 +1,11 @@
+.about-section {
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+
+.about-section-title {
+    color: var(--white-2);
+    font-size: var(--fs-2);
+    font-weight: 600;
+    text-transform: capitalize;
+}

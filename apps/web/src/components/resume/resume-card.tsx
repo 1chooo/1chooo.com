@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { CalendarIcon, BriefcaseIcon, BuildingIcon } from "lucide-react"
+import { CalendarIcon, BriefcaseIcon, BuildingIcon } from "lucide-react";
 
 interface CompanyCardProps {
-  companyImage: string
-  companyName: string
-  title: string
-  position: string
-  date: string
-  description: string[]
+  companyImage: string;
+  companyName: string;
+  title: string;
+  position: string;
+  date: string;
+  description: string[];
 }
 
 import "@/styles/skills-bar.css";
@@ -34,14 +34,18 @@ export default function ResumeCard({
               alt={companyName}
               className="h-full w-full object-cover"
               onError={(e) => {
-                e.currentTarget.src = "/favicon.ico?height=40&width=40"
-                e.currentTarget.onerror = null
+                e.currentTarget.src = "/favicon.ico?height=40&width=40";
+                e.currentTarget.onerror = null;
               }}
             />
           </div>
           <div className="space-y-1">
-            <div className="font-semibold text-gray-900 dark:text-gray-100">{companyName}</div>
-            <div className="text-sm text-gray-500 dark:text-gray-400">{title}</div>
+            <div className="font-semibold text-gray-900 dark:text-gray-100">
+              {companyName}
+            </div>
+            <div className="text-sm text-gray-500 dark:text-gray-400">
+              {title}
+            </div>
           </div>
         </div>
 

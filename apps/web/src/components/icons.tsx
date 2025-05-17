@@ -1,16 +1,23 @@
-import { MdOutlineDevices, MdAttachment } from "react-icons/md"
-import { IoSchoolOutline } from "react-icons/io5"
-import { PiTrophy, PiBooks, PiMediumLogoBold } from "react-icons/pi"
-import { GoalIcon } from "@primer/octicons-react"
-import { LuGithub, LuPencil, LuLinkedin, LuRss, LuMail, LuMapPin } from "react-icons/lu"
-import { FaXTwitter } from "react-icons/fa6"
-import { FaReact, FaAws } from "react-icons/fa"
-import { AiOutlinePython } from "react-icons/ai"
-import { RiJavaLine, RiJavascriptLine } from "react-icons/ri"
-import { SiLatex, SiFastapi, SiKubernetes, SiPostman } from "react-icons/si"
-import { BiLogoFlask } from "react-icons/bi"
-import { VscTerminalLinux, VscAzure } from "react-icons/vsc"
-import { DiRedis } from "react-icons/di"
+import { MdOutlineDevices, MdAttachment } from "react-icons/md";
+import { IoSchoolOutline } from "react-icons/io5";
+import { PiTrophy, PiBooks, PiMediumLogoBold } from "react-icons/pi";
+import { GoalIcon } from "@primer/octicons-react";
+import {
+  LuGithub,
+  LuPencil,
+  LuLinkedin,
+  LuRss,
+  LuMail,
+  LuMapPin,
+} from "react-icons/lu";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaReact, FaAws } from "react-icons/fa";
+import { AiOutlinePython } from "react-icons/ai";
+import { RiJavaLine, RiJavascriptLine } from "react-icons/ri";
+import { SiLatex, SiFastapi, SiKubernetes, SiPostman } from "react-icons/si";
+import { BiLogoFlask } from "react-icons/bi";
+import { VscTerminalLinux, VscAzure } from "react-icons/vsc";
+import { DiRedis } from "react-icons/di";
 import {
   TbBrandCpp,
   TbBrandTypescript,
@@ -23,7 +30,7 @@ import {
   TbBrandAstro,
   TbBrandTerraform,
   TbPhotoSquareRounded,
-} from "react-icons/tb"
+} from "react-icons/tb";
 
 export {
   MdOutlineDevices,
@@ -64,7 +71,7 @@ export {
   TbBrandAstro,
   TbBrandTerraform,
   TbPhotoSquareRounded,
-}
+};
 
 export const Icons = {
   Devices: MdOutlineDevices,
@@ -115,4 +122,4 @@ export const Icons = {
   LaTeX: SiLatex,
 
   Photo: TbPhotoSquareRounded,
-}
+};

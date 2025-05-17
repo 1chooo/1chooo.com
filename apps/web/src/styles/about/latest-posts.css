@@ -3,6 +3,7 @@
     justify-content: flex-start;
     align-items: flex-start;
     gap: 30px;
+    margin-top: 2rem;
     margin-bottom: 10px;
     overflow-x: auto;
     scroll-behavior: smooth;

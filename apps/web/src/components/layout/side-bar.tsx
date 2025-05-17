@@ -34,8 +34,8 @@ interface SideBarProps {
 
 /**
  * @todo
- *  ⨯ Error: Functions cannot be passed directly to Client Components unless you explicitly expose it by marking it with "use server". Or maybe you meant to call this function rather than return it.  
- * {icon: function LuLinkedin, title: ..., link: ..., content: ...}  
+ *  ⨯ Error: Functions cannot be passed directly to Client Components unless you explicitly expose it by marking it with "use server". Or maybe you meant to call this function rather than return it.
+ * {icon: function LuLinkedin, title: ..., link: ..., content: ...}
  *        ^^^^^^^^^^^^^^^^^^^
  *     at stringify (<anonymous>)
  *     at stringify (<anonymous>) {
@@ -48,7 +48,7 @@ function SideBar({
   lastName,
   preferredName,
   status,
-  contacts: propContacts = contacts,    // default to config or we might get the error
+  contacts: propContacts = contacts, // default to config or we might get the error
   socialLinks: propSocialLinks = socialLinks,
 }: SideBarProps) {
   const [isActive, setIsActive] = useState(false);
@@ -83,12 +83,14 @@ function SideBar({
           >
             {firstName} ({preferredName}) {lastName}
           </h1>
-          <p className="title">
-            {status}
-          </p>
+          <p className="title">{status}</p>
         </div>
 
-        <button className="info-more-btn" onClick={handleSidebarToggle} data-sidebar-btn>
+        <button
+          className="info-more-btn"
+          onClick={handleSidebarToggle}
+          data-sidebar-btn
+        >
           <span>Show Contacts</span>
           <MdExpandMore />
         </button>

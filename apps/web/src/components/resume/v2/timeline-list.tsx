@@ -33,7 +33,8 @@ function TimelineList({ items }: TimelineListProps) {
             "Created and maintained websites for small businesses",
             "Implemented SEO best practices and improved site performance",
             "Provided technical support and training to clients",
-          ]} />
+          ]}
+        />
       </li>
       <li className="timeline-item">
         <ResumeCard
@@ -46,7 +47,8 @@ function TimelineList({ items }: TimelineListProps) {
             "Created and maintained websites for small businesses",
             "Implemented SEO best practices and improved site performance",
             "Provided technical support and training to clients",
-          ]} />
+          ]}
+        />
       </li>
     </ol>
   );

@@ -2,11 +2,12 @@
 
 import { useEffect, useState } from "react";
 
+import AboutSection from "@/components/section/about-section";
+
 import Image from "next/image";
 import { Post } from "@/interfaces/post";
 
 import { ProgressBarLink } from "@/components/progress-bar";
-import CodeHeader from "@/components/section/about/code-header";
 import AnimatedShinyText from "@/components/magicui/animated-shiny-text";
 import StaggeredAnimationSection from "@/components/staggered-animation-section";
 import { BlurFade } from "@/components/magicui/blur-fade";
@@ -49,11 +50,7 @@ export function LatestArticles({ posts }: Props) {
   }
 
   return (
-    <section>
-      <BlurFade inView delay={0.4} direction="down">
-        <CodeHeader id="latest-articles" text="$ ls -al Latest Articles" />
-      </BlurFade>
-
+    <AboutSection id="latest-articles" aboutSectionTitle="Latest Articles">
       <StaggeredAnimationSection>
         <div className="latest-post-list">
           {visiblePosts.map((post) => (
@@ -87,7 +84,7 @@ export function LatestArticles({ posts }: Props) {
       </StaggeredAnimationSection>
 
       <BlurFade inView delay={0.4} direction="up">
-        <div className="z-10 flex items-center justify-center my-4">
+        <div className="z-10 flex items-center justify-center">
           <div
             className={cn(
               "group rounded-full border border-black/5 bg-neutral-100 text-base text-white transition-all ease-in hover:cursor-pointer hover:bg-neutral-200 dark:border-white/5 dark:bg-neutral-900 dark:hover:bg-neutral-800",
@@ -102,6 +99,6 @@ export function LatestArticles({ posts }: Props) {
           </div>
         </div>
       </BlurFade>
-    </section>
+    </AboutSection>
   );
 }
