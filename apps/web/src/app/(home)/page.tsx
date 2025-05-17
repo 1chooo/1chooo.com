@@ -10,7 +10,7 @@ import { LatestArticles } from "@/components/about/latest-articles";
 
 import config from "@/config";
 
-import markdownStyles from "@/styles/markdown-styles.module.css";
+import "@/styles/markdown-styles.css"
 
 const { about } = config;
 const {
@@ -40,7 +40,7 @@ async function About() {
       <AnimatedSection>
         <CodeHeader id="introduction" text="$ ls -al Hugo 👨🏻‍💻 (He/Him)" />
         <div
-          className={cn(markdownStyles["markdown"])}
+          className={cn("markdown")}
           dangerouslySetInnerHTML={{ __html: content }}
         />
       </AnimatedSection>
