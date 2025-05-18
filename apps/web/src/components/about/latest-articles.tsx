@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 
-import AboutSection from "@/components/section/about-section";
+import AboutSection from "@/components/section/about";
 
 import Image from "next/image";
 import { Post } from "@/interfaces/post";
@@ -50,7 +50,7 @@ export function LatestArticles({ posts }: Props) {
   }
 
   return (
-    <AboutSection id="latest-articles" aboutSectionTitle="Latest Articles">
+    <AboutSection id="latest-articles" title="Latest Articles">
       <StaggeredAnimationSection>
         <div className="latest-post-list">
           {visiblePosts.map((post) => (

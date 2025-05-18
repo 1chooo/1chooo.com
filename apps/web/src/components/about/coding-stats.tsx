@@ -1,4 +1,4 @@
-import AboutSection from "@/components/section/about-section";
+import AboutSection from "@/components/section/about";
 
 import React from "react";
 
@@ -37,7 +37,7 @@ function CodingStats({ techStacks, githubUsername }: CodingStatsProps) {
   };
 
   return (
-    <AboutSection id="coding-stats" aboutSectionTitle="Coding Stats">
+    <AboutSection id="coding-stats" title="Coding Stats">
       <BlurFade inView delay={0.4} direction="left">
         <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-2 lg:gap-y-5 lg:gap-x-6">
           <div className="coding-item relative rounded-2xl shadow-shadow-2 bg-gradient-onyx before:absolute before:content-[''] before:rounded-2xl">
