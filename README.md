@@ -1,7 +1,7 @@
 <a name="readme-top"></a>
 
-<a href="https://1chooo.com">
-  <img alt="1chooo.com Home Page" src="./.github/images/cover-transparent-with-1chooo-com.png">
+<a href="https://www.1chooo.com">
+  <img alt="Home Page of 1chooo.com" src="./.github/images/cover-transparent-with-1chooo-com.png">
 </a>
 
 <p align="center">
@@ -81,14 +81,14 @@ $ cd apps/docs
 $ pnpm run dev   # Open http://localhost:3001 with your browser to see the result.
 ```
 
-## 📲 Contact Info
+## 📲 Contact
 
-> **Hugo ChunHo Lin**
+> **Chun-Ho (Hugo) Lin**
 >
 > <aside>
 >   📩 E-mail: <a href="mailto:hugo970217@gmail.com">hugo970217@gmail.com</a>
 > <br>
->   🧳 Linkedin: <a href="https://www.linkedin.com/in/1chooo/">Hugo ChunHo Lin</a>
+>   🧳 Linkedin: <a href="https://www.linkedin.com/in/1chooo/">Chun-Ho (Hugo) Lin</a>
 > <br>
 >   👨🏻‍💻 GitHub: <a href="https://github.com/1chooo">1chooo</a>
 >    
@@ -113,7 +113,7 @@ Please remove all of my personal information by running `pnpm run delete`.
 
 Made with 🖤 by [@1chooo][1chooo-com]
 
-[1chooo-com]: https://1chooo.com
+[1chooo-com]: https://www.1chooo.com
 
 <p align="right" style="font-size: 14px; color: #555; margin-top: 20px;">
     <a href="#readme-top" style="text-decoration: none; color: #007bff; font-weight: bold;">

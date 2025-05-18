@@ -430,8 +430,10 @@ main {
 }
 
 .article-title {
+  font-weight: var(--fw-600);
   position: relative;
   padding-bottom: 7px;
+  margin-bottom: 30px;
 }
 
 .article-title::after {
@@ -444,9 +446,6 @@ main {
   background: var(--text-gradient-yellow);
   border-radius: 3px;
 }
-
-.about .article-title { margin-bottom: 15px; }
-
 
 /*-----------------------------------*\
   #SIDEBAR
@@ -515,9 +514,6 @@ main {
 /*-----------------------------------*\
   #RESUME
 \*-----------------------------------*/
-
-.article-title { margin-bottom: 30px; }
-
 
 .timeline {
   margin-bottom: 30px;
@@ -1193,7 +1189,8 @@ textarea.form-input::-webkit-resizer {
     --fs-6: 16px;
     padding: 16px 20px;
   }
-.article-title {
+
+  .article-title {
     font-weight: var(--fw-600);
     padding-bottom: 15px;
   }
@@ -1202,8 +1199,6 @@ textarea.form-input::-webkit-resizer {
     width: 40px;
     height: 5px;
   }
-    .about .article-title { margin-bottom: 20px; }
-
 }
 
 /**
@@ -1300,8 +1295,8 @@ textarea.form-input::-webkit-resizer {
   }
 
   .article-title {
-     padding-bottom: 20px;
-   }
+    padding-bottom: 20px;
+  }
 }
 
 /**
