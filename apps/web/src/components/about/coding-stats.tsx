@@ -1,4 +1,4 @@
-import AboutSection from "@/components/section/about-section";
+import AboutSection from "@/components/section/about";
 
 import React from "react";
 
