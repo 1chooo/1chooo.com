@@ -39,7 +39,7 @@ function CodingStats({ techStacks, githubUsername }: CodingStatsProps) {
   return (
     <AboutSection id="coding-stats" aboutSectionTitle="Coding Stats">
       <BlurFade inView delay={0.4} direction="left">
-        <div className="mt-8 grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-2 lg:gap-y-5 lg:gap-x-6">
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-2 lg:grid-cols-2 lg:gap-y-5 lg:gap-x-6">
           <div className="coding-item relative rounded-2xl shadow-shadow-2 bg-gradient-onyx before:absolute before:content-[''] before:rounded-2xl">
             <div className="shadow-feature-card dark:shadow-feature-card-dark flex flex-col gap-2 overflow-hidden rounded-xl p-2">
               <div className="flex items-center gap-2 text-white-2">
