@@ -10,7 +10,7 @@ interface LifeStylesProps {
 
 function LifeStyles({ lifestyles }: LifeStylesProps) {
   return (
-    <AboutSection id="life-styles" aboutSectionTitle="Life Styles">
+    <AboutSection id="life-styles" title="Life Styles">
       <BlurFade inView delay={0.4} direction="up">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-6">
           {lifestyles.map((lifestyle: LifeStyle, index) => (

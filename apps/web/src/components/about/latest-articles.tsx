@@ -50,7 +50,7 @@ export function LatestArticles({ posts }: Props) {
   }
 
   return (
-    <AboutSection id="latest-articles" aboutSectionTitle="Latest Articles">
+    <AboutSection id="latest-articles" title="Latest Articles">
       <StaggeredAnimationSection>
         <div className="latest-post-list">
           {visiblePosts.map((post) => (
