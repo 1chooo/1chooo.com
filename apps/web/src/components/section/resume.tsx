@@ -1,8 +1,10 @@
 import IconBox from "@/components/icon-box";
-import TimelineList from "@/components/resume/v2/timeline-list";
+import ResumeCard from "@/components/resume/resume-card";
 
 import type { VCardIconType } from "@/types/config";
 import type { TimeLine } from "@/types/resume";
+
+import "@/styles/resume/timeline-item.css";
 
 interface ResumeSectionProps {
   icon: VCardIconType;
@@ -17,7 +19,22 @@ function ResumeSection({ icon, title, timeLines }: ResumeSectionProps) {
         <IconBox icon={icon} />
         <h3 className="text-white-2 text-2xl font-bold">{title}</h3>
       </div>
-      <TimelineList timeLines={timeLines} />
+
+      <ol className="timeline-list">
+        {timeLines.map((item: TimeLine) => (
+          <li className="timeline-item" key={item.company}>
+            <ResumeCard
+              companyImage={item.companyImage}
+              companyName={item.company}
+              title={item.title}
+              employmentType={item.employmentType}
+              timePeriod={item.timePeriod}
+              location={item.location}
+              details={item.details}
+            />
+          </li>
+        ))}
+      </ol>
     </section>
   );
 }
