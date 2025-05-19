@@ -1,51 +1,43 @@
 import React from "react";
 
-import { TimelineItemProps } from "@/components/resume/timeline-item";
 import ResumeCard from "@/components/resume/resume-card";
 
 import "@/styles/resume/timeline-item.css";
 
+type TimeLine = {
+  company: string;
+  companyImage: string;
+  title: string;
+  employmentType: string;
+  location: string;
+  timePeriod: string;
+  details: string[];
+}
+
 interface TimelineListProps {
-  items: TimelineItemProps[];
+  timeLines: TimeLine[];
 }
 
 /**
  * @todo update TimeLineListProps
  */
 // eslint-disable-next-line no-unused-vars
-function TimelineList({ items }: TimelineListProps) {
+function TimelineList({ timeLines }: TimelineListProps) {
   return (
     <ol className="timeline-list">
-      <li className="timeline-item">
-        <ResumeCard
-          companyImage="/favicon.ico?height=40&width=40"
-          companyName="Digital Solutions"
-          title="Web Developer"
-          position="Part-time"
-          date="Jun 2018 - Feb 2020"
-          location="Remote"
-          description={[
-            "Created and maintained websites for small businesses",
-            "Implemented SEO best practices and improved site performance",
-            "Provided technical support and training to clients",
-          ]}
-        />
-      </li>
-      <li className="timeline-item">
-        <ResumeCard
-          companyImage="/favicon.ico?height=40&width=40"
-          companyName="Digital Solutions"
-          title="Web Developer"
-          position="Part-time"
-          date="Jun 2018 - Feb 2020"
-          location="Remote"
-          description={[
-            "Created and maintained websites for small businesses",
-            "Implemented SEO best practices and improved site performance",
-            "Provided technical support and training to clients",
-          ]}
-        />
-      </li>
+      {timeLines.map((item: TimeLine) => (
+        <li className="timeline-item" key={item.company}>
+          <ResumeCard
+            companyImage={item.companyImage}
+            companyName={item.company}
+            title={item.title}
+            employmentType={item.employmentType}
+            timePeriod={item.timePeriod}
+            location={item.location}
+            details={item.details}
+          />
+        </li>
+      ))}
     </ol>
   );
 }
