@@ -12,7 +12,7 @@ type TimeLine = {
   location: string;
   timePeriod: string;
   details: string[];
-}
+};
 
 interface TimelineListProps {
   timeLines: TimeLine[];

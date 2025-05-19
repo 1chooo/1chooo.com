@@ -1,5 +1,15 @@
 import type { VCardIconType } from "@/types/config";
 
+export type TimeLine = {
+  company: string;
+  companyImage: string;
+  title: string;
+  employmentType: string;
+  location: string;
+  timePeriod: string;
+  details: string[];
+};
+
 export type Resume = {
   educations: Education;
   awardLeaderships: AwardLeaderships;
