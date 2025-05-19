@@ -11,6 +11,10 @@
     z-index: 5;
 }
 
+.navbar-item {
+    list-style: none;
+}
+
 .navbar-list {
     display: flex;
     flex-wrap: wrap;
