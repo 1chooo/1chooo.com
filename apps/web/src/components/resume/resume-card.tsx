@@ -1,6 +1,6 @@
 "use client";
 
-import { CalendarIcon, BriefcaseIcon, BuildingIcon } from "lucide-react";
+import { CalendarIcon, BriefcaseIcon, BuildingIcon, MapPin } from "lucide-react";
 
 interface CompanyCardProps {
   companyImage: string;
@@ -8,6 +8,7 @@ interface CompanyCardProps {
   title: string;
   position: string;
   date: string;
+  location: string;
   description: string[];
 }
 
@@ -19,6 +20,7 @@ export default function ResumeCard({
   title = "Software Engineer",
   position = "Full-time",
   date = "Jan 2022 - Present",
+  location = "Remote",
   description = [
     "Responsible for developing and maintaining web applications using React and Next.js.",
     "Collaborated with cross-functional teams to deliver high-quality software solutions.",
@@ -26,7 +28,7 @@ export default function ResumeCard({
 }: Partial<CompanyCardProps>) {
   return (
     <section className="skill">
-      <ul className="skills-list content-card">
+      <div className="skills-list content-card">
         <div className="flex flex-row items-center gap-4 p-6 pb-4">
           <div className="h-12 w-12 overflow-hidden rounded-md">
             <img
@@ -40,10 +42,10 @@ export default function ResumeCard({
             />
           </div>
           <div className="space-y-1">
-            <div className="font-semibold text-gray-900 dark:text-gray-100">
+            <div className="font-semibold text-white-1">
               {companyName}
             </div>
-            <div className="text-sm text-gray-500 dark:text-gray-400">
+            <div className="text-sm text-light-gray">
               {title}
             </div>
           </div>
@@ -52,34 +54,34 @@ export default function ResumeCard({
         {/* Card Content */}
         <div className="px-6 pb-2">
           <div className="mb-4 flex flex-wrap gap-2">
-            <span className="inline-flex items-center gap-1 rounded-full border border-gray-200 px-2.5 py-0.5 text-xs font-medium text-gray-700 dark:border-gray-700 dark:text-gray-300">
+            <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium text-orange-yellow-crayola border-gray-700">
               <BriefcaseIcon className="h-3 w-3" />
               {position}
             </span>
-            <span className="inline-flex items-center gap-1 rounded-full border border-gray-200 px-2.5 py-0.5 text-xs font-medium text-gray-700 dark:border-gray-700 dark:text-gray-300">
-              <CalendarIcon className="h-3 w-3" />
-              {date}
+            <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium text-orange-yellow-crayola border-gray-700">
+              <MapPin className="h-3 w-3" />
+              {location}
             </span>
-            <span className="inline-flex items-center gap-1 rounded-full border border-gray-200 px-2.5 py-0.5 text-xs font-medium text-gray-700 dark:border-gray-700 dark:text-gray-300">
+            <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium text-orange-yellow-crayola border-gray-700">
               <CalendarIcon className="h-3 w-3" />
               {date}
             </span>
           </div>
-          <ul className="list-disc pl-5 space-y-1 text-sm text-gray-500 dark:text-gray-400">
+          <ul className="list-disc pl-5 space-y-1 text-sm text-white-1">
             {description.map((item, index) => (
               <li key={index}>{item}</li>
             ))}
           </ul>
         </div>
 
-        {/* Card Footer */}
-        <div className="px-6 py-4 border-t border-gray-100 dark:border-gray-800">
-          <div className="flex items-center text-xs text-gray-500 dark:text-gray-400">
+        <div className="px-6 py-4">
+          <div className="resume-card-separator"></div>
+          <div className="flex items-center text-xs text-light-gray-70 mt-2">
             <BuildingIcon className="mr-1 h-3 w-3" />
             Company details
           </div>
         </div>
-      </ul>
+      </div>
     </section>
   );
 }
