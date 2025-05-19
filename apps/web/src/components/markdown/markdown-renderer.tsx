@@ -6,12 +6,12 @@ import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
 import { rehypeGithubAlerts } from "rehype-github-alerts";
 
-import Anchor from "./anchor";
-import BlockQuote from "./block-quote";
-import CodeBlock from "./code-block";
-import MarkdownImage from "./markdown-image";
-import Paragraph from "./paragraph";
-import AnchorHeader from "./anchor-header";
+import Anchor from "@/components/markdown/anchor";
+import BlockQuote from "@/components/markdown/block-quote";
+import CodeBlock from "@/components/markdown/code-block";
+import MarkdownImage from "@/components/markdown/markdown-image";
+import Paragraph from "@/components/markdown/paragraph";
+import AnchorHeader from "@/components/markdown/anchor-header";
 
 interface MarkdownRendererProps {
   className?: string;
@@ -43,6 +43,7 @@ function MarkdownRenderer({ className, content }: MarkdownRendererProps) {
         ol: (props) => (
           <ol
             {...props}
+            className="list-decimal"
             style={{
               paddingLeft: "1.0rem",
             }}
@@ -51,6 +52,7 @@ function MarkdownRenderer({ className, content }: MarkdownRendererProps) {
         li: (props) => (
           <li
             {...props}
+            className="list-disc"
             style={{
               marginBottom: "0.15rem",
             }}
