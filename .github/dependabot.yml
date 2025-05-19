@@ -13,6 +13,4 @@ updates:
       timezone: "Asia/Taipei"
     assignees:
       - "1chooo"
-    reviewers:
-      - "1chooo"
     open-pull-requests-limit: 10
