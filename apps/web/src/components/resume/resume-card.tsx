@@ -1,6 +1,11 @@
 "use client";
 
-import { CalendarIcon, BriefcaseIcon, BuildingIcon, MapPin } from "lucide-react";
+import {
+  CalendarIcon,
+  BriefcaseIcon,
+  BuildingIcon,
+  MapPin,
+} from "lucide-react";
 
 interface CompanyCardProps {
   companyImage: string;
@@ -42,12 +47,8 @@ export default function ResumeCard({
             />
           </div>
           <div className="space-y-1">
-            <div className="font-semibold text-white-1">
-              {companyName}
-            </div>
-            <div className="text-sm text-light-gray">
-              {title}
-            </div>
+            <div className="font-semibold text-white-1">{companyName}</div>
+            <div className="text-sm text-light-gray">{title}</div>
           </div>
         </div>
 

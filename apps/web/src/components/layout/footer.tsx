@@ -1,6 +1,6 @@
-import Link from "next/link"
+import Link from "next/link";
 
-import "@/styles/layout/footer.css"
+import "@/styles/layout/footer.css";
 
 function Footer() {
   return (
@@ -33,7 +33,7 @@ function Footer() {
         </Link>
       </div>
     </footer>
-  )
+  );
 }
 
-export default Footer
+export default Footer;
