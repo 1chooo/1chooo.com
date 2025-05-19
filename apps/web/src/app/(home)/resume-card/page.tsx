@@ -6,6 +6,7 @@ import config from "@/config";
 import DownloadCV from "@/components/resume/download-cv";
 import SkillsBar from "@/components/resume/skills-bar";
 import ResumeSection from "@/components/section/resume";
+import { IoSchoolOutline } from "react-icons/io5";
 
 const skills = [
   { name: "JavaScript", level: 80 },
@@ -16,7 +17,14 @@ const skills = [
 
 const { title } = config;
 
-const professionalExperiences = {
+const educations = {
+  icons: IoSchoolOutline,
+  title: "Education",
+  timeLines: [
+  ]
+}
+
+const professionals = {
   icon: Icons.Devices,
   title: "Professional Experiences",
   timeLines: [
@@ -82,9 +90,9 @@ export default function Resume() {
       <PageHeader header="Hugo's Resume" />
       <DownloadCV />
       <ResumeSection
-        icon={professionalExperiences.icon}
-        title={professionalExperiences.title}
-        timeLines={professionalExperiences.timeLines}
+        icon={professionals.icon}
+        title={professionals.title}
+        timeLines={professionals.timeLines}
       />
       <SkillsBar skills={skills} />
     </article>
