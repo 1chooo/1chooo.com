@@ -10,8 +10,6 @@ export type TimeLine = {
   employmentType: string;
   location: string;
   timePeriod: string;
-  details: string[];
-  detailsShowOrHide: boolean;
 };
 
 export type Resume = {

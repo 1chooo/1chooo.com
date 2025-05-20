@@ -5,9 +5,8 @@ import Image from "next/image";
 import {
   CalendarIcon,
   BriefcaseIcon,
-  BuildingIcon,
   MapPin,
-  GraduationCap,
+  School,
 } from "lucide-react";
 
 import type { TimeLine } from "@/types/resume";
@@ -25,8 +24,6 @@ export default function ResumeCard({ timeLine, sectionType }: ResumeCardProps) {
   const { title } = timeLine
   const { employmentType } = timeLine
   const { location } = timeLine
-  const { details } = timeLine
-  const { detailsShowOrHide } = timeLine
   const { timePeriod } = timeLine
 
   return (
@@ -52,11 +49,20 @@ export default function ResumeCard({ timeLine, sectionType }: ResumeCardProps) {
           </div>
         </div>
 
-        {/* Card Content */}
         <div className="px-6 pb-2">
           <div className="mb-4 flex flex-wrap gap-2">
             <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium text-orange-yellow-crayola border-gray-700">
-              <BriefcaseIcon className="h-3 w-3" />
+              {sectionType === "education" ? (
+                <>
+                  <School className="h-3 w-3" />
+                  School Details
+                </>
+              ) : sectionType === "experience" ? (
+                <>
+                  <BriefcaseIcon className="h-3 w-3" />
+                  Company Details
+                </>
+              ) : null}
               {employmentType}
             </span>
             <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium text-orange-yellow-crayola border-gray-700">
@@ -67,31 +73,6 @@ export default function ResumeCard({ timeLine, sectionType }: ResumeCardProps) {
               <CalendarIcon className="h-3 w-3" />
               {timePeriod}
             </span>
-          </div>
-
-          {detailsShowOrHide ? (
-            <ul className="list-disc pl-5 space-y-1 text-sm text-white-1">
-              {details.map((item, index) => (
-                <li key={index}>{item}</li>
-              ))}
-            </ul>
-          ) : null}
-        </div>
-
-        <div className="px-6 py-4">
-          <div className="resume-card-separator"></div>
-          <div className="flex items-center text-xs text-light-gray-70 mt-2">
-            {sectionType === "education" ? (
-              <>
-                <GraduationCap className="mr-1 h-3 w-3" />
-                School Details
-              </>
-            ) : sectionType === "experience" ? (
-              <>
-                <BuildingIcon className="mr-1 h-3 w-3" />
-                Company Details
-              </>
-            ) : null}
           </div>
         </div>
       </div>
