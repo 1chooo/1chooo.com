@@ -13,11 +13,21 @@ export type TimeLine = {
 };
 
 export type Resume = {
-  educations: Education;
-  awardLeaderships: AwardLeaderships;
-  teachingExperiences: TeachingExperience;
-  professionalExperiences: ProfessionalExperience;
-};
+  icon: VCardIconType;
+  title: string;
+  timeLines: TimeLine[];
+  sectionType: string;
+}
+
+export type ResumeSection = {
+  icon: VCardIconType
+  title: string
+  timeLines: TimeLine[]
+}
+
+export type ResumeData = {
+  [key: string]: ResumeSection
+}
 
 /**
  * TODO: https://github.com/1chooo/1chooo.com/issues/98

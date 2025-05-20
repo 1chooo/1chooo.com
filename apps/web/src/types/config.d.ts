@@ -37,7 +37,7 @@ export type Config = {
   socialLinks: SocialLink[];
   homeMetaData: Metadata;
   about: About;
-  resume: Resume;
+  resumeData: ResumeData;
   jsonLdPerson: Person;
   giscusConfig: GiscusProps;
   googleAnalyticId: string;

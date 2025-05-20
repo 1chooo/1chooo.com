@@ -50,7 +50,7 @@ const experiences = {
       timePeriod: "Mar. 2024 - May. 2024",
     },
     {
-      company: "AWS",
+      company: "Amazon Web Services",
       companyImage: "/images/logos/aws.svg",
       title: "Campus Ambassador",
       employmentType: "Contract",

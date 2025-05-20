@@ -2,7 +2,7 @@ import { Config } from "@/types/config";
 import { Icons } from "@/components/icons";
 
 import { IoSchoolOutline } from "react-icons/io5";
-import { PiTrophy, PiBooks, PiMediumLogoBold } from "react-icons/pi";
+import { PiMediumLogoBold } from "react-icons/pi";
 import { GoalIcon } from "@primer/octicons-react";
 import {
   LuGithub,
@@ -246,110 +246,69 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
       ],
     },
   },
-  resume: {
-    educations: {
+  resumeData: {
+    education: {
       icon: IoSchoolOutline,
       title: "Education",
-      items: [
+      sectionType: "education",
+      timeLines: [
+        {
+          company: "University of Southern California",
+          companyImage: "/images/logos/usc.jpg",
+          title: "Master of Science in Computer Science",
+          employmentType: "Viterbi School of Engineering",
+          location: "Los Angeles, CA 🇺🇸",
+          timePeriod: "Aug. 2025 - Present",
+        },
         {
           company: "National Central University",
-          location: "Taoyuan, Taiwan",
-          role: "Bachelors of Science in Atmospheric Science",
-          duration: "Sep. 2020 — Jun. 2024",
-          tasksMarkdown: `
-- **Minor Specialty:** Computer Science & Information Engineering
-- **Graduate-level Courses:** The Attack and Defense of Computers, Object-Oriented Analysis and Design.
-- **B.S.-level Courses:** Software Engineering, Principles of Programming Languages, Assembly Language and System Programming, Operating System, Computer Network, Algorithmics, Data Structures, Digital Design, Numerical Analysis
-- TA: Linux and Edge Computing, Programming Python, Weather and Artificial Intelligence, Freshman English, Student Service-Learning
-        `,
-        },
-      ],
+          companyImage: "/images/logos/ncu.png",
+          title: "Bachelors of Science in Atmospheric Science",
+          employmentType: "College of Earth Sciences",
+          location: "Taoyuan, Taiwan 🇹🇼",
+          timePeriod: "Sep. 2020 - Jun. 2024",
+        }
+      ]
     },
-    awardLeaderships: {
-      icon: PiTrophy,
-      title: "Award & Leaderships",
-      items: [
-        {
-          company: "2023 Weather Hackathon",
-          location: "Taipei, Taiwan",
-          role: "Team Leader, Full Stack Developer",
-          duration: "May, 2023 - Aug, 2023",
-          tasksMarkdown: `
-- The second place winner, as well as the Executive Yuan Sustainability Special Award 
-<sup>[[News](https://www.weatherrisk.com/post/%E7%AC%AC%E4%BA%8C%E5%B1%86-%E5%A4%A9%E6%B0%A3%E9%BB%91%E5%AE%A2%E6%9D%BE-%E5%9C%93%E6%BB%BF%E6%88%90%E5%8A%9F%EF%BC%8Cesg%E3%80%81%E6%B0%B8%E7%BA%8C%E8%AD%B0%E9%A1%8C%E5%8F%97%E8%A9%95%E5%AF%A9%E8%A6%AA%E7%9D%9E)] | 
-[[GitHub](https://github.com/Weather-Shakespeare)] | 
-[[Blog](https://weather-shakespeare.github.io/)]</sup>
-        `,
-        },
-      ],
-    },
-    teachingExperiences: {
-      icon: PiBooks,
-      title: "Teaching",
-      items: [
-        {
-          company: "National Central University",
-          location: "Taoyuan, Taiwan",
-          role: "Teaching Assistant",
-          duration: "Feb. 2021 - Jun. 2024",
-          tasksMarkdown: `
-- GS4538 Linux and Edge Computing, 24 Spring, Dr. Chia-Kai Chang <sup>[[Website](https://ncuedu.tw/course/linux)] | [[GitHub](https://github.com/NCU-GS4538-Linux)]</sup>
-- AP4064 Weather and Artificial Intelligence II, 24 Spring, Mr. Che-Wei Chou <sup>[[GitHub](https://github.com/weather-and-ai)]</sup>
-- AP4063 Weather and Artificial Intelligence I, 23 Fall, Mr. Che-Wei Chou <sup>[[GitHub](https://github.com/weather-and-ai)]</sup>
-- GS4719 Python Programming, 23 Fall, Dr. Chia-Kai Chang <sup>[[Website](https://ncuedu.tw/course/python)] | [[GitHub](https://github.com/NCU-GS4719-Python)]</sup>
-- Freshman English, 22 Fall & 23 Spring Dr. Chen, Jou-Yin
-- Student Service-Learning, 21 Spring, Prof. Wei-Yu Chang
-        `,
-        },
-      ],
-    },
-    professionalExperiences: {
+    experiences: {
       icon: Icons.Devices,
-      title: "Professional Experience",
-      items: [
+      title: "Professional Experiences",
+      sectionType: "experience",
+      timeLines: [
         {
           company: "eCloudvalley Digital Technology",
-          location: "New Taipei, Taiwan",
-          role: "Cloud Engineer Intern",
-          duration: "Mar. 2024 - May. 2024",
-          tasksMarkdown: `
-- Led a team of 5 to enhance issue pools with AWS Bedrock, boosting cloud support efficiency by 80% through multi-language support and 95% accurate image recognition. Honored as the top-achieving internship team.
-- Utilized a serverless architecture on AWS Lambda, performing troubleshooting with CloudWatch, deployed via AWS CDK, and integrated with DynamoDB and Bedrock services.
-- Documented issues in 10+ mock cases, such as VPC entry failures, EC2 Apache server restarts, and S3 photo access problems, and provided detailed solutions for interns. Refer [here](https://github.com/1chooo/ecv-training-materials/tree/main/msp/aws_challenge) for a comprehensive list.
-          `,
+          companyImage: "/images/logos/ecv.png",
+          title: "Cloud Engineer",
+          employmentType: "Intern",
+          location: "New Taipei, Taiwan 🇹🇼",
+          timePeriod: "Mar. 2024 - May. 2024",
         },
         {
           company: "Amazon Web Services",
-          location: "Taipei, Taiwan",
-          role: "Campus Ambassador",
-          duration: "Aug. 2023 - Jan. 2024",
-          tasksMarkdown: `
-- Educated 700+ cloud developers and achieved 96% user satisfaction by conducting 2 technical workshops, developing an open-source project, and 1 UAD with AWS cloud services. Refer [here](https://github.com/aws-educate-tw/aws-line-business-card-workshop) for the source code.
-- Conducted a comprehensive 35+ page market research study on cloud suppliers as part of an 11-member team.
-          `,
+          companyImage: "/images/logos/aws.svg",
+          title: "Campus Ambassador",
+          employmentType: "Contract",
+          location: "Taipei, Taiwan 🇹🇼",
+          timePeriod: "Aug. 2023 - Feb. 2024",
         },
         {
-          company: "PEGATRON Corporation",
-          location: "Taipei, Taiwan",
-          role: "Software Engineer Intern",
-          duration: "Jul. 2023 - Aug. 2023",
-          tasksMarkdown: `
-- Executed a POC, adapting an LLM model for Smart Manufacturing, and was awarded Silver internship team.
-- Collaborated with a team of 5, utilized Git, a CI/CD pipeline, and followed an agile Scrum workflow.
-- Implemented Prompt Engineering and LangChain for the NVIDIA Ominerve visual robot, enabling seamless speech/text operation, boosting test support by 83% across 6-11 scenarios with 85% stability.
-          `,
+          company: "PEGATRON",
+          companyImage: "/images/logos/pegatron.png",
+          title: "AI Engineer",
+          employmentType: "Intern",
+          location: "Taipei, Taiwan 🇹🇼",
+          timePeriod: "Jul. 2023 - Aug. 2023",
         },
         {
           company: "National Central University",
-          location: "Taoyuan, Taiwan",
-          role: "Website Developer",
-          duration: "Jul. 2022 - Jan. 2023",
-          tasksMarkdown: `
-- Partnered with a team of 2 to develop a multi-user score management system for the Center for Teacher Education, reducing credit exemption processing time by 80% and remotely maintaining the server via SSH.
-          `,
+          companyImage: "/images/logos/ncu.png",
+          title: "Website Developer",
+          employmentType: "Part-time",
+          location: "Taoyuan, Taiwan 🇹🇼",
+          timePeriod: "Jul. 2022 - Jan. 2023",
         },
       ],
-    },
+    }
   },
   jsonLdPerson: {
     "@context": "http://schema.org",
@@ -476,4 +435,3 @@ export const resumes = {
 }
 
 export default config;
-
