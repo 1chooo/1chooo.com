@@ -94,7 +94,7 @@ const config: Config = {
       icon: LuLinkedin,
       title: "LinkedIn",
       link: "https://www.linkedin.com/in/1chooo/",
-      content: "Chun-Ho (Hugo) Lin",
+      content: "in/1chooo",
     },
   ],
   socialLinks: [
