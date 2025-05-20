@@ -22,17 +22,9 @@ function ResumeSection({ icon, title, timeLines }: ResumeSectionProps) {
       </div>
 
       <ol className="timeline-list">
-        {timeLines.map((item: TimeLine) => (
-          <li className="timeline-item" key={item.company}>
-            <ResumeCard
-              companyImage={item.companyImage}
-              companyName={item.company}
-              title={item.title}
-              employmentType={item.employmentType}
-              timePeriod={item.timePeriod}
-              location={item.location}
-              details={item.details}
-            />
+        {timeLines.map((timeLine: TimeLine) => (
+          <li className="timeline-item" key={timeLine.company}>
+            <ResumeCard timeLine={timeLine} />
           </li>
         ))}
       </ol>

@@ -7,30 +7,24 @@ import {
   MapPin,
 } from "lucide-react";
 
+import type { TimeLine } from "@/types/resume";
+
 interface CompanyCardProps {
-  companyImage: string;
-  companyName: string;
-  title: string;
-  employmentType: string;
-  timePeriod: string;
-  location: string;
-  details: string[];
+  timeLine: TimeLine;
 }
 
 import "@/styles/skills-bar.css";
 
-export default function ResumeCard({
-  companyImage = "/placeholder.svg?height=40&width=40",
-  companyName = "Acme Corporation",
-  title = "Software Engineer",
-  employmentType = "Full-time",
-  timePeriod = "Jan 2022 - Present",
-  location = "Remote",
-  details = [
-    "Responsible for developing and maintaining web applications using React and Next.js.",
-    "Collaborated with cross-functional teams to deliver high-quality software solutions.",
-  ],
-}: Partial<CompanyCardProps>) {
+export default function ResumeCard({ timeLine }: CompanyCardProps) {
+  const { company } = timeLine
+  const { companyImage } = timeLine
+  const { title } = timeLine
+  const { employmentType } = timeLine
+  const { location } = timeLine
+  const { details } = timeLine
+  const { timePeriod } = timeLine
+  const { footerShowOrHide } = timeLine
+
   return (
     <section className="skill">
       <div className="skills-list content-card">
@@ -38,7 +32,7 @@ export default function ResumeCard({
           <div className="h-12 w-12 overflow-hidden rounded-md">
             <img
               src={companyImage || "/favicon.ico"}
-              alt={companyName}
+              alt={company}
               className="h-full w-full object-cover"
               onError={(e) => {
                 e.currentTarget.src = "/favicon.ico?height=40&width=40";
@@ -47,7 +41,7 @@ export default function ResumeCard({
             />
           </div>
           <div className="space-y-1">
-            <div className="font-semibold text-white-1">{companyName}</div>
+            <div className="font-semibold text-white-1">{company}</div>
             <div className="text-sm text-light-gray">{title}</div>
           </div>
         </div>
@@ -75,13 +69,15 @@ export default function ResumeCard({
           </ul>
         </div>
 
-        <div className="px-6 py-4">
-          <div className="resume-card-separator"></div>
-          <div className="flex items-center text-xs text-light-gray-70 mt-2">
-            <BuildingIcon className="mr-1 h-3 w-3" />
-            Company details
+        {footerShowOrHide ? (
+          <div className="px-6 py-4">
+            <div className="resume-card-separator"></div>
+            <div className="flex items-center text-xs text-light-gray-70 mt-2">
+              <BuildingIcon className="mr-1 h-3 w-3" />
+              Company details
+            </div>
           </div>
-        </div>
+        ) : null}
       </div>
     </section>
   );
