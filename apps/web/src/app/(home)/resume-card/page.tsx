@@ -50,7 +50,7 @@ const experiences = {
   timeLines: [
     {
       company: "eCloudvalley Digital Technology",
-      companyImage: "/favicon.ico?height=40&width=40",
+      companyImage: "/images/logo/ecv.png",
       title: "Cloud Engineer",
       employmentType: "Intern",
       location: "New Taipei, Taiwan 🇹🇼",
@@ -64,7 +64,7 @@ const experiences = {
     },
     {
       company: "AWS",
-      companyImage: "/favicon.ico?height=40&width=40",
+      companyImage: "/images/logo/aws.svg",
       title: "Campus Ambassador",
       employmentType: "Contract",
       location: "Taipei, Taiwan 🇹🇼",
@@ -77,7 +77,7 @@ const experiences = {
     },
     {
       company: "PEGATRON",
-      companyImage: "/favicon.ico?height=40&width=40",
+      companyImage: "/images/logo/pegatron.png",
       title: "AI Engineer",
       employmentType: "Intern",
       location: "Taipei, Taiwan 🇹🇼",
@@ -91,7 +91,7 @@ const experiences = {
     },
     {
       company: "National Central University",
-      companyImage: "/favicon.ico?height=40&width=40",
+      companyImage: "/images/logo/ncu.png",
       title: "Website Developer",
       employmentType: "Part-time",
       location: "Taoyuan, Taiwan 🇹🇼",
