@@ -15,9 +15,9 @@ const educations = {
   timeLines: [
     {
       company: "University of Southern California",
-      companyImage: "/favicon.ico?height=40&width=40",
+      companyImage: "/images/logo/usc.png",
       title: "Master of Science in Computer Science",
-      employmentType: "Full-time",
+      employmentType: "Viterbi School of Engineering",
       location: "Los Angeles, CA 🇺🇸",
       timePeriod: "Aug. 2025 - Present",
       details: [
@@ -27,9 +27,9 @@ const educations = {
     },
     {
       company: "National Central University",
-      companyImage: "/favicon.ico?height=40&width=40",
+      companyImage: "/images/logo/ncu.png",
       title: "Bachelors of Science in Atmospheric Science",
-      employmentType: "Full-time",
+      employmentType: "College of Earth Sciences",
       location: "Taoyuan, Taiwan 🇹🇼",
       timePeriod: "Sep. 2020 - Jun. 2024",
       details: [

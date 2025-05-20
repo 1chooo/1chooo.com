@@ -1,5 +1,7 @@
 "use client";
 
+import Image from "next/image";
+
 import {
   CalendarIcon,
   BriefcaseIcon,
@@ -30,7 +32,7 @@ export default function ResumeCard({ timeLine }: CompanyCardProps) {
       <div className="skills-list content-card">
         <div className="flex flex-row items-center gap-4 p-6 pb-4">
           <div className="h-12 w-12 overflow-hidden rounded-md">
-            <img
+            <Image
               src={companyImage || "/favicon.ico"}
               alt={company}
               className="h-full w-full object-cover"
@@ -38,6 +40,8 @@ export default function ResumeCard({ timeLine }: CompanyCardProps) {
                 e.currentTarget.src = "/favicon.ico?height=40&width=40";
                 e.currentTarget.onerror = null;
               }}
+              width={40}
+              height={40}
             />
           </div>
           <div className="space-y-1">
