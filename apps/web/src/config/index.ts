@@ -1,8 +1,8 @@
 import { Config } from "@/types/config";
 import { Icons } from "@/components/icons";
 
-import { IoSchoolOutline } from "react-icons/io5";
 import { PiMediumLogoBold } from "react-icons/pi";
+import { Monitor, GraduationCap } from "lucide-react";
 import { GoalIcon } from "@primer/octicons-react";
 import {
   LuGithub,
@@ -248,7 +248,7 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
   },
   resumes: {
     educations: {
-      icon: IoSchoolOutline,
+      icon: GraduationCap,
       title: "Education",
       timeLines: [
         {
@@ -278,7 +278,7 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
       ]
     },
     experiences: {
-      icon: Icons.Devices,
+      icon: Monitor,
       title: "Professional Experiences",
       timeLines: [
         {
