@@ -19,7 +19,7 @@ const educations = {
   timeLines: [
     {
       company: "University of Southern California",
-      companyImage: "/images/logo/usc.png",
+      companyImage: "/images/logos/usc.jpg",
       title: "Master of Science in Computer Science",
       employmentType: "Viterbi School of Engineering",
       location: "Los Angeles, CA 🇺🇸",
@@ -27,7 +27,7 @@ const educations = {
     },
     {
       company: "National Central University",
-      companyImage: "/images/logo/ncu.png",
+      companyImage: "/images/logos/ncu.png",
       title: "Bachelors of Science in Atmospheric Science",
       employmentType: "College of Earth Sciences",
       location: "Taoyuan, Taiwan 🇹🇼",
@@ -43,7 +43,7 @@ const experiences = {
   timeLines: [
     {
       company: "eCloudvalley Digital Technology",
-      companyImage: "/images/logo/ecv.png",
+      companyImage: "/images/logos/ecv.png",
       title: "Cloud Engineer",
       employmentType: "Intern",
       location: "New Taipei, Taiwan 🇹🇼",
@@ -51,7 +51,7 @@ const experiences = {
     },
     {
       company: "AWS",
-      companyImage: "/images/logo/aws.svg",
+      companyImage: "/images/logos/aws.svg",
       title: "Campus Ambassador",
       employmentType: "Contract",
       location: "Taipei, Taiwan 🇹🇼",
@@ -59,7 +59,7 @@ const experiences = {
     },
     {
       company: "PEGATRON",
-      companyImage: "/images/logo/pegatron.png",
+      companyImage: "/images/logos/pegatron.png",
       title: "AI Engineer",
       employmentType: "Intern",
       location: "Taipei, Taiwan 🇹🇼",
@@ -67,7 +67,7 @@ const experiences = {
     },
     {
       company: "National Central University",
-      companyImage: "/images/logo/ncu.png",
+      companyImage: "/images/logos/ncu.png",
       title: "Website Developer",
       employmentType: "Part-time",
       location: "Taoyuan, Taiwan 🇹🇼",
