@@ -7,6 +7,7 @@ import type { IconType as ReactIconType } from "react-icons";
 import type { Icon as OcticonsType } from "@primer/octicons-react";
 import type { Person } from "@/types/json-ld";
 import type { Metadata } from "next";
+import type { Resumes } from "@/types/resume";
 
 export type VCardIconType = ReactIconType | OcticonsType;
 
@@ -37,7 +38,7 @@ export type Config = {
   socialLinks: SocialLink[];
   homeMetaData: Metadata;
   about: About;
-  resumeData: ResumeData;
+  resumes: Resumes;
   jsonLdPerson: Person;
   giscusConfig: GiscusProps;
   googleAnalyticId: string;

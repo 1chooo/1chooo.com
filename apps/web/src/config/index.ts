@@ -246,11 +246,10 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
       ],
     },
   },
-  resumeData: {
-    education: {
+  resumes: {
+    educations: {
       icon: IoSchoolOutline,
       title: "Education",
-      sectionType: "education",
       timeLines: [
         {
           company: "University of Southern California",
@@ -259,6 +258,8 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
           employmentType: "Viterbi School of Engineering",
           location: "Los Angeles, CA 🇺🇸",
           timePeriod: "Aug. 2025 - Present",
+          details: [
+          ]
         },
         {
           company: "National Central University",
@@ -279,7 +280,6 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
     experiences: {
       icon: Icons.Devices,
       title: "Professional Experiences",
-      sectionType: "experience",
       timeLines: [
         {
           company: "eCloudvalley Digital Technology",

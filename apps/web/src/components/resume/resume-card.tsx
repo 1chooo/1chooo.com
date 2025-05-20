@@ -13,12 +13,12 @@ import type { TimeLine } from "@/types/resume";
 
 interface ResumeCardProps {
   timeLine: TimeLine;
-  sectionType: string;
+  resumeCategory: string;
 }
 
 import "@/styles/skills-bar.css";
 
-export default function ResumeCard({ timeLine, sectionType }: ResumeCardProps) {
+export default function ResumeCard({ timeLine, resumeCategory }: ResumeCardProps) {
   const { company } = timeLine
   const { companyImage } = timeLine
   const { title } = timeLine
@@ -52,9 +52,12 @@ export default function ResumeCard({ timeLine, sectionType }: ResumeCardProps) {
         <div className="px-6 pb-2">
           <div className="mb-4 flex flex-wrap gap-2">
             <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium text-orange-yellow-crayola border-gray-700">
-              {sectionType === "education" ? (
+              {/* 
+              @todo Since the resume does not have fixed key definitions and allows users to define them, we need a field that can map these keys to icons based on the user's configuration.
+              */}
+              {resumeCategory === "educations" ? (
                 <School className="h-3 w-3" />
-              ) : sectionType === "experience" ? (
+              ) : resumeCategory === "experiences" ? (
                 <BriefcaseIcon className="h-3 w-3" />
               ) : null}
               {employmentType}

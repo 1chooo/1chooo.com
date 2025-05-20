@@ -10,10 +10,10 @@ interface ResumeSectionProps {
   icon: VCardIconType;
   title: string;
   timeLines: TimeLine[];
-  sectionType: string;
+  resumeCategory: string;
 }
 
-function ResumeSection({ icon, title, timeLines, sectionType }: ResumeSectionProps) {
+function ResumeSection({ icon, title, timeLines, resumeCategory }: ResumeSectionProps) {
   return (
     <section className="timeline">
       <div className="flex items-center gap-4 mb-6">
@@ -24,7 +24,7 @@ function ResumeSection({ icon, title, timeLines, sectionType }: ResumeSectionPro
       <ol className="timeline-list">
         {timeLines.map((timeLine: TimeLine) => (
           <li className="timeline-item" key={timeLine.company}>
-            <ResumeCard timeLine={timeLine} sectionType={sectionType} />
+            <ResumeCard timeLine={timeLine} resumeCategory={resumeCategory} />
           </li>
         ))}
       </ol>
