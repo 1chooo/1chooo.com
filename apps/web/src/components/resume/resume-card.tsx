@@ -53,15 +53,9 @@ export default function ResumeCard({ timeLine, sectionType }: ResumeCardProps) {
           <div className="mb-4 flex flex-wrap gap-2">
             <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium text-orange-yellow-crayola border-gray-700">
               {sectionType === "education" ? (
-                <>
-                  <School className="h-3 w-3" />
-                  School Details
-                </>
+                <School className="h-3 w-3" />
               ) : sectionType === "experience" ? (
-                <>
-                  <BriefcaseIcon className="h-3 w-3" />
-                  Company Details
-                </>
+                <BriefcaseIcon className="h-3 w-3" />
               ) : null}
               {employmentType}
             </span>
