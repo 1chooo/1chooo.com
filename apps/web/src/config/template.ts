@@ -264,7 +264,7 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
         {
           company: "National Central University",
           companyImage: "/images/logos/ncu.png",
-          title: "Bachelors of Science in Atmospheric Science",
+          title: "Bachelors of Science in Atmospheric Sciences",
           employmentType: "College of Earth Sciences",
           location: "Taoyuan, Taiwan 🇹🇼",
           timePeriod: "Sep. 2020 - Jun. 2024",
