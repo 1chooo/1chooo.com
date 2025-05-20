@@ -538,3 +538,725 @@ https://buildui.com/posts/global-progress-in-nextjs
 
 
 https://convertio.co/
+
+
+
+```ts
+export type Resume = {
+  icon: VCardIconType;
+  title: string;
+  timeLines: TimeLine[];
+  sectionType: string;
+}
+```
+```ts
+export type Config = {
+  resumes: Resume[];
+};
+```
+
+```ts
+resumes: [
+    {
+      icon: IoSchoolOutline,
+      title: "Education",
+      sectionType: "education",
+      timeLines: [
+        {
+          company: "University of Southern California",
+          companyImage: "/images/logos/usc.jpg",
+          title: "Master of Science in Computer Science",
+          employmentType: "Viterbi School of Engineering",
+          location: "Los Angeles, CA 🇺🇸",
+          timePeriod: "Aug. 2025 - Present",
+        },
+        {
+          company: "National Central University",
+          companyImage: "/images/logos/ncu.png",
+          title: "Bachelors of Science in Atmospheric Science",
+          employmentType: "College of Earth Sciences",
+          location: "Taoyuan, Taiwan 🇹🇼",
+          timePeriod: "Sep. 2020 - Jun. 2024",
+        }
+      ]
+    },
+    {
+      icon: Icons.Devices,
+      title: "Professional Experiences",
+      sectionType: "experience",
+      timeLines: [
+        {
+          company: "eCloudvalley Digital Technology",
+          companyImage: "/images/logos/ecv.png",
+          title: "Cloud Engineer",
+          employmentType: "Intern",
+          location: "New Taipei, Taiwan 🇹🇼",
+          timePeriod: "Mar. 2024 - May. 2024",
+        },
+        {
+          company: "Amazon Web Services",
+          companyImage: "/images/logos/aws.svg",
+          title: "Campus Ambassador",
+          employmentType: "Contract",
+          location: "Taipei, Taiwan 🇹🇼",
+          timePeriod: "Aug. 2023 - Feb. 2024",
+        },
+        {
+          company: "PEGATRON",
+          companyImage: "/images/logos/pegatron.png",
+          title: "AI Engineer",
+          employmentType: "Intern",
+          location: "Taipei, Taiwan 🇹🇼",
+          timePeriod: "Jul. 2023 - Aug. 2023",
+        },
+        {
+          company: "National Central University",
+          companyImage: "/images/logos/ncu.png",
+          title: "Website Developer",
+          employmentType: "Part-time",
+          location: "Taoyuan, Taiwan 🇹🇼",
+          timePeriod: "Jul. 2022 - Jan. 2023",
+        },
+      ],
+    }
+  ],
+```
+
+目前是這樣，我可不可以把 sectionType extract 出來，讓我的結構變成：
+
+```ts
+resumes = [
+educations: {
+  icon: IoSchoolOutline,
+  title: "Education",
+  timeLines: [
+    {
+      company: "University of Southern California",
+      companyImage: "/images/logos/usc.jpg",
+      title: "Master of Science in Computer Science",
+      employmentType: "Viterbi School of Engineering",
+      location: "Los Angeles, CA 🇺🇸",
+      timePeriod: "Aug. 2025 - Present",
+    },
+    {
+      company: "National Central University",
+      companyImage: "/images/logos/ncu.png",
+      title: "Bachelors of Science in Atmospheric Science",
+      employmentType: "College of Earth Sciences",
+      location: "Taoyuan, Taiwan 🇹🇼",
+      timePeriod: "Sep. 2020 - Jun. 2024",
+    }
+  ]
+},
+
+experiences: {
+  icon: Icons.Devices,
+  title: "Professional Experiences",
+  timeLines: [
+    {
+      company: "eCloudvalley Digital Technology",
+      companyImage: "/images/logos/ecv.png",
+      title: "Cloud Engineer",
+      employmentType: "Intern",
+      location: "New Taipei, Taiwan 🇹🇼",
+      timePeriod: "Mar. 2024 - May. 2024",
+    },
+    {
+      company: "Amazon Web Services",
+      companyImage: "/images/logos/aws.svg",
+      title: "Campus Ambassador",
+      employmentType: "Contract",
+      location: "Taipei, Taiwan 🇹🇼",
+      timePeriod: "Aug. 2023 - Feb. 2024",
+    },
+    {
+      company: "PEGATRON",
+      companyImage: "/images/logos/pegatron.png",
+      title: "AI Engineer",
+      employmentType: "Intern",
+      location: "Taipei, Taiwan 🇹🇼",
+      timePeriod: "Jul. 2023 - Aug. 2023",
+    },
+    {
+      company: "National Central University",
+      companyImage: "/images/logos/ncu.png",
+      title: "Website Developer",
+      employmentType: "Part-time",
+      location: "Taoyuan, Taiwan 🇹🇼",
+      timePeriod: "Jul. 2022 - Jan. 2023",
+    },
+  ],
+}
+]
+```
+
+此外使用者就可以增加自己的欄位，像是 Teaching, Awards 等等的擴充
+
+app/resume/page.tsx
+```tsx
+import type { Metadata } from "next"
+
+import PageHeader from "@/components/page-header"
+import { Icons } from "@/components/icons"
+import ResumeSection from "@/components/section/resume"
+
+import config from "@/config"
+import { IoSchoolOutline } from "react-icons/io5"
+import type { ResumeData } from "@/types/resume"
+
+const { title } = config
+
+// New resume data structure
+const resumeData: ResumeData = {
+  education: {
+    icon: IoSchoolOutline,
+    title: "Education",
+    timeLines: [
+      {
+        company: "University of Southern California",
+        companyImage: "/images/logos/usc.jpg",
+        title: "Master of Science in Computer Science",
+        employmentType: "Viterbi School of Engineering",
+        location: "Los Angeles, CA 🇺🇸",
+        timePeriod: "Aug. 2025 - Present",
+      },
+      {
+        company: "National Central University",
+        companyImage: "/images/logos/ncu.png",
+        title: "Bachelors of Science in Atmospheric Science",
+        employmentType: "College of Earth Sciences",
+        location: "Taoyuan, Taiwan 🇹🇼",
+        timePeriod: "Sep. 2020 - Jun. 2024",
+      },
+    ],
+  },
+  experience: {
+    icon: Icons.Devices,
+    title: "Professional Experiences",
+    timeLines: [
+      {
+        company: "eCloudvalley Digital Technology",
+        companyImage: "/images/logos/ecv.png",
+        title: "Cloud Engineer",
+        employmentType: "Intern",
+        location: "New Taipei, Taiwan 🇹🇼",
+        timePeriod: "Mar. 2024 - May. 2024",
+      },
+      {
+        company: "Amazon Web Services",
+        companyImage: "/images/logos/aws.svg",
+        title: "Campus Ambassador",
+        employmentType: "Contract",
+        location: "Taipei, Taiwan 🇹🇼",
+        timePeriod: "Aug. 2023 - Feb. 2024",
+      },
+      {
+        company: "PEGATRON",
+        companyImage: "/images/logos/pegatron.png",
+        title: "AI Engineer",
+        employmentType: "Intern",
+        location: "Taipei, Taiwan 🇹🇼",
+        timePeriod: "Jul. 2023 - Aug. 2023",
+      },
+      {
+        company: "National Central University",
+        companyImage: "/images/logos/ncu.png",
+        title: "Website Developer",
+        employmentType: "Part-time",
+        location: "Taoyuan, Taiwan 🇹🇼",
+        timePeriod: "Jul. 2022 - Jan. 2023",
+      },
+    ],
+  },
+  // Users can add more sections here like:
+  // awards: { ... },
+  // teaching: { ... },
+  // projects: { ... }
+}
+
+export const metadata: Metadata = {
+  title: `Resume | ${title}`,
+}
+
+export default function Resume() {
+  return (
+    <article>
+      <PageHeader header="Hugo's Resume" />
+      {Object.entries(resumeData).map(([sectionType, section]) => (
+        <ResumeSection
+          key={sectionType}
+          icon={section.icon}
+          title={section.title}
+          timeLines={section.timeLines}
+          sectionType={sectionType}
+        />
+      ))}
+    </article>
+  )
+}
+```
+
+resume-card.tsx
+```tsx
+"use client"
+
+import Image from "next/image"
+import { CalendarIcon, BriefcaseIcon, MapPin, School } from "lucide-react"
+
+import type { TimeLine } from "@/types/resume"
+
+import "@/styles/skills-bar.css"
+
+interface ResumeCardProps {
+  timeLine: TimeLine
+  sectionType: string
+}
+
+export default function ResumeCard({ timeLine, sectionType }: ResumeCardProps) {
+  const { company, companyImage, title, employmentType, location, timePeriod } = timeLine
+
+  return (
+    <section className="skill">
+      <div className="skills-list content-card">
+        <div className="flex flex-row items-center gap-4 p-6 pb-4">
+          <div className="h-12 w-12 overflow-hidden rounded-md">
+            <Image
+              src={companyImage || "/favicon.ico"}
+              alt={company}
+              className="h-full w-full object-cover"
+              onError={(e) => {
+                e.currentTarget.src = "/favicon.ico?height=40&width=40"
+                e.currentTarget.onerror = null
+              }}
+              width={40}
+              height={40}
+            />
+          </div>
+          <div className="space-y-1">
+            <div className="font-semibold text-white-1">{company}</div>
+            <div className="text-sm text-light-gray">{title}</div>
+          </div>
+        </div>
+
+        <div className="px-6 pb-2">
+          <div className="mb-4 flex flex-wrap gap-2">
+            <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium text-orange-yellow-crayola border-gray-700">
+              {sectionType === "education" ? (
+                <School className="h-3 w-3" />
+              ) : sectionType === "experience" ? (
+                <BriefcaseIcon className="h-3 w-3" />
+              ) : null}
+              {employmentType}
+            </span>
+            <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium text-orange-yellow-crayola border-gray-700">
+              <MapPin className="h-3 w-3" />
+              {location}
+            </span>
+            <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium text-orange-yellow-crayola border-gray-700">
+              <CalendarIcon className="h-3 w-3" />
+              {timePeriod}
+            </span>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
+}
+```
+
+section/resume.tsx
+
+```tsx
+import IconBox from "@/components/icon-box"
+import ResumeCard from "@/components/resume/resume-card"
+
+import type { VCardIconType } from "@/types/config"
+import type { TimeLine } from "@/types/resume"
+
+import "@/styles/resume/timeline-item.css"
+
+interface ResumeSectionProps {
+  icon: VCardIconType
+  title: string
+  timeLines: TimeLine[]
+  sectionType: string
+}
+
+function ResumeSection({ icon, title, timeLines, sectionType }: ResumeSectionProps) {
+  return (
+    <section className="timeline">
+      <div className="flex items-center gap-4 mb-6">
+        <IconBox icon={icon} />
+        <h3 className="text-white-2 text-2xl font-bold">{title}</h3>
+      </div>
+
+      <ol className="timeline-list">
+        {timeLines.map((timeLine: TimeLine) => (
+          <li className="timeline-item" key={timeLine.company}>
+            <ResumeCard timeLine={timeLine} sectionType={sectionType} />
+          </li>
+        ))}
+      </ol>
+    </section>
+  )
+}
+
+export default ResumeSection
+```
+
+```ts
+import type { ResumeData } from "@/types/resume"
+import { IoSchoolOutline } from "react-icons/io5"
+import { Icons } from "@/components/icons"
+
+// Example of how you might include this in your config
+const config = {
+  title: "Your Portfolio Title",
+  // Other config properties...
+
+  resumeData: {
+    education: {
+      icon: IoSchoolOutline,
+      title: "Education",
+      timeLines: [
+        {
+          company: "University of Southern California",
+          companyImage: "/images/logos/usc.jpg",
+          title: "Master of Science in Computer Science",
+          employmentType: "Viterbi School of Engineering",
+          location: "Los Angeles, CA 🇺🇸",
+          timePeriod: "Aug. 2025 - Present",
+        },
+        {
+          company: "National Central University",
+          companyImage: "/images/logos/ncu.png",
+          title: "Bachelors of Science in Atmospheric Science",
+          employmentType: "College of Earth Sciences",
+          location: "Taoyuan, Taiwan 🇹🇼",
+          timePeriod: "Sep. 2020 - Jun. 2024",
+        },
+      ],
+    },
+    experience: {
+      icon: Icons.Devices,
+      title: "Professional Experiences",
+      timeLines: [
+        // Experience entries...
+      ],
+    },
+    // Users can add more sections here
+  } as ResumeData,
+}
+
+export default config
+```
+
+```ts
+import type { VCardIconType } from "@/types/config"
+
+export type TimeLine = {
+  company: string
+  companyImage: string
+  title: string
+  employmentType: string
+  location: string
+  timePeriod: string
+}
+
+export type ResumeSection = {
+  icon: VCardIconType
+  title: string
+  timeLines: TimeLine[]
+}
+
+export type ResumeData = {
+  [key: string]: ResumeSection
+}
+```
+
+```md
+import React from "react";
+
+import type { Metadata } from "next";
+
+import PageHeader from "@/components/page-header";
+import { Icons } from "@/components/icons";
+import ResumeSection from "@/components/section/resume";
+
+import config from "@/config";
+
+import { IoSchoolOutline } from "react-icons/io5";
+
+const { title } = config;
+
+const educations = {
+  icon: IoSchoolOutline,
+  title: "Education",
+  sectionType: "education",
+  timeLines: [
+    {
+      company: "University of Southern California",
+      companyImage: "/images/logos/usc.jpg",
+      title: "Master of Science in Computer Science",
+      employmentType: "Viterbi School of Engineering",
+      location: "Los Angeles, CA 🇺🇸",
+      timePeriod: "Aug. 2025 - Present",
+    },
+    {
+      company: "National Central University",
+      companyImage: "/images/logos/ncu.png",
+      title: "Bachelors of Science in Atmospheric Science",
+      employmentType: "College of Earth Sciences",
+      location: "Taoyuan, Taiwan 🇹🇼",
+      timePeriod: "Sep. 2020 - Jun. 2024",
+    }
+  ]
+}
+
+const experiences = {
+  icon: Icons.Devices,
+  title: "Professional Experiences",
+  sectionType: "experience",
+  timeLines: [
+    {
+      company: "eCloudvalley Digital Technology",
+      companyImage: "/images/logos/ecv.png",
+      title: "Cloud Engineer",
+      employmentType: "Intern",
+      location: "New Taipei, Taiwan 🇹🇼",
+      timePeriod: "Mar. 2024 - May. 2024",
+    },
+    {
+      company: "Amazon Web Services",
+      companyImage: "/images/logos/aws.svg",
+      title: "Campus Ambassador",
+      employmentType: "Contract",
+      location: "Taipei, Taiwan 🇹🇼",
+      timePeriod: "Aug. 2023 - Feb. 2024",
+    },
+    {
+      company: "PEGATRON",
+      companyImage: "/images/logos/pegatron.png",
+      title: "AI Engineer",
+      employmentType: "Intern",
+      location: "Taipei, Taiwan 🇹🇼",
+      timePeriod: "Jul. 2023 - Aug. 2023",
+    },
+    {
+      company: "National Central University",
+      companyImage: "/images/logos/ncu.png",
+      title: "Website Developer",
+      employmentType: "Part-time",
+      location: "Taoyuan, Taiwan 🇹🇼",
+      timePeriod: "Jul. 2022 - Jan. 2023",
+    },
+  ],
+};
+
+export const metadata: Metadata = {
+  title: `Resume | ${title}`,
+};
+
+export default function Resume() {
+  return (
+    <article>
+      <PageHeader header="Hugo's Resume" />
+      <ResumeSection
+        icon={educations.icon}
+        title={educations.title}
+        timeLines={educations.timeLines}
+        sectionType={educations.sectionType}
+      />
+      <ResumeSection
+        icon={experiences.icon}
+        title={experiences.title}
+        timeLines={experiences.timeLines}
+        sectionType={experiences.sectionType}
+      />
+    </article>
+  );
+}
+
+
+這是我目前的做法，
+
+我已經把資料定義到 config 裡了！
+
+export type Config = {
+  resumeData: ResumeData;
+
+};
+
+export type TimeLine = {
+  company: string;
+  companyImage: string;
+  title: string;
+  employmentType: string;
+  location: string;
+  timePeriod: string;
+};
+
+export type ResumeSection = {
+  icon: VCardIconType
+  title: string
+  timeLines: TimeLine[]
+}
+
+export type ResumeData = {
+  [key: string]: ResumeSection
+}
+
+{
+resumeData: {
+    education: {
+      icon: IoSchoolOutline,
+      title: "Education",
+      sectionType: "education",
+      timeLines: [
+        {
+          company: "University of Southern California",
+          companyImage: "/images/logos/usc.jpg",
+          title: "Master of Science in Computer Science",
+          employmentType: "Viterbi School of Engineering",
+          location: "Los Angeles, CA 🇺🇸",
+          timePeriod: "Aug. 2025 - Present",
+        },
+        {
+          company: "National Central University",
+          companyImage: "/images/logos/ncu.png",
+          title: "Bachelors of Science in Atmospheric Science",
+          employmentType: "College of Earth Sciences",
+          location: "Taoyuan, Taiwan 🇹🇼",
+          timePeriod: "Sep. 2020 - Jun. 2024",
+        }
+      ]
+    },
+    experiences: {
+      icon: Icons.Devices,
+      title: "Professional Experiences",
+      sectionType: "experience",
+      timeLines: [
+        {
+          company: "eCloudvalley Digital Technology",
+          companyImage: "/images/logos/ecv.png",
+          title: "Cloud Engineer",
+          employmentType: "Intern",
+          location: "New Taipei, Taiwan 🇹🇼",
+          timePeriod: "Mar. 2024 - May. 2024",
+        },
+        {
+          company: "Amazon Web Services",
+          companyImage: "/images/logos/aws.svg",
+          title: "Campus Ambassador",
+          employmentType: "Contract",
+          location: "Taipei, Taiwan 🇹🇼",
+          timePeriod: "Aug. 2023 - Feb. 2024",
+        },
+        {
+          company: "PEGATRON",
+          companyImage: "/images/logos/pegatron.png",
+          title: "AI Engineer",
+          employmentType: "Intern",
+          location: "Taipei, Taiwan 🇹🇼",
+          timePeriod: "Jul. 2023 - Aug. 2023",
+        },
+        {
+          company: "National Central University",
+          companyImage: "/images/logos/ncu.png",
+          title: "Website Developer",
+          employmentType: "Part-time",
+          location: "Taoyuan, Taiwan 🇹🇼",
+          timePeriod: "Jul. 2022 - Jan. 2023",
+        },
+      ],
+    }
+  },
+}
+
+<ResumeSection
+        icon={educations.icon}
+        title={educations.title}
+        timeLines={educations.timeLines}
+        sectionType={educations.sectionType}
+      />
+      <ResumeSection
+        icon={experiences.icon}
+        title={experiences.title}
+        timeLines={experiences.timeLines}
+        sectionType={experiences.sectionType}
+      />
+
+請幫我改寫這兩個並要運用 resumeData
+```
+
+```mdx
+You're encountering a TypeScript error because when using `Object.entries(resumeData)`, TypeScript doesn't know the specific type of each entry. Let's fix this by adding proper type assertions:
+
+```typescriptreact
+import React from "react";
+import type { Metadata } from "next";
+import PageHeader from "@/components/page-header";
+import ResumeSection from "@/components/section/resume";
+import config from "@/config";
+import type { ResumeSection as ResumeSectionType } from "@/config";
+
+const { title, resumeData } = config;
+
+export const metadata: Metadata = {
+  title: `Resume | ${title}`,
+};
+
+export default function Resume() {
+  return (
+    <article>
+      <PageHeader header="Hugo's Resume" />
+      {Object.entries(resumeData).map(([key, section]) => (
+        <ResumeSection
+          key={key}
+          icon={(section as ResumeSectionType).icon}
+          title={(section as ResumeSectionType).title}
+          timeLines={(section as ResumeSectionType).timeLines}
+          sectionType={key}
+        />
+      ))}
+    </article>
+  );
+}
+```
+
+Alternatively, you can use a more type-safe approach by explicitly typing the entries:
+
+```typescriptreact
+import React from "react";
+import type { Metadata } from "next";
+import PageHeader from "@/components/page-header";
+import ResumeSection from "@/components/section/resume";
+import config from "@/config";
+import type { ResumeSection as ResumeSectionType } from "@/config";
+
+const { title, resumeData } = config;
+
+export const metadata: Metadata = {
+  title: `Resume | ${title}`,
+};
+
+export default function Resume() {
+  return (
+    <article>
+      <PageHeader header="Hugo's Resume" />
+      {(Object.entries(resumeData) as [string, ResumeSectionType][]).map(([key, section]) => (
+        <ResumeSection
+          key={key}
+          icon={section.icon}
+          title={section.title}
+          timeLines={section.timeLines}
+          sectionType={key}
+        />
+      ))}
+    </article>
+  );
+}
+```
+
+This second approach is cleaner because it casts the entire result of `Object.entries()` to the expected type, rather than casting each property individually.
+```
