@@ -7,6 +7,7 @@ export type TimeLine = {
   employmentType: string;
   location: string;
   timePeriod: string;
+  details: string[];
 };
 
 export type ResumeSectionType = {
