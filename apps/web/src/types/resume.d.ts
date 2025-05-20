@@ -1,8 +1,5 @@
 import type { VCardIconType } from "@/types/config";
 
-/**
- * @todo Create a BaseTimeLineType to be extended by School, Award, Teaching, and Professional types
- */
 export type TimeLine = {
   company: string;
   companyImage: string;
@@ -12,21 +9,14 @@ export type TimeLine = {
   timePeriod: string;
 };
 
-export type Resume = {
-  icon: VCardIconType;
-  title: string;
-  timeLines: TimeLine[];
-  sectionType: string;
-}
-
-export type ResumeSection = {
+export type ResumeSectionType = {
   icon: VCardIconType
   title: string
   timeLines: TimeLine[]
 }
 
 export type ResumeData = {
-  [key: string]: ResumeSection
+  [key: string]: ResumeSectionType
 }
 
 /**
