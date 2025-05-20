@@ -12,6 +12,7 @@ const { title } = config;
 const educations = {
   icon: IoSchoolOutline,
   title: "Education",
+  sectionType: "education",
   timeLines: [
     {
       company: "University of Southern California",
@@ -23,7 +24,7 @@ const educations = {
       details: [
 
       ],
-      footerShowOrHide: false,
+      detailsShowOrHide: false,
     },
     {
       company: "National Central University",
@@ -37,7 +38,7 @@ const educations = {
         "B.S.-level Courses: Software Engineering, Principles of Programming Languages, Assembly Language and System Programming, Operating System, Computer Network, Algorithmics, Data Structures, Digital Design, Numerical Analysis",
         "TA: Linux and Edge Computing, Programming Python, Weather and Artificial Intelligence, Freshman English, Student Service-Learning",
       ],
-      footerShowOrHide: false,
+      detailsShowOrHide: false,
     }
   ]
 }
@@ -45,6 +46,7 @@ const educations = {
 const experiences = {
   icon: Icons.Devices,
   title: "Professional Experiences",
+  sectionType: "experience",
   timeLines: [
     {
       company: "eCloudvalley Digital Technology",
@@ -58,7 +60,7 @@ const experiences = {
         "Utilized a serverless architecture on AWS Lambda, performing troubleshooting with CloudWatch, deployed via AWS CDK, and integrated with DynamoDB and Bedrock services.",
         "Documented issues in 10+ mock cases, such as VPC entry failures, EC2 Apache server restarts, and S3 photo access problems, and provided detailed solutions for interns. Refer [here](https://github.com/1chooo/ecv-training-materials/tree/main/msp/aws_challenge) for a comprehensive list.",
       ],
-      footerShowOrHide: true,
+      detailsShowOrHide: false,
     },
     {
       company: "AWS",
@@ -71,7 +73,7 @@ const experiences = {
         "Educated 700+ cloud developers and achieved 96% user satisfaction by conducting 2 technical workshops, developing an open-source project, and 1 UAD with AWS cloud services. Refer [here](https://github.com/aws-educate-tw/aws-line-business-card-workshop) for the source code.",
         "Conducted a comprehensive 35+ page market research study on cloud suppliers as part of an 11-member team.",
       ],
-      footerShowOrHide: true,
+      detailsShowOrHide: false,
     },
     {
       company: "PEGATRON",
@@ -85,7 +87,7 @@ const experiences = {
         "Collaborated with a team of 5, utilized Git, a CI/CD pipeline, and followed an agile Scrum workflow.",
         "Implemented Prompt Engineering and LangChain for the NVIDIA Ominerve visual robot, enabling seamless speech/text operation, boosting test support by 83% across 6-11 scenarios with 85% stability.",
       ],
-      footerShowOrHide: true,
+      detailsShowOrHide: false,
     },
     {
       company: "National Central University",
@@ -97,7 +99,7 @@ const experiences = {
       details: [
         "Partnered with a team of 2 to develop a multi-user score management system for the Center for Teacher Education, reducing credit exemption processing time by 80% and remotely maintaining the server via SSH.",
       ],
-      footerShowOrHide: true,
+      detailsShowOrHide: false,
     },
   ],
 };
@@ -115,13 +117,13 @@ export default function Resume() {
         icon={educations.icon}
         title={educations.title}
         timeLines={educations.timeLines}
-        sectionType="education"
+        sectionType={educations.sectionType}
       />
       <ResumeSection
         icon={experiences.icon}
         title={experiences.title}
         timeLines={experiences.timeLines}
-        sectionType="experience"
+        sectionType={experiences.sectionType}
       />
     </article>
   );

@@ -9,9 +9,9 @@ export type TimeLine = {
   title: string;
   employmentType: string;
   location: string;
-  footerShowOrHide: boolean;
   timePeriod: string;
   details: string[];
+  detailsShowOrHide: boolean;
 };
 
 export type Resume = {

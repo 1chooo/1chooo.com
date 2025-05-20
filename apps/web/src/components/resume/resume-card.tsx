@@ -7,25 +7,27 @@ import {
   BriefcaseIcon,
   BuildingIcon,
   MapPin,
+  GraduationCap,
 } from "lucide-react";
 
 import type { TimeLine } from "@/types/resume";
 
-interface CompanyCardProps {
+interface ResumeCardProps {
   timeLine: TimeLine;
+  sectionType: string;
 }
 
 import "@/styles/skills-bar.css";
 
-export default function ResumeCard({ timeLine }: CompanyCardProps) {
+export default function ResumeCard({ timeLine, sectionType }: ResumeCardProps) {
   const { company } = timeLine
   const { companyImage } = timeLine
   const { title } = timeLine
   const { employmentType } = timeLine
   const { location } = timeLine
   const { details } = timeLine
+  const { detailsShowOrHide } = timeLine
   const { timePeriod } = timeLine
-  const { footerShowOrHide } = timeLine
 
   return (
     <section className="skill">
@@ -66,22 +68,32 @@ export default function ResumeCard({ timeLine }: CompanyCardProps) {
               {timePeriod}
             </span>
           </div>
-          <ul className="list-disc pl-5 space-y-1 text-sm text-white-1">
-            {details.map((item, index) => (
-              <li key={index}>{item}</li>
-            ))}
-          </ul>
+
+          {detailsShowOrHide ? (
+            <ul className="list-disc pl-5 space-y-1 text-sm text-white-1">
+              {details.map((item, index) => (
+                <li key={index}>{item}</li>
+              ))}
+            </ul>
+          ) : null}
         </div>
 
-        {footerShowOrHide ? (
-          <div className="px-6 py-4">
-            <div className="resume-card-separator"></div>
-            <div className="flex items-center text-xs text-light-gray-70 mt-2">
-              <BuildingIcon className="mr-1 h-3 w-3" />
-              Company details
-            </div>
+        <div className="px-6 py-4">
+          <div className="resume-card-separator"></div>
+          <div className="flex items-center text-xs text-light-gray-70 mt-2">
+            {sectionType === "education" ? (
+              <>
+                <GraduationCap className="mr-1 h-3 w-3" />
+                School Details
+              </>
+            ) : sectionType === "experience" ? (
+              <>
+                <BuildingIcon className="mr-1 h-3 w-3" />
+                Company Details
+              </>
+            ) : null}
           </div>
-        ) : null}
+        </div>
       </div>
     </section>
   );
