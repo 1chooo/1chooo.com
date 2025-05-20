@@ -48,7 +48,7 @@ const educations = {
   ]
 }
 
-const professionals = {
+const experiences = {
   icon: Icons.Devices,
   title: "Professional Experiences",
   timeLines: [
@@ -117,11 +117,13 @@ export default function Resume() {
         icon={educations.icon}
         title={educations.title}
         timeLines={educations.timeLines}
+        sectionType="education"
       />
       <ResumeSection
-        icon={professionals.icon}
-        title={professionals.title}
-        timeLines={professionals.timeLines}
+        icon={experiences.icon}
+        title={experiences.title}
+        timeLines={experiences.timeLines}
+        sectionType="experience"
       />
       <SkillsBar skills={skills} />
     </article>

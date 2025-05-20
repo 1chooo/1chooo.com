@@ -10,6 +10,7 @@ interface ResumeSectionProps {
   icon: VCardIconType;
   title: string;
   timeLines: TimeLine[];
+  sectionType: "education" | "experience";
 }
 
 function ResumeSection({ icon, title, timeLines }: ResumeSectionProps) {
