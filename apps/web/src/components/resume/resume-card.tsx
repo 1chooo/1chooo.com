@@ -2,12 +2,7 @@
 
 import Image from "next/image";
 
-import {
-  CalendarIcon,
-  BriefcaseIcon,
-  MapPin,
-  School,
-} from "lucide-react";
+import { CalendarIcon, BriefcaseIcon, MapPin, School } from "lucide-react";
 
 import type { TimeLine } from "@/types/resume";
 
@@ -18,13 +13,16 @@ interface ResumeCardProps {
 
 import "@/styles/skills-bar.css";
 
-export default function ResumeCard({ timeLine, resumeCategory }: ResumeCardProps) {
-  const { company } = timeLine
-  const { companyImage } = timeLine
-  const { title } = timeLine
-  const { employmentType } = timeLine
-  const { location } = timeLine
-  const { timePeriod } = timeLine
+export default function ResumeCard({
+  timeLine,
+  resumeCategory,
+}: ResumeCardProps) {
+  const { company } = timeLine;
+  const { companyImage } = timeLine;
+  const { title } = timeLine;
+  const { employmentType } = timeLine;
+  const { location } = timeLine;
+  const { timePeriod } = timeLine;
 
   return (
     <section className="skill">

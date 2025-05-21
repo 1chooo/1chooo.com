@@ -1,3 +1,5 @@
+import { URL } from "url";
+
 import { Config } from "@/types/config";
 import { Icons } from "@/components/icons";
 
@@ -258,8 +260,7 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
           employmentType: "Viterbi School of Engineering",
           location: "Los Angeles, CA 🇺🇸",
           timePeriod: "Aug. 2025 - Present",
-          details: [
-          ]
+          details: [],
         },
         {
           company: "National Central University",
@@ -273,9 +274,9 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
             "Relevant Courses: Data Structures, Algorithms, Database Systems, Software Engineering, Cloud Computing",
             "Projects: Developed a web application using React and Node.js, implemented a machine learning model for image classification, and created a cloud-based serverless application using AWS Lambda.",
             "Extracurricular Activities: Member of the Cloud Computing Club, participated in hackathons and coding competitions.",
-          ]
-        }
-      ]
+          ],
+        },
+      ],
     },
     experiences: {
       icon: Monitor,
@@ -331,7 +332,7 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
           ],
         },
       ],
-    }
+    },
   },
   jsonLdPerson: {
     "@context": "http://schema.org",

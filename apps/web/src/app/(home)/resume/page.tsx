@@ -19,15 +19,17 @@ export default function Resume() {
   return (
     <article>
       <PageHeader header="Hugo's Resume" />
-      {(Object.entries(resumes) as [string, ResumeSectionType][]).map(([key, resumeSection]) => (
-        <ResumeSection
-          key={key}
-          icon={resumeSection.icon}
-          title={resumeSection.title}
-          timeLines={resumeSection.timeLines}
-          resumeCategory={key}
-        />
-      ))}
+      {(Object.entries(resumes) as [string, ResumeSectionType][]).map(
+        ([key, resumeSection]) => (
+          <ResumeSection
+            key={key}
+            icon={resumeSection.icon}
+            title={resumeSection.title}
+            timeLines={resumeSection.timeLines}
+            resumeCategory={key}
+          />
+        ),
+      )}
     </article>
   );
 }

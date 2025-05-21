@@ -11,11 +11,11 @@ export type TimeLine = {
 };
 
 export type ResumeSection = {
-  icon: VCardIconType
-  title: string
-  timeLines: TimeLine[]
-}
+  icon: VCardIconType;
+  title: string;
+  timeLines: TimeLine[];
+};
 
 export type Resumes = {
-  [key: string]: ResumeSection
-}
+  [key: string]: ResumeSection;
+};

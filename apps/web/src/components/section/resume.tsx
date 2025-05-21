@@ -13,7 +13,12 @@ interface ResumeSectionProps {
   resumeCategory: string;
 }
 
-function ResumeSection({ icon, title, timeLines, resumeCategory }: ResumeSectionProps) {
+function ResumeSection({
+  icon,
+  title,
+  timeLines,
+  resumeCategory,
+}: ResumeSectionProps) {
   return (
     <section className="timeline">
       <div className="flex items-center gap-4 mb-6">

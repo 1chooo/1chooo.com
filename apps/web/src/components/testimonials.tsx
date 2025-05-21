@@ -153,9 +153,7 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
             </div>
 
             <div className="modal-content">
-              <h4 className="h3 modal-title">
-                {activeTestimonial.name}
-              </h4>
+              <h4 className="h3 modal-title">{activeTestimonial.name}</h4>
               <time dateTime="2021-06-14">14 June, 2021</time>
               <div>
                 <p>{activeTestimonial.text}</p>
