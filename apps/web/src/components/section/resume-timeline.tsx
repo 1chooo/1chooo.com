@@ -6,19 +6,19 @@ import type { TimeLine } from "@/types/resume";
 
 import "@/styles/resume/timeline-item.css";
 
-interface ResumeSectionProps {
+interface ResumeTimeLineProps {
   icon: VCardIconType;
   title: string;
   timeLines: TimeLine[];
   resumeCategory: string;
 }
 
-function ResumeSection({
+function ResumeTimeLine({
   icon,
   title,
   timeLines,
   resumeCategory,
-}: ResumeSectionProps) {
+}: ResumeTimeLineProps) {
   return (
     <section className="timeline">
       <div className="flex items-center gap-4 mb-6">
@@ -37,4 +37,4 @@ function ResumeSection({
   );
 }
 
-export default ResumeSection;
+export default ResumeTimeLine;

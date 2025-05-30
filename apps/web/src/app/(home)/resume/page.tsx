@@ -3,9 +3,9 @@ import React from "react";
 import type { Metadata } from "next";
 
 import PageHeader from "@/components/page-header";
-import ResumeSection from "@/components/section/resume";
+import ResumeTimeLine from "@/components/section/resume-timeline";
 
-import type { ResumeSection as ResumeSectionType } from "@/types/resume";
+import type { ResumeTimeLine as ResumeTimeLineType } from "@/types/resume";
 
 import config from "@/config";
 
@@ -19,13 +19,13 @@ export default function Resume() {
   return (
     <article>
       <PageHeader header="Hugo's Resume" />
-      {(Object.entries(resumes) as [string, ResumeSectionType][]).map(
-        ([key, resumeSection]) => (
-          <ResumeSection
+      {(Object.entries(resumes) as [string, ResumeTimeLineType][]).map(
+        ([key, resumeTimeLine]) => (
+          <ResumeTimeLine
             key={key}
-            icon={resumeSection.icon}
-            title={resumeSection.title}
-            timeLines={resumeSection.timeLines}
+            icon={resumeTimeLine.icon}
+            title={resumeTimeLine.title}
+            timeLines={resumeTimeLine.timeLines}
             resumeCategory={key}
           />
         ),

@@ -10,12 +10,12 @@ export type TimeLine = {
   details: string[];
 };
 
-export type ResumeSection = {
+export type ResumeTimeLine = {
   icon: VCardIconType;
   title: string;
   timeLines: TimeLine[];
 };
 
 export type Resumes = {
-  [key: string]: ResumeSection;
+  [key: string]: ResumeTimeLine;
 };
