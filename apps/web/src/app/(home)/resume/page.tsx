@@ -25,7 +25,7 @@ export default function Resume() {
             key={key}
             icon={resumeTimeLine.icon}
             title={resumeTimeLine.title}
-            timeLines={resumeTimeLine.timeLines}
+            timeLineExperiences={resumeTimeLine.timeLineExperiences}
             resumeCategory={key}
           />
         ),

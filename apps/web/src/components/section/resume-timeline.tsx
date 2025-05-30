@@ -2,21 +2,21 @@ import IconBox from "@/components/icon-box";
 import ResumeCard from "@/components/resume/resume-card";
 
 import type { VCardIconType } from "@/types/config";
-import type { TimeLine } from "@/types/resume";
+import type { TimeLineExperience } from "@/types/resume";
 
 import "@/styles/resume/timeline-item.css";
 
 interface ResumeTimeLineProps {
   icon: VCardIconType;
   title: string;
-  timeLines: TimeLine[];
+  timeLineExperiences: TimeLineExperience[];
   resumeCategory: string;
 }
 
 function ResumeTimeLine({
   icon,
   title,
-  timeLines,
+  timeLineExperiences,
   resumeCategory,
 }: ResumeTimeLineProps) {
   return (
@@ -27,9 +27,12 @@ function ResumeTimeLine({
       </div>
 
       <ol className="timeline-list">
-        {timeLines.map((timeLine: TimeLine) => (
-          <li className="timeline-item" key={timeLine.company}>
-            <ResumeCard timeLine={timeLine} resumeCategory={resumeCategory} />
+        {timeLineExperiences.map((timeLineExperience: TimeLineExperience) => (
+          <li className="timeline-item" key={timeLineExperience.company}>
+            <ResumeCard
+              timeLineExperience={timeLineExperience}
+              resumeCategory={resumeCategory}
+            />
           </li>
         ))}
       </ol>

@@ -250,7 +250,7 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
     educations: {
       icon: GraduationCap,
       title: "Education",
-      timeLines: [
+      timeLineExperiences: [
         {
           company: "University of Southern California",
           companyImage: "/images/logos/usc.jpg",
@@ -279,7 +279,7 @@ In my spare time, I focus on contributing to open-source projects, alongside wor
     experiences: {
       icon: Monitor,
       title: "Professional Experiences",
-      timeLines: [
+      timeLineExperiences: [
         {
           company: "eCloudvalley Digital Technology",
           companyImage: "/images/logos/ecv.png",
