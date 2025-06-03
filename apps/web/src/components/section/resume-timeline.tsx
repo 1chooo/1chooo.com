@@ -20,7 +20,7 @@ function ResumeTimeLine({
   resumeCategory,
 }: ResumeTimeLineProps) {
   return (
-    <section className="timeline">
+    <div className="timeline">
       <div className="flex items-center gap-4 mb-6">
         <IconBox icon={icon} />
         <h3 className="text-white-2 text-2xl font-bold">{title}</h3>
@@ -36,7 +36,7 @@ function ResumeTimeLine({
           </li>
         ))}
       </ol>
-    </section>
+    </div>
   );
 }
 

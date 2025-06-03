@@ -11,12 +11,12 @@ interface AboutSectionProps {
 
 function AboutSection({ id, title, children }: AboutSectionProps) {
   return (
-    <section id={id} className="about-section">
+    <div id={id} className="about-section">
       <BlurFade inView delay={0.4} direction="down">
         <h2 className="about-section-title">{title}</h2>
       </BlurFade>
       {children}
-    </section>
+    </div>
   );
 }
 
