@@ -70,7 +70,7 @@ const config: Config = {
     { path: "/resume", label: "Resume" },
     { path: "/portfolio", label: "Portfolio" },
     { path: "/post", label: "Post" },
-    { path: "/gallery", label: "Gallery" },
+    { path: "/contact", label: "Contact" },
   ],
   contacts: [
     {

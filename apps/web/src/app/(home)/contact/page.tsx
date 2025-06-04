@@ -1,12 +1,13 @@
 "use client";
 
 import React, { useEffect } from "react";
-import MapBox from "@/components/section/contact/map-box";
-import { FaRegPaperPlane } from "react-icons/fa";
+import { Send } from "lucide-react";
 import PageHeader from "@/components/page-header";
 import config from "@/config";
 
 const { title } = config;
+
+import "@/styles/contact/map-box.css";
 
 /**
  * TODO: #341 still need to update with another method to avoid client side not available metadata
@@ -22,9 +23,21 @@ function Contact() {
 
   return (
     <article>
-      <PageHeader header="Hugo's Contact" />
+      <PageHeader header="Contact Me" />
       <section className="mb-[10px]">
-        <MapBox googleMapUrl="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3616.9398617144193!2d121.19272387485687!3d24.968160640940518!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x346823c1ec904dcb%3A0xcdc129d4455ce456!2sNational%20Central%20University!5e0!3m2!1sen!2stw!4v1704610088586!5m2!1sen!2stw" />
+        <div className="mapbox" data-mapbox="true">
+          <figure>
+            <iframe
+              title="map address"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1653.447790694502!2d-118.29153251133746!3d34.02089114329221!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c7fb61e73c2d%3A0xe6fd0a5832af7b29!2sUSC%20Viterbi%20School%20of%20Engineering!5e0!3m2!1sen!2stw!4v1749014215095!5m2!1sen!2stw"
+              width="400"
+              height="300"
+              loading="lazy"
+            >
+            </iframe>
+          </figure>
+        </div>
+
         <h3 className="text-white-2 text-2xl font-bold mb-[20px]">
           Contact Form
         </h3>
@@ -60,7 +73,7 @@ function Contact() {
             data-form-btn
             onClick={() => alert("not implemented yet!")}
           >
-            <FaRegPaperPlane />
+            <Send />
             <span>Send Message</span>
           </button>
         </form>
