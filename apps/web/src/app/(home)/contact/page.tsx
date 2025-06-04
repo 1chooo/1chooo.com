@@ -70,21 +70,21 @@ function Contact() {
           <div className="input-wrapper">
             <input
               type="text"
-              name="fullname"
+              name="Full Name"
               className="form-input"
               placeholder="Full name"
               required
             />
             <input
               type="email"
-              name="email"
+              name="Email"
               className="form-input"
               placeholder="Email address"
               required
             />
           </div>
           <textarea
-            name="message"
+            name="Message"
             className="form-input"
             placeholder="Your Message"
             required
