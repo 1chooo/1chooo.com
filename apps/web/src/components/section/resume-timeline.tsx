@@ -10,14 +10,12 @@ interface ResumeTimeLineProps {
   icon: VCardIconType;
   title: string;
   timeLineExperiences: TimeLineExperience[];
-  resumeCategory: string;
 }
 
 function ResumeTimeLine({
   icon,
   title,
   timeLineExperiences,
-  resumeCategory,
 }: ResumeTimeLineProps) {
   return (
     <div className="timeline">
@@ -31,7 +29,7 @@ function ResumeTimeLine({
           <li className="timeline-item" key={timeLineExperience.company}>
             <ResumeCard
               timeLineExperience={timeLineExperience}
-              resumeCategory={resumeCategory}
+              icon={icon}
             />
           </li>
         ))}

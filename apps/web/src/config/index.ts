@@ -2,7 +2,7 @@ import { Config } from "@/types/config";
 import { Icons } from "@/components/icons";
 
 import { PiMediumLogoBold } from "react-icons/pi";
-import { Monitor, GraduationCap } from "lucide-react";
+import { GraduationCap, BriefcaseIcon } from "lucide-react";
 import { GoalIcon } from "@primer/octicons-react";
 import {
   LuGithub,
@@ -273,7 +273,7 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
       ],
     },
     experiences: {
-      icon: Monitor,
+      icon: BriefcaseIcon,
       title: "Professional Experiences",
       timeLineExperiences: [
         {

@@ -1,21 +1,29 @@
-"use client";
-
 import Image from "next/image";
 
-import { CalendarIcon, BriefcaseIcon, MapPin, School } from "lucide-react";
+import { CalendarIcon, MapPin } from "lucide-react";
 
 import type { TimeLineExperience } from "@/types/resume";
+import type { VCardIconType } from "@/types/config";
 
 interface ResumeCardProps {
+  icon: VCardIconType;
   timeLineExperience: TimeLineExperience;
-  resumeCategory: string;
 }
 
 import "@/styles/skills-bar.css";
 
+
+/**
+ * @bug
+ * ```
+ * Only plain objects can be passed to Client Components from Server Components. Classes or other objects with methods are not supported.
+  <... timeLineExperience={{...}} icon={{$$typeof: ..., render: ...}}>
+                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ * ```
+ */
 export default function ResumeCard({
+  icon: Icon,
   timeLineExperience,
-  resumeCategory,
 }: ResumeCardProps) {
   const { company } = timeLineExperience;
   const { companyImage } = timeLineExperience;
@@ -33,10 +41,10 @@ export default function ResumeCard({
               src={companyImage || "/favicon.ico"}
               alt={company}
               className="h-full w-full object-cover"
-              onError={(e) => {
-                e.currentTarget.src = "/favicon.ico?height=40&width=40";
-                e.currentTarget.onerror = null;
-              }}
+              // onError={(e) => {
+              //   e.currentTarget.src = "/favicon.ico?height=40&width=40";
+              //   e.currentTarget.onerror = null;
+              // }}
               width={40}
               height={40}
             />
@@ -50,14 +58,7 @@ export default function ResumeCard({
         <div className="px-6 pb-2">
           <div className="mb-4 flex flex-wrap gap-2">
             <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium text-orange-yellow-crayola border-gray-700">
-              {/* 
-              @todo Since the resume does not have fixed key definitions and allows users to define them, we need a field that can map these keys to icons based on the user's configuration.
-              */}
-              {resumeCategory === "educations" ? (
-                <School className="h-3 w-3" />
-              ) : resumeCategory === "experiences" ? (
-                <BriefcaseIcon className="h-3 w-3" />
-              ) : null}
+              <Icon className="h-3 w-3" />
               {employmentType}
             </span>
             <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium text-orange-yellow-crayola border-gray-700">
