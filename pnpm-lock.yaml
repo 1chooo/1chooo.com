@@ -27,8 +27,8 @@ importers:
   apps/docs:
     dependencies:
       lucide:
-        specifier: ^0.511.0
-        version: 0.511.0
+        specifier: ^0.512.0
+        version: 0.512.0
       lucide-react:
         specifier: ^0.512.0
         version: 0.512.0(react@19.1.0)
@@ -4597,8 +4597,8 @@ packages:
     peerDependencies:
       react: ^16.5.1 || ^17.0.0 || ^18.0.0 || ^19.0.0
 
-  lucide@0.511.0:
-    resolution: {integrity: sha512-3ppKPYcCJFXBloeM1H8OyIGjzINNQgsYvAYBTYOSKO45DF/5vbTQrCvwnvMDAGgDnUlI1uFxe0gJj52jdb1JAg==}
+  lucide@0.512.0:
+    resolution: {integrity: sha512-xhGlxIyA/kgPGNeqoO4W9dIPNTAHwdA9EHQOoDqnE8+vjGZnKR6YH4u1r0GbpKJozLghE9LFZ8VOHdfMvQJGIQ==}
 
   lz-string@1.5.0:
     resolution: {integrity: sha512-h5bgJWpxJNswbU7qCrV0tIKQCaS3blPDrqKWx+QxzuzL1zGUzij9XCWLrSLsJPu5t+eWA/ycetzYAO5IOMcWAQ==}
@@ -11716,7 +11716,7 @@ snapshots:
     dependencies:
       react: 19.1.0
 
-  lucide@0.511.0: {}
+  lucide@0.512.0: {}
 
   lz-string@1.5.0: {}
 
