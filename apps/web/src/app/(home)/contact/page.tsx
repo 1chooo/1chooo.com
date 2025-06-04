@@ -66,7 +66,7 @@ function Contact() {
         <h3 className="text-white-2 text-2xl font-bold mb-[20px]">
           Contact Form
         </h3>
-        <form onSubmit={onSubmit} className="form" data-form>
+        <form onSubmit={onSubmit} className="form">
           <div className="input-wrapper">
             <input
               type="text"
@@ -74,7 +74,6 @@ function Contact() {
               className="form-input"
               placeholder="Full name"
               required
-              data-form-input
             />
             <input
               type="email"
@@ -82,7 +81,6 @@ function Contact() {
               className="form-input"
               placeholder="Email address"
               required
-              data-form-input
             />
           </div>
           <textarea
@@ -90,11 +88,9 @@ function Contact() {
             className="form-input"
             placeholder="Your Message"
             required
-            data-form-input
           ></textarea>
           <button
             className="form-btn"
-            data-form-btn
             type="submit"
             disabled={result === "Sending...."}
           >
