@@ -36,7 +36,7 @@ export default function ResumeCard({
     <section className="skill">
       <div className="skills-list content-card">
         <div className="flex flex-row items-center gap-4 p-6 pb-4">
-          <div className="h-12 w-12 overflow-hidden rounded-md">
+          <div className="h-10 w-10 flex-shrink-0 overflow-hidden rounded-md">
             <Image
               src={companyImage || "/favicon.ico"}
               alt={company}
@@ -49,9 +49,9 @@ export default function ResumeCard({
               height={40}
             />
           </div>
-          <div className="space-y-1">
-            <div className="font-semibold text-white-1">{company}</div>
-            <div className="text-sm text-light-gray">{title}</div>
+          <div className="min-w-0 flex-1 space-y-1">
+            <div className="font-semibold text-white-1 truncate">{company}</div>
+            <div className="text-sm text-light-gray truncate">{title}</div>
           </div>
         </div>
 
