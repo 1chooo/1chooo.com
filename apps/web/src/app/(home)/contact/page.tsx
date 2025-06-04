@@ -21,6 +21,31 @@ function Contact() {
     document.title = `Contact | ${title}`;
   }, [title]);
 
+  const [result, setResult] = React.useState("");
+
+  const onSubmit = async (event) => {
+    event.preventDefault();
+    setResult("Sending....");
+    const formData = new FormData(event.target);
+
+    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "");
+
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: formData
+    });
+
+    const data = await response.json();
+
+    if (data.success) {
+      setResult("Form Submitted Successfully");
+      event.target.reset();
+    } else {
+      console.log("Error", data);
+      setResult(data.message);
+    }
+  };
+
   return (
     <article>
       <PageHeader header="Contact Me" />
@@ -41,7 +66,7 @@ function Contact() {
         <h3 className="text-white-2 text-2xl font-bold mb-[20px]">
           Contact Form
         </h3>
-        <form action="#" className="form" data-form>
+        <form onSubmit={onSubmit} className="form" data-form>
           <div className="input-wrapper">
             <input
               type="text"
@@ -69,12 +94,20 @@ function Contact() {
           ></textarea>
           <button
             className="form-btn"
-            disabled
             data-form-btn
-            onClick={() => alert("not implemented yet!")}
+            type="submit"
+            disabled={result === "Sending...."}
           >
             <Send />
-            <span>Send Message</span>
+            <span>
+              {result === ""
+                ? "Send Message"
+                : result === "Sending...."
+                  ? "Sending..."
+                  : result === "Form Submitted Successfully"
+                    ? "Message Sent!"
+                    : result}
+            </span>
           </button>
         </form>
       </section>
