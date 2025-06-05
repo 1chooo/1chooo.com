@@ -1,8 +1,8 @@
 import AnimatedSection from "@/components/animated-section";
 import PageHeader from "@/components/page-header";
-import LifeStyles from "@/components/about/life-styles";
 import CodingStats from "@/components/about/coding-stats";
 import { LatestArticles } from "@/components/about/latest-articles";
+import TalkToHugo from "@/components/about/talk-to-hugo";
 
 import markdownToHtml from "@/lib/markdownToHtml";
 import { getAllPosts } from "@/lib/api";
@@ -20,7 +20,6 @@ const {
   lastName,
   preferredName,
   introduction,
-  lifestyles,
   techStacks,
   githubUsername,
 } = about;
@@ -51,7 +50,7 @@ async function About() {
       </AnimatedSection>
       {allPosts.length > 0 && <LatestArticles posts={allPosts} />}
       <CodingStats techStacks={techStacks} githubUsername={githubUsername} />
-      <LifeStyles lifestyles={lifestyles} />
+      <TalkToHugo />
     </article>
   );
 }
