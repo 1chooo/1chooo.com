@@ -65,8 +65,8 @@ function HomeLayout({ children }: { readonly children: React.ReactNode }) {
         />
         <Analytics />
       </body>
-      <GoogleAnalytics gaId={googleAnalyticId} />
-      <GoogleTagManager gtmId={googleTagManagerId} />
+      <GoogleAnalytics gaId={googleAnalyticId as string} />
+      <GoogleTagManager gtmId={googleTagManagerId as string} />
     </html>
   );
 }

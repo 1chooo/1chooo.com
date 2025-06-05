@@ -1,9 +1,10 @@
 "use client";
 
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Send } from "lucide-react";
 import PageHeader from "@/components/page-header";
 import config from "@/config";
+import { sendGTMEvent } from "@next/third-parties/google";
 
 const { title } = config;
 
@@ -20,10 +21,13 @@ function Contact() {
   useEffect(() => {
     document.title = `Contact | ${title}`;
   }, [title]);
+  const inputRef = useRef<HTMLTextAreaElement | null>(null);
 
   const [result, setResult] = React.useState("");
 
   const onSubmit = async (event) => {
+    sendGTMEvent({ event: "message submit", value: inputRef.current?.value });
+
     event.preventDefault();
     setResult("Sending....");
     const formData = new FormData(event.target);
@@ -90,6 +94,7 @@ function Contact() {
             className="form-input"
             placeholder="Your Message"
             required
+            ref={inputRef}
           ></textarea>
           <button
             className="form-btn"
