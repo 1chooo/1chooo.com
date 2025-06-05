@@ -2,7 +2,7 @@ import { Config } from "@/types/config";
 import { Icons } from "@/components/icons";
 
 import { PiMediumLogoBold } from "react-icons/pi";
-import { Monitor, GraduationCap } from "lucide-react";
+import { GraduationCap, BriefcaseIcon } from "lucide-react";
 import { GoalIcon } from "@primer/octicons-react";
 import {
   LuGithub,
@@ -70,7 +70,7 @@ const config: Config = {
     { path: "/resume", label: "Resume" },
     { path: "/portfolio", label: "Portfolio" },
     { path: "/post", label: "Post" },
-    { path: "/gallery", label: "Gallery" },
+    { path: "/contact", label: "Contact" },
   ],
   contacts: [
     {
@@ -246,6 +246,7 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
     educations: {
       icon: GraduationCap,
       title: "Education",
+      iconType: "graduation-cap",
       timeLineExperiences: [
         {
           company: "University of Southern California",
@@ -273,7 +274,8 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
       ],
     },
     experiences: {
-      icon: Monitor,
+      icon: BriefcaseIcon,
+      iconType: "briefcase",
       title: "Professional Experiences",
       timeLineExperiences: [
         {

@@ -246,6 +246,7 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
     educations: {
       icon: GraduationCap,
       title: "Education",
+      iconType: "graduation-cap",
       timeLineExperiences: [
         {
           company: "University of Southern California",
@@ -274,6 +275,7 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
     },
     experiences: {
       icon: BriefcaseIcon,
+      iconType: "briefcase",
       title: "Professional Experiences",
       timeLineExperiences: [
         {

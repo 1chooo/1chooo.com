@@ -1,36 +1,44 @@
-import Image from "next/image";
+"use client";
 
-import { CalendarIcon, MapPin } from "lucide-react";
+import Image from "next/image";
+import {
+  CalendarIcon,
+  MapPin,
+  BriefcaseIcon,
+  GraduationCapIcon,
+  AwardIcon,
+} from "lucide-react";
 
 import type { TimeLineExperience } from "@/types/resume";
-import type { VCardIconType } from "@/types/config";
 
 interface ResumeCardProps {
-  icon: VCardIconType;
+  iconType: string;
   timeLineExperience: TimeLineExperience;
 }
 
 import "@/styles/skills-bar.css";
 
-
-/**
- * @bug
- * ```
- * Only plain objects can be passed to Client Components from Server Components. Classes or other objects with methods are not supported.
-  <... timeLineExperience={{...}} icon={{$$typeof: ..., render: ...}}>
-                                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
- * ```
- */
 export default function ResumeCard({
-  icon: Icon,
+  iconType,
   timeLineExperience,
 }: ResumeCardProps) {
-  const { company } = timeLineExperience;
-  const { companyImage } = timeLineExperience;
-  const { title } = timeLineExperience;
-  const { employmentType } = timeLineExperience;
-  const { location } = timeLineExperience;
-  const { timePeriod } = timeLineExperience;
+  const { company, companyImage, title, employmentType, location, timePeriod } =
+    timeLineExperience;
+
+  const getIcon = () => {
+    switch (iconType) {
+      case "briefcase":
+        return BriefcaseIcon;
+      case "graduation-cap":
+        return GraduationCapIcon;
+      case "award":
+        return AwardIcon;
+      default:
+        return BriefcaseIcon;
+    }
+  };
+
+  const Icon = getIcon();
 
   return (
     <section className="skill">
@@ -41,10 +49,10 @@ export default function ResumeCard({
               src={companyImage || "/favicon.ico"}
               alt={company}
               className="h-full w-full object-cover"
-              // onError={(e) => {
-              //   e.currentTarget.src = "/favicon.ico?height=40&width=40";
-              //   e.currentTarget.onerror = null;
-              // }}
+              onError={(e) => {
+                e.currentTarget.src = "/favicon.ico?height=40&width=40";
+                e.currentTarget.onerror = null;
+              }}
               width={40}
               height={40}
             />
