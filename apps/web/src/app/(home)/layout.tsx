@@ -9,7 +9,6 @@ import SideBar from "@/components/layout/side-bar";
 import Hello from "@/components/hello";
 import { ProgressBar } from "@/components/progress-bar";
 import config from "@/config";
-import { WebVitals } from "@/components/web-vitals/use-web-vitals"
 
 import type { Metadata } from "next";
 import type { JsonLdHtml } from "@/types/json-ld";
@@ -65,7 +64,6 @@ function HomeLayout({ children }: { readonly children: React.ReactNode }) {
           key="1chooo-website-jsonld"
         />
         <Analytics />
-        <WebVitals />
       </body>
       <GoogleAnalytics gaId={googleAnalyticId} />
       <GoogleTagManager gtmId={googleTagManagerId} />
