@@ -16,8 +16,6 @@ interface ResumeCardProps {
   timeLineExperience: TimeLineExperience;
 }
 
-import "@/styles/skills-bar.css";
-
 export default function ResumeCard({
   iconType,
   timeLineExperience,

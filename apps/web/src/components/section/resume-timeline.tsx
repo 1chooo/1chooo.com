@@ -4,8 +4,6 @@ import ResumeCard from "@/components/resume/resume-card";
 import type { VCardIconType } from "@/types/config";
 import type { TimeLineExperience } from "@/types/resume";
 
-import "@/styles/resume/timeline-item.css";
-
 interface ResumeTimeLineProps {
   icon: VCardIconType;
   title: string;
