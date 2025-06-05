@@ -1,6 +1,6 @@
-"use client"
+"use client";
 
-import { useReportWebVitals } from "next/web-vitals"
+import { useReportWebVitals } from "next/web-vitals";
 
 // Updated EVENTS with 2025 Core Web Vitals thresholds from Google official standards
 const EVENTS = [
@@ -60,35 +60,40 @@ const EVENTS = [
     description: "Next.js Render Time",
     unit: "ms",
   },
-]
+];
 
 // Helper function to determine performance rating
-function getPerformanceRating(metricName: string, value: number): "good" | "needs-improvement" | "poor" {
-  const event = EVENTS.find((e) => e.metric === metricName)
-  if (!event) return "poor"
+function getPerformanceRating(
+  metricName: string,
+  value: number,
+): "good" | "needs-improvement" | "poor" {
+  const event = EVENTS.find((e) => e.metric === metricName);
+  if (!event) return "poor";
 
-  if (value <= event.thresholds.good) return "good"
-  if (value <= event.thresholds.needsImprovement) return "needs-improvement"
-  return "poor"
+  if (value <= event.thresholds.good) return "good";
+  if (value <= event.thresholds.needsImprovement) return "needs-improvement";
+  return "poor";
 }
 
 // Helper function to get custom event name
 function getEventName(metricName: string): string {
-  const event = EVENTS.find((e) => e.metric === metricName)
-  return event?.name || metricName.toLowerCase()
+  const event = EVENTS.find((e) => e.metric === metricName);
+  return event?.name || metricName.toLowerCase();
 }
 
 export function WebVitals() {
   useReportWebVitals((metric) => {
     // Check if gtag is available
     if (typeof window !== "undefined" && window.gtag) {
-      const rating = getPerformanceRating(metric.name, metric.value)
-      const eventName = getEventName(metric.name)
+      const rating = getPerformanceRating(metric.name, metric.value);
+      const eventName = getEventName(metric.name);
 
       // Send the main metric event to GA
       window.gtag("event", eventName, {
         // CLS values should be multiplied by 1000 for GA
-        value: Math.round(metric.name === "CLS" ? metric.value * 1000 : metric.value),
+        value: Math.round(
+          metric.name === "CLS" ? metric.value * 1000 : metric.value,
+        ),
         event_label: metric.id, // unique to current page load
         non_interaction: true, // avoids affecting bounce rate
         custom_map: {
@@ -96,15 +101,17 @@ export function WebVitals() {
           metric_delta: metric.delta,
           navigation_type: metric.navigationType,
         },
-      })
+      });
 
       // Send a separate event for performance rating tracking
       window.gtag("event", "web_vitals_rating", {
         event_category: "Web Vitals",
         event_label: `${metric.name}_${rating}`,
-        value: Math.round(metric.name === "CLS" ? metric.value * 1000 : metric.value),
+        value: Math.round(
+          metric.name === "CLS" ? metric.value * 1000 : metric.value,
+        ),
         non_interaction: true,
-      })
+      });
 
       // Optional: Log to console for debugging
       if (process.env.NODE_ENV === "development") {
@@ -115,15 +122,17 @@ export function WebVitals() {
           id: metric.id,
           delta: metric.delta,
           navigationType: metric.navigationType,
-        })
+        });
       }
     } else if (process.env.NODE_ENV === "development") {
-      console.warn("Google Analytics (gtag) not found. Make sure GA is properly initialized.")
-      console.log("Web Vital (not sent):", metric)
+      console.warn(
+        "Google Analytics (gtag) not found. Make sure GA is properly initialized.",
+      );
+      console.log("Web Vital (not sent):", metric);
     }
-  })
+  });
 
-  return null
+  return null;
 }
 
 // TypeScript declaration for gtag (add this to your global types if needed)
@@ -133,8 +142,8 @@ declare global {
       command: "config" | "event" | "js" | "set",
       targetId: string | Date,
       config?: {
-        [key: string]: any
+        [key: string]: any;
       },
-    ) => void
+    ) => void;
   }
 }

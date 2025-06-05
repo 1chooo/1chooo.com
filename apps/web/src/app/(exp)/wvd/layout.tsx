@@ -1,19 +1,20 @@
-import type React from "react"
-import { WebVitals } from "@/components/web-vitals/use-web-vitals"
+import type React from "react";
+import { WebVitals } from "@/components/web-vitals/use-web-vitals";
 import config from "@/config";
-const {
-  googleAnalyticId,
-} = config;
+const { googleAnalyticId } = config;
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode
+  children: React.ReactNode;
 }) {
   return (
     <html lang="en">
       <head>
         {/* Google Analytics */}
-        <script async src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticId}`}></script>
+        <script
+          async
+          src={`https://www.googletagmanager.com/gtag/js?id=${googleAnalyticId}`}
+        ></script>
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -30,5 +31,5 @@ export default function RootLayout({
         {children}
       </body>
     </html>
-  )
+  );
 }

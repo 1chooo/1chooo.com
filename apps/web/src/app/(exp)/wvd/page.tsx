@@ -1,4 +1,4 @@
-import { WebVitalsDashboard } from "./web-vitals-dashboard"
+import { WebVitalsDashboard } from "./web-vitals-dashboard";
 
 export default function Page() {
   return (
@@ -6,5 +6,5 @@ export default function Page() {
       <h1>Web Vitals Dashboard</h1>
       <WebVitalsDashboard />
     </div>
-  )
+  );
 }

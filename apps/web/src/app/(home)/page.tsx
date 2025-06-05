@@ -11,7 +11,7 @@ import config from "@/config";
 
 import { cn } from "@workspace/ui/lib/utils";
 
-import 'react-loading-skeleton/dist/skeleton.css'
+import "react-loading-skeleton/dist/skeleton.css";
 import "@/styles/markdown-styles.css";
 
 const { about } = config;
