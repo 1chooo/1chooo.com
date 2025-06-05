@@ -1,0 +1,18 @@
+.resume-card {
+    position: relative;
+    background: var(--border-gradient-onyx);
+    padding: 15px;
+    border-radius: 14px;
+    box-shadow: var(--shadow-2);
+    cursor: pointer;
+    z-index: 1;
+}
+
+.resume-card::before {
+    content: "";
+    position: absolute;
+    inset: 1px;
+    background: var(--bg-gradient-jet);
+    border-radius: inherit;
+    z-index: -1;
+}

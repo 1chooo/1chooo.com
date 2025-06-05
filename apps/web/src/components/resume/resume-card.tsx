@@ -11,6 +11,8 @@ import {
 
 import type { TimeLineExperience } from "@/types/resume";
 
+import "@/styles/resume-card.css";
+
 interface ResumeCardProps {
   iconType: string;
   timeLineExperience: TimeLineExperience;
@@ -40,7 +42,7 @@ export default function ResumeCard({
 
   return (
     <section className="skill">
-      <div className="skills-list content-card">
+      <div className="skills-list resume-card">
         <div className="flex flex-row items-center gap-4 p-6 pb-4">
           <div className="h-10 w-10 flex-shrink-0 overflow-hidden rounded-md">
             <Image
