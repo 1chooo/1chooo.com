@@ -7,7 +7,6 @@ import HomeHeader from "@/components/layout/home-header";
 import SideBar from "@/components/layout/side-bar";
 import Hello from "@/components/hello";
 import { ProgressBar } from "@/components/progress-bar";
-import { WebVitals } from "@/components/web-vitals";
 import config from "@/config";
 
 import "@/app/globals.css";
@@ -99,7 +98,6 @@ const addJsonLd = () => {
 function RootLayout({ children }: { readonly children: React.ReactNode }) {
   return (
     <html lang="en" className={`${roboto.className}`}>
-      <WebVitals gaId={googleAnalyticId} />
       <body>
         <ProgressBar className="fixed top-0 h-1 bg-yellow-500">
           <Hello />
