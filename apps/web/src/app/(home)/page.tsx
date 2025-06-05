@@ -22,6 +22,20 @@ const {
   githubUsername,
 } = about;
 
+interface AboutIntroductionProps {
+  introduction: string;
+}
+
+async function AboutIntroduction({ introduction }: AboutIntroductionProps) {
+
+  if (!introduction) {
+    return null;
+  }
+  const content = await markdownToHtml(introduction || "")
+
+  return <div className={cn("markdown")} dangerouslySetInnerHTML={{ __html: content }} />
+}
+
 async function About() {
   const allPosts = getAllPosts();
 
@@ -29,18 +43,13 @@ async function About() {
     ? `About ${preferredName} 👨🏻‍💻`
     : `About ${firstName} ${lastName} 👨🏻‍💻`;
 
-  const content = await markdownToHtml(introduction || "");
-
   return (
     <article>
       <AnimatedSection id="about">
         <PageHeader header={header} />
       </AnimatedSection>
       <AnimatedSection>
-        <div
-          className={cn("markdown")}
-          dangerouslySetInnerHTML={{ __html: content }}
-        />
+        <AboutIntroduction introduction={introduction} />
       </AnimatedSection>
       {allPosts.length > 0 && <LatestArticles posts={allPosts} />}
       <CodingStats techStacks={techStacks} githubUsername={githubUsername} />
