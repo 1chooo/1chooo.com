@@ -28,11 +28,14 @@ function Contact() {
     setResult("Sending....");
     const formData = new FormData(event.target);
 
-    formData.append("access_key", process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "");
+    formData.append(
+      "access_key",
+      process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || "",
+    );
 
     const response = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
-      body: formData
+      body: formData,
     });
 
     const data = await response.json();
@@ -58,8 +61,7 @@ function Contact() {
               width="400"
               height="300"
               loading="lazy"
-            >
-            </iframe>
+            ></iframe>
           </figure>
         </div>
 
