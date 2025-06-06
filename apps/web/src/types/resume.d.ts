@@ -10,20 +10,30 @@ export type TimeLineExperience = {
   details: string[];
 };
 
-// export type TimeLineExperience = {
-//   // Either work experience or education, not both
-//   company?: string;
-//   companyImage?: string;
-//   title: string;
-//   employmentType?: string;
-//   school?: string;
-//   location: string;
-//   timePeriod: string;
-//   details: string[];
-// } & (
-//   | { company: string; school?: never; employmentType: string; }
-//   | { school: string; company?: never; employmentType?: never; }
-// );
+export type TagType = {
+  key: string;
+  value: string;
+  icon: string;
+};
+
+export type ResumeCardType = {
+  institution: string;
+  institutionImage: string;
+  title: string;
+  tags: TagType[];
+  details: string[];
+};
+
+export type ResumeTimeLineV2 = {
+  icon: VCardIconType;
+  title: string;
+  timeLineExperiences: ResumeCardType[];
+  iconName: string;
+};
+
+export type ResumesV2 = {
+  [key: string]: ResumeTimeLineV2;
+};
 
 export type ResumeTimeLine = {
   icon: VCardIconType;

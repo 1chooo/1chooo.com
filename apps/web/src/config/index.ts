@@ -329,6 +329,105 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
       ],
     },
   },
+  resumesV2: {
+    educations: {
+      icon: GraduationCap,
+      title: "Education",
+      iconName: "graduation-cap",
+      timeLineExperiences: [
+        {
+          institution: "University of Southern California",
+          institutionImage: "/images/logos/usc.jpg",
+          title: "Master of Science in Computer Science",
+          tags: [
+            { key: "school", value: "Viterbi School of Engineering", icon: "building" },
+            { key: "location", value: "Los Angeles, CA 🇺🇸", icon: "map-pin" },
+          ],
+          details: [],
+        },
+        {
+          institution: "National Central University",
+          institutionImage: "/images/logos/ncu.png",
+          title: "Bachelors of Science in Atmospheric Sciences",
+          tags: [
+            { key: "school", value: "College of Earth Sciences", icon: "building" },
+            { key: "location", value: "Taoyuan, Taiwan 🇹🇼", icon: "map-pin" },
+            { key: "period", value: "Sep. 2020 - Jun. 2024", icon: "calendar" }
+          ],
+          details: [
+            "GPA: 3.8/4.3",
+            "Relevant Courses: Data Structures, Algorithms, Database Systems, Software Engineering, Cloud Computing",
+            "Projects: Developed a web application using React and Node.js, implemented a machine learning model for image classification, and created a cloud-based serverless application using AWS Lambda.",
+            "Extracurricular Activities: Member of the Cloud Computing Club, participated in hackathons and coding competitions.",
+          ],
+        },
+      ],
+    },
+    experiences: {
+      icon: BriefcaseIcon,
+      iconName: "briefcase",
+      title: "Professional Experiences",
+      timeLineExperiences: [
+        {
+          institution: "eCloudvalley Digital Technology",
+          institutionImage: "/images/logos/ecv.png",
+          title: "Cloud Engineer",
+          tags: [
+            { key: "type", value: "Intern", icon: "user" },
+            { key: "location", value: "New Taipei, Taiwan 🇹🇼", icon: "map-pin" },
+            { key: "period", value: "Mar. 2024 - May. 2024", icon: "calendar" }
+          ],
+          details: [
+            "Led a team of 5 to enhance issue pools with AWS Bedrock, boosting cloud support efficiency by 80% through multi-language support and 95% accurate image recognition. Honored as the top-achieving internship team.",
+            "Utilized a serverless architecture on AWS Lambda, performing troubleshooting with CloudWatch, deployed via AWS CDK, and integrated with DynamoDB and Bedrock services.",
+            "Documented issues in 10+ mock cases, such as VPC entry failures, EC2 Apache server restarts, and S3 photo access problems, and provided detailed solutions for interns. Refer [here](https://github.com/1chooo/ecv-training-materials/tree/main/msp/aws_challenge) for a comprehensive list.",
+          ],
+        },
+        {
+          institution: "Amazon Web Services",
+          institutionImage: "/images/logos/aws.svg",
+          title: "Campus Ambassador",
+          tags: [
+            { key: "type", value: "Contract", icon: "user" },
+            { key: "location", value: "Taipei, Taiwan 🇹🇼", icon: "map-pin" },
+            { key: "period", value: "Aug. 2023 - Feb. 2024", icon: "calendar" }
+          ],
+          details: [
+            "Educated 700+ cloud developers and achieved 96% user satisfaction by conducting 2 technical workshops, developing an open-source project, and 1 UAD with AWS cloud services. Refer [here](https://github.com/aws-educate-tw/aws-line-business-card-workshop) for the source code.",
+            "Conducted a comprehensive 35+ page market research study on cloud suppliers as part of an 11-member team.",
+          ],
+        },
+        {
+          institution: "PEGATRON",
+          institutionImage: "/images/logos/pegatron.png",
+          title: "AI Engineer",
+          tags: [
+            { key: "type", value: "Intern", icon: "user" },
+            { key: "location", value: "Taipei, Taiwan 🇹🇼", icon: "map-pin" },
+            { key: "period", value: "Jul. 2023 - Aug. 2023", icon: "calendar" }
+          ],
+          details: [
+            "Executed a POC, adapting an LLM model for Smart Manufacturing, and was awarded Silver internship team.",
+            "Collaborated with a team of 5, utilized Git, a CI/CD pipeline, and followed an agile Scrum workflow.",
+            "Implemented Prompt Engineering and LangChain for the NVIDIA Ominerve visual robot, enabling seamless speech/text operation, boosting test support by 83% across 6-11 scenarios with 85% stability.",
+          ],
+        },
+        {
+          institution: "National Central University",
+          institutionImage: "/images/logos/ncu.png",
+          title: "Website Developer",
+          tags: [
+            { key: "type", value: "Part-time", icon: "user" },
+            { key: "location", value: "Taoyuan, Taiwan 🇹🇼", icon: "map-pin" },
+            { key: "period", value: "Jul. 2022 - Jan. 2023", icon: "calendar" }
+          ],
+          details: [
+            "Partnered with a team of 2 to develop a multi-user score management system for the Center for Teacher Education, reducing credit exemption processing time by 80% and remotely maintaining the server via SSH.",
+          ],
+        },
+      ],
+    },
+  },
   jsonLdPerson: {
     "@context": "http://schema.org",
     "@type": "Person",
