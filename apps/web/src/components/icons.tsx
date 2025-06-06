@@ -1,125 +1,41 @@
-import { MdOutlineDevices, MdAttachment } from "react-icons/md";
+import { MdOutlineDevices } from "react-icons/md";
 import { IoSchoolOutline } from "react-icons/io5";
-import { PiTrophy, PiBooks, PiMediumLogoBold } from "react-icons/pi";
-import { GoalIcon } from "@primer/octicons-react";
+import { Paperclip } from "lucide-react";
 import {
-  LuGithub,
-  LuPencil,
-  LuLinkedin,
-  LuRss,
-  LuMail,
-  LuMapPin,
-} from "react-icons/lu";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaReact, FaAws } from "react-icons/fa";
-import { AiOutlinePython } from "react-icons/ai";
-import { RiJavaLine, RiJavascriptLine } from "react-icons/ri";
-import { SiLatex, SiFastapi, SiKubernetes, SiPostman } from "react-icons/si";
-import { BiLogoFlask } from "react-icons/bi";
-import { VscTerminalLinux, VscAzure } from "react-icons/vsc";
-import { DiRedis } from "react-icons/di";
-import {
-  TbBrandCpp,
-  TbBrandTypescript,
-  TbBrandGolang,
-  TbBrandNextjs,
-  TbBrandDjango,
-  TbBrandDocker,
-  TbBrandMysql,
-  TbMarkdown,
-  TbBrandAstro,
-  TbBrandTerraform,
-  TbPhotoSquareRounded,
-} from "react-icons/tb";
+  BriefcaseIcon,
+  GraduationCapIcon,
+  AwardIcon,
+  CalendarIcon,
+  MapPin,
+} from "lucide-react";
 
-export {
-  MdOutlineDevices,
-  MdAttachment,
-  IoSchoolOutline,
-  PiTrophy,
-  PiBooks,
-  PiMediumLogoBold,
-  GoalIcon,
-  LuGithub,
-  LuPencil,
-  LuLinkedin,
-  LuRss,
-  LuMail,
-  LuMapPin,
-  FaXTwitter,
-  FaReact,
-  FaAws,
-  AiOutlinePython,
-  RiJavaLine,
-  RiJavascriptLine,
-  SiLatex,
-  SiFastapi,
-  SiKubernetes,
-  SiPostman,
-  BiLogoFlask,
-  VscTerminalLinux,
-  VscAzure,
-  DiRedis,
-  TbBrandCpp,
-  TbBrandTypescript,
-  TbBrandGolang,
-  TbBrandNextjs,
-  TbBrandDjango,
-  TbBrandDocker,
-  TbBrandMysql,
-  TbMarkdown,
-  TbBrandAstro,
-  TbBrandTerraform,
-  TbPhotoSquareRounded,
-};
+import { VCardIconType } from "@/types/config";
 
-export const Icons = {
-  Devices: MdOutlineDevices,
+export type IconMap = {
+  [key: string]: VCardIconType;
+}
 
-  School: IoSchoolOutline,
-  Books: PiBooks,
+export const icons: IconMap = {
+  "attachment": Paperclip,
+  "devices": MdOutlineDevices,
+  "school": IoSchoolOutline,
+  "briefcase": BriefcaseIcon,
+  "graduation-cap": GraduationCapIcon,
+  "award": AwardIcon,
+  "calendar": CalendarIcon,
+  "map-pin": MapPin,
+}
 
-  Trophy: PiTrophy,
-  Goal: GoalIcon,
-
-  Github: LuGithub,
-  Twitter: FaXTwitter,
-  Linkedin: LuLinkedin,
-  Medium: PiMediumLogoBold,
-  RSS: LuRss,
-  Mail: LuMail,
-
-  MapPin: LuMapPin,
-
-  Pencil: LuPencil,
-  Attachment: MdAttachment,
-  Markdown: TbMarkdown,
-
-  React: FaReact,
-  Python: AiOutlinePython,
-  Java: RiJavaLine,
-  JavaScript: RiJavascriptLine,
-  TypeScript: TbBrandTypescript,
-  CPP: TbBrandCpp,
-  Golang: TbBrandGolang,
-
-  NextJS: TbBrandNextjs,
-  Django: TbBrandDjango,
-  Flask: BiLogoFlask,
-  FastAPI: SiFastapi,
-  Astro: TbBrandAstro,
-
-  AWS: FaAws,
-  Azure: VscAzure,
-
-  Docker: TbBrandDocker,
-  Kubernetes: SiKubernetes,
-  Terraform: TbBrandTerraform,
-  MySQL: TbBrandMysql,
-  Redis: DiRedis,
-  Linux: VscTerminalLinux,
-  Postman: SiPostman,
-  LaTeX: SiLatex,
-
-  Photo: TbPhotoSquareRounded,
-};
+/**
+ * 
+ * @example
+ * getIcon("devices") // returns MdOutlineDevices
+ * @param iconName - The name of the icon to retrieve.
+ * @returns The icon component if found, otherwise undefined.
+ */
+export function getIcon(iconName: string): VCardIconType | undefined {
+  if (!iconName || !icons[iconName]) {
+    return undefined;
+  }
+  return icons[iconName];
+}

@@ -1,44 +1,28 @@
 "use client";
 
 import Image from "next/image";
-import {
-  CalendarIcon,
-  MapPin,
-  BriefcaseIcon,
-  GraduationCapIcon,
-  AwardIcon,
-} from "lucide-react";
+import { BriefcaseIcon } from "lucide-react";
+import { getIcon } from "@/components/icons";
 
 import type { TimeLineExperience } from "@/types/resume";
 
 import "@/styles/resume-card.css";
 
 interface ResumeCardProps {
-  iconType: string;
+  iconName: string;
   timeLineExperience: TimeLineExperience;
 }
 
 export default function ResumeCard({
-  iconType,
+  iconName,
   timeLineExperience,
 }: ResumeCardProps) {
   const { company, companyImage, title, employmentType, location, timePeriod } =
     timeLineExperience;
 
-  const getIcon = () => {
-    switch (iconType) {
-      case "briefcase":
-        return BriefcaseIcon;
-      case "graduation-cap":
-        return GraduationCapIcon;
-      case "award":
-        return AwardIcon;
-      default:
-        return BriefcaseIcon;
-    }
-  };
-
-  const Icon = getIcon();
+  const Icon = getIcon(iconName) || BriefcaseIcon;
+  const MapPin = getIcon("map-pin");
+  const CalendarIcon = getIcon("calendar");
 
   return (
     <section className="skill">

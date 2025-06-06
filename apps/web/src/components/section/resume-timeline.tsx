@@ -8,14 +8,14 @@ interface ResumeTimeLineProps {
   icon: VCardIconType;
   title: string;
   timeLineExperiences: TimeLineExperience[];
-  iconType: string; // Changed from icon component to string identifier
+  iconName: string; // Changed from icon component to string identifier
 }
 
 function ResumeTimeLine({
   icon,
   title,
   timeLineExperiences,
-  iconType,
+  iconName,
 }: ResumeTimeLineProps) {
   return (
     <div className="timeline">
@@ -29,7 +29,7 @@ function ResumeTimeLine({
           <li className="timeline-item" key={timeLineExperience.company}>
             <ResumeCard
               timeLineExperience={timeLineExperience}
-              iconType={iconType} // Pass the icon type as a string
+              iconName={iconName} // Pass the icon type as a string
             />
           </li>
         ))}

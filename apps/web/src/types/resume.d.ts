@@ -29,7 +29,7 @@ export type ResumeTimeLine = {
   icon: VCardIconType;
   title: string;
   timeLineExperiences: TimeLineExperience[];
-  iconType: string; // Changed from icon component to string identifier
+  iconName: string; // Changed from icon component to string identifier
 };
 
 export type Resumes = {

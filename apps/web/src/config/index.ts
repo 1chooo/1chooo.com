@@ -1,5 +1,5 @@
 import { Config } from "@/types/config";
-import { Icons } from "@/components/icons";
+import { MdAttachment } from "react-icons/md";
 
 import { PiMediumLogoBold } from "react-icons/pi";
 import { GraduationCap, BriefcaseIcon } from "lucide-react";
@@ -124,7 +124,7 @@ const config: Config = {
     },
     {
       url: `/cv`,
-      icon: Icons.Attachment,
+      icon: MdAttachment,
       name: "CV",
     },
   ],
@@ -245,7 +245,7 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
     educations: {
       icon: GraduationCap,
       title: "Education",
-      iconType: "graduation-cap",
+      iconName: "graduation-cap",
       timeLineExperiences: [
         {
           company: "University of Southern California",
@@ -274,7 +274,7 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
     },
     experiences: {
       icon: BriefcaseIcon,
-      iconType: "briefcase",
+      iconName: "briefcase",
       title: "Professional Experiences",
       timeLineExperiences: [
         {

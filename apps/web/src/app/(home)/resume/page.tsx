@@ -26,7 +26,7 @@ export default function Resume() {
             icon={resumeTimeLine.icon}
             title={resumeTimeLine.title}
             timeLineExperiences={resumeTimeLine.timeLineExperiences}
-            iconType={resumeTimeLine.iconType} // Pass the icon type as a string
+            iconName={resumeTimeLine.iconName} // Pass the icon type as a string
           />
         ),
       )}
