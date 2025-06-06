@@ -1,37 +1,26 @@
 import type { VCardIconType } from "@/types/config";
 
-export type TimeLineExperience = {
-  company: string;
-  companyImage: string;
+export type TagType = {
+  key: string;
+  value: string;
+  icon: string;
+};
+
+export type ResumeCardType = {
+  institution: string;
+  institutionImage: string;
   title: string;
-  employmentType: string;
-  location: string;
-  timePeriod: string;
+  tags: TagType[];
   details: string[];
 };
 
-// export type TimeLineExperience = {
-//   // Either work experience or education, not both
-//   company?: string;
-//   companyImage?: string;
-//   title: string;
-//   employmentType?: string;
-//   school?: string;
-//   location: string;
-//   timePeriod: string;
-//   details: string[];
-// } & (
-//   | { company: string; school?: never; employmentType: string; }
-//   | { school: string; company?: never; employmentType?: never; }
-// );
-
-export type ResumeTimeLine = {
+export type ResumeTimeLineType = {
   icon: VCardIconType;
   title: string;
-  timeLineExperiences: TimeLineExperience[];
-  iconName: string; // Changed from icon component to string identifier
+  resumeCards: ResumeCardType[];
+  iconName: string;
 };
 
 export type Resumes = {
-  [key: string]: ResumeTimeLine;
+  [key: string]: ResumeTimeLineType;
 };

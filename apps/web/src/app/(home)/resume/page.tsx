@@ -5,7 +5,7 @@ import type { Metadata } from "next";
 import PageHeader from "@/components/page-header";
 import ResumeTimeLine from "@/components/section/resume-timeline";
 
-import type { ResumeTimeLine as ResumeTimeLineType } from "@/types/resume";
+import type { ResumeTimeLineType } from "@/types/resume";
 
 import config from "@/config";
 
@@ -25,8 +25,7 @@ export default function Resume() {
             key={key}
             icon={resumeTimeLine.icon}
             title={resumeTimeLine.title}
-            timeLineExperiences={resumeTimeLine.timeLineExperiences}
-            iconName={resumeTimeLine.iconName} // Pass the icon type as a string
+            resumeCards={resumeTimeLine.resumeCards}
           />
         ),
       )}
