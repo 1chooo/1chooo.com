@@ -2,20 +2,18 @@ import IconBox from "@/components/icon-box";
 import ResumeCard from "@/components/resume/resume-card";
 
 import type { VCardIconType } from "@/types/config";
-import type { TimeLineExperience } from "@/types/resume";
+import type { ResumeCardType } from "@/types/resume";
 
 interface ResumeTimeLineProps {
   icon: VCardIconType;
   title: string;
-  timeLineExperiences: TimeLineExperience[];
-  iconName: string; // Changed from icon component to string identifier
+  resumeCards: ResumeCardType[];
 }
 
 function ResumeTimeLine({
   icon,
   title,
-  timeLineExperiences,
-  iconName,
+  resumeCards,
 }: ResumeTimeLineProps) {
   return (
     <div className="timeline">
@@ -25,11 +23,10 @@ function ResumeTimeLine({
       </div>
 
       <ol className="timeline-list">
-        {timeLineExperiences.map((timeLineExperience: TimeLineExperience) => (
-          <li className="timeline-item" key={timeLineExperience.company}>
+        {resumeCards.map((resumeCard: ResumeCardType) => (
+          <li className="timeline-item" key={resumeCard.institution}>
             <ResumeCard
-              timeLineExperience={timeLineExperience}
-              iconName={iconName} // Pass the icon type as a string
+              resumeCard={resumeCard}
             />
           </li>
         ))}

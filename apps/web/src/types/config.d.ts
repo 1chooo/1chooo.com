@@ -39,7 +39,6 @@ export type Config = {
   homeMetaData: Metadata;
   about: About;
   resumes: Resumes;
-  resumesV2: ResumeV2;
   jsonLdPerson: Person;
   giscusConfig: GiscusProps;
   googleAnalyticId: string;

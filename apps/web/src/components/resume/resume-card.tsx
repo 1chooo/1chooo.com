@@ -4,25 +4,18 @@ import Image from "next/image";
 import { BriefcaseIcon } from "lucide-react";
 import { getIcon } from "@/components/icons";
 
-import type { TimeLineExperience } from "@/types/resume";
+import type { ResumeCardType } from "@/types/resume";
 
 import "@/styles/resume-card.css";
 
 interface ResumeCardProps {
-  iconName: string;
-  timeLineExperience: TimeLineExperience;
+  resumeCard: ResumeCardType;
 }
 
 export default function ResumeCard({
-  iconName,
-  timeLineExperience,
+  resumeCard,
 }: ResumeCardProps) {
-  const { company, companyImage, title, employmentType, location, timePeriod } =
-    timeLineExperience;
-
-  const Icon = getIcon(iconName) || BriefcaseIcon;
-  const MapPin = getIcon("map-pin");
-  const CalendarIcon = getIcon("calendar");
+  const { institution, institutionImage, title, tags } = resumeCard;
 
   return (
     <section className="skill">
@@ -30,8 +23,8 @@ export default function ResumeCard({
         <div className="flex flex-row items-center gap-4 p-6 pb-4">
           <div className="h-10 w-10 flex-shrink-0 overflow-hidden rounded-md">
             <Image
-              src={companyImage || "/favicon.ico"}
-              alt={company}
+              src={institutionImage || "/favicon.ico"}
+              alt={institution}
               className="h-full w-full object-cover"
               onError={(e) => {
                 e.currentTarget.src = "/favicon.ico?height=40&width=40";
@@ -42,25 +35,25 @@ export default function ResumeCard({
             />
           </div>
           <div className="min-w-0 flex-1 space-y-1">
-            <div className="font-semibold text-white-1 truncate">{company}</div>
+            <div className="font-semibold text-white-1 truncate">{institution}</div>
             <div className="text-sm text-light-gray truncate">{title}</div>
           </div>
         </div>
 
         <div className="px-6 pb-2">
           <div className="mb-4 flex flex-wrap gap-2">
-            <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium text-orange-yellow-crayola border-gray-700">
-              <Icon className="h-3 w-3" />
-              {employmentType}
-            </span>
-            <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium text-orange-yellow-crayola border-gray-700">
-              <MapPin className="h-3 w-3" />
-              {location}
-            </span>
-            <span className="inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium text-orange-yellow-crayola border-gray-700">
-              <CalendarIcon className="h-3 w-3" />
-              {timePeriod}
-            </span>
+            {tags.map((tag, index) => {
+              const TagIcon = getIcon(tag.icon) || BriefcaseIcon;
+              return (
+                <span
+                  key={`${tag.key}-${index}`}
+                  className="inline-flex items-center gap-1 rounded-full border px-2.5 py-0.5 text-xs font-medium text-orange-yellow-crayola border-gray-700"
+                >
+                  <TagIcon className="h-3 w-3" />
+                  {tag.value}
+                </span>
+              );
+            })}
           </div>
         </div>
       </div>
