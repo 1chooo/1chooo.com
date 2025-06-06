@@ -23,8 +23,8 @@ function ResumeTimeLine({
       </div>
 
       <ol className="timeline-list">
-        {resumeCards.map((resumeCard: ResumeCardType) => (
-          <li className="timeline-item" key={resumeCard.institution}>
+        {resumeCards.map((resumeCard: ResumeCardType, index: number) => (
+          <li className="timeline-item" key={`${resumeCard.institution}-${index}`}>
             <ResumeCard
               resumeCard={resumeCard}
             />
