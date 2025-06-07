@@ -1,7 +1,7 @@
 import GradientCard from "@/components/ui/gradient-card";
 import AboutSection from "@/components/section/about";
 import { BlurFade } from "@/components/magicui/blur-fade";
-import { getIcon } from "@/components//icons";
+import { getIcon } from "@/components/icons";
 
 import type { LifeStyle } from "@/types/about";
 
