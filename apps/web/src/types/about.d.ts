@@ -10,7 +10,7 @@ export type LifeStyle = {
 
 export type TechStack = {
   name: string;
-  icon: VCardIconType;
+  icon: string;
 };
 
 interface TechStacks {

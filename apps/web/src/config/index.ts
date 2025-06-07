@@ -2,26 +2,6 @@ import { ICON_NAMES } from "@/components/icons";
 
 import { Config } from "@/types/config";
 
-import { FaReact, FaAws } from "react-icons/fa";
-import { AiOutlinePython } from "react-icons/ai";
-import { RiJavaLine, RiJavascriptLine } from "react-icons/ri";
-import { SiLatex, SiFastapi, SiKubernetes, SiPostman } from "react-icons/si";
-import { BiLogoFlask } from "react-icons/bi";
-import { VscTerminalLinux, VscAzure } from "react-icons/vsc";
-import { DiRedis } from "react-icons/di";
-import {
-  TbBrandCpp,
-  TbBrandTypescript,
-  TbBrandGolang,
-  TbBrandNextjs,
-  TbBrandDjango,
-  TbBrandDocker,
-  TbBrandMysql,
-  TbMarkdown,
-  TbBrandAstro,
-  TbBrandTerraform,
-} from "react-icons/tb";
-
 const config: Config = {
   avatar: "/images/profile.webp",
   title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
@@ -195,31 +175,31 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
     ],
     techStacks: {
       programmingLanguages: [
-        { name: "Python", icon: AiOutlinePython },
-        { name: "TypeScript", icon: TbBrandTypescript },
-        { name: "Golang", icon: TbBrandGolang },
-        { name: "C++", icon: TbBrandCpp },
-        { name: "Java", icon: RiJavaLine },
-        { name: "JavaScript", icon: RiJavascriptLine },
-        { name: "LaTeX", icon: SiLatex },
-        { name: "Markdown", icon: TbMarkdown },
-        { name: "Astro", icon: TbBrandAstro },
-        { name: "Terraform", icon: TbBrandTerraform },
+        { name: "Python", icon: ICON_NAMES.PYTHON },
+        { name: "TypeScript", icon: ICON_NAMES.TYPESCRIPT },
+        { name: "Golang", icon: ICON_NAMES.GOLANG },
+        { name: "C++", icon: ICON_NAMES.CPP },
+        { name: "Java", icon: ICON_NAMES.JAVA },
+        { name: "JavaScript", icon: ICON_NAMES.JAVASCRIPT },
+        { name: "LaTeX", icon: ICON_NAMES.LATEX },
+        { name: "Markdown", icon: ICON_NAMES.MARKDOWN },
+        { name: "Astro", icon: ICON_NAMES.ASTRO },
+        { name: "Terraform", icon: ICON_NAMES.TERRAFORM },
       ],
       frameworks: [
-        { name: "React", icon: FaReact },
-        { name: "FastAPI", icon: SiFastapi },
-        { name: "Flask", icon: BiLogoFlask },
-        { name: "Redis", icon: DiRedis },
-        { name: "Linux Terminal", icon: VscTerminalLinux },
-        { name: "AWS", icon: FaAws },
-        { name: "Next.js", icon: TbBrandNextjs },
-        { name: "Docker", icon: TbBrandDocker },
-        { name: "MySQL", icon: TbBrandMysql },
-        { name: "Django", icon: TbBrandDjango },
-        { name: "Kubernetes", icon: SiKubernetes },
-        { name: "Postman", icon: SiPostman },
-        { name: "Azure", icon: VscAzure },
+        { name: "React", icon: ICON_NAMES.REACT },
+        { name: "FastAPI", icon: ICON_NAMES.FASTAPI },
+        { name: "Flask", icon: ICON_NAMES.FLASK },
+        { name: "Redis", icon: ICON_NAMES.REDIS },
+        { name: "Linux Terminal", icon: ICON_NAMES.TERMINAL_LINUX },
+        { name: "AWS", icon: ICON_NAMES.AWS },
+        { name: "Next.js", icon: ICON_NAMES.NEXTJS },
+        { name: "Docker", icon: ICON_NAMES.DOCKER },
+        { name: "MySQL", icon: ICON_NAMES.MYSQL },
+        { name: "Django", icon: ICON_NAMES.DJANGO },
+        { name: "Kubernetes", icon: ICON_NAMES.KUBERNETES },
+        { name: "Postman", icon: ICON_NAMES.POSTMAN },
+        { name: "Azure", icon: ICON_NAMES.AZURE },
       ],
     },
   },
