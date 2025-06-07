@@ -19,7 +19,20 @@ import {
 import { PiMediumLogoBold } from "react-icons/pi";
 import { FaXTwitter } from "react-icons/fa6";
 import { MdAttachment } from "react-icons/md";
-
+import { GoalIcon } from "@primer/octicons-react";
+import {
+  TbBrandCpp,
+  TbBrandTypescript,
+  TbBrandGolang,
+  TbBrandNextjs,
+  TbBrandDjango,
+  TbBrandDocker,
+  TbBrandMysql,
+  TbMarkdown,
+  TbBrandAstro,
+  TbBrandTerraform,
+  TbPhotoSquareRounded,
+} from "react-icons/tb";
 
 import { VCardIconType } from "@/types/config";
 
@@ -41,6 +54,8 @@ export enum ICON_NAMES {
   MEDIUM_PI = 'medium',
   TWITTER_FA = 'twitter',
   ATTACHMENT_MD = 'attachment-md',
+  GOAL = 'goal',
+  PHOTO = 'photo',
 }
 
 export const icons: Record<ICON_NAMES, VCardIconType> = {
@@ -61,6 +76,8 @@ export const icons: Record<ICON_NAMES, VCardIconType> = {
   [ICON_NAMES.MEDIUM_PI]: PiMediumLogoBold,
   [ICON_NAMES.TWITTER_FA]: FaXTwitter,
   [ICON_NAMES.ATTACHMENT_MD]: MdAttachment,
+  [ICON_NAMES.GOAL]: GoalIcon,
+  [ICON_NAMES.PHOTO]: TbPhotoSquareRounded,
 };
 
 export function getIcon(iconName: ICON_NAMES | string): VCardIconType {

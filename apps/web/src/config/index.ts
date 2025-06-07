@@ -2,11 +2,6 @@ import { ICON_NAMES } from "@/components/icons";
 
 import { Config } from "@/types/config";
 
-import { GoalIcon } from "@primer/octicons-react";
-import {
-  LuGithub,
-  LuPencil,
-} from "react-icons/lu";
 import { FaReact, FaAws } from "react-icons/fa";
 import { AiOutlinePython } from "react-icons/ai";
 import { RiJavaLine, RiJavascriptLine } from "react-icons/ri";
@@ -25,7 +20,6 @@ import {
   TbMarkdown,
   TbBrandAstro,
   TbBrandTerraform,
-  TbPhotoSquareRounded,
 } from "react-icons/tb";
 
 const config: Config = {
@@ -179,22 +173,22 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
     `,
     lifestyles: [
       {
-        icon: LuGithub,
+        icon: ICON_NAMES.GITHUB_LU,
         title: "Open Source",
         text: "Actively contributing to open source projects on GitHub.",
       },
       {
-        icon: LuPencil,
+        icon: ICON_NAMES.PENCIL_LU,
         title: "Storytelling",
         text: "Love to share my knowledge and experience with others.",
       },
       {
-        icon: GoalIcon,
+        icon: ICON_NAMES.GOAL,
         title: "Workouts",
         text: "Basketball and weight training defines my active workout lifestyle.",
       },
       {
-        icon: TbPhotoSquareRounded,
+        icon: ICON_NAMES.PHOTO,
         title: "Photography",
         text: "Sky brings freedom; streets, a reminder of others' contributions.",
       },

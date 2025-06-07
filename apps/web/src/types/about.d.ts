@@ -3,7 +3,7 @@
 import type { VCardIconType } from "@/types/config";
 
 export type LifeStyle = {
-  icon: VCardIconType;
+  icon: string;
   title: string;
   text: string;
 };
