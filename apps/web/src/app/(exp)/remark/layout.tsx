@@ -1,6 +1,7 @@
-import type { Metadata } from "next";
 import Script from "next/script";
+
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
+import { Analytics } from "@vercel/analytics/next";
 
 import { roboto } from "@/app/fonts";
 import HomeHeader from "@/components/layout/home-header";
@@ -9,95 +10,37 @@ import Hello from "@/components/hello";
 import { ProgressBar } from "@/components/progress-bar";
 import config from "@/config";
 
+import type { Metadata } from "next";
+import type { JsonLdHtml } from "@/types/json-ld";
+
 import "@/app/globals.css";
 
 const {
-  title,
-  description,
-  author,
-  keywords,
   googleAnalyticId,
   googleTagManagerId,
-  openGraph,
   about,
   avatar,
   status,
   navigationLinks,
-  siteURL,
+  jsonLdPerson,
+  homeMetaData,
+  socialLinks,
+  contacts,
 } = config;
 
 const { firstName, lastName, middleName, preferredName } = about;
 
-export const metadata: Metadata = {
-  title: title,
-  description: description,
-  authors: [{ name: author }],
-  creator: author,
-  keywords: keywords,
-  openGraph: {
-    url: openGraph.url,
-    type: "website",
-    siteName: openGraph.siteName,
-    title: openGraph.title,
-    description: openGraph.description,
-    images: openGraph.images,
-  },
-  manifest: "/manifest.json",
-  twitter: {
-    card: "summary_large_image",
-    title: title,
-    description: description,
-    images: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",
-  },
-  icons: {
-    icon: "/favicon.ico",
-    shortcut: "/favicon.ico",
-    apple: [
-      {
-        url: "/logo192.png",
-        sizes: "192x192",
-        type: "image/png",
-      },
-    ],
-  },
-};
+export const metadata: Metadata = homeMetaData;
 
-const addJsonLd = () => {
+const addJsonLd = (): JsonLdHtml => {
   return {
-    __html: `{
-      "@context": "http://schema.org",
-      "@type": "Person",
-      "@id": "${siteURL}#person",
-      "givenName": ${firstName},
-      "familyName": ${lastName},
-      "additionalName": ${preferredName},
-      "gender": "male",
-      "birthPlace": "New Taipei, TW",
-      "nationality": "Taiwan",
-      "alumniOf":[
-        {
-          "@type": "CollegeOrUniversity",
-          "name": "National Central University",
-          "sameAs": "https://www.ncu.edu.tw/"
-        },
-      ],
-      "jobTitle": "Software Engineer",
-      "skills": "Software Engineering, Web Development, Open Source",
-      "image": "https://www.1chooo.com/images/profile.webp",
-      "url": ${siteURL},
-      "sameAs": [
-        "https://www.linkedin.com/in/1chooo/",
-        "http://github.com/1chooo",
-        "https://medium.com/@1chooo",
-      ]
-    }
-  `,
+    __html: JSON.stringify(jsonLdPerson, null, 2),
   };
 };
 
-function RootLayout({ children }: { readonly children: React.ReactNode }) {
+function RemarkLayout({ children }: { readonly children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${roboto.className}`}>
+    <html lang="en" className={roboto.className}>
       <body>
         <ProgressBar className="fixed top-0 h-1 bg-yellow-500">
           <Hello />
@@ -109,6 +52,8 @@ function RootLayout({ children }: { readonly children: React.ReactNode }) {
               middleName={middleName}
               preferredName={preferredName}
               status={status}
+              socialLinks={socialLinks}
+              contacts={contacts}
             />
             <div className="main-content">
               <HomeHeader navigationLinks={navigationLinks} />
@@ -122,11 +67,12 @@ function RootLayout({ children }: { readonly children: React.ReactNode }) {
           dangerouslySetInnerHTML={addJsonLd()}
           key="1chooo-website-jsonld"
         />
+        <Analytics />
       </body>
-      <GoogleAnalytics gaId={googleAnalyticId} />
-      <GoogleTagManager gtmId={googleTagManagerId} />
+      <GoogleAnalytics gaId={googleAnalyticId as string} />
+      <GoogleTagManager gtmId={googleTagManagerId as string} />
     </html>
   );
 }
 
-export default RootLayout;
+export default RemarkLayout;
