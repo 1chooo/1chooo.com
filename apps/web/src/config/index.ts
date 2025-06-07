@@ -6,14 +6,14 @@ const config: Config = {
   avatar: "/images/profile.webp",
   title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
   description:
-    "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+    "I'm Chun-Ho (Hugo) Lin, an incoming student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️.",
   author: "Chun-Ho (Hugo) Lin - 1chooo",
   keywords: [
-    "Hugo ChunHo Lin",
+    "Chun-Ho (Hugo) Lin",
     "1chooo",
     "Software Engineering",
-    "Next.js",
-    "React",
+    "University of Southern California",
+    "National Central University",
   ],
   status: "Dive Deep. 🤿",
   siteURL: "https://www.1chooo.com",
@@ -23,7 +23,7 @@ const config: Config = {
     siteName: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
     title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
     description:
-      "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+      "I'm Chun-Ho (Hugo) Lin, an incoming student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️.",
     images: [
       {
         url: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",
@@ -94,15 +94,15 @@ const config: Config = {
     metadataBase: new URL("https://www.1chooo.com"),
     title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
     description:
-      "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+      "I'm Chun-Ho (Hugo) Lin, an incoming student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️.",
     authors: [{ name: "Chun-Ho (Hugo) Lin" }],
     creator: "Chun-Ho (Hugo) Lin",
     keywords: [
       "Chun-Ho (Hugo) Lin",
       "1chooo",
       "Software Engineering",
-      "Next.js",
-      "React",
+      "University of Southern California",
+      "National Central University",
     ],
     openGraph: {
       url: "https://www.1chooo.com/",
@@ -110,7 +110,7 @@ const config: Config = {
       siteName: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
       title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
       description:
-        "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+        "I'm Chun-Ho (Hugo) Lin, an incoming student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️.",
       images: [
         {
           url: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",
@@ -125,7 +125,7 @@ const config: Config = {
       card: "summary_large_image",
       title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
       description:
-        "I'm Chun-Ho (Hugo) Lin, a graduate with a Bachelor's degree from National Central University (NCU) 🐿️, driven by a sincere passion for Software Engineering 💻.",
+        "I'm Chun-Ho (Hugo) Lin, an incoming student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️.",
       images: "https://docs.1chooo.com/images/cover-with-1chooo-com.png",
     },
     icons: {
@@ -365,6 +365,11 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
     birthPlace: "New Taipei, TW",
     nationality: "Taiwan",
     alumniOf: [
+      {
+        "@type": "CollegeOrUniversity",
+        name: "University of Southern California",
+        sameAs: "https://usc.edu",
+      },
       {
         "@type": "CollegeOrUniversity",
         name: "National Central University",
