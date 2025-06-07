@@ -1,5 +1,3 @@
-import type { VCardIconType } from "@/types/config";
-
 export type TagType = {
   key: string;
   value: string;
@@ -15,7 +13,7 @@ export type ResumeCardType = {
 };
 
 export type ResumeTimeLineType = {
-  icon: VCardIconType | string;
+  icon: string;
   title: string;
   resumeCards: ResumeCardType[];
   iconName: string;
