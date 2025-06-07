@@ -1,38 +1,6 @@
-import { Config } from "@/types/config";
-import { MdAttachment } from "react-icons/md";
+import { ICON_NAMES } from "@/components/icons";
 
-import { PiMediumLogoBold } from "react-icons/pi";
-import { GraduationCap, BriefcaseIcon } from "lucide-react";
-import { GoalIcon } from "@primer/octicons-react";
-import {
-  LuGithub,
-  LuPencil,
-  LuLinkedin,
-  LuRss,
-  LuMail,
-  LuMapPin,
-} from "react-icons/lu";
-import { FaXTwitter } from "react-icons/fa6";
-import { FaReact, FaAws } from "react-icons/fa";
-import { AiOutlinePython } from "react-icons/ai";
-import { RiJavaLine, RiJavascriptLine } from "react-icons/ri";
-import { SiLatex, SiFastapi, SiKubernetes, SiPostman } from "react-icons/si";
-import { BiLogoFlask } from "react-icons/bi";
-import { VscTerminalLinux, VscAzure } from "react-icons/vsc";
-import { DiRedis } from "react-icons/di";
-import {
-  TbBrandCpp,
-  TbBrandTypescript,
-  TbBrandGolang,
-  TbBrandNextjs,
-  TbBrandDjango,
-  TbBrandDocker,
-  TbBrandMysql,
-  TbMarkdown,
-  TbBrandAstro,
-  TbBrandTerraform,
-  TbPhotoSquareRounded,
-} from "react-icons/tb";
+import { Config } from "@/types/config";
 
 const config: Config = {
   avatar: "/images/profile.webp",
@@ -73,24 +41,24 @@ const config: Config = {
   ],
   contacts: [
     {
-      icon: LuMapPin,
+      icon: ICON_NAMES.MAP_PIN_LU,
       title: "Location",
       content: "Los Angeles, CA 🇺🇸",
     },
     {
-      icon: LuMail,
+      icon: ICON_NAMES.MAIL_LU,
       title: "Email",
       link: "mailto:hugo970217@gmail.com",
       content: "hugo970217@gmail.com",
     },
     {
-      icon: LuGithub,
+      icon: ICON_NAMES.GITHUB_LU,
       title: "GitHub",
       link: "https://github.com/1chooo",
       content: "@1chooo",
     },
     {
-      icon: LuLinkedin,
+      icon: ICON_NAMES.LINKEDIN_LU,
       title: "LinkedIn",
       link: "https://www.linkedin.com/in/1chooo/",
       content: "in/1chooo",
@@ -99,33 +67,27 @@ const config: Config = {
   socialLinks: [
     {
       url: "https://github.com/1chooo",
-      icon: LuGithub,
-      name: "GitHub",
+      icon: ICON_NAMES.GITHUB_LU,
     },
     {
       url: "https://www.linkedin.com/in/1chooo/",
-      icon: LuLinkedin,
-      name: "LinkedIn",
+      icon: ICON_NAMES.LINKEDIN_LU,
     },
     {
       url: "https://medium.com/@1chooo",
-      icon: PiMediumLogoBold,
-      name: "Medium",
+      icon: ICON_NAMES.MEDIUM_PI,
     },
     {
       url: "https://twitter.com/1chooo___",
-      icon: FaXTwitter,
-      name: "Twitter",
+      icon: ICON_NAMES.TWITTER_FA,
     },
     {
       url: `/rss.xml`,
-      icon: LuRss,
-      name: "RSS Feed",
+      icon: ICON_NAMES.RSS_LU,
     },
     {
       url: `/cv`,
-      icon: MdAttachment,
-      name: "CV",
+      icon: ICON_NAMES.ATTACHMENT_MD,
     },
   ],
   homeMetaData: {
@@ -191,70 +153,82 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
     `,
     lifestyles: [
       {
-        icon: LuGithub,
+        icon: ICON_NAMES.GITHUB_LU,
         title: "Open Source",
         text: "Actively contributing to open source projects on GitHub.",
       },
       {
-        icon: LuPencil,
+        icon: ICON_NAMES.PENCIL_LU,
         title: "Storytelling",
         text: "Love to share my knowledge and experience with others.",
       },
       {
-        icon: GoalIcon,
+        icon: ICON_NAMES.GOAL,
         title: "Workouts",
         text: "Basketball and weight training defines my active workout lifestyle.",
       },
       {
-        icon: TbPhotoSquareRounded,
+        icon: ICON_NAMES.PHOTO,
         title: "Photography",
         text: "Sky brings freedom; streets, a reminder of others' contributions.",
       },
     ],
     techStacks: {
       programmingLanguages: [
-        { name: "Python", icon: AiOutlinePython },
-        { name: "TypeScript", icon: TbBrandTypescript },
-        { name: "Golang", icon: TbBrandGolang },
-        { name: "C++", icon: TbBrandCpp },
-        { name: "Java", icon: RiJavaLine },
-        { name: "JavaScript", icon: RiJavascriptLine },
-        { name: "LaTeX", icon: SiLatex },
-        { name: "Markdown", icon: TbMarkdown },
-        { name: "Astro", icon: TbBrandAstro },
-        { name: "Terraform", icon: TbBrandTerraform },
+        { name: "Python", icon: ICON_NAMES.PYTHON },
+        { name: "TypeScript", icon: ICON_NAMES.TYPESCRIPT },
+        { name: "Golang", icon: ICON_NAMES.GOLANG },
+        { name: "C++", icon: ICON_NAMES.CPP },
+        { name: "Java", icon: ICON_NAMES.JAVA },
+        { name: "JavaScript", icon: ICON_NAMES.JAVASCRIPT },
+        { name: "LaTeX", icon: ICON_NAMES.LATEX },
+        { name: "Markdown", icon: ICON_NAMES.MARKDOWN },
+        { name: "Astro", icon: ICON_NAMES.ASTRO },
+        { name: "Terraform", icon: ICON_NAMES.TERRAFORM },
       ],
       frameworks: [
-        { name: "React", icon: FaReact },
-        { name: "FastAPI", icon: SiFastapi },
-        { name: "Flask", icon: BiLogoFlask },
-        { name: "Redis", icon: DiRedis },
-        { name: "Linux Terminal", icon: VscTerminalLinux },
-        { name: "AWS", icon: FaAws },
-        { name: "Next.js", icon: TbBrandNextjs },
-        { name: "Docker", icon: TbBrandDocker },
-        { name: "MySQL", icon: TbBrandMysql },
-        { name: "Django", icon: TbBrandDjango },
-        { name: "Kubernetes", icon: SiKubernetes },
-        { name: "Postman", icon: SiPostman },
-        { name: "Azure", icon: VscAzure },
+        { name: "React", icon: ICON_NAMES.REACT },
+        { name: "FastAPI", icon: ICON_NAMES.FASTAPI },
+        { name: "Flask", icon: ICON_NAMES.FLASK },
+        { name: "Redis", icon: ICON_NAMES.REDIS },
+        { name: "Linux Terminal", icon: ICON_NAMES.TERMINAL_LINUX },
+        { name: "AWS", icon: ICON_NAMES.AWS },
+        { name: "Next.js", icon: ICON_NAMES.NEXTJS },
+        { name: "Docker", icon: ICON_NAMES.DOCKER },
+        { name: "MySQL", icon: ICON_NAMES.MYSQL },
+        { name: "Django", icon: ICON_NAMES.DJANGO },
+        { name: "Kubernetes", icon: ICON_NAMES.KUBERNETES },
+        { name: "Postman", icon: ICON_NAMES.POSTMAN },
+        { name: "Azure", icon: ICON_NAMES.AZURE },
       ],
     },
   },
   resumes: {
     educations: {
-      icon: GraduationCap,
+      icon: ICON_NAMES.GRADUATION_CAP,
       title: "Education",
-      iconName: "graduation-cap",
+      iconName: ICON_NAMES.GRADUATION_CAP,
       resumeCards: [
         {
           institution: "University of Southern California",
           institutionImage: "/images/logos/usc.jpg",
           title: "Master of Science in Computer Science",
           tags: [
-            { key: "school", value: "Viterbi School of Engineering", icon: "graduation-cap" },
-            { key: "location", value: "Los Angeles, CA 🇺🇸", icon: "map-pin" },
-            { key: "period", value: "Aug. 2025 - Present", icon: "calendar" }
+            {
+              key: "school",
+              value: "Viterbi School of Engineering",
+              icon: ICON_NAMES.GRADUATION_CAP,
+            },
+            {
+              key: "location",
+              value: "Los Angeles, CA 🇺🇸",
+              icon: ICON_NAMES.MAP_PIN,
+            },
+            {
+              key: "period",
+              value: "Aug. 2025 - Present",
+              icon: ICON_NAMES.CALENDAR,
+            },
           ],
           details: [],
         },
@@ -263,17 +237,29 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
           institutionImage: "/images/logos/ncu.png",
           title: "Bachelors of Science in Atmospheric Sciences",
           tags: [
-            { key: "school", value: "College of Earth Sciences", icon: "graduation-cap" },
-            { key: "location", value: "Taoyuan, Taiwan 🇹🇼", icon: "map-pin" },
-            { key: "period", value: "Sep. 2020 - Jun. 2024", icon: "calendar" }
+            {
+              key: "school",
+              value: "College of Earth Sciences",
+              icon: ICON_NAMES.GRADUATION_CAP,
+            },
+            {
+              key: "location",
+              value: "Taoyuan, Taiwan 🇹🇼",
+              icon: ICON_NAMES.MAP_PIN,
+            },
+            {
+              key: "period",
+              value: "Sep. 2020 - Jun. 2024",
+              icon: ICON_NAMES.CALENDAR,
+            },
           ],
           details: [],
         },
       ],
     },
     experiences: {
-      icon: BriefcaseIcon,
-      iconName: "briefcase",
+      icon: ICON_NAMES.BRIEFCASE,
+      iconName: ICON_NAMES.BRIEFCASE,
       title: "Professional Experiences",
       resumeCards: [
         {
@@ -281,9 +267,17 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
           institutionImage: "/images/logos/ecv.png",
           title: "Cloud Engineer",
           tags: [
-            { key: "type", value: "Intern", icon: "briefcase" },
-            { key: "location", value: "New Taipei, Taiwan 🇹🇼", icon: "map-pin" },
-            { key: "period", value: "Mar. 2024 - May. 2024", icon: "calendar" }
+            { key: "type", value: "Intern", icon: ICON_NAMES.BRIEFCASE },
+            {
+              key: "location",
+              value: "New Taipei, Taiwan 🇹🇼",
+              icon: ICON_NAMES.MAP_PIN,
+            },
+            {
+              key: "period",
+              value: "Mar. 2024 - May. 2024",
+              icon: ICON_NAMES.CALENDAR,
+            },
           ],
           details: [
             "Led a team of 5 to enhance issue pools with AWS Bedrock, boosting cloud support efficiency by 80% through multi-language support and 95% accurate image recognition. Honored as the top-achieving internship team.",
@@ -296,9 +290,17 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
           institutionImage: "/images/logos/aws.svg",
           title: "Campus Ambassador",
           tags: [
-            { key: "type", value: "Contract", icon: "briefcase" },
-            { key: "location", value: "Taipei, Taiwan 🇹🇼", icon: "map-pin" },
-            { key: "period", value: "Aug. 2023 - Feb. 2024", icon: "calendar" }
+            { key: "type", value: "Contract", icon: ICON_NAMES.BRIEFCASE },
+            {
+              key: "location",
+              value: "Taipei, Taiwan 🇹🇼",
+              icon: ICON_NAMES.MAP_PIN,
+            },
+            {
+              key: "period",
+              value: "Aug. 2023 - Feb. 2024",
+              icon: ICON_NAMES.CALENDAR,
+            },
           ],
           details: [
             "Educated 700+ cloud developers and achieved 96% user satisfaction by conducting 2 technical workshops, developing an open-source project, and 1 UAD with AWS cloud services. Refer [here](https://github.com/aws-educate-tw/aws-line-business-card-workshop) for the source code.",
@@ -310,9 +312,17 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
           institutionImage: "/images/logos/pegatron.png",
           title: "AI Engineer",
           tags: [
-            { key: "type", value: "Intern", icon: "briefcase" },
-            { key: "location", value: "Taipei, Taiwan 🇹🇼", icon: "map-pin" },
-            { key: "period", value: "Jul. 2023 - Aug. 2023", icon: "calendar" }
+            { key: "type", value: "Intern", icon: ICON_NAMES.BRIEFCASE },
+            {
+              key: "location",
+              value: "Taipei, Taiwan 🇹🇼",
+              icon: ICON_NAMES.MAP_PIN,
+            },
+            {
+              key: "period",
+              value: "Jul. 2023 - Aug. 2023",
+              icon: ICON_NAMES.CALENDAR,
+            },
           ],
           details: [
             "Executed a POC, adapting an LLM model for Smart Manufacturing, and was awarded Silver internship team.",
@@ -325,9 +335,17 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
           institutionImage: "/images/logos/ncu.png",
           title: "Website Developer",
           tags: [
-            { key: "type", value: "Part-time", icon: "briefcase" },
-            { key: "location", value: "Taoyuan, Taiwan 🇹🇼", icon: "map-pin" },
-            { key: "period", value: "Jul. 2022 - Jan. 2023", icon: "calendar" }
+            { key: "type", value: "Part-time", icon: ICON_NAMES.BRIEFCASE },
+            {
+              key: "location",
+              value: "Taoyuan, Taiwan 🇹🇼",
+              icon: ICON_NAMES.MAP_PIN,
+            },
+            {
+              key: "period",
+              value: "Jul. 2022 - Jan. 2023",
+              icon: ICON_NAMES.CALENDAR,
+            },
           ],
           details: [
             "Partnered with a team of 2 to develop a multi-user score management system for the Center for Teacher Education, reducing credit exemption processing time by 80% and remotely maintaining the server via SSH.",

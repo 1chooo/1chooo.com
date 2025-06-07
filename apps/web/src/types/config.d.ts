@@ -9,16 +9,15 @@ import type { Person } from "@/types/json-ld";
 import type { Metadata } from "next";
 import type { Resumes } from "@/types/resume";
 
-export type VCardIconType = ReactIconType | OcticonsType;
+export type VCardIconType = ReactIconType | OcticonsType | string;
 
 export type SocialLink = {
   url: string;
-  icon: VCardIconType;
-  name: string;
+  icon: string;
 };
 
 export type Contact = {
-  icon: VCardIconType;
+  icon: string;
   title: string;
   content?: string;
   link?: string;

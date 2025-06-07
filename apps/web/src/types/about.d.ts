@@ -3,14 +3,14 @@
 import type { VCardIconType } from "@/types/config";
 
 export type LifeStyle = {
-  icon: VCardIconType;
+  icon: string;
   title: string;
   text: string;
 };
 
 export type TechStack = {
   name: string;
-  icon: VCardIconType;
+  icon: string;
 };
 
 interface TechStacks {

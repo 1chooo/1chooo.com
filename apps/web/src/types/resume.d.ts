@@ -1,9 +1,8 @@
-import type { VCardIconType } from "@/types/config";
-
 export type TagType = {
   key: string;
   value: string;
   icon: string;
+  color?: string;
 };
 
 export type ResumeCardType = {
@@ -15,7 +14,7 @@ export type ResumeCardType = {
 };
 
 export type ResumeTimeLineType = {
-  icon: VCardIconType;
+  icon: string;
   title: string;
   resumeCards: ResumeCardType[];
   iconName: string;
