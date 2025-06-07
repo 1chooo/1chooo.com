@@ -1,17 +1,12 @@
 import { ICON_NAMES } from "@/components/icons";
 
 import { Config } from "@/types/config";
-import { MdAttachment } from "react-icons/md";
 
-import { PiMediumLogoBold } from "react-icons/pi";
 import { GoalIcon } from "@primer/octicons-react";
 import {
   LuGithub,
   LuPencil,
-  LuLinkedin,
-  LuRss,
 } from "react-icons/lu";
-import { FaXTwitter } from "react-icons/fa6";
 import { FaReact, FaAws } from "react-icons/fa";
 import { AiOutlinePython } from "react-icons/ai";
 import { RiJavaLine, RiJavascriptLine } from "react-icons/ri";
@@ -77,19 +72,19 @@ const config: Config = {
       content: "Los Angeles, CA 🇺🇸",
     },
     {
-      icon: ICON_NAMES.MAIL,
+      icon: ICON_NAMES.MAIL_LU,
       title: "Email",
       link: "mailto:hugo970217@gmail.com",
       content: "hugo970217@gmail.com",
     },
     {
-      icon: ICON_NAMES.GITHUB,
+      icon: ICON_NAMES.GITHUB_LU,
       title: "GitHub",
       link: "https://github.com/1chooo",
       content: "@1chooo",
     },
     {
-      icon: ICON_NAMES.LINKEDIN,
+      icon: ICON_NAMES.LINKEDIN_LU,
       title: "LinkedIn",
       link: "https://www.linkedin.com/in/1chooo/",
       content: "in/1chooo",
@@ -98,33 +93,27 @@ const config: Config = {
   socialLinks: [
     {
       url: "https://github.com/1chooo",
-      icon: LuGithub,
-      name: "GitHub",
+      icon: ICON_NAMES.GITHUB_LU,
     },
     {
       url: "https://www.linkedin.com/in/1chooo/",
-      icon: LuLinkedin,
-      name: "LinkedIn",
+      icon: ICON_NAMES.LINKEDIN_LU,
     },
     {
       url: "https://medium.com/@1chooo",
-      icon: PiMediumLogoBold,
-      name: "Medium",
+      icon: ICON_NAMES.MEDIUM_PI,
     },
     {
       url: "https://twitter.com/1chooo___",
-      icon: FaXTwitter,
-      name: "Twitter",
+      icon: ICON_NAMES.TWITTER_FA,
     },
     {
       url: `/rss.xml`,
-      icon: LuRss,
-      name: "RSS Feed",
+      icon: ICON_NAMES.RSS_LU,
     },
     {
       url: `/cv`,
-      icon: MdAttachment,
-      name: "CV",
+      icon: ICON_NAMES.ATTACHMENT_MD,
     },
   ],
   homeMetaData: {

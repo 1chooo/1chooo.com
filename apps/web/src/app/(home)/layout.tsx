@@ -24,6 +24,8 @@ const {
   navigationLinks,
   jsonLdPerson,
   homeMetaData,
+  socialLinks,
+  contacts,
 } = config;
 
 const { firstName, lastName, middleName, preferredName } = about;
@@ -50,6 +52,8 @@ function HomeLayout({ children }: { readonly children: React.ReactNode }) {
               middleName={middleName}
               preferredName={preferredName}
               status={status}
+              socialLinks={socialLinks}
+              contacts={contacts}
             />
             <div className="main-content">
               <HomeHeader navigationLinks={navigationLinks} />

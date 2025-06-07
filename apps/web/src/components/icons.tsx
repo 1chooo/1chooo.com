@@ -16,6 +16,10 @@ import {
   LuMail,
   LuMapPin,
 } from "react-icons/lu";
+import { PiMediumLogoBold } from "react-icons/pi";
+import { FaXTwitter } from "react-icons/fa6";
+import { MdAttachment } from "react-icons/md";
+
 
 import { VCardIconType } from "@/types/config";
 
@@ -28,13 +32,15 @@ export enum ICON_NAMES {
   AWARD = 'award',
   CALENDAR = 'calendar',
   MAP_PIN = 'map-pin',
-  GITHUB = 'github',
-  LINKEDIN = 'linkedin',
-  RSS = 'rss',
-  MAIL = 'mail',
-  PENCIL = 'pencil',
-  LOCATION = 'location',
+  GITHUB_LU = 'github',
+  LINKEDIN_LU = 'linkedin',
+  RSS_LU = 'rss',
+  MAIL_LU = 'mail',
+  PENCIL_LU = 'pencil',
   MAP_PIN_LU = 'map-pin-lu',
+  MEDIUM_PI = 'medium',
+  TWITTER_FA = 'twitter',
+  ATTACHMENT_MD = 'attachment-md',
 }
 
 export const icons: Record<ICON_NAMES, VCardIconType> = {
@@ -46,29 +52,17 @@ export const icons: Record<ICON_NAMES, VCardIconType> = {
   [ICON_NAMES.AWARD]: AwardIcon,
   [ICON_NAMES.CALENDAR]: CalendarIcon,
   [ICON_NAMES.MAP_PIN]: MapPin,
-  [ICON_NAMES.GITHUB]: LuGithub,
-  [ICON_NAMES.LINKEDIN]: LuLinkedin,
-  [ICON_NAMES.RSS]: LuRss,
-  [ICON_NAMES.MAIL]: LuMail,
-  [ICON_NAMES.PENCIL]: LuPencil,
-  [ICON_NAMES.LOCATION]: MapPin, // Assuming you want to use the same icon as MAP_PIN
-  [ICON_NAMES.MAP_PIN_LU]: LuMapPin, // Using a different icon for this
+  [ICON_NAMES.GITHUB_LU]: LuGithub,
+  [ICON_NAMES.LINKEDIN_LU]: LuLinkedin,
+  [ICON_NAMES.RSS_LU]: LuRss,
+  [ICON_NAMES.MAIL_LU]: LuMail,
+  [ICON_NAMES.PENCIL_LU]: LuPencil,
+  [ICON_NAMES.MAP_PIN_LU]: LuMapPin,
+  [ICON_NAMES.MEDIUM_PI]: PiMediumLogoBold,
+  [ICON_NAMES.TWITTER_FA]: FaXTwitter,
+  [ICON_NAMES.ATTACHMENT_MD]: MdAttachment,
 };
 
 export function getIcon(iconName: ICON_NAMES | string): VCardIconType {
   return icons[iconName];
 }
-
-
-
-// 方案 3: 使用 enum
-// import { ICON_NAMES, getIcon } from "@/components/icons";
-
-// ✅ enum 方式
-{/* <ResumeCard 
-  iconName={ICON_NAMES.BRIEFCASE} 
-  timeLineExperience={experience} 
-/> */}
-
-// 或者
-// const icon = getIcon(ICON_NAMES.DEVICES);

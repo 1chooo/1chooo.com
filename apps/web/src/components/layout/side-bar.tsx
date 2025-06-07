@@ -8,6 +8,7 @@ import { MdExpandMore } from "react-icons/md";
 
 import Footer from "@/components/layout/footer";
 import IconBox from "@/components/icon-box";
+import { getIcon } from "@/components/icons";
 
 import type { Contact, SocialLink } from "@/types/config";
 
@@ -15,11 +16,7 @@ import { useResponsiveImageSize } from "@/hooks/use-responsive-image-size";
 
 import { breakpoints } from "@/lib/constants";
 
-import config from "@/config";
-
 import "@/styles/side-bar.css";
-
-const { socialLinks, contacts } = config;
 
 interface SideBarProps {
   avatar: string;
@@ -32,24 +29,14 @@ interface SideBarProps {
   socialLinks?: SocialLink[];
 }
 
-/**
- * @todo
- *  ⨯ Error: Functions cannot be passed directly to Client Components unless you explicitly expose it by marking it with "use server". Or maybe you meant to call this function rather than return it.
- * {icon: function LuLinkedin, title: ..., link: ..., content: ...}
- *        ^^^^^^^^^^^^^^^^^^^
- *     at stringify (<anonymous>)
- *     at stringify (<anonymous>) {
- *   digest: '2918074666'
- * }
- */
 function SideBar({
   avatar,
   firstName,
   lastName,
   preferredName,
   status,
-  contacts: propContacts = contacts, // default to config or we might get the error
-  socialLinks: propSocialLinks = socialLinks,
+  contacts,
+  socialLinks,
 }: SideBarProps) {
   const [isActive, setIsActive] = useState(false);
   const sideBarRef = useRef<HTMLDivElement>(null);
@@ -99,7 +86,7 @@ function SideBar({
       <div className="sidebar-info-more">
         <div className="separator"></div>
         <ul className="contacts-list">
-          {propContacts.map((contact, index) => {
+          {contacts.map((contact, index) => {
             const { icon, title, content, link } = contact;
 
             const ContentElement = link ? (
@@ -133,21 +120,24 @@ function SideBar({
         </ul>
         <div className="separator-no-line"></div>
         <ul className="flex items-center gap-4 pb-1 pl-2 justify-center">
-          {propSocialLinks.map(({ url, icon: Icon, name }) => (
-            <li
-              key={name}
-              className="text-light-gray-70 text-lg hover:scale-110 hover:text-orange-yellow-crayola"
-            >
-              <Link
-                href={url}
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label={name}
+          {socialLinks.map(({ url, icon }) => {
+            const Icon = getIcon(icon);
+            return (
+              <li
+                key={icon}
+                className="text-light-gray-70 text-lg hover:scale-110 hover:text-orange-yellow-crayola"
               >
-                <Icon />
-              </Link>
-            </li>
-          ))}
+                <Link
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={icon}
+                >
+                  <Icon />
+                </Link>
+              </li>
+            );
+          })}
         </ul>
         <div className="separator-footer"></div>
         <Footer />
