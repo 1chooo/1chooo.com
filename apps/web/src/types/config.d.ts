@@ -18,7 +18,7 @@ export type SocialLink = {
 };
 
 export type Contact = {
-  icon: VCardIconType;
+  icon: string;
   title: string;
   content?: string;
   link?: string;

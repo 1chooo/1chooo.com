@@ -100,7 +100,7 @@ function SideBar({
         <div className="separator"></div>
         <ul className="contacts-list">
           {propContacts.map((contact, index) => {
-            const { icon: Icon, title, content, link } = contact;
+            const { icon, title, content, link } = contact;
 
             const ContentElement = link ? (
               <Link
@@ -120,7 +120,7 @@ function SideBar({
 
             return (
               <li key={index} className="min-w-full flex items-center gap-4">
-                <IconBox icon={Icon} />
+                <IconBox iconName={icon} />
                 <div className="contact-info">
                   <p className="text-light-gray-70 uppercase mb-1 text-xs">
                     {title}

@@ -15,7 +15,7 @@ export type ResumeCardType = {
 };
 
 export type ResumeTimeLineType = {
-  icon: VCardIconType;
+  icon: VCardIconType | string;
   title: string;
   resumeCards: ResumeCardType[];
   iconName: string;

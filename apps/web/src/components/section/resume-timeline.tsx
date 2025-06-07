@@ -1,11 +1,10 @@
 import IconBox from "@/components/icon-box";
 import ResumeCard from "@/components/resume/resume-card";
 
-import type { VCardIconType } from "@/types/config";
 import type { ResumeCardType } from "@/types/resume";
 
 interface ResumeTimeLineProps {
-  icon: VCardIconType;
+  icon: string;
   title: string;
   resumeCards: ResumeCardType[];
 }
@@ -15,10 +14,11 @@ function ResumeTimeLine({
   title,
   resumeCards,
 }: ResumeTimeLineProps) {
+
   return (
     <div className="timeline">
       <div className="flex items-center gap-4 mb-6">
-        <IconBox icon={icon} />
+        <IconBox iconName={icon} />
         <h3 className="text-white-2 text-2xl font-bold">{title}</h3>
       </div>
 
