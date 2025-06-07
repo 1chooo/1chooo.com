@@ -2,6 +2,7 @@ export type TagType = {
   key: string;
   value: string;
   icon: string;
+  color?: string;
 };
 
 export type ResumeCardType = {

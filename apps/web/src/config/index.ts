@@ -235,8 +235,8 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
           title: "Master of Science in Computer Science",
           tags: [
             { key: "school", value: "Viterbi School of Engineering", icon: ICON_NAMES.GRADUATION_CAP },
-            { key: "location", value: "Los Angeles, CA 🇺🇸", icon: "map-pin" },
-            { key: "period", value: "Aug. 2025 - Present", icon: "calendar" }
+            { key: "location", value: "Los Angeles, CA 🇺🇸", icon: ICON_NAMES.MAP_PIN },
+            { key: "period", value: "Aug. 2025 - Present", icon: ICON_NAMES.CALENDAR }
           ],
           details: [],
         },
@@ -246,8 +246,8 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
           title: "Bachelors of Science in Atmospheric Sciences",
           tags: [
             { key: "school", value: "College of Earth Sciences", icon: ICON_NAMES.GRADUATION_CAP },
-            { key: "location", value: "Taoyuan, Taiwan 🇹🇼", icon: "map-pin" },
-            { key: "period", value: "Sep. 2020 - Jun. 2024", icon: "calendar" }
+            { key: "location", value: "Taoyuan, Taiwan 🇹🇼", icon: ICON_NAMES.MAP_PIN},
+            { key: "period", value: "Sep. 2020 - Jun. 2024", icon: ICON_NAMES.CALENDAR }
           ],
           details: [],
         },
@@ -264,8 +264,8 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
           title: "Cloud Engineer",
           tags: [
             { key: "type", value: "Intern", icon: ICON_NAMES.BRIEFCASE },
-            { key: "location", value: "New Taipei, Taiwan 🇹🇼", icon: "map-pin" },
-            { key: "period", value: "Mar. 2024 - May. 2024", icon: "calendar" }
+            { key: "location", value: "New Taipei, Taiwan 🇹🇼", icon: ICON_NAMES.MAP_PIN },
+            { key: "period", value: "Mar. 2024 - May. 2024", icon: ICON_NAMES.CALENDAR }
           ],
           details: [
             "Led a team of 5 to enhance issue pools with AWS Bedrock, boosting cloud support efficiency by 80% through multi-language support and 95% accurate image recognition. Honored as the top-achieving internship team.",
@@ -279,8 +279,8 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
           title: "Campus Ambassador",
           tags: [
             { key: "type", value: "Contract", icon: ICON_NAMES.BRIEFCASE },
-            { key: "location", value: "Taipei, Taiwan 🇹🇼", icon: "map-pin" },
-            { key: "period", value: "Aug. 2023 - Feb. 2024", icon: "calendar" }
+            { key: "location", value: "Taipei, Taiwan 🇹🇼", icon: ICON_NAMES.MAP_PIN },
+            { key: "period", value: "Aug. 2023 - Feb. 2024", icon: ICON_NAMES.CALENDAR }
           ],
           details: [
             "Educated 700+ cloud developers and achieved 96% user satisfaction by conducting 2 technical workshops, developing an open-source project, and 1 UAD with AWS cloud services. Refer [here](https://github.com/aws-educate-tw/aws-line-business-card-workshop) for the source code.",
@@ -293,8 +293,8 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
           title: "AI Engineer",
           tags: [
             { key: "type", value: "Intern", icon: ICON_NAMES.BRIEFCASE },
-            { key: "location", value: "Taipei, Taiwan 🇹🇼", icon: "map-pin" },
-            { key: "period", value: "Jul. 2023 - Aug. 2023", icon: "calendar" }
+            { key: "location", value: "Taipei, Taiwan 🇹🇼", icon: ICON_NAMES.MAP_PIN },
+            { key: "period", value: "Jul. 2023 - Aug. 2023", icon: ICON_NAMES.CALENDAR }
           ],
           details: [
             "Executed a POC, adapting an LLM model for Smart Manufacturing, and was awarded Silver internship team.",
@@ -308,8 +308,8 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
           title: "Website Developer",
           tags: [
             { key: "type", value: "Part-time", icon: ICON_NAMES.BRIEFCASE },
-            { key: "location", value: "Taoyuan, Taiwan 🇹🇼", icon: "map-pin" },
-            { key: "period", value: "Jul. 2022 - Jan. 2023", icon: "calendar" }
+            { key: "location", value: "Taoyuan, Taiwan 🇹🇼", icon: ICON_NAMES.MAP_PIN },
+            { key: "period", value: "Jul. 2022 - Jan. 2023", icon: ICON_NAMES.CALENDAR }
           ],
           details: [
             "Partnered with a team of 2 to develop a multi-user score management system for the Center for Teacher Education, reducing credit exemption processing time by 80% and remotely maintaining the server via SSH.",
