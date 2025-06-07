@@ -12,9 +12,7 @@ interface ResumeCardProps {
   resumeCard: ResumeCardType;
 }
 
-export default function ResumeCard({
-  resumeCard,
-}: ResumeCardProps) {
+export default function ResumeCard({ resumeCard }: ResumeCardProps) {
   const { institution, institutionImage, title, tags } = resumeCard;
 
   return (
@@ -35,7 +33,9 @@ export default function ResumeCard({
             />
           </div>
           <div className="min-w-0 flex-1 space-y-1">
-            <div className="font-semibold text-white-1 truncate">{institution}</div>
+            <div className="font-semibold text-white-1 truncate">
+              {institution}
+            </div>
             <div className="text-sm text-light-gray truncate">{title}</div>
           </div>
         </div>

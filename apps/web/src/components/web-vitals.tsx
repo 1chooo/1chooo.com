@@ -1,8 +1,8 @@
-'use client'
- 
-import { useReportWebVitals } from 'next/web-vitals'
- 
-type ReportWebVitalsCallback = Parameters<typeof useReportWebVitals>[0]
+"use client";
+
+import { useReportWebVitals } from "next/web-vitals";
+
+type ReportWebVitalsCallback = Parameters<typeof useReportWebVitals>[0];
 
 const EVENTS = [
   {
@@ -62,19 +62,19 @@ const EVENTS = [
     unit: "ms",
   },
 ];
- 
+
 const handleWebVitals: ReportWebVitalsCallback = (metric) => {
   switch (metric.name) {
-    case 'FCP': {
+    case "FCP": {
       // handle FCP results
     }
-    case 'LCP': {
+    case "LCP": {
       // handle LCP results
     }
     // ...
   }
-}
- 
+};
+
 export function WebVitals() {
-  useReportWebVitals(handleWebVitals)
+  useReportWebVitals(handleWebVitals);
 }

@@ -9,12 +9,7 @@ interface ResumeTimeLineProps {
   resumeCards: ResumeCardType[];
 }
 
-function ResumeTimeLine({
-  icon,
-  title,
-  resumeCards,
-}: ResumeTimeLineProps) {
-
+function ResumeTimeLine({ icon, title, resumeCards }: ResumeTimeLineProps) {
   return (
     <div className="timeline">
       <div className="flex items-center gap-4 mb-6">
@@ -24,10 +19,11 @@ function ResumeTimeLine({
 
       <ol className="timeline-list">
         {resumeCards.map((resumeCard: ResumeCardType, index: number) => (
-          <li className="timeline-item" key={`${resumeCard.institution}-${index}`}>
-            <ResumeCard
-              resumeCard={resumeCard}
-            />
+          <li
+            className="timeline-item"
+            key={`${resumeCard.institution}-${index}`}
+          >
+            <ResumeCard resumeCard={resumeCard} />
           </li>
         ))}
       </ol>

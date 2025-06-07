@@ -49,7 +49,10 @@ function CodingStats({ techStacks, githubUsername }: CodingStatsProps) {
                 {techStacks.programmingLanguages.map((stack) => {
                   const Icon = getIcon(stack.icon);
                   return (
-                    <Icon key={stack.name} className="size-10 text-white-2 hover:scale-110 hover:text-orange-yellow-crayola" />
+                    <Icon
+                      key={stack.name}
+                      className="size-10 text-white-2 hover:scale-110 hover:text-orange-yellow-crayola"
+                    />
                   );
                 })}
               </Marquee>
@@ -57,7 +60,10 @@ function CodingStats({ techStacks, githubUsername }: CodingStatsProps) {
                 {techStacks.frameworks.map((stack) => {
                   const Icon = getIcon(stack.icon);
                   return (
-                    <Icon key={stack.name} className="size-10 text-white-2 hover:scale-110 hover:text-orange-yellow-crayola" />
+                    <Icon
+                      key={stack.name}
+                      className="size-10 text-white-2 hover:scale-110 hover:text-orange-yellow-crayola"
+                    />
                   );
                 })}
               </Marquee>
