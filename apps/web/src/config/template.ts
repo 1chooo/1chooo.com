@@ -1,16 +1,15 @@
+import { ICON_NAMES } from "@/components/icons";
+
 import { Config } from "@/types/config";
 import { MdAttachment } from "react-icons/md";
 
 import { PiMediumLogoBold } from "react-icons/pi";
-import { GraduationCap, BriefcaseIcon } from "lucide-react";
 import { GoalIcon } from "@primer/octicons-react";
 import {
   LuGithub,
   LuPencil,
   LuLinkedin,
   LuRss,
-  LuMail,
-  LuMapPin,
 } from "react-icons/lu";
 import { FaXTwitter } from "react-icons/fa6";
 import { FaReact, FaAws } from "react-icons/fa";
@@ -73,24 +72,24 @@ const config: Config = {
   ],
   contacts: [
     {
-      icon: LuMapPin,
+      icon: ICON_NAMES.MAP_PIN_LU,
       title: "Location",
       content: "Los Angeles, CA 🇺🇸",
     },
     {
-      icon: LuMail,
+      icon: ICON_NAMES.MAIL,
       title: "Email",
       link: "mailto:hugo970217@gmail.com",
       content: "hugo970217@gmail.com",
     },
     {
-      icon: LuGithub,
+      icon: ICON_NAMES.GITHUB,
       title: "GitHub",
       link: "https://github.com/1chooo",
       content: "@1chooo",
     },
     {
-      icon: LuLinkedin,
+      icon: ICON_NAMES.LINKEDIN,
       title: "LinkedIn",
       link: "https://www.linkedin.com/in/1chooo/",
       content: "in/1chooo",
@@ -243,16 +242,16 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
   },
   resumes: {
     educations: {
-      icon: GraduationCap,
+      icon: ICON_NAMES.GRADUATION_CAP,
       title: "Education",
-      iconName: "graduation-cap",
+      iconName: ICON_NAMES.GRADUATION_CAP,
       resumeCards: [
         {
           institution: "University of Southern California",
           institutionImage: "/images/logos/usc.jpg",
           title: "Master of Science in Computer Science",
           tags: [
-            { key: "school", value: "Viterbi School of Engineering", icon: "graduation-cap" },
+            { key: "school", value: "Viterbi School of Engineering", icon: ICON_NAMES.GRADUATION_CAP },
             { key: "location", value: "Los Angeles, CA 🇺🇸", icon: "map-pin" },
             { key: "period", value: "Aug. 2025 - Present", icon: "calendar" }
           ],
@@ -263,7 +262,7 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
           institutionImage: "/images/logos/ncu.png",
           title: "Bachelors of Science in Atmospheric Sciences",
           tags: [
-            { key: "school", value: "College of Earth Sciences", icon: "graduation-cap" },
+            { key: "school", value: "College of Earth Sciences", icon: ICON_NAMES.GRADUATION_CAP },
             { key: "location", value: "Taoyuan, Taiwan 🇹🇼", icon: "map-pin" },
             { key: "period", value: "Sep. 2020 - Jun. 2024", icon: "calendar" }
           ],
@@ -272,8 +271,8 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
       ],
     },
     experiences: {
-      icon: BriefcaseIcon,
-      iconName: "briefcase",
+      icon: ICON_NAMES.BRIEFCASE,
+      iconName: ICON_NAMES.BRIEFCASE,
       title: "Professional Experiences",
       resumeCards: [
         {
@@ -281,7 +280,7 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
           institutionImage: "/images/logos/ecv.png",
           title: "Cloud Engineer",
           tags: [
-            { key: "type", value: "Intern", icon: "briefcase" },
+            { key: "type", value: "Intern", icon: ICON_NAMES.BRIEFCASE },
             { key: "location", value: "New Taipei, Taiwan 🇹🇼", icon: "map-pin" },
             { key: "period", value: "Mar. 2024 - May. 2024", icon: "calendar" }
           ],
@@ -296,7 +295,7 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
           institutionImage: "/images/logos/aws.svg",
           title: "Campus Ambassador",
           tags: [
-            { key: "type", value: "Contract", icon: "briefcase" },
+            { key: "type", value: "Contract", icon: ICON_NAMES.BRIEFCASE },
             { key: "location", value: "Taipei, Taiwan 🇹🇼", icon: "map-pin" },
             { key: "period", value: "Aug. 2023 - Feb. 2024", icon: "calendar" }
           ],
@@ -310,7 +309,7 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
           institutionImage: "/images/logos/pegatron.png",
           title: "AI Engineer",
           tags: [
-            { key: "type", value: "Intern", icon: "briefcase" },
+            { key: "type", value: "Intern", icon: ICON_NAMES.BRIEFCASE },
             { key: "location", value: "Taipei, Taiwan 🇹🇼", icon: "map-pin" },
             { key: "period", value: "Jul. 2023 - Aug. 2023", icon: "calendar" }
           ],
@@ -325,7 +324,7 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
           institutionImage: "/images/logos/ncu.png",
           title: "Website Developer",
           tags: [
-            { key: "type", value: "Part-time", icon: "briefcase" },
+            { key: "type", value: "Part-time", icon: ICON_NAMES.BRIEFCASE },
             { key: "location", value: "Taoyuan, Taiwan 🇹🇼", icon: "map-pin" },
             { key: "period", value: "Jul. 2022 - Jan. 2023", icon: "calendar" }
           ],
