@@ -47,7 +47,8 @@ interface TestimonialsProps {
  *
  * <Testimonials testimonials={testimonials} />
  */
-const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
+
+function Testimonials({ testimonials }: TestimonialsProps) {
   const [activeTestimonial, setActiveTestimonial] =
     useState<Testimonial | null>(null);
 
@@ -164,6 +165,6 @@ const Testimonials: React.FC<TestimonialsProps> = ({ testimonials }) => {
       )}
     </>
   );
-};
+}
 
 export default Testimonials;
