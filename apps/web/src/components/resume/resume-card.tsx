@@ -161,11 +161,11 @@ export default function ResumeCard({ resumeCard }: ResumeCardProps) {
               </div>
 
               <div className="space-y-4">
-                <div className="text-light-gray">
+                <ul className="text-light-gray list-disc pl-5">
                   {activeResumeCard.details.map((item, index) => (
                     <li key={index}>{item}</li>
                   ))}
-                </div>
+                </ul>
               </div>
             </div>
           </section>
