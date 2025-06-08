@@ -1,3 +1,4 @@
+import { Swords } from "lucide-react";
 import { MdOutlineDevices } from "react-icons/md";
 import { IoSchoolOutline } from "react-icons/io5";
 import { Paperclip } from "lucide-react";
@@ -136,6 +137,15 @@ export const icons: Record<ICON_NAMES, VCardIconType> = {
   [ICON_NAMES.ZAP]: LuZap,
 };
 
-export function getIcon(iconName: ICON_NAMES | string): VCardIconType {
-  return icons[iconName];
+// Updated return type to include undefined
+export function getIcon(iconName: string): VCardIconType | undefined {
+  return icons[iconName as ICON_NAMES];
+}
+
+// Alternative: Provide a fallback icon
+export function getIconWithFallback(
+  iconName: string,
+  fallback: VCardIconType = Swords,
+): VCardIconType {
+  return icons[iconName as ICON_NAMES] || fallback;
 }
