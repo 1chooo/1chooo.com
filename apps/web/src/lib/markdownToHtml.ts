@@ -1,9 +1,11 @@
 import html from "remark-html";
-import rehypeShiki from '@shikijs/rehype'
-import rehypeStringify from 'rehype-stringify'
-import remarkParse from 'remark-parse'
-import remarkRehype from 'remark-rehype'
-import { unified } from 'unified'
+import rehypeShiki from "@shikijs/rehype";
+import rehypeStringify from "rehype-stringify";
+import remarkParse from "remark-parse";
+import remarkRehype from "remark-rehype";
+import { unified } from "unified";
+import rehypePrettyCode from "rehype-pretty-code";
+import { transformerCopyButton } from "@rehype-pretty/transformers";
 
 const cache = new Map<string, string>();
 
@@ -16,12 +18,17 @@ export default async function markdownToHtml(markdown: string) {
     .use(html)
     .use(remarkParse)
     .use(remarkRehype)
+    .use(rehypePrettyCode, {
+      transformers: [
+        transformerCopyButton({
+          visibility: "always",
+          feedbackDuration: 3_000,
+        }),
+      ],
+    })
+    .use(rehypeStringify)
     .use(rehypeShiki, {
-      // or `theme` for a single theme
-      themes: {
-        light: 'github-dark',
-        dark: 'github-dark',
-      }
+      theme: "github-dark",
     })
     .use(rehypeStringify)
     .process(markdown);
