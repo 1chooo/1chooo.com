@@ -149,6 +149,14 @@ body {
   background: var(--smoky-black);
 }
 
+pre {
+  font-size: var(--fs-6);
+  padding: 15px;
+  border-radius: 14px;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
 /*-----------------------------------*\
   #REUSED STYLE
 \*-----------------------------------*/
