@@ -3,6 +3,7 @@ import rehypeShiki from "@shikijs/rehype";
 import rehypeStringify from "rehype-stringify";
 import remarkParse from "remark-parse";
 import remarkRehype from "remark-rehype";
+import remarkGfm from 'remark-gfm'
 import { unified } from "unified";
 import rehypePrettyCode from "rehype-pretty-code";
 import { transformerCopyButton } from "@rehype-pretty/transformers";
@@ -17,7 +18,8 @@ export default async function markdownToHtml(markdown: string) {
   const result = await unified()
     .use(html)
     .use(remarkParse)
-    .use(remarkRehype)
+    .use(remarkGfm)
+    .use(remarkRehype, { allowDangerousHtml: true })
     .use(rehypePrettyCode, {
       transformers: [
         transformerCopyButton({
