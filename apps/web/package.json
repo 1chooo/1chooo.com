@@ -42,6 +42,8 @@
     "@types/node": "^22.15.24",
     "@vercel/analytics": "^1.5.0",
     "@workspace/ui": "workspace:*",
+    "@workspace/github-calendar": "workspace:*",
+    "@workspace/activity-calendar": "workspace:*",
     "class-variance-authority": "^0.7.1",
     "classnames": "^2.5.1",
     "clsx": "^2.1.1",
