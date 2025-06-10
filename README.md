@@ -38,7 +38,6 @@ It's fast, responsive, SEO-friendly, and super easy to customize. Make it yours 
 - TypeScript with strict configuration
 - Tailwind CSS for styling
 - Turborepo for monorepo management
-- ESLint and Prettier for code quality
 
 ### Blogging Essentials
 
@@ -63,9 +62,8 @@ It's fast, responsive, SEO-friendly, and super easy to customize. Make it yours 
 
 ### Dev Experience
 
-- ESLint configuration
-- Prettier code formatting
-- Conventional commit lint
+- ESLint and Prettier for code quality
+- Conventional commit messages
 
 ## Contributing
 
@@ -97,9 +95,9 @@ $ pnpm run dev   # Open http://localhost:3000 with your browser to see the resul
 
 This project was made possible thanks to the amazing open-source community.
 
-A special thank you to [@codewithsadee](https://github.com/codewithsadee) for the excellent [vcard-personal-portfolio](https://github.com/codewithsadee/vcard-personal-portfolio), which served as a strong foundation.
+A special thanks to [@codewithsadee](https://github.com/codewithsadee) for the excellent [vcard-personal-portfolio](https://github.com/codewithsadee/vcard-personal-portfolio), which served as the foundation for this project.
 
-The project also incorporates and adapts various open-source tools, including:
+The project also incorporates and adapts various open-source projects, including:
 
 - [Giscus](https://giscus.app/)
 - [react-scroll-motion](https://github.com/1000ship/react-scroll-motion)
