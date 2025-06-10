@@ -13,22 +13,22 @@
 
 <p align="center">
   <strong>
-    <a href="#-abstract">Abstract</a>&nbsp;&nbsp;&bull;&nbsp;
-    <a href="#-features">Feature</a>&nbsp;&nbsp;&bull;&nbsp;
-    <a href="#-contributing">Contributing</a>&nbsp;&nbsp;&bull;&nbsp;
-    <a href="#-contact-info">Contact Info</a>&nbsp;&nbsp;&bull;&nbsp;
-    <a href="#-license">License</a>&nbsp;&nbsp;&bull;&nbsp;
-    <a href="https://docs.1chooo.com">📚 Docs</a>
+    <a href="#abstract">Abstract</a>&nbsp;&nbsp;&bull;&nbsp;
+    <a href="#features">Feature</a>&nbsp;&nbsp;&bull;&nbsp;
+    <a href="#contributing">Contributing</a>&nbsp;&nbsp;&bull;&nbsp;
+    <a href="#getting-started">Getting Started</a>&nbsp;&nbsp;&bull;&nbsp;
+    <a href="#acknowledgements">Acknowledgments</a>&nbsp;&nbsp;&bull;&nbsp;
+    <a href="#authors">Authors</a>&nbsp;&nbsp;&bull;&nbsp;
+    <a href="#license">License</a>&nbsp;&nbsp;&bull;&nbsp;
+    <a href="https://docs.1chooo.com">Docs</a>
   </strong>
 </p>
 
 ## Abstract
 
-Welcome to [**1chooo.com**](https://github.com/1chooo/1chooo.com) 👋
+Welcome to [**1chooo.com**](https://github.com/1chooo/1chooo.com) 👋 A clean, modern portfolio + blog site to share your work, ideas, and projects -- all built with Next.js, TypeScript, and Tailwind CSS.
 
-A clean, modern portfolio + blog site to share your work, ideas, and projects — all built with Next.js, TypeScript, and Tailwind CSS.
-
-It’s fast, responsive, SEO-friendly, and super easy to customize. Make it yours and start sharing. 🚀
+It's fast, responsive, SEO-friendly, and super easy to customize. Make it yours and start sharing. 🚀
 
 ## Features
 
@@ -101,15 +101,21 @@ A special thank you to [@codewithsadee](https://github.com/codewithsadee) for th
 
 The project also incorporates and adapts various open-source tools, including:
 
-- [Giscus](https://giscus.app/) – for seamless comment integration
+- [Giscus](https://giscus.app/)
+- [react-scroll-motion](https://github.com/1000ship/react-scroll-motion)
 - [GitHub Calendar](https://github.com/grubersjoe/react-github-calendar)
 
 Additionally, I drew inspiration from several incredible projects, including:
 
 - [honghong.me](https://honghong.me)
+- [leerob.com](https://leerob.com)
 - [bntw.dev](https://bntw.dev)
+- [webtech-note.com](https://webtech-note.com)
+- [michaelangelo.io](https://michaelangelo.io)
+- [iamsahaj.xyz](https://iamsahaj.xyz)
+- [jinrup.dev](https://www.jinrup.dev)
 
-...and many others I can’t recall but deeply appreciate.
+...and many others I can't recall but deeply appreciate.
 
 ## Authors
 
