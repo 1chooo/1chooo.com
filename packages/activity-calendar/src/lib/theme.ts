@@ -35,7 +35,7 @@ function createDefaultTheme(steps: number): Theme {
 
 function validateThemeInput(input: ThemeInput, steps: number) {
   const maxLevelHint =
-    'The number of colors is controlled by the "maxLevel" property.';
+    'The number of colors is controlled by the "steps" parameter passed to the theme creation function.';
 
   if (
     typeof input !== "object" ||
