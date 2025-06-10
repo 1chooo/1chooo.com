@@ -13,50 +13,69 @@
 
 <p align="center">
   <strong>
-    <a href="#-abstract">📍 Abstract</a>&nbsp;&nbsp;&bull;&nbsp;
-    <a href="#-features">✨ Feature</a>&nbsp;&nbsp;&bull;&nbsp;
-    <a href="#-contributing">🌏 Contributing</a>&nbsp;&nbsp;&bull;&nbsp;
-    <a href="#-contact-info">📲 Contact Info</a>&nbsp;&nbsp;&bull;&nbsp;
-    <a href="#-license">🪪 License</a>&nbsp;&nbsp;&bull;&nbsp;
+    <a href="#-abstract">Abstract</a>&nbsp;&nbsp;&bull;&nbsp;
+    <a href="#-features">Feature</a>&nbsp;&nbsp;&bull;&nbsp;
+    <a href="#-contributing">Contributing</a>&nbsp;&nbsp;&bull;&nbsp;
+    <a href="#-contact-info">Contact Info</a>&nbsp;&nbsp;&bull;&nbsp;
+    <a href="#-license">License</a>&nbsp;&nbsp;&bull;&nbsp;
     <a href="https://docs.1chooo.com">📚 Docs</a>
   </strong>
 </p>
 
-## 📍 Abstract
+## Abstract
 
-Inspired by the [codewithsadee/vcard-personal-portfolio](https://github.com/codewithsadee/vcard-personal-portfolio), we aim to convert the `HTML/CSS` template into a [React-based](https://react.dev/) project using [Next.js Turborepo](https://turbo.build/).
+Welcome to [**1chooo.com**](https://github.com/1chooo/1chooo.com) 👋
 
-Our goal is to provide a template where users can build their own portfolio and blog by simply modifying the **configuration and content** without changing the core code. Users will be able to set up their portfolio by updating the config and adding their own posts to the `contents` folder.
+A clean, modern portfolio + blog site to share your work, ideas, and projects — all built with Next.js, TypeScript, and Tailwind CSS.
 
-We'll also provide comprehensive documentation, including a user guide, code walkthrough, and thorough test coverage to ensure a smooth experience.
+It’s fast, responsive, SEO-friendly, and super easy to customize. Make it yours and start sharing. 🚀
 
-## ✨ Features
+## Features
 
-- 💀 [Skeleton Loading]
-- ⚡️ [Next.js 15 with App Router]
-- ✍🏻 [Markdown Rendering]
-- 🧪 [Jest - Components Unit Testing]
-- 🟩 [GitHub Calendar Heatmap]
-- 💎 [giscus]
-- 🚨 [GitHub Alerts]
+### Tech Stack Highlights
 
-[Skeleton Loading]: https://github.com/dvtng/react-loading-skeleton
-[Next.js 15 with App Router]: https://nextjs.org/
-[Markdown Rendering]: https://github.com/hashicorp/next-mdx-remote
-[Jest - Components Unit Testing]: https://jestjs.io/
-[GitHub Calendar Heatmap]: https://github.com/grubersjoe/react-github-calendar
-[giscus]: https://giscus.app/
-[GitHub Alerts]: https://github.com/chrisweb/rehype-github-alerts
+- Next.js 15 with App Router
+- TypeScript with strict configuration
+- Tailwind CSS for styling
+- Turborepo for monorepo management
+- ESLint and Prettier for code quality
 
-## 🌏 Contributing
+### Blogging Essentials
 
-[PRs](https://github.com/1chooo/1chooo.com/pulls) and [Issues](https://github.com/1chooo/1chooo.com/issues) are welcome! 🫵🏻
+- Markdown support for blog posts
+- Comment system
+- RSS feed for blog posts
+- Sitemap generation
 
-Please read the [Contributing Guideline] for details on our code of conduct, and the process for submitting pull requests to us.
+### UI & UX Enhancements
+
+- Skeleton loading for better user experience
+- Responsive design for mobile and desktop
+- GitHub calendar heatmap to showcase contributions
+- Shiki for code syntax highlighting
+- Motion for animations
+
+### Performance & SEO
+
+- Lighthouse score of nearly **100**
+- SEO optimized with meta tags and `JSON-LD`
+- Open graph images using `next/og`
+
+### Dev Experience
+
+- ESLint configuration
+- Prettier code formatting
+- Conventional commit lint
+
+## Contributing
+
+Please refer to the [Contributing Guideline] for detailed information on how to start the app locally and contribute to this project.
 
 [Contributing Guideline]: https://docs.1chooo.com/contributing
 
-## 🔩 Getting Started
+[Pull Requests](https://github.com/1chooo/1chooo.com/pulls) and [reporting issues](https://github.com/1chooo/1chooo.com/issues) are welcome 🫵🏻 in our [GitHub repository](https://github.com/1chooo/1chooo.com)!
+
+## Getting Started
 
 > [!NOTE]
 > We choose [`pnpm`](https://pnpm.io/) as our package manager. Make sure you have it installed before running the following commands.
@@ -74,27 +93,30 @@ $ cd apps/web
 $ pnpm run dev   # Open http://localhost:3000 with your browser to see the result.
 ```
 
-### Run the Docs
+## Acknowledgments
 
-```shell
-$ cd apps/docs
-$ pnpm run dev   # Open http://localhost:3001 with your browser to see the result.
-```
+This project was made possible thanks to the amazing open-source community.
 
-## 📲 Contact
+A special thank you to [@codewithsadee](https://github.com/codewithsadee) for the excellent [vcard-personal-portfolio](https://github.com/codewithsadee/vcard-personal-portfolio), which served as a strong foundation.
 
-> **Chun-Ho (Hugo) Lin**
->
-> <aside>
->   📩 E-mail: <a href="mailto:hugo970217@gmail.com">hugo970217@gmail.com</a>
-> <br>
->   🧳 Linkedin: <a href="https://www.linkedin.com/in/1chooo/">Chun-Ho (Hugo) Lin</a>
-> <br>
->   👨🏻‍💻 GitHub: <a href="https://github.com/1chooo">1chooo</a>
->    
-> </aside>
+The project also incorporates and adapts various open-source tools, including:
 
-## 🪪 License
+- [Giscus](https://giscus.app/) – for seamless comment integration
+- [GitHub Calendar](https://github.com/grubersjoe/react-github-calendar)
+
+Additionally, I drew inspiration from several incredible projects, including:
+
+- [honghong.me](https://honghong.me)
+- [bntw.dev](https://bntw.dev)
+
+...and many others I can’t recall but deeply appreciate.
+
+## Authors
+
+- **Chun-Ho (Hugo) Lin** <sup>[Website](https://www.1chooo.com) | [GitHub](https://github.com/1chooo) | [E-mail](mailto:hugo970217@gmail.com)</sup>
+
+
+## License
 
 > [!IMPORTANT]
 > This work is licensed under a [Creative Commons Attribution 4.0 International License][cc-by] by [Chun-Ho (Hugo) Lin][1chooo-com].
