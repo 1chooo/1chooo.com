@@ -1,7 +1,7 @@
 import React from "react";
 
-import GitHubCalendar from "react-github-calendar";
-import { ThemeInput } from "react-activity-calendar";
+import GitHubCalendar from "@workspace/github-calendar";
+import { ThemeInput } from "@workspace/activity-calendar/types";
 
 import AboutSection from "@/components/section/about";
 import { BlurFade } from "@/components/magicui/blur-fade";

@@ -1,0 +1,53 @@
+{
+  "name": "@workspace/activity-calendar",
+  "version": "0.10.1",
+  "type": "module",
+  "authors": [
+    {
+      "name": "Chun-Ho (Hugo) Lin",
+      "email": "hugo970217@gmail.com",
+      "github": "https://github.com/1chooo",
+      "url": "https://www.1chooo.com"
+    },
+    {
+      "name": "Jonathan Gruber",
+      "email": "gruberjonathan@gmail.com",
+      "github": "https://github.com/grubersjoe",
+      "url": "https://grubersjoe.github.io/react-github-calendar/"
+    }
+  ],
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/1chooo/1chooo.com"
+  },
+  "description": "1chooo.com is a personal portfolio and blog website built with Next.js, React, and TypeScript. It features a modern design, supports Markdown content, and includes various interactive components.",
+  "homepage": "https://www.1chooo.com",
+  "private": true,
+  "scripts": {
+    "lint": "eslint . --max-warnings 0"
+  },
+  "dependencies": {
+    "react": "19.1.0",
+    "react-dom": "19.1.0",
+    "date-fns": "^4.1.0"
+  },
+  "devDependencies": {
+    "@turbo/gen": "^2.5.2",
+    "@types/node": "^22",
+    "@types/react": "19.1.0",
+    "@types/react-dom": "19.1.0",
+    "@workspace/eslint-config": "workspace:*",
+    "@workspace/typescript-config": "workspace:*",
+    "typescript": "^5.8.3"
+  },
+  "exports": {
+    "./components/*": "./src/components/*.tsx",
+    "./hooks/*": "./src/hooks/*.ts",
+    "./lib/*": "./src/lib/*.ts",
+    "./styles": "./src/styles.ts",
+    "./types": "./src/types.ts",
+    "./constants": "./src/constants.ts",
+    ".": "./src/index.ts"
+  }
+}
