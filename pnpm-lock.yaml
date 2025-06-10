@@ -132,18 +132,12 @@ importers:
       react:
         specifier: 19.1.0
         version: 19.1.0
-      react-activity-calendar:
-        specifier: ^2.7.11
-        version: 2.7.12(react@19.1.0)
       react-bootstrap:
         specifier: ^2.10.9
         version: 2.10.10(@types/react@19.1.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0)
       react-dom:
         specifier: 19.1.0
         version: 19.1.0(react@19.1.0)
-      react-github-calendar:
-        specifier: ^4.5.6
-        version: 4.5.7(react@19.1.0)
       react-icons:
         specifier: ^5.4.0
         version: 5.5.0(react@19.1.0)
@@ -1104,10 +1098,6 @@ packages:
 
   '@babel/runtime@7.26.7':
     resolution: {integrity: sha512-AOPI3D+a8dXnja+iwsUqGRjr1BbZIe771sXdapOtYI531gSqpi92vXivKcq2asu/DFpdl1ceFAKZyRzK2PCVcQ==}
-    engines: {node: '>=6.9.0'}
-
-  '@babel/runtime@7.27.1':
-    resolution: {integrity: sha512-1x3D2xEk2fRo3PAhwQwu5UubzgiVWSXTBfWpVd2Mx2AzRqJuDJCsgaDVZ7HB5iGzDW1Hl1sWN2mFyKjmR9uAog==}
     engines: {node: '>=6.9.0'}
 
   '@babel/runtime@7.27.4':
@@ -5606,11 +5596,6 @@ packages:
     resolution: {integrity: sha512-y3bGgqKj3QBdxLbLkomlohkvsA8gdAiUQlSBJnBhfn+BPxg4bc62d8TcBW15wavDfgexCgccckhcZvywyQYPOw==}
     hasBin: true
 
-  react-activity-calendar@2.7.12:
-    resolution: {integrity: sha512-OzVconQ5LA/uF2ZN3zDeWZb4UxjOmGr1ymaGCSEAMLSzwjzP7ojdyZs8DyV7jcV+rZ+lmwp6BTpBJqdW8ehXyw==}
-    peerDependencies:
-      react: ^18.0.0 || ^19.0.0
-
   react-bootstrap@2.10.10:
     resolution: {integrity: sha512-gMckKUqn8aK/vCnfwoBpBVFUGT9SVQxwsYrp9yDHt0arXMamxALerliKBxr1TPbntirK/HGrUAHYbAeQTa9GHQ==}
     peerDependencies:
@@ -5638,16 +5623,6 @@ packages:
     resolution: {integrity: sha512-Xs1hdnE+DyKgeHJeJznQmYMIBG3TKIHJJT95Q58nHLSrElKlGQqDTR2HQ9fx5CN/Gk6Vh/kupBTDLU11/nDk/g==}
     peerDependencies:
       react: ^19.1.0
-
-  react-error-boundary@6.0.0:
-    resolution: {integrity: sha512-gdlJjD7NWr0IfkPlaREN2d9uUZUlksrfOx7SX62VRerwXbMY6ftGCIZua1VG1aXFNOimhISsTq+Owp725b9SiA==}
-    peerDependencies:
-      react: '>=16.13.1'
-
-  react-github-calendar@4.5.7:
-    resolution: {integrity: sha512-R1VBhSMM6NTeKkpvlHaAnIue1XPHhGHx6RpnyIfT7p1lq9PpNsIgwYGZ5I8FhX+J/F4ps+DAPMr+qdYj7lzQWQ==}
-    peerDependencies:
-      react: ^18.0.0 || ^19.0.0
 
   react-icons@5.5.0:
     resolution: {integrity: sha512-MEFcXdkP3dLo8uumGI5xN3lDFNsRtrjbOEKDLD7yv76v4wpnEq2Lt2qeHaQOr34I/wPN3s3+N08WkQ+CW37Xiw==}
@@ -7753,8 +7728,6 @@ snapshots:
   '@babel/runtime@7.26.7':
     dependencies:
       regenerator-runtime: 0.14.1
-
-  '@babel/runtime@7.27.1': {}
 
   '@babel/runtime@7.27.4': {}
 
@@ -13275,11 +13248,6 @@ snapshots:
       minimist: 1.2.8
       strip-json-comments: 2.0.1
 
-  react-activity-calendar@2.7.12(react@19.1.0):
-    dependencies:
-      date-fns: 4.1.0
-      react: 19.1.0
-
   react-bootstrap@2.10.10(@types/react@19.1.0)(react-dom@19.1.0(react@19.1.0))(react@19.1.0):
     dependencies:
       '@babel/runtime': 7.26.7
@@ -13322,17 +13290,6 @@ snapshots:
     dependencies:
       react: 19.1.0
       scheduler: 0.26.0
-
-  react-error-boundary@6.0.0(react@19.1.0):
-    dependencies:
-      '@babel/runtime': 7.27.1
-      react: 19.1.0
-
-  react-github-calendar@4.5.7(react@19.1.0):
-    dependencies:
-      react: 19.1.0
-      react-activity-calendar: 2.7.12(react@19.1.0)
-      react-error-boundary: 6.0.0(react@19.1.0)
 
   react-icons@5.5.0(react@19.1.0):
     dependencies:
