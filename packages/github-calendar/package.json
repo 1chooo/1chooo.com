@@ -2,18 +2,18 @@
   "name": "@workspace/github-calendar",
   "version": "0.10.1",
   "type": "module",
-  "authors": [
+  "author": {
+    "name": "Jonathan Gruber",
+    "email": "gruberjonathan@gmail.com",
+    "github": "https://github.com/grubersjoe",
+    "url": "https://grubersjoe.github.io/react-github-calendar/"
+  },
+  "contributors": [
     {
       "name": "Chun-Ho (Hugo) Lin",
       "email": "hugo970217@gmail.com",
       "github": "https://github.com/1chooo",
       "url": "https://www.1chooo.com"
-    },
-    {
-      "name": "Jonathan Gruber",
-      "email": "gruberjonathan@gmail.com",
-      "github": "https://github.com/grubersjoe",
-      "url": "https://grubersjoe.github.io/react-github-calendar/"
     }
   ],
   "license": "MIT",
