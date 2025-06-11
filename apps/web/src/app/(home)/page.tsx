@@ -14,7 +14,7 @@ import { cn } from "@workspace/ui/lib/utils";
 import "react-loading-skeleton/dist/skeleton.css";
 import "@/styles/markdown-styles.css";
 
-const { about } = config;
+const { about, web3formsAccessKey } = config;
 const {
   firstName,
   lastName,
@@ -50,7 +50,7 @@ async function About() {
       </AnimatedSection>
       {allPosts.length > 0 && <LatestArticles posts={allPosts} />}
       <CodingStats techStacks={techStacks} githubUsername={githubUsername} />
-      <TalkToHugo />
+      <TalkToHugo web3formsAccessKey={web3formsAccessKey} />
     </article>
   );
 }

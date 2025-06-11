@@ -42,4 +42,9 @@ export type Config = {
   giscusConfig: GiscusProps;
   googleAnalyticId: string;
   googleTagManagerId: string;
+  /**
+   * web3formsAccessKey - Access key for Web3Forms to handle contact form submissions. Go to https://web3forms.com/ to get your access key.
+   * @todo Support multiple access keys for different forms in the future.
+   */
+  web3formsAccessKey: string;
 };
