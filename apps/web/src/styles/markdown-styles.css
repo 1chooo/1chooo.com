@@ -47,6 +47,7 @@
   margin-top: 3rem;
   margin-bottom: 1rem;
   line-height: 1.375;
+  font-weight: 600;
 }
 
 .markdown h3 {
@@ -54,13 +55,20 @@
   margin-top: 2rem;
   margin-bottom: 1rem;
   line-height: 1.375;
+  font-weight: 500;
 }
 
-.markdown :not(pre) > code {
+.markdown :not(pre)>code {
   font-family: var(--font-mono);
   font-size: 0.875rem;
   color: #f8f8f2;
   background-color: #282a36;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
+}
+
+.markdown blockquote {
+  padding-left: 1rem;
+  border-left: 0.25rem solid;
+  border-color: var(--light-gray-70);
 }

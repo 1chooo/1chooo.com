@@ -26,9 +26,9 @@ Hey there 👋 This is Hugo. Here's a quick summary of my go-to tech stack for S
 
 ![Hugo's Go-To Stack for Building Software](/images/banner/posts/hugo-s-go-to-stack-for-building-maintainable-software.webp)
 
-# React
+## React
 
-## Function Components
+### Function Components
 
 We only use `FC` type when we need to pass and extract children from props [^1]. Otherwise, we use the function declaration. Refer [here](https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/function_components/) for a more extensive section explaining why `React.FC` should mostly be avoided.
 
@@ -54,9 +54,9 @@ function Heading({ text = "Hello, world!" }: Props) {
 }
 ```
 
-# Python
+## Python
 
-## Docstring and Type Hint
+### Docstring and Type Hint
 
 We must have docstring and type hint for every public class and method/function. The format of the docstring is as follows:
 
@@ -101,7 +101,7 @@ def func(arg1: int, arg2: str) -> str:
     return
 ```
 
-## Naming Convention
+### Naming Convention
 
 We follow the naming convention as follows:
 
@@ -112,9 +112,9 @@ We follow the naming convention as follows:
 5. private variable name: `_snake_case`
 6. read only constant name: `UPPER_SNAKE_CASE`
 
-# Coding Patterns
+## Coding Patterns
 
-## Larger files > many small components
+### Larger files > many small components
 
 Many people advocate for clean, modular, and maintainable code. While these principles are essential, there are drawbacks when we scale this approach to large codebases, especially those with millions of lines of code.
 

@@ -1,9 +1,10 @@
+import React from "react";
+
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { LuFacebook, LuTwitter } from "react-icons/lu";
 
-import { PostBody } from "@/app/(exp)/remark/_components/post-body";
 import PageHeader from "@/components/page-header";
 import Comments from "@/components/comments";
 
@@ -13,7 +14,9 @@ import markdownToHtml from "@/lib/markdownToHtml";
 
 import config from "@/config";
 
-import "@/styles/blog/blog-text.css";
+import { cn } from "@workspace/ui/lib/utils";
+
+import "@/styles/markdown-styles.css";
 
 const { giscusConfig } = config;
 
@@ -32,7 +35,7 @@ export default async function Post(props: Params) {
   return (
     <div>
       <article>
-        <section className="blog-text">
+        <section>
           <PageHeader header="Hugo's Blog" />
           <h1 className="font-semibold text-4xl text-white-2 max-w-[650px]">{post.title}
           </h1>
@@ -67,7 +70,12 @@ export default async function Post(props: Params) {
             </div>
           </div>
           <div className="separator"></div>
-          <PostBody content={content} />
+          <div className="max-w-2xl mx-auto">
+            <div
+              className={cn("markdown text-light-gray") }
+              dangerouslySetInnerHTML={{ __html: content }}
+            />
+          </div>
         </section>
       </article>
 
