@@ -129,6 +129,12 @@ Additionally, I drew inspiration from several incredible projects, including:
 
 - **Chun-Ho (Hugo) Lin** <sup>[Website](https://www.1chooo.com) | [GitHub](https://github.com/1chooo) | [E-mail](mailto:hugo970217@gmail.com)</sup>
 
+## Deploy on Vercel
+
+The easiest way to deploy 1chooo.com app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+
 ## License
 
 > [!IMPORTANT]
