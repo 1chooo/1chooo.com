@@ -45,10 +45,10 @@ export default function ResumeCard({ resumeCard }: ResumeCardProps) {
   return (
     <>
       <section
-        className="skill hover:scale-105 duration-300"
+        className="hover:scale-105 duration-300"
         onClick={() => openModal(resumeCard)}
       >
-        <div className="skills-list resume-card">
+        <div className="resume-card">
           <div className="flex flex-row items-center gap-4 p-6 pb-4 cursor-pointer transition-colors rounded-t-md">
             <div className="h-10 w-10 flex-shrink-0 overflow-hidden rounded-md">
               <Image
@@ -92,14 +92,18 @@ export default function ResumeCard({ resumeCard }: ResumeCardProps) {
 
       {/* Modal */}
       {activeResumeCard && (
-        <div className="modal-container active" aria-modal="true" role="dialog">
+        <div
+          className="resume-card-modal-container active"
+          aria-modal="true"
+          role="dialog"
+        >
           <div
-            className={`overlay ${activeResumeCard ? "active" : ""}`}
+            className={`resume-card-overlay ${activeResumeCard ? "active" : ""}`}
             onClick={closeModal}
           ></div>
-          <section className="testimonials-modal">
+          <section className="resume-card-modal">
             <button
-              className="modal-close-btn"
+              className="resume-card-modal-close-btn"
               onClick={closeModal}
               aria-label="Close modal"
             >
@@ -119,14 +123,14 @@ export default function ResumeCard({ resumeCard }: ResumeCardProps) {
               </svg>
             </button>
 
-            <div className="modal-img-wrapper">
-              <figure className="modal-avatar-box">
+            <div className="resume-card-modal-img-wrapper">
+              <figure className="resume-card-modal-avatar-box">
                 <Image
                   src={activeResumeCard.institutionImage || "/favicon.ico"}
                   alt={activeResumeCard.institution}
                   width={80}
                   height={80}
-                  className="modal-avatar"
+                  className="resume-card-modal-avatar"
                   onError={(e) => {
                     e.currentTarget.src = "/favicon.ico?height=80&width=80";
                     e.currentTarget.onerror = null;
@@ -135,13 +139,13 @@ export default function ResumeCard({ resumeCard }: ResumeCardProps) {
               </figure>
             </div>
 
-            <div className="modal-content">
-              <h3 className="modal-title font-semibold text-white-1 text-2xl">
+            <div>
+              <h1 className="font-semibold text-white-1 text-2xl mb-1">
                 {activeResumeCard.institution}
-              </h3>
-              <h5 className="text-lg text-light-gray mb-4">
+              </h1>
+              <h2 className="text-lg text-light-gray mb-4">
                 {activeResumeCard.title}
-              </h5>
+              </h2>
 
               <div className="mb-6">
                 <div className="flex flex-wrap gap-2">
