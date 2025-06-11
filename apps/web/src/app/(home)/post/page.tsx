@@ -12,6 +12,8 @@ import { POSTS_PER_PAGE } from "@/lib/constants";
 import { getBlogPosts } from "@/lib/db/v1/post";
 import config from "@/config";
 
+import "@/styles/post.css";
+
 const { title } = config;
 
 export const metadata = {
