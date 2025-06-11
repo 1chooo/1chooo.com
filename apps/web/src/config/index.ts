@@ -37,7 +37,7 @@ const config: Config = {
     { path: "/", label: "About" },
     { path: "/resume", label: "Resume" },
     { path: "/portfolio", label: "Portfolio" },
-    { path: "/post", label: "Post" },
+    { path: "/blog", label: "Blog" },
   ],
   contacts: [
     {

@@ -16,7 +16,7 @@ function HomeHeader({ navigationLinks }: HomeHeaderProps) {
   const currentPath = usePathname();
 
   const isActive = (path: string) => {
-    if (path === "/post" && currentPath.startsWith("/post")) return true;
+    if (path === "/blog" && currentPath.startsWith("/blog")) return true;
     else if (path === "/portfolio" && currentPath.startsWith("/portfolio"))
       return true;
     return currentPath === path;
