@@ -1,64 +1,21 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
-import { getAllPosts, getPostBySlug } from "@/lib/api";
-import { CMS_NAME } from "@/lib/constants";
-import markdownToHtml from "@/lib/markdownToHtml";
+import Link from "next/link";
+import { LuFacebook, LuTwitter } from "react-icons/lu";
+
 import { PostBody } from "@/app/(exp)/remark/_components/post-body";
 import PageHeader from "@/components/page-header";
-import { LuFacebook, LuTwitter } from "react-icons/lu";
-import { unstable_noStore as noStore } from "next/cache";
-import Link from "next/link";
 import Comments from "@/components/comments";
+
+import { CMS_NAME } from "@/lib/constants";
+import { getAllPosts, getPostBySlug } from "@/lib/api";
+import markdownToHtml from "@/lib/markdownToHtml";
+
 import config from "@/config";
 
 import "@/styles/blog/blog-text.css";
 
 const { giscusConfig } = config;
-
-function formatDate(date: string) {
-  noStore();
-  let currentDate = new Date().getTime();
-  if (!date.includes("T")) {
-    date = `${date}T00:00:00`;
-  }
-  let targetDate = new Date(date).getTime();
-  let timeDifference = Math.abs(currentDate - targetDate);
-  let daysAgo = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-
-  let fullDate = new Date(date).toLocaleString("en-us", {
-    month: "long",
-    day: "numeric",
-    year: "numeric",
-  });
-
-  let daysLater: number = 0;
-  if (targetDate > currentDate) {
-    daysLater = Math.floor(timeDifference / (1000 * 60 * 60 * 24));
-  }
-
-  if (daysLater > 365) {
-    return `${fullDate} (${daysLater}d later)`;
-  } else if (daysLater > 30) {
-    const weeksAgo = Math.floor(daysLater / 7);
-    return `${fullDate} (${weeksAgo}w later)`;
-  } else if (daysLater > 7) {
-    const monthsAgo = Math.floor(daysLater / 30);
-    return `${fullDate} (${monthsAgo}mo later)`;
-  } else if (daysAgo < 1) {
-    return "Today";
-  } else if (daysAgo < 7) {
-    return `${fullDate} (${daysAgo}d ago)`;
-  } else if (daysAgo < 30) {
-    const weeksAgo = Math.floor(daysAgo / 7);
-    return `${fullDate} (${weeksAgo}w ago)`;
-  } else if (daysAgo < 365) {
-    const monthsAgo = Math.floor(daysAgo / 30);
-    return `${fullDate} (${monthsAgo}mo ago)`;
-  } else {
-    const yearsAgo = Math.floor(daysAgo / 365);
-    return `${fullDate} (${yearsAgo}y ago)`;
-  }
-}
 
 export default async function Post(props: Params) {
   const params = await props.params;
@@ -81,7 +38,7 @@ export default async function Post(props: Params) {
           </h1>
           <div className="flex items-center justify-between mt-4 text-sm w-full text-neutral-600 dark:text-neutral-400">
             <div className="flex items-center space-x-2">
-              <span>{formatDate(post.date)}</span>
+              <span>{post.date}</span>
               <span
                 className="w-1 h-1 bg-current rounded-full"
                 aria-hidden="true"
