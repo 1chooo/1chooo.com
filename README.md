@@ -1,28 +1,38 @@
 <a name="readme-top"></a>
 
 <a href="https://www.1chooo.com">
-  <img alt="Home Page of 1chooo.com" src="./.github/images/cover-transparent-with-1chooo-com.png">
+  <img 
+    alt="Home Page of 1chooo.com" 
+    src="./.github/images/cover-transparent-with-1chooo-com.png" 
+  />
 </a>
 
-<p align="center">
-  <img alt="" src="https://img.shields.io/badge/Next.js-000000.svg?style=for-the-badge&logo=Next.js&labelColor=000">
-  <img alt="" src="https://img.shields.io/github/languages/top/1chooo/1chooo.com?style=for-the-badge&labelColor=000">
-  <img alt="" src="https://img.shields.io/github/license/1chooo/1chooo.com?style=for-the-badge&labelColor=000">
-  <img src="https://img.shields.io/github/stars/1chooo/1chooo.com?style=for-the-badge&labelColor=000" alt="Novel.sh's GitHub repo">
-</p>
-
-<p align="center">
-  <strong>
-    <a href="#abstract">Abstract</a>&nbsp;&nbsp;&bull;&nbsp;
-    <a href="#features">Feature</a>&nbsp;&nbsp;&bull;&nbsp;
-    <a href="#contributing">Contributing</a>&nbsp;&nbsp;&bull;&nbsp;
-    <a href="#getting-started">Getting Started</a>&nbsp;&nbsp;&bull;&nbsp;
-    <a href="#acknowledgements">Acknowledgments</a>&nbsp;&nbsp;&bull;&nbsp;
-    <a href="#authors">Authors</a>&nbsp;&nbsp;&bull;&nbsp;
-    <a href="#license">License</a>&nbsp;&nbsp;&bull;&nbsp;
-    <a href="https://docs.1chooo.com">Docs</a>
-  </strong>
-</p>
+<div align="center">
+  <a href="https://nextjs.org">
+    <img 
+      alt="1chooo.com built with Next.js" 
+      src="https://img.shields.io/badge/Next.js-000000.svg?style=for-the-badge&logo=Next.js&labelColor=000" 
+    />
+  </a>
+  <a href="https://github.com/1chooo/1chooo.com/blob/main/LICENSE">
+    <img 
+      alt="1chooo.com License" 
+      src="https://img.shields.io/github/license/1chooo/1chooo.com?style=for-the-badge&labelColor=000" 
+    />
+  </a>
+  <a href="https://docs.1chooo.com">
+    <img 
+      alt="1chooo.com Documentation" 
+      src="https://img.shields.io/badge/Docs-000000.svg?style=for-the-badge&logo=ReadTheDocs&labelColor=000000" 
+    />
+  </a>
+  <a href="https://github.com/1chooo/1chooo.com/stargazers">
+    <img 
+      alt="1chooo.com GitHub Stargazers"
+      src="https://img.shields.io/github/stars/1chooo/1chooo.com?style=for-the-badge&labelColor=000" 
+    />
+  </a>
+</div>
 
 ## Abstract
 
@@ -118,7 +128,6 @@ Additionally, I drew inspiration from several incredible projects, including:
 ## Authors
 
 - **Chun-Ho (Hugo) Lin** <sup>[Website](https://www.1chooo.com) | [GitHub](https://github.com/1chooo) | [E-mail](mailto:hugo970217@gmail.com)</sup>
-
 
 ## License
 
