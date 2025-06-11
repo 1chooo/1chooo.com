@@ -70,6 +70,10 @@ It's fast, responsive, SEO-friendly, and super easy to customize. Make it yours 
 - SEO optimized with meta tags and `JSON-LD`
 - Open graph images using `next/og`
 
+<div align="center">
+  <img src="./.github/images/seo.webp" alt="1chooo.com Lighthouse Score" />
+</div>
+
 ### Dev Experience
 
 - ESLint and Prettier for code quality
