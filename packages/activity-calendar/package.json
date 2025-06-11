@@ -1,6 +1,6 @@
 {
   "name": "@workspace/activity-calendar",
-  "version": "0.10.2",
+  "version": "0.10.3",
   "type": "module",
   "author": {
     "name": "Jonathan Gruber",
