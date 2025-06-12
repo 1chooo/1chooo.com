@@ -37,7 +37,7 @@ const config: Config = {
     { path: "/", label: "About" },
     { path: "/resume", label: "Resume" },
     { path: "/portfolio", label: "Portfolio" },
-    { path: "/post", label: "Post" },
+    { path: "/blog", label: "Blog" },
   ],
   contacts: [
     {
@@ -133,9 +133,9 @@ const config: Config = {
       shortcut: "/favicon.ico",
       apple: [
         {
-          url: "/logo192.png",
+          url: "/favicon.ico",
           sizes: "192x192",
-          type: "image/png",
+          type: "image/x-icon",
         },
       ],
     },
