@@ -1,19 +1,36 @@
 import Script from "next/script";
+import type { Metadata } from "next";
+import { Roboto, Roboto_Mono } from "next/font/google";
 
 import { GoogleAnalytics, GoogleTagManager } from "@next/third-parties/google";
 import { Analytics } from "@vercel/analytics/next";
 
-import { roboto } from "@/app/fonts";
 import HomeHeader from "@/components/layout/home-header";
 import SideBar from "@/components/layout/side-bar";
 import Hello from "@/components/hello";
 import { ProgressBar } from "@/components/progress-bar";
+
 import config from "@/config";
 
-import type { Metadata } from "next";
 import type { JsonLdHtml } from "@/types/json-ld";
 
 import "@/app/globals.css";
+
+const roboto = Roboto({
+  weight: ["400", "700"],
+  style: ["normal", "italic"],
+  variable: "--font-roboto",
+  subsets: ["latin"],
+  display: "swap",
+  preload: false,
+});
+
+const robotoMono = Roboto_Mono({
+  subsets: ["latin"],
+  variable: "--font-roboto-mono",
+  display: "swap",
+  preload: false,
+});
 
 const {
   googleAnalyticId,
@@ -40,7 +57,7 @@ const addJsonLd = (): JsonLdHtml => {
 
 function HomeLayout({ children }: { readonly children: React.ReactNode }) {
   return (
-    <html lang="en" className={roboto.className}>
+    <html lang="en" className={`${roboto.variable} ${robotoMono.variable}`}>
       <body>
         <ProgressBar className="fixed top-0 h-1 bg-yellow-500">
           <Hello />
