@@ -5,7 +5,7 @@ import { notFound } from "next/navigation";
 import Link from "next/link";
 import { LuFacebook, LuTwitter } from "react-icons/lu";
 
-import PageHeader from "@/components/page-header";
+import ArticleTitile from "@/components/article-title";
 import Comments from "@/components/comments";
 
 import { CMS_NAME } from "@/lib/constants";
@@ -36,7 +36,7 @@ export default async function Post(props: Params) {
     <div>
       <article>
         <section>
-          <PageHeader header="Hugo's Blog" />
+          <ArticleTitile title="Hugo's Blog" />
           <h1 className="font-semibold text-4xl text-white-2 max-w-[650px]">{post.title}
           </h1>
           <div className="flex items-center justify-between mt-4 text-sm w-full text-neutral-600 dark:text-neutral-400">
@@ -81,7 +81,7 @@ export default async function Post(props: Params) {
 
       <article style={{ marginTop: "1rem" }}>
         <section className="blog-text">
-          <PageHeader header="Comments" />
+          <ArticleTitile title="Comments" />
           <Comments giscusConfig={giscusConfig} />
         </section>
       </article>

@@ -2,7 +2,7 @@ import React from "react";
 
 import type { Metadata } from "next";
 
-import PageHeader from "@/components/page-header";
+import ArticleTitile from "@/components/article-title";
 import ResumeTimeLine from "@/components/section/resume-timeline";
 
 import type { ResumeTimeLineType } from "@/types/resume";
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 export default function Resume() {
   return (
     <article>
-      <PageHeader header="Hugo's Resume" />
+      <ArticleTitile title="Hugo's Resume" />
       {(Object.entries(resumes) as [string, ResumeTimeLineType][]).map(
         ([key, resumeTimeLine]) => (
           <ResumeTimeLine

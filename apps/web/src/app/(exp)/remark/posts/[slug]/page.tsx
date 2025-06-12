@@ -7,7 +7,7 @@ import Container from "@/app/(exp)/remark/_components/container";
 import Header from "@/app/(exp)/remark/_components/header";
 import { PostBody } from "@/app/(exp)/remark/_components/post-body";
 import { PostHeader } from "@/app/(exp)/remark/_components/post-header";
-import PageHeader from "@/components/page-header";
+import ArticleTitile from "@/components/article-title";
 
 export default async function Post(props: Params) {
   const params = await props.params;
@@ -21,7 +21,7 @@ export default async function Post(props: Params) {
 
   return (
     <article>
-      <PageHeader header="Hugo's Blog" />
+      <ArticleTitile title="Hugo's Blog" />
       <Container>
         <Header />
         <PostHeader

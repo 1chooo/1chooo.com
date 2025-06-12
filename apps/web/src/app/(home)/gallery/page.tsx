@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { BlurFadeDemo } from "@/components/magicui/blur-fade-demo";
 import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
-import PageHeader from "@/components/page-header";
+import ArticleTitile from "@/components/article-title";
 import config from "@/config";
 import { ChevronRight } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
 function Gallery() {
   return (
     <article>
-      <PageHeader header="Hugo's Gallery" />
+      <ArticleTitile title="Hugo's Gallery" />
       <BlurFadeDemo />
       <div className="z-10 flex items-center justify-center mt-5 mb-5">
         <Link

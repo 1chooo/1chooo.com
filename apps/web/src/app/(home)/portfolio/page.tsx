@@ -1,5 +1,5 @@
 import Image from "next/image";
-import PageHeader from "@/components/page-header";
+import ArticleTitile from "@/components/article-title";
 import FilterSelectBox from "@/components/filter/filter-select-box";
 import FilterList from "@/components/filter/filter-list";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
@@ -55,7 +55,7 @@ export default async function Portfolio({
 
   return (
     <article>
-      <PageHeader header="Hugo's Portfolio" />
+      <ArticleTitile title="Hugo's Portfolio" />
       <section className="projects">
         <FilterList
           path="portfolio"

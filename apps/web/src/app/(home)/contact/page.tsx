@@ -2,7 +2,7 @@
 
 import React, { useEffect, useRef } from "react";
 import { Send } from "lucide-react";
-import PageHeader from "@/components/page-header";
+import ArticleTitile from "@/components/article-title";
 import config from "@/config";
 import { sendGTMEvent } from "@next/third-parties/google";
 
@@ -55,7 +55,7 @@ function Contact() {
 
   return (
     <article>
-      <PageHeader header="Contact Me" />
+      <ArticleTitile title="Contact Me" />
       <section className="mb-[10px]">
         <div className="mapbox" data-mapbox="true">
           <figure>

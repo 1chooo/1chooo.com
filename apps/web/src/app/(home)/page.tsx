@@ -1,5 +1,5 @@
 import AnimatedSection from "@/components/animated-section";
-import PageHeader from "@/components/page-header";
+import ArticleTitile from "@/components/article-title";
 import CodingStats from "@/components/about/coding-stats";
 import { LatestArticles } from "@/components/about/latest-articles";
 import TalkToHugo from "@/components/about/talk-to-hugo";
@@ -27,7 +27,7 @@ const {
 async function About() {
   const allPosts = getAllPosts();
 
-  let header = preferredName
+  let title = preferredName
     ? `About ${preferredName} 👨🏻‍💻`
     : `About ${firstName} ${lastName} 👨🏻‍💻`;
 
@@ -38,7 +38,7 @@ async function About() {
   return (
     <article>
       <AnimatedSection id="about">
-        <PageHeader header={header} />
+        <ArticleTitile title={title} />
       </AnimatedSection>
       <AnimatedSection>
         {processedIntroduction && (

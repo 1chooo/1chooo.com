@@ -1,6 +1,6 @@
 import Image from "next/image";
 
-import PageHeader from "@/components/page-header";
+import ArticleTitile from "@/components/article-title";
 import { ProgressBarLink } from "@/components/progress-bar";
 
 import { getAllPosts } from "@/lib/api";
@@ -14,7 +14,7 @@ export default function Blog() {
 
   return (
     <article>
-      <PageHeader header="Hugo's Blog" />
+      <ArticleTitile title="Hugo's Blog" />
       <section className="blog-posts">
         <ul className="blog-posts-list">
           {allPosts.map((post: Post) => (

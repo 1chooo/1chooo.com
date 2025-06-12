@@ -4,7 +4,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import { unstable_noStore as noStore } from "next/cache";
 import MarkdownRenderer from "@/components/markdown/markdown-renderer";
-import PageHeader from "@/components/page-header";
+import ArticleTitile from "@/components/article-title";
 import Comments from "@/components/comments";
 import { getBlogPosts } from "@/lib/db/v1/post";
 import config from "@/config";
@@ -174,7 +174,7 @@ export default async function Post(props: { params: tParams }) {
 
       <article style={{ marginTop: "1rem" }}>
         <section className="blog-text">
-          <PageHeader header="Comments" />
+          <ArticleTitile title="Comments" />
           <Comments giscusConfig={giscusConfig} />
         </section>
       </article>
