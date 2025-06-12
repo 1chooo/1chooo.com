@@ -70,9 +70,9 @@ export default async function Post(props: Params) {
             </div>
           </div>
           <div className="separator"></div>
-          <div className="max-w-2xl mx-auto">
+          <div className="flex justify-center">
             <div
-              className={cn("markdown text-light-gray") }
+              className={cn("markdown text-light-gray w-[90%] sm:w-[90%] md:w-[90%] lg:w-[80%] xl:w-[80%]")}
               dangerouslySetInnerHTML={{ __html: content }}
             />
           </div>
