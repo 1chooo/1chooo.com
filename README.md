@@ -20,16 +20,16 @@
       src="https://img.shields.io/github/license/1chooo/1chooo.com?style=for-the-badge&labelColor=000" 
     />
   </a>
-  <a href="https://docs.1chooo.com">
-    <img 
-      alt="1chooo.com Documentation" 
-      src="https://img.shields.io/badge/Docs-000000.svg?style=for-the-badge&logo=ReadTheDocs&labelColor=000000" 
-    />
-  </a>
   <a href="https://github.com/1chooo/1chooo.com/stargazers">
     <img 
       alt="1chooo.com GitHub Stargazers"
       src="https://img.shields.io/github/stars/1chooo/1chooo.com?style=for-the-badge&labelColor=000" 
+    />
+  </a>
+  <a href="https://docs.1chooo.com">
+    <img 
+      alt="1chooo.com Documentation" 
+      src="https://img.shields.io/badge/Docs-000000.svg?style=for-the-badge&logo=ReadTheDocs&labelColor=000000" 
     />
   </a>
 </div>
