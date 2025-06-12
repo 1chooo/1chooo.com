@@ -113,6 +113,8 @@ A special thanks to [@codewithsadee](https://github.com/codewithsadee) for the e
 
 The project also incorporates and adapts various open-source projects, including:
 
+- [rehype](https://github.com/rehypejs/rehype)
+- [remark](https://github.com/remarkjs/remark)
 - [Giscus](https://giscus.app/)
 - [react-scroll-motion](https://github.com/1000ship/react-scroll-motion)
 - [GitHub Calendar](https://github.com/grubersjoe/react-github-calendar)
