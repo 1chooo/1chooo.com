@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import Image from "next/image";
 
 import ArticleTitile from "@/components/article-title";
@@ -5,9 +6,17 @@ import { ProgressBarLink } from "@/components/progress-bar";
 
 import { getAllPosts } from "@/lib/api";
 
+import config from "@/config";
 import { Post } from "@/interfaces/post";
 
 import "@/styles/blog.css";
+
+const { title } = config;
+
+export const metadata: Metadata = {
+  title: `Blog | ${title}`,
+  description: "Read my thoughts on software development, design, and more.",
+};
 
 export default function Blog() {
   const allPosts = getAllPosts();
