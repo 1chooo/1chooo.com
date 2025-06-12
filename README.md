@@ -1,44 +1,20 @@
 <a name="readme-top"></a>
 
-<a href="https://www.1chooo.com">
-  <img 
-    alt="Home Page of 1chooo.com" 
-    src="./.github/images/cover-transparent-with-1chooo-com.png" 
-  />
-</a>
+# [1chooo.com](https://www.1chooo.com) &middot; [![1chooo.com GitHub license](https://img.shields.io/github/license/1chooo/1chooo.com?style=for-the-badge&labelColor=000)](https://github.com/facebook/react/blob/main/LICENSE) [![1chooo.com built with Next.js](https://img.shields.io/badge/Next.js-000000.svg?style=for-the-badge&logo=Next.js&labelColor=000)](https://nextjs.org/) [![1chooo.com GitHub Stargazers](https://img.shields.io/github/stars/1chooo/1chooo.com?style=for-the-badge&labelColor=000)](https://github.com/1chooo/1chooo.com/stargazers) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge&labelColor=000)](https://docs.1chooo.com/contributing)
+
+
+Welcome to the monorepo of my personal website! 👋
+
+A fast, responsive, and SEO-friendly portfolio + blog site to share your work, ideas, and projects -- all built with Next.js, TypeScript, and Tailwind CSS.
 
 <div align="center">
-  <a href="https://nextjs.org">
+  <a href="https://www.1chooo.com">
     <img 
-      alt="1chooo.com built with Next.js" 
-      src="https://img.shields.io/badge/Next.js-000000.svg?style=for-the-badge&logo=Next.js&labelColor=000" 
-    />
-  </a>
-  <a href="https://github.com/1chooo/1chooo.com/blob/main/LICENSE">
-    <img 
-      alt="1chooo.com License" 
-      src="https://img.shields.io/github/license/1chooo/1chooo.com?style=for-the-badge&labelColor=000" 
-    />
-  </a>
-  <a href="https://github.com/1chooo/1chooo.com/stargazers">
-    <img 
-      alt="1chooo.com GitHub Stargazers"
-      src="https://img.shields.io/github/stars/1chooo/1chooo.com?style=for-the-badge&labelColor=000" 
-    />
-  </a>
-  <a href="https://docs.1chooo.com">
-    <img 
-      alt="1chooo.com Documentation" 
-      src="https://img.shields.io/badge/Docs-000000.svg?style=for-the-badge&logo=ReadTheDocs&labelColor=000000" 
+      alt="Home Page of 1chooo.com" 
+      src="./.github/images/cover-transparent-with-1chooo-com.png" 
     />
   </a>
 </div>
-
-## Abstract
-
-Welcome to [**1chooo.com**](https://github.com/1chooo/1chooo.com) 👋 A clean, modern portfolio + blog site to share your work, ideas, and projects -- all built with Next.js, TypeScript, and Tailwind CSS.
-
-It's fast, responsive, SEO-friendly, and super easy to customize. Make it yours and start sharing. 🚀
 
 ## Features
 
