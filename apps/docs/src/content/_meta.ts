@@ -10,6 +10,6 @@ export default {
   demo: {
     type: "page",
     title: "Demo",
-    href: "https://www.1chooo.com",
+    href: "https://1chooo.com",
   },
 };

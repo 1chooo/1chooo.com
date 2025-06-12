@@ -16,9 +16,9 @@ const config: Config = {
     "National Central University",
   ],
   status: "Dive Deep. 🤿",
-  siteURL: "https://www.1chooo.com",
+  siteURL: "https://1chooo.com",
   openGraph: {
-    url: "https://www.1chooo.com/",
+    url: "https://1chooo.com/",
     type: "website",
     siteName: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
     title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
@@ -91,7 +91,7 @@ const config: Config = {
     },
   ],
   homeMetaData: {
-    metadataBase: new URL("https://www.1chooo.com"),
+    metadataBase: new URL("https://1chooo.com"),
     title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
     description:
       "I'm Chun-Ho (Hugo) Lin, an incoming student at University of Southern California (USC) ✌️. Previously, I obtained my Bachelor's degree from National Central University (NCU) 🐿️.",
@@ -105,7 +105,7 @@ const config: Config = {
       "National Central University",
     ],
     openGraph: {
-      url: "https://www.1chooo.com/",
+      url: "https://1chooo.com/",
       type: "website",
       siteName: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
       title: "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast",
@@ -357,7 +357,7 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
   jsonLdPerson: {
     "@context": "http://schema.org",
     "@type": "Person",
-    "@id": "https://www.1chooo.com/#person",
+    "@id": "https://1chooo.com/#person",
     givenName: "Chun-Ho",
     familyName: "Lin",
     additionalName: "Hugo",
@@ -378,8 +378,8 @@ I'm an incoming student at [University of Southern California](https://usc.edu) 
     ],
     jobTitle: "Software Engineer",
     skills: "Software Engineering, Web Development, Open Source",
-    image: "https://www.1chooo.com/images/profile.webp",
-    url: "https://www.1chooo.com",
+    image: "https://1chooo.com/images/profile.webp",
+    url: "https://1chooo.com",
     sameAs: [
       "https://www.linkedin.com/in/1chooo/",
       "http://github.com/1chooo",

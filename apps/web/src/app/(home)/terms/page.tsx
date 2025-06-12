@@ -7,7 +7,7 @@ import { cn } from "@workspace/ui/lib/utils";
 import "@/styles/markdown-styles.css";
 
 const terms = `
-In [1chooo.com](https://www.1chooo.com), we provide a platform for users to create and share their own content. We want to make sure that everyone has a great experience on our platform, so we have a few rules that we ask all users to follow. By using our platform, you agree to abide by these rules.
+In [1chooo.com](https://1chooo.com), we provide a platform for users to create and share their own content. We want to make sure that everyone has a great experience on our platform, so we have a few rules that we ask all users to follow. By using our platform, you agree to abide by these rules.
 
 Attribution 4.0 International
 

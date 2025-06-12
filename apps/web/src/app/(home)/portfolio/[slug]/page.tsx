@@ -29,8 +29,8 @@ export async function generateMetadata({
     banner,
   } = post.metadata;
   let ogImage = banner
-    ? `https://www.1chooo.com${banner}`
-    : `https://www.1chooo.com/og?title=${title}`;
+    ? `https://1chooo.com${banner}`
+    : `https://1chooo.com/og?title=${title}`;
 
   return {
     title,
@@ -41,7 +41,7 @@ export async function generateMetadata({
       description,
       type: "article",
       publishedTime,
-      url: `https://www.1chooo.com/portfolio/${post.slug}`,
+      url: `https://1chooo.com/portfolio/${post.slug}`,
       locale: "en_US",
       images: [
         {

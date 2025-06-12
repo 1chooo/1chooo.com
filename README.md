@@ -1,6 +1,6 @@
 <a name="readme-top"></a>
 
-# [1chooo.com](https://www.1chooo.com) &middot; [![1chooo.com GitHub license](https://img.shields.io/github/license/1chooo/1chooo.com?style=for-the-badge&labelColor=000)](https://github.com/facebook/react/blob/main/LICENSE) [![1chooo.com built with Next.js](https://img.shields.io/badge/Next.js-000000.svg?style=for-the-badge&logo=Next.js&labelColor=000)](https://nextjs.org/) [![1chooo.com GitHub Stargazers](https://img.shields.io/github/stars/1chooo/1chooo.com?style=for-the-badge&labelColor=000)](https://github.com/1chooo/1chooo.com/stargazers) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge&labelColor=000)](https://docs.1chooo.com/contributing)
+# [1chooo.com](https://1chooo.com) &middot; [![1chooo.com GitHub license](https://img.shields.io/github/license/1chooo/1chooo.com?style=for-the-badge&labelColor=000)](https://github.com/facebook/react/blob/main/LICENSE) [![1chooo.com built with Next.js](https://img.shields.io/badge/Next.js-000000.svg?style=for-the-badge&logo=Next.js&labelColor=000)](https://nextjs.org/) [![1chooo.com GitHub Stargazers](https://img.shields.io/github/stars/1chooo/1chooo.com?style=for-the-badge&labelColor=000)](https://github.com/1chooo/1chooo.com/stargazers) [![PRs Welcome](https://img.shields.io/badge/PRs-welcome-brightgreen.svg?style=for-the-badge&labelColor=000)](https://docs.1chooo.com/contributing)
 
 
 Welcome to the monorepo of my personal website! 👋
@@ -8,7 +8,7 @@ Welcome to the monorepo of my personal website! 👋
 A fast, responsive, and SEO-friendly portfolio + blog site to share your work, ideas, and projects -- all built with Next.js, TypeScript, and Tailwind CSS.
 
 <div align="center">
-  <a href="https://www.1chooo.com">
+  <a href="https://1chooo.com">
     <img 
       alt="Home Page of 1chooo.com" 
       src="./.github/images/cover-transparent-with-1chooo-com.png" 
@@ -109,7 +109,7 @@ Additionally, I drew inspiration from several incredible projects, including:
 
 ## Authors
 
-- **Chun-Ho (Hugo) Lin** <sup>[Website](https://www.1chooo.com) | [GitHub](https://github.com/1chooo) | [E-mail](mailto:hugo970217@gmail.com)</sup>
+- **Chun-Ho (Hugo) Lin** <sup>[Website](https://1chooo.com) | [GitHub](https://github.com/1chooo) | [E-mail](mailto:hugo970217@gmail.com)</sup>
 
 ## Deploy on Vercel
 
@@ -136,7 +136,7 @@ Please remove all of my personal information by running `pnpm run delete`.
 
 Made with 🖤 by [@1chooo][1chooo-com]
 
-[1chooo-com]: https://www.1chooo.com
+[1chooo-com]: https://1chooo.com
 
 <p align="right" style="font-size: 14px; color: #555; margin-top: 20px;">
     <a href="#readme-top" style="text-decoration: none; color: #007bff; font-weight: bold;">

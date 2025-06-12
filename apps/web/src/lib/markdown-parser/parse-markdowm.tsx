@@ -32,9 +32,9 @@ import {
  * 
  * ---
  * 
- * ![Image alt text](https://www.1chooo.com/og)
+ * ![Image alt text](https://1chooo.com/og)
  * 
- * [Link text](https://www.1chooo.com)
+ * [Link text](https://1chooo.com)
  * 
  * - Unordered list item 1
  * - Unordered list item 2

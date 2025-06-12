@@ -24,7 +24,7 @@ export default function TwitterCardMeta({
 				property="twitter:site"
 				content={"@1chooo___"}
 			/>
-			<meta property="twitter:url" content={"https://www.1chooo.com" + url} />
+			<meta property="twitter:url" content={"https://1chooo.com" + url} />
 			<meta
 				property="twitter:title"
 				content={title ? [title, "Chun-Ho (Hugo) Lin - 1chooo | Open Source Enthusiast"].join(' | ') : ''}

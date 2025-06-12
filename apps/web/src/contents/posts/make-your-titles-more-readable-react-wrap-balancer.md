@@ -14,7 +14,7 @@ banner: /images/banner/posts/make-your-titles-more-readable-react-wrap-balancer.
 alt: "Make Your Titles More Readable: React Wrap Balancer"
 ---
 
-Hey there 👋! This is Hugo. My portfolio website-[1chooo.com](https://www.1chooo.com/) has come to [`v0.3`](https://github.com/1chooo/1chooo.com/releases/tag/v0.3.0) version and we finally support render markdown to the blog post. However, sometimes the wrapping of the words may not change as we expected. Today we are going to share a package to let our website more readable.
+Hey there 👋! This is Hugo. My portfolio website-[1chooo.com](https://1chooo.com/) has come to [`v0.3`](https://github.com/1chooo/1chooo.com/releases/tag/v0.3.0) version and we finally support render markdown to the blog post. However, sometimes the wrapping of the words may not change as we expected. Today we are going to share a package to let our website more readable.
 
 ![Make Your Titles More Readable: React Wrap Balancer by Hugo](/images/banner/posts/make-your-titles-more-readable-react-wrap-balancer.webp)
 

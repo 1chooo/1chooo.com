@@ -23,7 +23,7 @@ const { giscusConfig } = config;
 export default async function Post(props: Params) {
   const params = await props.params;
   const post = getPostBySlug(params.slug);
-  const shareUrl = `https://www.1chooo.com/blog/${post.slug}`;
+  const shareUrl = `https://1chooo.com/blog/${post.slug}`;
   const shareText = `Check out this post:`;
 
   if (!post) {
