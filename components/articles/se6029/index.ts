@@ -1,0 +1,5 @@
+export { DemoOOPillars } from './demo-oo-pillars'
+export { DemoPolymorphism } from './demo-polymorphism'
+export { DemoUMLRelationships } from './demo-uml-relationships'
+export { DemoStrategyPattern } from './demo-strategy-pattern'
+export { DemoCodeSmells } from './demo-code-smells'

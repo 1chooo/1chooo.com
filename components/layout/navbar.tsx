@@ -55,6 +55,10 @@ export default function Navbar(_: NavbarProps) {
         <Item href='/' activePaths={['/bio']}>
           About
         </Item>
+        <Item href='/thoughts' activePaths={['/notes']}>
+          Thoughts
+        </Item>
+        <Item href='/episodes'>Episodes</Item>
         <Item href='/projects'>Projects</Item>
       </ul>
     </nav>

@@ -15,6 +15,7 @@ const serif = localFont({
 export const metadata: Metadata = {
   title: "Lin Hugo",
   description: "Lin Hugo is a software builder, writer, and photographer.",
+  metadataBase: new URL("https://1chooo.com"),
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
