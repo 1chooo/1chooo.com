@@ -1,0 +1,68 @@
+import {
+  RUBBER_STAMP_POSTER_PROMPT,
+  RUBBER_STAMP_PROMPT_META,
+} from '@/components/articles/art/rubber-stamp-prompt'
+
+export const metadata = {
+  title: 'Art',
+  date: '2026.06.07',
+  description: 'Code-generated art pieces — procedural textures, noise fields, and visual experiments made with algorithms instead of brushes.',
+}
+
+# Art
+
+I write code that makes pictures. No brushes, no cameras — just math that turns a seed number into something that looks like it has been sitting in the rain for thirty years.
+
+This is where I keep those experiments.
+
+## Concrete Texture
+
+Concrete is one of the few building materials that refuses to be uniform. Every pour is different: the aggregate settles unevenly, air pockets leave pores, formwork grain prints itself into the surface, and weathering finds its own path. The result is a material that is strictly industrial but visually rich — all variation within a narrow palette of greys.
+
+The generator below recreates that texture procedurally, using seeded Perlin noise and fractal Brownian motion to build up the same layers a real concrete pour would leave behind: base tone, pores, aggregate stones, cracks, and weathering.
+
+<ConcreteTextureDemo />
+
+Five variants, each with a different character:
+
+- **brutalist** — coarse, heavy, lots of visible porosity and deep staining; the kind of surface you see on a brutalist housing block
+- **polished** — compressed and smooth, aggregate barely visible, the grey almost luminous
+- **weathered** — streaked with long stains and erosion, as though it has been outside for decades
+- **board formed** — horizontal grain impressed from timber formwork, the defining mark of mid-century concrete construction
+- **exposed** — dense with visible stones and pebbles set into the surface, every piece a different size
+
+Hit **↻ randomize** to change the seed and watch the same character express itself in a new configuration. The algorithm is deterministic: the same seed always produces the same image.
+
+## Postcard
+
+The concrete generator makes texture from noise. This one starts from a photograph.
+
+I wanted travel photos that felt like field notes instead of camera-roll leftovers: the original scene on one side, and on the other a small rubber stamp of whatever still identifies the place — a roofline, a shoreline, a terrace of houses. Not a collage, not a souvenir template. A 4:3 sheet that looks like it was pressed, not filtered.
+
+The photograph stays honest. The stamp is allowed to forget almost everything.
+
+<BlockSideTitle title="Photograph on the left; rubber-stamp field note on warm paper to the right.">
+  <Image
+    className="mt-7"
+    src="https://img.1chooo.com/9dd87d87-3f2a-48fd-9bcd-757e3701f5ee/photos/1788211066518-chatgpt-image-aug-30--2026--01-15-25-am.webp"
+    alt="Rubber stamp travel field notes poster: original photograph on the left, a small multi-color rubber stamp and typewriter caption on aged paper on the right"
+    width={800}
+    height={600}
+    quality={95}
+  />
+</BlockSideTitle>
+
+Upload one photo, paste the prompt, get one poster. Hit **copy** — the whole prompt goes to the clipboard, ready to attach to an image model. I didn't write it; the style is from [hbg-rubber-stamp-field-note](https://github.com/Mr-funny/hbg-rubber-stamp-field-note).
+
+<ImagePrompt
+  title="Rubber Stamp Travel Field Notes"
+  label="image generation prompt"
+  prompt={RUBBER_STAMP_POSTER_PROMPT}
+  meta={RUBBER_STAMP_PROMPT_META}
+  summary="Copy the prompt, attach one photo, and generate a single 4:3 poster. The photograph stays on the left; the right side is a small rubber stamp of whatever still identifies the place."
+  detail="One photo in, one poster out — no collages, no souvenir templates."
+/>
+
+The prompt is the whole craft. It asks the model to keep the left 58% of the frame as the original photograph — crop if it must, never stretch or redraw — and to treat the remaining 42% as unprinted aged paper. Into that paper it presses a small stamp: only the contours you would still recognize years later, in two to four spot inks pulled from the photo, slightly misregistered, as if each color were carved and printed by hand.
+
+Text is a field record, not a headline: the English place name, a number, three short keywords, and the year, set in a small typewriter face. Everything else — crowds, cars, souvenir seals, souvenir clutter — is meant to be left off the paper.

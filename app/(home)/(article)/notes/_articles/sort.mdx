@@ -1,0 +1,276 @@
+export const metadata = {
+  title: 'Sorting Algorithms',
+  date: '2024.05.26',
+  description: 'A ground-up guide to sorting algorithms — bubble, selection, insertion, merge, and quick sort — with step-by-step visualisations and complexity analysis.',
+}
+
+# Sorting Algorithms
+
+Sorting is the operation that makes nearly every other algorithm possible. Binary search requires sorted data. Database indices are sorted trees. Deduplication, ranking, and range queries all reduce to sorting. Even "find the top-k items" is a partial sort.
+
+This note walks through five comparison-based sorting algorithms from first principles — what they do, why they cost what they do, and when to reach for each one.
+
+## The Complexity Landscape
+
+All five algorithms here are **comparison sorts**: they establish order purely by comparing pairs of elements. There is a proven lower bound for any comparison sort: **O(n log n)** in the worst case. The argument: there are n! possible orderings of n elements, and each comparison eliminates at most half the remaining possibilities, so you need at least log₂(n!) ≈ n log n comparisons.
+
+The three simple algorithms — bubble, selection, insertion — are O(n²). Their constants are tiny and they need no auxiliary memory, which makes them practical for small inputs (n ≤ 50) or data that arrives nearly sorted. The two divide-and-conquer algorithms — merge and quick sort — achieve the O(n log n) bound, but with different tradeoffs on space, stability, and worst-case behaviour.
+
+## Step-by-Step Visualiser
+
+<DemoSortVisualizer />
+
+Select an algorithm, then step through it manually (← →) or let it play. **Orange** bars are being compared; **pink** bars are being swapped or placed; **green** bars are confirmed in their final sorted position. Use shuffle to try a fresh random input.
+
+## Bubble Sort
+
+Bubble sort makes repeated passes through the array, comparing adjacent pairs and swapping them when out of order. After each complete pass, the largest unsorted element has "bubbled" to its correct position at the right end of the unsorted portion.
+
+```js
+function bubbleSort(arr) {
+  const n = arr.length
+  for (let i = 0; i < n - 1; i++) {
+    let swapped = false
+    for (let j = 0; j < n - i - 1; j++) {
+      if (arr[j] > arr[j + 1]) {
+        ;[arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
+        swapped = true
+      }
+    }
+    if (!swapped) break   // already sorted — exit early
+  }
+  return arr
+}
+```
+
+The outer loop runs n−1 times; the inner loop n−i−1 times — roughly n²/2 comparisons total, giving O(n²). The `swapped` flag enables the **O(n) best case**: if a full pass produces no swaps, the array is sorted and you can exit immediately. This makes bubble sort competitive with insertion sort on nearly-sorted data when you measure swaps, but it makes more comparisons per pass than insertion sort does.
+
+Bubble sort is **stable** (equal elements never swap past each other) and **in-place** (O(1) extra space).
+
+## Selection Sort
+
+Selection sort maintains a sorted left boundary. On each pass it scans the entire unsorted portion to find the minimum element, then places it at the boundary by swapping it with whatever was there.
+
+```js
+function selectionSort(arr) {
+  const n = arr.length
+  for (let i = 0; i < n - 1; i++) {
+    let minIdx = i
+    for (let j = i + 1; j < n; j++) {
+      if (arr[j] < arr[minIdx]) minIdx = j
+    }
+    if (minIdx !== i) {
+      ;[arr[i], arr[minIdx]] = [arr[minIdx], arr[i]]
+    }
+  }
+  return arr
+}
+```
+
+Selection sort always performs exactly n(n−1)/2 comparisons — O(n²) in all cases — but makes **at most n−1 swaps**. This matters when swapping is expensive (e.g., writing to flash memory or moving large records). The inner loop always runs to completion, so there is no early-exit optimisation.
+
+Selection sort is **not stable**: swapping the minimum into position can change the relative order of equal elements.
+
+## Insertion Sort
+
+Insertion sort builds a sorted prefix one element at a time. For each new element, it walks left through the sorted prefix, shifting elements one position right until it finds where the new element fits.
+
+```js
+function insertionSort(arr) {
+  for (let i = 1; i < arr.length; i++) {
+    let j = i
+    while (j > 0 && arr[j - 1] > arr[j]) {
+      ;[arr[j - 1], arr[j]] = [arr[j], arr[j - 1]]
+      j--
+    }
+  }
+  return arr
+}
+```
+
+<BlockSideTitle title={
+  <>
+    Insertion sort is <strong>O(n) on nearly-sorted data</strong> — the inner while loop barely executes. This is why it is used as the finishing pass in hybrid sorts like Timsort: after merge sort reduces the array to small nearly-sorted segments, insertion sort cleans them up in linear time. It is also <em>online</em> — it can sort elements as they arrive without needing to know the total count.
+  </>
+}>
+```js
+// Insertion sort excels on nearly-sorted input
+const almostSorted = [1, 2, 3, 5, 4, 6, 7, 8]
+// Inner loop fires only once (for the 5→4 inversion)
+insertionSort(almostSorted) // → [1,2,3,4,5,6,7,8]
+
+// Contrast: selection sort still does 28 comparisons
+// regardless of how sorted the input already is
+```
+</BlockSideTitle>
+
+Insertion sort is **stable** and **in-place**. Its O(n²) worst case (fully reverse-sorted input) makes it unsuitable for large unsorted data, but for small arrays or nearly-ordered sequences it consistently outperforms merge and quick sort due to its tiny constant factor and zero recursion overhead.
+
+## Merge Sort
+
+Merge sort is the canonical divide-and-conquer sort. It recursively splits the array in half until it reaches individual elements (trivially sorted), then merges adjacent sorted halves back together.
+
+<DemoMergeSort />
+
+Step through the phases above to see how merge sort works bottom-up. Each level does O(n) total work — comparing and placing elements — and there are log₂ n levels, giving **O(n log n) total**.
+
+<BlockSideTitle title={
+  <>
+    The key operation is <strong>merge</strong>: given two sorted halves, you can produce a sorted whole in O(n) — walk through both halves simultaneously, always taking the smaller of the two front elements. Because both halves are already sorted, you never need to backtrack.
+  </>
+}>
+```js
+function mergeSort(arr) {
+  if (arr.length <= 1) return arr
+  const mid = arr.length >> 1
+  const left  = mergeSort(arr.slice(0, mid))
+  const right = mergeSort(arr.slice(mid))
+  return merge(left, right)
+}
+
+function merge(left, right) {
+  const out = []
+  let i = 0, j = 0
+  while (i < left.length && j < right.length) {
+    out.push(left[i] <= right[j] ? left[i++] : right[j++])
+  }
+  // Append any remaining elements from either half
+  return [...out, ...left.slice(i), ...right.slice(j)]
+}
+```
+</BlockSideTitle>
+
+Merge sort is **stable** and guarantees **O(n log n)** in all cases — there are no pathological inputs. The cost is **O(n) auxiliary space** for the temporary merged arrays at each level. It is the algorithm of choice when:
+
+- Stability is required
+- The worst case must be bounded (real-time systems)
+- Sorting linked lists (random access is O(n), so merge sort's sequential access pattern is ideal)
+
+## Quick Sort
+
+Quick sort picks a **pivot** element, partitions the array so everything ≤ pivot comes before it and everything > pivot comes after, then recursively sorts each partition.
+
+```js
+function quickSort(arr, lo = 0, hi = arr.length - 1) {
+  if (lo >= hi) return arr
+  const p = partition(arr, lo, hi)
+  quickSort(arr, lo, p - 1)
+  quickSort(arr, p + 1, hi)
+  return arr
+}
+
+function partition(arr, lo, hi) {
+  const pivot = arr[hi]   // last element as pivot
+  let i = lo - 1
+  for (let j = lo; j < hi; j++) {
+    if (arr[j] <= pivot) {
+      i++
+      ;[arr[i], arr[j]] = [arr[j], arr[i]]
+    }
+  }
+  ;[arr[i + 1], arr[hi]] = [arr[hi], arr[i + 1]]
+  return i + 1            // pivot's final position
+}
+```
+
+<BlockSideTitle title={
+  <>
+    The worst case is O(n²): if the pivot is always the smallest or largest element — which happens with a last-element pivot on a sorted array — every partition produces one empty side and one side of n−1 elements, giving n levels of O(n) work. Three common mitigations:
+    <br /><br />
+    1. <strong>Random pivot</strong> — pick a random index; makes worst-case probability negligible<br />
+    2. <strong>Median-of-three</strong> — pivot = median of first, middle, last<br />
+    3. <strong>Introsort</strong> — start with quicksort, switch to heapsort when recursion exceeds 2 log n
+  </>
+}>
+```js
+// Random pivot — avoids adversarial worst case
+function partition(arr, lo, hi) {
+  const ri = lo + Math.floor(Math.random() * (hi - lo + 1))
+  ;[arr[ri], arr[hi]] = [arr[hi], arr[ri]]  // move to end
+  // ... rest of partition as before ...
+}
+```
+</BlockSideTitle>
+
+Quick sort is **not stable** but is **in-place** (O(log n) call stack). Its cache-friendliness — accessing contiguous memory during partitioning — and low constant factor make it faster than merge sort in practice for most inputs. This is why it underlies `Array.prototype.sort` in many runtimes before Timsort adoption.
+
+## Algorithm Comparison
+
+| Algorithm | Best | Average | Worst | Space | Stable |
+|---|---|---|---|---|---|
+| Bubble Sort | O(n) | O(n²) | O(n²) | O(1) | Yes |
+| Selection Sort | O(n²) | O(n²) | O(n²) | O(1) | No |
+| Insertion Sort | O(n) | O(n²) | O(n²) | O(1) | Yes |
+| Merge Sort | O(n log n) | O(n log n) | O(n log n) | O(n) | Yes |
+| Quick Sort | O(n log n) | O(n log n) | O(n²) | O(log n) | No |
+
+## Stability
+
+A sort is **stable** if equal elements maintain their original relative order. This matters when you sort by multiple criteria in sequence.
+
+```js
+const orders = [
+  { id: 1, customer: 'Alice', priority: 2 },
+  { id: 2, customer: 'Bob',   priority: 1 },
+  { id: 3, customer: 'Alice', priority: 2 },  // same priority as id:1
+]
+
+// Sort by priority ascending
+orders.sort((a, b) => a.priority - b.priority)
+// Stable result: id:2 first, then id:1 then id:3 (original order preserved)
+// Unstable result: id:2 first, then id:3 then id:1 (original order lost)
+```
+
+Stability becomes critical when chaining sorts: if you first sort by date, then by priority, a stable sort ensures items with equal priority remain in date order. An unstable sort can silently destroy the earlier ordering.
+
+## JavaScript's `Array.prototype.sort`
+
+Since V8 7.0 (Node.js 11), JavaScript's built-in `.sort()` uses **Timsort** — a hybrid of merge sort and insertion sort developed for Python and adopted widely.
+
+Timsort exploits real-world data: it scans the input for naturally ordered **runs** (already-sorted ascending or descending sequences), extends short runs with insertion sort, then merges runs using an optimised merge algorithm. On already-sorted or nearly-sorted data it approaches **O(n)**; in the worst case it is **O(n log n)**.
+
+```js
+// ✗ Default comparator is lexicographic — wrong for numbers
+[10, 9, 2, 1, 20].sort()              // → [1, 10, 2, 20, 9]
+
+// ✓ Provide a numeric comparator
+[10, 9, 2, 1, 20].sort((a, b) => a - b)   // → [1, 2, 9, 10, 20]
+
+// ✓ Descending
+[10, 9, 2, 1, 20].sort((a, b) => b - a)   // → [20, 10, 9, 2, 1]
+
+// ✓ Sort objects by property
+const items = [{ v: 3 }, { v: 1 }, { v: 2 }]
+items.sort((a, b) => a.v - b.v)        // → [{v:1},{v:2},{v:3}]
+```
+
+<BlockSideTitle title={
+  <>
+    A subtle edge case: the comparator must return a <em>consistent</em> total ordering. If your comparator is not transitive (e.g., it sometimes returns 0 when elements aren't truly equal), Timsort can produce incorrect results — and the behaviour may differ between engines. Always ensure <code>{'(a, b) => a - b'}</code> returns a proper negative/zero/positive value.
+  </>
+}>
+```js
+// ✗ Broken comparator — inconsistent ordering
+[3, 1, 2].sort(() => Math.random() - 0.5)  // "random" — actually biased
+
+// ✗ Comparator that loses precision on large integers
+[Number.MAX_SAFE_INTEGER, 1].sort((a, b) => a - b)
+// Subtraction overflows — use explicit comparison instead:
+
+// ✓ Safe for any numeric values
+.sort((a, b) => a < b ? -1 : a > b ? 1 : 0)
+```
+</BlockSideTitle>
+
+## When to Reach for Each
+
+| Situation | Reach for |
+|---|---|
+| n < 20 or nearly-sorted input | Insertion sort |
+| Guaranteed O(n log n), stability required | Merge sort |
+| General-purpose, in-place, performance critical | Quick sort with random pivot |
+| Sorted linked list | Merge sort (no random access needed) |
+| Embedded system, minimal swaps | Selection sort |
+| Already using a runtime — just sort | `Array.prototype.sort` (Timsort) |
+
+In practice: use the built-in sort. Override it only when you need a specific stability guarantee across engines, or when profiling shows the comparator overhead matters enough to justify a hand-tuned implementation.

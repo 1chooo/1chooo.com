@@ -1,0 +1,160 @@
+export const metadata = {
+  title: 'Power Law',
+  date: '2025.08.25',
+  description: 'How exponential compounding turns small, consistent gains into extraordinary wealth — and why starting early is the only real secret.',
+}
+
+# Power Law
+
+Most people think about money the way they think about arithmetic — linearly. Save $100 a month for 10 years and you have $12,000. But money does not follow arithmetic. Left to compound, it follows an exponential curve, and exponential curves are almost unimaginably steep once enough time passes.
+
+The underlying principle is a *power law*: repeated multiplication by a constant factor. The concept appears everywhere in nature — earthquake magnitudes, city populations, the frequency of words in a language. In finance, it takes a form you can personally exploit: **compound interest**.
+
+## 1 % a Day, Every Day
+
+Start with the simplest possible question: *what happens if you improve by 1 % each day for a full year?*
+
+If growth were linear, 1 % a day over 365 days would give you a 365 % return — you would end up with <InlineMath math="1 + 0.01 \times 365 = 4.65" /> times what you started with. Decent, but nothing special.
+
+Compounding works differently. Each day you multiply, not add:
+
+<BlockMath math="(1.01)^{365} \approx 37.78" />
+
+Starting from <InlineMath math="1" />, you end with nearly $38 — almost ten times what the linear version promises. Now run the arithmetic in reverse: what if you slip back by 1 % every day?
+
+<BlockMath math="(0.99)^{365} \approx 0.026" />
+
+You are left with less than 3 cents on the dollar. The gap between 1 % better and 1 % worse is not 2 percentage points — it is the difference between **37.78×** and **0.026×**, a ratio of nearly 1 500 to 1.
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    Drag the slider or click a preset to change the daily rate. The <strong>solid blue line</strong> is compounded growth; the <strong>dashed grey line</strong> is the equivalent simple (linear) growth. They start the same but diverge sharply — this divergence is the entire story.
+  </div>
+}>
+  <DailyGrowthViz />
+</BlockSideTitle>
+
+Self-improvement and portfolio returns are not literally 1 % a day. But the intuition transfers directly: **small, consistent gains, reinvested, compound into a curve that logic alone cannot picture**.
+
+## The Formula
+
+The engine behind all of this is one equation:
+
+<BlockMath math="A = P \left(1 + \frac{r}{n}\right)^{nt}" />
+
+| Symbol | Meaning |
+|---|---|
+| <InlineMath math="A" /> | Final amount |
+| <InlineMath math="P" /> | Principal (money you put in at the start) |
+| <InlineMath math="r" /> | Annual interest rate (as a decimal, e.g. 0.07 for 7 %) |
+| <InlineMath math="n" /> | Compounding periods per year (12 for monthly) |
+| <InlineMath math="t" /> | Time in years |
+
+<BlockSideTitle title={
+  <>
+    At 7 % annual return compounded monthly, $10,000 grows to roughly $20,097 in 10 years — without adding a single cent. The **doubling time** for any rate can be estimated with the Rule of 72: divide 72 by the annual rate to get the approximate years to double. At 7 % that is <InlineMath math="72 / 7 \approx 10.3" /> years.
+  </>
+}>
+```ts
+const A = P * Math.pow(1 + r / n, n * t)
+// P = 10_000, r = 0.07, n = 12, t = 10
+// A ≈ 20_097
+```
+</BlockSideTitle>
+
+The exponent <InlineMath math="nt" /> is what makes this equation violent. It grows *with* time — meaning the longer you wait, the faster the curve steepens. At year 1 the difference between investing and not investing is small. At year 30 it is a completely different life.
+
+## Regular Contributions: The Multiplier
+
+The formula above assumes a single lump sum. In reality, most people invest a fixed amount each month. A regular contribution is modelled as a *future value of an annuity*:
+
+<BlockMath math="A = P \left(1 + r_m\right)^{n} + C \cdot \frac{\left(1 + r_m\right)^{n} - 1}{r_m}" />
+
+where <InlineMath math="r_m = r/12" /> is the monthly rate and <InlineMath math="C" /> is the monthly contribution.
+
+<BlockSideTitle title={
+  <>
+    Monthly contributions matter more than the initial lump sum over a long horizon. At 7 % annual return, $500 a month for 30 years accumulates to roughly $567,000 — even if you start with $0. That same $0 starting principal cannot compete: consistency beats magnitude.
+  </>
+}>
+```ts
+const rm = r / 12
+// future value of each monthly contribution
+const fvContribs = C * ((Math.pow(1 + rm, n) - 1) / rm)
+
+const total = P * Math.pow(1 + rm, n) + fvContribs
+```
+</BlockSideTitle>
+
+Two insights follow from this formula:
+
+1. **Start now, not when you earn more.** Because of the exponent <InlineMath math="n" />, years at the beginning of your timeline are worth more than years at the end. Every year you delay is a year lost at the *steepest* part of someone else's curve.
+2. **Rate matters more than you think.** Moving from 6 % to 8 % annual return does not grow your terminal balance by 33 %. Across 30 years it nearly doubles the gap between your final total and your contributions — the extra 2 % is compounded 360 times.
+
+## Interest on Interest
+
+The reason compounding feels counterintuitive is that you earn interest on your interest. In the first year, $10,000 at 7 % earns $700. In the second year, you earn 7 % on $10,700 — an extra $749. By year 20 you are earning almost $2,500 *per year* on a $10,000 original investment, without touching the principal.
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    The shaded region above the <em>contributed</em> band is pure interest — money your money made. After long enough, the interest dwarfs the contributions. This is the point at which compounding becomes genuinely self-sustaining.
+  </div>
+}>
+  <CompoundInterestCalculator />
+</BlockSideTitle>
+
+## Time, Not Timing
+
+A common mistake is waiting for the "right moment" to invest. But power law curves do not reward timing — they reward *duration*. Consider two investors:
+
+- **Early Ellie** invests $5,000 a year from age 22 to 32 (10 years, $50,000 total) at 8 %, then stops.
+- **Late Louis** invests $5,000 a year from age 32 to 62 (30 years, $150,000 total) at the same rate.
+
+At 62, Ellie has roughly **$602,000**. Louis, who contributed three times as much for three times as long, has roughly **$566,000** — still less. Ellie's decade of head start, compounded over 40 years, overpowers Louis's extra $100,000 and 20 extra years of contributions.
+
+<BlockSideTitle title={
+  <>
+    Ellie contributes for 10 years then lets it ride for 30 more.
+  </>
+}>
+```ts
+function ellieWealth() {
+  let a = 0
+  for (let y = 0; y < 10; y++) a = (a + 5000) * 1.08
+  for (let y = 0; y < 30; y++) a = a * 1.08
+  return a  // ≈ 602,000
+}
+```
+</BlockSideTitle>
+
+<BlockSideTitle title={
+  <>
+    Louis contributes for 30 years starting a decade later.
+  </>
+}>
+```ts
+function louisWealth() {
+  let a = 0
+  for (let y = 0; y < 30; y++) a = (a + 5000) * 1.08
+  return a  // ≈ 566,000
+}
+```
+</BlockSideTitle>
+
+The mathematics are unambiguous: **the best time to invest was yesterday. The second-best time is today.**
+
+## The Three Levers
+
+Every compounding model has exactly three inputs you can control:
+
+| Lever | Effect |
+|---|---|
+| **Principal** <InlineMath math="P" /> | Raises the baseline — a one-time lift |
+| **Rate** <InlineMath math="4" /> | Reshapes the exponent — high leverage over long periods |
+| **Time** <InlineMath math="t" /> | Sits *in* the exponent — the most powerful lever of all |
+
+Principal is the least powerful. A $100,000 windfall is wonderful, but it is a single multiplication. Rate matters more because it is applied repeatedly. Time dominates everything because it is the *exponent's exponent* — each additional year does not add a fixed increment; it multiplies everything that came before.
+
+---
+
+Compound interest is often described as the eighth wonder of the world. What it actually is, more precisely, is a power law applied to money — patient, indifferent, and brutally consistent. The curve does not care how smart you are or how hard you work in any given year. It cares only about one thing: how long you let it run.

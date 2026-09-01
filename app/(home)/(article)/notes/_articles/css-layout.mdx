@@ -1,0 +1,348 @@
+export const metadata = {
+  title: 'CSS Layout',
+  date: '2026.03.05',
+  description: 'A complete guide to CSS layout — from normal flow and the box model through Flexbox, Grid, and positioning.',
+}
+
+# CSS Layout
+
+CSS layout is one of those topics that looks simple on the surface but reveals surprising depth the moment you try to build something real. Why does my `margin: auto` not center this element? Why did my absolutely positioned child escape its container? Why won't `z-index` work?
+
+The answer, almost always, is that you haven't fully met the layout model you are working with. This post walks through every major CSS layout mechanism — from the document's default flow all the way to modern Grid — and shows you what each one actually does.
+
+## Normal Flow
+
+Before you add a single layout property, the browser already has opinions about where things go. This is **normal flow** (also called the *in-flow* layout model), and understanding it is the prerequisite for understanding everything else.
+
+In normal flow, elements are divided into two *formatting contexts*:
+
+- **Block formatting context** — elements stack vertically, one per "line", filling the full width of their container. `<div>`, `<p>`, `<h1>` participate here by default.
+- **Inline formatting context** — elements sit side-by-side along a text baseline, wrapping when they run out of space. `<span>`, `<a>`, `<strong>` live here.
+
+```css
+/* no layout properties needed — this IS normal flow */
+div   { display: block;  } /* default */
+span  { display: inline; } /* default */
+```
+
+The key insight: **any layout property you add — flex, grid, position — is a deliberate departure from this well-defined default.** You pull elements *out* of flow, or you replace the flow algorithm with a different one.
+
+<BlockSideTitle title={
+  <>
+    <strong>Block</strong> elements stack vertically and expand to fill container width.
+    <strong> Inline</strong> elements sit on the text baseline and wrap. On mobile both become full-width for readability.
+  </>
+}>
+```html
+<!-- These two divs stack vertically in block flow -->
+<div class="block-a">Block A</div>
+<div class="block-b">Block B</div>
+
+<!-- These spans sit side-by-side in inline flow -->
+<span>Hello</span>
+<span> world</span>
+```
+</BlockSideTitle>
+
+## The Box Model
+
+Every element in CSS is a rectangular box made of four nested layers. Knowing their names — and their sizes — is crucial for any measurement or positioning work.
+
+<DemoBoxModel />
+
+The `box-sizing` property changes what `width` and `height` refer to:
+
+<BlockSideTitle title={
+  <>
+    The four layers from inside out: <strong>content</strong> (your actual text or image), <strong>padding</strong> (transparent breathing room), <strong>border</strong> (the visible edge), <strong>margin</strong> (transparent space that pushes neighbouring elements away).
+    Try the presets to see how each layer enlarges the total footprint.
+  </>
+}>
+```css
+/* default — width = content only */
+.content-box {
+  box-sizing: content-box;  /* default */
+  width: 120px;
+  padding: 16px;
+  border: 2px solid;
+  /* total = 120 + 32 + 4 = 156px */
+}
+
+/* border-box — width = content + padding + border */
+.border-box {
+  box-sizing: border-box;   /* preferred globally */
+  width: 120px;
+  padding: 16px;
+  border: 2px solid;
+  /* total = 120px — no mental arithmetic */
+}
+```
+</BlockSideTitle>
+
+`box-sizing: border-box` is the universally recommended baseline. Almost every modern project resets to it:
+
+```css
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+```
+
+### Margin Collapsing
+
+One counterintuitive consequence of block formatting context: **adjacent vertical margins collapse**. If element A has `margin-bottom: 24px` and element B directly below it has `margin-top: 16px`, the gap between them is `24px`, not `40px`. The larger margin wins; the smaller one is absorbed.
+
+<BlockSideTitle title={
+  <>
+    Margin collapse only happens in the <strong>vertical</strong> direction, only between elements in the same block formatting context, and never with flex or grid children. It's not a bug — it prevents paragraph text from double-spacing between headings and body copy.
+  </>
+}>
+```css
+h2 { margin-bottom: 24px; }
+p  { margin-top: 16px; }
+
+/* gap between h2 and p = max(24, 16) = 24px
+   not 24 + 16 = 40px */
+```
+</BlockSideTitle>
+
+## Flexbox
+
+Flexbox is a **one-dimensional** layout algorithm. You pick an axis — row or column — and items are placed along it. The container controls how leftover space is distributed and how items align on the *cross axis*.
+
+<DemoFlexbox />
+
+The mental model that prevents confusion:
+
+<BlockSideTitle title={
+  <>
+    Toggle the four core properties to see their effect in real time. The generated CSS block at the bottom reflects your exact selection. Note how <code>align-items: stretch</code> grows all items to equal height — handy for card grids.
+  </>
+}>
+```
+Main axis    → controlled by flex-direction
+              (row = horizontal, column = vertical)
+
+Cross axis   → the perpendicular direction
+
+justify-content → distributes space on the MAIN axis
+align-items     → aligns items on the CROSS axis
+```
+</BlockSideTitle>
+
+### Flex Items: `flex-grow`, `flex-shrink`, `flex-basis`
+
+The magic of flexbox is that items can **grow** to fill space or **shrink** to avoid overflow. These three properties — usually written in shorthand — describe that behaviour:
+
+```css
+/* shorthand: flex: grow shrink basis */
+.item { flex: 1 1 0%; }    /* grow, shrink, start from 0 */
+.item { flex: 0 0 200px; } /* rigid, always 200px */
+.item { flex: 2; }         /* grow twice as fast as flex: 1 siblings */
+```
+
+<BlockSideTitle title={
+  <>
+    <code>flex: 1</code> is shorthand for <code>flex: 1 1 0%</code> — grow to fill space, shrink if needed, start from zero. It's the most common single value and turns all siblings into equal-width columns.
+  </>
+}>
+```css
+/* equal-width columns that fill the container */
+.nav-item { flex: 1; }
+
+/* one item uses minimum space, the other takes the rest */
+.icon    { flex: 0 0 40px; }   /* always 40px */
+.label   { flex: 1; }          /* fills the remaining space */
+```
+</BlockSideTitle>
+
+## CSS Grid
+
+Grid is a **two-dimensional** layout algorithm. Where flexbox works along a single axis, grid manages rows *and* columns simultaneously. This makes it the right tool for page-level layout, dashboards, and anything that needs true 2D alignment.
+
+<DemoCSSGrid />
+
+Two-dimensional alignment is the unique superpower of Grid:
+
+<BlockSideTitle title={
+  <>
+    Switch between the three presets. <em>Holy grail</em> shows the classic header / sidebar / main / aside / footer pattern that used to require float hacks — it's four lines of CSS with Grid. <em>Masonry-ish</em> demonstrates <code>span</code> to let items occupy multiple tracks.
+  </>
+}>
+```css
+.grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+}
+
+/* item spans two columns */
+.featured {
+  grid-column: span 2;
+}
+
+/* item placed explicitly by line number */
+.sidebar {
+  grid-column: 3;    /* column line 3 → 4 */
+  grid-row: 2 / 4;   /* rows 2 through 4 */
+}
+```
+</BlockSideTitle>
+
+### `fr` Units and `minmax()`
+
+Grid introduces the `fr` (fraction) unit, which is only valid inside grid track definitions. One `fr` means "one share of the available space after fixed-size tracks are placed":
+
+```css
+/* 3 equal columns */
+grid-template-columns: 1fr 1fr 1fr;
+
+/* sidebar fixed, main flexible */
+grid-template-columns: 200px 1fr;
+
+/* responsive without media queries */
+grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+```
+
+<BlockSideTitle title={
+  <>
+    <code>minmax(180px, 1fr)</code> combined with <code>auto-fill</code> is one of the most powerful one-liners in CSS: it creates as many columns as will fit, each at least 180px wide and proportionally stretching to fill the row. No media queries needed.
+  </>
+}>
+```css
+.card-grid {
+  display: grid;
+  /* fill with columns ≥ 180px, stretch to fill row */
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 16px;
+}
+```
+</BlockSideTitle>
+
+### Grid vs Flexbox
+
+A common question: *which one should I use?*
+
+| Scenario | Reach for |
+|---|---|
+| Navigation bar, button group (items in a line) | **Flexbox** |
+| Page skeleton (header, sidebar, main, footer) | **Grid** |
+| Card grid with rows *and* columns aligned | **Grid** |
+| Centering a single element | Either (`flex`/`grid` + `place-content: center`) |
+| Unknown number of items that should wrap proportionally | **Flexbox** with `flex-wrap` |
+| Items that need to align to a shared row baseline | **Grid** |
+
+In practice you use both together — Grid for the outer shell, Flexbox within each cell.
+
+## Positioning
+
+All the layout models above keep elements *in flow*. Positioning lets you step outside that flow entirely.
+
+<DemoPosition />
+
+<BlockSideTitle title={
+  <>
+    Click through each positioning scheme. The dashed outline shows where the element would have been in normal flow — notice it disappears for <code>absolute</code> and <code>fixed</code> because those elements leave flow entirely. <code>sticky</code> is the hybrid: it starts in flow and locks to the scroll threshold.
+  </>
+}>
+```
+static   → default; offsets have no effect
+relative → offset from normal position; space preserved
+absolute → relative to nearest positioned ancestor
+fixed    → relative to viewport; survives scroll
+sticky   → flows normally then locks to scroll threshold
+```
+</BlockSideTitle>
+
+### The Containing Block
+
+For an `absolute` element, the reference frame is its **containing block** — the nearest ancestor whose `position` is anything *other than* `static`. This is a frequent source of bugs:
+
+```css
+/* Bug: child is positioned relative to the page, not the card */
+.card    { position: static; }  /* ← this is the problem */
+.tooltip { position: absolute; top: 0; right: 0; }
+
+/* Fix: give the parent a non-static position */
+.card    { position: relative; }
+.tooltip { position: absolute; top: 0; right: 0; }
+```
+
+<BlockSideTitle title={
+  <>
+    <code>position: relative</code> with no offsets is a <em>no-op visually</em> — the element does not move. But it establishes a containing block, which is exactly why it is the standard fix when an absolutely positioned child escapes to the wrong ancestor.
+  </>
+}>
+```css
+/* Pattern: contain absolutely-positioned children */
+.parent {
+  position: relative; /* no visual change */
+}
+.child {
+  position: absolute;
+  top: 0;
+  right: 0; /* now anchors to .parent, not the page */
+}
+```
+</BlockSideTitle>
+
+### Stacking Order and `z-index`
+
+When non-static elements overlap, the browser uses a predictable stacking order. `z-index` only has effect on *positioned* elements (anything other than `static`) or flex/grid children.
+
+```css
+.overlay {
+  position: fixed;
+  z-index: 100;  /* bring to front */
+}
+```
+
+**Stacking contexts** are the hidden rule: each `z-index` is local to its stacking context. A child with `z-index: 9999` cannot escape a parent stacking context with `z-index: 1`. Stacking contexts are created by `transform`, `opacity < 1`, `filter`, `will-change`, and a few other properties — which is why an element sometimes seems stuck behind another despite its large `z-index`.
+
+## Multi-Column Layout
+
+CSS has a native newspaper-style column module. It is less common than Flex or Grid, but useful for text-heavy content:
+
+```css
+.article {
+  column-count: 2;
+  column-gap: 2rem;
+  column-rule: 1px solid #e2e8f0; /* optional divider */
+}
+
+/* or set a minimum column width — columns created as needed */
+.article {
+  column-width: 280px;
+}
+```
+
+<BlockSideTitle title={
+  <>
+    Use <code>break-inside: avoid</code> on elements like blockquotes or figures to prevent them from being sliced across a column break. Use <code>column-span: all</code> to let a heading stretch across every column.
+  </>
+}>
+```css
+figure, blockquote {
+  break-inside: avoid;
+}
+
+h2 {
+  column-span: all;
+}
+```
+</BlockSideTitle>
+
+## A Mental Model for All of CSS Layout
+
+Every layout decision reduces to one question: *what formatting context am I in, and what rules does it follow?*
+
+| Context | Created by | Axis | Key property |
+|---|---|---|---|
+| Block | default (`display: block`) | vertical | `margin`, `width` |
+| Inline | `display: inline` | horizontal | `line-height`, `letter-spacing` |
+| Flex | `display: flex` | one axis | `justify-content`, `align-items` |
+| Grid | `display: grid` | two axes | `grid-template-*`, `gap` |
+| Positioned | `position: absolute/fixed` | free placement | `top`, `right`, `z-index` |
+
+When something looks wrong, the first question is always: *which context owns this element right now, and am I fighting its rules or working with them?*
+
+The cascade, the box model, the positioning scheme, the stacking contexts — they are all consistent, deterministic, and understandable. CSS layout only seems unpredictable until you know the system. Once you do, it is remarkably expressive.

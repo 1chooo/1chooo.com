@@ -1,0 +1,45 @@
+export const metadata = {
+  title: 'Traceroute',
+  date: '2026.01.24',
+  description: 'An interactive traceroute and DNS explorer for understanding how packets travel and how domains resolve.',
+}
+
+# Traceroute
+
+Every time you open a website, your request doesn't travel in a straight line. It moves hop by hop across a chain of routers before reaching the destination server.
+
+**Traceroute** reveals that path — showing each intermediate hop, its IP address, hostname, geographic location, and round-trip latency.
+
+Alongside the route, DNS underpins almost everything. Before a connection is even attempted, your machine asks a nameserver to translate `google.com` into an IP address. The DNS tab below shows all the record types returned — `A`, `AAAA`, `MX`, `TXT`, `NS`, and `CNAME` — along with their TTL values.
+
+## Try it
+
+Enter a domain to trace its path and inspect its DNS records. Hops stream in as they resolve. The globe and route diagram update in real time.
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    The results are simulated in the browser. For precise results, run{" "} <code>traceroute &lt;domain&gt;</code> in your terminal.
+
+    <LatencyColorGuide />
+  </div>
+}>
+  <TraceroutePanel />
+</BlockSideTitle>
+
+## How traceroute works
+
+Traceroute relies on the **TTL** (Time To Live) field in every IP packet.
+
+Each router decrements the TTL by one. When it reaches zero, the router drops the packet and replies with an ICMP "Time Exceeded" message — revealing its own IP address.
+
+By sending packets with `TTL = 1, 2, 3, ...` traceroute discovers each hop along the path.
+
+```
+TTL=1 -> first router responds  ->  hop 1
+TTL=2 -> second router responds ->  hop 2
+TTL=n -> destination responds   ->  done
+```
+
+The three RTT measurements per hop reveal jitter and asymmetric routing. A `*` means the router didn't respond — either firewalled or configured to silently drop ICMP.
+
+Higher latency on later hops is expected — transoceanic links alone add 80-150 ms. What matters is a sudden spike at a specific hop. That often signals congestion, routing inefficiencies, or poor peering between networks.

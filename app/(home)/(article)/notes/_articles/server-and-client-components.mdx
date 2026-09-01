@@ -1,0 +1,393 @@
+export const metadata = {
+  title: 'Server and Client Components',
+  date: '2025.05.09',
+  description: 'A complete guide to React Server Components and Client Components in Next.js — what they are, what they can do, and how to compose them correctly.',
+}
+
+# Server and Client Components
+
+Next.js App Router ships with a deceptively simple mental model: every component is either a **Server Component** or a **Client Component**. <FootNoteRef number={1} /> Get the split right and you gain free server-side rendering, zero-cost data fetching, and a smaller JavaScript bundle. Get it wrong and you silently pull your entire page into the browser bundle, losing all of those benefits.
+
+<FootNote
+  number={1}
+  note={
+    <>
+      Next.js official docs: <a href="https://nextjs.org/docs/app/getting-started/server-and-client-components">Server and Client Components</a> — covers the App Router mental model, directive rules, and composition patterns in depth.
+    </>
+  }
+/>
+
+This note walks through what each type actually is, what rules they follow, and the exact patterns for composing them together.
+
+## Two Rendering Environments
+
+Before "Server Component" or "Client Component" means anything, you have to understand that your code now runs in two fundamentally different places.
+
+The **server environment** is a Node.js process. It has access to the file system, databases, environment secrets, and the full `node:` API surface. It has no `window`, no `document`, and no DOM.
+
+The **client environment** is the browser. It has `window`, `document`, event listeners, and React's stateful hooks. It cannot touch databases or secret environment variables directly.
+
+<DemoRenderingEnv />
+
+The table above is the single most useful thing to memorise. Every "why doesn't this work?" question about Server and Client Components traces back to one of these environment mismatches.
+
+## React Server Components
+
+React Server Components (RSC) are the **default** in Next.js App Router. Any `.tsx` file in the `app/` directory that does not begin with `"use client"` is a Server Component.
+
+The headline feature is that an RSC can be an `async` function. You `await` your data directly in the component body — no `useEffect`, no loading state, no client-side waterfall.
+
+<BlockSideTitle title={
+  <>
+    The query runs on the server; credentials never reach the browser. The HTML arrives pre-filled with data — no loading spinners, no client-side waterfall.
+  </>
+}>
+```tsx
+// app/articles/page.tsx  — Server Component by default
+export default async function ArticlesPage() {
+  const articles = await db.query('SELECT * FROM articles ORDER BY date DESC')
+
+  return (
+    <ul>
+      {articles.map(a => <li key={a.id}>{a.title}</li>)}
+    </ul>
+  )
+}
+```
+</BlockSideTitle>
+
+<BlockSideTitle title={
+  <>
+    Server Components run <strong>once per request</strong> on the server and stream their HTML output to the browser. The component source code and any libraries it imports <strong>never appear in the browser bundle</strong>. A 200 kB Markdown parser used only in a Server Component adds zero bytes to the client JS.
+  </>
+}>
+```tsx
+// No "use client" → Server Component
+// This entire file stays on the server.
+import { marked } from 'marked'        // 200 kB library
+import { db } from '@/lib/database'    // secret credentials
+
+export default async function Post({ slug }: { slug: string }) {
+  const post = await db.posts.findUnique({ where: { slug } })
+  const html = marked(post.content)    // runs server-side
+  return <article dangerouslySetInnerHTML={{ __html: html }} />
+}
+```
+</BlockSideTitle>
+
+What a Server Component **cannot** do:
+
+- Use `useState`, `useReducer`, `useEffect`, or any React hook that requires a live browser runtime
+- Attach event handlers like `onClick` or `onChange`
+- Access `window`, `document`, `localStorage`, or any other browser API
+
+## Client Components
+
+A Client Component is any component whose file begins with the `"use client"` directive. This is the **boundary declaration** — it tells Next.js that this file (and everything it imports) should be included in the browser JavaScript bundle and hydrated client-side.
+
+```tsx
+// components/ThemeToggle.tsx
+"use client"
+// ↑ This one line is the entire "use client" directive.
+//   It tells Next.js to include this file in the client bundle.
+
+import { useState } from "react"
+
+export function ThemeToggle() {
+  const [dark, setDark] = useState(false)
+  return (
+    <button onClick={() => setDark(d => !d)}>
+      {dark ? "Light mode" : "Dark mode"}
+    </button>
+  )
+}
+```
+
+<BlockSideTitle title={
+  <>
+    <code>"use client"</code> is a React directive, not a Next.js one. It must appear at the very top of the file, before any imports. It is a string literal — not a comment and not a function call. Files without this directive are treated as Server Components automatically in the App Router.
+  </>
+}>
+```tsx
+"use client"
+// ↑ must be the first line — before imports
+
+import { useState, useEffect } from "react"
+import { cn } from "@/lib/utils"
+
+// This file now participates in the browser bundle.
+// useState, useEffect, onClick — all valid here.
+```
+</BlockSideTitle>
+
+What a Client Component **can** do that a Server Component cannot:
+
+- Call `useState`, `useReducer`, `useContext`, `useRef`, and all other React hooks
+- Register event handlers (`onClick`, `onChange`, `onSubmit`, …)
+- Access `window`, `document`, `navigator`, `localStorage`
+- Use browser-specific APIs like `IntersectionObserver`, `ResizeObserver`, or the Web Audio API
+- Re-render in response to user interaction without a server round-trip
+
+## The `"use client"` Boundary
+
+`"use client"` does not mark a single component — it marks a **subtree boundary**. Every file that a Client Component imports directly becomes part of the client bundle too, regardless of whether those files have their own `"use client"` directive.
+
+<DemoComponentTree />
+
+Switch between the three scenarios above. The key insight:
+
+- **Leaf-level client** — `"use client"` appears only on the components that actually need it. The server forms the skeleton; client components are small, focused islands.
+- **Too much client** — `"use client"` is placed on a high-level component. Every child it imports becomes a client component, losing server features and inflating the JS bundle.
+- **SC as CC children** — Server Component output is passed as `children` to a Client Component. The SC still runs on the server.
+
+<BlockSideTitle title={
+  <>
+    Think of the component tree like a one-way membrane. Server Components can freely render Client Components. But once you cross into a client boundary, every file that is statically <code>import</code>ed must also be a Client Component. You cannot re-enter the server side from within a client file.
+  </>
+}>
+```
+layout.tsx  (Server)
+  └─ Page  (Server)
+       └─ Sidebar  (Server)
+            └─ FilterForm  ← "use client" boundary
+                 └─ FilterInput  (Client)  ← pulled in as client
+                 └─ ResetButton  (Client)  ← pulled in as client
+```
+</BlockSideTitle>
+
+## Composition Patterns
+
+There are four patterns to know. Three are valid; one is a common mistake.
+
+<DemoComposition />
+
+| Pattern | Valid | Notes |
+|---|---|---|
+| SC renders SC | ✓ | Both run on the server; can be `async`; share DB access and secrets freely. |
+| SC renders CC | ✓ | The most common pattern. SC fetches data and passes it as props to a CC leaf that handles interactivity. |
+| CC imports SC | ✗ | The imported SC is silently pulled into the client bundle, losing all server-only capabilities. |
+| CC receives SC as `children` | ✓ | Escape hatch: the *parent* SC renders both and passes the SC output as `children`. The CC never imports the SC directly. |
+
+The children pattern deserves a concrete example. Instead of the Client Component importing the Server Component, the *Server Component parent* renders both and passes the SC's output as `children`:
+
+<BlockSideTitle title={
+  <>
+    The parent <code>page.tsx</code> is a Server Component — it owns both imports and renders <code>ArticleContent</code> inside <code>Modal</code>. <code>Modal</code> never imports <code>ArticleContent</code> directly, so the SC stays out of the client bundle entirely.
+  </>
+}>
+```tsx
+// app/page.tsx — Server Component
+import { Modal } from '@/components/Modal'
+import { ArticleContent } from '@/components/ArticleContent'
+
+export default async function Page({ params }) {
+  return (
+    <Modal>
+      <ArticleContent slug={params.slug} />
+    </Modal>
+  )
+}
+```
+</BlockSideTitle>
+
+<BlockSideTitle title={
+  <>
+    <code>Modal</code> is a Client Component that manages open/close state. It receives <code>children</code> as already-rendered React nodes from the server — it does not need to know or import what is inside.
+  </>
+}>
+```tsx
+// components/Modal.tsx
+"use client"
+import { useState } from "react"
+
+export function Modal({ children }: { children: React.ReactNode }) {
+  const [open, setOpen] = useState(true)
+  return open ? <dialog>{children}</dialog> : null
+}
+```
+</BlockSideTitle>
+
+<BlockSideTitle title={
+  <>
+    The <code>children</code> prop (and any prop typed as <code>React.ReactNode</code>) is the bridge between the two worlds. Props crossing the server–client boundary must be <strong>serialisable</strong> — plain objects, strings, numbers, arrays — because they are encoded in the RSC payload and sent over the network. Functions and class instances cannot cross the boundary.
+  </>
+}>
+```tsx
+// Props that CAN cross the boundary:
+<ClientComp name="Alice" count={42} tags={["a", "b"]} />
+
+// Props that CANNOT cross the boundary:
+<ClientComp onUpdate={() => refetch()} />  // ✗ function
+<ClientComp instance={new MyClass()} />    // ✗ class instance
+<ClientComp data={new Map([...])} />       // ✗ Map / Set
+
+// Exception: children (React nodes from SC are OK)
+<ClientComp><ServerComp /></ClientComp>    // ✓
+```
+</BlockSideTitle>
+
+## A Practical Example: Building a Blog
+
+All of the rules above click into place fastest with a concrete project. A blog has a natural split: the content and data-fetching are purely server-side work; the interactive features — liking a post, adding a comment, copying a share link — belong to the client.
+
+<DemoBlogArchitecture />
+
+Click any node in the tree to see its role and code. The structure has two routes:
+
+- `posts/page.tsx` — lists all posts. It fetches from the database, renders `PostList` → `PostCard`, and streams pre-filled HTML. No JavaScript is sent for any of these components.
+- `posts/[slug]/page.tsx` — renders a single post. It fetches the post, parses Markdown on the server using a potentially large library (zero bundle cost), and composes three Client Components at the leaves.
+
+The three Client Component leaves — `LikeButton`, `ShareMenu`, `CommentSection` — are small and focused. Each one has a single reason to be a Client Component:
+
+<BlockSideTitle title={
+  <>
+    <code>LikeButton</code> needs <code>useState</code> for optimistic UI and <code>onClick</code> to fire the API call. The server passes <code>initialLikes</code> as a prop so the count is correct on first paint — no extra client fetch needed.
+  </>
+}>
+```tsx
+// components/LikeButton.tsx
+"use client"
+export function LikeButton({ postId, initialLikes }) {
+  const [likes, setLikes] = useState(initialLikes)
+  async function handleLike() {
+    setLikes(l => l + 1)
+    await fetch(`/api/posts/${postId}/like`, { method: "POST" })
+  }
+  return <button onClick={handleLike}>♥ {likes}</button>
+}
+```
+</BlockSideTitle>
+
+<BlockSideTitle title={
+  <>
+    <code>ShareMenu</code> needs <code>window.location</code> and <code>navigator.clipboard</code> — browser globals that do not exist on the server. A one-line check would throw at build time in a Server Component.
+  </>
+}>
+```tsx
+// components/ShareMenu.tsx
+"use client"
+export function ShareMenu({ title }) {
+  const [open, setOpen] = useState(false)
+  function copyLink() {
+    navigator.clipboard.writeText(window.location.href)
+  }
+  return (
+    <div>
+      <button onClick={() => setOpen(o => !o)}>Share</button>
+      {open && <button onClick={copyLink}>Copy link</button>}
+    </div>
+  )
+}
+```
+</BlockSideTitle>
+
+<BlockSideTitle title={
+  <>
+    <code>CommentSection</code> manages a controlled form and an optimistic comment list — both require state that lives in the browser and updates without a page reload.
+  </>
+}>
+```tsx
+// components/CommentSection.tsx
+"use client"
+export function CommentSection({ postId }) {
+  const [comments, setComments] = useState([])
+  const [text, setText] = useState("")
+  async function submit(e) {
+    e.preventDefault()
+    setComments(c => [...c, { text, id: Date.now() }])
+    setText("")
+    await fetch(`/api/posts/${postId}/comments`, {
+      method: "POST", body: JSON.stringify({ text }),
+    })
+  }
+  return (
+    <section>
+      {comments.map(c => <p key={c.id}>{c.text}</p>)}
+      <form onSubmit={submit}>
+        <textarea value={text} onChange={e => setText(e.target.value)} />
+        <button type="submit">Post</button>
+      </form>
+    </section>
+  )
+}
+```
+</BlockSideTitle>
+
+The Server Component pages never import these three files directly — they just render them inline. The `"use client"` boundary on each file ensures only the code for those small components ends up in the browser bundle. Everything else — the page shells, `PostList`, `PostCard`, the Markdown parser — stays on the server.
+
+## Data Fetching
+
+The two component types naturally suggest two data-fetching strategies.
+
+**Server Components — fetch at render time**
+
+Because RSCs are `async`, they can `await` any data source directly. No hooks, no loading spinners, no client-side waterfall. The HTML arrives pre-filled.
+
+```tsx
+// Server Component — async, direct DB access
+export default async function Dashboard() {
+  const [stats, recentOrders] = await Promise.all([
+    db.getStats(),
+    db.getRecentOrders({ limit: 10 }),
+  ])
+
+  return (
+    <main>
+      <StatsGrid data={stats} />
+      <OrderTable orders={recentOrders} />
+    </main>
+  )
+}
+```
+
+**Client Components — fetch after interaction**
+
+When data depends on user input, live subscriptions, or must update without a full page reload, the Client Component handles it with hooks or a data-fetching library.
+
+```tsx
+"use client"
+import useSWR from "swr"
+
+export function LivePrice({ ticker }: { ticker: string }) {
+  const { data, isLoading } = useSWR(`/api/price/${ticker}`, fetcher, {
+    refreshInterval: 5000,
+  })
+
+  if (isLoading) return <span>—</span>
+  return <span>${data.price.toFixed(2)}</span>
+}
+```
+
+The common hybrid: a Server Component fetches the initial data and passes it to a Client Component as `initialData`. The CC can optimistically update from there without blocking the initial paint.
+
+## When to Use Which
+
+The guiding principle: **start with a Server Component and reach for `"use client"` only when you need something the browser provides.**
+
+| Need | Use |
+|---|---|
+| Fetch data from a database or API at build/request time | **Server Component** |
+| Access environment secrets | **Server Component** |
+| Use `useState`, `useReducer`, any hook | **Client Component** |
+| Handle user events (`onClick`, `onChange`) | **Client Component** |
+| Use `window`, `document`, `localStorage` | **Client Component** |
+| Render a large third-party UI library | **Server Component** (if it has no hooks/events) |
+| Real-time data (WebSockets, polling) | **Client Component** |
+| Static, navigation-only header/footer | **Server Component** |
+| Interactive form with validation | **Client Component** |
+| Wrap interactive children in a layout shell | **Server Component** (pass children) |
+
+## A Mental Model
+
+The practical rule is simple: **the boundary is a one-way valve.** Data and rendered nodes flow from server to client; JavaScript and interactivity flow from client to user.
+
+| Server Environment | Client Environment |
+|---|---|
+| `async` component bodies | `useState` / `useReducer` |
+| database / file system | `useEffect` / `useLayoutEffect` |
+| secret env vars | `window` / `document` / DOM |
+| zero bundle cost | event handlers (`onClick` …) |
+| streaming HTML | real-time updates |
+| — | browser APIs |
+
+When a component is in the wrong environment — hooks in a Server Component, database calls in a Client Component — the error message almost always tells you exactly which rule was broken. With this model in mind, the fix is usually one line: add or remove `"use client"`, or restructure to use the children composition pattern.

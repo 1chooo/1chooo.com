@@ -1,0 +1,256 @@
+export const metadata = {
+  title: 'REST API',
+  date: '2026.03.08',
+  description: 'A deep dive into REST — resources, HTTP methods, request and response structure, status codes, authentication, and the constraints that make an API RESTful.',
+}
+
+# REST API
+
+Every modern app calls APIs. You type a URL into your browser, tap a button in a mobile app, or write `fetch('/api/users')` — and somewhere a server receives a structured request and sends back a structured response. Most of those exchanges happen over **REST**, yet the term is thrown around loosely enough that it deserves a careful look.
+
+REST answers a design question: *how should clients and servers communicate over HTTP in a way that is predictable, scalable, and easy to reason about?* The answer is a set of architectural constraints — not a protocol, not a specification — that emerged from Roy Fielding's 2000 doctoral dissertation. This article walks through what those constraints mean in practice.
+
+## Where REST Fits
+
+REST is an **architectural style** for distributed hypermedia systems. It is not a standard or a wire format. In practice it means designing your API around HTTP verbs, status codes, and resource-oriented URLs.
+
+<DemoRequestCycle />
+
+Step through the demo above to see the full lifecycle of a single REST exchange: the client sends an HTTP request, the server processes it, and returns a response. Click **next** to advance one step at a time.
+
+## The HTTP Message
+
+REST rides on top of HTTP. Every exchange consists of exactly two messages: a **request** from the client and a **response** from the server. Each message has a fixed structure.
+
+<DemoHTTPMessage />
+
+Toggle between request and response to explore each field. Click a field in the diagram to see what it does and when to use it.
+
+### The Request Line
+
+The first line of any HTTP request contains three things: the **method**, the **request target** (path + optional query string), and the **HTTP version**. Together they tell the server exactly what action to take on which resource.
+
+<BlockSideTitle title={
+  <>
+    <strong>Request line anatomy</strong>
+  </>
+}>
+```
+GET /articles/17?format=summary HTTP/1.1
+│   │                            └── protocol version
+│   └── request target (path + query)
+└── method (verb)
+```
+</BlockSideTitle>
+
+### Headers
+
+Headers carry metadata. On a request: the `Host` (required in HTTP/1.1), `Accept` (what formats the client can handle), `Authorization` (credentials), `Content-Type` (body format). On a response: `Content-Type`, `Cache-Control`, `ETag`, rate-limit headers. Headers are case-insensitive plain text.
+
+### The Body
+
+Only present on requests that carry data — `POST`, `PUT`, `PATCH`. The body is an uninterpreted stream of bytes; `Content-Type` tells both sides how to parse it. For REST APIs the body is almost always UTF-8 encoded JSON.
+
+## HTTP Methods
+
+REST maps each CRUD operation to an HTTP **verb**. The choice of method carries semantic meaning that clients, proxies, and caches all depend on.
+
+| Method | Semantic | Safe? | Idempotent? |
+|--------|----------|-------|-------------|
+| `GET` | Read a resource or collection | Yes | Yes |
+| `POST` | Create a new resource | No | No |
+| `PUT` | Replace a resource entirely | No | Yes |
+| `PATCH` | Apply a partial update | No | No (by convention) |
+| `DELETE` | Remove a resource | No | Yes |
+| `HEAD` | Same as GET, headers only | Yes | Yes |
+| `OPTIONS` | Describe allowed methods (CORS preflight) | Yes | Yes |
+
+**Safe** means the method must not change server state — GET, HEAD, OPTIONS are safe. **Idempotent** means calling the method multiple times produces the same result as calling it once — DELETE and PUT are idempotent (deleting a resource that is already gone is still "gone").
+
+<BlockSideTitle title={
+  <>
+    <strong>POST vs PUT vs PATCH</strong>
+  </>
+}>
+```
+POST   /articles          → create a new article (server assigns ID)
+PUT    /articles/17       → replace article 17 entirely (client sends full document)
+PATCH  /articles/17       → update only the fields provided
+DELETE /articles/17       → delete article 17
+```
+</BlockSideTitle>
+
+## Resource-Oriented URLs
+
+The central REST idea is that **every thing is a resource** and every resource has a URL. Design your URLs around nouns, not verbs. The verb is already in the HTTP method.
+
+```
+# Good (resource-oriented)
+GET    /users              → list users
+POST   /users              → create user
+GET    /users/42           → get user 42
+PUT    /users/42           → replace user 42
+DELETE /users/42           → delete user 42
+GET    /users/42/posts     → get posts by user 42
+
+# Bad (RPC-style, verb in path)
+POST   /getUser
+POST   /createUser
+POST   /deleteUser
+```
+
+Nesting beyond one level (`/users/42/posts/17/comments`) becomes unwieldy. A common pattern at depth: expose the nested resource at its own top-level endpoint (`/comments/99`) and cross-link via ID fields.
+
+## HTTP Status Codes
+
+Every response begins with a **status code** — a three-digit number that tells the client whether the request succeeded, and if not, why. The leading digit defines the class.
+
+<DemoStatusCodes />
+
+Select a category, then click individual codes to see when to use them and what they mean.
+
+### Picking the Right Code
+
+Getting status codes right matters more than most developers realise. A `200` response with `{"error": "User not found"}` in the body breaks every HTTP client, proxy, cache, and monitoring tool that inspects the code. A few principles:
+
+- **Do not use `200` for errors.** Return `4xx` when the client did something wrong, `5xx` when the server failed.
+- **Use `201 Created` + `Location` header** when a `POST` creates a resource.
+- **Use `204 No Content`** for successful deletes (no body needed).
+- **Return `404` instead of `403`** when you want to hide whether a resource exists.
+- **Use `422 Unprocessable Entity`** for business-rule validation failures (as opposed to `400` for malformed syntax).
+
+## The Six REST Constraints
+
+Fielding's dissertation describes REST through six constraints. An API that satisfies all of them is properly RESTful; most real APIs satisfy some subset.
+
+**1. Client–Server** — Separate the UI concerns from the data storage concerns. The client does not need to know how the server stores data; the server does not need to know how the client renders it. This allows each to evolve independently.
+
+**2. Stateless** — Every request from client to server must contain all information needed to understand it. The server stores no client session state between requests. Authentication credentials are re-sent on every request. This makes servers horizontally scalable — any server in the pool can handle any request.
+
+<BlockSideTitle title={
+  <>
+    <strong>Stateless auth</strong> — credentials travel with every request
+  </>
+}>
+```
+# Every request carries its own credentials
+GET /orders HTTP/1.1
+Host: api.example.com
+Authorization: Bearer eyJhbGciOiJSUzI1NiJ9…
+
+# Server reads the JWT, verifies signature, no session lookup needed
+```
+</BlockSideTitle>
+
+**3. Cacheable** — Responses must label themselves as cacheable or not (`Cache-Control`, `ETag`, `Expires`). Caching at the client, proxy, or CDN layer reduces load and latency.
+
+**4. Uniform Interface** — All resources are identified by URIs; representations are transferred to clients; messages are self-descriptive; hypermedia drives application state (HATEOAS). In practice most "REST" APIs implement only the first two.
+
+**5. Layered System** — The client need not know whether it is talking to the origin server, a load balancer, a CDN edge node, or a caching proxy. Each layer can only see the adjacent layer.
+
+**6. Code on Demand** (optional) — Servers can transfer executable code (JavaScript) to clients. The only optional constraint; rarely cited.
+
+## Authentication
+
+REST is stateless, so credentials travel with every request. Three common mechanisms:
+
+**API Keys** — A long opaque string issued to an application. Simple but coarse-grained — every request from that application shares the same permissions. Rotate keys regularly and scope them to the minimum required permissions.
+
+```
+GET /v1/data HTTP/1.1
+X-API-Key: sk_live_abc123…
+```
+
+**Bearer Tokens (JWT)** — A signed token containing claims (user ID, roles, expiry). The server validates the signature without a database round-trip. Short-lived access tokens (minutes to hours) paired with longer-lived refresh tokens.
+
+```
+Authorization: Bearer eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCJ9…
+```
+
+**OAuth 2.0** — A delegation protocol. A third-party app obtains a scoped access token on behalf of a user without receiving the user's password. Used by "Log in with Google/GitHub" flows and machine-to-machine service accounts.
+
+Never send credentials over plain HTTP. Always require TLS (HTTPS). Never log Authorization headers.
+
+## Versioning
+
+APIs change. A versioning strategy lets you evolve the API without breaking existing clients.
+
+**URL versioning** — Simple and visible. Widely used.
+```
+GET /v1/users/42
+GET /v2/users/42        ← new response shape
+```
+
+**Accept-header versioning** — Cleaner URLs but harder to inspect in browser address bars.
+```
+Accept: application/vnd.example.v2+json
+```
+
+**No versioning** — works for internal APIs that control both client and server, or when you commit to backwards-compatible changes only (additive changes: new fields, new endpoints).
+
+## Pagination, Filtering, and Sorting
+
+Collections can be large. Expose controls through query parameters.
+
+```
+# Cursor-based pagination (preferred for large, live datasets)
+GET /posts?cursor=eyJpZCI6MTAwfQ&limit=20
+
+# Offset-based pagination (simple, watch out for drift)
+GET /posts?page=3&per_page=20
+
+# Filtering
+GET /users?role=admin&active=true
+
+# Sorting
+GET /products?sort=price&order=asc
+```
+
+Cursor pagination avoids the "missing/duplicate items when rows are inserted during pagination" problem that offset pagination suffers from.
+
+## Error Responses
+
+A predictable error shape is as important as a predictable success shape. A widely adopted convention (RFC 9457 — Problem Details):
+
+```json
+{
+  "type":   "https://api.example.com/errors/validation-failed",
+  "title":  "Validation Failed",
+  "status": 422,
+  "detail": "The 'email' field must be a valid email address.",
+  "errors": [
+    { "field": "email", "code": "invalid_format" }
+  ]
+}
+```
+
+Always return errors from the same `Content-Type`, always include the status code in the body too, and never expose raw stack traces.
+
+## Putting It All Together
+
+A `POST /articles` to create a new article:
+
+```
+POST /v1/articles HTTP/1.1
+Host: api.example.com
+Authorization: Bearer eyJhbGc…
+Content-Type: application/json
+Accept: application/json
+
+{"title": "REST API", "body": "…", "tags": ["networking"]}
+```
+
+A successful response:
+
+```
+HTTP/1.1 201 Created
+Content-Type: application/json; charset=utf-8
+Location: /v1/articles/17
+Cache-Control: no-store
+
+{"id": 17, "title": "REST API", "createdAt": "2026-03-08T09:00:00Z"}
+```
+
+Every field is deliberate: `201` signals creation; `Location` tells the client where the resource lives; `Cache-Control: no-store` prevents stale data from being served; the body echoes the created record back.
+
+REST is not a protocol — it is a set of habits. The habits are: pick the right HTTP method, pick the right URL, use status codes honestly, carry credentials on every request, label what can be cached, and version deliberately. Follow them and your API will work well with every HTTP client, proxy, CDN, and monitoring tool on the internet.

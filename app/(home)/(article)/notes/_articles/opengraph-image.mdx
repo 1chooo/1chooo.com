@@ -1,0 +1,201 @@
+export const metadata = {
+  title: 'OpenGraph Image',
+  date: '2026.03.01',
+  description: 'A deep dive into OpenGraph images — the 1200 × 630 canvas that previews your content on every social platform — and how to build a live generator with React and canvas.',
+}
+
+# OpenGraph Image
+
+Every time you paste a link into Slack, iMessage, Twitter, or Facebook, a card blooms beneath it — title, description, a big thumbnail. That thumbnail is your **OpenGraph image**. It is the first impression your content makes before a single word of it is read.
+
+The protocol is simple: a `<meta property="og:image">` tag in your HTML points to a URL, the platform crawls it, and the image appears in the preview card. But building an image that looks great, loads at the right size, and communicates the right things is its own design problem.
+
+In this post I walk through the anatomy of a good OG image, then build an interactive generator with React and `<canvas>` — live below.
+
+## The Standard: 1200 × 630
+
+The Open Graph specification does not mandate a single dimension, but the industry has converged on **1200 × 630 pixels** as the canonical size. The aspect ratio is approximately `1.91 : 1` — wider than a standard photograph but shorter than a cinema letterbox.
+
+A few things fall out of this constraint:
+
+- **Twitter/X** crops to 2 : 1 at medium-card size, so anything in the outer ~5 % of height may be clipped. Keep all important text centred vertically away from the very top and bottom edges.
+- **iMessage and Slack** render the full 1.91 : 1 ratio uncropped.
+- Retina displays will show your image at 2× if you serve it large enough — at 1200 px wide you are already at the threshold; 600 px wide looks blurry on HiDPI screens.
+
+The canvas below maps the full 1200 × 630 space and labels each functional zone. **Hover over any coloured region** to read what it should contain.
+
+<OGSizeDemo />
+
+## Anatomy of a Good OG Image
+
+Looking at the zones from the demo above, a well-structured OG image has five distinct layers.
+
+**Background.** The full canvas. It should establish the visual mood in one glance — dark, light, saturated — and be consistent with your brand.
+
+**Identity row.** A small avatar or logo (≈ 80 × 80 px) next to your site name anchored to the top-left. This is the *who* — the viewer should immediately know whose content this is.
+
+**Title.** The dominant text element, centred vertically in the canvas. Keep it under 60 characters; choose a typeface and weight that reads clearly at thumbnail size. At 1200 px canvas width, a font size of **56–72 px** is comfortable.
+
+**Description.** One sentence below the title. Smaller type (≈ 30 px), a muted colour. It reinforces the title without competing with it. Under 100 characters.
+
+**URL / metadata.** Bottom of the canvas — canonical URL, author, date. The smallest readable type size (≈ 24 px). A horizontal rule separating this from the description zone helps visually.
+
+## Two Implementation Approaches
+
+Once you know the layout, there are two standard ways to produce the image at build or request time.
+
+### 1 — `ImageResponse` (Next.js / Vercel OG)
+
+The recommended approach for Next.js projects is the [`@vercel/og`](https://vercel.com/docs/functions/og-image-generation) package, which renders a React tree to a PNG using Satori (a CSS-to-SVG engine) and Resvg (SVG-to-PNG). You write JSX that looks like HTML, and the library handles font loading and rendering:
+
+```ts
+import { ImageResponse } from 'next/og'
+
+export const runtime = 'edge'
+
+export async function GET(req: Request) {
+  const { searchParams } = new URL(req.url)
+  const title = searchParams.get('title') ?? 'My Site'
+
+  return new ImageResponse(
+    (
+      <div
+        style={{
+          width: '100%',
+          height: '100%',
+          background: '#0f0f13',
+          display: 'flex',
+          flexDirection: 'column',
+          padding: 60,
+        }}
+      >
+        <span style={{ fontSize: 68, color: '#f5f0e8', fontWeight: 700 }}>
+          {title}
+        </span>
+      </div>
+    ),
+    { width: 1200, height: 630 }
+  )
+}
+```
+
+The route handler lives at `app/opengraph-image.tsx` (for the root OG image) or `app/blog/[slug]/opengraph-image.tsx` for per-post images. Next.js automatically links the `<meta og:image>` tag to it.
+
+<BlockSideTitle title={
+  <>
+    <code>ImageResponse</code> runs on the Edge runtime, so it executes close to the user with near-zero cold-start. Pass query parameters to make the image dynamic — <code>/opengraph-image?title=My+Post</code>.
+  </>
+}>
+```ts
+// app/blog/[slug]/opengraph-image.tsx
+import { ImageResponse } from 'next/og'
+import { getPost } from '@/lib/posts'
+
+export async function generateImageMetadata({ params }) {
+  const post = await getPost(params.slug)
+  return [{ id: 'og', alt: post.title }]
+}
+
+export default async function OGImage({ params }) {
+  const post = await getPost(params.slug)
+  return new ImageResponse(<Layout post={post} />, {
+    width: 1200,
+    height: 630,
+  })
+}
+```
+</BlockSideTitle>
+
+### 2 — Canvas + `toDataURL`
+
+When you need complete control — custom blend modes, pixel-level effects, or a client-side generator that never hits a server — the browser `<canvas>` API is the right tool. The same drawing primitives (`fillRect`, `fillText`, arc paths) that power the Snake game earlier in this blog produce a pixel-perfect 1200 × 630 PNG with a single call to `canvas.toDataURL('image/png')`.
+
+The key insight is to draw at **full resolution** (1200 × 630) even when the *display* canvas is scaled down. In the implementation below, two canvases coexist:
+
+- A **display canvas** scaled to fit the page — re-drawn on every state change, read by the user.
+- A **hidden export canvas** drawn at `scale = 1` only when the user clicks *Download*.
+
+```ts
+// Display at ~600 px wide
+const scale = displayWidth / 1200
+drawOG(displayCanvas, { ...opts, scale })
+
+// Export at full 1200 × 630
+drawOG(exportCanvas, { ...opts, scale: 1 })
+const dataUrl = exportCanvas.toDataURL('image/png')
+```
+
+`drawOG` multiplies every coordinate and font size by `scale`, so the same function draws correctly at any resolution.
+
+<BlockSideTitle title={
+  <>
+    All coordinates are in OG-space (1200 × 630). Multiply by <code>scale</code> before every drawing call to make the same function work at any output size.
+  </>
+}>
+```ts
+function drawOG(canvas: HTMLCanvasElement, opts: { scale: number, ... }) {
+  const { scale, title, preset } = opts
+  const W = 1200 * scale
+  const H = 630  * scale
+  canvas.width  = W
+  canvas.height = H
+
+  const ctx = canvas.getContext('2d')!
+
+  // Every measurement is multiplied by scale
+  ctx.font = `bold ${68 * scale}px serif`
+  ctx.fillText(title, 60 * scale, 265 * scale)
+}
+```
+</BlockSideTitle>
+
+## The React Implementation
+
+The component uses the same ref-over-state pattern from the Snake game: mutable display config lives in React `useState` (since the DOM does need to re-render the inputs), but the canvas is always drawn imperatively via `useEffect` and `useCallback`.
+
+```ts
+const [title, setTitle] = useState("Building an OpenGraph Image")
+const [preset, setPreset] = useState<Preset>(PRESETS[0])
+
+const render = useCallback(() => {
+  const scale = displayWidth / 1200
+  drawOG(displayRef.current!, { title, preset, scale })
+}, [title, preset, displayWidth])
+
+useEffect(() => { render() }, [render])
+```
+
+A `ResizeObserver` watches the container element and re-triggers `render` whenever the page layout changes — this keeps the canvas sharp on narrow mobile screens without any manual breakpoints.
+
+## The Live Builder
+
+Type your own title, description, and site name. Pick a theme. Click **Download PNG** to get the 1200 × 630 file — ready to drop straight into a `<meta property="og:image">` tag or a Next.js `opengraph-image.tsx` response.
+
+<OGEditor />
+
+## Putting It On Your Page
+
+Once you have the image file, the simplest way to serve it is as a static asset:
+
+```html
+<meta property="og:image" content="https://yoursite.com/og.png" />
+<meta property="og:image:width"  content="1200" />
+<meta property="og:image:height" content="630"  />
+<meta property="og:image:type"   content="image/png" />
+```
+
+For dynamic images that share the same layout but different content, use the Next.js route handler approach above — pass `?title=...&desc=...` as query parameters and read them inside `GET()`.
+
+To verify your image before publishing, paste your URL into [opengraph.xyz](https://www.opengraph.xyz/) or the [Twitter Card Validator](https://cards-dev.twitter.com/validator). Both show exactly what crawlers will return.
+
+## Concepts at a Glance
+
+| Concept | Detail |
+|---|---|
+| Canonical size | 1200 × 630 px, ratio ≈ 1.91 : 1 |
+| Next.js route | `app/opengraph-image.tsx` → `ImageResponse` |
+| Scale-independent drawing | multiply all coords by `scale` factor |
+| Display vs. export | two canvases — one scaled for screen, one full-res |
+| Validation | opengraph.xyz, Twitter Card Validator |
+
+The OG image is a small canvas but a high-leverage one. A few hours of design work pays off every time someone shares your content — which is to say, every time anyone else markets it for you.

@@ -1,0 +1,182 @@
+export const metadata = {
+  title: 'Image Compression',
+  date: '2026.03.01',
+  description: 'How JPEG and WebP shrink images without (visibly) breaking them — a tour of colour spaces, 8×8 blocks, quantisation, and a live quality demo.',
+}
+
+# Image Compression
+
+A raw photograph from a modern phone is around 25 MB. After JPEG compression at typical quality, it weighs under 3 MB, and most people cannot tell the difference. Something interesting is going on — the algorithm is discarding real data, yet the result looks fine. Why?
+
+The answer is that JPEG does not compress uniformly. It exploits two reliable features of human perception: we notice blur less than we notice noise, and we are much more sensitive to brightness variation than to colour variation. The algorithm finds the information we are least likely to miss, and throws it away first.
+
+This post walks through the pipeline step by step, with interactive demos at each stage.
+
+## The Raw Size Problem
+
+Before any compression, every pixel in an image needs three bytes — one each for red, green, and blue, each value from 0 to 255.
+
+```ts
+// pixels × channels × bytes per channel
+const rawBytes = width * height * 3
+
+// 1920×1080 photo
+rawBytes = 1920 * 1080 * 3  // → 6,220,800 ≈ 6 MB
+```
+
+A 4K image runs to 25 MB. For a website that loads dozens of images on a scroll, that is prohibitive. Compression is not optional — it is the only reason the web works.
+
+## The JPEG Pipeline
+
+JPEG compresses in five stages, each exploiting a different weakness in human perception.
+
+| Stage | What happens |
+|---|---|
+| 1. Colour space | RGB → YCbCr — separate brightness from colour |
+| 2. Chroma subsampling | Halve the resolution of the colour channels |
+| 3. Block division | Slice the image into 8×8 pixel tiles |
+| 4. DCT + quantisation | Convert each tile to frequencies, discard weak ones |
+| 5. Entropy coding | Huffman-encode the remaining values |
+
+The quality setting controls stage 4 — how aggressively the frequencies are rounded. Everything else is fixed.
+
+## Step 1 — Colour Space: RGB → YCbCr
+
+RGB stores brightness and colour entangled in three equal channels. YCbCr separates them:
+
+- **Y** — luma, the brightness signal
+- **Cb** — blue–yellow colour difference
+- **Cr** — red–cyan colour difference
+
+```ts
+function rgbToYCbCr(r: number, g: number, b: number) {
+  const Y = 0.299 * r + 0.587 * g + 0.114 * b
+  const Cb = 128 - 0.168736 * r - 0.331264 * g + 0.5 * b
+  const Cr = 128 + 0.5 * r - 0.418688 * g - 0.081312 * b
+  return [Y, Cb, Cr]
+}
+```
+
+Why bother? Because the human visual system is wired this way. The retina has many more luminance-sensitive receptors than colour-sensitive ones — you can read fine print in greyscale but would struggle if the same print used only colour variation.
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    Step through the channels using the buttons below. <strong>Y</strong> preserves all the fine detail; <strong>Cb</strong> and <strong>Cr</strong> look blurry and uniform by comparison. Switch to <strong>Reconstruct</strong> and toggle <strong>4:2:0 subsample</strong> — the colour channels are halved, yet the difference is subtle.
+  </div>
+}>
+  <DemoColorChannels />
+</BlockSideTitle>
+
+## Step 2 — Chroma Subsampling
+
+Once we have YCbCr, we can exploit the perception gap immediately. The simplest scheme is **4:2:0**: keep Y at full resolution, but share each Cb and Cr value between four neighbouring pixels (a 2×2 block).
+
+```
+4:4:4  →  Y  Cb  Cr  per pixel   (no subsampling)
+4:2:2  →  Y  full, Cb/Cr halved horizontally
+4:2:0  →  Y  full, Cb/Cr halved in both directions
+```
+
+For a 1920×1080 photo, 4:2:0 reduces the raw byte count from 6 MB to 3 MB before any further compression — a 50 % reduction at almost zero perceptual cost.
+
+## Step 3 — Dividing into 8×8 Blocks
+
+JPEG does not process the full image at once. It slices it into **8×8 pixel tiles** and handles each independently. Every step from here on operates on a single tile.
+
+```ts
+// Top-left pixel of block (bx, by)
+const x0 = bx * 8
+const y0 = by * 8
+
+// Read the 64 pixels that make up this block
+const block = pixels.slice(y0, y0 + 8).map(row => row.slice(x0, x0 + 8))
+```
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    The thick lines mark 8×8 block boundaries. Hover over any pixel to read its coordinates and RGB value. Click to highlight that pixel's block — notice that the local coordinates reset to (0,&nbsp;0) at each block's top-left corner.
+  </div>
+}>
+  <DemoPixelBlocks />
+</BlockSideTitle>
+
+Why 8×8 specifically? It is a trade-off. Larger blocks capture more spatial context but make local detail harder to preserve. Smaller blocks miss the correlations between nearby pixels that compression depends on. 8×8 was the sweet spot at the time JPEG was standardised in 1992, and it has stayed ever since.
+
+## Step 4 — DCT and Quantisation
+
+The most important step. Each 8×8 block is transformed by the **Discrete Cosine Transform** (DCT) from pixel values into 64 *frequency coefficients*.
+
+```ts
+// Conceptually: pixels → frequency amplitudes
+const [dc, ...ac] = dct2d(block)
+
+//  dc   = the average colour of the block (coefficient [0,0])
+//  ac   = how much of each spatial frequency is present
+```
+
+Think of it like a Fourier analysis for that tiny tile. The first coefficient (`dc`) is the average tone. The remaining 63 `ac` coefficients represent progressively finer striped patterns — horizontal, vertical, diagonal — at increasing frequency.
+
+Then comes **quantisation**: each coefficient is divided by a number from a *quantisation table* and rounded to the nearest integer.
+
+```ts
+quantised[u][v] = Math.round(dct[u][v] / Q[u][v])
+```
+
+The quantisation table is derived from the quality setting. At low quality, the divisors are large — most high-frequency coefficients round to zero. At high quality, the divisors are small — almost all coefficients survive. Zero values compress extremely well in the next stage, so more zeros mean a smaller file.
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    This is real JPEG encoding running in the browser via <code>{'canvas.toDataURL("image/jpeg", q)'}</code>. Drag the slider down towards 1 — watch the blocky 8×8 artefacts appear on the sharp edges and the checkerboard. The smooth gradient holds up much longer because it contains almost no high-frequency content.
+  </div>
+}>
+  <DemoQuality />
+</BlockSideTitle>
+
+Notice that the artefacts follow block boundaries — each 8×8 tile is quantised independently, so neighbouring blocks can diverge at low quality.
+
+## Step 5 — Entropy Coding
+
+After quantisation, JPEG applies **Huffman coding** — a lossless step that assigns shorter bit sequences to more common values. Zero-run-length encoding is used first: long runs of zero coefficients (common after aggressive quantisation) are represented with a single symbol.
+
+```
+before: 0  0  0  0  0  0  7  0  0  0  0  3
+after:  (6 zeros)(7)(4 zeros)(3)
+```
+
+This stage adds no new loss. It is pure lossless compression.
+
+## WebP: the Same Idea, Extended
+
+WebP (the format used on this site) is built on VP8 video compression. It uses the same conceptual pipeline but with several improvements:
+
+- **Prediction coding** — encode the *difference* from a predicted value rather than the value itself
+- **Larger transform blocks** — up to 16×16 for smooth regions of the image
+- **Arithmetic coding** — more efficient than Huffman for the same entropy
+
+The result is roughly 25–35 % smaller than JPEG at equivalent visual quality.
+
+## Why Smooth Regions Compress, Sharp Edges Bleed
+
+The DCT is the key to understanding both the strengths and the weaknesses of JPEG. A smooth gradient across an 8×8 block is dominated by the first few low-frequency coefficients — a handful of large numbers, the rest near zero. After quantisation, almost all of those numbers survive. The block is cheap to code.
+
+A sharp edge or a fine texture requires many high-frequency coefficients. After quantisation those get zeroed out. The edge becomes a halo, the texture turns to mud.
+
+```
+smooth gradient → few DCT coefficients → survive quantisation → small file
+checkerboard   → many DCT coefficients → zeroed by quantisation → large file, bad quality
+```
+
+Photographic images sit in the middle: strong gradients with occasional sharp detail — which is exactly the trade-off JPEG was designed for.
+
+## Concepts at a Glance
+
+| Concept | Key idea |
+|---|---|
+| Colour space | YCbCr separates brightness (keep full res) from colour (can discard) |
+| Chroma 4:2:0 | Halve both colour channels — 50 % size before the transform |
+| 8×8 blocks | Localise the transform; also the source of block artefacts |
+| DCT | Convert pixel values to frequency amplitudes per block |
+| Quantisation | Divide by quality-derived table and round — zeros compress for free |
+| Entropy coding | Huffman + run-length encode the quantised stream (no further loss) |
+
+The quality setting controls a single scaling factor applied to the entire quantisation table. Halving it roughly halves the file — but the perceptual cost falls unevenly. Gradients absorb the loss quietly; fine edges and sharp textures spend it loudly, and visibly.

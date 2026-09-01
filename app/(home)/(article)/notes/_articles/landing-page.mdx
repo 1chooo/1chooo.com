@@ -1,0 +1,189 @@
+export const metadata = {
+  title: 'Landing Page',
+  date: '2026.03.02',
+  description: 'A landing page is a single, high-stakes surface. This post breaks down the anatomy section by section — hero, fold, social proof, CTAs — and introduces Magic UI, the animation library I reach for when I want motion without friction.',
+}
+
+# Landing Page
+
+With AI growing increasingly powerful, the barrier to code has essentially vanished. Suddenly, anyone can be a builder crafting their own product. In this new reality, a landing page is no longer just a digital brochure—it is your definitive pitch, your storefront, and often your only chance to make a crucial first impression to stand out from the noise.
+
+A landing page is a lie — in the best possible way. It presents your product in its most optimistic form: the clearest headline you can write, the most believable proof you can show, the most frictionless path to a single action. It is not the product itself. It is the argument that the product is worth trying.
+
+Because it serves as this high-stakes pitch, most of the craft is about reduction. Every sentence that survives the editing process is one you could not cut without losing something. Every section that stays on the page earns its place by moving visitors closer to a decision.
+
+This post walks through the anatomy of an effective landing page section by section, then looks at how animation has become a design primitive — and why [Magic UI](https://magicui.design) is my preferred toolkit for bringing it to life.
+
+## What a Landing Page Actually Is
+
+A landing page is a focused web page with a single conversion goal: a sign-up, a purchase, a download, a demo request. Unlike a homepage (which tries to orient every kind of visitor), a landing page arrives with a target audience already in mind.
+
+```ts
+// Homepage: general entry point
+// Tries to answer: "Who are you?"
+// Audience: anyone
+
+// Landing page: targeted entry point
+// Tries to answer: "Why should I try this?"
+// Audience: a visitor with a specific intent
+```
+
+The distinction matters because it dictates how you measure success. A homepage might optimise for time-on-site. A landing page optimises for a single conversion rate — the percentage of visitors who complete the target action.
+
+## The Anatomy
+
+Every effective landing page is built from the same six sections, arranged in the same order. That order is not arbitrary — each section handles a different stage of visitor psychology.
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    Click any section in the wireframe to read what it does and why it exists. Pay attention to how early the high-stakes sections arrive — the page never makes you wait for the core argument.
+  </div>
+}>
+  <DemoAnatomy />
+</BlockSideTitle>
+
+The order is deliberately front-loaded. Your strongest asset — the headline — appears first. Your second-strongest — social proof — appears second. Feature details are pushed down, on the theory that no visitor should need to read them to decide whether to try.
+
+## Above the Fold
+
+The fold is the line below which a visitor cannot see without scrolling. It comes from newspaper design: the stories above the physical fold of the printed paper sold more copies, because they were visible on the newsstand.
+
+On the web the fold is not a fixed line. It shifts with screen size, resolution, and zoom level. A visitor on a 360 px mobile phone will see a fraction of what a desktop user at 1440 px sees at the same scroll position.
+
+```ts
+// Nothing is literally "above the fold" — the fold is a distribution of viewports
+const foldHeight = {
+  mobile:  640,   // px
+  laptop:  768,
+  desktop: 1080,
+}
+
+// The only safe assumption:
+// your hero must argue the case before a single scroll
+```
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    Switch between viewports, or drag the fold slider, to see how much content lands above the line. On a small phone, only the navbar and hero are guaranteed visible — everything else requires intent.
+  </div>
+}>
+  <DemoFold />
+</BlockSideTitle>
+
+The practical conclusion: assume the fold sits right below your hero. The hero must contain the entire argument in compressed form — headline, sub-headline, and CTA. Everything below is either elaboration or reassurance.
+
+## Writing the Hero
+
+The hero section is a five-second interview. Most visitors decide to stay or leave based on what is in the viewport when the page loads.
+
+A hero contains three things:
+
+- **Headline** — one sentence stating the outcome the product delivers. Not the features. Not the process. The outcome.
+- **Sub-headline** — one or two sentences of supporting context: who it's for, how it actually works, why now.
+- **Primary CTA** — one button. The action you most want the visitor to take.
+
+```ts
+// Weak: feature-led
+const weakHeadline = "AI-powered task management with integrations"
+
+// Strong: outcome-led
+const strongHeadline = "Your team ships faster. Without the meetings."
+
+// The difference: weak tells you what the product does.
+// Strong tells you what your life looks like after using it.
+```
+
+Secondary CTAs (like "Watch Demo" or "Learn More") are acceptable, but they should be visually subordinate. Two equally weighted buttons force a decision before the visitor is ready to decide anything.
+
+## Social Proof
+
+Trust is expensive to build. Social proof borrows it from parties the visitor already trusts. The mechanism is borrowed authority — if a company you respect uses this product, the product is probably worth investigating.
+
+The format matters less than the placement. Logos work. Testimonials work. Star counts work. What does not work: placing them at the bottom of the page, after the visitor has already left.
+
+| Format | Works when |
+|---|---|
+| Company logos | Recognisable names are available |
+| Testimonial quotes | Specific, numeric claims are possible |
+| Usage numbers | Numbers are large enough to be meaningful |
+| Press mentions | Publication is recognisable to the target audience |
+
+The key qualifier is *recognisable*. A logo the visitor has never seen provides no trust signal. A logo from a company they know and respect borrows the full weight of that recognition.
+
+## Magic UI
+
+[Magic UI](https://magicui.design) is an open-source library of 150+ animated components built on React, TypeScript, Tailwind CSS, and [Motion](https://motion.dev). It was created by [dillion](https://twitter.com/dillionverma) and has become the de facto toolkit for design-engineer-style landing pages.
+
+Its most popular component category is landing page effects: animated gradient text, shimmer buttons, border beams, number tickers, and marquees. None of these are load-bearing UI — they carry no semantic meaning. Their job is to direct attention and communicate polish.
+
+```bash
+# Install via shadcn CLI — each component is a local file,
+# not a managed dependency
+npx shadcn@latest add "https://magicui.design/r/shimmer-button"
+npx shadcn@latest add "https://magicui.design/r/text-animate"
+npx shadcn@latest add "https://magicui.design/r/number-ticker"
+```
+
+Every component is copied into your codebase via the shadcn CLI. You own the source; there is nothing to keep in sync, no peer dependency to manage. The tradeoff is intentional: ownership over convenience.
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    Step through each effect with the buttons below. Each preview is built from scratch using CSS keyframes and React state — no Magic UI package installed. The descriptions trace exactly how each effect works under the hood.
+  </div>
+}>
+  <DemoMagicUI />
+</BlockSideTitle>
+
+The library is notably honest about what its components do. The docs describe them as "special effects" rather than UI primitives. That framing is worth keeping: a shimmer button should not replace a well-structured design system, it should accent one.
+
+## The Physics of Attention
+
+Animation on a landing page works by co-opting a deeply wired reflex. The human visual system is hard-tuned to detect motion in peripheral vision — a throwback to predator detection. Moving elements capture attention with almost no cognitive cost to the viewer.
+
+Used well, this is powerful. A subtle shimmer on the CTA button tells the eye: *this is the action*. A number ticking upward says: *something is happening, and it is big*.
+
+Used carelessly, animation destroys credibility. A page where everything moves is a page where nothing is emphasised. The signal-to-noise ratio collapses.
+
+```ts
+// Good: one animated element in a field of still ones
+const ctaShimmers = true
+const heroTextGradientAnimates = true
+const everythingElseIsStatic = true    // ← this is the constraint
+
+// Bad: ambient animation everywhere
+const backgroundParticlesMove = true   // ← pulls eye away from CTA
+const cardsHoverSway = true            // ← visual noise
+const loadingSpinnersPersist = true    // ← communicates chaos
+```
+
+The practical rule: animate at most one or two elements per viewport. Give everything else room to breathe.
+
+## Conversion Rate is a Design Problem
+
+Most teams treat conversion rate as a marketing problem — something fixed by changing the ad copy or the audience targeting. It is more accurately a design problem. Visitors convert when the page removes every possible reason not to.
+
+The failure modes are mostly structural:
+
+| Failure | What it signals to the visitor |
+|---|---|
+| Weak headline | "I don't understand what this does" |
+| No social proof | "I have no reason to trust this" |
+| Multiple CTAs | "I don't know what they want me to do" |
+| Feature-led copy | "So what does that mean for me?" |
+| No fold awareness | "I didn't know there was more to see" |
+
+Each failure mode is fixable without a redesign — a headline rewrite, a logos section, a button consolidation. The page does not need to be beautiful to convert. It needs to be clear.
+
+## Components at a Glance
+
+| Component | What it does |
+|---|---|
+| Gradient Text | Animates background-position on a wide gradient clipped to text |
+| Shimmer Button | Layered gradient shifts left-to-right at constant speed |
+| Border Beam | Conic gradient rotates via @property-animated CSS variable |
+| Number Ticker | IntersectionObserver triggers a cubic-eased rAF count-up |
+| Marquee | Duplicated list accelerates via translateX at constant rate |
+
+The implementation pattern is always the same: a CSS keyframe, a Tailwind class that enables `background-clip: text` or relative positioning, and a state hook if interactivity is needed. Magic UI's real contribution is not the individual effects — those are all re-implementable in an afternoon. It is the catalogue: a curated vocabulary of components that already fit together visually and conceptually.
+
+When I reach for it, I am not buying effects. I am buying a set of design decisions I do not have to remake.

@@ -1,0 +1,260 @@
+export const metadata = {
+  title: '/llms.txt',
+  date: '2026.03.06',
+  description: 'What llms.txt and llms-full.txt are, how the spec works, and how to add them to a Next.js site — including a per-page clean reader route.',
+}
+
+# /llms.txt
+
+AI assistants crawl websites all the time — to answer questions, build context before generating code, or ground a response in up-to-date documentation. But a real HTML page is full of noise: navigation bars, cookie banners, tracking scripts, ads, and duplicate footer links. The actual content a model cares about might be five percent of the bytes it receives.
+
+The `/llms.txt` <FootNoteRef number={1} /> standard is a simple proposal: put a clean, Markdown-formatted index of your site at that well-known URL so models and agents can find and read your content without stripping HTML.
+
+<FootNote
+  number={1}
+  note={
+    <>
+      The spec: <a href="https://llmstxt.org/">llmstxt.org</a> — proposed by Jeremy Howard (Answer.AI). Covers the full file format, the Optional section convention, and the llms-full.txt variant.
+    </>
+  }
+/>
+
+## Why It Exists
+
+Two constraints make a dedicated machine-readable file worth having.
+
+**Context windows are finite.** Even the largest models top out somewhere. A typical documentation site sent as raw HTML will exhaust a context window long before the model has seen everything useful.
+
+**HTML is noisy.** A model reading raw `<html>` must mentally strip repeated nav links, script tags, inline styles, and accessibility attributes to reach the text. A plain Markdown file just has the text.
+
+The `/llms.txt` convention was proposed by [Jeremy Howard](https://answer.ai) and has been quickly adopted by documentation tooling, static site generators, and a growing list of sites that want AI-friendly content.
+
+## The File Format
+
+`/llms.txt` is a Markdown file served as `text/plain` at the root of your domain. Its structure is deliberately minimal:
+
+<BlockSideTitle title={
+  <>
+    The <strong>Optional</strong> section is a spec convention — AI tools may omit it when context is tight. Put links that are useful for humans (GitHub, contact) but not critical for understanding your site's content there.
+  </>
+}>
+```markdown
+# Site Name — domain.com
+
+> One-sentence description of what this site is.
+
+## Section
+
+- [Page Title](/path): One-sentence description of the page.
+- [Another Page](/other): What it covers.
+
+## Optional
+
+- [GitHub](https://github.com/…): Source code.
+```
+</BlockSideTitle>
+
+An H1 title, an optional blockquote description, H2 sections each containing a list of links, and an Optional section at the end. That's the entire spec.
+
+## `llms.txt` vs `llms-full.txt`
+
+The standard defines two files with different tradeoffs.
+
+<DemoFileViewer />
+
+`/llms.txt` is an **index**: one line per page, each with a title, URL, and short description. A model can read the whole file in a single context window and then decide which individual pages to fetch for more detail.
+
+`/llms-full.txt` is the **complete content**: the same structure, but the full text of each page is included directly beneath its link entry. This is useful when you want an agent to have deep offline access without making further HTTP requests.
+
+| | `llms.txt` | `llms-full.txt` |
+|---|---|---|
+| Size | ~1–5 KB | 10–500 KB |
+| Use case | Discovery, navigation | Offline deep-read |
+| Follow-up fetches | Yes, per page | No |
+| Fits in context | Always | Usually not |
+
+## Implementing in Next.js
+
+The cleanest way to handle these files is with [Route Handlers](https://nextjs.org/docs/app/building-your-application/routing/route-handlers) in a `(llms)` route group. The route group keeps the files organized without adding a URL segment. Three routes cover all the cases — a fast index, a full-content dump, and a per-page clean reader.
+
+<DemoNextRoutes />
+
+### Route Group Organisation
+
+Putting all three routes under `app/(llms)/` keeps the project tidy:
+
+<BlockSideTitle title={
+  <>
+    Route groups (parenthesised folder names) are invisible in the URL. <code>app/(llms)/llms.txt/route.ts</code> responds at <code>/llms.txt</code> — the <code>(llms)</code> segment is just for organisation.
+  </>
+}>
+```
+app/
+  (llms)/
+    llms.txt/
+      route.ts      → GET /llms.txt
+    llms-full.txt/
+      route.ts      → GET /llms-full.txt
+    llm/
+      [[...slug]]/
+        route.ts    → GET /llm, /llm/bio, /llm/notes/css-layout …
+```
+</BlockSideTitle>
+
+### Parsing MDX Frontmatter Without a Bundler
+
+The index route needs each article's `title`, `description`, and `date` — but it runs in a Route Handler, not through the MDX bundler pipeline. The metadata is stored as a JavaScript object literal at the top of every `.mdx` file:
+
+```ts
+export const metadata = {
+  title: 'CSS Layout',
+  date: '2026.03.05',
+  description: 'A complete guide to CSS layout.',
+}
+```
+
+Since this is valid JS — not JSON — you can extract and evaluate it with a `Function` constructor:
+
+<BlockSideTitle title={
+  <>
+    <code>new Function(`return ({"{"}${"{"}match[1]{"}"}{"}"})`)()</code> wraps the extracted object body in parentheses and evaluates it as a return value. It works with any JS value that can appear in an object literal — strings, booleans, numbers — without needing to serialise to JSON first. Drafts are filtered out by checking the <code>draft</code> flag before adding an article to the output.
+  </>
+}>
+```ts
+function parseMetadata(content: string): ArticleMetadata {
+  const match = content.match(
+    /export\s+const\s+metadata\s*=\s*\{([\s\S]*?)\}/
+  )
+  if (!match) return { title: '' }
+  try {
+    return new Function(`return ({${match[1]}})`)() as ArticleMetadata
+  } catch {
+    return { title: '' }
+  }
+}
+```
+</BlockSideTitle>
+
+### Stripping MDX Syntax for the Full-Text File
+
+The full-content route reads each article's raw `.mdx` source and needs to strip everything that isn't prose — import statements, the metadata export block, and JSX component calls like `<DemoFlexbox />` or `<BlockSideTitle>…</BlockSideTitle>`.
+
+<BlockSideTitle title={
+  <>
+    Self-closing component tags (<code>{"<DemoFlexbox />"}</code>) are removed entirely — they're interactive demos that don't translate to plain text. Open/close component tags (<code>{"<BlockSideTitle>…</BlockSideTitle>"}</code>) are unwrapped — the inner children are kept because they contain the code blocks and prose that an LLM should still read.
+  </>
+}>
+```ts
+function stripMdx(content: string): string {
+  return content
+    // remove export const metadata = { … }
+    .replace(/export\s+const\s+metadata\s*=\s*\{[\s\S]*?\}\s*\n?/g, '')
+    // remove import statements
+    .replace(/^import\s+.*$/gm, '')
+    // remove <Component /> self-closing tags (no inner content to keep)
+    .replace(/<[A-Z][A-Za-z]*[^>]*\/>/g, '')
+    // unwrap <BlockSideTitle>…</BlockSideTitle> — keep inner children
+    .replace(/<[A-Z][A-Za-z]*[^>]*>([\s\S]*?)<\/[A-Z][A-Za-z]*>/g, '$1')
+    .replace(/^\n+/, '')
+    .trimEnd()
+}
+```
+</BlockSideTitle>
+
+The full-text route concatenates every section with a `---` divider and includes static pages (home, bio, projects) alongside the article content:
+
+```ts
+// llms-full.txt: one large document, all content inline
+sections.push(`## About\n\nURL: ${BASE_URL}\n\n${indexBody}`)
+
+for (const { slug, metadata, body } of notes) {
+  sections.push([
+    `## ${metadata.title}`,
+    `URL: ${BASE_URL}/notes/${slug}`,
+    metadata.date     ? `Date: ${metadata.date}`            : null,
+    metadata.description ? `Description: ${metadata.description}` : null,
+    '',
+    body,
+  ].filter(Boolean).join('\n'))
+}
+
+return new NextResponse(sections.join('\n\n---\n\n'), { … })
+```
+
+### The Per-Page Clean Reader
+
+The most useful bonus route is `llm/[[...slug]]` — a catch-all that serves any individual page as stripped Markdown. An LLM that wants to deep-read one specific article can request it directly without downloading the whole site:
+
+<BlockSideTitle title={
+  <>
+    The double-bracket syntax <code>{"[[...slug]]"}</code> makes the parameter optional — so <code>/llm</code> with no slug matches the homepage. Two-segment slugs like <code>/llm/notes/css-layout</code> map to the article's <code>.mdx</code> file. The route is fully statically generated via <code>generateStaticParams</code> — no server required at runtime.
+  </>
+}>
+```
+GET /llm                      → homepage (page.mdx)
+GET /llm/bio                  → bio page
+GET /llm/projects             → projects page
+GET /llm/notes/css-layout     → that note's content
+GET /llm/thoughts/some-post   → that thought's content
+```
+</BlockSideTitle>
+
+The implementation reads the `.mdx` file at the matching path, runs `stripMdx`, and returns it as `text/markdown`:
+
+```ts
+export async function GET(_req: NextRequest, { params }) {
+  const slug = (await params).slug ?? []
+
+  let content: string | null = null
+
+  if (slug.length === 0) {
+    content = await readMdx('app', '(home)', 'page.mdx')
+  } else if (slug.length === 1) {
+    // bio, projects, …
+    content = await readMdx('app', '(home)', slug[0], 'page.mdx')
+  } else if (slug.length === 2) {
+    const [section, articleSlug] = slug
+    content = await readMdx(
+      'app', '(home)', '(article)', section, '_articles', `${articleSlug}.mdx`
+    )
+  }
+
+  if (!content) notFound()
+
+  return new NextResponse(content, {
+    headers: { 'Content-Type': 'text/markdown; charset=utf-8' },
+  })
+}
+```
+
+## Caching
+
+All three routes use `export const revalidate = false`, which tells Next.js to generate the responses once at build time and never revalidate them on the server. The CDN layer is then controlled entirely with `Cache-Control` headers:
+
+<BlockSideTitle title={
+  <>
+    <code>s-maxage</code> controls the CDN cache TTL; <code>stale-while-revalidate</code> lets the CDN serve a stale copy while revalidating in the background. The browser sees a fresh response every time (no <code>max-age</code>). This combination is the standard pattern for Next.js pages that need predictable CDN caching without using Next.js's built-in ISR.
+  </>
+}>
+```ts
+export const revalidate = false  // generated at build time
+
+// returned on every response
+'Cache-Control': 'public, s-maxage=3600, stale-while-revalidate=86400'
+```
+</BlockSideTitle>
+
+## Content-Type
+
+`llms.txt` and `llms-full.txt` are served as `text/plain; charset=utf-8`. The per-page `/llm/…` route uses `text/markdown; charset=utf-8` — both are valid; the markdown type is more precise for a file whose format is explicitly Markdown.
+
+## A Mental Model
+
+| File | Purpose | Format | Fetches needed |
+|---|---|---|---|
+| `/llms.txt` | Site index | `text/plain` (Markdown) | One per page to go deep |
+| `/llms-full.txt` | Full content dump | `text/plain` (Markdown) | None |
+| `/llm/[section]/[slug]` | Per-page clean reader | `text/markdown` | One per page |
+| `/sitemap.xml` | URL inventory for crawlers | XML | — |
+
+The three LLM-facing routes work together: an agent reads `/llms.txt` to understand the site's structure, requests `/llm/notes/css-layout` for a deep-read on a specific article, and downloads `/llms-full.txt` only if it needs the entire site in one shot.

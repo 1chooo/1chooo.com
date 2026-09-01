@@ -1,0 +1,135 @@
+export const metadata = {
+  title: 'The Bell Curve',
+  date: '2026.05.04',
+  description: 'A bottom-up exploration of the normal distribution — from a single coin flip to Galton\'s bean machine to the Central Limit Theorem — with fully interactive simulations.',
+}
+
+# The Bell Curve
+
+The bell curve is everywhere. Human heights cluster around an average with most people near the middle and fewer at the extremes. IQ scores, measurement errors, the return on a stock portfolio over many small days, the number of heads in a thousand coin flips — they all approximate the same shape: high in the middle, tapering symmetrically toward the tails.
+
+Why does this shape appear so reliably? The answer is not magic. It emerges mechanically whenever you add up many small, independent random steps. To see why, it helps to start as small as possible: a single peg, a single ball, a single coin flip.
+
+## One Peg, One Coin Flip
+
+Drop a ball onto a triangular peg. It will bounce either left (probability <InlineMath math="1 - p" />) or right (probability <InlineMath math="p" />). That single decision is a **Bernoulli trial** — the most primitive random experiment. Its outcome is binary: 0 or 1, left or right, heads or tails.
+
+<DemoCoinFlip />
+
+Click **flip** to drop a ball onto the peg. Adjust the bias slider to change how likely the ball is to go right. Watch how the long-run tally tracks the true probability as flips accumulate.
+
+When the bias is 0.5 the ball goes left and right with equal probability — a fair coin. Push the slider toward 1 and the ball almost always goes right; the tally converges to the bias you set. This is the **law of large numbers** at its simplest: the empirical fraction converges to the true probability as the number of trials grows.
+
+## Stacking Flips: the Binomial
+
+Now imagine not one peg but a whole triangular lattice — *n* rows deep. At each peg the ball makes an independent left-or-right choice. After *n* pegs the ball lands in one of *n + 1* bins, indexed 0 (fell left every time) through *n* (fell right every time).
+
+The number of right-turns follows a **binomial distribution**, <InlineMath math="B(n, p)" />. The probability of landing in bin *k* is:
+
+<BlockMath math="P(X = k) = \binom{n}{k} p^k (1-p)^{n-k}" />
+
+where <InlineMath math="\binom{n}{k} = \frac{n!}{k!(n-k)!}" /> counts the number of distinct paths through *k* right-turns out of *n* total pegs.
+
+```ts
+function nCr(n: number, k: number): number {
+  if (k < 0 || k > n) return 0
+  if (k === 0 || k === n) return 1
+  let result = 1
+  for (let i = 0; i < Math.min(k, n - k); i++) {
+    result = result * (n - i) / (i + 1)
+  }
+  return result
+}
+
+function binomialPMF(n: number, p: number, k: number): number {
+  return nCr(n, k) * Math.pow(p, k) * Math.pow(1 - p, n - k)
+}
+```
+
+With a fair coin (<InlineMath math="p = 0.5" />) most paths end near the centre — there are simply far more ways to get <InlineMath math="n/2" /> right-turns than to get 0 or <InlineMath math="n" />. The middle bins collect the most balls; the outer bins collect almost none.
+
+## Galton's Bean Machine
+
+Francis Galton built a physical version of this in the 1880s to demonstrate the binomial distribution. A machine drops beans through a lattice of pegs; the beans collect in columns at the bottom, forming a histogram. He called it a **quincunx**; today it is usually called a **bean machine** or **Galton board**.
+
+<DemoGalton />
+
+Drop balls using the **+1 / +10 / +100 / +1k** buttons or hit **auto** to stream them continuously. The chart on the right shows the observed histogram (blue bars), the theoretical binomial (orange dashed), and the normal approximation (pink curve). Adjust **rows** and **bias** to reshape the distribution in real time. Focus the panel and press **1–4**, **Space**, **A**, or **R** for keyboard control.
+
+Two things become clear as you drop more balls. First, the histogram converges toward the dashed orange binomial curve — the law of large numbers at work. Second, that binomial curve is itself starting to look like a smooth, symmetric arch. With enough rows that arch becomes indistinguishable from the normal (Gaussian) distribution.
+
+## From Binomial to Normal: the Central Limit Theorem
+
+The normal distribution is the **limiting shape** of the binomial as *n* grows. More precisely, if <InlineMath math="X \sim B(n, p)" />, then for large <InlineMath math="n" />:
+
+<BlockMath math="X \approx N(\mu, \sigma^2), \quad \mu = np, \quad \sigma^2 = np(1-p)" />
+
+This is a special case of the **Central Limit Theorem (CLT)**: the sum of many independent, identically distributed random variables — regardless of their individual shape — converges to a normal distribution. The bean machine makes this theorem visible. Each ball's final position is the *sum* of *n* independent Bernoulli(p) steps. The CLT guarantees the sum converges to a bell curve.
+
+The normal distribution is parameterised by two numbers:
+
+- **Mean <InlineMath math="\mu" />** — the centre of symmetry. Shifting <InlineMath math="\mu" /> slides the entire curve left or right without changing its shape.
+- **Standard deviation <InlineMath math="\sigma" />** — the spread. Larger <InlineMath math="\sigma" /> flattens the peak and widens the tails; smaller <InlineMath math="\sigma" /> sharpens it.
+
+<DemoNormalParams />
+
+Drag the **μ** slider to shift the curve. Drag **σ** to widen or narrow it. The shaded regions mark the ±1σ (68%) and ±2σ (95%) intervals.
+
+### The 68 – 95 – 99.7 Rule
+
+For any normal distribution, the fraction of the population within each band is fixed:
+
+| Band | Coverage |
+|---|---|
+| <InlineMath math="\mu \pm 1\sigma" /> | 68.3% |
+| <InlineMath math="\mu \pm 2\sigma" /> | 95.4% |
+| <InlineMath math="\mu \pm 3\sigma" /> | 99.7% |
+
+This is the **empirical rule**. In practice it means: if adult male heights are <InlineMath math="N(178,\, 7^2)" /> cm, roughly 95% of men are between 164 cm and 192 cm; finding a man taller than 199 cm (> 3σ above) is genuinely rare (~0.15% of the population).
+
+## Mean, Variance, and Skew
+
+Three numbers summarise the shape of any distribution.
+
+**Mean <InlineMath math="\mu" />**: the centre of mass, or the expected value.
+
+<BlockMath math="\mu = \frac{1}{N}\sum_{k} k \cdot \text{count}(k)" />
+
+**Variance <InlineMath math="\sigma^2" />**: average squared deviation from the mean.
+
+<BlockMath math="\sigma^2 = \frac{1}{N}\sum_{k} (k - \mu)^2 \cdot \text{count}(k)" />
+
+**Skewness**: the normalised third central moment, measuring asymmetry.
+
+<BlockMath math="\gamma_1 = \frac{1}{N}\sum_{k}\left(\frac{k - \mu}{\sigma}\right)^3 \cdot \text{count}(k)" />
+
+For a fair Galton board (<InlineMath math="p = 0.5" />) the skewness converges to zero — the curve is symmetric. Push the bias away from 0.5 and the board's distribution skews in the direction of the bias. For the theoretical binomial:
+
+<BlockMath math="\gamma_1 = \frac{1 - 2p}{\sqrt{np(1-p)}}" />
+
+Notice the denominator grows with <InlineMath math="n" />. As you add more rows the skewness shrinks toward zero — one more way to see that the binomial converges to the symmetric normal.
+
+## Implementation Notes
+
+The Galton board is rendered on a `<canvas>` element driven by `requestAnimationFrame`. Two design choices mirror those made in the [Snake Game](/notes/snake-game) note:
+
+**Mutable simulation state lives in a `useRef`.** The animation loop fires every frame; React's state scheduler is asynchronous. If the ball array and bin counts were held in `useState`, the rAF callback would read stale values after each render. A ref holds a plain object that is mutated synchronously every tick; `useState` is used only for the values displayed in the UI (histogram counts, stats).
+
+```ts
+const ballsRef = useRef<Ball[]>([])
+const binCountsRef = useRef<number[]>(Array(rows + 1).fill(0))
+```
+
+**The component exposes an imperative handle via `useImperativeHandle`.** Parent controls call `boardRef.current?.drop(n)` and `boardRef.current?.reset()` without going through props or state — keeping the drop-rate tight.
+
+```ts
+useImperativeHandle(ref, () => ({
+  drop,
+  reset,
+  getActiveCount: () => ballsRef.current.length,
+}), [drop, reset])
+```
+
+**Canvas is sized by a `ResizeObserver`.** The container's `contentRect` drives both the logical dimensions (used for geometry calculations) and the `canvas.width`/`height` attributes scaled by `devicePixelRatio`, preventing blur on high-DPI screens.
+
+The ball's trajectory is split into two phases — falling toward the next peg (`easeInQuad` vertically, `easeOutQuad` horizontally) and settling into a bin — each implemented as a simple lerp with its own `duration`. A spawn queue staggers multiple simultaneous balls so they do not perfectly overlap.

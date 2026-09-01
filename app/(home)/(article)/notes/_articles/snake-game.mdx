@@ -1,0 +1,170 @@
+export const metadata = {
+  title: 'Snake Game',
+  date: '2022.08.23',
+  description: 'A walkthrough of the classic Snake game — covering the core concepts and building a fully interactive React component with TypeScript.',
+}
+
+# Snake Game
+
+Snake is one of the most recognisable games ever made. A line grows longer every time it eats food, and the challenge is to keep steering it without hitting a wall or biting your own tail. The rules are simple enough to code in an afternoon, but they pack in a surprising number of fundamental programming ideas — 2D grids, discrete movement, collision detection, and a game loop.
+
+In this post I walk through the core ideas behind Snake and build it as a React component with TypeScript — playable right in this page.
+
+## The Board: a 2D Grid
+
+Every Snake implementation starts with the same question: *how do I represent the playing field?*
+
+The answer is a 2D coordinate system. Each cell is addressed by `(x, y)` where `x` increases to the right and `y` increases downward — matching how screens draw pixels. The board is `COLS x ROWS` cells, and every game object — snake body segments, food — is stored as a list of `(x, y)` points.
+
+```ts
+type Pt = { x: number; y: number }
+
+const COLS = 20   // number of columns
+const ROWS = 15   // number of rows
+const CELL = 20   // pixels per cell
+```
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    Each square is one cell. The <strong>head</strong> is at (5, 3), the <strong>body</strong> trails to the left, and the <strong>food</strong> sits at (9, 4). Hover over any empty cell to read its coordinate — notice that (0, 0) is in the top-left corner.
+  </div>
+}>
+  <DemoGrid />
+</BlockSideTitle>
+
+## Movement: Directions and the Game Loop
+
+The snake does not move smoothly — it jumps one full cell per **tick**. A tick fires on a fixed interval (every ~140 ms in this implementation), at which point the game:
+
+1. Reads the current direction.
+2. Computes a new head position one cell in that direction.
+3. Prepends the new head to the snake array.
+4. Removes the last segment (unless food was eaten).
+
+```ts
+const delta: Record<Dir, Pt> = {
+  RIGHT: { x: 1,  y: 0  },
+  LEFT:  { x: -1, y: 0  },
+  DOWN:  { x: 0,  y: 1  },
+  UP:    { x: 0,  y: -1 },
+}
+
+const newHead = {
+  x: head.x + delta[dir].x,
+  y: head.y + delta[dir].y,
+}
+
+snake.unshift(newHead)  // grow head
+snake.pop()             // shrink tail (unless food eaten)
+```
+
+One important detail: you cannot reverse direction in a single step. If the snake is moving right, pressing left would send the head directly into the body — instant game over. The fix is to queue the *next* direction separately and reject inputs that are the direct opposite of the current one.
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    Click the direction buttons to step the snake one cell at a time. The console below logs each move. Try reversing direction — the snake will ignore it and keep its current heading. Eat the 🍎 to grow.
+  </div>
+}>
+  <DemoMovement />
+</BlockSideTitle>
+
+## Collision Detection
+
+The game ends in two cases, both checked **after** computing the new head position but **before** drawing.
+
+### Wall collision
+
+The new head coordinate must stay inside `[0, COLS)` and `[0, ROWS)`.
+
+```ts
+if (
+  newHead.x < 0 || newHead.x >= COLS ||
+  newHead.y < 0 || newHead.y >= ROWS
+) return "wall"
+```
+
+### Self collision
+
+The new head must not overlap any existing body segment. One nuance: the tail will be removed in the same tick, so it is safe to ignore when checking — hence `snake.slice(0, -1)`.
+
+```ts
+if (snake.slice(0, -1).some(s => s.x === newHead.x && s.y === newHead.y))
+  return "self"
+```
+
+## Food and Growing
+
+Placing food is straightforward: pick a random cell, then verify it is not already occupied by the snake. A `do-while` loop keeps retrying until a free cell is found.
+
+```ts
+function randomFood(snake: Pt[]): Pt {
+  let p: Pt
+  do {
+    p = {
+      x: Math.floor(Math.random() * COLS),
+      y: Math.floor(Math.random() * ROWS),
+    }
+  } while (snake.some(s => s.x === p.x && s.y === p.y))
+  return p
+}
+```
+
+When the head lands on the food cell the tail is **not** popped — the snake stays one segment longer. Each food adds one point to the score.
+
+<BlockSideTitle title={
+  <>tail is NOT popped when food eaten (snake grows); otherwise tail is popped (length stays same)</>
+}>
+```ts
+snake.unshift(newHead)
+
+if (newHead.x === food.x && newHead.y === food.y) {
+  score++
+  food = randomFood(snake)
+} else {
+  snake.pop()
+}
+```
+</BlockSideTitle>
+
+## The React Implementation
+
+Building Snake in React comes with two important design decisions.
+
+**Rendering with `<canvas>`** rather than a CSS grid. The game loop fires every 140 ms via `setInterval`; using a canvas and drawing directly avoids creating hundreds of DOM nodes and keeps performance smooth even at high speeds.
+
+**Keeping mutable game state in a `useRef`** rather than `useState`. React's state scheduler is asynchronous — if the direction, snake array, and food are all in state, you can easily read stale values inside `setInterval`. A ref holds a single plain object that is mutated synchronously every tick, and `useState` is used only for the values displayed in the UI (score, phase).
+
+```ts
+const gameRef = useRef({
+  snake: initSnake(),
+  dir: "RIGHT" as Dir,
+  nextDir: "RIGHT" as Dir,    // queued direction change
+  food: { x: 15, y: 7 } as Pt,
+  score: 0,
+  running: false,
+})
+```
+
+The keyboard handler writes to `gameRef.current.nextDir`; the tick function promotes `nextDir → dir` at the start of each step. This guarantees exactly one direction change per tick regardless of how many keys are pressed between ticks.
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    The full game — rendered on a <code>{'<canvas>'}</code> element, driven by <code>setInterval</code>. Use <strong>arrow keys or WASD</strong> on desktop, or the on-screen D-pad on mobile. Hit <strong>Start</strong> to play.
+  </div>
+}>
+  <SnakeGame />
+</BlockSideTitle>
+
+## Concepts at a Glance
+
+| Concept | Implementation |
+|---|---|
+| Board | `COLS x ROWS` grid, each cell addressed by `(x, y)` |
+| Game loop | `setInterval` at 140 ms, cancelled on unmount |
+| Mutable state | `useRef` — avoids stale closure reads inside the interval |
+| UI state | `useState` for score and game phase only |
+| Rendering | `canvas.getContext("2d")` draw calls each tick |
+| Input | `window.addEventListener("keydown")` + queued `nextDir` |
+| Collision | arithmetic bounds check + `Array.some` overlap check |
+
+The key mental shifts when building a game in React are: use a `ref` for anything the interval callback needs to read, use `state` only for what the DOM needs to re-render, and always clean up your `setInterval` in the `useEffect` return.

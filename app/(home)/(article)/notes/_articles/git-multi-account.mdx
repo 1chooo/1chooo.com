@@ -1,0 +1,213 @@
+export const metadata = {
+  title: 'Git Multi-Account',
+  date: '2026.08.11',
+  description: 'Separate personal and work Git identities on one machine — includeIf, SSH host aliases, insteadOf URL rewrite, and a path-aware gh config switcher.',
+}
+
+# Git Multi-Account
+
+A brand-new machine is the best time to split personal and work Git. Once you start pushing, the cost of mixing identities is a commit stamped with the wrong email — or worse, a push authenticated as the wrong GitHub user.
+
+On this laptop the split is physical: personal repos live under `~/Developer/1chooo/`, work under `~/Developer/works/`. The goal is that every layer — commit author, SSH key, and `gh` — follows the folder automatically.
+
+## Three Layers, One Mistake
+
+Git identity is not one setting. It is three independent layers that people often treat as one:
+
+| Layer | What it controls | Wrong symptom |
+|---|---|---|
+| `user.email` / `user.name` | Who the commit is *attributed* to | Wrong author on `git log` |
+| SSH key | Who GitHub *authenticates* as | `Permission denied to …` |
+| `gh` config | Which account the CLI talks to | PRs / issues under the wrong user |
+
+I learned this the hard way. `includeIf` correctly set my personal email inside `1chooo/dotfiles`, but the remote was still `git@github.com:1chooo/dotfiles.git`. SSH used the default work key. GitHub saw `your-work-user`, who has no write access to `1chooo/dotfiles`:
+
+```
+ERROR: Permission to 1chooo/dotfiles.git denied to your-work-user.
+fatal: Could not read from remote repository.
+```
+
+Email was personal. Auth was work. Toggle the path below to see how each layer should resolve.
+
+<DemoIdentityRouter />
+
+## Folder-Scoped Git Config
+
+Put the work profile in the global config as the fallback, then load a personal file only when the repo lives under `1chooo/`.
+
+Create `~/Developer/1chooo/.gitconfig-personal`:
+
+```bash
+# ~/Developer/1chooo/.gitconfig-personal
+[user]
+    name = Your Personal Name
+    email = you@personal.dev
+```
+
+Then wire it from `~/.gitconfig`. The trailing slash on `gitdir:` matters — without it, nested repos do not match:
+
+```bash
+# ~/.gitconfig
+# Default fallback (work)
+[user]
+    name = Your Work Name
+    email = you@company.com
+
+[includeIf "gitdir:~/Developer/1chooo/"]
+    path = ~/Developer/1chooo/.gitconfig-personal
+```
+
+With work as the default, you do not need a separate `includeIf` for `works/`. Anything outside `1chooo/` inherits the company identity.
+
+Verify from inside a repo:
+
+```bash
+git config user.email
+git config --list --show-origin | grep user.email
+```
+
+Under `1chooo/` the second command should point at `.gitconfig-personal`.
+
+## SSH: Work as Default, Personal as Alias
+
+Commit author and SSH key are separate. If your existing `~/.ssh/id_ed25519` is already registered on the work GitHub account, generate a second key for personal use:
+
+```bash
+ssh-keygen -t ed25519 -C "you@personal.dev" -f ~/.ssh/id_ed25519_personal
+eval "$(ssh-agent -s)"
+ssh-add ~/.ssh/id_ed25519_personal
+pbcopy < ~/.ssh/id_ed25519_personal.pub
+```
+
+Add the public key under the personal GitHub account (**Settings → SSH and GPG keys**). Then make work the seamless default in `~/.ssh/config`:
+
+```
+# Work account (default)
+Host github.com
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519
+
+# Personal account
+Host github.com-personal
+    HostName github.com
+    User git
+    IdentityFile ~/.ssh/id_ed25519_personal
+```
+
+Normal work clones keep the URL GitHub shows you:
+
+```bash
+git clone git@github.com:company/awesome-project.git
+```
+
+Personal remotes must use the host alias so SSH picks the personal key:
+
+```bash
+git remote set-url origin git@github.com-personal:1chooo/dotfiles.git
+```
+
+Test both:
+
+```bash
+ssh -T git@github.com
+# Hi your-work-user! You've successfully authenticated...
+
+ssh -T git@github.com-personal
+# Hi 1chooo! You've successfully authenticated...
+```
+
+## Auto-Rewrite Remotes with `insteadOf`
+
+Remembering to type `github.com-personal` on every personal clone defeats the folder setup. Git can rewrite the URL for you — but only when the personal config is active.
+
+Add this to `~/Developer/1chooo/.gitconfig-personal`:
+
+```bash
+# ~/Developer/1chooo/.gitconfig-personal
+[url "git@github.com-personal:"]
+    insteadOf = git@github.com:
+```
+
+Now, from inside `~/Developer/1chooo/`:
+
+```bash
+git clone git@github.com:1chooo/another-repo.git
+cd another-repo
+git remote -v
+# origin  git@github.com-personal:1chooo/another-repo.git
+```
+
+Work repos under `works/` never load that rule, so their remotes stay on plain `github.com`.
+
+## Extending the Split to `gh`
+
+`brew install gh` is fine. The problem is that `gh auth login` stores one active account under `~/.config/gh/`. Logging into work overwrites personal credentials and vice versa.
+
+Give each account its own config directory, then swap `GH_CONFIG_DIR` based on the current path.
+
+```bash
+mkdir -p ~/.config/gh-personal ~/.config/gh-work
+
+GH_CONFIG_DIR=~/.config/gh-work gh auth login
+# choose SSH → work account
+
+GH_CONFIG_DIR=~/.config/gh-personal gh auth login
+# choose SSH → personal account (1chooo)
+```
+
+Add a `chpwd` hook to `~/.zshrc` so the directory change picks the right folder automatically (work remains the fallback outside `1chooo/`):
+
+```bash
+function chpwd_gh_switch() {
+  if [[ "$PWD" == "$HOME/Developer/1chooo"* ]]; then
+    export GH_CONFIG_DIR="$HOME/.config/gh-personal"
+  elif [[ "$PWD" == "$HOME/Developer/works"* ]]; then
+    export GH_CONFIG_DIR="$HOME/.config/gh-work"
+  else
+    export GH_CONFIG_DIR="$HOME/.config/gh-work"
+  fi
+}
+
+autoload -U add-zsh-hook
+add-zsh-hook chpwd chpwd_gh_switch
+chpwd_gh_switch
+```
+
+```bash
+source ~/.zshrc
+
+cd ~/Developer/1chooo/ && gh auth status
+# Logged in to github.com as 1chooo
+
+cd ~/Developer/works/ && gh auth status
+# Logged in to github.com as your-work-user
+```
+
+## Config Reference
+
+The four files that make the whole stack work. Copy what you need and replace the placeholder emails.
+
+<DemoConfigSnippets />
+
+## Daily Cheat Sheet
+
+**Work** (`~/Developer/works/`) — copy the normal SSH URL from GitHub. No host alias, no special flags.
+
+| Check | Expect |
+|---|---|
+| `git config user.email` | `you@company.com` |
+| `git remote -v` | `git@github.com:…` |
+| `ssh -T git@github.com` | work username |
+| `gh auth status` | work account |
+
+**Personal** (`~/Developer/1chooo/`) — clone with the normal URL; `insteadOf` rewrites it. Existing remotes may still need a one-time `git remote set-url`.
+
+| Check | Expect |
+|---|---|
+| `git config user.email` | `you@personal.dev` |
+| `git remote -v` | `git@github.com-personal:…` |
+| `ssh -T git@github.com-personal` | `1chooo` |
+| `gh auth status` | personal account |
+
+Before the first push on a new machine, run those four checks in both trees. If email, remote host, SSH greeting, and `gh` all agree, you are safe to push.

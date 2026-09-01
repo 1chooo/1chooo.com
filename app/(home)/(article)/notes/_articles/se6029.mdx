@@ -1,0 +1,215 @@
+export const metadata = {
+  title: 'SE6029—OOAD',
+  date: '2024.07.04',
+  description: 'Object-Oriented Analysis and Design: the four pillars, polymorphism and vtables, UML relationships, finding classes, and design patterns — with interactive visualisers.',
+}
+
+# SE6029—OOAD
+
+> Spring 2024, National Central University | Instructor: Yung-Pin Cheng
+
+Software is hard to engineer for one fundamental reason: unlike a bridge or a circuit board, it has no physical form. There is no geometric blueprint where you can measure stress or trace a signal. Requirements mutate the moment a product ships. A decade of maintenance stacks on top of foundations designed for a different world. UML diagrams help, but no single diagram captures the whole picture.
+
+Object-Oriented Analysis and Design (OOAD) is a discipline for managing that complexity. The goal is to build a system where the **core stays stable** and **change is isolated** — adding a new feature means writing a new class, not rewriting existing ones.
+
+
+## The Four Pillars of OOP
+
+All of OOAD rests on four concepts. They are not independent features — each one reinforces the others.
+
+<DemoOOPillars />
+
+**Classes** are types; **objects** are instances of those types. Every object owns its own memory (on the stack or the heap), but all objects of the same class share the same code. A `.h` file is the contract; the `.cpp` is the implementation.
+
+**Encapsulation** hides internal state behind access modifiers. `private` members are invisible to the outside world; callers must go through the public interface. This is what makes it safe to change implementation details without breaking call sites.
+
+**Inheritance** lets a derived class reuse and extend a base class. The base is constructed first and destroyed last; the derived part is layered on top. Use inheritance only when the Is-A relationship is genuinely true — "a Dog *is a* Pet" passes; "an EmployeeCensus *is a* vector" does not.
+
+**Polymorphism** is the payoff: a base-class pointer calls the right subclass method automatically, with no `switch` statement at the call site.
+
+
+## Memory and Object Lifetime
+
+Every running process has a fixed memory layout:
+
+```
+[ Data (globals) ][ Code ][ Heap ↓ … ↑ Stack ][ Kernel ]
+```
+
+- **Stack** — local variables. Allocated and freed automatically when a function returns.
+- **Heap** — long-lived allocations via `new` / `delete` (C++) or `new` / GC (Java). Risk: memory leaks if `delete` is forgotten.
+- **Data segment** — global and static variables. Live for the entire program lifetime.
+
+In C++, `T obj;` allocates on the **stack**. `T* p = new T();` allocates on the **heap** — you are responsible for calling `delete p`. Returning a pointer to a stack-allocated local is undefined behaviour; the stack frame is gone when the function returns.
+
+In Java, all objects live on the heap; local variables are references (pointers). Primitive types (`int`, `float`, …) are the only value types.
+
+
+## Inheritance in Depth
+
+### The Is-A Rule
+
+Inheritance models the Is-A relationship. It is transitive: an `American` is a `Citizen` is a `Human`. Before creating a subclass, ask: "Would it ever make sense to say 'An X is a Y'?" If the answer is "sort of" or "sometimes", prefer **composition**.
+
+```cpp
+// Bad: EmployeeCensus is not a list container
+class EmployeeCensus : public vector<Employee> {};
+
+// Good: EmployeeCensus HAS-A list container
+class EmployeeCensus {
+  vector<Employee> employees_;
+};
+```
+
+### Constructor and Destructor Chaining
+
+When a derived object is created, the **base class constructor runs first**. When the object is destroyed, the **derived class destructor runs first**. Each layer is responsible only for the resources it introduces.
+
+```cpp
+class Rat : public Pet {
+public:
+  Rat(int w) : Pet(w) {}  // delegates weight to Pet's ctor
+};
+```
+
+If any method is `virtual`, the destructor **must** be virtual too — otherwise deleting a derived object through a base pointer leaks the derived part.
+
+### Overriding vs. Overloading
+
+- **Overriding**: same signature in the derived class; replaces the base implementation at runtime (requires `virtual`).
+- **Overloading**: multiple methods with the same name but different parameter lists *in the same class*.
+
+Watch out: if you override one overload in a subclass, the other overloads from the base class are **hidden** in the subclass scope.
+
+
+## Polymorphism and the vtable
+
+Marking a method `virtual` opts it into **runtime dispatch**. The compiler inserts a hidden pointer (`vptr`) in every object with virtual methods; `vptr` points to a per-class **virtual function table** (vtable) — an array of function pointers.
+
+<DemoPolymorphism />
+
+`p->speak()` compiles to `(p->vptr[0])()`. The actual function called is determined at runtime based on the real type of the object — not the declared type of the pointer. The call site never needs to change.
+
+**Pure virtual functions** make a class abstract:
+
+```cpp
+class Shape {
+public:
+  virtual void draw() = 0;  // subclasses must implement
+};
+```
+
+Abstract classes cannot be instantiated. They define a contract that all concrete subclasses must honour.
+
+**Object slicing** is a common trap: passing a derived object **by value** into a base-class parameter copies only the base part. Polymorphism requires pointers or references.
+
+
+## Multiple Inheritance and Interfaces
+
+C++ allows a class to inherit from more than one base class. The obvious use case is a `JetCar : public Car, public Jet`. Problems arise when:
+
+- Two bases define a method with the same name (resolved with `BaseClass::method()` scoping or an override in the derived class).
+- Two bases both inherit from the same grandparent (**diamond problem**), creating two copies of the grandparent's data. Solved with `virtual` inheritance: `class Car : public virtual Vehicle`.
+
+Java's response: prohibit multiple class inheritance entirely. **Interfaces** are "purified" multiple inheritance — pure contracts with no implementation. The conceptual shift is from "A is a B" (inheritance) to "A can do B" (interface). In C++, an interface is a class with only pure virtual methods.
+
+
+## UML Relationships
+
+UML uses six distinct arrow types to show how classes relate. Getting them right matters: they encode both structural intent and runtime lifetime.
+
+<DemoUMLRelationships />
+
+The most important distinction is **composition vs. association**. If `Y` cannot meaningfully exist without `X`, it is composition (filled diamond). If `Y` is an independently-managed object that `X` merely references, it is association (solid arrow). Prefer association or composition over aggregation — aggregation (hollow diamond) is often ambiguous in practice.
+
+
+## Finding Classes — The KRB Seven-Step Method
+
+Analysis begins before any class diagram is drawn. The goal is to discover the real-world entities that matter to the user.
+
+### Jacobson's Three Object Types
+
+Every object in a system falls into one of three categories:
+
+1. **Entity objects** — things in the user's world: concrete (`Book`, `Invoice`), conceptual (`Policy`), or event-based (`Order`, `Transaction`).
+2. **Interface objects** — encapsulate boundaries: GUIs, communication protocols, external APIs.
+3. **Control objects** — carry complex logic that doesn't belong to any obvious entity (often one per use case).
+
+### Seven Steps
+
+1. **Candidate classes** — list every noun from interviews, use cases, and domain documents.
+2. **Define classes** — for each candidate verify: a real-world unique identifier, a clear definition, and plausible attributes and behaviours. No identifier → not a class.
+3. **Establish associations** — "Object verb Object". Find the verbs connecting entities.
+4. **Expand many-to-many** — a M:M association hides a junction class (e.g., `Customer ↔ Product` becomes `Customer ← Sale → Product`).
+5. **Attributes** — list all data fields per entity.
+6. **Normalization** — apply 1NF → 2NF → 3NF to remove redundancy and transitive dependencies.
+7. **Operations and inheritance** — add behaviour via use cases and CRC cards; find common behaviour and factor it into base classes.
+
+
+## Design Patterns
+
+A design pattern is a *solution to a problem in a context* — not reusable code, but reusable structure. Apply patterns after discovering a recurring problem in your design, not preemptively.
+
+### Strategy Pattern — the Duck example
+
+**Problem**: `Duck` has `fly()` and `quack()`. Adding `RubberDuck` breaks everything because rubber ducks can't fly. Overriding `fly()` in every subclass leads to duplicate code. Extracting `Flyable` / `Quackable` interfaces still requires each flying duck to reimplement `fly()` independently.
+
+**Solution**: separate the *varying* behavior into its own class hierarchy. `Duck` HAS-A `FlyBehavior` and HAS-A `QuackBehavior`. The concrete behavior is injected — swappable at runtime.
+
+<DemoStrategyPattern />
+
+Three design principles in one pattern:
+
+- *Take what varies and encapsulate it so it won't affect the rest of the code.*
+- *Program to an interface, not an implementation.*
+- *Favor composition over inheritance — HAS-A can be better than IS-A.*
+
+### Singleton Pattern
+
+Some things should only ever exist once: a printer spooler, a file system handle, a configuration registry. Singleton ensures exactly one instance and provides a global access point.
+
+```java
+public class Singleton {
+  private static volatile Singleton instance;
+  private Singleton() {}
+
+  public static Singleton getInstance() {
+    if (instance == null) {
+      synchronized (Singleton.class) {
+        if (instance == null)
+          instance = new Singleton();
+      }
+    }
+    return instance;
+  }
+}
+```
+
+Double-checked locking with `volatile` avoids the 100× overhead of synchronizing every call while remaining thread-safe.
+
+### Composite Pattern
+
+Treat individual objects and compositions of objects uniformly. A `Cabinet` contains `Chassis` objects; a `Chassis` contains `FloppyDisk`, `Card`, and `Bus` objects. Calling `cabinet.netPrice()` recursively aggregates all children — without `instanceof` checks at the call site.
+
+### Proxy Pattern
+
+Delay expensive object creation until it is truly needed. `ImageProxy` has the same interface as `Image`. On first `Draw()`, the proxy creates the real `Image` and delegates. The client (`TextDocument`) holds a `Graphic*` — it never knows whether it has a real image or a proxy.
+
+### Observer Pattern
+
+Define a one-to-many dependency so that when a **Subject** changes state, all registered **Observers** are notified and updated automatically. Decouples the publisher from all its subscribers — adding a new Observer requires no change to the Subject.
+
+
+## Code Quality
+
+The quality gap between a peak programmer and a mediocre one is roughly **10×** — and years of experience is not the differentiator. What separates them is how well they manage **coupling**.
+
+<DemoCodeSmells />
+
+**Spaghetti code** has no structure. Methods reach across global variables; object references are tangled. Extending it requires understanding everything.
+
+**Lasagna code** has clean conceptual layers (UI → logic → data) but each layer is a monolith. Changing one layer is conceptually easy but practically painful — the layer is too large to modify safely in isolation.
+
+**Ravioli code** is the OO ideal: small, self-contained components with minimal interfaces. Replacing one component does not ripple through the system. This is what polymorphism, composition, and design patterns are all working toward.
+
+The central thread: **write code so the core is stable and change is isolated**. The `for (auto pet : pets) pet->speak();` loop never changes. Only the initialisation code changes when a new animal is added. That is OOAD.

@@ -1,0 +1,432 @@
+export const metadata = {
+  title: 'DSA',
+  date: '2024.03.06',
+  description: 'A practical guide to data structures and algorithms — from Big O through arrays, linked lists, stacks, queues, hash tables, trees, and graphs.',
+}
+
+# DSA
+
+Data structures and algorithms are the two pillars underneath every piece of software that actually performs. A correct program that takes O(n²) time will stop working the moment the input grows large enough. Understanding the underlying mechanics — how data is laid out in memory, how algorithms traverse it, what the real costs are — is what separates code that scales from code that doesn't.
+
+This note covers the canonical data structures from first principles, the operations built on top of them, and the vocabulary you need to reason about performance before you write a single line of code.
+
+## Big O Notation
+
+Before exploring individual structures, we need a shared language for talking about cost. **Big O notation** describes how an algorithm's time or space usage grows as the input size *n* increases. It ignores constants and lower-order terms because at large n they become irrelevant.
+
+<DemoBigO />
+
+Select a complexity above to see how operation counts scale from n = 1 to n = 16. The contrast between O(1) and O(n²) is stark — what takes one step at n = 1 takes 256 steps at n = 16 under quadratic growth.
+
+| Complexity | Name | Typical example |
+|---|---|---|
+| O(1) | Constant | Hash lookup, array index access |
+| O(log n) | Logarithmic | Binary search, balanced BST |
+| O(n) | Linear | Array traversal, linear search |
+| O(n log n) | Linearithmic | Merge sort, heap sort |
+| O(n²) | Quadratic | Bubble sort, nested loops |
+
+<BlockSideTitle title={
+  <>
+    Big O describes the <em>worst-case upper bound</em>. <strong>Omega (Ω)</strong> is the best-case bound and <strong>Theta (Θ)</strong> is a tight bound that holds for both best and worst case. In practice "Big O" is used loosely to mean the tight bound — which is usually what you care about.
+  </>
+}>
+```js
+// O(n) — must scan every element in the worst case
+function linearSearch(arr, target) {
+  for (const item of arr) {
+    if (item === target) return true
+  }
+  return false
+}
+
+// O(log n) — discards half the search space each step
+function binarySearch(arr, target) {
+  let lo = 0, hi = arr.length - 1
+  while (lo <= hi) {
+    const mid = (lo + hi) >> 1
+    if (arr[mid] === target) return mid
+    arr[mid] < target ? (lo = mid + 1) : (hi = mid - 1)
+  }
+  return -1
+}
+```
+</BlockSideTitle>
+
+### Amortized Analysis
+
+Some operations are occasionally expensive but cheap on average. JavaScript's `Array.push` is a classic example: the backing array doubles when it fills up, which costs O(n), but that cost is spread across the n inserts that preceded it. Each insert is effectively O(1) on average — this is called **amortized O(1)**.
+
+### Space Complexity
+
+Big O applies to memory too. A function that creates a copy of its input uses O(n) space. One that works in-place with a fixed number of extra variables uses O(1) space. Sorting algorithms, for instance, are often evaluated on both dimensions: merge sort is O(n log n) time but O(n) space; heap sort is O(n log n) time and O(1) extra space.
+
+## Arrays
+
+An array stores elements in **contiguous memory**. Because every element occupies the same width, any index can be reached in constant time via a simple address calculation:
+
+```
+address = base_address + (index × element_size)
+```
+
+There is no traversal — the CPU jumps directly to the right memory location. This is why index access is O(1) regardless of how large the array is.
+
+<DemoArray />
+
+<BlockSideTitle title={
+  <>
+    In JavaScript, arrays are objects — they do not enforce a fixed type or size. V8 will try to back dense, homogeneous arrays with a typed C-style array for performance. Mixing types or creating sparse arrays (setting <code>arr[100] = x</code> on a short array) forces the engine into a slower hash-map representation.
+  </>
+}>
+```js
+// Fast path — V8 uses contiguous integer storage (PACKED_SMI_ELEMENTS)
+const nums = [1, 2, 3, 4]
+nums.push(5)           // still O(1) amortized
+
+// Slow path — engine falls back to dictionary mode
+nums[1000] = 99        // sparse array
+nums.push('text')      // mixed types
+```
+</BlockSideTitle>
+
+### When to Use Arrays
+
+Arrays are the right choice when you need fast random access (`arr[i]` in O(1)) or are primarily appending and removing from the **end** (push/pop). They are the wrong choice when you frequently insert or remove from the **front or middle** — every element after the insertion point must shift, costing O(n).
+
+## Linked Lists
+
+A linked list stores elements in **nodes scattered through memory**. Each node holds a value and a pointer (reference) to the next node. There is no index arithmetic: reaching node *i* requires traversing from the head through all preceding nodes.
+
+<DemoLinkedList />
+
+The pointer-based structure makes **head insertions and deletions O(1)** — you simply re-wire one pointer. The tradeoff is losing O(1) random access: you must walk the list to find element *i*, costing O(n).
+
+| Operation | Array | Linked list |
+|---|---|---|
+| Access by index | O(1) | O(n) |
+| Insert at head | O(n) | O(1) |
+| Insert at tail | O(1) amortized | O(n) / O(1) with tail ptr |
+| Remove at head | O(n) | O(1) |
+| Remove at tail | O(1) | O(n) / O(1) with doubly linked |
+| Search | O(n) | O(n) |
+
+<BlockSideTitle title={
+  <>
+    A <strong>doubly linked list</strong> adds a <code>prev</code> pointer to each node. This makes tail removal O(1) (no traversal needed) and enables backward traversal. The cost is extra memory per node and more pointer updates on every insert and remove.
+  </>
+}>
+```js
+class Node {
+  constructor(val) {
+    this.val = val
+    this.next = null
+    this.prev = null   // doubly linked adds backward pointer
+  }
+}
+
+class DoublyLinkedList {
+  head = null
+  tail = null
+
+  insertTail(val) {                    // O(1) with tail pointer
+    const node = new Node(val)
+    if (!this.tail) { this.head = this.tail = node; return }
+    node.prev = this.tail
+    this.tail.next = node
+    this.tail = node
+  }
+
+  removeTail() {                       // O(1) — no traversal
+    if (!this.tail) return
+    this.tail = this.tail.prev
+    if (this.tail) this.tail.next = null
+    else this.head = null
+  }
+}
+```
+</BlockSideTitle>
+
+## Stacks and Queues
+
+Both structures impose ordering constraints on access — which is exactly what makes them useful as building blocks.
+
+<DemoStackQueue />
+
+### Stack
+
+A **stack** is LIFO — Last In, First Out. Think of a stack of plates: you always add and remove from the top. Three operations, all O(1):
+
+```js
+class Stack {
+  #items = []
+  push(val)  { this.#items.push(val) }
+  pop()      { return this.#items.pop() }
+  peek()     { return this.#items.at(-1) }
+  isEmpty()  { return this.#items.length === 0 }
+}
+```
+
+Stacks power: undo/redo history, the JavaScript call stack, depth-first search, bracket-matching, and expression evaluation (the shunting-yard algorithm).
+
+### Queue
+
+A **queue** is FIFO — First In, First Out. Think of a line at a counter: the first person in is the first served.
+
+```js
+// Naive array-backed queue — dequeue is O(n) due to Array.shift()
+class Queue {
+  #items = []
+  enqueue(val) { this.#items.push(val) }
+  dequeue()    { return this.#items.shift() }   // O(n) — shifts all elements
+  peek()       { return this.#items[0] }
+}
+```
+
+`Array.shift()` is O(n) because it moves every remaining element one index left. A proper queue implementation uses a **doubly linked list** (O(1) dequeue from the head) or a **circular buffer** (fixed-size, O(1) amortized). Queues power: breadth-first search, task schedulers, event loops, and print spoolers.
+
+<BlockSideTitle title={
+  <>
+    JavaScript's event loop is fundamentally a queue: callbacks are enqueued when events fire and dequeued one at a time by the call stack. The microtask queue (Promises) drains completely before the next macrotask (setTimeout) dequeues — this is why <code>Promise.resolve().then(…)</code> always runs before a zero-delay <code>setTimeout</code>.
+  </>
+}>
+```js
+console.log('1')
+
+setTimeout(() => console.log('2'), 0)          // macrotask queue
+
+Promise.resolve().then(() => console.log('3')) // microtask queue
+
+console.log('4')
+
+// Output: 1, 4, 3, 2
+// Microtask drains before next macrotask
+```
+</BlockSideTitle>
+
+## Hash Tables
+
+A hash table (or hash map) stores key–value pairs with O(1) average-case lookup, insert, and delete. The mechanism:
+
+1. Pass the key through a **hash function** that returns an integer
+2. Use that integer modulo the bucket count to select a bucket
+3. Store the key–value pair in that bucket
+
+```js
+// Conceptually (simplified)
+function hashTable(size) {
+  const buckets = new Array(size).fill(null).map(() => [])
+
+  function hash(key) {
+    return [...key].reduce((acc, c) => acc + c.charCodeAt(0), 0) % size
+  }
+
+  return {
+    set(key, val) { buckets[hash(key)].push([key, val]) },
+    get(key)      { return buckets[hash(key)].find(([k]) => k === key)?.[1] },
+  }
+}
+```
+
+<BlockSideTitle title={
+  <>
+    Two keys can produce the same bucket index — a <strong>collision</strong>. <strong>Chaining</strong> stores all collisions in a linked list at that bucket. <strong>Open addressing</strong> probes the next empty bucket instead. JavaScript's <code>Map</code> uses open addressing with a variant called Robin Hood hashing. When the <strong>load factor</strong> (entries ÷ buckets) exceeds ~0.75, the table rehashes — O(n) — but amortized across all inserts, each remains O(1).
+  </>
+}>
+```js
+const map = new Map()
+map.set('user:42', { name: 'Alice' })   // O(1) average
+map.get('user:42')                      // O(1) average
+map.has('user:99')                      // O(1) average
+map.delete('user:42')                   // O(1) average
+
+// Map vs Object
+const obj = {}
+obj[42] = 'number'   // key coerced to string '42'
+obj[{}] = 'object'   // key coerced to '[object Object]'
+
+const m = new Map()
+m.set(42, 'number')  // key stays numeric 42
+m.set({}, 'object')  // distinct object reference as key
+```
+</BlockSideTitle>
+
+### JavaScript's `Map` vs Object
+
+| | `Object` | `Map` |
+|---|---|---|
+| Key types | Strings and Symbols only | Any value |
+| Iteration order | Insertion (mostly) | Guaranteed insertion |
+| Prototype pollution | Risk via `__proto__` | None |
+| Size | `Object.keys(o).length` — O(n) | `map.size` — O(1) |
+
+Prefer `Map` when keys are dynamic, non-string, or when you need a guaranteed-clean namespace. Use plain objects for fixed-shape records and JSON serialisation.
+
+## Trees
+
+A **tree** is a hierarchical structure with a single root node and zero or more child subtrees. Trees are everywhere: the DOM, file systems, decision trees, compiler abstract syntax trees.
+
+### Binary Search Tree
+
+A **BST** enforces one rule at every node: all values in the left subtree are smaller, all values in the right subtree are larger. This ordering rule makes search, insert, and delete O(log n) average case — each comparison discards half the remaining candidates.
+
+<DemoBST />
+
+Insert a value to grow the tree. Switch to search mode and enter a value to watch the comparison path highlighted. Note how the tree degenerates if you insert values in sorted order — 1, 2, 3, 4 … produces a linked-list-shaped tree with O(n) height.
+
+```js
+class BST {
+  #root = null
+
+  insert(val, node = this.#root) {
+    if (!node) return { val, left: null, right: null }
+    if (val < node.val) node.left  = this.insert(val, node.left)
+    if (val > node.val) node.right = this.insert(val, node.right)
+    return node
+  }
+
+  search(val, node = this.#root) {
+    if (!node || node.val === val) return node
+    return val < node.val
+      ? this.search(val, node.left)
+      : this.search(val, node.right)
+  }
+}
+```
+
+The worst case is O(n) — inserting already-sorted data produces a linear chain with no branching. **Self-balancing** variants (AVL tree, Red-Black tree) maintain O(log n) by performing rotations after insertions and deletions to keep the tree's height bounded.
+
+### Tree Traversal
+
+| Order | Visit sequence | Common use |
+|---|---|---|
+| In-order | left → root → right | BST sorted output |
+| Pre-order | root → left → right | Copy or serialise a tree |
+| Post-order | left → right → root | Delete tree, evaluate expressions |
+| Level-order (BFS) | row by row | Shortest path in unweighted tree |
+
+```js
+function inOrder(node, result = []) {
+  if (!node) return result
+  inOrder(node.left, result)
+  result.push(node.val)         // visit root between children
+  inOrder(node.right, result)
+  return result
+}
+// inOrder(bst) → values sorted ascending
+```
+
+<BlockSideTitle title={
+  <>
+    Level-order traversal requires a queue, not a stack. Push the root, then on each iteration dequeue a node, record it, and enqueue its children. The result visits nodes level by level — exactly what you need for shortest-path in an unweighted tree.
+  </>
+}>
+```js
+function levelOrder(root) {
+  if (!root) return []
+  const result = [], queue = [root]
+  while (queue.length) {
+    const node = queue.shift()
+    result.push(node.val)
+    if (node.left)  queue.push(node.left)
+    if (node.right) queue.push(node.right)
+  }
+  return result
+}
+```
+</BlockSideTitle>
+
+## Graphs
+
+A **graph** is a set of **vertices** connected by **edges**. Unlike trees, graphs can have cycles, disconnected components, and multiple paths between the same two nodes. Graphs model social networks, road maps, dependency resolution, web link structure, and network routing.
+
+### Representation
+
+```js
+// Adjacency list — efficient for sparse graphs (most edges absent)
+const graph = {
+  A: ['B', 'C'],
+  B: ['A', 'D'],
+  C: ['A'],
+  D: ['B'],
+}
+
+// Adjacency matrix — O(1) edge lookup, O(V²) space
+//      A  B  C  D
+const matrix = [
+  [0, 1, 1, 0],  // A
+  [1, 0, 0, 1],  // B
+  [1, 0, 0, 0],  // C
+  [0, 1, 0, 0],  // D
+]
+```
+
+Use an **adjacency list** for sparse graphs (most edges absent). Use an **adjacency matrix** when you need O(1) edge-existence checks or the graph is dense.
+
+### BFS and DFS
+
+```js
+// BFS — uses a queue, visits level by level
+// Finds shortest path (fewest edges) in unweighted graphs
+function bfs(graph, start) {
+  const visited = new Set([start])
+  const queue = [start]
+  while (queue.length) {
+    const node = queue.shift()
+    for (const neighbour of graph[node] ?? []) {
+      if (!visited.has(neighbour)) {
+        visited.add(neighbour)
+        queue.push(neighbour)
+      }
+    }
+  }
+}
+
+// DFS — uses a stack (recursion), explores deep before wide
+// Useful for cycle detection, topological sort, connected components
+function dfs(graph, node, visited = new Set()) {
+  if (visited.has(node)) return
+  visited.add(node)
+  for (const neighbour of graph[node] ?? []) {
+    dfs(graph, neighbour, visited)
+  }
+}
+```
+
+<BlockSideTitle title={
+  <>
+    Both BFS and DFS are <strong>O(V + E)</strong> on an adjacency list — they visit every vertex once and examine every edge once. BFS is better for shortest-path in unweighted graphs and level-order exploration. DFS is better for cycle detection, topological sort, and backtracking problems. When in doubt: if you need the <em>closest</em> answer, use BFS; if you need to explore all possibilities, use DFS.
+  </>
+}>
+```js
+// BFS shortest path
+function shortestPath(graph, start, end) {
+  const queue = [[start, 0]]
+  const visited = new Set([start])
+  while (queue.length) {
+    const [node, dist] = queue.shift()
+    if (node === end) return dist
+    for (const nb of graph[node] ?? []) {
+      if (!visited.has(nb)) {
+        visited.add(nb)
+        queue.push([nb, dist + 1])
+      }
+    }
+  }
+  return -1  // unreachable
+}
+```
+</BlockSideTitle>
+
+## Choosing the Right Structure
+
+| Structure | Reach for it when | Avoid when |
+|---|---|---|
+| Array | Random access, append-heavy workloads | Frequent front/middle inserts |
+| Linked list | Frequent head insert/remove, O(1) splice with pointer | Random access required |
+| Stack | LIFO order, DFS, undo history | — |
+| Queue | FIFO order, BFS, task scheduling | O(n) shift matters — use deque |
+| Hash table | Key–value lookup, counting, deduplication | Ordered iteration, sorted keys |
+| BST | Sorted data, range queries, in-order iteration | Sorted-input degeneracy — use balanced BST |
+| Graph | Relationship modelling, network traversal | Overhead on simple hierarchies |
+
+The right structure depends on which operations dominate your workload. Array and hash table cover the majority of everyday cases. When ordering or hierarchical structure matters, trees. When arbitrary relationships matter, graphs. Every exotic case reduces to one of these.

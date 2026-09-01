@@ -1,0 +1,223 @@
+export const metadata = {
+  title: 'TCP',
+  date: '2026.03.06',
+  description: 'A deep dive into the Transmission Control Protocol — segment structure, the three-way handshake, connection teardown, flow control, and the full state machine.',
+}
+
+# TCP
+
+The internet moves bytes. Most of those bytes travel over TCP — the **Transmission Control Protocol** — yet the protocol is easy to take for granted. You call `fetch()`, the browser fetches the page, and somewhere underneath a stream of data reliably crossed the network. How?
+
+TCP answers a deceptively hard question: *how do you build reliable, ordered, connection-oriented communication over an unreliable, unordered packet network?* The answer involves sequence numbers, acknowledgments, timers, flow control, and a carefully specified state machine. This article walks through all of it.
+
+## Where TCP Fits
+
+TCP lives at the **Transport layer** (layer 4 in the OSI model, layer 3 in the simplified TCP/IP model). It sits between the application and the IP layer:
+
+<StackLayers />
+
+IP delivers **packets** — individually routed, possibly reordered, possibly dropped. TCP builds a **byte stream** on top of that: ordered, lossless, and flow-controlled.
+
+Its connectionless sibling, **UDP**, skips those guarantees for lower overhead — useful for real-time audio/video (WebRTC), DNS queries, and QUIC. But wherever reliability and order matter, TCP is the default choice.
+
+## The TCP Segment
+
+Every unit of work in TCP is called a **segment**. A segment has a fixed-format header (minimum 20 bytes) followed by optional extensions and the application payload.
+
+<DemoSegment />
+
+Click each field in the diagram above to see what it does. A few are worth calling out in detail.
+
+### Sequence and Acknowledgment Numbers
+
+These two 32-bit numbers are the heart of TCP's reliability guarantee. TCP treats the data as a continuous byte stream identified by sequence numbers. The **sequence number** says "the first byte in this segment is byte N of the stream." The **acknowledgment number** says "I have received everything up to byte M — send me M next."
+
+<BlockSideTitle title={
+  <>
+    <strong>Cumulative acknowledgment</strong> — one field covers the whole stream
+  </>
+}>
+```
+Client sends:  seq=1000, data=500 bytes   → bytes 1000–1499
+Server replies: ack=1500                  → "got up to 1499, send 1500"
+
+Client sends:  seq=1500, data=500 bytes   → bytes 1500–1999
+Server replies: ack=2000                  → "got up to 1999, send 2000"
+```
+</BlockSideTitle>
+
+This design means a single ACK covers everything received so far — a dropped packet causes a gap, and the receiver simply does not advance its ACK number past the gap until the retransmission fills it.
+
+### Flags
+
+The 6 control bits in the flags field determine the purpose of a segment:
+
+| Flag | Name | Used for |
+|------|------|----------|
+| `SYN` | Synchronize | Opening a connection |
+| `ACK` | Acknowledge | Carrier of acknowledgment numbers |
+| `FIN` | Finish | Closing a connection (graceful) |
+| `RST` | Reset | Aborting a connection immediately |
+| `PSH` | Push | Hint to deliver data to app now |
+| `URG` | Urgent | Urgent data pointer valid |
+
+Most segments in a normal data exchange carry only the `ACK` flag. `SYN` and `FIN` each consume one sequence number (they are treated as a 1-byte virtual payload).
+
+### Window Size and Flow Control
+
+The **window size** field is TCP's built-in throttle. A receiver declares how many bytes it can currently buffer. The sender must not have more than that many unacknowledged bytes outstanding.
+
+```
+Receiver buffer = 65535 bytes
+Sender may have at most 65535 bytes "in flight" (sent, not yet ACKed)
+```
+
+The **Window Scale option** (negotiated during the handshake) multiplies this field by a power of two, enabling windows up to 1 GiB — essential for high-bandwidth, high-latency links.
+
+## The Three-Way Handshake
+
+Before any data flows, the two endpoints must synchronise their Initial Sequence Numbers and confirm that both directions of communication work. TCP does this with three segments — the **three-way handshake**.
+
+<DemoHandshake />
+
+Use the mode toggle above to step through both the connection setup (three-way handshake) and connection teardown (four-way teardown). Click **next** to advance one step at a time.
+
+### Why Three Steps?
+
+Two steps are not enough. If a client sent SYN and the server replied ACK alone, the server would not know whether *its* direction is working — it has never received an acknowledgment from the client. The third step (client → ACK of the server's SYN-ACK) confirms that both directions are functional.
+
+<BlockSideTitle title={
+  <>
+    <strong>SYN cookies</strong> — defending against SYN flood attacks
+  </>
+}>
+```
+Normal: server allocates a half-open socket when it receives SYN.
+
+SYN flood: attacker sends millions of SYN segments with spoofed
+source IPs → server fills its backlog queue → legitimate connections
+are refused.
+
+SYN cookies: server encodes the connection state into the ISN
+(a cryptographic hash of src/dst addresses and ports plus a timestamp).
+No state is stored until the ACK arrives and the cookie is verified.
+```
+</BlockSideTitle>
+
+### ISN Randomisation
+
+The Initial Sequence Number is **not** zero. TCP requires it to be chosen pseudo-randomly (RFC 6528 recommends a cryptographic hash). This prevents two hazards:
+
+1. **Old duplicate segments** — leftover segments from a previous connection with the same 4-tuple being mistaken for new data.
+2. **Blind injection attacks** — an off-path attacker guessing the sequence number and injecting fake data.
+
+## Four-Way Connection Teardown
+
+TCP is full-duplex. Each direction is closed independently with a FIN + ACK exchange. That is why graceful close takes **four** segments instead of three.
+
+<BlockSideTitle title={
+  <>
+    <strong>Half-close</strong> — each direction is independent
+  </>
+}>
+```
+Client sends FIN       → "I'm done sending data."
+Server sends ACK       → "Understood; but I may still send to you."
+   … server finishes its own sends …
+Server sends FIN       → "I'm done too."
+Client sends ACK       → "Connection fully closed."
+```
+</BlockSideTitle>
+
+In practice the server often has no data left and combines its ACK and FIN into a single segment, making it look like three segments — but conceptually it is always two independent half-closes.
+
+### TIME_WAIT
+
+After sending the final ACK, the active closer does **not** immediately move to CLOSED. It waits for **2×MSL** (Maximum Segment Lifetime, typically 30–60 s, so the wait is 60–120 s).
+
+Two reasons:
+
+1. **Ensure the final ACK was received.** If it was lost, the remote will retransmit its FIN, and the active closer needs to be alive to re-send the ACK.
+2. **Absorb stale duplicates.** Any segment from this connection that was delayed in the network will expire before the port is reused — preventing it from contaminating a new connection with the same 4-tuple.
+
+TIME_WAIT is why a server that was restarted quickly sometimes cannot immediately reclaim its port. `SO_REUSEADDR` relaxes this restriction for server sockets.
+
+## TCP State Machine
+
+Every TCP endpoint is always in exactly one of eleven states. Transitions happen in response to incoming segments, API calls (connect, close), or timers.
+
+<DemoStateMachine />
+
+Toggle between the **active opener** (client) and **passive opener** (server) paths. Click any state square to see what it means and which events drive the next transition.
+
+### The Normal Client Path
+
+```
+CLOSED → SYN_SENT → ESTABLISHED → FIN_WAIT_1 → FIN_WAIT_2 → TIME_WAIT → CLOSED
+```
+
+### The Normal Server Path
+
+```
+CLOSED → LISTEN → SYN_RECEIVED → ESTABLISHED → CLOSE_WAIT → LAST_ACK → CLOSED
+```
+
+The `CLOSING` state appears only in the rare simultaneous close scenario — both sides send FIN at virtually the same time.
+
+## Reliability: Retransmission and Timeouts
+
+When a segment is lost, the sender eventually notices that no ACK arrived, and retransmits. Two mechanisms trigger this:
+
+**Retransmission timeout (RTO)** — A timer starts when a segment is sent. If no ACK arrives before it fires, the segment is retransmitted. The timeout is computed dynamically from observed round-trip times using Jacobson's algorithm.
+
+**Fast retransmit** — If the sender receives three **duplicate ACKs** (the same ACK number repeated), it infers a hole in the stream and retransmits immediately, without waiting for the timer. This is faster because duplicates arrive quickly on modern networks.
+
+<BlockSideTitle title={
+  <>
+    <strong>Fast retransmit</strong> — three duplicate ACKs trigger early recovery
+  </>
+}>
+```
+Sender transmits:  seg 1, seg 2, seg 3, seg 4, seg 5
+Network drops:     seg 2
+
+Receiver got seg 1: ACK=2  (normal)
+Receiver got seg 3: ACK=2  (dup — still waiting for 2)
+Receiver got seg 4: ACK=2  (dup)
+Receiver got seg 5: ACK=2  (dup × 3 → sender retransmits seg 2)
+```
+</BlockSideTitle>
+
+## Congestion Control
+
+Flow control prevents the receiver from being overwhelmed. **Congestion control** prevents the *network* from being overwhelmed. They work on the same lever — the amount of in-flight data — but with different signals.
+
+TCP maintains a **congestion window (cwnd)** alongside the receiver's window. The effective window is `min(cwnd, rwnd)`.
+
+**Slow start** — cwnd begins at 1 MSS (Maximum Segment Size, typically 1460 bytes) and doubles every RTT until either loss is detected or a threshold (`ssthresh`) is reached.
+
+**Congestion avoidance** — Above `ssthresh`, cwnd increases by 1 MSS per RTT (linear growth) instead of doubling.
+
+**On loss** — cwnd is cut. Exactly how depends on the TCP variant (Reno, CUBIC, BBR…).
+
+```
+cwnd growth during slow start:   1 → 2 → 4 → 8 → … (exponential)
+cwnd growth during avoidance:    8 → 9 → 10 → 11 → … (linear)
+```
+
+Modern variants like **TCP CUBIC** (Linux default) and **TCP BBR** (Google) use more sophisticated models that achieve higher throughput on long-fat-network paths.
+
+## Putting It All Together
+
+A single `GET https://example.com/` involves:
+
+1. **DNS** — resolve `example.com` to an IP.
+2. **TCP three-way handshake** — open a connection to port 443.
+3. **TLS handshake** — negotiate encryption (over the established TCP connection).
+4. **HTTP/1.1 or HTTP/2 request** — bytes flow as TCP segments, each ACKed.
+5. **Data transfer** — congestion control and flow control regulate the pace.
+6. **TCP four-way teardown** (or `Connection: keep-alive` for reuse).
+
+Every reliability guarantee you rely on in a web browser, API client, or SSH session flows from the mechanisms above — sequence numbers, ACKs, retransmissions, flow control, the handshake, and the state machine.
+
+The transport layer is invisible until it goes wrong. At that point, knowing exactly what state each side believes it is in, what a SYN cookie is, or why TIME_WAIT cannot be skipped makes all the difference.

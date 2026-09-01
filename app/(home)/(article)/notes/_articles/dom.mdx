@@ -1,0 +1,349 @@
+export const metadata = {
+  title: 'DOM',
+  date: '2026.03.06',
+  description: 'A complete guide to the Document Object Model — from the node tree and traversal through querying, manipulation, events, and performance.',
+}
+
+# DOM
+
+The DOM is one of those things you use every day as a frontend developer without ever quite stopping to think about what it actually is. You call `document.querySelector`, you add event listeners, you update `innerHTML` — and it all just works. But when something breaks, or you need to reason about performance, or a `z-index` mysteriously stops responding to an event, you discover that the DOM has a lot of rules running underneath everything you do.
+
+This note walks through the DOM from first principles: what it is, how to navigate it, how to manipulate it, how events move through it, and how to work with it without tanking performance.
+
+## What Is the DOM?
+
+When a browser parses an HTML document it does not store it as a string. Instead it builds a **live tree of objects** in memory — the **Document Object Model**. Every element, every text node, every comment becomes a node in that tree, and JavaScript can read and modify that tree at any time.
+
+The critical word is *live*. Change the tree from JavaScript and the browser re-renders the affected parts of the page immediately. The HTML source file never changes; the DOM is a separate, mutable representation of it.
+
+<DemoDOMTree />
+
+The tree starts at the `document` node (nodeType 9). Below it sits `<html>`, which branches into `<head>` and `<body>`, and so on down to individual text nodes. Click any node in the explorer above to inspect its core properties.
+
+### Node Types
+
+Not everything in the DOM is an element. Every node has a `nodeType` integer that describes what kind of node it is:
+
+| `nodeType` | Constant | What it is |
+|---|---|---|
+| `1` | `ELEMENT_NODE` | An HTML element (`<p>`, `<div>`, …) |
+| `3` | `TEXT_NODE` | A text run between tags |
+| `8` | `COMMENT_NODE` | An HTML comment |
+| `9` | `DOCUMENT_NODE` | The root `document` object |
+
+```js
+document.nodeType          // 9 — the document itself
+document.body.nodeType     // 1 — an element
+document.body.firstChild   // could be 3 — a text node (whitespace)
+```
+
+<BlockSideTitle title={
+  <>
+    <code>children</code> gives you only element nodes (nodeType 1).<br />
+    <code>childNodes</code> gives you everything — elements, text, comments.<br />
+    Most of the time <code>children</code> is what you want.
+  </>
+}>
+```js
+const ul = document.querySelector('ul')
+
+ul.children       // HTMLCollection — only <li> elements
+ul.childNodes     // NodeList — <li>s plus any text/whitespace nodes
+
+ul.children.length    // 3  (three <li>s)
+ul.childNodes.length  // 7  (3 li + 4 text nodes — newlines/tabs)
+```
+</BlockSideTitle>
+
+## Selecting Elements
+
+Before you can do anything with an element you have to find it. The modern API gives you two methods that cover nearly every case:
+
+```js
+// Returns the first matching element, or null
+const el = document.querySelector('.card')
+
+// Returns a static NodeList of all matches
+const all = document.querySelectorAll('article h2')
+```
+
+Both accept any valid CSS selector, which makes them enormously flexible. The classic `getElementById` and `getElementsByClassName` still exist and are marginally faster for simple ID/class lookups, but `querySelector` is almost always the right choice.
+
+<DemoDOMQuery />
+
+Toggle the selector presets above to see which elements in the demo document match. Note that unmatched elements dim out — this mirrors what `querySelectorAll` returns: only the highlighted subset.
+
+<BlockSideTitle title={
+  <>
+    <code>querySelectorAll</code> returns a <em>static</em> NodeList — a snapshot taken at call time. It does not update as the DOM changes. <code>getElementsByClassName</code> and <code>getElementsByTagName</code> return <em>live</em> HTMLCollections that do update, which can cause confusing bugs when iterating.
+  </>
+}>
+```js
+// Static — safe to iterate while mutating the DOM
+const items = document.querySelectorAll('.item')
+
+// Live — length changes if you add/remove .item inside the loop
+const live = document.getElementsByClassName('item')
+
+// Convert live collection to static array when needed
+const safe = Array.from(live)
+```
+</BlockSideTitle>
+
+## Traversal
+
+Once you have a reference to a node, you can navigate the tree relative to it:
+
+```js
+const el = document.querySelector('main')
+
+el.parentElement          // immediate parent element
+el.children               // live HTMLCollection of child elements
+el.firstElementChild      // first child element
+el.lastElementChild       // last child element
+el.nextElementSibling     // sibling after this one
+el.previousElementSibling // sibling before this one
+```
+
+<BlockSideTitle title={
+  <>
+    Prefer the <code>Element</code>-suffixed properties (<code>parentElement</code>, <code>firstElementChild</code>) over the <code>Node</code> equivalents (<code>parentNode</code>, <code>firstChild</code>). The Node versions include text and comment nodes; the Element versions skip them and return only element nodes.
+  </>
+}>
+```js
+const li = document.querySelector('li')
+
+li.parentNode          // could be a DocumentFragment
+li.parentElement       // always an Element — usually what you want
+
+li.firstChild          // might be a text node (whitespace)
+li.firstElementChild   // always the first child Element
+```
+</BlockSideTitle>
+
+## Manipulating the DOM
+
+Reading the DOM is half the job. The other half is changing it.
+
+### Creating and Adding Nodes
+
+```js
+// Create a new element
+const div = document.createElement('div')
+div.className = 'card'
+div.textContent = 'Hello'
+
+// Attach it — these are equivalent for appending
+parent.appendChild(div)
+parent.append(div)          // also accepts strings
+parent.prepend(div)         // add at the start
+sibling.after(div)          // insert after sibling
+sibling.before(div)         // insert before sibling
+```
+
+### Removing and Replacing
+
+```js
+el.remove()                       // remove from DOM
+parent.removeChild(el)            // older API, same result
+parent.replaceChild(newEl, oldEl) // swap one node for another
+el.replaceWith(newEl)             // modern shorthand
+```
+
+### Reading and Writing Content
+
+```js
+el.textContent = 'Safe text'    // sets text; any HTML is escaped
+el.innerHTML = '<b>Bold</b>'    // parsed as HTML — use with care
+el.outerHTML                    // the element itself + its content as HTML string
+```
+
+<BlockSideTitle title={
+  <>
+    <strong>Never set <code>innerHTML</code> from untrusted input.</strong> It parses and executes embedded scripts, making it the most common XSS vector in JavaScript. For user-supplied content always use <code>textContent</code>, which treats everything as plain text.
+  </>
+}>
+```js
+// ✗ XSS risk — never do this with user input
+el.innerHTML = userInput
+
+// ✓ Always use textContent for untrusted strings
+el.textContent = userInput
+
+// ✓ If you must build HTML, use DOMParser or a template
+const safe = document.createElement('span')
+safe.textContent = userInput
+el.appendChild(safe)
+```
+</BlockSideTitle>
+
+### Attributes and Classes
+
+```js
+el.getAttribute('href')           // read attribute
+el.setAttribute('data-id', '42') // write attribute
+el.removeAttribute('disabled')   // remove attribute
+el.hasAttribute('hidden')        // check attribute
+
+// classList is the right way to manage CSS classes
+el.classList.add('active')
+el.classList.remove('active')
+el.classList.toggle('active')
+el.classList.contains('active')  // → boolean
+```
+
+## Events
+
+The DOM exposes a rich event system. Every interaction — clicks, keyboard input, form submission, scroll, resize — is represented as an event that you can listen for on any node.
+
+```js
+const btn = document.querySelector('button')
+
+btn.addEventListener('click', (event) => {
+  console.log(event.target)    // the element that was clicked
+  console.log(event.type)      // 'click'
+})
+```
+
+### The Event Object
+
+Every listener receives an `Event` object. Its most important properties:
+
+| Property | What it is |
+|---|---|
+| `event.target` | The element that originally triggered the event |
+| `event.currentTarget` | The element whose listener is currently running |
+| `event.type` | The event name: `'click'`, `'keydown'`, … |
+| `event.preventDefault()` | Cancel the browser's default action |
+| `event.stopPropagation()` | Stop the event from travelling further |
+
+`target` and `currentTarget` differ when event bubbling is involved — `target` is always the origin element, while `currentTarget` changes at each step of propagation.
+
+## Event Propagation
+
+When you click a button inside a `<div>`, the browser does not just fire an event on the button. It sends the event on a journey through the entire tree. Understanding this journey — **propagation** — explains a huge class of bugs and makes event delegation possible.
+
+<DemoEventBubbling />
+
+There are two phases:
+
+1. **Capture** — the event travels *down* from the document root to the target element. Listeners registered with `{ capture: true }` fire during this phase.
+2. **Bubble** — after reaching the target, the event travels back *up* through ancestors. This is the default phase; most listeners run here.
+
+<BlockSideTitle title={
+  <>
+    In the demo, switch to <em>capturing</em> and click the inner button. The outer handler fires first because the event hasn't reached the target yet. Enable <em>stopPropagation</em> to see how it cuts the chain at the first handler.
+  </>
+}>
+```js
+// Bubbling listener (default)
+el.addEventListener('click', handler)
+
+// Capture listener — fires before bubbling listeners
+el.addEventListener('click', handler, { capture: true })
+
+// Stop the event from reaching any further listeners
+el.addEventListener('click', (e) => {
+  e.stopPropagation() // ← chain ends here
+})
+```
+</BlockSideTitle>
+
+### Event Delegation
+
+Because events bubble, you do not need a separate listener on every child. You can attach one listener to a parent and check `event.target` to know which child was acted on:
+
+```js
+// ✗ One listener per item — scales poorly
+document.querySelectorAll('li').forEach(li => {
+  li.addEventListener('click', handleClick)
+})
+
+// ✓ One listener on the parent
+document.querySelector('ul').addEventListener('click', (e) => {
+  if (e.target.matches('li')) {
+    handleClick(e)
+  }
+})
+```
+
+This pattern — **event delegation** — is especially valuable for large lists or dynamically added elements, since the parent listener covers items that don't exist yet.
+
+## DOM Performance
+
+The DOM is far slower than plain JavaScript. Reading a property like `offsetHeight` forces the browser to calculate layout; writing `innerHTML` in a loop forces repeated reflows. A few patterns help:
+
+### Batch Reads Before Writes
+
+Interleaving reads and writes forces multiple layout recalculations:
+
+```js
+// ✗ Read → write → read → write → forces 2 layouts
+const h1 = el1.offsetHeight    // read  (layout)
+el2.style.height = h1 + 'px'  // write
+const h2 = el3.offsetHeight    // read  (layout again!)
+el4.style.height = h2 + 'px'  // write
+
+// ✓ All reads first, then all writes — forces only 1 layout
+const h1 = el1.offsetHeight
+const h2 = el3.offsetHeight
+el2.style.height = h1 + 'px'
+el4.style.height = h2 + 'px'
+```
+
+### DocumentFragment for Bulk Inserts
+
+Every `appendChild` call is a potential reflow trigger if it alters layout. Build large subtrees off-screen in a `DocumentFragment` and then attach in one shot:
+
+```js
+// ✗ 100 reflows
+items.forEach(item => {
+  const li = document.createElement('li')
+  li.textContent = item
+  ul.appendChild(li)   // ← triggers layout each time
+})
+
+// ✓ 1 reflow
+const frag = document.createDocumentFragment()
+items.forEach(item => {
+  const li = document.createElement('li')
+  li.textContent = item
+  frag.appendChild(li) // off-screen, no reflow
+})
+ul.appendChild(frag)   // ← single reflow
+```
+
+<BlockSideTitle title={
+  <>
+    Layout-triggering properties include: <code>offsetWidth/Height</code>, <code>clientWidth/Height</code>, <code>scrollTop</code>, <code>getBoundingClientRect()</code>, and computed style reads. If you find yourself calling these in a loop, consider caching the value before the loop starts.
+  </>
+}>
+```js
+// ✗ Triggers layout on every iteration
+items.forEach(el => {
+  if (el.offsetWidth > 200) { /* … */ }
+})
+
+// ✓ Cache outside the loop
+const containerWidth = container.offsetWidth
+items.forEach(el => {
+  if (containerWidth > 200) { /* … */ }
+})
+```
+</BlockSideTitle>
+
+## A Mental Model for the DOM
+
+The DOM is not magic — it is a well-specified tree of objects with predictable rules:
+
+| Concept | Key fact |
+|---|---|
+| Node tree | `document` is the root; everything is a node with `nodeType` |
+| Querying | `querySelector` / `querySelectorAll` accept any CSS selector |
+| Traversal | Use `Element`-suffixed properties to skip text nodes |
+| Manipulation | `createElement` + `append` is safer and faster than `innerHTML` |
+| Events | Default phase is bubbling (target → ancestors); capture is reversed |
+| Delegation | One parent listener beats many child listeners |
+| Performance | Batch reads before writes; use `DocumentFragment` for bulk inserts |
+
+When the browser behaves unexpectedly, the first question is usually: *which node owns this behaviour, and what does the DOM's model say should happen here?* The answer is almost always in one of these seven rules.

@@ -1,0 +1,366 @@
+export const metadata = {
+  title: 'Motion',
+  date: '2025.09.21',
+  description: 'A guide to building delightful UI animations with Motion (Framer Motion) — covering the core concepts and four real-world component examples.',
+}
+
+# Motion
+
+More and more websites and applications are incorporating motion into their designs and interactions. Motion can enhance the user experience by providing visual feedback, guiding attention, and making interactions feel more natural and engaging. However, I believe we should carefully consider when and how to use motion. The design principles I strive for prioritize simplicity, minimalism, and maintainability.
+
+In this article, I will walk you through the **core concepts** behind building UI animations with [Motion](https://motion.dev/) (previously known as Framer Motion), and [show you four concrete examples](#dynamic-island) I built to put those ideas into practice.
+
+## Core Concepts
+
+Before diving into the examples, it helps to understand the handful of primitives that Motion gives you. Once you internalize these, you will be able to compose almost any animation imaginable.
+
+### 1. `motion.*` components
+
+The foundation of every Motion animation is swapping a plain HTML element for its `motion.*` equivalent:
+
+```tsx
+// Before
+<div className="card" />
+
+// After – now it can be animated
+<motion.div className="card" />
+```
+
+`motion.div`, `motion.span`, `motion.svg`, and friends accept extra props (`animate`, `initial`, `exit`, `transition`, `whileHover`, `whileTap`, …) that describe how the element should move.
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    The plain <code>div</code> on the left snaps to its new style instantly — no interpolation happens. The <code>motion.div</code> on the right smoothly drives between states using the browser's animation engine. Hit <strong>Trigger</strong> to compare.
+  </div>
+}>
+  <DemoMotionComponent />
+</BlockSideTitle>
+
+### 2. `animate` and `initial`
+
+`initial` sets the element's starting state. `animate` describes the target state Motion will smoothly drive towards.
+
+```tsx
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+/>
+```
+
+When the component mounts, it fades in while sliding upward by 20 px. No manual `useEffect` or `requestAnimationFrame` required.
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    <strong>initial</strong> is the off-screen starting pose. <strong>animate</strong> is where it lands. Hit <strong>Play</strong> to watch the card animate from <code>{"{ opacity: 0, y: 32 }"}</code> to <code>{"{ opacity: 1, y: 0 }"}</code>.
+  </div>
+}>
+  <DemoAnimateInitial />
+</BlockSideTitle>
+
+### 3. `transition`
+
+`transition` controls **how** the animation plays — duration, easing curve, delay, and type. Motion supports three physics models:
+
+| Type | Behaviour |
+|---|---|
+| `tween` | Classic CSS-like easing (linear, easeIn, easeOut, easeInOut) |
+| `spring` | Physics-based spring with `stiffness`, `damping`, and `mass` |
+| `stiff spring` | High stiffness, low damping — overshoots and bounces back |
+
+```tsx
+// Smooth CSS-style
+transition={{ type: "tween", duration: 0.6, ease: "easeInOut" }}
+
+// Natural spring
+transition={{ type: "spring", stiffness: 300, damping: 20 }}
+
+// Bouncy spring
+transition={{ type: "spring", stiffness: 600, damping: 10 }}
+```
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    All three dots travel the same distance to the same destination — only the <strong>transition</strong> differs. Notice how the stiff spring overshoots and bounces back; that subtle overshoot is what makes spring animations feel alive.
+  </div>
+}>
+  <DemoTransition />
+</BlockSideTitle>
+
+### 4. `layout` prop
+
+Adding `layout` to a `motion.*` element tells Motion to automatically animate whenever its **size or position changes** in the DOM. This is the secret ingredient behind smooth accordion expansions, list reordering, and collapsing cards — you simply change state and Motion handles the interpolation.
+
+```tsx
+<motion.div layout animate={{ height: isOpen ? 96 : 48 }}>
+  {isOpen && <ExpandedContent />}
+</motion.div>
+```
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    Click a card on either column to expand it. <strong>Without</strong> <code>layout</code>, siblings snap to their new position instantly. <strong>With</strong> <code>layout</code>, everything glides into place — no manual height calculation needed.
+  </div>
+}>
+  <DemoLayout />
+</BlockSideTitle>
+
+### 5. `AnimatePresence` and `exit`
+
+React removes elements from the DOM instantly. `AnimatePresence` wraps a group of conditionally rendered elements and gives them a chance to play an `exit` animation before they are removed.
+
+```tsx
+<AnimatePresence mode="wait">
+  {isVisible && (
+    <motion.div
+      key="my-element"
+      initial={{ opacity: 0, scale: 0.8 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0.8 }}
+    />
+  )}
+</AnimatePresence>
+```
+
+The `mode="wait"` option ensures the outgoing element finishes its exit animation before the incoming one starts — preventing two elements from overlapping.
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    The top section shows a basic mount / unmount cycle with an <code>exit</code> scale animation. The bottom section uses <code>mode="wait"</code> for a directional tab swap — the outgoing tab slides out before the incoming one slides in.
+  </div>
+}>
+  <DemoAnimatePresence />
+</BlockSideTitle>
+
+### 6. Gesture props
+
+Motion exposes ergonomic props for common user interactions:
+
+```tsx
+<motion.button
+  whileHover={{ scale: 1.08, y: -4 }}
+  whileTap={{ scale: 0.92, y: 2 }}
+  transition={{ type: "spring", stiffness: 400, damping: 17 }}
+/>
+```
+
+These feel far more alive than a CSS `transition: transform 0.2s` because they respond in real time to the user's pointer speed.
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    Hover and tap each card to feel how <code>whileHover</code> and <code>whileTap</code> compose together. The spring transition makes the scale feel responsive to the speed of your interaction, not just the state change.
+  </div>
+}>
+  <DemoGesture />
+</BlockSideTitle>
+
+### The Mental Model
+
+Think of a Motion animation as three questions:
+
+1. **Where does it start?** → `initial`
+2. **Where does it end up?** → `animate`
+3. **How does it get there?** → `transition`
+
+Everything else (`exit`, `layout`, `whileHover`, …) is just layering more answers on top of those three questions.
+
+## Dynamic Island
+
+Apple's Dynamic Island on iPhone 14 Pro is a brilliant example of purposeful motion — a hardware notch that transforms into context-aware UI. The demo below recreates that concept: a pill-shaped container that expands to show a silent / ring notification, then collapses back.
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    The pill morphs its <strong>width and height</strong> using <code>animate</code>, while <code>AnimatePresence mode="wait"</code> crossfades between three content states. The looping bell shake is driven by a <code>repeat: Infinity</code> rotation sequence.
+  </div>
+}>
+  <DynamicIsland />
+</BlockSideTitle>
+
+### How it works
+
+The key technique here is animating `width` and `height` directly on a `motion.div` combined with `layout`:
+
+```tsx
+<motion.div
+  layout
+  animate={{
+    width: expansionState === "collapsed" ? 120 : 200,
+    height: expansionState === "collapsed" ? 36 : 50,
+  }}
+  transition={{ duration: 0.4, ease: "easeInOut" }}
+  whileHover={{ scale: 1.05 }}
+  whileTap={{ scale: 0.98 }}
+>
+```
+
+Inside the pill, `AnimatePresence mode="wait"` swaps between three content views (`collapsed`, `expanded`, `controls`) with crossfade transitions. Each view is keyed so React and Motion can track which element is entering and which is leaving.
+
+The bell icon in the ring state uses a looping `rotate` animation to simulate ringing:
+
+```tsx
+animate={{
+  rotate: [-5, 5, -5, 5, 0],
+}}
+transition={{
+  duration: 0.4,
+  repeat: Infinity,
+  repeatDelay: 0.3,
+}}
+```
+
+**Concept to remember:** Combine `layout` + `animate` size changes + `AnimatePresence` for any component that morphs its shape in response to state.
+
+---
+
+## Notifications
+
+The notification stack collapses multiple cards into a "fanned" pile when hidden, then fans out into a readable list when expanded — a pattern used by iOS, macOS, and many notification centre UIs.
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    Each card gets a progressively larger <code>y</code> offset, smaller <code>scaleX</code>, and lower <code>opacity</code> when collapsed — creating a stacked depth illusion with a single boolean. Tap any card or the Collapse button to toggle.
+  </div>
+}>
+  <Notification />
+</BlockSideTitle>
+
+### How it works
+
+Each notification card is a `motion.div` with an independent `y` (vertical offset) and optional `scaleX` / `opacity` target driven by the `show` boolean:
+
+```tsx
+// Second card — partially visible behind the first
+<motion.div
+  animate={{
+    y: show ? 0 : -100,
+    scaleX: show ? 1 : 0.95,
+    opacity: show ? 1 : 0.75,
+  }}
+  transition={{ type: "tween", duration: 0.4 }}
+/>
+
+// Third card — deeper in the stack
+<motion.div
+  animate={{
+    y: show ? 0 : -200,
+    scaleX: show ? 1 : 0.9,
+    opacity: show ? 1 : 0.5,
+  }}
+  transition={{ type: "tween", duration: 0.6 }}
+/>
+```
+
+By giving each card a progressively larger `y` offset and a slightly longer `duration`, the cards collapse into a satisfying stacked silhouette at different speeds — the bottom card "catches up" last, which feels natural.
+
+**Concept to remember:** Stagger depth effects by varying `y`, `scaleX`, `opacity`, and `duration` across sibling elements driven by the same boolean. No `staggerChildren` needed for simple cases.
+
+---
+
+## Paginations
+
+A custom animated pagination indicator that tracks which carousel slide is active. The active dot expands into a label pill while the inactive dots shrink — a pattern popularised by the Apple AirPods Pro feature carousel.
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    The active indicator grows via a <code>type: "spring"</code> scale and reveals its text label. All inactive dots shrink and lose their text. Dragging the carousel or clicking a dot both update the same <code>current</code> state.
+  </div>
+}>
+  <Paginations />
+</BlockSideTitle>
+
+### How it works
+
+The indicator is a list of `motion.li` elements. Each item's `scale` is driven by whether its index matches `current`:
+
+```tsx
+<motion.li
+  animate={{ scale: current === index ? 1 : 0.8 }}
+  transition={{
+    type: "spring",
+    stiffness: 300,
+    damping: 20,
+  }}
+  className={current === index
+    ? "min-w-fit px-3 py-2 bg-white rounded-full text-xs shadow-md"
+    : "w-3 h-3 bg-gray-300 rounded-full"}
+  onClick={() => api?.scrollTo(index)}
+>
+  {current === index ? text : ""}
+</motion.li>
+```
+
+The carousel itself uses [shadcn/ui's Carousel](https://ui.shadcn.com/docs/components/carousel) under the hood, and the `CarouselApi` event `"select"` keeps `current` in sync:
+
+```tsx
+api.on("select", () => {
+  setCurrent(api.selectedScrollSnap())
+})
+```
+
+**Concept to remember:** Spring transitions on `scale` are perfect for indicator dots — they feel bouncy and alive without being distracting. Always use a `type: "spring"` transition for indicators and icon state changes.
+
+---
+
+## Payment
+
+A multi-step payment flow where the form card pops in from nothing, the button label morphs through states ("Make Payment" → "Send" → "Sent"), and a checkmark SVG path draws itself on completion.
+
+<BlockSideTitle title={
+  <div className="lg:my-8">
+    The modal scales in from <code>scale: 0</code> via <code>AnimatePresence</code>. On confirmation, <code>pathLength</code> animates from <code>0 → 1</code> on the SVG checkmark path, producing a "draw-on" effect without any canvas or CSS tricks.
+  </div>
+}>
+  <Payment />
+</BlockSideTitle>
+
+### How it works
+
+**Step 1 — Modal entrance:** `AnimatePresence` wraps the form, which scales in from `scale: 0` to `scale: 1`:
+
+```tsx
+<AnimatePresence initial={true}>
+  {showModal && (
+    <motion.div
+      key="box"
+      initial={{ opacity: 0, scale: 0 }}
+      animate={{ opacity: 1, scale: 1 }}
+      exit={{ opacity: 0, scale: 0 }}
+      transition={{ duration: 0.3, type: "tween" }}
+    />
+  )}
+</AnimatePresence>
+```
+
+**Step 2 — SVG path drawing:** This is the most visually striking trick. Motion can animate `pathLength` on an SVG `<path>`, which makes it look like the path is being drawn in real time:
+
+```tsx
+<motion.svg
+  initial={{ pathLength: 0 }}
+  animate={{ pathLength: 1 }}
+  exit={{ pathLength: 0 }}
+  transition={{ duration: 0.5 }}
+>
+  <motion.path d="M20 6L9 17l-5-5" />
+</motion.svg>
+```
+
+`pathLength` goes from `0` (invisible) to `1` (fully drawn). Combined with `AnimatePresence`, the checkmark draws itself when the payment is confirmed and undraws itself when reset.
+
+**Concept to remember:** `pathLength` animation on `motion.path` is one of Motion's hidden gems. It works on any SVG path and creates a "draw-on" effect that feels premium without any canvas or CSS tricks.
+
+## Summary
+
+Here is a quick reference of the Motion concepts used across all examples:
+
+| Concept | Used in |
+|---|---|
+| `animate` + `layout` (size morphing) | Dynamic Island |
+| `AnimatePresence mode="wait"` (content swap) | Dynamic Island, Payment |
+| `whileHover` / `whileTap` (gesture feedback) | Dynamic Island, Gesture demo |
+| Staggered `y` + `opacity` offsets | Notifications |
+| `type: "spring"` on `scale` | Paginations, Transition demo |
+| `pathLength` SVG drawing | Payment |
+| `initial` + `animate` (entrance) | Animate demo, all components |
+
+The biggest shift when adopting Motion is moving from **CSS-driven** to **state-driven** animations. Instead of writing keyframes or managing class toggles, you describe the desired end state in `animate`, and Motion figures out how to get there. That mental model — *what* rather than *how* — is what makes Motion so ergonomic for building production UI.
+
+*Inspired by [ui.lndev.me](https://ui.lndev.me/) and the [Motion documentation](https://motion.dev/).*
