@@ -6,6 +6,7 @@ const nextConfig: NextConfig = {
   images: {
     dangerouslyAllowSVG: true,
     remotePatterns: [
+      { protocol: 'https', hostname: 'img.1chooo.com', pathname: '/**' },
       { protocol: 'https', hostname: 'www.moma.org', pathname: '/**' },
       { protocol: 'https', hostname: 'www.mauritshuis.nl', pathname: '/**' },
       { protocol: 'https', hostname: 'www.artic.edu', pathname: '/**' },
