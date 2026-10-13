@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
 
+import { SITE_NAME, SITE_URL } from "@/lib/seo";
+
 const sans = localFont({
   src: "./_fonts/InterVariable.woff2",
   variable: "--sans",
@@ -13,9 +15,14 @@ const serif = localFont({
 });
 
 export const metadata: Metadata = {
-  title: "Lin Hugo",
+  metadataBase: new URL(SITE_URL),
+  title: SITE_NAME,
   description: "Lin Hugo is a software builder, writer, and photographer.",
-  metadataBase: new URL("https://1chooo.com"),
+  openGraph: {
+    siteName: SITE_NAME,
+    type: "website",
+    locale: "en_US",
+  },
 };
 
 export default function RootLayout({ children }: LayoutProps<"/">) {

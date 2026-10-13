@@ -4,6 +4,7 @@ import { EPISODE_DIRECTORY, episodePath } from '@/lib/path'
 
 export const metadata = {
   title: 'Episodes',
+  description: 'Photography and travel.',
 }
 
 export default async function EpisodesPage() {

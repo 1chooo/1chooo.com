@@ -4,6 +4,7 @@ import { NOTE_DIRECTORY, notePath } from '@/lib/path'
 
 export const metadata = {
   title: 'Notes',
+  description: 'Technical notes on the web, systems, and engineering.',
 }
 
 export default async function NotesPage() {

@@ -4,6 +4,7 @@ import { THOUGHT_DIRECTORY, thoughtPath } from '@/lib/path'
 
 export const metadata = {
   title: 'Thoughts',
+  description: 'Essays on software, systems, and making things.',
 }
 
 export default async function ThoughtsPage() {

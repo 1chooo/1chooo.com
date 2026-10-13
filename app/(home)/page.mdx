@@ -1,7 +1,18 @@
+import { JsonLd } from '@/components/seo/json-ld'
+import { siteGraph } from '@/lib/seo'
+
 export const metadata = {
   title: 'About',
   description: "Hi, I'm Lin Hugo, a software builder and writer studying Computer Science at the USC Viterbi School of Engineering.",
+  alternates: {
+    canonical: '/',
+    types: {
+      'text/markdown': '/llm',
+    },
+  },
 }
+
+<JsonLd data={siteGraph()} />
 
 # Lin Hugo
 
